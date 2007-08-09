@@ -1,0 +1,4 @@
+# - Use Module for Delta3D
+INCLUDE(UseProducer)
+INCLUDE_DIRECTORIES(${OPENSCENEGRAPH_INCLUDES})
+

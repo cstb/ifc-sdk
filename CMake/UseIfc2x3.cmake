@@ -1,0 +1,4 @@
+# - Use Module for Ifc2x3
+INCLUDE(UseStep)
+INCLUDE_DIRECTORIES(${IFC2X3_INCLUDES})
+
