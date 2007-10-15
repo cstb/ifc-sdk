@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,187 +24,141 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcCompositeCurve.h>
+#include "ifc2x3/IfcCompositeCurve.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcBoundedCurve.h"
+#include "ifc2x3/IfcCompositeCurveSegment.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/Aggregation.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
+#include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcCompositeCurveSegment.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcCompositeCurve::IfcCompositeCurve(Step::SPFData *args) : IfcBoundedCurve(args) {
-  m_segments.setUnset(true);
-  m_selfIntersect = getUnset(m_selfIntersect);
+IfcCompositeCurve::IfcCompositeCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
+    m_segments.setUnset(true);
+    m_segments.setOwner(this);
+    m_selfIntersect = Step::getUnset(m_selfIntersect);
 }
-
 
 IfcCompositeCurve::~IfcCompositeCurve() {
 }
 
 bool IfcCompositeCurve::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcCompositeCurve(this);
+    return static_cast< Visitor * > (v)->visitIfcCompositeCurve(this);
 }
 
-const char *IfcCompositeCurve::type() {
-  return "IfcCompositeCurve";
+const std::string &IfcCompositeCurve::type() {
+    return IfcCompositeCurve::s_type.getName();
 }
 
 Step::ClassType IfcCompositeCurve::getClassType() {
-  return IfcCompositeCurve::s_type;
+    return IfcCompositeCurve::s_type;
 }
 
 Step::ClassType IfcCompositeCurve::getType() const {
-  return IfcCompositeCurve::s_type;
+    return IfcCompositeCurve::s_type;
 }
 
 bool IfcCompositeCurve::isOfType(Step::ClassType t) {
-  return IfcCompositeCurve::s_type == t ? true : IfcBoundedCurve::isOfType(t);
+    return IfcCompositeCurve::s_type == t ? true : IfcBoundedCurve::isOfType(t);
 }
 
-Step::StepList< Step::RefPtr< IfcCompositeCurveSegment > > &IfcCompositeCurve::getSegments() {
-  if (Step::BaseObject::inited()) {
-    return m_segments;
-  }
-  else {
-    m_segments.setUnset(true);
-    return m_segments;
-  }
+Step::List< Step::RefPtr< IfcCompositeCurveSegment > > &IfcCompositeCurve::getSegments() {
+    if (Step::BaseObject::inited()) {
+        return m_segments;
+    }
+    else {
+        m_segments.setUnset(true);
+        return m_segments;
+    }
 }
 
-void IfcCompositeCurve::setSegments(const Step::StepList< Step::RefPtr< IfcCompositeCurveSegment > > &value) {
-  m_segments = value;
+Step::Logical IfcCompositeCurve::getSelfIntersect() {
+    if (Step::BaseObject::inited()) {
+        return m_selfIntersect;
+    }
+    else {
+        return Step::getUnset(m_selfIntersect);
+    }
 }
 
-Logical IfcCompositeCurve::getSelfIntersect() {
-  if (Step::BaseObject::inited()) {
-    return m_selfIntersect;
-  }
-  else {
-    return getUnset(m_selfIntersect);
-  }
-}
-
-void IfcCompositeCurve::setSelfIntersect(Logical value) {
-  m_selfIntersect = value;
+void IfcCompositeCurve::setSelfIntersect(Step::Logical value) {
+    m_selfIntersect = value;
 }
 
 void IfcCompositeCurve::release() {
-  IfcBoundedCurve::release();
-  m_segments.clear();
+    IfcBoundedCurve::release();
+    m_segments.clear();
 }
 
 bool IfcCompositeCurve::init() {
-  bool status = IfcBoundedCurve::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_segments.setUnset(true);
-  }
-  else {
-    m_segments.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Step::RefPtr< IfcCompositeCurveSegment > attr2;
-        attr2 = static_cast< IfcCompositeCurveSegment * > (m_model->getObjectById(atoi(str1.c_str() + 1)));
-        m_segments.push_back(attr2);
-      }
-      else {
-        break;
-      }
+    bool status = IfcBoundedCurve::init();
+    std::string arg;
+    if (!status) {
+        return false;
     }
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_selfIntersect = getUnset(m_selfIntersect);
-  }
-  else {
-    m_selfIntersect = Step::spfToLogical(arg);
-  }
-  return true;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_segments.setUnset(true);
+    }
+    else {
+        m_segments.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::RefPtr< IfcCompositeCurveSegment > attr2;
+                attr2 = static_cast< IfcCompositeCurveSegment * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                m_segments.push_back(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_selfIntersect = Step::getUnset(m_selfIntersect);
+    }
+    else {
+        m_selfIntersect = Step::spfToLogical(arg);
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCompositeCurve::s_type = new Step::ClassType_class("IfcCompositeCurve");
-IfcCompositeCurve_Factory::IfcCompositeCurve_Factory() {
+void IfcCompositeCurve::copy(const IfcCompositeCurve &obj, const CopyOp &copyop) {
+    Step::List< Step::RefPtr< IfcCompositeCurveSegment > >::const_iterator it_m_segments;
+    IfcBoundedCurve::copy(obj, copyop);
+    for (it_m_segments = obj.m_segments.begin(); it_m_segments != obj.m_segments.end(); ++it_m_segments) {
+        Step::RefPtr< IfcCompositeCurveSegment > copyTarget = copyop((*it_m_segments).get());
+        m_segments.push_back(copyTarget.get());
+    }
+    setSelfIntersect(obj.m_selfIntersect);
+    return;
 }
 
-IfcCompositeCurve_Factory::~IfcCompositeCurve_Factory() {
-  clear(true);
+IFC2X3_DLL_DEF Step::ClassType IfcCompositeCurve::s_type("IfcCompositeCurve");
+IfcCompositeCurve::Inverted_Segments_type::Inverted_Segments_type() {
 }
 
-void IfcCompositeCurve_Factory::clear(bool b) {
+void IfcCompositeCurve::Inverted_Segments_type::setOwner(IfcCompositeCurve *owner) {
+    mOwner = owner;
 }
 
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCompositeCurve_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCompositeCurve_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcCompositeCurve *IfcCompositeCurve_Factory::get(Step::StepId id) {
-  IfcCompositeCurve *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcCompositeCurve * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcCompositeCurve_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcCompositeCurve * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcCompositeCurve_Factory::create(Step::StepId id) {
-  IfcCompositeCurve *ret = new IfcCompositeCurve(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCompositeCurve_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcCompositeCurve *ret = new IfcCompositeCurve(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCompositeCurve_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcCompositeCurve *ret = new IfcCompositeCurve(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcCompositeCurve *IfcCompositeCurve_Factory::generate() {
-  return static_cast< IfcCompositeCurve * > (create(m_model->getNewId()));
-}
-
-IfcCompositeCurve *IfcCompositeCurve_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcCompositeCurve * > (it->second);
-  }
-  else {
-    return NULL;
-  }
+void IfcCompositeCurve::Inverted_Segments_type::push_back(const Step::RefPtr< IfcCompositeCurveSegment > &value) {
+    IfcCompositeCurveSegment *inverse = const_cast< IfcCompositeCurveSegment * > (value.get());
+    Step::List< Step::RefPtr< IfcCompositeCurveSegment > >::push_back(value);
+    inverse->m_usingCurves.insert(mOwner);
 }
 

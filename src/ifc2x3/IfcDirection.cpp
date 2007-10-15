@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,165 +24,104 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcDirection.h>
+#include "ifc2x3/IfcDirection.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcDirection::IfcDirection(Step::SPFData *args) : IfcGeometricRepresentationItem(args) {
-  m_directionRatios.setUnset(true);
+IfcDirection::IfcDirection(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
+    m_directionRatios.setUnset(true);
 }
-
 
 IfcDirection::~IfcDirection() {
 }
 
 bool IfcDirection::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcDirection(this);
+    return static_cast< Visitor * > (v)->visitIfcDirection(this);
 }
 
-const char *IfcDirection::type() {
-  return "IfcDirection";
+const std::string &IfcDirection::type() {
+    return IfcDirection::s_type.getName();
 }
 
 Step::ClassType IfcDirection::getClassType() {
-  return IfcDirection::s_type;
+    return IfcDirection::s_type;
 }
 
 Step::ClassType IfcDirection::getType() const {
-  return IfcDirection::s_type;
+    return IfcDirection::s_type;
 }
 
 bool IfcDirection::isOfType(Step::ClassType t) {
-  return IfcDirection::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
+    return IfcDirection::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-Step::StepList< Real > &IfcDirection::getDirectionRatios() {
-  if (Step::BaseObject::inited()) {
-    return m_directionRatios;
-  }
-  else {
-    m_directionRatios.setUnset(true);
-    return m_directionRatios;
-  }
+Step::List< Step::Real > &IfcDirection::getDirectionRatios() {
+    if (Step::BaseObject::inited()) {
+        return m_directionRatios;
+    }
+    else {
+        m_directionRatios.setUnset(true);
+        return m_directionRatios;
+    }
 }
 
-void IfcDirection::setDirectionRatios(const Step::StepList< Real > &value) {
-  m_directionRatios = value;
+void IfcDirection::setDirectionRatios(const Step::List< Step::Real > &value) {
+    m_directionRatios = value;
 }
 
 void IfcDirection::release() {
-  IfcGeometricRepresentationItem::release();
-  m_directionRatios.clear();
+    IfcGeometricRepresentationItem::release();
+    m_directionRatios.clear();
 }
 
 bool IfcDirection::init() {
-  bool status = IfcGeometricRepresentationItem::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_directionRatios.setUnset(true);
-  }
-  else {
-    m_directionRatios.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Real attr2;
-        attr2 = Step::spfToReal(str1);
-        m_directionRatios.push_back(attr2);
-      }
-      else {
-        break;
-      }
+    bool status = IfcGeometricRepresentationItem::init();
+    std::string arg;
+    if (!status) {
+        return false;
     }
-  }
-  return true;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_directionRatios.setUnset(true);
+    }
+    else {
+        m_directionRatios.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::Real attr2;
+                attr2 = Step::spfToReal(str1);
+                m_directionRatios.push_back(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDirection::s_type = new Step::ClassType_class("IfcDirection");
-IfcDirection_Factory::IfcDirection_Factory() {
+void IfcDirection::copy(const IfcDirection &obj, const CopyOp &copyop) {
+    Step::List< Step::Real >::const_iterator it_m_directionRatios;
+    IfcGeometricRepresentationItem::copy(obj, copyop);
+    for (it_m_directionRatios = obj.m_directionRatios.begin(); it_m_directionRatios != obj.m_directionRatios.end(); ++it_m_directionRatios) {
+        Step::Real copyTarget = (*it_m_directionRatios);
+        m_directionRatios.push_back(copyTarget);
+    }
+    return;
 }
 
-IfcDirection_Factory::~IfcDirection_Factory() {
-  clear(true);
-}
-
-void IfcDirection_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcDirection_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcDirection_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcDirection *IfcDirection_Factory::get(Step::StepId id) {
-  IfcDirection *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcDirection * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcDirection_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcDirection * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcDirection_Factory::create(Step::StepId id) {
-  IfcDirection *ret = new IfcDirection(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcDirection_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcDirection *ret = new IfcDirection(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcDirection_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcDirection *ret = new IfcDirection(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcDirection *IfcDirection_Factory::generate() {
-  return static_cast< IfcDirection * > (create(m_model->getNewId()));
-}
-
-IfcDirection *IfcDirection_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcDirection * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcDirection::s_type("IfcDirection");

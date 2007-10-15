@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,213 +24,151 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcProductsOfCombustionProperties.h>
+#include "ifc2x3/IfcProductsOfCombustionProperties.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcMaterialProperties.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcProductsOfCombustionProperties::IfcProductsOfCombustionProperties(Step::SPFData *args) : IfcMaterialProperties(args) {
-  m_specificHeatCapacity = getUnset(m_specificHeatCapacity);
-  m_n20Content = getUnset(m_n20Content);
-  m_cOContent = getUnset(m_cOContent);
-  m_cO2Content = getUnset(m_cO2Content);
+IfcProductsOfCombustionProperties::IfcProductsOfCombustionProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
+    m_specificHeatCapacity = Step::getUnset(m_specificHeatCapacity);
+    m_n20Content = Step::getUnset(m_n20Content);
+    m_cOContent = Step::getUnset(m_cOContent);
+    m_cO2Content = Step::getUnset(m_cO2Content);
 }
-
 
 IfcProductsOfCombustionProperties::~IfcProductsOfCombustionProperties() {
 }
 
 bool IfcProductsOfCombustionProperties::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcProductsOfCombustionProperties(this);
+    return static_cast< Visitor * > (v)->visitIfcProductsOfCombustionProperties(this);
 }
 
-const char *IfcProductsOfCombustionProperties::type() {
-  return "IfcProductsOfCombustionProperties";
+const std::string &IfcProductsOfCombustionProperties::type() {
+    return IfcProductsOfCombustionProperties::s_type.getName();
 }
 
 Step::ClassType IfcProductsOfCombustionProperties::getClassType() {
-  return IfcProductsOfCombustionProperties::s_type;
+    return IfcProductsOfCombustionProperties::s_type;
 }
 
 Step::ClassType IfcProductsOfCombustionProperties::getType() const {
-  return IfcProductsOfCombustionProperties::s_type;
+    return IfcProductsOfCombustionProperties::s_type;
 }
 
 bool IfcProductsOfCombustionProperties::isOfType(Step::ClassType t) {
-  return IfcProductsOfCombustionProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
+    return IfcProductsOfCombustionProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
 IfcSpecificHeatCapacityMeasure IfcProductsOfCombustionProperties::getSpecificHeatCapacity() {
-  if (Step::BaseObject::inited()) {
-    return m_specificHeatCapacity;
-  }
-  else {
-    return getUnset(m_specificHeatCapacity);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_specificHeatCapacity;
+    }
+    else {
+        return Step::getUnset(m_specificHeatCapacity);
+    }
 }
 
 void IfcProductsOfCombustionProperties::setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value) {
-  m_specificHeatCapacity = value;
+    m_specificHeatCapacity = value;
 }
 
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getN20Content() {
-  if (Step::BaseObject::inited()) {
-    return m_n20Content;
-  }
-  else {
-    return getUnset(m_n20Content);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_n20Content;
+    }
+    else {
+        return Step::getUnset(m_n20Content);
+    }
 }
 
 void IfcProductsOfCombustionProperties::setN20Content(IfcPositiveRatioMeasure value) {
-  m_n20Content = value;
+    m_n20Content = value;
 }
 
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCOContent() {
-  if (Step::BaseObject::inited()) {
-    return m_cOContent;
-  }
-  else {
-    return getUnset(m_cOContent);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_cOContent;
+    }
+    else {
+        return Step::getUnset(m_cOContent);
+    }
 }
 
 void IfcProductsOfCombustionProperties::setCOContent(IfcPositiveRatioMeasure value) {
-  m_cOContent = value;
+    m_cOContent = value;
 }
 
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCO2Content() {
-  if (Step::BaseObject::inited()) {
-    return m_cO2Content;
-  }
-  else {
-    return getUnset(m_cO2Content);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_cO2Content;
+    }
+    else {
+        return Step::getUnset(m_cO2Content);
+    }
 }
 
 void IfcProductsOfCombustionProperties::setCO2Content(IfcPositiveRatioMeasure value) {
-  m_cO2Content = value;
+    m_cO2Content = value;
 }
 
 void IfcProductsOfCombustionProperties::release() {
-  IfcMaterialProperties::release();
+    IfcMaterialProperties::release();
 }
 
 bool IfcProductsOfCombustionProperties::init() {
-  bool status = IfcMaterialProperties::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_specificHeatCapacity = getUnset(m_specificHeatCapacity);
-  }
-  else {
-    m_specificHeatCapacity = Step::spfToReal(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_n20Content = getUnset(m_n20Content);
-  }
-  else {
-    m_n20Content = Step::spfToReal(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_cOContent = getUnset(m_cOContent);
-  }
-  else {
-    m_cOContent = Step::spfToReal(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_cO2Content = getUnset(m_cO2Content);
-  }
-  else {
-    m_cO2Content = Step::spfToReal(arg);
-  }
-  return true;
+    bool status = IfcMaterialProperties::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_specificHeatCapacity = Step::getUnset(m_specificHeatCapacity);
+    }
+    else {
+        m_specificHeatCapacity = Step::spfToReal(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_n20Content = Step::getUnset(m_n20Content);
+    }
+    else {
+        m_n20Content = Step::spfToReal(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_cOContent = Step::getUnset(m_cOContent);
+    }
+    else {
+        m_cOContent = Step::spfToReal(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_cO2Content = Step::getUnset(m_cO2Content);
+    }
+    else {
+        m_cO2Content = Step::spfToReal(arg);
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProductsOfCombustionProperties::s_type = new Step::ClassType_class("IfcProductsOfCombustionProperties");
-IfcProductsOfCombustionProperties_Factory::IfcProductsOfCombustionProperties_Factory() {
+void IfcProductsOfCombustionProperties::copy(const IfcProductsOfCombustionProperties &obj, const CopyOp &copyop) {
+    IfcMaterialProperties::copy(obj, copyop);
+    setSpecificHeatCapacity(obj.m_specificHeatCapacity);
+    setN20Content(obj.m_n20Content);
+    setCOContent(obj.m_cOContent);
+    setCO2Content(obj.m_cO2Content);
+    return;
 }
 
-IfcProductsOfCombustionProperties_Factory::~IfcProductsOfCombustionProperties_Factory() {
-  clear(true);
-}
-
-void IfcProductsOfCombustionProperties_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcProductsOfCombustionProperties_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcProductsOfCombustionProperties_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcProductsOfCombustionProperties *IfcProductsOfCombustionProperties_Factory::get(Step::StepId id) {
-  IfcProductsOfCombustionProperties *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcProductsOfCombustionProperties * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcProductsOfCombustionProperties_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcProductsOfCombustionProperties * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcProductsOfCombustionProperties_Factory::create(Step::StepId id) {
-  IfcProductsOfCombustionProperties *ret = new IfcProductsOfCombustionProperties(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcProductsOfCombustionProperties_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcProductsOfCombustionProperties *ret = new IfcProductsOfCombustionProperties(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcProductsOfCombustionProperties_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcProductsOfCombustionProperties *ret = new IfcProductsOfCombustionProperties(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcProductsOfCombustionProperties *IfcProductsOfCombustionProperties_Factory::generate() {
-  return static_cast< IfcProductsOfCombustionProperties * > (create(m_model->getNewId()));
-}
-
-IfcProductsOfCombustionProperties *IfcProductsOfCombustionProperties_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcProductsOfCombustionProperties * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcProductsOfCombustionProperties::s_type("IfcProductsOfCombustionProperties");

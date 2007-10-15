@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,55 +24,62 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcRelationship.h>
+#include "ifc2x3/IfcRelationship.h"
 
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcRoot.h"
+#include "ifc2x3/Visitor.h"
 #include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcRoot.h>
-#include <ifc2x3/Visitor.h>
 #include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcRelationship::IfcRelationship(Step::SPFData *args) : IfcRoot(args) {
+IfcRelationship::IfcRelationship(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
 }
-
 
 IfcRelationship::~IfcRelationship() {
 }
 
 bool IfcRelationship::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcRelationship(this);
+    return static_cast< Visitor * > (v)->visitIfcRelationship(this);
 }
 
-const char *IfcRelationship::type() {
-  return "IfcRelationship";
+const std::string &IfcRelationship::type() {
+    return IfcRelationship::s_type.getName();
 }
 
 Step::ClassType IfcRelationship::getClassType() {
-  return IfcRelationship::s_type;
+    return IfcRelationship::s_type;
 }
 
 Step::ClassType IfcRelationship::getType() const {
-  return IfcRelationship::s_type;
+    return IfcRelationship::s_type;
 }
 
 bool IfcRelationship::isOfType(Step::ClassType t) {
-  return IfcRelationship::s_type == t ? true : IfcRoot::isOfType(t);
+    return IfcRelationship::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
 void IfcRelationship::release() {
-  IfcRoot::release();
+    IfcRoot::release();
 }
 
 bool IfcRelationship::init() {
-  bool status = IfcRoot::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  return true;
+    bool status = IfcRoot::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelationship::s_type = new Step::ClassType_class("IfcRelationship");
+void IfcRelationship::copy(const IfcRelationship &obj, const CopyOp &copyop) {
+    IfcRoot::copy(obj, copyop);
+    return;
+}
+
+IFC2X3_DLL_DEF Step::ClassType IfcRelationship::s_type("IfcRelationship");

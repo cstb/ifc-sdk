@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,155 +30,115 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <Step/InstantiatableEntity.h>
-#include <ifc2x3/IfcObjectDefinition.h>
-#include <string>
+#include <Step/ClassType.h>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include <string>
+#include <Step/Referenced.h>
+#include "ifc2x3/IfcObjectDefinition.h"
 
 namespace ifc2x3 {
 
-  class IfcPropertySetDefinition;
-  class IfcRelDefinesByType;
-  class IfcTypeObject_Factory;
+    class CopyOp;
+    class IfcPropertySetDefinition;
+    class IfcRelDefinesByType;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcTypeObject : public Step::InstantiatableEntity, public IfcObjectDefinition {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ApplicableOccurrence'.
-     * 
-     * @return the value of the explicit attribute 'ApplicableOccurrence'
-     */
-    IfcLabel getApplicableOccurrence();
-    /**
-     * Sets the value of the explicit attribute 'ApplicableOccurrence'.
-     * 
-     * @param value
-     */
-    void setApplicableOccurrence(const IfcLabel &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'HasPropertySets'.
-     * 
-     * @return the value of the explicit attribute 'HasPropertySets'
-     */
-    Step::StepSet< Step::RefPtr< IfcPropertySetDefinition > > &getHasPropertySets();
-    /**
-     * Sets the value of the explicit attribute 'HasPropertySets'.
-     * 
-     * @param value
-     */
-    void setHasPropertySets(const Step::StepSet< Step::RefPtr< IfcPropertySetDefinition > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ObjectTypeOf'.
-     * 
-     * @return the value of the explicit attribute 'ObjectTypeOf'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelDefinesByType > > &getObjectTypeOf();
-    /**
-     * Sets the value of the explicit attribute 'ObjectTypeOf'.
-     * 
-     * @param value
-     */
-    void setObjectTypeOf(const Step::StepSet< Step::RefPtr< IfcRelDefinesByType > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcTypeObject_Factory;
+    class IFC2X3_DLL_DEF IfcTypeObject : public IfcObjectDefinition {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcLabel getApplicableOccurrence();
+        /**
+         * Sets the value of the explicit attribute 'ApplicableOccurrence'.
+         * 
+         * @param value
+         */
+        void setApplicableOccurrence(const IfcLabel &value);
+        /**
+         */
+        Step::Set< Step::RefPtr< IfcPropertySetDefinition > > &getHasPropertySets();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelDefinesByType > > &getObjectTypeOf();
+        /**
+         */
+        virtual void release();
+        friend class IfcRelDefinesByType;
+        friend class ExpressDataSet;
+        /**
+         */
+        class Inverted_HasPropertySets_type : public Step::Set< Step::RefPtr< IfcPropertySetDefinition > > {
+        public:
+            /**
+             */
+            IfcTypeObject *mOwner;
+            /**
+             */
+            Inverted_HasPropertySets_type();
+            /**
+             * @param owner
+             */
+            void setOwner(IfcTypeObject *owner);
+            /**
+             * @param value
+             */
+            virtual void insert(const Step::RefPtr< IfcPropertySetDefinition > &value);
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcTypeObject(Step::SPFData *args);
-    virtual ~IfcTypeObject();
+        };
 
-  private:
-    static Step::ClassType s_type;
-    std::string m_applicableOccurrence;
-    Step::StepSet< Step::RefPtr< IfcPropertySetDefinition > > m_hasPropertySets;
-    Step::StepSet< Step::RefPtr< IfcRelDefinesByType > > m_objectTypeOf;
-    /**
-     * @param c
-     */
-    IfcTypeObject(const IfcTypeObject &c);
 
-  };
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcTypeObject(Step::Id id, Step::SPFData *args);
+        virtual ~IfcTypeObject();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcTypeObject &obj, const CopyOp &copyop);
 
-  class IfcTypeObject;
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        std::string m_applicableOccurrence;
+        /**
+         */
+        Inverted_HasPropertySets_type m_hasPropertySets;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelDefinesByType > > m_objectTypeOf;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcTypeObject_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcTypeObject_Factory();
-    virtual ~IfcTypeObject_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcTypeObject *get(Step::StepId id);
-    /**
-     */
-    IfcTypeObject *generate();
-    /**
-     * @param id
-     */
-    IfcTypeObject *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

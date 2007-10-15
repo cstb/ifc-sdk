@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,153 +30,104 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <Step/InstantiatableEntity.h>
-#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include "ifc2x3/IfcPropertySetDefinition.h"
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcSoundProperties_Factory;
-  class IfcSoundValue;
+    class CopyOp;
+    class IfcSoundValue;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcSoundProperties : public Step::InstantiatableEntity, public IfcPropertySetDefinition {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'IsAttenuating'.
-     * 
-     * @return the value of the explicit attribute 'IsAttenuating'
-     */
-    IfcBoolean getIsAttenuating();
-    /**
-     * Sets the value of the explicit attribute 'IsAttenuating'.
-     * 
-     * @param value
-     */
-    void setIsAttenuating(IfcBoolean value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'SoundScale'.
-     * 
-     * @return the value of the explicit attribute 'SoundScale'
-     */
-    IfcSoundScaleEnum getSoundScale();
-    /**
-     * Sets the value of the explicit attribute 'SoundScale'.
-     * 
-     * @param value
-     */
-    void setSoundScale(IfcSoundScaleEnum value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'SoundValues'.
-     * 
-     * @return the value of the explicit attribute 'SoundValues'
-     */
-    Step::StepList< Step::RefPtr< IfcSoundValue > > &getSoundValues();
-    /**
-     * Sets the value of the explicit attribute 'SoundValues'.
-     * 
-     * @param value
-     */
-    void setSoundValues(const Step::StepList< Step::RefPtr< IfcSoundValue > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcSoundProperties_Factory;
+    class IFC2X3_DLL_DEF IfcSoundProperties : public IfcPropertySetDefinition {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcBoolean getIsAttenuating();
+        /**
+         * Sets the value of the explicit attribute 'IsAttenuating'.
+         * 
+         * @param value
+         */
+        void setIsAttenuating(IfcBoolean value);
+        /**
+         */
+        IfcSoundScaleEnum getSoundScale();
+        /**
+         * Sets the value of the explicit attribute 'SoundScale'.
+         * 
+         * @param value
+         */
+        void setSoundScale(IfcSoundScaleEnum value);
+        /**
+         */
+        Step::List< Step::RefPtr< IfcSoundValue > > &getSoundValues();
+        /**
+         * Sets the value of the explicit attribute 'SoundValues'.
+         * 
+         * @param value
+         */
+        void setSoundValues(const Step::List< Step::RefPtr< IfcSoundValue > > &value);
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcSoundProperties(Step::SPFData *args);
-    virtual ~IfcSoundProperties();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcSoundProperties(Step::Id id, Step::SPFData *args);
+        virtual ~IfcSoundProperties();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcSoundProperties &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    Bool m_isAttenuating;
-    IfcSoundScaleEnum m_soundScale;
-    Step::StepList< Step::RefPtr< IfcSoundValue > > m_soundValues;
-    /**
-     * @param c
-     */
-    IfcSoundProperties(const IfcSoundProperties &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Step::Bool m_isAttenuating;
+        /**
+         */
+        IfcSoundScaleEnum m_soundScale;
+        /**
+         */
+        Step::List< Step::RefPtr< IfcSoundValue > > m_soundValues;
 
-  };
-
-  class IfcSoundProperties;
-
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcSoundProperties_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcSoundProperties_Factory();
-    virtual ~IfcSoundProperties_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcSoundProperties *get(Step::StepId id);
-    /**
-     */
-    IfcSoundProperties *generate();
-    /**
-     * @param id
-     */
-    IfcSoundProperties *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

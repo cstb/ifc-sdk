@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,167 +30,157 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <Step/InstantiatableEntity.h>
-#include <ifc2x3/IfcProduct.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include "ifc2x3/IfcAlignmentElement.h"
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcGridAxis;
-  class IfcGrid_Factory;
-  class IfcRelContainedInSpatialStructure;
+    class CopyOp;
+    class IfcGridAxis;
+    class IfcRelContainedInSpatialStructure;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcGrid : public Step::InstantiatableEntity, public IfcProduct {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'UAxes'.
-     * 
-     * @return the value of the explicit attribute 'UAxes'
-     */
-    Step::StepList< Step::RefPtr< IfcGridAxis > > &getUAxes();
-    /**
-     * Sets the value of the explicit attribute 'UAxes'.
-     * 
-     * @param value
-     */
-    void setUAxes(const Step::StepList< Step::RefPtr< IfcGridAxis > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'VAxes'.
-     * 
-     * @return the value of the explicit attribute 'VAxes'
-     */
-    Step::StepList< Step::RefPtr< IfcGridAxis > > &getVAxes();
-    /**
-     * Sets the value of the explicit attribute 'VAxes'.
-     * 
-     * @param value
-     */
-    void setVAxes(const Step::StepList< Step::RefPtr< IfcGridAxis > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'WAxes'.
-     * 
-     * @return the value of the explicit attribute 'WAxes'
-     */
-    Step::StepList< Step::RefPtr< IfcGridAxis > > &getWAxes();
-    /**
-     * Sets the value of the explicit attribute 'WAxes'.
-     * 
-     * @param value
-     */
-    void setWAxes(const Step::StepList< Step::RefPtr< IfcGridAxis > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ContainedInStructure'.
-     * 
-     * @return the value of the explicit attribute 'ContainedInStructure'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelContainedInSpatialStructure > > &getContainedInStructure();
-    /**
-     * Sets the value of the explicit attribute 'ContainedInStructure'.
-     * 
-     * @param value
-     */
-    void setContainedInStructure(const Step::StepSet< Step::RefPtr< IfcRelContainedInSpatialStructure > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcGrid_Factory;
+    class IFC2X3_DLL_DEF IfcGrid : public IfcAlignmentElement {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        Step::List< Step::RefPtr< IfcGridAxis > > &getUAxes();
+        /**
+         */
+        Step::List< Step::RefPtr< IfcGridAxis > > &getVAxes();
+        /**
+         */
+        Step::List< Step::RefPtr< IfcGridAxis > > &getWAxes();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &getContainedInStructure();
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
+        friend class IfcRelContainedInSpatialStructure;
+        /**
+         */
+        class Inverted_VAxes_type : public Step::List< Step::RefPtr< IfcGridAxis > > {
+        public:
+            /**
+             */
+            IfcGrid *mOwner;
+            /**
+             */
+            Inverted_VAxes_type();
+            /**
+             * @param owner
+             */
+            void setOwner(IfcGrid *owner);
+            /**
+             * @param value
+             */
+            virtual void push_back(const Step::RefPtr< IfcGridAxis > &value);
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcGrid(Step::SPFData *args);
-    virtual ~IfcGrid();
+        };
 
-  private:
-    static Step::ClassType s_type;
-    Step::StepList< Step::RefPtr< IfcGridAxis > > m_uAxes;
-    Step::StepList< Step::RefPtr< IfcGridAxis > > m_vAxes;
-    Step::StepList< Step::RefPtr< IfcGridAxis > > m_wAxes;
-    Step::StepSet< Step::RefPtr< IfcRelContainedInSpatialStructure > > m_containedInStructure;
-    /**
-     * @param c
-     */
-    IfcGrid(const IfcGrid &c);
+        /**
+         */
+        class Inverted_WAxes_type : public Step::List< Step::RefPtr< IfcGridAxis > > {
+        public:
+            /**
+             */
+            IfcGrid *mOwner;
+            /**
+             */
+            Inverted_WAxes_type();
+            /**
+             * @param owner
+             */
+            void setOwner(IfcGrid *owner);
+            /**
+             * @param value
+             */
+            virtual void push_back(const Step::RefPtr< IfcGridAxis > &value);
 
-  };
+        };
 
-  class IfcGrid;
+        /**
+         */
+        class Inverted_UAxes_type : public Step::List< Step::RefPtr< IfcGridAxis > > {
+        public:
+            /**
+             */
+            IfcGrid *mOwner;
+            /**
+             */
+            Inverted_UAxes_type();
+            /**
+             * @param owner
+             */
+            void setOwner(IfcGrid *owner);
+            /**
+             * @param value
+             */
+            virtual void push_back(const Step::RefPtr< IfcGridAxis > &value);
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcGrid_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcGrid_Factory();
-    virtual ~IfcGrid_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcGrid *get(Step::StepId id);
-    /**
-     */
-    IfcGrid *generate();
-    /**
-     * @param id
-     */
-    IfcGrid *find(Step::StepId id);
+        };
 
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
 
-  };
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcGrid(Step::Id id, Step::SPFData *args);
+        virtual ~IfcGrid();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcGrid &obj, const CopyOp &copyop);
+
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Inverted_UAxes_type m_uAxes;
+        /**
+         */
+        Inverted_VAxes_type m_vAxes;
+        /**
+         */
+        Inverted_WAxes_type m_wAxes;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > m_containedInStructure;
+
+    };
 
 }
 

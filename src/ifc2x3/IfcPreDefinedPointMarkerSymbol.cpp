@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,129 +24,62 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcPreDefinedPointMarkerSymbol.h>
+#include "ifc2x3/IfcPreDefinedPointMarkerSymbol.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcPreDefinedSymbol.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcPreDefinedPointMarkerSymbol::IfcPreDefinedPointMarkerSymbol(Step::SPFData *args) : IfcPreDefinedSymbol(args) {
+IfcPreDefinedPointMarkerSymbol::IfcPreDefinedPointMarkerSymbol(Step::Id id, Step::SPFData *args) : IfcPreDefinedSymbol(id, args) {
 }
-
 
 IfcPreDefinedPointMarkerSymbol::~IfcPreDefinedPointMarkerSymbol() {
 }
 
 bool IfcPreDefinedPointMarkerSymbol::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcPreDefinedPointMarkerSymbol(this);
+    return static_cast< Visitor * > (v)->visitIfcPreDefinedPointMarkerSymbol(this);
 }
 
-const char *IfcPreDefinedPointMarkerSymbol::type() {
-  return "IfcPreDefinedPointMarkerSymbol";
+const std::string &IfcPreDefinedPointMarkerSymbol::type() {
+    return IfcPreDefinedPointMarkerSymbol::s_type.getName();
 }
 
 Step::ClassType IfcPreDefinedPointMarkerSymbol::getClassType() {
-  return IfcPreDefinedPointMarkerSymbol::s_type;
+    return IfcPreDefinedPointMarkerSymbol::s_type;
 }
 
 Step::ClassType IfcPreDefinedPointMarkerSymbol::getType() const {
-  return IfcPreDefinedPointMarkerSymbol::s_type;
+    return IfcPreDefinedPointMarkerSymbol::s_type;
 }
 
 bool IfcPreDefinedPointMarkerSymbol::isOfType(Step::ClassType t) {
-  return IfcPreDefinedPointMarkerSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
+    return IfcPreDefinedPointMarkerSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
 }
 
 void IfcPreDefinedPointMarkerSymbol::release() {
-  IfcPreDefinedSymbol::release();
+    IfcPreDefinedSymbol::release();
 }
 
 bool IfcPreDefinedPointMarkerSymbol::init() {
-  bool status = IfcPreDefinedSymbol::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  return true;
+    bool status = IfcPreDefinedSymbol::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type = new Step::ClassType_class("IfcPreDefinedPointMarkerSymbol");
-IfcPreDefinedPointMarkerSymbol_Factory::IfcPreDefinedPointMarkerSymbol_Factory() {
+void IfcPreDefinedPointMarkerSymbol::copy(const IfcPreDefinedPointMarkerSymbol &obj, const CopyOp &copyop) {
+    IfcPreDefinedSymbol::copy(obj, copyop);
+    return;
 }
 
-IfcPreDefinedPointMarkerSymbol_Factory::~IfcPreDefinedPointMarkerSymbol_Factory() {
-  clear(true);
-}
-
-void IfcPreDefinedPointMarkerSymbol_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcPreDefinedPointMarkerSymbol_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcPreDefinedPointMarkerSymbol_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcPreDefinedPointMarkerSymbol *IfcPreDefinedPointMarkerSymbol_Factory::get(Step::StepId id) {
-  IfcPreDefinedPointMarkerSymbol *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcPreDefinedPointMarkerSymbol * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcPreDefinedPointMarkerSymbol_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcPreDefinedPointMarkerSymbol * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcPreDefinedPointMarkerSymbol_Factory::create(Step::StepId id) {
-  IfcPreDefinedPointMarkerSymbol *ret = new IfcPreDefinedPointMarkerSymbol(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcPreDefinedPointMarkerSymbol_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcPreDefinedPointMarkerSymbol *ret = new IfcPreDefinedPointMarkerSymbol(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcPreDefinedPointMarkerSymbol_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcPreDefinedPointMarkerSymbol *ret = new IfcPreDefinedPointMarkerSymbol(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcPreDefinedPointMarkerSymbol *IfcPreDefinedPointMarkerSymbol_Factory::generate() {
-  return static_cast< IfcPreDefinedPointMarkerSymbol * > (create(m_model->getNewId()));
-}
-
-IfcPreDefinedPointMarkerSymbol *IfcPreDefinedPointMarkerSymbol_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcPreDefinedPointMarkerSymbol * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type("IfcPreDefinedPointMarkerSymbol");

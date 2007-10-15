@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,182 +24,136 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcTable.h>
+#include "ifc2x3/IfcTable.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcTableRow.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/Aggregation.h>
+#include <Step/BaseCopyOp.h>
+#include <Step/BaseEntity.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcTableRow.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcTable::IfcTable(Step::SPFData *args) : Step::BaseObject(args) {
-  m_name = getUnset(m_name);
-  m_rows.setUnset(true);
+IfcTable::IfcTable(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+    m_name = Step::getUnset(m_name);
+    m_rows.setUnset(true);
+    m_rows.setOwner(this);
 }
-
 
 IfcTable::~IfcTable() {
 }
 
 bool IfcTable::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcTable(this);
+    return static_cast< Visitor * > (v)->visitIfcTable(this);
 }
 
-const char *IfcTable::type() {
-  return "IfcTable";
+const std::string &IfcTable::type() {
+    return IfcTable::s_type.getName();
 }
 
 Step::ClassType IfcTable::getClassType() {
-  return IfcTable::s_type;
+    return IfcTable::s_type;
 }
 
 Step::ClassType IfcTable::getType() const {
-  return IfcTable::s_type;
+    return IfcTable::s_type;
 }
 
 bool IfcTable::isOfType(Step::ClassType t) {
-  return IfcTable::s_type == t ? true : Step::BaseObject::isOfType(t);
+    return IfcTable::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 std::string IfcTable::getName() {
-  if (Step::BaseObject::inited()) {
-    return m_name;
-  }
-  else {
-    return getUnset(m_name);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_name;
+    }
+    else {
+        return Step::getUnset(m_name);
+    }
 }
 
 void IfcTable::setName(const std::string &value) {
-  m_name = value;
+    m_name = value;
 }
 
-Step::StepList< Step::RefPtr< IfcTableRow > > &IfcTable::getRows() {
-  if (Step::BaseObject::inited()) {
-    return m_rows;
-  }
-  else {
-    m_rows.setUnset(true);
-    return m_rows;
-  }
-}
-
-void IfcTable::setRows(const Step::StepList< Step::RefPtr< IfcTableRow > > &value) {
-  m_rows = value;
+Step::List< Step::RefPtr< IfcTableRow > > &IfcTable::getRows() {
+    if (Step::BaseObject::inited()) {
+        return m_rows;
+    }
+    else {
+        m_rows.setUnset(true);
+        return m_rows;
+    }
 }
 
 void IfcTable::release() {
-  m_rows.clear();
+    m_rows.clear();
 }
 
 bool IfcTable::init() {
-  std::string arg;
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_name = getUnset(m_name);
-  }
-  else {
-    m_name = Step::spfToString(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_rows.setUnset(true);
-  }
-  else {
-    m_rows.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Step::RefPtr< IfcTableRow > attr2;
-        attr2 = static_cast< IfcTableRow * > (m_model->getObjectById(atoi(str1.c_str() + 1)));
-        m_rows.push_back(attr2);
-      }
-      else {
-        break;
-      }
+    std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_name = Step::getUnset(m_name);
     }
-  }
-  return true;
+    else {
+        m_name = Step::spfToString(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_rows.setUnset(true);
+    }
+    else {
+        m_rows.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::RefPtr< IfcTableRow > attr2;
+                attr2 = static_cast< IfcTableRow * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                m_rows.push_back(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTable::s_type = new Step::ClassType_class("IfcTable");
-IfcTable_Factory::IfcTable_Factory() {
+void IfcTable::copy(const IfcTable &obj, const CopyOp &copyop) {
+    Step::List< Step::RefPtr< IfcTableRow > >::const_iterator it_m_rows;
+    Step::BaseEntity::copy(obj, copyop);
+    setName(obj.m_name);
+    for (it_m_rows = obj.m_rows.begin(); it_m_rows != obj.m_rows.end(); ++it_m_rows) {
+        Step::RefPtr< IfcTableRow > copyTarget = copyop((*it_m_rows).get());
+        m_rows.push_back(copyTarget.get());
+    }
+    return;
 }
 
-IfcTable_Factory::~IfcTable_Factory() {
-  clear(true);
+IFC2X3_DLL_DEF Step::ClassType IfcTable::s_type("IfcTable");
+IfcTable::Inverted_Rows_type::Inverted_Rows_type() {
 }
 
-void IfcTable_Factory::clear(bool b) {
+void IfcTable::Inverted_Rows_type::setOwner(IfcTable *owner) {
+    mOwner = owner;
 }
 
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcTable_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcTable_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcTable *IfcTable_Factory::get(Step::StepId id) {
-  IfcTable *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcTable * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcTable_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcTable * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcTable_Factory::create(Step::StepId id) {
-  IfcTable *ret = new IfcTable(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcTable_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcTable *ret = new IfcTable(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcTable_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcTable *ret = new IfcTable(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcTable *IfcTable_Factory::generate() {
-  return static_cast< IfcTable * > (create(m_model->getNewId()));
-}
-
-IfcTable *IfcTable_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcTable * > (it->second);
-  }
-  else {
-    return NULL;
-  }
+void IfcTable::Inverted_Rows_type::push_back(const Step::RefPtr< IfcTableRow > &value) {
+    IfcTableRow *inverse = const_cast< IfcTableRow * > (value.get());
+    Step::List< Step::RefPtr< IfcTableRow > >::push_back(value);
+    inverse->m_ofTable = mOwner;
 }
 

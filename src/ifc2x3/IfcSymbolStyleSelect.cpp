@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,129 +24,142 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcSymbolStyleSelect.h>
+#include "ifc2x3/IfcSymbolStyleSelect.h"
 
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcColourSpecification.h"
+#include "ifc2x3/IfcPreDefinedColour.h"
+#include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
-#include <ifc2x3/IfcColourSpecification.h>
-#include <ifc2x3/IfcPreDefinedColour.h>
-#include <ifc2x3/Visitor.h>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
 IfcSymbolStyleSelect::IfcSymbolStyleSelect() : Step::BaseObject(0) {
-  m_type = UNSET;
+    m_type = UNSET;
 }
 
 IfcSymbolStyleSelect::IfcSymbolStyleSelect(Step::SPFData *args) : Step::BaseObject(args) {
-  m_type = UNSET;
+    m_type = UNSET;
 }
 
-
 IfcSymbolStyleSelect::~IfcSymbolStyleSelect() {
-  deleteUnion();
+    deleteUnion();
 }
 
 bool IfcSymbolStyleSelect::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcSymbolStyleSelect(this);
+    return static_cast< Visitor * > (v)->visitIfcSymbolStyleSelect(this);
 }
 
 bool IfcSymbolStyleSelect::init() {
-  return false;
+    return false;
 }
 
-const char *IfcSymbolStyleSelect::type() {
-  return "IfcSymbolStyleSelect";
+const std::string &IfcSymbolStyleSelect::type() {
+    return IfcSymbolStyleSelect::s_type.getName();
 }
 
 Step::ClassType IfcSymbolStyleSelect::getClassType() {
-  return IfcSymbolStyleSelect::s_type;
+    return IfcSymbolStyleSelect::s_type;
 }
 
 Step::ClassType IfcSymbolStyleSelect::getType() const {
-  return IfcSymbolStyleSelect::s_type;
+    return IfcSymbolStyleSelect::s_type;
 }
 
 bool IfcSymbolStyleSelect::isOfType(Step::ClassType t) {
-  return IfcSymbolStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
+    return IfcSymbolStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
+}
+
+void IfcSymbolStyleSelect::copy(const IfcSymbolStyleSelect &obj, const CopyOp &copyop) {
+    switch(obj.m_type) {
+    case IFCCOLOURSPECIFICATION:
+        setIfcColourSpecification(copyop(obj.m_IfcSymbolStyleSelect_union.m_IfcColourSpecification));
+        break;
+    case IFCPREDEFINEDCOLOUR:
+        setIfcPreDefinedColour(copyop(obj.m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour));
+        break;
+        }
 }
 
 char *IfcSymbolStyleSelect::currentTypeName() {
-  switch(m_type) {
-  case IFCCOLOURSPECIFICATION:
-    return "IfcColourSpecification";
-    break;
-  case IFCPREDEFINEDCOLOUR:
-    return "IfcPreDefinedColour";
-    break;
-  default:
-    return "UNSET";
-  }
+    switch(m_type) {
+    case IFCCOLOURSPECIFICATION:
+        return "IfcColourSpecification";
+        break;
+    case IFCPREDEFINEDCOLOUR:
+        return "IfcPreDefinedColour";
+        break;
+    default:
+        return "UNSET";
+    }
 }
 
 IfcSymbolStyleSelect::IfcSymbolStyleSelect_select IfcSymbolStyleSelect::currentType() {
-  return m_type;
+    return m_type;
 }
 
 void IfcSymbolStyleSelect::deleteUnion() {
-  switch(m_type) {
-  case IFCCOLOURSPECIFICATION:
-    m_IfcSymbolStyleSelect_union.m_IfcColourSpecification->unref();
-    break;
-  case IFCPREDEFINEDCOLOUR:
-    m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour->unref();
-    break;
-    }
-  m_type = UNSET;
+    switch(m_type) {
+    case IFCCOLOURSPECIFICATION:
+        m_IfcSymbolStyleSelect_union.m_IfcColourSpecification->unref();
+        break;
+    case IFCPREDEFINEDCOLOUR:
+        m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour->unref();
+        break;
+        }
+    m_type = UNSET;
 }
 
 IfcColourSpecification *IfcSymbolStyleSelect::getIfcColourSpecification() {
-  return m_IfcSymbolStyleSelect_union.m_IfcColourSpecification;
+    return m_IfcSymbolStyleSelect_union.m_IfcColourSpecification;
 }
 
 void IfcSymbolStyleSelect::setIfcColourSpecification(IfcColourSpecification *value) {
-  deleteUnion();
-  if (m_type != UNSET) {
     deleteUnion();
-  }
-  m_IfcSymbolStyleSelect_union.m_IfcColourSpecification = value;
-  if (value) {
-    value->ref();
+    if (m_type != UNSET) {
+        deleteUnion();
+    }
+    m_IfcSymbolStyleSelect_union.m_IfcColourSpecification = value;
+    if (value) {
+        value->ref();
+        m_type = IFCCOLOURSPECIFICATION;
+    }
+    else {
+        m_type = UNSET;
+    }
     m_type = IFCCOLOURSPECIFICATION;
-  }
-  else {
-    m_type = UNSET;
-  }
-  m_type = IFCCOLOURSPECIFICATION;
 }
 
 IfcPreDefinedColour *IfcSymbolStyleSelect::getIfcPreDefinedColour() {
-  return m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour;
+    return m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour;
 }
 
 void IfcSymbolStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
-  deleteUnion();
-  if (m_type != UNSET) {
     deleteUnion();
-  }
-  m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour = value;
-  if (value) {
-    value->ref();
+    if (m_type != UNSET) {
+        deleteUnion();
+    }
+    m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour = value;
+    if (value) {
+        value->ref();
+        m_type = IFCPREDEFINEDCOLOUR;
+    }
+    else {
+        m_type = UNSET;
+    }
     m_type = IFCPREDEFINEDCOLOUR;
-  }
-  else {
-    m_type = UNSET;
-  }
-  m_type = IFCPREDEFINEDCOLOUR;
 }
 
 void IfcSymbolStyleSelect::set(Step::BaseObject *v) {
-  if (v->isOfType(IfcColourSpecification::getClassType())) {
-    setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
-  }
-  else if (v->isOfType(IfcPreDefinedColour::getClassType())) {
-    setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
-  }
+    if (v->isOfType(IfcColourSpecification::getClassType())) {
+        setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
+    }
+    else if (v->isOfType(IfcPreDefinedColour::getClassType())) {
+        setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
+    }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSymbolStyleSelect::s_type = new Step::ClassType_class("IfcSymbolStyleSelect");
+IFC2X3_DLL_DEF Step::ClassType IfcSymbolStyleSelect::s_type("IfcSymbolStyleSelect");

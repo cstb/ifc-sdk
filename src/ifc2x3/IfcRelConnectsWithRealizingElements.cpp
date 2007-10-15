@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,187 +24,141 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcRelConnectsWithRealizingElements.h>
+#include "ifc2x3/IfcRelConnectsWithRealizingElements.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcElement.h"
+#include "ifc2x3/IfcRelConnectsElements.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/Aggregation.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
+#include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcElement.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcRelConnectsWithRealizingElements::IfcRelConnectsWithRealizingElements(Step::SPFData *args) : IfcRelConnectsElements(args) {
-  m_realizingElements.setUnset(true);
-  m_connectionType = getUnset(m_connectionType);
+IfcRelConnectsWithRealizingElements::IfcRelConnectsWithRealizingElements(Step::Id id, Step::SPFData *args) : IfcRelConnectsElements(id, args) {
+    m_realizingElements.setUnset(true);
+    m_realizingElements.setOwner(this);
+    m_connectionType = Step::getUnset(m_connectionType);
 }
-
 
 IfcRelConnectsWithRealizingElements::~IfcRelConnectsWithRealizingElements() {
 }
 
 bool IfcRelConnectsWithRealizingElements::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcRelConnectsWithRealizingElements(this);
+    return static_cast< Visitor * > (v)->visitIfcRelConnectsWithRealizingElements(this);
 }
 
-const char *IfcRelConnectsWithRealizingElements::type() {
-  return "IfcRelConnectsWithRealizingElements";
+const std::string &IfcRelConnectsWithRealizingElements::type() {
+    return IfcRelConnectsWithRealizingElements::s_type.getName();
 }
 
 Step::ClassType IfcRelConnectsWithRealizingElements::getClassType() {
-  return IfcRelConnectsWithRealizingElements::s_type;
+    return IfcRelConnectsWithRealizingElements::s_type;
 }
 
 Step::ClassType IfcRelConnectsWithRealizingElements::getType() const {
-  return IfcRelConnectsWithRealizingElements::s_type;
+    return IfcRelConnectsWithRealizingElements::s_type;
 }
 
 bool IfcRelConnectsWithRealizingElements::isOfType(Step::ClassType t) {
-  return IfcRelConnectsWithRealizingElements::s_type == t ? true : IfcRelConnectsElements::isOfType(t);
+    return IfcRelConnectsWithRealizingElements::s_type == t ? true : IfcRelConnectsElements::isOfType(t);
 }
 
-Step::StepSet< Step::RefPtr< IfcElement > > &IfcRelConnectsWithRealizingElements::getRealizingElements() {
-  if (Step::BaseObject::inited()) {
-    return m_realizingElements;
-  }
-  else {
-    m_realizingElements.setUnset(true);
-    return m_realizingElements;
-  }
-}
-
-void IfcRelConnectsWithRealizingElements::setRealizingElements(const Step::StepSet< Step::RefPtr< IfcElement > > &value) {
-  m_realizingElements = value;
+Step::Set< Step::RefPtr< IfcElement > > &IfcRelConnectsWithRealizingElements::getRealizingElements() {
+    if (Step::BaseObject::inited()) {
+        return m_realizingElements;
+    }
+    else {
+        m_realizingElements.setUnset(true);
+        return m_realizingElements;
+    }
 }
 
 IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() {
-  if (Step::BaseObject::inited()) {
-    return m_connectionType;
-  }
-  else {
-    return getUnset(m_connectionType);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_connectionType;
+    }
+    else {
+        return Step::getUnset(m_connectionType);
+    }
 }
 
 void IfcRelConnectsWithRealizingElements::setConnectionType(const IfcLabel &value) {
-  m_connectionType = value;
+    m_connectionType = value;
 }
 
 void IfcRelConnectsWithRealizingElements::release() {
-  IfcRelConnectsElements::release();
-  m_realizingElements.clear();
+    IfcRelConnectsElements::release();
+    m_realizingElements.clear();
 }
 
 bool IfcRelConnectsWithRealizingElements::init() {
-  bool status = IfcRelConnectsElements::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_realizingElements.setUnset(true);
-  }
-  else {
-    m_realizingElements.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Step::RefPtr< IfcElement > attr2;
-        attr2 = static_cast< IfcElement * > (m_model->getObjectById(atoi(str1.c_str() + 1)));
-        m_realizingElements.insert(attr2);
-      }
-      else {
-        break;
-      }
+    bool status = IfcRelConnectsElements::init();
+    std::string arg;
+    if (!status) {
+        return false;
     }
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_connectionType = getUnset(m_connectionType);
-  }
-  else {
-    m_connectionType = Step::spfToString(arg);
-  }
-  return true;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_realizingElements.setUnset(true);
+    }
+    else {
+        m_realizingElements.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::RefPtr< IfcElement > attr2;
+                attr2 = static_cast< IfcElement * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                m_realizingElements.insert(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_connectionType = Step::getUnset(m_connectionType);
+    }
+    else {
+        m_connectionType = Step::spfToString(arg);
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsWithRealizingElements::s_type = new Step::ClassType_class("IfcRelConnectsWithRealizingElements");
-IfcRelConnectsWithRealizingElements_Factory::IfcRelConnectsWithRealizingElements_Factory() {
+void IfcRelConnectsWithRealizingElements::copy(const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop) {
+    Step::Set< Step::RefPtr< IfcElement > >::const_iterator it_m_realizingElements;
+    IfcRelConnectsElements::copy(obj, copyop);
+    for (it_m_realizingElements = obj.m_realizingElements.begin(); it_m_realizingElements != obj.m_realizingElements.end(); ++it_m_realizingElements) {
+        Step::RefPtr< IfcElement > copyTarget = copyop((*it_m_realizingElements).get());
+        m_realizingElements.insert(copyTarget.get());
+    }
+    setConnectionType(obj.m_connectionType);
+    return;
 }
 
-IfcRelConnectsWithRealizingElements_Factory::~IfcRelConnectsWithRealizingElements_Factory() {
-  clear(true);
+IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements");
+IfcRelConnectsWithRealizingElements::Inverted_RealizingElements_type::Inverted_RealizingElements_type() {
 }
 
-void IfcRelConnectsWithRealizingElements_Factory::clear(bool b) {
+void IfcRelConnectsWithRealizingElements::Inverted_RealizingElements_type::setOwner(IfcRelConnectsWithRealizingElements *owner) {
+    mOwner = owner;
 }
 
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelConnectsWithRealizingElements_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelConnectsWithRealizingElements_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcRelConnectsWithRealizingElements *IfcRelConnectsWithRealizingElements_Factory::get(Step::StepId id) {
-  IfcRelConnectsWithRealizingElements *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcRelConnectsWithRealizingElements * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcRelConnectsWithRealizingElements_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcRelConnectsWithRealizingElements * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcRelConnectsWithRealizingElements_Factory::create(Step::StepId id) {
-  IfcRelConnectsWithRealizingElements *ret = new IfcRelConnectsWithRealizingElements(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelConnectsWithRealizingElements_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcRelConnectsWithRealizingElements *ret = new IfcRelConnectsWithRealizingElements(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelConnectsWithRealizingElements_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcRelConnectsWithRealizingElements *ret = new IfcRelConnectsWithRealizingElements(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcRelConnectsWithRealizingElements *IfcRelConnectsWithRealizingElements_Factory::generate() {
-  return static_cast< IfcRelConnectsWithRealizingElements * > (create(m_model->getNewId()));
-}
-
-IfcRelConnectsWithRealizingElements *IfcRelConnectsWithRealizingElements_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcRelConnectsWithRealizingElements * > (it->second);
-  }
-  else {
-    return NULL;
-  }
+void IfcRelConnectsWithRealizingElements::Inverted_RealizingElements_type::insert(const Step::RefPtr< IfcElement > &value) {
+    IfcElement *inverse = const_cast< IfcElement * > (value.get());
+    Step::Set< Step::RefPtr< IfcElement > >::insert(value);
+    inverse->m_isConnectionRealization.insert(mOwner);
 }
 

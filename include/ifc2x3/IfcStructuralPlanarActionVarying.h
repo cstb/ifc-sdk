@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -45,141 +29,94 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <ifc2x3/IfcStructuralPlanarAction.h>
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include "ifc2x3/IfcStructuralPlanarAction.h"
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcShapeAspect;
-  class IfcStructuralLoad;
-  class IfcStructuralPlanarActionVarying_Factory;
+    class CopyOp;
+    class IfcShapeAspect;
+    class IfcStructuralLoad;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcStructuralPlanarActionVarying : public IfcStructuralPlanarAction {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'VaryingAppliedLoadLocation'.
-     * 
-     * @return the value of the explicit attribute 'VaryingAppliedLoadLocation'
-     */
-    IfcShapeAspect *getVaryingAppliedLoadLocation();
-    /**
-     * Sets the value of the explicit attribute 'VaryingAppliedLoadLocation'.
-     * 
-     * @param value
-     */
-    void setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'SubsequentAppliedLoads'.
-     * 
-     * @return the value of the explicit attribute 'SubsequentAppliedLoads'
-     */
-    Step::StepList< Step::RefPtr< IfcStructuralLoad > > &getSubsequentAppliedLoads();
-    /**
-     * Sets the value of the explicit attribute 'SubsequentAppliedLoads'.
-     * 
-     * @param value
-     */
-    void setSubsequentAppliedLoads(const Step::StepList< Step::RefPtr< IfcStructuralLoad > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcStructuralPlanarActionVarying_Factory;
+    class IFC2X3_DLL_DEF IfcStructuralPlanarActionVarying : public IfcStructuralPlanarAction {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcShapeAspect *getVaryingAppliedLoadLocation();
+        /**
+         * Sets the value of the explicit attribute 'VaryingAppliedLoadLocation'.
+         * 
+         * @param value
+         */
+        void setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value);
+        /**
+         */
+        Step::List< Step::RefPtr< IfcStructuralLoad > > &getSubsequentAppliedLoads();
+        /**
+         * Sets the value of the explicit attribute 'SubsequentAppliedLoads'.
+         * 
+         * @param value
+         */
+        void setSubsequentAppliedLoads(const Step::List< Step::RefPtr< IfcStructuralLoad > > &value);
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcStructuralPlanarActionVarying(Step::SPFData *args);
-    virtual ~IfcStructuralPlanarActionVarying();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcStructuralPlanarActionVarying(Step::Id id, Step::SPFData *args);
+        virtual ~IfcStructuralPlanarActionVarying();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcStructuralPlanarActionVarying &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    Step::RefPtr< IfcShapeAspect > m_varyingAppliedLoadLocation;
-    Step::StepList< Step::RefPtr< IfcStructuralLoad > > m_subsequentAppliedLoads;
-    /**
-     * @param c
-     */
-    IfcStructuralPlanarActionVarying(const IfcStructuralPlanarActionVarying &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Step::RefPtr< IfcShapeAspect > m_varyingAppliedLoadLocation;
+        /**
+         */
+        Step::List< Step::RefPtr< IfcStructuralLoad > > m_subsequentAppliedLoads;
 
-  };
-
-  class IfcStructuralPlanarActionVarying;
-
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcStructuralPlanarActionVarying_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcStructuralPlanarActionVarying_Factory();
-    virtual ~IfcStructuralPlanarActionVarying_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcStructuralPlanarActionVarying *get(Step::StepId id);
-    /**
-     */
-    IfcStructuralPlanarActionVarying *generate();
-    /**
-     * @param id
-     */
-    IfcStructuralPlanarActionVarying *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

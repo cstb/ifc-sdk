@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,161 +24,103 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcMaterialList.h>
+#include "ifc2x3/IfcMaterialList.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcMaterial.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseCopyOp.h>
+#include <Step/BaseEntity.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcMaterial.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcMaterialList::IfcMaterialList(Step::SPFData *args) : Step::BaseObject(args) {
-  m_materials.setUnset(true);
+IfcMaterialList::IfcMaterialList(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+    m_materials.setUnset(true);
 }
-
 
 IfcMaterialList::~IfcMaterialList() {
 }
 
 bool IfcMaterialList::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcMaterialList(this);
+    return static_cast< Visitor * > (v)->visitIfcMaterialList(this);
 }
 
-const char *IfcMaterialList::type() {
-  return "IfcMaterialList";
+const std::string &IfcMaterialList::type() {
+    return IfcMaterialList::s_type.getName();
 }
 
 Step::ClassType IfcMaterialList::getClassType() {
-  return IfcMaterialList::s_type;
+    return IfcMaterialList::s_type;
 }
 
 Step::ClassType IfcMaterialList::getType() const {
-  return IfcMaterialList::s_type;
+    return IfcMaterialList::s_type;
 }
 
 bool IfcMaterialList::isOfType(Step::ClassType t) {
-  return IfcMaterialList::s_type == t ? true : Step::BaseObject::isOfType(t);
+    return IfcMaterialList::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::StepList< Step::RefPtr< IfcMaterial > > &IfcMaterialList::getMaterials() {
-  if (Step::BaseObject::inited()) {
-    return m_materials;
-  }
-  else {
-    m_materials.setUnset(true);
-    return m_materials;
-  }
+Step::List< Step::RefPtr< IfcMaterial > > &IfcMaterialList::getMaterials() {
+    if (Step::BaseObject::inited()) {
+        return m_materials;
+    }
+    else {
+        m_materials.setUnset(true);
+        return m_materials;
+    }
 }
 
-void IfcMaterialList::setMaterials(const Step::StepList< Step::RefPtr< IfcMaterial > > &value) {
-  m_materials = value;
+void IfcMaterialList::setMaterials(const Step::List< Step::RefPtr< IfcMaterial > > &value) {
+    m_materials = value;
 }
 
 void IfcMaterialList::release() {
-  m_materials.clear();
+    m_materials.clear();
 }
 
 bool IfcMaterialList::init() {
-  std::string arg;
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_materials.setUnset(true);
-  }
-  else {
-    m_materials.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Step::RefPtr< IfcMaterial > attr2;
-        attr2 = static_cast< IfcMaterial * > (m_model->getObjectById(atoi(str1.c_str() + 1)));
-        m_materials.push_back(attr2);
-      }
-      else {
-        break;
-      }
+    std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_materials.setUnset(true);
     }
-  }
-  return true;
+    else {
+        m_materials.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::RefPtr< IfcMaterial > attr2;
+                attr2 = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                m_materials.push_back(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMaterialList::s_type = new Step::ClassType_class("IfcMaterialList");
-IfcMaterialList_Factory::IfcMaterialList_Factory() {
+void IfcMaterialList::copy(const IfcMaterialList &obj, const CopyOp &copyop) {
+    Step::List< Step::RefPtr< IfcMaterial > >::const_iterator it_m_materials;
+    Step::BaseEntity::copy(obj, copyop);
+    for (it_m_materials = obj.m_materials.begin(); it_m_materials != obj.m_materials.end(); ++it_m_materials) {
+        Step::RefPtr< IfcMaterial > copyTarget = copyop((*it_m_materials).get());
+        m_materials.push_back(copyTarget.get());
+    }
+    return;
 }
 
-IfcMaterialList_Factory::~IfcMaterialList_Factory() {
-  clear(true);
-}
-
-void IfcMaterialList_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcMaterialList_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcMaterialList_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcMaterialList *IfcMaterialList_Factory::get(Step::StepId id) {
-  IfcMaterialList *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcMaterialList * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcMaterialList_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcMaterialList * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcMaterialList_Factory::create(Step::StepId id) {
-  IfcMaterialList *ret = new IfcMaterialList(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcMaterialList_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcMaterialList *ret = new IfcMaterialList(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcMaterialList_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcMaterialList *ret = new IfcMaterialList(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcMaterialList *IfcMaterialList_Factory::generate() {
-  return static_cast< IfcMaterialList * > (create(m_model->getNewId()));
-}
-
-IfcMaterialList *IfcMaterialList_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcMaterialList * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcMaterialList::s_type("IfcMaterialList");

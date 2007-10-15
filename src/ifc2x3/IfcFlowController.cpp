@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,129 +24,62 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcFlowController.h>
+#include "ifc2x3/IfcFlowController.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcDistributionFlowElement.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcFlowController::IfcFlowController(Step::SPFData *args) : IfcDistributionFlowElement(args) {
+IfcFlowController::IfcFlowController(Step::Id id, Step::SPFData *args) : IfcDistributionFlowElement(id, args) {
 }
-
 
 IfcFlowController::~IfcFlowController() {
 }
 
 bool IfcFlowController::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcFlowController(this);
+    return static_cast< Visitor * > (v)->visitIfcFlowController(this);
 }
 
-const char *IfcFlowController::type() {
-  return "IfcFlowController";
+const std::string &IfcFlowController::type() {
+    return IfcFlowController::s_type.getName();
 }
 
 Step::ClassType IfcFlowController::getClassType() {
-  return IfcFlowController::s_type;
+    return IfcFlowController::s_type;
 }
 
 Step::ClassType IfcFlowController::getType() const {
-  return IfcFlowController::s_type;
+    return IfcFlowController::s_type;
 }
 
 bool IfcFlowController::isOfType(Step::ClassType t) {
-  return IfcFlowController::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
+    return IfcFlowController::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
 }
 
 void IfcFlowController::release() {
-  IfcDistributionFlowElement::release();
+    IfcDistributionFlowElement::release();
 }
 
 bool IfcFlowController::init() {
-  bool status = IfcDistributionFlowElement::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  return true;
+    bool status = IfcDistributionFlowElement::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFlowController::s_type = new Step::ClassType_class("IfcFlowController");
-IfcFlowController_Factory::IfcFlowController_Factory() {
+void IfcFlowController::copy(const IfcFlowController &obj, const CopyOp &copyop) {
+    IfcDistributionFlowElement::copy(obj, copyop);
+    return;
 }
 
-IfcFlowController_Factory::~IfcFlowController_Factory() {
-  clear(true);
-}
-
-void IfcFlowController_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcFlowController_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcFlowController_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcFlowController *IfcFlowController_Factory::get(Step::StepId id) {
-  IfcFlowController *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcFlowController * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcFlowController_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcFlowController * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcFlowController_Factory::create(Step::StepId id) {
-  IfcFlowController *ret = new IfcFlowController(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcFlowController_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcFlowController *ret = new IfcFlowController(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcFlowController_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcFlowController *ret = new IfcFlowController(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcFlowController *IfcFlowController_Factory::generate() {
-  return static_cast< IfcFlowController * > (create(m_model->getNewId()));
-}
-
-IfcFlowController *IfcFlowController_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcFlowController * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcFlowController::s_type("IfcFlowController");

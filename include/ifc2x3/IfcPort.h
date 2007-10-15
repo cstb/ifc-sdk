@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,101 +30,89 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <ifc2x3/IfcProduct.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
+#include "ifc2x3/IfcAlignmentElement.h"
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcRelConnectsPortToElement;
-  class IfcRelConnectsPorts;
+    class CopyOp;
+    class IfcRelConnectsPortToElement;
+    class IfcRelConnectsPorts;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcPort : public IfcProduct {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ContainedIn'.
-     * 
-     * @return the value of the explicit attribute 'ContainedIn'
-     */
-    IfcRelConnectsPortToElement *getContainedIn();
-    /**
-     * Sets the value of the explicit attribute 'ContainedIn'.
-     * 
-     * @param value
-     */
-    void setContainedIn(const Step::RefPtr< IfcRelConnectsPortToElement > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ConnectedFrom'.
-     * 
-     * @return the value of the explicit attribute 'ConnectedFrom'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > &getConnectedFrom();
-    /**
-     * Sets the value of the explicit attribute 'ConnectedFrom'.
-     * 
-     * @param value
-     */
-    void setConnectedFrom(const Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'ConnectedTo'.
-     * 
-     * @return the value of the explicit attribute 'ConnectedTo'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > &getConnectedTo();
-    /**
-     * Sets the value of the explicit attribute 'ConnectedTo'.
-     * 
-     * @param value
-     */
-    void setConnectedTo(const Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
+    class IFC2X3_DLL_DEF IfcPort : public IfcAlignmentElement {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcRelConnectsPortToElement *getContainedIn();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &getConnectedFrom();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &getConnectedTo();
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
+        friend class IfcRelConnectsPortToElement;
+        friend class IfcRelConnectsPorts;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcPort(Step::SPFData *args);
-    virtual ~IfcPort();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcPort(Step::Id id, Step::SPFData *args);
+        virtual ~IfcPort();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcPort &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    Step::RefPtr< IfcRelConnectsPortToElement > m_containedIn;
-    Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > m_connectedFrom;
-    Step::StepSet< Step::RefPtr< IfcRelConnectsPorts > > m_connectedTo;
-    /**
-     * @param c
-     */
-    IfcPort(const IfcPort &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Step::ObsPtr< IfcRelConnectsPortToElement > m_containedIn;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > m_connectedFrom;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > m_connectedTo;
 
-  };
+    };
 
 }
 

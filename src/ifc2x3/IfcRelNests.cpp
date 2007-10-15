@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,129 +24,62 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcRelNests.h>
+#include "ifc2x3/IfcRelNests.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcRelDecomposes.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcRelNests::IfcRelNests(Step::SPFData *args) : IfcRelDecomposes(args) {
+IfcRelNests::IfcRelNests(Step::Id id, Step::SPFData *args) : IfcRelDecomposes(id, args) {
 }
-
 
 IfcRelNests::~IfcRelNests() {
 }
 
 bool IfcRelNests::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcRelNests(this);
+    return static_cast< Visitor * > (v)->visitIfcRelNests(this);
 }
 
-const char *IfcRelNests::type() {
-  return "IfcRelNests";
+const std::string &IfcRelNests::type() {
+    return IfcRelNests::s_type.getName();
 }
 
 Step::ClassType IfcRelNests::getClassType() {
-  return IfcRelNests::s_type;
+    return IfcRelNests::s_type;
 }
 
 Step::ClassType IfcRelNests::getType() const {
-  return IfcRelNests::s_type;
+    return IfcRelNests::s_type;
 }
 
 bool IfcRelNests::isOfType(Step::ClassType t) {
-  return IfcRelNests::s_type == t ? true : IfcRelDecomposes::isOfType(t);
+    return IfcRelNests::s_type == t ? true : IfcRelDecomposes::isOfType(t);
 }
 
 void IfcRelNests::release() {
-  IfcRelDecomposes::release();
+    IfcRelDecomposes::release();
 }
 
 bool IfcRelNests::init() {
-  bool status = IfcRelDecomposes::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  return true;
+    bool status = IfcRelDecomposes::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelNests::s_type = new Step::ClassType_class("IfcRelNests");
-IfcRelNests_Factory::IfcRelNests_Factory() {
+void IfcRelNests::copy(const IfcRelNests &obj, const CopyOp &copyop) {
+    IfcRelDecomposes::copy(obj, copyop);
+    return;
 }
 
-IfcRelNests_Factory::~IfcRelNests_Factory() {
-  clear(true);
-}
-
-void IfcRelNests_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelNests_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelNests_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcRelNests *IfcRelNests_Factory::get(Step::StepId id) {
-  IfcRelNests *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcRelNests * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcRelNests_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcRelNests * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcRelNests_Factory::create(Step::StepId id) {
-  IfcRelNests *ret = new IfcRelNests(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelNests_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcRelNests *ret = new IfcRelNests(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelNests_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcRelNests *ret = new IfcRelNests(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcRelNests *IfcRelNests_Factory::generate() {
-  return static_cast< IfcRelNests * > (create(m_model->getNewId()));
-}
-
-IfcRelNests *IfcRelNests_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcRelNests * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcRelNests::s_type("IfcRelNests");

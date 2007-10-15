@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -45,102 +29,90 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <ifc2x3/IfcObject.h>
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
+#include <Step/Referenced.h>
+#include "ifc2x3/IfcObject.h"
 
 namespace ifc2x3 {
 
-  class IfcRelAssignsToProcess;
-  class IfcRelSequence;
+    class CopyOp;
+    class IfcRelAssignsToProcess;
+    class IfcRelSequence;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcProcess : public IfcObject {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'OperatesOn'.
-     * 
-     * @return the value of the explicit attribute 'OperatesOn'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelAssignsToProcess > > &getOperatesOn();
-    /**
-     * Sets the value of the explicit attribute 'OperatesOn'.
-     * 
-     * @param value
-     */
-    void setOperatesOn(const Step::StepSet< Step::RefPtr< IfcRelAssignsToProcess > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'IsSuccessorFrom'.
-     * 
-     * @return the value of the explicit attribute 'IsSuccessorFrom'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelSequence > > &getIsSuccessorFrom();
-    /**
-     * Sets the value of the explicit attribute 'IsSuccessorFrom'.
-     * 
-     * @param value
-     */
-    void setIsSuccessorFrom(const Step::StepSet< Step::RefPtr< IfcRelSequence > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'IsPredecessorTo'.
-     * 
-     * @return the value of the explicit attribute 'IsPredecessorTo'
-     */
-    Step::StepSet< Step::RefPtr< IfcRelSequence > > &getIsPredecessorTo();
-    /**
-     * Sets the value of the explicit attribute 'IsPredecessorTo'.
-     * 
-     * @param value
-     */
-    void setIsPredecessorTo(const Step::StepSet< Step::RefPtr< IfcRelSequence > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
+    class IFC2X3_DLL_DEF IfcProcess : public IfcObject {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > &getOperatesOn();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelSequence > > &getIsSuccessorFrom();
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelSequence > > &getIsPredecessorTo();
+        /**
+         */
+        virtual void release();
+        friend class IfcRelAssignsToProcess;
+        friend class ExpressDataSet;
+        friend class IfcRelSequence;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcProcess(Step::SPFData *args);
-    virtual ~IfcProcess();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcProcess(Step::Id id, Step::SPFData *args);
+        virtual ~IfcProcess();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcProcess &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    Step::StepSet< Step::RefPtr< IfcRelAssignsToProcess > > m_operatesOn;
-    Step::StepSet< Step::RefPtr< IfcRelSequence > > m_isSuccessorFrom;
-    Step::StepSet< Step::RefPtr< IfcRelSequence > > m_isPredecessorTo;
-    /**
-     * @param c
-     */
-    IfcProcess(const IfcProcess &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > m_operatesOn;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelSequence > > m_isSuccessorFrom;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcRelSequence > > m_isPredecessorTo;
 
-  };
+    };
 
 }
 

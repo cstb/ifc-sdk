@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,78 +24,80 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcFeatureElementAddition.h>
+#include "ifc2x3/IfcFeatureElementAddition.h"
 
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcFeatureElement.h"
+#include "ifc2x3/IfcRelProjectsElement.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcFeatureElement.h>
-#include <ifc2x3/IfcRelProjectsElement.h>
-#include <ifc2x3/Visitor.h>
 #include <string>
 #include <vector>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcFeatureElementAddition::IfcFeatureElementAddition(Step::SPFData *args) : IfcFeatureElement(args) {
-  m_projectsElements = NULL;
+IfcFeatureElementAddition::IfcFeatureElementAddition(Step::Id id, Step::SPFData *args) : IfcFeatureElement(id, args) {
 }
-
 
 IfcFeatureElementAddition::~IfcFeatureElementAddition() {
 }
 
 bool IfcFeatureElementAddition::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcFeatureElementAddition(this);
+    return static_cast< Visitor * > (v)->visitIfcFeatureElementAddition(this);
 }
 
-const char *IfcFeatureElementAddition::type() {
-  return "IfcFeatureElementAddition";
+const std::string &IfcFeatureElementAddition::type() {
+    return IfcFeatureElementAddition::s_type.getName();
 }
 
 Step::ClassType IfcFeatureElementAddition::getClassType() {
-  return IfcFeatureElementAddition::s_type;
+    return IfcFeatureElementAddition::s_type;
 }
 
 Step::ClassType IfcFeatureElementAddition::getType() const {
-  return IfcFeatureElementAddition::s_type;
+    return IfcFeatureElementAddition::s_type;
 }
 
 bool IfcFeatureElementAddition::isOfType(Step::ClassType t) {
-  return IfcFeatureElementAddition::s_type == t ? true : IfcFeatureElement::isOfType(t);
+    return IfcFeatureElementAddition::s_type == t ? true : IfcFeatureElement::isOfType(t);
 }
 
 IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() {
-  if (Step::BaseObject::inited()) {
-    return m_projectsElements.get();
-  }
-  else {
-    return NULL;
-  }
-}
-
-void IfcFeatureElementAddition::setProjectsElements(const Step::RefPtr< IfcRelProjectsElement > &value) {
-  m_projectsElements = value;
+    if (Step::BaseObject::inited()) {
+        return m_projectsElements.get();
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFeatureElementAddition::release() {
-  IfcFeatureElement::release();
+    IfcFeatureElement::release();
 }
 
 bool IfcFeatureElementAddition::init() {
-  bool status = IfcFeatureElement::init();
-  std::string arg;
-  std::vector< Step::StepId > *inverses;
-  if (!status) {
-    return false;
-  }
-  inverses = m_args->getInverses(IfcRelProjectsElement::getClassType(), 5);
-  if (inverses) {
-    m_projectsElements = static_cast< IfcRelProjectsElement * > (m_model->getObjectById((*inverses)[0]));
-  }
-  return true;
+    bool status = IfcFeatureElement::init();
+    std::string arg;
+    std::vector< Step::Id > *inverses;
+    if (!status) {
+        return false;
+    }
+    inverses = m_args->getInverses(IfcRelProjectsElement::getClassType(), 5);
+    if (inverses) {
+        m_projectsElements = static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[0]));
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFeatureElementAddition::s_type = new Step::ClassType_class("IfcFeatureElementAddition");
+void IfcFeatureElementAddition::copy(const IfcFeatureElementAddition &obj, const CopyOp &copyop) {
+    IfcFeatureElement::copy(obj, copyop);
+    return;
+}
+
+IFC2X3_DLL_DEF Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition");

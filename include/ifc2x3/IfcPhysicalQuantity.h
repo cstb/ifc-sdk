@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,101 +30,99 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <Step/BaseObject.h>
-#include <string>
+#include <Step/ClassType.h>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
+#include <string>
+#include <Step/BaseEntity.h>
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcPhysicalComplexQuantity;
+    class CopyOp;
+    class IfcPhysicalComplexQuantity;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcPhysicalQuantity : public Step::BaseObject {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'Name'.
-     * 
-     * @return the value of the explicit attribute 'Name'
-     */
-    IfcLabel getName();
-    /**
-     * Sets the value of the explicit attribute 'Name'.
-     * 
-     * @param value
-     */
-    void setName(const IfcLabel &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'Description'.
-     * 
-     * @return the value of the explicit attribute 'Description'
-     */
-    IfcText getDescription();
-    /**
-     * Sets the value of the explicit attribute 'Description'.
-     * 
-     * @param value
-     */
-    void setDescription(const IfcText &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'PartOfComplex'.
-     * 
-     * @return the value of the explicit attribute 'PartOfComplex'
-     */
-    Step::StepSet< Step::RefPtr< IfcPhysicalComplexQuantity > > &getPartOfComplex();
-    /**
-     * Sets the value of the explicit attribute 'PartOfComplex'.
-     * 
-     * @param value
-     */
-    void setPartOfComplex(const Step::StepSet< Step::RefPtr< IfcPhysicalComplexQuantity > > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
+    class IFC2X3_DLL_DEF IfcPhysicalQuantity : public Step::BaseEntity {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcLabel getName();
+        /**
+         * Sets the value of the explicit attribute 'Name'.
+         * 
+         * @param value
+         */
+        void setName(const IfcLabel &value);
+        /**
+         */
+        IfcText getDescription();
+        /**
+         * Sets the value of the explicit attribute 'Description'.
+         * 
+         * @param value
+         */
+        void setDescription(const IfcText &value);
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity > > &getPartOfComplex();
+        /**
+         */
+        virtual void release();
+        friend class IfcPhysicalComplexQuantity;
+        friend class ExpressDataSet;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcPhysicalQuantity(Step::SPFData *args);
-    virtual ~IfcPhysicalQuantity();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcPhysicalQuantity(Step::Id id, Step::SPFData *args);
+        virtual ~IfcPhysicalQuantity();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcPhysicalQuantity &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    std::string m_name;
-    std::string m_description;
-    Step::StepSet< Step::RefPtr< IfcPhysicalComplexQuantity > > m_partOfComplex;
-    /**
-     * @param c
-     */
-    IfcPhysicalQuantity(const IfcPhysicalQuantity &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        std::string m_name;
+        /**
+         */
+        std::string m_description;
+        /**
+         */
+        Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity > > m_partOfComplex;
 
-  };
+    };
 
 }
 

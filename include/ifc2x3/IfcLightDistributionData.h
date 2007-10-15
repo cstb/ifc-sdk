@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,151 +30,102 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/BaseObject.h>
-#include <Step/InstantiatableEntity.h>
+#include <Step/ClassType.h>
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Aggregation.h>
-#include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include <Step/BaseEntity.h>
 
 namespace ifc2x3 {
 
-  class IfcLightDistributionData_Factory;
+    class CopyOp;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcLightDistributionData : public Step::InstantiatableEntity, public Step::BaseObject {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'MainPlaneAngle'.
-     * 
-     * @return the value of the explicit attribute 'MainPlaneAngle'
-     */
-    IfcPlaneAngleMeasure getMainPlaneAngle();
-    /**
-     * Sets the value of the explicit attribute 'MainPlaneAngle'.
-     * 
-     * @param value
-     */
-    void setMainPlaneAngle(IfcPlaneAngleMeasure value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'SecondaryPlaneAngle'.
-     * 
-     * @return the value of the explicit attribute 'SecondaryPlaneAngle'
-     */
-    Step::StepList< IfcPlaneAngleMeasure > &getSecondaryPlaneAngle();
-    /**
-     * Sets the value of the explicit attribute 'SecondaryPlaneAngle'.
-     * 
-     * @param value
-     */
-    void setSecondaryPlaneAngle(const Step::StepList< IfcPlaneAngleMeasure > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'LuminousIntensity'.
-     * 
-     * @return the value of the explicit attribute 'LuminousIntensity'
-     */
-    Step::StepList< IfcLuminousIntensityDistributionMeasure > &getLuminousIntensity();
-    /**
-     * Sets the value of the explicit attribute 'LuminousIntensity'.
-     * 
-     * @param value
-     */
-    void setLuminousIntensity(const Step::StepList< IfcLuminousIntensityDistributionMeasure > &value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcLightDistributionData_Factory;
+    class IFC2X3_DLL_DEF IfcLightDistributionData : public Step::BaseEntity {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        IfcPlaneAngleMeasure getMainPlaneAngle();
+        /**
+         * Sets the value of the explicit attribute 'MainPlaneAngle'.
+         * 
+         * @param value
+         */
+        void setMainPlaneAngle(IfcPlaneAngleMeasure value);
+        /**
+         */
+        Step::List< IfcPlaneAngleMeasure > &getSecondaryPlaneAngle();
+        /**
+         * Sets the value of the explicit attribute 'SecondaryPlaneAngle'.
+         * 
+         * @param value
+         */
+        void setSecondaryPlaneAngle(const Step::List< IfcPlaneAngleMeasure > &value);
+        /**
+         */
+        Step::List< IfcLuminousIntensityDistributionMeasure > &getLuminousIntensity();
+        /**
+         * Sets the value of the explicit attribute 'LuminousIntensity'.
+         * 
+         * @param value
+         */
+        void setLuminousIntensity(const Step::List< IfcLuminousIntensityDistributionMeasure > &value);
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcLightDistributionData(Step::SPFData *args);
-    virtual ~IfcLightDistributionData();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcLightDistributionData(Step::Id id, Step::SPFData *args);
+        virtual ~IfcLightDistributionData();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcLightDistributionData &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    Real m_mainPlaneAngle;
-    Step::StepList< IfcPlaneAngleMeasure > m_secondaryPlaneAngle;
-    Step::StepList< IfcLuminousIntensityDistributionMeasure > m_luminousIntensity;
-    /**
-     * @param c
-     */
-    IfcLightDistributionData(const IfcLightDistributionData &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Step::Real m_mainPlaneAngle;
+        /**
+         */
+        Step::List< IfcPlaneAngleMeasure > m_secondaryPlaneAngle;
+        /**
+         */
+        Step::List< IfcLuminousIntensityDistributionMeasure > m_luminousIntensity;
 
-  };
-
-  class IfcLightDistributionData;
-
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcLightDistributionData_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcLightDistributionData_Factory();
-    virtual ~IfcLightDistributionData_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcLightDistributionData *get(Step::StepId id);
-    /**
-     */
-    IfcLightDistributionData *generate();
-    /**
-     * @param id
-     */
-    IfcLightDistributionData *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

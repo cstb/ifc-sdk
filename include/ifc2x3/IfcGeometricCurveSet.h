@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -45,111 +29,66 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <ifc2x3/IfcGeometricSet.h>
 #include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
 #include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include <string>
+#include <Step/SPFData.h>
+#include "ifc2x3/IfcGeometricSet.h"
 
 namespace ifc2x3 {
 
-  class IfcGeometricCurveSet_Factory;
+    class CopyOp;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcGeometricCurveSet : public IfcGeometricSet {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcGeometricCurveSet_Factory;
+    class IFC2X3_DLL_DEF IfcGeometricCurveSet : public IfcGeometricSet {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcGeometricCurveSet(Step::SPFData *args);
-    virtual ~IfcGeometricCurveSet();
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcGeometricCurveSet(Step::Id id, Step::SPFData *args);
+        virtual ~IfcGeometricCurveSet();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcGeometricCurveSet &obj, const CopyOp &copyop);
 
-  private:
-    static Step::ClassType s_type;
-    /**
-     * @param c
-     */
-    IfcGeometricCurveSet(const IfcGeometricCurveSet &c);
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
 
-  };
-
-  class IfcGeometricCurveSet;
-
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcGeometricCurveSet_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcGeometricCurveSet_Factory();
-    virtual ~IfcGeometricCurveSet_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcGeometricCurveSet *get(Step::StepId id);
-    /**
-     */
-    IfcGeometricCurveSet *generate();
-    /**
-     * @param id
-     */
-    IfcGeometricCurveSet *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

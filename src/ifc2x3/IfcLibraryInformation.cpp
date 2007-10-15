@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,249 +24,206 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcLibraryInformation.h>
+#include "ifc2x3/IfcLibraryInformation.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcCalendarDate.h"
+#include "ifc2x3/IfcLibraryReference.h"
+#include "ifc2x3/IfcOrganization.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/Aggregation.h>
+#include <Step/BaseCopyOp.h>
+#include <Step/BaseEntity.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcCalendarDate.h>
-#include <ifc2x3/IfcLibraryReference.h>
-#include <ifc2x3/IfcOrganization.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcLibraryInformation::IfcLibraryInformation(Step::SPFData *args) : Step::BaseObject(args) {
-  m_name = getUnset(m_name);
-  m_version = getUnset(m_version);
-  m_publisher = NULL;
-  m_versionDate = NULL;
-  m_libraryReference.setUnset(true);
+IfcLibraryInformation::IfcLibraryInformation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+    m_name = Step::getUnset(m_name);
+    m_version = Step::getUnset(m_version);
+    m_publisher = NULL;
+    m_versionDate = NULL;
+    m_libraryReference.setUnset(true);
+    m_libraryReference.setOwner(this);
 }
-
 
 IfcLibraryInformation::~IfcLibraryInformation() {
 }
 
 bool IfcLibraryInformation::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcLibraryInformation(this);
+    return static_cast< Visitor * > (v)->visitIfcLibraryInformation(this);
 }
 
-const char *IfcLibraryInformation::type() {
-  return "IfcLibraryInformation";
+const std::string &IfcLibraryInformation::type() {
+    return IfcLibraryInformation::s_type.getName();
 }
 
 Step::ClassType IfcLibraryInformation::getClassType() {
-  return IfcLibraryInformation::s_type;
+    return IfcLibraryInformation::s_type;
 }
 
 Step::ClassType IfcLibraryInformation::getType() const {
-  return IfcLibraryInformation::s_type;
+    return IfcLibraryInformation::s_type;
 }
 
 bool IfcLibraryInformation::isOfType(Step::ClassType t) {
-  return IfcLibraryInformation::s_type == t ? true : Step::BaseObject::isOfType(t);
+    return IfcLibraryInformation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 IfcLabel IfcLibraryInformation::getName() {
-  if (Step::BaseObject::inited()) {
-    return m_name;
-  }
-  else {
-    return getUnset(m_name);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_name;
+    }
+    else {
+        return Step::getUnset(m_name);
+    }
 }
 
 void IfcLibraryInformation::setName(const IfcLabel &value) {
-  m_name = value;
+    m_name = value;
 }
 
 IfcLabel IfcLibraryInformation::getVersion() {
-  if (Step::BaseObject::inited()) {
-    return m_version;
-  }
-  else {
-    return getUnset(m_version);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_version;
+    }
+    else {
+        return Step::getUnset(m_version);
+    }
 }
 
 void IfcLibraryInformation::setVersion(const IfcLabel &value) {
-  m_version = value;
+    m_version = value;
 }
 
 IfcOrganization *IfcLibraryInformation::getPublisher() {
-  if (Step::BaseObject::inited()) {
-    return m_publisher.get();
-  }
-  else {
-    return NULL;
-  }
+    if (Step::BaseObject::inited()) {
+        return m_publisher.get();
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcLibraryInformation::setPublisher(const Step::RefPtr< IfcOrganization > &value) {
-  m_publisher = value;
+    m_publisher = value;
 }
 
 IfcCalendarDate *IfcLibraryInformation::getVersionDate() {
-  if (Step::BaseObject::inited()) {
-    return m_versionDate.get();
-  }
-  else {
-    return NULL;
-  }
+    if (Step::BaseObject::inited()) {
+        return m_versionDate.get();
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcLibraryInformation::setVersionDate(const Step::RefPtr< IfcCalendarDate > &value) {
-  m_versionDate = value;
+    m_versionDate = value;
 }
 
-Step::StepSet< Step::RefPtr< IfcLibraryReference > > &IfcLibraryInformation::getLibraryReference() {
-  if (Step::BaseObject::inited()) {
-    return m_libraryReference;
-  }
-  else {
-    m_libraryReference.setUnset(true);
-    return m_libraryReference;
-  }
-}
-
-void IfcLibraryInformation::setLibraryReference(const Step::StepSet< Step::RefPtr< IfcLibraryReference > > &value) {
-  m_libraryReference = value;
+Step::Set< Step::RefPtr< IfcLibraryReference > > &IfcLibraryInformation::getLibraryReference() {
+    if (Step::BaseObject::inited()) {
+        return m_libraryReference;
+    }
+    else {
+        m_libraryReference.setUnset(true);
+        return m_libraryReference;
+    }
 }
 
 void IfcLibraryInformation::release() {
-  m_publisher.release();
-  m_versionDate.release();
-  m_libraryReference.clear();
+    m_publisher.release();
+    m_versionDate.release();
+    m_libraryReference.clear();
 }
 
 bool IfcLibraryInformation::init() {
-  std::string arg;
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_name = getUnset(m_name);
-  }
-  else {
-    m_name = Step::spfToString(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_version = getUnset(m_version);
-  }
-  else {
-    m_version = Step::spfToString(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_publisher = NULL;
-  }
-  else {
-    m_publisher = static_cast< IfcOrganization * > (m_model->getObjectById(atoi(arg.c_str() + 1)));
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_versionDate = NULL;
-  }
-  else {
-    m_versionDate = static_cast< IfcCalendarDate * > (m_model->getObjectById(atoi(arg.c_str() + 1)));
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_libraryReference.setUnset(true);
-  }
-  else {
-    m_libraryReference.setUnset(false);
-    while (true) {
-      std::string str1;
-      Step::getSubParameter(arg, str1);
-      if (str1 != "") {
-        Step::RefPtr< IfcLibraryReference > attr2;
-        attr2 = static_cast< IfcLibraryReference * > (m_model->getObjectById(atoi(str1.c_str() + 1)));
-        m_libraryReference.insert(attr2);
-      }
-      else {
-        break;
-      }
+    std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_name = Step::getUnset(m_name);
     }
-  }
-  return true;
+    else {
+        m_name = Step::spfToString(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_version = Step::getUnset(m_version);
+    }
+    else {
+        m_version = Step::spfToString(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_publisher = NULL;
+    }
+    else {
+        m_publisher = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_versionDate = NULL;
+    }
+    else {
+        m_versionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_libraryReference.setUnset(true);
+    }
+    else {
+        m_libraryReference.setUnset(false);
+        while (true) {
+            std::string str1;
+            Step::getSubParameter(arg, str1);
+            if (str1 != "") {
+                Step::RefPtr< IfcLibraryReference > attr2;
+                attr2 = static_cast< IfcLibraryReference * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                m_libraryReference.insert(attr2);
+            }
+            else {
+                break;
+            }
+        }
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLibraryInformation::s_type = new Step::ClassType_class("IfcLibraryInformation");
-IfcLibraryInformation_Factory::IfcLibraryInformation_Factory() {
+void IfcLibraryInformation::copy(const IfcLibraryInformation &obj, const CopyOp &copyop) {
+    Step::Set< Step::RefPtr< IfcLibraryReference > >::const_iterator it_m_libraryReference;
+    Step::BaseEntity::copy(obj, copyop);
+    setName(obj.m_name);
+    setVersion(obj.m_version);
+    setPublisher(copyop(obj.m_publisher.get()));
+    setVersionDate(copyop(obj.m_versionDate.get()));
+    for (it_m_libraryReference = obj.m_libraryReference.begin(); it_m_libraryReference != obj.m_libraryReference.end(); ++it_m_libraryReference) {
+        Step::RefPtr< IfcLibraryReference > copyTarget = copyop((*it_m_libraryReference).get());
+        m_libraryReference.insert(copyTarget.get());
+    }
+    return;
 }
 
-IfcLibraryInformation_Factory::~IfcLibraryInformation_Factory() {
-  clear(true);
+IFC2X3_DLL_DEF Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation");
+IfcLibraryInformation::Inverted_LibraryReference_type::Inverted_LibraryReference_type() {
 }
 
-void IfcLibraryInformation_Factory::clear(bool b) {
+void IfcLibraryInformation::Inverted_LibraryReference_type::setOwner(IfcLibraryInformation *owner) {
+    mOwner = owner;
 }
 
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcLibraryInformation_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcLibraryInformation_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcLibraryInformation *IfcLibraryInformation_Factory::get(Step::StepId id) {
-  IfcLibraryInformation *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcLibraryInformation * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcLibraryInformation_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcLibraryInformation * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcLibraryInformation_Factory::create(Step::StepId id) {
-  IfcLibraryInformation *ret = new IfcLibraryInformation(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcLibraryInformation_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcLibraryInformation *ret = new IfcLibraryInformation(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcLibraryInformation_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcLibraryInformation *ret = new IfcLibraryInformation(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcLibraryInformation *IfcLibraryInformation_Factory::generate() {
-  return static_cast< IfcLibraryInformation * > (create(m_model->getNewId()));
-}
-
-IfcLibraryInformation *IfcLibraryInformation_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcLibraryInformation * > (it->second);
-  }
-  else {
-    return NULL;
-  }
+void IfcLibraryInformation::Inverted_LibraryReference_type::insert(const Step::RefPtr< IfcLibraryReference > &value) {
+    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
+    Step::Set< Step::RefPtr< IfcLibraryReference > >::insert(value);
+    inverse->m_referenceIntoLibrary.insert(mOwner);
 }
 

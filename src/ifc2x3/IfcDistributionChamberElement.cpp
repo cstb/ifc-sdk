@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,129 +24,62 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcDistributionChamberElement.h>
+#include "ifc2x3/IfcDistributionChamberElement.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcDistributionFlowElement.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcDistributionChamberElement::IfcDistributionChamberElement(Step::SPFData *args) : IfcDistributionFlowElement(args) {
+IfcDistributionChamberElement::IfcDistributionChamberElement(Step::Id id, Step::SPFData *args) : IfcDistributionFlowElement(id, args) {
 }
-
 
 IfcDistributionChamberElement::~IfcDistributionChamberElement() {
 }
 
 bool IfcDistributionChamberElement::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcDistributionChamberElement(this);
+    return static_cast< Visitor * > (v)->visitIfcDistributionChamberElement(this);
 }
 
-const char *IfcDistributionChamberElement::type() {
-  return "IfcDistributionChamberElement";
+const std::string &IfcDistributionChamberElement::type() {
+    return IfcDistributionChamberElement::s_type.getName();
 }
 
 Step::ClassType IfcDistributionChamberElement::getClassType() {
-  return IfcDistributionChamberElement::s_type;
+    return IfcDistributionChamberElement::s_type;
 }
 
 Step::ClassType IfcDistributionChamberElement::getType() const {
-  return IfcDistributionChamberElement::s_type;
+    return IfcDistributionChamberElement::s_type;
 }
 
 bool IfcDistributionChamberElement::isOfType(Step::ClassType t) {
-  return IfcDistributionChamberElement::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
+    return IfcDistributionChamberElement::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
 }
 
 void IfcDistributionChamberElement::release() {
-  IfcDistributionFlowElement::release();
+    IfcDistributionFlowElement::release();
 }
 
 bool IfcDistributionChamberElement::init() {
-  bool status = IfcDistributionFlowElement::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  return true;
+    bool status = IfcDistributionFlowElement::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDistributionChamberElement::s_type = new Step::ClassType_class("IfcDistributionChamberElement");
-IfcDistributionChamberElement_Factory::IfcDistributionChamberElement_Factory() {
+void IfcDistributionChamberElement::copy(const IfcDistributionChamberElement &obj, const CopyOp &copyop) {
+    IfcDistributionFlowElement::copy(obj, copyop);
+    return;
 }
 
-IfcDistributionChamberElement_Factory::~IfcDistributionChamberElement_Factory() {
-  clear(true);
-}
-
-void IfcDistributionChamberElement_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcDistributionChamberElement_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcDistributionChamberElement_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcDistributionChamberElement *IfcDistributionChamberElement_Factory::get(Step::StepId id) {
-  IfcDistributionChamberElement *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcDistributionChamberElement * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcDistributionChamberElement_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcDistributionChamberElement * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcDistributionChamberElement_Factory::create(Step::StepId id) {
-  IfcDistributionChamberElement *ret = new IfcDistributionChamberElement(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcDistributionChamberElement_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcDistributionChamberElement *ret = new IfcDistributionChamberElement(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcDistributionChamberElement_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcDistributionChamberElement *ret = new IfcDistributionChamberElement(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcDistributionChamberElement *IfcDistributionChamberElement_Factory::generate() {
-  return static_cast< IfcDistributionChamberElement * > (create(m_model->getNewId()));
-}
-
-IfcDistributionChamberElement *IfcDistributionChamberElement_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcDistributionChamberElement * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcDistributionChamberElement::s_type("IfcDistributionChamberElement");

@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,173 +24,108 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcCoilType.h>
+#include "ifc2x3/IfcCoilType.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcEnergyConversionDeviceType.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcCoilType::IfcCoilType(Step::SPFData *args) : IfcEnergyConversionDeviceType(args) {
-  m_predefinedType = IfcCoilTypeEnum_UNSET;
+IfcCoilType::IfcCoilType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
+    m_predefinedType = IfcCoilTypeEnum_UNSET;
 }
-
 
 IfcCoilType::~IfcCoilType() {
 }
 
 bool IfcCoilType::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcCoilType(this);
+    return static_cast< Visitor * > (v)->visitIfcCoilType(this);
 }
 
-const char *IfcCoilType::type() {
-  return "IfcCoilType";
+const std::string &IfcCoilType::type() {
+    return IfcCoilType::s_type.getName();
 }
 
 Step::ClassType IfcCoilType::getClassType() {
-  return IfcCoilType::s_type;
+    return IfcCoilType::s_type;
 }
 
 Step::ClassType IfcCoilType::getType() const {
-  return IfcCoilType::s_type;
+    return IfcCoilType::s_type;
 }
 
 bool IfcCoilType::isOfType(Step::ClassType t) {
-  return IfcCoilType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
+    return IfcCoilType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
 IfcCoilTypeEnum IfcCoilType::getPredefinedType() {
-  if (Step::BaseObject::inited()) {
-    return m_predefinedType;
-  }
-  else {
-    return IfcCoilTypeEnum_UNSET;
-  }
+    if (Step::BaseObject::inited()) {
+        return m_predefinedType;
+    }
+    else {
+        return IfcCoilTypeEnum_UNSET;
+    }
 }
 
 void IfcCoilType::setPredefinedType(IfcCoilTypeEnum value) {
-  m_predefinedType = value;
+    m_predefinedType = value;
 }
 
 void IfcCoilType::release() {
-  IfcEnergyConversionDeviceType::release();
+    IfcEnergyConversionDeviceType::release();
 }
 
 bool IfcCoilType::init() {
-  bool status = IfcEnergyConversionDeviceType::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_predefinedType = IfcCoilTypeEnum_UNSET;
-  }
-  else {
-    if (arg == ".DXCOOLINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_DXCOOLINGCOIL;
+    bool status = IfcEnergyConversionDeviceType::init();
+    std::string arg;
+    if (!status) {
+        return false;
     }
-    else if (arg == ".WATERCOOLINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_WATERCOOLINGCOIL;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_predefinedType = IfcCoilTypeEnum_UNSET;
     }
-    else if (arg == ".STEAMHEATINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_STEAMHEATINGCOIL;
+    else {
+        if (arg == ".DXCOOLINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_DXCOOLINGCOIL;
+        }
+        else if (arg == ".WATERCOOLINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_WATERCOOLINGCOIL;
+        }
+        else if (arg == ".STEAMHEATINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_STEAMHEATINGCOIL;
+        }
+        else if (arg == ".WATERHEATINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_WATERHEATINGCOIL;
+        }
+        else if (arg == ".ELECTRICHEATINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_ELECTRICHEATINGCOIL;
+        }
+        else if (arg == ".GASHEATINGCOIL.") {
+            m_predefinedType = IfcCoilTypeEnum_GASHEATINGCOIL;
+        }
+        else if (arg == ".USERDEFINED.") {
+            m_predefinedType = IfcCoilTypeEnum_USERDEFINED;
+        }
+        else if (arg == ".NOTDEFINED.") {
+            m_predefinedType = IfcCoilTypeEnum_NOTDEFINED;
+        }
     }
-    else if (arg == ".WATERHEATINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_WATERHEATINGCOIL;
-    }
-    else if (arg == ".ELECTRICHEATINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_ELECTRICHEATINGCOIL;
-    }
-    else if (arg == ".GASHEATINGCOIL.") {
-      m_predefinedType = IfcCoilTypeEnum_GASHEATINGCOIL;
-    }
-    else if (arg == ".USERDEFINED.") {
-      m_predefinedType = IfcCoilTypeEnum_USERDEFINED;
-    }
-    else if (arg == ".NOTDEFINED.") {
-      m_predefinedType = IfcCoilTypeEnum_NOTDEFINED;
-    }
-  }
-  return true;
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCoilType::s_type = new Step::ClassType_class("IfcCoilType");
-IfcCoilType_Factory::IfcCoilType_Factory() {
+void IfcCoilType::copy(const IfcCoilType &obj, const CopyOp &copyop) {
+    IfcEnergyConversionDeviceType::copy(obj, copyop);
+    setPredefinedType(obj.m_predefinedType);
+    return;
 }
 
-IfcCoilType_Factory::~IfcCoilType_Factory() {
-  clear(true);
-}
-
-void IfcCoilType_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCoilType_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCoilType_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcCoilType *IfcCoilType_Factory::get(Step::StepId id) {
-  IfcCoilType *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcCoilType * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcCoilType_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcCoilType * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcCoilType_Factory::create(Step::StepId id) {
-  IfcCoilType *ret = new IfcCoilType(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCoilType_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcCoilType *ret = new IfcCoilType(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCoilType_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcCoilType *ret = new IfcCoilType(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcCoilType *IfcCoilType_Factory::generate() {
-  return static_cast< IfcCoilType * > (create(m_model->getNewId()));
-}
-
-IfcCoilType *IfcCoilType_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcCoilType * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcCoilType::s_type("IfcCoilType");

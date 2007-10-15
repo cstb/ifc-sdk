@@ -102,7 +102,6 @@ SET (PROJECT_SOURCES
    IfcBoxedHalfSpace.cpp
    IfcBuilding.cpp
    IfcBuildingElement.cpp
-   IfcBuildingElementComponent.cpp
    IfcBuildingElementPart.cpp
    IfcBuildingElementProxy.cpp
    IfcBuildingElementProxyType.cpp
@@ -700,13 +699,37 @@ SET (PROJECT_SOURCES
    IfcWorkSchedule.cpp
    IfcZShapeProfileDef.cpp
    IfcZone.cpp
+   IfcCivilStructureElement.cpp
+   IfcBridgeStructureElement.cpp
+   IfcBridge.cpp
+   IfcBridgePart.cpp
+   IfcCivilElement.cpp
+   IfcBridgeElement.cpp
+   IfcBridgeSegment.cpp
+   IfcBridgeSegmentPart.cpp
+   IfcBridgeContactElement.cpp
+   IfcBridgePrismaticElement.cpp
+   IfcAlignmentElement.cpp
+   IfcReferenceElement.cpp
+   IfcReferenceCurve.cpp
+   IfcReferenceCurve3D.cpp
+   IfcReferenceCurveAlignment2D.cpp
+   IfcReferencePlacement.cpp
+   IfcReferenceCurvePlacement.cpp
+   IfcReferenceCurvePlacementSystem.cpp
+   IfcElementPart.cpp
+   IfcCivilElementPart.cpp
+   IfcCivilSheath.cpp
+   IfcCivilVoid.cpp
+   IfcClothoid.cpp
+   IfcReferencedSectionedSpine.cpp
    SPFReader.cpp
-   Model.cpp
+   ExpressDataSet.cpp
+   CopyOp.cpp
    SPFWriter.cpp
    Visitor.cpp
    FalseVisitor.cpp
    InheritVisitor.cpp
-   ifc2x3MemoryLeak.cpp
 )
 
 SET (PROJECT_INCLUDES
@@ -814,7 +837,6 @@ SET (PROJECT_INCLUDES
    ../../include/ifc2x3/IfcBoxedHalfSpace.h
    ../../include/ifc2x3/IfcBuilding.h
    ../../include/ifc2x3/IfcBuildingElement.h
-   ../../include/ifc2x3/IfcBuildingElementComponent.h
    ../../include/ifc2x3/IfcBuildingElementPart.h
    ../../include/ifc2x3/IfcBuildingElementProxy.h
    ../../include/ifc2x3/IfcBuildingElementProxyType.h
@@ -1412,8 +1434,33 @@ SET (PROJECT_INCLUDES
    ../../include/ifc2x3/IfcWorkSchedule.h
    ../../include/ifc2x3/IfcZShapeProfileDef.h
    ../../include/ifc2x3/IfcZone.h
+   ../../include/ifc2x3/IfcCivilStructureElement.h
+   ../../include/ifc2x3/IfcBridgeStructureElement.h
+   ../../include/ifc2x3/IfcBridge.h
+   ../../include/ifc2x3/IfcBridgePart.h
+   ../../include/ifc2x3/IfcCivilElement.h
+   ../../include/ifc2x3/IfcBridgeElement.h
+   ../../include/ifc2x3/IfcBridgeSegment.h
+   ../../include/ifc2x3/IfcBridgeSegmentPart.h
+   ../../include/ifc2x3/IfcBridgeContactElement.h
+   ../../include/ifc2x3/IfcBridgePrismaticElement.h
+   ../../include/ifc2x3/IfcAlignmentElement.h
+   ../../include/ifc2x3/IfcReferenceElement.h
+   ../../include/ifc2x3/IfcReferenceCurve.h
+   ../../include/ifc2x3/IfcReferenceCurve3D.h
+   ../../include/ifc2x3/IfcReferenceCurveAlignment2D.h
+   ../../include/ifc2x3/IfcReferencePlacement.h
+   ../../include/ifc2x3/IfcReferenceCurvePlacement.h
+   ../../include/ifc2x3/IfcReferenceCurvePlacementSystem.h
+   ../../include/ifc2x3/IfcElementPart.h
+   ../../include/ifc2x3/IfcCivilElementPart.h
+   ../../include/ifc2x3/IfcCivilSheath.h
+   ../../include/ifc2x3/IfcCivilVoid.h
+   ../../include/ifc2x3/IfcClothoid.h
+   ../../include/ifc2x3/IfcReferencedSectionedSpine.h
    ../../include/ifc2x3/SPFReader.h
-   ../../include/ifc2x3/Model.h
+   ../../include/ifc2x3/ExpressDataSet.h
+   ../../include/ifc2x3/CopyOp.h
    ../../include/ifc2x3/SPFWriter.h
    ../../include/ifc2x3/Visitor.h
    ../../include/ifc2x3/FalseVisitor.h
@@ -1421,13 +1468,15 @@ SET (PROJECT_INCLUDES
    ../../include/ifc2x3/ifc2x3DLL.h
 )
 
-ADD_DEFINITIONS(-DSTEP_EXPORTS)
-ADD_LIBRARY(ifc2x3 SHARED ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
-INCLUDE(UseDelta3D)
 INCLUDE(UseStep)
 
+ADD_LIBRARY(ifc2x3 SHARED ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
 
-TARGET_LINK_LIBRARIES(ifc2x3 ${STEP_LIBRARIES} ${DELTA3D_LIBRARIES})
+
+TARGET_LINK_LIBRARIES(ifc2x3 ${STEP_LIBRARIES} )
 SET_TARGET_PROPERTIES(ifc2x3 PROPERTIES PROJECT_LABEL "ifc2x3")
-
+INSTALL(TARGETS ifc2x3
+        RUNTIME DESTINATION bin
+        LIBRARY DESTINATION lib
+        ARCHIVE DESTINATION lib)
 

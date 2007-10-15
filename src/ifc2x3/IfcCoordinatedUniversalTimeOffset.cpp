@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,192 +24,129 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcCoordinatedUniversalTimeOffset.h>
+#include "ifc2x3/IfcCoordinatedUniversalTimeOffset.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseCopyOp.h>
+#include <Step/BaseEntity.h>
+#include <Step/BaseObject.h>
 #include <Step/logger.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::SPFData *args) : Step::BaseObject(args) {
-  m_hourOffset = getUnset(m_hourOffset);
-  m_minuteOffset = getUnset(m_minuteOffset);
-  m_sense = IfcAheadOrBehind_UNSET;
+IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+    m_hourOffset = Step::getUnset(m_hourOffset);
+    m_minuteOffset = Step::getUnset(m_minuteOffset);
+    m_sense = IfcAheadOrBehind_UNSET;
 }
-
 
 IfcCoordinatedUniversalTimeOffset::~IfcCoordinatedUniversalTimeOffset() {
 }
 
 bool IfcCoordinatedUniversalTimeOffset::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcCoordinatedUniversalTimeOffset(this);
+    return static_cast< Visitor * > (v)->visitIfcCoordinatedUniversalTimeOffset(this);
 }
 
-const char *IfcCoordinatedUniversalTimeOffset::type() {
-  return "IfcCoordinatedUniversalTimeOffset";
+const std::string &IfcCoordinatedUniversalTimeOffset::type() {
+    return IfcCoordinatedUniversalTimeOffset::s_type.getName();
 }
 
 Step::ClassType IfcCoordinatedUniversalTimeOffset::getClassType() {
-  return IfcCoordinatedUniversalTimeOffset::s_type;
+    return IfcCoordinatedUniversalTimeOffset::s_type;
 }
 
 Step::ClassType IfcCoordinatedUniversalTimeOffset::getType() const {
-  return IfcCoordinatedUniversalTimeOffset::s_type;
+    return IfcCoordinatedUniversalTimeOffset::s_type;
 }
 
 bool IfcCoordinatedUniversalTimeOffset::isOfType(Step::ClassType t) {
-  return IfcCoordinatedUniversalTimeOffset::s_type == t ? true : Step::BaseObject::isOfType(t);
+    return IfcCoordinatedUniversalTimeOffset::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() {
-  if (Step::BaseObject::inited()) {
-    return m_hourOffset;
-  }
-  else {
-    return getUnset(m_hourOffset);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_hourOffset;
+    }
+    else {
+        return Step::getUnset(m_hourOffset);
+    }
 }
 
 void IfcCoordinatedUniversalTimeOffset::setHourOffset(IfcHourInDay value) {
-  m_hourOffset = value;
+    m_hourOffset = value;
 }
 
 IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() {
-  if (Step::BaseObject::inited()) {
-    return m_minuteOffset;
-  }
-  else {
-    return getUnset(m_minuteOffset);
-  }
+    if (Step::BaseObject::inited()) {
+        return m_minuteOffset;
+    }
+    else {
+        return Step::getUnset(m_minuteOffset);
+    }
 }
 
 void IfcCoordinatedUniversalTimeOffset::setMinuteOffset(IfcMinuteInHour value) {
-  m_minuteOffset = value;
+    m_minuteOffset = value;
 }
 
 IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() {
-  if (Step::BaseObject::inited()) {
-    return m_sense;
-  }
-  else {
-    return IfcAheadOrBehind_UNSET;
-  }
+    if (Step::BaseObject::inited()) {
+        return m_sense;
+    }
+    else {
+        return IfcAheadOrBehind_UNSET;
+    }
 }
 
 void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value) {
-  m_sense = value;
+    m_sense = value;
 }
 
 void IfcCoordinatedUniversalTimeOffset::release() {
 }
 
 bool IfcCoordinatedUniversalTimeOffset::init() {
-  std::string arg;
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_hourOffset = getUnset(m_hourOffset);
-  }
-  else {
-    m_hourOffset = Step::spfToInteger(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_minuteOffset = getUnset(m_minuteOffset);
-  }
-  else {
-    m_minuteOffset = Step::spfToInteger(arg);
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_sense = IfcAheadOrBehind_UNSET;
-  }
-  else {
-    if (arg == ".AHEAD.") {
-      m_sense = IfcAheadOrBehind_AHEAD;
+    std::string arg;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_hourOffset = Step::getUnset(m_hourOffset);
     }
-    else if (arg == ".BEHIND.") {
-      m_sense = IfcAheadOrBehind_BEHIND;
+    else {
+        m_hourOffset = Step::spfToInteger(arg);
     }
-  }
-  return true;
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_minuteOffset = Step::getUnset(m_minuteOffset);
+    }
+    else {
+        m_minuteOffset = Step::spfToInteger(arg);
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_sense = IfcAheadOrBehind_UNSET;
+    }
+    else {
+        if (arg == ".AHEAD.") {
+            m_sense = IfcAheadOrBehind_AHEAD;
+        }
+        else if (arg == ".BEHIND.") {
+            m_sense = IfcAheadOrBehind_BEHIND;
+        }
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type = new Step::ClassType_class("IfcCoordinatedUniversalTimeOffset");
-IfcCoordinatedUniversalTimeOffset_Factory::IfcCoordinatedUniversalTimeOffset_Factory() {
+void IfcCoordinatedUniversalTimeOffset::copy(const IfcCoordinatedUniversalTimeOffset &obj, const CopyOp &copyop) {
+    Step::BaseEntity::copy(obj, copyop);
+    setHourOffset(obj.m_hourOffset);
+    setMinuteOffset(obj.m_minuteOffset);
+    setSense(obj.m_sense);
+    return;
 }
 
-IfcCoordinatedUniversalTimeOffset_Factory::~IfcCoordinatedUniversalTimeOffset_Factory() {
-  clear(true);
-}
-
-void IfcCoordinatedUniversalTimeOffset_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCoordinatedUniversalTimeOffset_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcCoordinatedUniversalTimeOffset_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcCoordinatedUniversalTimeOffset *IfcCoordinatedUniversalTimeOffset_Factory::get(Step::StepId id) {
-  IfcCoordinatedUniversalTimeOffset *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcCoordinatedUniversalTimeOffset * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcCoordinatedUniversalTimeOffset_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcCoordinatedUniversalTimeOffset * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcCoordinatedUniversalTimeOffset_Factory::create(Step::StepId id) {
-  IfcCoordinatedUniversalTimeOffset *ret = new IfcCoordinatedUniversalTimeOffset(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCoordinatedUniversalTimeOffset_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcCoordinatedUniversalTimeOffset *ret = new IfcCoordinatedUniversalTimeOffset(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcCoordinatedUniversalTimeOffset_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcCoordinatedUniversalTimeOffset *ret = new IfcCoordinatedUniversalTimeOffset(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcCoordinatedUniversalTimeOffset *IfcCoordinatedUniversalTimeOffset_Factory::generate() {
-  return static_cast< IfcCoordinatedUniversalTimeOffset * > (create(m_model->getNewId()));
-}
-
-IfcCoordinatedUniversalTimeOffset *IfcCoordinatedUniversalTimeOffset_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcCoordinatedUniversalTimeOffset * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset");

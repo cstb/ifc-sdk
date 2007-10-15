@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -46,140 +30,107 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/Referenced.h>
-#include <ifc2x3/IfcBoundedCurve.h>
-#include <Step/InstantiatableEntity.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/ClassType.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseFactory.h>
+#include <Step/Aggregation.h>
+#include <string>
+#include <Step/SPFData.h>
+#include "ifc2x3/IfcBoundedCurve.h"
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
-  class IfcCompositeCurveSegment;
-  class IfcCompositeCurve_Factory;
+    class CopyOp;
+    class IfcCompositeCurveSegment;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcCompositeCurve : public Step::InstantiatableEntity, public IfcBoundedCurve {
-  public:
-    /**
-     * Accepts a read/write DatatypeVisitor.
-     * 
-     * @param v the read/write DatatypeVisitor to accept
-     */
-    virtual bool acceptVisitor(Step::BaseVisitor *v);
     /**
      */
-    virtual const char *type();
-    /**
-     */
-    static Step::ClassType getClassType();
-    /**
-     */
-    virtual Step::ClassType getType() const;
-    /**
-     * @param t
-     */
-    virtual bool isOfType(Step::ClassType t);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'Segments'.
-     * 
-     * @return the value of the explicit attribute 'Segments'
-     */
-    Step::StepList< Step::RefPtr< IfcCompositeCurveSegment > > &getSegments();
-    /**
-     * Sets the value of the explicit attribute 'Segments'.
-     * 
-     * @param value
-     */
-    void setSegments(const Step::StepList< Step::RefPtr< IfcCompositeCurveSegment > > &value);
-    /**
-     * (non-const) Returns the value of the explicit attribute 'SelfIntersect'.
-     * 
-     * @return the value of the explicit attribute 'SelfIntersect'
-     */
-    Logical getSelfIntersect();
-    /**
-     * Sets the value of the explicit attribute 'SelfIntersect'.
-     * 
-     * @param value
-     */
-    void setSelfIntersect(Logical value);
-    /**
-     */
-    virtual void release();
-    /**
-     */
-    virtual bool init();
-    friend class IfcCompositeCurve_Factory;
+    class IFC2X3_DLL_DEF IfcCompositeCurve : public IfcBoundedCurve {
+    public:
+        /**
+         * Accepts a read/write DatatypeVisitor.
+         * 
+         * @param v the read/write DatatypeVisitor to accept
+         */
+        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        /**
+         */
+        virtual const std::string &type();
+        /**
+         */
+        static Step::ClassType getClassType();
+        /**
+         */
+        virtual Step::ClassType getType() const;
+        /**
+         * @param t
+         */
+        virtual bool isOfType(Step::ClassType t);
+        /**
+         */
+        Step::List< Step::RefPtr< IfcCompositeCurveSegment > > &getSegments();
+        /**
+         */
+        Step::Logical getSelfIntersect();
+        /**
+         * Sets the value of the explicit attribute 'SelfIntersect'.
+         * 
+         * @param value
+         */
+        void setSelfIntersect(Step::Logical value);
+        /**
+         */
+        virtual void release();
+        friend class ExpressDataSet;
+        /**
+         */
+        class Inverted_Segments_type : public Step::List< Step::RefPtr< IfcCompositeCurveSegment > > {
+        public:
+            /**
+             */
+            IfcCompositeCurve *mOwner;
+            /**
+             */
+            Inverted_Segments_type();
+            /**
+             * @param owner
+             */
+            void setOwner(IfcCompositeCurve *owner);
+            /**
+             * @param value
+             */
+            virtual void push_back(const Step::RefPtr< IfcCompositeCurveSegment > &value);
 
-  protected:
-    /**
-     * @param args
-     */
-    IfcCompositeCurve(Step::SPFData *args);
-    virtual ~IfcCompositeCurve();
+        };
 
-  private:
-    static Step::ClassType s_type;
-    Step::StepList< Step::RefPtr< IfcCompositeCurveSegment > > m_segments;
-    Logical m_selfIntersect;
-    /**
-     * @param c
-     */
-    IfcCompositeCurve(const IfcCompositeCurve &c);
 
-  };
+    protected:
+        /**
+         * @param id
+         * @param args
+         */
+        IfcCompositeCurve(Step::Id id, Step::SPFData *args);
+        virtual ~IfcCompositeCurve();
+        /**
+         */
+        virtual bool init();
+        /**
+         * @param obj
+         * @param copyop
+         */
+        virtual void copy(const IfcCompositeCurve &obj, const CopyOp &copyop);
 
-  class IfcCompositeCurve;
+    private:
+        /**
+         */
+        static Step::ClassType s_type;
+        /**
+         */
+        Inverted_Segments_type m_segments;
+        /**
+         */
+        Step::Logical m_selfIntersect;
 
-  /**
-   */
-  class IFC2X3_DLL_DEF IfcCompositeCurve_Factory : public Step::BaseFactory {
-  public:
-    /**
-     */
-    explicit IfcCompositeCurve_Factory();
-    virtual ~IfcCompositeCurve_Factory();
-    /**
-     * @param b
-     */
-    void clear(bool b);
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator begin();
-    /**
-     */
-    std::map<Step::StepId,Step::BaseObject*>::iterator end();
-    /**
-     * @param id
-     */
-    IfcCompositeCurve *get(Step::StepId id);
-    /**
-     */
-    IfcCompositeCurve *generate();
-    /**
-     * @param id
-     */
-    IfcCompositeCurve *find(Step::StepId id);
-
-  protected:
-    /**
-     * @param id
-     */
-    virtual Step::BaseObject *create(Step::StepId id);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it);
-    /**
-     * @param it
-     */
-    virtual Step::BaseObject *create(std::map<Step::StepId, Step::BaseObject*>::iterator it);
-
-  };
+    };
 
 }
 

@@ -1,38 +1,22 @@
 /*
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 // This File has been generated automaticaly //
-// by Expressik modified generator           //
+// by Expressik generator                    //
 //  Powered by : Eve CSTB                    //
-// ////////////////////////////////////////////
+///////////////////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2005 CSTB                                             *
+ *     Copyright (C) 2007 CSTB                                             *
  *                                                                         *
- *   This library is free software; you can redistribute it and/or         *
- *   modify it under the terms of the GNU Lesser General Public            *
- *   License as published by the Free Software Foundation; either          *
- *   version 2.1 of the License, or (at your option) any later version.    *
- *                                                                         *
- *   This library is distributed in the hope that it will be useful,       *
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU     *
- *   Lesser General Public License for more details.                       *
- *                                                                         *
- *   You should have received a copy of the GNU Lesser General Public      *
- *   License along with this library; if not, write to the                 *
- *         Free Software Foundation, Inc.                                  *
- *         59 Temple Place, Suite 330                                      *
- *         Boston, MA  02111-1307                                          *
- *         USA                                                             *
  *                                                                         *
  *   For further information please contact                                *
  *                                                                         *
  *         eve@cstb.fr                                                     *
  *   or                                                                    *
- *         Eve, CSTB                                                       *
+ *         Mod-Eve, CSTB                                                   *
  *         290, route des Lucioles                                         *
  *         BP 209                                                          *
  *         06904 Sophia Antipolis, France                                  *
@@ -40,152 +24,90 @@
  ***************************************************************************
 */
 
-#include <MemoryLeak.h>
-#include <ifc2x3/IfcRelAssociatesAppliedValue.h>
+#include "ifc2x3/IfcRelAssociatesAppliedValue.h"
 
-
-#include <Step/BaseModel.h>
+#include "ifc2x3/CopyOp.h"
+#include "ifc2x3/IfcAppliedValue.h"
+#include "ifc2x3/IfcRelAssociates.h"
+#include "ifc2x3/Visitor.h"
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseObject.h>
+#include <Step/ClassType.h>
+#include <Step/Referenced.h>
 #include <Step/logger.h>
-#include <ifc2x3/IfcAppliedValue.h>
-#include <ifc2x3/Visitor.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include <stdlib.h>
+#include <string>
 
+#ifdef USE_MEMORYMANAGER
+#include <Tools/MemoryManager/mmgr.h>
+#endif
 using namespace ifc2x3;
 
-IfcRelAssociatesAppliedValue::IfcRelAssociatesAppliedValue(Step::SPFData *args) : IfcRelAssociates(args) {
-  m_relatingAppliedValue = NULL;
+IfcRelAssociatesAppliedValue::IfcRelAssociatesAppliedValue(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
+    m_relatingAppliedValue = NULL;
 }
-
 
 IfcRelAssociatesAppliedValue::~IfcRelAssociatesAppliedValue() {
 }
 
 bool IfcRelAssociatesAppliedValue::acceptVisitor(Step::BaseVisitor *v) {
-  return static_cast< Visitor * > (v)->visitIfcRelAssociatesAppliedValue(this);
+    return static_cast< Visitor * > (v)->visitIfcRelAssociatesAppliedValue(this);
 }
 
-const char *IfcRelAssociatesAppliedValue::type() {
-  return "IfcRelAssociatesAppliedValue";
+const std::string &IfcRelAssociatesAppliedValue::type() {
+    return IfcRelAssociatesAppliedValue::s_type.getName();
 }
 
 Step::ClassType IfcRelAssociatesAppliedValue::getClassType() {
-  return IfcRelAssociatesAppliedValue::s_type;
+    return IfcRelAssociatesAppliedValue::s_type;
 }
 
 Step::ClassType IfcRelAssociatesAppliedValue::getType() const {
-  return IfcRelAssociatesAppliedValue::s_type;
+    return IfcRelAssociatesAppliedValue::s_type;
 }
 
 bool IfcRelAssociatesAppliedValue::isOfType(Step::ClassType t) {
-  return IfcRelAssociatesAppliedValue::s_type == t ? true : IfcRelAssociates::isOfType(t);
+    return IfcRelAssociatesAppliedValue::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
 IfcAppliedValue *IfcRelAssociatesAppliedValue::getRelatingAppliedValue() {
-  if (Step::BaseObject::inited()) {
-    return m_relatingAppliedValue.get();
-  }
-  else {
-    return NULL;
-  }
+    if (Step::BaseObject::inited()) {
+        return m_relatingAppliedValue.get();
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcRelAssociatesAppliedValue::setRelatingAppliedValue(const Step::RefPtr< IfcAppliedValue > &value) {
-  m_relatingAppliedValue = value;
+    m_relatingAppliedValue = value;
 }
 
 void IfcRelAssociatesAppliedValue::release() {
-  IfcRelAssociates::release();
-  m_relatingAppliedValue.release();
+    IfcRelAssociates::release();
+    m_relatingAppliedValue.release();
 }
 
 bool IfcRelAssociatesAppliedValue::init() {
-  bool status = IfcRelAssociates::init();
-  std::string arg;
-  if (!status) {
-    return false;
-  }
-  arg = m_args->getNext();
-  if (arg == "$" || arg == "*") {
-    m_relatingAppliedValue = NULL;
-  }
-  else {
-    m_relatingAppliedValue = static_cast< IfcAppliedValue * > (m_model->getObjectById(atoi(arg.c_str() + 1)));
-  }
-  return true;
+    bool status = IfcRelAssociates::init();
+    std::string arg;
+    if (!status) {
+        return false;
+    }
+    arg = m_args->getNext();
+    if (arg == "$" || arg == "*") {
+        m_relatingAppliedValue = NULL;
+    }
+    else {
+        m_relatingAppliedValue = static_cast< IfcAppliedValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+    }
+    return true;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesAppliedValue::s_type = new Step::ClassType_class("IfcRelAssociatesAppliedValue");
-IfcRelAssociatesAppliedValue_Factory::IfcRelAssociatesAppliedValue_Factory() {
+void IfcRelAssociatesAppliedValue::copy(const IfcRelAssociatesAppliedValue &obj, const CopyOp &copyop) {
+    IfcRelAssociates::copy(obj, copyop);
+    setRelatingAppliedValue(copyop(obj.m_relatingAppliedValue.get()));
+    return;
 }
 
-IfcRelAssociatesAppliedValue_Factory::~IfcRelAssociatesAppliedValue_Factory() {
-  clear(true);
-}
-
-void IfcRelAssociatesAppliedValue_Factory::clear(bool b) {
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelAssociatesAppliedValue_Factory::begin() {
-  return m_idMap.begin();
-}
-
-std::map<Step::StepId,Step::BaseObject*>::iterator IfcRelAssociatesAppliedValue_Factory::end() {
-  return m_idMap.end();
-}
-
-IfcRelAssociatesAppliedValue *IfcRelAssociatesAppliedValue_Factory::get(Step::StepId id) {
-  IfcRelAssociatesAppliedValue *value;
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    value = static_cast< IfcRelAssociatesAppliedValue * > (it->second);
-  }
-  else {
-    LOG_ERROR("IfcRelAssociatesAppliedValue_Factory::get() : Key not found.");
-    return NULL;
-  }
-  if (value) {
-    return value;
-  }
-  else {
-    return static_cast< IfcRelAssociatesAppliedValue * > (create(id));
-  }
-}
-
-Step::BaseObject *IfcRelAssociatesAppliedValue_Factory::create(Step::StepId id) {
-  IfcRelAssociatesAppliedValue *ret = new IfcRelAssociatesAppliedValue(m_model->getArgs(id));
-  ret->set_key(id);
-  m_model->registerObject(id, ret);
-  m_idMap[id] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelAssociatesAppliedValue_Factory::create(STEP_MAP<Step::StepId, Step::BaseObjectPtr >::iterator it) {
-  IfcRelAssociatesAppliedValue *ret = new IfcRelAssociatesAppliedValue(it->second->getArgs());
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  m_idMap[it->first] = ret;
-  return ret;
-}
-
-Step::BaseObject *IfcRelAssociatesAppliedValue_Factory::create(std::map<Step::StepId, Step::BaseObject*>::iterator it) {
-  IfcRelAssociatesAppliedValue *ret = new IfcRelAssociatesAppliedValue(m_model->getArgs(it->first));
-  ret->set_key(it->first);
-  m_model->registerObject(it->first, ret);
-  it->second = ret;
-  return ret;
-}
-
-IfcRelAssociatesAppliedValue *IfcRelAssociatesAppliedValue_Factory::generate() {
-  return static_cast< IfcRelAssociatesAppliedValue * > (create(m_model->getNewId()));
-}
-
-IfcRelAssociatesAppliedValue *IfcRelAssociatesAppliedValue_Factory::find(Step::StepId id) {
-  std::map<Step::StepId,Step::BaseObject*>::iterator it = m_idMap.find(id);
-  if (it != m_idMap.end()) {
-    return static_cast< IfcRelAssociatesAppliedValue * > (it->second);
-  }
-  else {
-    return NULL;
-  }
-}
-
+IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesAppliedValue::s_type("IfcRelAssociatesAppliedValue");
