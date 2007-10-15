@@ -1,5 +1,0 @@
-# - Use Module for Delta3D
-FIND_PACKAGE(Delta3D)
-INCLUDE(UseOpenSceneGraph)
-INCLUDE_DIRECTORIES(${DELTA3D_INCLUDES})
-
