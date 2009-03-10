@@ -8770,9 +8770,9 @@ bool SPFReader::callLoadFunction(const std::string &s) {
     }
 }
 
-bool SPFReader::read(std::ifstream &ifs) {
+bool SPFReader::read(std::istream &data) {
     m_expressDataSet = new ExpressDataSet;
-    if (!Step::BaseSPFReader::read(ifs)) {
+    if (!Step::BaseSPFReader::read(data)) {
         delete m_expressDataSet;
         m_expressDataSet = 0;
         return false;

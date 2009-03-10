@@ -28,7 +28,6 @@
 #define IFC2X3_SPFREADER_H
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <fstream>
 #include <Step/BaseSPFReader.h>
 #include <map>
 #include <string>
@@ -2658,9 +2657,9 @@ namespace ifc2x3 {
          */
         bool loadIFCFACETEDBREPWITHVOIDS(bool isFirst);
         /**
-         * @param ifs
+         * @param data
          */
-        virtual bool read(std::ifstream &ifs);
+        virtual bool read(std::istream &data);
 
     protected:
         /**

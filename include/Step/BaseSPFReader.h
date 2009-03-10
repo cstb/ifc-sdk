@@ -30,7 +30,7 @@
 #include "Types.h"
 #include "SPFHeader.h"
 
-#include <fstream>
+#include <istream>
 #include <string>
 #include <map>
 
@@ -56,11 +56,11 @@ namespace Step {
         virtual ~BaseSPFReader();
 
         /*!
-        \short Load a file from a path
-        @param file an input stream from the input file
+        \short Load  data from a stream
+        @param data an input stream for the input data
         @return true if the file was correctly read
         */
-        virtual bool read(std::ifstream& file);
+        virtual bool read(std::istream& data);
 
         /*!
         \short Get the ExpressDataSet after the loading of the file

@@ -28,7 +28,7 @@
 #include "StepDLL.h"
 #include "SimpleTypes.h"
 
-#include <fstream>
+#include <istream>
 #include <vector>
 
 
@@ -119,11 +119,11 @@ namespace Step {
 
         /*!
         \short Parse an input stream to extract the header
-        @param ifs the input stream. Its position will be set at the end of the header section
+        @param data the input stream. Its position will be set at the end of the header section
         @param counter an integer for line counting. This method updates the counter
         @return true if the header has no syntax error.
         */
-        bool parse(std::ifstream& ifs, unsigned int& counter);
+        bool parse(std::istream& data, unsigned int& counter);
 
     private:
         FileDescription m_fileDescription;

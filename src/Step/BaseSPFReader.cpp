@@ -44,14 +44,14 @@ Step::BaseSPFReader::~BaseSPFReader()
 {
 }
 
-bool Step::BaseSPFReader::read(std::ifstream& file)
+bool Step::BaseSPFReader::read(std::istream& data)
 {
     unsigned long bufferLength = 256000;
     char* buffer = new char[bufferLength];
     std::string::size_type i,from;
     m_currentLineNb = 1;
     // Parse the header
-    if (!m_header.parse(file, m_currentLineNb)) {
+    if (!m_header.parse(data, m_currentLineNb)) {
         LOG_ERROR("BaseSPFReader : Can't parse m_header section, line ");
         delete []buffer;
         return false;
@@ -61,7 +61,7 @@ bool Step::BaseSPFReader::read(std::ifstream& file)
     // DATA section
     string str;
 
-    if (!Step::getLine(file, m_currentLineNb, buffer, bufferLength, str)
+    if (!Step::getLine(data, m_currentLineNb, buffer, bufferLength, str)
             || str != "DATA") {
         LOG_ERROR("BaseSPFReader : Can't find DATA section, line " << m_currentLineNb);
         delete []buffer;
@@ -73,7 +73,7 @@ bool Step::BaseSPFReader::read(std::ifstream& file)
         from = 0;
         LOG_DEBUG("Reading line " <<  m_currentLineNb);
 
-        if (!Step::getLine(file, m_currentLineNb, buffer, bufferLength, str)) {
+        if (!Step::getLine(data, m_currentLineNb, buffer, bufferLength, str)) {
             LOG_ERROR("BaseSPFReader : Unexpected End Of File, line " << m_currentLineNb);
             delete []buffer;
             return false;
@@ -114,14 +114,12 @@ bool Step::BaseSPFReader::read(std::ifstream& file)
             return false;
         }
         m_currentObj->setAllocateFunction(m_currentType);
-        //TODO fill SPFData
-
     }
 
 
     // END-ISO-10303-21
 
-    if (!Step::getLine(file, m_currentLineNb, buffer, bufferLength, str)
+    if (!Step::getLine(data, m_currentLineNb, buffer, bufferLength, str)
             || str != "END-ISO-10303-21") {
         LOG_ERROR("BaseSPFReader : Can't find END-ISO-10303-21 token, line " << m_currentLineNb);
         delete []buffer;

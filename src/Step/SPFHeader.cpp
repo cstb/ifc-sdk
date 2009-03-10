@@ -34,28 +34,28 @@
 
 using namespace std;
 
-bool Step::SPFHeader::parse(std::ifstream& ifs, unsigned int& counter)
+bool Step::SPFHeader::parse(std::istream& data, unsigned int& counter)
 {
     unsigned long bufferLength = 256000;
     char* buffer = new char[bufferLength];
     string::size_type i;
     string str;
     // ISO-10303-21
-    if (!Step::getLine(ifs, counter, buffer, bufferLength, str) || str != "ISO-10303-21") {
-        LOG_ERROR("SPFHeader : Bad file type, should be ISO-10303-21.");
+    if (!Step::getLine(data, counter, buffer, bufferLength, str) || str != "ISO-10303-21") {
+        LOG_ERROR("SPFHeader : Bad data type, should be ISO-10303-21.");
         delete []buffer;
         return false;
     }
 
     // HEADER
-    if (!Step::getLine(ifs, counter, buffer, bufferLength, str) || str != "HEADER") {
+    if (!Step::getLine(data, counter, buffer, bufferLength, str) || str != "HEADER") {
         LOG_ERROR("SPFHeader : Can't find the HEADER section.");
         delete []buffer;
         return false;
     }
 
     // FILE_DESCRIPTION(...,...)
-    Step::getLine(ifs, counter, buffer, bufferLength, str);
+    Step::getLine(data, counter, buffer, bufferLength, str);
     i = str.find('(');
     if (i == string::npos
             || str.substr(0,i) != "FILE_DESCRIPTION") {
@@ -97,7 +97,7 @@ bool Step::SPFHeader::parse(std::ifstream& ifs, unsigned int& counter)
     m_fileDescription.implementationLevel = String::fromSPF(currentParam[1]);
 
     // FILE_NAME arguments
-    getLine(ifs, counter, buffer, bufferLength,str);
+    getLine(data, counter, buffer, bufferLength,str);
     i = str.find('(');
     if (i == string::npos || str.substr(0,i) != "FILE_NAME") {
         LOG_ERROR("SPFHeader : Can't find the FILE_NAME argument.");
@@ -151,7 +151,7 @@ bool Step::SPFHeader::parse(std::ifstream& ifs, unsigned int& counter)
     // arg 7
     m_fileName.authorization = String::fromSPF(currentParam[6]);
 
-    Step::getLine(ifs, counter, buffer, bufferLength, str);
+    Step::getLine(data, counter, buffer, bufferLength, str);
     i = str.find('(');
     if (i == string::npos || str.substr(0,i) != "FILE_SCHEMA") {
         LOG_ERROR("SPFHeader : Can't find the FILE_SCHEMA argument.");
@@ -181,7 +181,7 @@ bool Step::SPFHeader::parse(std::ifstream& ifs, unsigned int& counter)
     m_otherFields = "";
     bool found=false;
     for (unsigned int k = 0; k <6 ; k++) {
-        if (!Step::getLine(ifs, counter, buffer, bufferLength, str)) {
+        if (!Step::getLine(data, counter, buffer, bufferLength, str)) {
             delete []buffer;
             return false;
         }
