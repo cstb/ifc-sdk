@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcFacetedBrepWithVoids::IfcFacetedBrepWithVoids(Step::Id id, Step::SPFData *args) : IfcManifoldSolidBrep(id, args) {
-    m_voids.setUnset(true);
 }
 
 IfcFacetedBrepWithVoids::~IfcFacetedBrepWithVoids() {
 }
 
-bool IfcFacetedBrepWithVoids::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFacetedBrepWithVoids(this);
+bool IfcFacetedBrepWithVoids::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFacetedBrepWithVoids(this);
 }
 
-const std::string &IfcFacetedBrepWithVoids::type() {
+const std::string &IfcFacetedBrepWithVoids::type() const {
     return IfcFacetedBrepWithVoids::s_type.getName();
 }
 
-Step::ClassType IfcFacetedBrepWithVoids::getClassType() {
+const Step::ClassType &IfcFacetedBrepWithVoids::getClassType() {
     return IfcFacetedBrepWithVoids::s_type;
 }
 
-Step::ClassType IfcFacetedBrepWithVoids::getType() const {
+const Step::ClassType &IfcFacetedBrepWithVoids::getType() const {
     return IfcFacetedBrepWithVoids::s_type;
 }
 
-bool IfcFacetedBrepWithVoids::isOfType(Step::ClassType t) {
+bool IfcFacetedBrepWithVoids::isOfType(const Step::ClassType &t) const {
     return IfcFacetedBrepWithVoids::s_type == t ? true : IfcManifoldSolidBrep::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcClosedShell > > &IfcFacetedBrepWithVoids::getVoids() {
+Set_IfcClosedShell_1_n &IfcFacetedBrepWithVoids::getVoids() {
     if (Step::BaseObject::inited()) {
         return m_voids;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcClosedShell > > &IfcFacetedBrepWithVoids::getVoids()
     }
 }
 
-void IfcFacetedBrepWithVoids::setVoids(const Step::Set< Step::RefPtr< IfcClosedShell > > &value) {
-    m_voids = value;
+const Set_IfcClosedShell_1_n &IfcFacetedBrepWithVoids::getVoids() const {
+    IfcFacetedBrepWithVoids * deConstObject = const_cast< IfcFacetedBrepWithVoids * > (this);
+    return deConstObject->getVoids();
 }
 
-void IfcFacetedBrepWithVoids::release() {
-    IfcManifoldSolidBrep::release();
-    m_voids.clear();
+void IfcFacetedBrepWithVoids::setVoids(const Set_IfcClosedShell_1_n &value) {
+    m_voids = value;
 }
 
 bool IfcFacetedBrepWithVoids::init() {
@@ -107,7 +105,7 @@ bool IfcFacetedBrepWithVoids::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcClosedShell > attr2;
-                attr2 = static_cast< IfcClosedShell * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcClosedShell * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_voids.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcFacetedBrepWithVoids::init() {
 }
 
 void IfcFacetedBrepWithVoids::copy(const IfcFacetedBrepWithVoids &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcClosedShell > >::const_iterator it_m_voids;
+    Step::Set< Step::RefPtr< IfcClosedShell >, 1 >::const_iterator it_m_voids;
     IfcManifoldSolidBrep::copy(obj, copyop);
     for (it_m_voids = obj.m_voids.begin(); it_m_voids != obj.m_voids.end(); ++it_m_voids) {
-        Step::RefPtr< IfcClosedShell > copyTarget = copyop((*it_m_voids).get());
+        Step::RefPtr< IfcClosedShell > copyTarget = (IfcClosedShell *) (copyop((*it_m_voids).get()));
         m_voids.insert(copyTarget.get());
     }
     return;

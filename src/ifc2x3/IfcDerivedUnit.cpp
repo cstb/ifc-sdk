@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,7 +45,6 @@
 using namespace ifc2x3;
 
 IfcDerivedUnit::IfcDerivedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_elements.setUnset(true);
     m_unitType = IfcDerivedUnitEnum_UNSET;
     m_userDefinedType = Step::getUnset(m_userDefinedType);
 }
@@ -53,27 +52,27 @@ IfcDerivedUnit::IfcDerivedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEnt
 IfcDerivedUnit::~IfcDerivedUnit() {
 }
 
-bool IfcDerivedUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDerivedUnit(this);
+bool IfcDerivedUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDerivedUnit(this);
 }
 
-const std::string &IfcDerivedUnit::type() {
+const std::string &IfcDerivedUnit::type() const {
     return IfcDerivedUnit::s_type.getName();
 }
 
-Step::ClassType IfcDerivedUnit::getClassType() {
+const Step::ClassType &IfcDerivedUnit::getClassType() {
     return IfcDerivedUnit::s_type;
 }
 
-Step::ClassType IfcDerivedUnit::getType() const {
+const Step::ClassType &IfcDerivedUnit::getType() const {
     return IfcDerivedUnit::s_type;
 }
 
-bool IfcDerivedUnit::isOfType(Step::ClassType t) {
+bool IfcDerivedUnit::isOfType(const Step::ClassType &t) const {
     return IfcDerivedUnit::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcDerivedUnitElement > > &IfcDerivedUnit::getElements() {
+Set_IfcDerivedUnitElement_1_n &IfcDerivedUnit::getElements() {
     if (Step::BaseObject::inited()) {
         return m_elements;
     }
@@ -83,7 +82,12 @@ Step::Set< Step::RefPtr< IfcDerivedUnitElement > > &IfcDerivedUnit::getElements(
     }
 }
 
-void IfcDerivedUnit::setElements(const Step::Set< Step::RefPtr< IfcDerivedUnitElement > > &value) {
+const Set_IfcDerivedUnitElement_1_n &IfcDerivedUnit::getElements() const {
+    IfcDerivedUnit * deConstObject = const_cast< IfcDerivedUnit * > (this);
+    return deConstObject->getElements();
+}
+
+void IfcDerivedUnit::setElements(const Set_IfcDerivedUnitElement_1_n &value) {
     m_elements = value;
 }
 
@@ -94,6 +98,11 @@ IfcDerivedUnitEnum IfcDerivedUnit::getUnitType() {
     else {
         return IfcDerivedUnitEnum_UNSET;
     }
+}
+
+const IfcDerivedUnitEnum IfcDerivedUnit::getUnitType() const {
+    IfcDerivedUnit * deConstObject = const_cast< IfcDerivedUnit * > (this);
+    return deConstObject->getUnitType();
 }
 
 void IfcDerivedUnit::setUnitType(IfcDerivedUnitEnum value) {
@@ -109,12 +118,13 @@ IfcLabel IfcDerivedUnit::getUserDefinedType() {
     }
 }
 
-void IfcDerivedUnit::setUserDefinedType(const IfcLabel &value) {
-    m_userDefinedType = value;
+const IfcLabel IfcDerivedUnit::getUserDefinedType() const {
+    IfcDerivedUnit * deConstObject = const_cast< IfcDerivedUnit * > (this);
+    return deConstObject->getUserDefinedType();
 }
 
-void IfcDerivedUnit::release() {
-    m_elements.clear();
+void IfcDerivedUnit::setUserDefinedType(const IfcLabel &value) {
+    m_userDefinedType = value;
 }
 
 bool IfcDerivedUnit::init() {
@@ -130,7 +140,7 @@ bool IfcDerivedUnit::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcDerivedUnitElement > attr2;
-                attr2 = static_cast< IfcDerivedUnitElement * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcDerivedUnitElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_elements.insert(attr2);
             }
             else {
@@ -296,16 +306,16 @@ bool IfcDerivedUnit::init() {
         m_userDefinedType = Step::getUnset(m_userDefinedType);
     }
     else {
-        m_userDefinedType = Step::spfToString(arg);
+        m_userDefinedType = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcDerivedUnit::copy(const IfcDerivedUnit &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDerivedUnitElement > >::const_iterator it_m_elements;
+    Step::Set< Step::RefPtr< IfcDerivedUnitElement >, 1 >::const_iterator it_m_elements;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_elements = obj.m_elements.begin(); it_m_elements != obj.m_elements.end(); ++it_m_elements) {
-        Step::RefPtr< IfcDerivedUnitElement > copyTarget = copyop((*it_m_elements).get());
+        Step::RefPtr< IfcDerivedUnitElement > copyTarget = (IfcDerivedUnitElement *) (copyop((*it_m_elements).get()));
         m_elements.insert(copyTarget.get());
     }
     setUnitType(obj.m_unitType);

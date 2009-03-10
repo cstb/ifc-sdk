@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityVolume::IfcQuantityVolume(Step::Id id, Step::SPFData *args) : IfcPhys
 IfcQuantityVolume::~IfcQuantityVolume() {
 }
 
-bool IfcQuantityVolume::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityVolume(this);
+bool IfcQuantityVolume::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityVolume(this);
 }
 
-const std::string &IfcQuantityVolume::type() {
+const std::string &IfcQuantityVolume::type() const {
     return IfcQuantityVolume::s_type.getName();
 }
 
-Step::ClassType IfcQuantityVolume::getClassType() {
+const Step::ClassType &IfcQuantityVolume::getClassType() {
     return IfcQuantityVolume::s_type;
 }
 
-Step::ClassType IfcQuantityVolume::getType() const {
+const Step::ClassType &IfcQuantityVolume::getType() const {
     return IfcQuantityVolume::s_type;
 }
 
-bool IfcQuantityVolume::isOfType(Step::ClassType t) {
+bool IfcQuantityVolume::isOfType(const Step::ClassType &t) const {
     return IfcQuantityVolume::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcVolumeMeasure IfcQuantityVolume::getVolumeValue() {
     }
 }
 
-void IfcQuantityVolume::setVolumeValue(IfcVolumeMeasure value) {
-    m_volumeValue = value;
+const IfcVolumeMeasure IfcQuantityVolume::getVolumeValue() const {
+    IfcQuantityVolume * deConstObject = const_cast< IfcQuantityVolume * > (this);
+    return deConstObject->getVolumeValue();
 }
 
-void IfcQuantityVolume::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityVolume::setVolumeValue(IfcVolumeMeasure value) {
+    m_volumeValue = value;
 }
 
 bool IfcQuantityVolume::init() {

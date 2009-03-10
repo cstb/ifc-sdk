@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDimensionCalloutRelationship::IfcDimensionCalloutRelationship(Step::Id id, St
 IfcDimensionCalloutRelationship::~IfcDimensionCalloutRelationship() {
 }
 
-bool IfcDimensionCalloutRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionCalloutRelationship(this);
+bool IfcDimensionCalloutRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionCalloutRelationship(this);
 }
 
-const std::string &IfcDimensionCalloutRelationship::type() {
+const std::string &IfcDimensionCalloutRelationship::type() const {
     return IfcDimensionCalloutRelationship::s_type.getName();
 }
 
-Step::ClassType IfcDimensionCalloutRelationship::getClassType() {
+const Step::ClassType &IfcDimensionCalloutRelationship::getClassType() {
     return IfcDimensionCalloutRelationship::s_type;
 }
 
-Step::ClassType IfcDimensionCalloutRelationship::getType() const {
+const Step::ClassType &IfcDimensionCalloutRelationship::getType() const {
     return IfcDimensionCalloutRelationship::s_type;
 }
 
-bool IfcDimensionCalloutRelationship::isOfType(Step::ClassType t) {
+bool IfcDimensionCalloutRelationship::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCalloutRelationship::s_type == t ? true : IfcDraughtingCalloutRelationship::isOfType(t);
-}
-
-void IfcDimensionCalloutRelationship::release() {
-    IfcDraughtingCalloutRelationship::release();
 }
 
 bool IfcDimensionCalloutRelationship::init() {

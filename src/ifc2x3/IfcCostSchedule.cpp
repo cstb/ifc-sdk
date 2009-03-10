@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -59,23 +60,23 @@ IfcCostSchedule::IfcCostSchedule(Step::Id id, Step::SPFData *args) : IfcControl(
 IfcCostSchedule::~IfcCostSchedule() {
 }
 
-bool IfcCostSchedule::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCostSchedule(this);
+bool IfcCostSchedule::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCostSchedule(this);
 }
 
-const std::string &IfcCostSchedule::type() {
+const std::string &IfcCostSchedule::type() const {
     return IfcCostSchedule::s_type.getName();
 }
 
-Step::ClassType IfcCostSchedule::getClassType() {
+const Step::ClassType &IfcCostSchedule::getClassType() {
     return IfcCostSchedule::s_type;
 }
 
-Step::ClassType IfcCostSchedule::getType() const {
+const Step::ClassType &IfcCostSchedule::getType() const {
     return IfcCostSchedule::s_type;
 }
 
-bool IfcCostSchedule::isOfType(Step::ClassType t) {
+bool IfcCostSchedule::isOfType(const Step::ClassType &t) const {
     return IfcCostSchedule::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -86,6 +87,11 @@ IfcActorSelect *IfcCostSchedule::getSubmittedBy() {
     else {
         return NULL;
     }
+}
+
+const IfcActorSelect *IfcCostSchedule::getSubmittedBy() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getSubmittedBy();
 }
 
 void IfcCostSchedule::setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value) {
@@ -101,6 +107,11 @@ IfcActorSelect *IfcCostSchedule::getPreparedBy() {
     }
 }
 
+const IfcActorSelect *IfcCostSchedule::getPreparedBy() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getPreparedBy();
+}
+
 void IfcCostSchedule::setPreparedBy(const Step::RefPtr< IfcActorSelect > &value) {
     m_preparedBy = value;
 }
@@ -112,6 +123,11 @@ IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getSubmittedOn();
 }
 
 void IfcCostSchedule::setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -127,11 +143,16 @@ IfcLabel IfcCostSchedule::getStatus() {
     }
 }
 
+const IfcLabel IfcCostSchedule::getStatus() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getStatus();
+}
+
 void IfcCostSchedule::setStatus(const IfcLabel &value) {
     m_status = value;
 }
 
-Step::Set< Step::RefPtr< IfcActorSelect > > &IfcCostSchedule::getTargetUsers() {
+Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() {
     if (Step::BaseObject::inited()) {
         return m_targetUsers;
     }
@@ -141,7 +162,12 @@ Step::Set< Step::RefPtr< IfcActorSelect > > &IfcCostSchedule::getTargetUsers() {
     }
 }
 
-void IfcCostSchedule::setTargetUsers(const Step::Set< Step::RefPtr< IfcActorSelect > > &value) {
+const Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getTargetUsers();
+}
+
+void IfcCostSchedule::setTargetUsers(const Set_IfcActorSelect_1_n &value) {
     m_targetUsers = value;
 }
 
@@ -152,6 +178,11 @@ IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getUpdateDate();
 }
 
 void IfcCostSchedule::setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -167,6 +198,11 @@ IfcIdentifier IfcCostSchedule::getID() {
     }
 }
 
+const IfcIdentifier IfcCostSchedule::getID() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getID();
+}
+
 void IfcCostSchedule::setID(const IfcIdentifier &value) {
     m_iD = value;
 }
@@ -180,13 +216,13 @@ IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() {
     }
 }
 
-void IfcCostSchedule::setPredefinedType(IfcCostScheduleTypeEnum value) {
-    m_predefinedType = value;
+const IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() const {
+    IfcCostSchedule * deConstObject = const_cast< IfcCostSchedule * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCostSchedule::release() {
-    IfcControl::release();
-    m_targetUsers.clear();
+void IfcCostSchedule::setPredefinedType(IfcCostScheduleTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCostSchedule::init() {
@@ -257,7 +293,7 @@ bool IfcCostSchedule::init() {
         m_status = Step::getUnset(m_status);
     }
     else {
-        m_status = Step::spfToString(arg);
+        m_status = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -314,7 +350,7 @@ bool IfcCostSchedule::init() {
         m_iD = Step::getUnset(m_iD);
     }
     else {
-        m_iD = Step::spfToString(arg);
+        m_iD = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -353,7 +389,7 @@ bool IfcCostSchedule::init() {
 }
 
 void IfcCostSchedule::copy(const IfcCostSchedule &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcActorSelect > >::const_iterator it_m_targetUsers;
+    Step::Set< Step::RefPtr< IfcActorSelect >, 1 >::const_iterator it_m_targetUsers;
     IfcControl::copy(obj, copyop);
     m_submittedBy = new IfcActorSelect;
     m_submittedBy->copy(*(obj.m_submittedBy.get()), copyop);

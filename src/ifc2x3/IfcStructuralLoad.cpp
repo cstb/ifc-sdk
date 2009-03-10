@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcStructuralLoad::IfcStructuralLoad(Step::Id id, Step::SPFData *args) : Step::B
 IfcStructuralLoad::~IfcStructuralLoad() {
 }
 
-bool IfcStructuralLoad::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoad(this);
+bool IfcStructuralLoad::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoad(this);
 }
 
-const std::string &IfcStructuralLoad::type() {
+const std::string &IfcStructuralLoad::type() const {
     return IfcStructuralLoad::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoad::getClassType() {
+const Step::ClassType &IfcStructuralLoad::getClassType() {
     return IfcStructuralLoad::s_type;
 }
 
-Step::ClassType IfcStructuralLoad::getType() const {
+const Step::ClassType &IfcStructuralLoad::getType() const {
     return IfcStructuralLoad::s_type;
 }
 
-bool IfcStructuralLoad::isOfType(Step::ClassType t) {
+bool IfcStructuralLoad::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoad::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcStructuralLoad::getName() {
     }
 }
 
-void IfcStructuralLoad::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcStructuralLoad::getName() const {
+    IfcStructuralLoad * deConstObject = const_cast< IfcStructuralLoad * > (this);
+    return deConstObject->getName();
 }
 
-void IfcStructuralLoad::release() {
+void IfcStructuralLoad::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcStructuralLoad::init() {
@@ -89,7 +92,7 @@ bool IfcStructuralLoad::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

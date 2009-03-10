@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcLinearDimension::IfcLinearDimension(Step::Id id, Step::SPFData *args) : IfcDi
 IfcLinearDimension::~IfcLinearDimension() {
 }
 
-bool IfcLinearDimension::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLinearDimension(this);
+bool IfcLinearDimension::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLinearDimension(this);
 }
 
-const std::string &IfcLinearDimension::type() {
+const std::string &IfcLinearDimension::type() const {
     return IfcLinearDimension::s_type.getName();
 }
 
-Step::ClassType IfcLinearDimension::getClassType() {
+const Step::ClassType &IfcLinearDimension::getClassType() {
     return IfcLinearDimension::s_type;
 }
 
-Step::ClassType IfcLinearDimension::getType() const {
+const Step::ClassType &IfcLinearDimension::getType() const {
     return IfcLinearDimension::s_type;
 }
 
-bool IfcLinearDimension::isOfType(Step::ClassType t) {
+bool IfcLinearDimension::isOfType(const Step::ClassType &t) const {
     return IfcLinearDimension::s_type == t ? true : IfcDimensionCurveDirectedCallout::isOfType(t);
-}
-
-void IfcLinearDimension::release() {
-    IfcDimensionCurveDirectedCallout::release();
 }
 
 bool IfcLinearDimension::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,13 +30,13 @@
 #include "ifc2x3/IfcUnit.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -48,30 +48,29 @@ using namespace ifc2x3;
 
 IfcPropertyEnumeration::IfcPropertyEnumeration(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_enumerationValues.setUnset(true);
     m_unit = NULL;
 }
 
 IfcPropertyEnumeration::~IfcPropertyEnumeration() {
 }
 
-bool IfcPropertyEnumeration::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyEnumeration(this);
+bool IfcPropertyEnumeration::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyEnumeration(this);
 }
 
-const std::string &IfcPropertyEnumeration::type() {
+const std::string &IfcPropertyEnumeration::type() const {
     return IfcPropertyEnumeration::s_type.getName();
 }
 
-Step::ClassType IfcPropertyEnumeration::getClassType() {
+const Step::ClassType &IfcPropertyEnumeration::getClassType() {
     return IfcPropertyEnumeration::s_type;
 }
 
-Step::ClassType IfcPropertyEnumeration::getType() const {
+const Step::ClassType &IfcPropertyEnumeration::getType() const {
     return IfcPropertyEnumeration::s_type;
 }
 
-bool IfcPropertyEnumeration::isOfType(Step::ClassType t) {
+bool IfcPropertyEnumeration::isOfType(const Step::ClassType &t) const {
     return IfcPropertyEnumeration::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,11 +83,16 @@ IfcLabel IfcPropertyEnumeration::getName() {
     }
 }
 
+const IfcLabel IfcPropertyEnumeration::getName() const {
+    IfcPropertyEnumeration * deConstObject = const_cast< IfcPropertyEnumeration * > (this);
+    return deConstObject->getName();
+}
+
 void IfcPropertyEnumeration::setName(const IfcLabel &value) {
     m_name = value;
 }
 
-Step::List< Step::RefPtr< IfcValue > > &IfcPropertyEnumeration::getEnumerationValues() {
+List_IfcValue_1_n &IfcPropertyEnumeration::getEnumerationValues() {
     if (Step::BaseObject::inited()) {
         return m_enumerationValues;
     }
@@ -98,7 +102,12 @@ Step::List< Step::RefPtr< IfcValue > > &IfcPropertyEnumeration::getEnumerationVa
     }
 }
 
-void IfcPropertyEnumeration::setEnumerationValues(const Step::List< Step::RefPtr< IfcValue > > &value) {
+const List_IfcValue_1_n &IfcPropertyEnumeration::getEnumerationValues() const {
+    IfcPropertyEnumeration * deConstObject = const_cast< IfcPropertyEnumeration * > (this);
+    return deConstObject->getEnumerationValues();
+}
+
+void IfcPropertyEnumeration::setEnumerationValues(const List_IfcValue_1_n &value) {
     m_enumerationValues = value;
 }
 
@@ -111,12 +120,13 @@ IfcUnit *IfcPropertyEnumeration::getUnit() {
     }
 }
 
-void IfcPropertyEnumeration::setUnit(const Step::RefPtr< IfcUnit > &value) {
-    m_unit = value;
+const IfcUnit *IfcPropertyEnumeration::getUnit() const {
+    IfcPropertyEnumeration * deConstObject = const_cast< IfcPropertyEnumeration * > (this);
+    return deConstObject->getUnit();
 }
 
-void IfcPropertyEnumeration::release() {
-    m_enumerationValues.clear();
+void IfcPropertyEnumeration::setUnit(const Step::RefPtr< IfcUnit > &value) {
+    m_unit = value;
 }
 
 bool IfcPropertyEnumeration::init() {
@@ -126,7 +136,7 @@ bool IfcPropertyEnumeration::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -196,7 +206,7 @@ bool IfcPropertyEnumeration::init() {
                             attr2->setIfcParameterValue(tmp_attr2);
                         }
                         if (type2 == "IFCNUMERICMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcNumericMeasure(tmp_attr2);
                         }
@@ -221,12 +231,12 @@ bool IfcPropertyEnumeration::init() {
                             attr2->setIfcElectricCurrentMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCDESCRIPTIVEMEASURE") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcDescriptiveMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOUNTMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcCountMeasure(tmp_attr2);
                         }
@@ -256,7 +266,8 @@ bool IfcPropertyEnumeration::init() {
                             attr2->setIfcNormalisedRatioMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPLEXNUMBER") {
-                            Step::Array< Step::Real > tmp_attr2;
+                            Array_Real_1_2 tmp_attr2;
+                            Array_Real_1_2::iterator it_tmp_attr2 = tmp_attr2.begin();
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -264,7 +275,7 @@ bool IfcPropertyEnumeration::init() {
                                 if (str3 != "") {
                                     Step::Real attr4;
                                     attr4 = Step::spfToReal(str3);
-                                    tmp_attr2.push_back(attr4);
+                                    *(it_tmp_attr2++) = attr4;
                                 }
                                 else {
                                     break;
@@ -283,23 +294,23 @@ bool IfcPropertyEnumeration::init() {
                             attr2->setIfcReal(tmp_attr2);
                         }
                         if (type2 == "IFCBOOLEAN") {
-                            Step::Bool tmp_attr2;
-                            tmp_attr2 = Step::spfToBool(str1);
+                            Step::Boolean tmp_attr2;
+                            tmp_attr2 = Step::spfToBoolean(str1);
                             attr2->setIfcBoolean(tmp_attr2);
                         }
                         if (type2 == "IFCIDENTIFIER") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcIdentifier(tmp_attr2);
                         }
                         if (type2 == "IFCTEXT") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcText(tmp_attr2);
                         }
                         if (type2 == "IFCLABEL") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcLabel(tmp_attr2);
                         }
                         if (type2 == "IFCLOGICAL") {
@@ -393,7 +404,7 @@ bool IfcPropertyEnumeration::init() {
                             attr2->setIfcDynamicViscosityMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                            Step::List< Step::Integer > tmp_attr2;
+                            List_Integer_3_4 tmp_attr2;
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -691,7 +702,7 @@ bool IfcPropertyEnumeration::init() {
 }
 
 void IfcPropertyEnumeration::copy(const IfcPropertyEnumeration &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcValue > >::const_iterator it_m_enumerationValues;
+    Step::List< Step::RefPtr< IfcValue >, 1 >::const_iterator it_m_enumerationValues;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     for (it_m_enumerationValues = obj.m_enumerationValues.begin(); it_m_enumerationValues != obj.m_enumerationValues.end(); ++it_m_enumerationValues) {

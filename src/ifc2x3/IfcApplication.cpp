@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcApplication::IfcApplication(Step::Id id, Step::SPFData *args) : Step::BaseEnt
 IfcApplication::~IfcApplication() {
 }
 
-bool IfcApplication::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcApplication(this);
+bool IfcApplication::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcApplication(this);
 }
 
-const std::string &IfcApplication::type() {
+const std::string &IfcApplication::type() const {
     return IfcApplication::s_type.getName();
 }
 
-Step::ClassType IfcApplication::getClassType() {
+const Step::ClassType &IfcApplication::getClassType() {
     return IfcApplication::s_type;
 }
 
-Step::ClassType IfcApplication::getType() const {
+const Step::ClassType &IfcApplication::getType() const {
     return IfcApplication::s_type;
 }
 
-bool IfcApplication::isOfType(Step::ClassType t) {
+bool IfcApplication::isOfType(const Step::ClassType &t) const {
     return IfcApplication::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcOrganization *IfcApplication::getApplicationDeveloper() {
     else {
         return NULL;
     }
+}
+
+const IfcOrganization *IfcApplication::getApplicationDeveloper() const {
+    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
+    return deConstObject->getApplicationDeveloper();
 }
 
 void IfcApplication::setApplicationDeveloper(const Step::RefPtr< IfcOrganization > &value) {
@@ -95,6 +101,11 @@ IfcLabel IfcApplication::getVersion() {
     }
 }
 
+const IfcLabel IfcApplication::getVersion() const {
+    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
+    return deConstObject->getVersion();
+}
+
 void IfcApplication::setVersion(const IfcLabel &value) {
     m_version = value;
 }
@@ -106,6 +117,11 @@ IfcLabel IfcApplication::getApplicationFullName() {
     else {
         return Step::getUnset(m_applicationFullName);
     }
+}
+
+const IfcLabel IfcApplication::getApplicationFullName() const {
+    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
+    return deConstObject->getApplicationFullName();
 }
 
 void IfcApplication::setApplicationFullName(const IfcLabel &value) {
@@ -121,12 +137,13 @@ IfcIdentifier IfcApplication::getApplicationIdentifier() {
     }
 }
 
-void IfcApplication::setApplicationIdentifier(const IfcIdentifier &value) {
-    m_applicationIdentifier = value;
+const IfcIdentifier IfcApplication::getApplicationIdentifier() const {
+    IfcApplication * deConstObject = const_cast< IfcApplication * > (this);
+    return deConstObject->getApplicationIdentifier();
 }
 
-void IfcApplication::release() {
-    m_applicationDeveloper.release();
+void IfcApplication::setApplicationIdentifier(const IfcIdentifier &value) {
+    m_applicationIdentifier = value;
 }
 
 bool IfcApplication::init() {
@@ -136,35 +153,35 @@ bool IfcApplication::init() {
         m_applicationDeveloper = NULL;
     }
     else {
-        m_applicationDeveloper = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_applicationDeveloper = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_version = Step::getUnset(m_version);
     }
     else {
-        m_version = Step::spfToString(arg);
+        m_version = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_applicationFullName = Step::getUnset(m_applicationFullName);
     }
     else {
-        m_applicationFullName = Step::spfToString(arg);
+        m_applicationFullName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_applicationIdentifier = Step::getUnset(m_applicationIdentifier);
     }
     else {
-        m_applicationIdentifier = Step::spfToString(arg);
+        m_applicationIdentifier = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcApplication::copy(const IfcApplication &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setApplicationDeveloper(copyop(obj.m_applicationDeveloper.get()));
+    setApplicationDeveloper((IfcOrganization*)copyop(obj.m_applicationDeveloper.get()));
     setVersion(obj.m_version);
     setApplicationFullName(obj.m_applicationFullName);
     setApplicationIdentifier(obj.m_applicationIdentifier);

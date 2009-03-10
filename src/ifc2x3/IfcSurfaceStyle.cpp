@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,29 +46,28 @@ using namespace ifc2x3;
 
 IfcSurfaceStyle::IfcSurfaceStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
     m_side = IfcSurfaceSide_UNSET;
-    m_styles.setUnset(true);
 }
 
 IfcSurfaceStyle::~IfcSurfaceStyle() {
 }
 
-bool IfcSurfaceStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyle(this);
+bool IfcSurfaceStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyle(this);
 }
 
-const std::string &IfcSurfaceStyle::type() {
+const std::string &IfcSurfaceStyle::type() const {
     return IfcSurfaceStyle::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyle::getClassType() {
+const Step::ClassType &IfcSurfaceStyle::getClassType() {
     return IfcSurfaceStyle::s_type;
 }
 
-Step::ClassType IfcSurfaceStyle::getType() const {
+const Step::ClassType &IfcSurfaceStyle::getType() const {
     return IfcSurfaceStyle::s_type;
 }
 
-bool IfcSurfaceStyle::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyle::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcSurfaceSide IfcSurfaceStyle::getSide() {
     }
 }
 
+const IfcSurfaceSide IfcSurfaceStyle::getSide() const {
+    IfcSurfaceStyle * deConstObject = const_cast< IfcSurfaceStyle * > (this);
+    return deConstObject->getSide();
+}
+
 void IfcSurfaceStyle::setSide(IfcSurfaceSide value) {
     m_side = value;
 }
 
-Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > > &IfcSurfaceStyle::getStyles() {
+Set_IfcSurfaceStyleElementSelect_1_5 &IfcSurfaceStyle::getStyles() {
     if (Step::BaseObject::inited()) {
         return m_styles;
     }
@@ -95,13 +99,13 @@ Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > > &IfcSurfaceStyle::getS
     }
 }
 
-void IfcSurfaceStyle::setStyles(const Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > > &value) {
-    m_styles = value;
+const Set_IfcSurfaceStyleElementSelect_1_5 &IfcSurfaceStyle::getStyles() const {
+    IfcSurfaceStyle * deConstObject = const_cast< IfcSurfaceStyle * > (this);
+    return deConstObject->getStyles();
 }
 
-void IfcSurfaceStyle::release() {
-    IfcPresentationStyle::release();
-    m_styles.clear();
+void IfcSurfaceStyle::setStyles(const Set_IfcSurfaceStyleElementSelect_1_5 &value) {
+    m_styles = value;
 }
 
 bool IfcSurfaceStyle::init() {
@@ -160,7 +164,7 @@ bool IfcSurfaceStyle::init() {
 }
 
 void IfcSurfaceStyle::copy(const IfcSurfaceStyle &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > >::const_iterator it_m_styles;
+    Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect >, 1, 5 >::const_iterator it_m_styles;
     IfcPresentationStyle::copy(obj, copyop);
     setSide(obj.m_side);
     for (it_m_styles = obj.m_styles.begin(); it_m_styles != obj.m_styles.end(); ++it_m_styles) {

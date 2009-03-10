@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +54,23 @@ IfcCurveStyle::IfcCurveStyle(Step::Id id, Step::SPFData *args) : IfcPresentation
 IfcCurveStyle::~IfcCurveStyle() {
 }
 
-bool IfcCurveStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveStyle(this);
+bool IfcCurveStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveStyle(this);
 }
 
-const std::string &IfcCurveStyle::type() {
+const std::string &IfcCurveStyle::type() const {
     return IfcCurveStyle::s_type.getName();
 }
 
-Step::ClassType IfcCurveStyle::getClassType() {
+const Step::ClassType &IfcCurveStyle::getClassType() {
     return IfcCurveStyle::s_type;
 }
 
-Step::ClassType IfcCurveStyle::getType() const {
+const Step::ClassType &IfcCurveStyle::getType() const {
     return IfcCurveStyle::s_type;
 }
 
-bool IfcCurveStyle::isOfType(Step::ClassType t) {
+bool IfcCurveStyle::isOfType(const Step::ClassType &t) const {
     return IfcCurveStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() {
     else {
         return NULL;
     }
+}
+
+const IfcCurveFontOrScaledCurveFontSelect *IfcCurveStyle::getCurveFont() const {
+    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
+    return deConstObject->getCurveFont();
 }
 
 void IfcCurveStyle::setCurveFont(const Step::RefPtr< IfcCurveFontOrScaledCurveFontSelect > &value) {
@@ -95,6 +101,11 @@ IfcSizeSelect *IfcCurveStyle::getCurveWidth() {
     }
 }
 
+const IfcSizeSelect *IfcCurveStyle::getCurveWidth() const {
+    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
+    return deConstObject->getCurveWidth();
+}
+
 void IfcCurveStyle::setCurveWidth(const Step::RefPtr< IfcSizeSelect > &value) {
     m_curveWidth = value;
 }
@@ -108,12 +119,13 @@ IfcColour *IfcCurveStyle::getCurveColour() {
     }
 }
 
-void IfcCurveStyle::setCurveColour(const Step::RefPtr< IfcColour > &value) {
-    m_curveColour = value;
+const IfcColour *IfcCurveStyle::getCurveColour() const {
+    IfcCurveStyle * deConstObject = const_cast< IfcCurveStyle * > (this);
+    return deConstObject->getCurveColour();
 }
 
-void IfcCurveStyle::release() {
-    IfcPresentationStyle::release();
+void IfcCurveStyle::setCurveColour(const Step::RefPtr< IfcColour > &value) {
+    m_curveColour = value;
 }
 
 bool IfcCurveStyle::init() {
@@ -168,8 +180,8 @@ bool IfcCurveStyle::init() {
                     m_curveWidth->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_curveWidth->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {

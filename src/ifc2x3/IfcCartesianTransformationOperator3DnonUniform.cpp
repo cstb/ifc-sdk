@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcCartesianTransformationOperator3DnonUniform::IfcCartesianTransformationOperat
 IfcCartesianTransformationOperator3DnonUniform::~IfcCartesianTransformationOperator3DnonUniform() {
 }
 
-bool IfcCartesianTransformationOperator3DnonUniform::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCartesianTransformationOperator3DnonUniform(this);
+bool IfcCartesianTransformationOperator3DnonUniform::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCartesianTransformationOperator3DnonUniform(this);
 }
 
-const std::string &IfcCartesianTransformationOperator3DnonUniform::type() {
+const std::string &IfcCartesianTransformationOperator3DnonUniform::type() const {
     return IfcCartesianTransformationOperator3DnonUniform::s_type.getName();
 }
 
-Step::ClassType IfcCartesianTransformationOperator3DnonUniform::getClassType() {
+const Step::ClassType &IfcCartesianTransformationOperator3DnonUniform::getClassType() {
     return IfcCartesianTransformationOperator3DnonUniform::s_type;
 }
 
-Step::ClassType IfcCartesianTransformationOperator3DnonUniform::getType() const {
+const Step::ClassType &IfcCartesianTransformationOperator3DnonUniform::getType() const {
     return IfcCartesianTransformationOperator3DnonUniform::s_type;
 }
 
-bool IfcCartesianTransformationOperator3DnonUniform::isOfType(Step::ClassType t) {
+bool IfcCartesianTransformationOperator3DnonUniform::isOfType(const Step::ClassType &t) const {
     return IfcCartesianTransformationOperator3DnonUniform::s_type == t ? true : IfcCartesianTransformationOperator3D::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale2() {
     else {
         return Step::getUnset(m_scale2);
     }
+}
+
+const Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale2() const {
+    IfcCartesianTransformationOperator3DnonUniform * deConstObject = const_cast< IfcCartesianTransformationOperator3DnonUniform * > (this);
+    return deConstObject->getScale2();
 }
 
 void IfcCartesianTransformationOperator3DnonUniform::setScale2(Step::Real value) {
@@ -89,12 +94,13 @@ Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale3() {
     }
 }
 
-void IfcCartesianTransformationOperator3DnonUniform::setScale3(Step::Real value) {
-    m_scale3 = value;
+const Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale3() const {
+    IfcCartesianTransformationOperator3DnonUniform * deConstObject = const_cast< IfcCartesianTransformationOperator3DnonUniform * > (this);
+    return deConstObject->getScale3();
 }
 
-void IfcCartesianTransformationOperator3DnonUniform::release() {
-    IfcCartesianTransformationOperator3D::release();
+void IfcCartesianTransformationOperator3DnonUniform::setScale3(Step::Real value) {
+    m_scale3 = value;
 }
 
 bool IfcCartesianTransformationOperator3DnonUniform::init() {

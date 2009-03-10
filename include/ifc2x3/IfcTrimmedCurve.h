@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,10 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include "ifc2x3/IfcTrimmingSelect.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcBoundedCurve.h"
 #include <Step/Referenced.h>
 
@@ -48,72 +46,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcTrimmedCurve : public IfcBoundedCurve {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'BasisCurve'.
+         * 
          */
-        IfcCurve *getBasisCurve();
+        virtual IfcCurve *getBasisCurve();
+        /**
+         * (const) Returns the value of the explicit attribute 'BasisCurve'.
+         * 
+         * @return the value of the explicit attribute 'BasisCurve'
+         */
+        virtual const IfcCurve *getBasisCurve() const;
         /**
          * Sets the value of the explicit attribute 'BasisCurve'.
          * 
          * @param value
          */
-        void setBasisCurve(const Step::RefPtr< IfcCurve > &value);
+        virtual void setBasisCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * Gets the value of the explicit attribute 'Trim1'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcTrimmingSelect > > &getTrim1();
+        virtual Set_IfcTrimmingSelect_1_2 &getTrim1();
+        /**
+         * (const) Returns the value of the explicit attribute 'Trim1'.
+         * 
+         * @return the value of the explicit attribute 'Trim1'
+         */
+        virtual const Set_IfcTrimmingSelect_1_2 &getTrim1() const;
         /**
          * Sets the value of the explicit attribute 'Trim1'.
          * 
          * @param value
          */
-        void setTrim1(const Step::Set< Step::RefPtr< IfcTrimmingSelect > > &value);
+        virtual void setTrim1(const Set_IfcTrimmingSelect_1_2 &value);
         /**
+         * Gets the value of the explicit attribute 'Trim2'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcTrimmingSelect > > &getTrim2();
+        virtual Set_IfcTrimmingSelect_1_2 &getTrim2();
+        /**
+         * (const) Returns the value of the explicit attribute 'Trim2'.
+         * 
+         * @return the value of the explicit attribute 'Trim2'
+         */
+        virtual const Set_IfcTrimmingSelect_1_2 &getTrim2() const;
         /**
          * Sets the value of the explicit attribute 'Trim2'.
          * 
          * @param value
          */
-        void setTrim2(const Step::Set< Step::RefPtr< IfcTrimmingSelect > > &value);
+        virtual void setTrim2(const Set_IfcTrimmingSelect_1_2 &value);
         /**
+         * Gets the value of the explicit attribute 'SenseAgreement'.
+         * 
          */
-        Step::Bool getSenseAgreement();
+        virtual Step::Boolean getSenseAgreement();
+        /**
+         * (const) Returns the value of the explicit attribute 'SenseAgreement'.
+         * 
+         * @return the value of the explicit attribute 'SenseAgreement'
+         */
+        virtual const Step::Boolean getSenseAgreement() const;
         /**
          * Sets the value of the explicit attribute 'SenseAgreement'.
          * 
          * @param value
          */
-        void setSenseAgreement(Step::Bool value);
+        virtual void setSenseAgreement(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'MasterRepresentation'.
+         * 
          */
-        IfcTrimmingPreference getMasterRepresentation();
+        virtual IfcTrimmingPreference getMasterRepresentation();
+        /**
+         * (const) Returns the value of the explicit attribute 'MasterRepresentation'.
+         * 
+         * @return the value of the explicit attribute 'MasterRepresentation'
+         */
+        virtual const IfcTrimmingPreference getMasterRepresentation() const;
         /**
          * Sets the value of the explicit attribute 'MasterRepresentation'.
          * 
          * @param value
          */
-        void setMasterRepresentation(IfcTrimmingPreference value);
-        /**
-         */
-        virtual void release();
+        virtual void setMasterRepresentation(IfcTrimmingPreference value);
         friend class ExpressDataSet;
 
     protected:
@@ -141,13 +184,13 @@ namespace ifc2x3 {
         Step::RefPtr< IfcCurve > m_basisCurve;
         /**
          */
-        Step::Set< Step::RefPtr< IfcTrimmingSelect > > m_trim1;
+        Set_IfcTrimmingSelect_1_2 m_trim1;
         /**
          */
-        Step::Set< Step::RefPtr< IfcTrimmingSelect > > m_trim2;
+        Set_IfcTrimmingSelect_1_2 m_trim2;
         /**
          */
-        Step::Bool m_senseAgreement;
+        Step::Boolean m_senseAgreement;
         /**
          */
         IfcTrimmingPreference m_masterRepresentation;

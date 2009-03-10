@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCoilType::IfcCoilType(Step::Id id, Step::SPFData *args) : IfcEnergyConversion
 IfcCoilType::~IfcCoilType() {
 }
 
-bool IfcCoilType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCoilType(this);
+bool IfcCoilType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCoilType(this);
 }
 
-const std::string &IfcCoilType::type() {
+const std::string &IfcCoilType::type() const {
     return IfcCoilType::s_type.getName();
 }
 
-Step::ClassType IfcCoilType::getClassType() {
+const Step::ClassType &IfcCoilType::getClassType() {
     return IfcCoilType::s_type;
 }
 
-Step::ClassType IfcCoilType::getType() const {
+const Step::ClassType &IfcCoilType::getType() const {
     return IfcCoilType::s_type;
 }
 
-bool IfcCoilType::isOfType(Step::ClassType t) {
+bool IfcCoilType::isOfType(const Step::ClassType &t) const {
     return IfcCoilType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCoilTypeEnum IfcCoilType::getPredefinedType() {
     }
 }
 
-void IfcCoilType::setPredefinedType(IfcCoilTypeEnum value) {
-    m_predefinedType = value;
+const IfcCoilTypeEnum IfcCoilType::getPredefinedType() const {
+    IfcCoilType * deConstObject = const_cast< IfcCoilType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCoilType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcCoilType::setPredefinedType(IfcCoilTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCoilType::init() {

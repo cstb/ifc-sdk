@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,72 +44,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcGeneralProfileProperties : public IfcProfileProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'PhysicalWeight'.
+         * 
          */
-        IfcMassPerLengthMeasure getPhysicalWeight();
+        virtual IfcMassPerLengthMeasure getPhysicalWeight();
+        /**
+         * (const) Returns the value of the explicit attribute 'PhysicalWeight'.
+         * 
+         * @return the value of the explicit attribute 'PhysicalWeight'
+         */
+        virtual const IfcMassPerLengthMeasure getPhysicalWeight() const;
         /**
          * Sets the value of the explicit attribute 'PhysicalWeight'.
          * 
          * @param value
          */
-        void setPhysicalWeight(IfcMassPerLengthMeasure value);
+        virtual void setPhysicalWeight(IfcMassPerLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Perimeter'.
+         * 
          */
-        IfcPositiveLengthMeasure getPerimeter();
+        virtual IfcPositiveLengthMeasure getPerimeter();
+        /**
+         * (const) Returns the value of the explicit attribute 'Perimeter'.
+         * 
+         * @return the value of the explicit attribute 'Perimeter'
+         */
+        virtual const IfcPositiveLengthMeasure getPerimeter() const;
         /**
          * Sets the value of the explicit attribute 'Perimeter'.
          * 
          * @param value
          */
-        void setPerimeter(IfcPositiveLengthMeasure value);
+        virtual void setPerimeter(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinimumPlateThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getMinimumPlateThickness();
+        virtual IfcPositiveLengthMeasure getMinimumPlateThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinimumPlateThickness'.
+         * 
+         * @return the value of the explicit attribute 'MinimumPlateThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getMinimumPlateThickness() const;
         /**
          * Sets the value of the explicit attribute 'MinimumPlateThickness'.
          * 
          * @param value
          */
-        void setMinimumPlateThickness(IfcPositiveLengthMeasure value);
+        virtual void setMinimumPlateThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MaximumPlateThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getMaximumPlateThickness();
+        virtual IfcPositiveLengthMeasure getMaximumPlateThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaximumPlateThickness'.
+         * 
+         * @return the value of the explicit attribute 'MaximumPlateThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getMaximumPlateThickness() const;
         /**
          * Sets the value of the explicit attribute 'MaximumPlateThickness'.
          * 
          * @param value
          */
-        void setMaximumPlateThickness(IfcPositiveLengthMeasure value);
+        virtual void setMaximumPlateThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CrossSectionArea'.
+         * 
          */
-        IfcAreaMeasure getCrossSectionArea();
+        virtual IfcAreaMeasure getCrossSectionArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'CrossSectionArea'.
+         * 
+         * @return the value of the explicit attribute 'CrossSectionArea'
+         */
+        virtual const IfcAreaMeasure getCrossSectionArea() const;
         /**
          * Sets the value of the explicit attribute 'CrossSectionArea'.
          * 
          * @param value
          */
-        void setCrossSectionArea(IfcAreaMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setCrossSectionArea(IfcAreaMeasure value);
         friend class ExpressDataSet;
 
     protected:

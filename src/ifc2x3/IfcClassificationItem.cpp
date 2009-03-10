@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -50,30 +51,28 @@ IfcClassificationItem::IfcClassificationItem(Step::Id id, Step::SPFData *args) :
     m_notation = NULL;
     m_itemOf = NULL;
     m_title = Step::getUnset(m_title);
-    m_isClassifiedItemIn.setUnset(true);
-    m_isClassifyingItemIn.setUnset(true);
 }
 
 IfcClassificationItem::~IfcClassificationItem() {
 }
 
-bool IfcClassificationItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassificationItem(this);
+bool IfcClassificationItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassificationItem(this);
 }
 
-const std::string &IfcClassificationItem::type() {
+const std::string &IfcClassificationItem::type() const {
     return IfcClassificationItem::s_type.getName();
 }
 
-Step::ClassType IfcClassificationItem::getClassType() {
+const Step::ClassType &IfcClassificationItem::getClassType() {
     return IfcClassificationItem::s_type;
 }
 
-Step::ClassType IfcClassificationItem::getType() const {
+const Step::ClassType &IfcClassificationItem::getType() const {
     return IfcClassificationItem::s_type;
 }
 
-bool IfcClassificationItem::isOfType(Step::ClassType t) {
+bool IfcClassificationItem::isOfType(const Step::ClassType &t) const {
     return IfcClassificationItem::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,6 +83,11 @@ IfcClassificationNotationFacet *IfcClassificationItem::getNotation() {
     else {
         return NULL;
     }
+}
+
+const IfcClassificationNotationFacet *IfcClassificationItem::getNotation() const {
+    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
+    return deConstObject->getNotation();
 }
 
 void IfcClassificationItem::setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value) {
@@ -99,9 +103,19 @@ IfcClassification *IfcClassificationItem::getItemOf() {
     }
 }
 
+const IfcClassification *IfcClassificationItem::getItemOf() const {
+    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
+    return deConstObject->getItemOf();
+}
+
 void IfcClassificationItem::setItemOf(const Step::RefPtr< IfcClassification > &value) {
+    if (m_itemOf.valid()) {
+        m_itemOf->m_contains.erase(this);
+    }
+    if (value.valid()) {
+        value->m_contains.insert(this);
+    }
     m_itemOf = value;
-    m_itemOf->m_contains.insert(this);
 }
 
 IfcLabel IfcClassificationItem::getTitle() {
@@ -113,11 +127,16 @@ IfcLabel IfcClassificationItem::getTitle() {
     }
 }
 
+const IfcLabel IfcClassificationItem::getTitle() const {
+    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
+    return deConstObject->getTitle();
+}
+
 void IfcClassificationItem::setTitle(const IfcLabel &value) {
     m_title = value;
 }
 
-Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &IfcClassificationItem::getIsClassifiedItemIn() {
+Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifiedItemIn;
     }
@@ -127,7 +146,12 @@ Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &IfcClassificatio
     }
 }
 
-Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &IfcClassificationItem::getIsClassifyingItemIn() {
+const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() const {
+    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
+    return deConstObject->getIsClassifiedItemIn();
+}
+
+Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifyingItemIn;
     }
@@ -137,9 +161,9 @@ Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &IfcClassificatio
     }
 }
 
-void IfcClassificationItem::release() {
-    m_notation.release();
-    m_itemOf.release();
+const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() const {
+    IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
+    return deConstObject->getIsClassifyingItemIn();
 }
 
 bool IfcClassificationItem::init() {
@@ -150,21 +174,21 @@ bool IfcClassificationItem::init() {
         m_notation = NULL;
     }
     else {
-        m_notation = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_notation = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_itemOf = NULL;
     }
     else {
-        m_itemOf = static_cast< IfcClassification * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_itemOf = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_title = Step::getUnset(m_title);
     }
     else {
-        m_title = Step::spfToString(arg);
+        m_title = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 1);
     if (inverses) {
@@ -187,8 +211,8 @@ bool IfcClassificationItem::init() {
 
 void IfcClassificationItem::copy(const IfcClassificationItem &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setNotation(copyop(obj.m_notation.get()));
-    setItemOf(copyop(obj.m_itemOf.get()));
+    setNotation((IfcClassificationNotationFacet*)copyop(obj.m_notation.get()));
+    setItemOf((IfcClassification*)copyop(obj.m_itemOf.get()));
     setTitle(obj.m_title);
     return;
 }

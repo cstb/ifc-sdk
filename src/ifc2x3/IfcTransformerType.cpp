@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcTransformerType::IfcTransformerType(Step::Id id, Step::SPFData *args) : IfcEn
 IfcTransformerType::~IfcTransformerType() {
 }
 
-bool IfcTransformerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTransformerType(this);
+bool IfcTransformerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTransformerType(this);
 }
 
-const std::string &IfcTransformerType::type() {
+const std::string &IfcTransformerType::type() const {
     return IfcTransformerType::s_type.getName();
 }
 
-Step::ClassType IfcTransformerType::getClassType() {
+const Step::ClassType &IfcTransformerType::getClassType() {
     return IfcTransformerType::s_type;
 }
 
-Step::ClassType IfcTransformerType::getType() const {
+const Step::ClassType &IfcTransformerType::getType() const {
     return IfcTransformerType::s_type;
 }
 
-bool IfcTransformerType::isOfType(Step::ClassType t) {
+bool IfcTransformerType::isOfType(const Step::ClassType &t) const {
     return IfcTransformerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcTransformerTypeEnum IfcTransformerType::getPredefinedType() {
     }
 }
 
-void IfcTransformerType::setPredefinedType(IfcTransformerTypeEnum value) {
-    m_predefinedType = value;
+const IfcTransformerTypeEnum IfcTransformerType::getPredefinedType() const {
+    IfcTransformerType * deConstObject = const_cast< IfcTransformerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcTransformerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcTransformerType::setPredefinedType(IfcTransformerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcTransformerType::init() {

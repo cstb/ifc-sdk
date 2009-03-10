@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -58,23 +58,23 @@ IfcOwnerHistory::IfcOwnerHistory(Step::Id id, Step::SPFData *args) : Step::BaseE
 IfcOwnerHistory::~IfcOwnerHistory() {
 }
 
-bool IfcOwnerHistory::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOwnerHistory(this);
+bool IfcOwnerHistory::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOwnerHistory(this);
 }
 
-const std::string &IfcOwnerHistory::type() {
+const std::string &IfcOwnerHistory::type() const {
     return IfcOwnerHistory::s_type.getName();
 }
 
-Step::ClassType IfcOwnerHistory::getClassType() {
+const Step::ClassType &IfcOwnerHistory::getClassType() {
     return IfcOwnerHistory::s_type;
 }
 
-Step::ClassType IfcOwnerHistory::getType() const {
+const Step::ClassType &IfcOwnerHistory::getType() const {
     return IfcOwnerHistory::s_type;
 }
 
-bool IfcOwnerHistory::isOfType(Step::ClassType t) {
+bool IfcOwnerHistory::isOfType(const Step::ClassType &t) const {
     return IfcOwnerHistory::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -85,6 +85,11 @@ IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() {
     else {
         return NULL;
     }
+}
+
+const IfcPersonAndOrganization *IfcOwnerHistory::getOwningUser() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getOwningUser();
 }
 
 void IfcOwnerHistory::setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value) {
@@ -100,6 +105,11 @@ IfcApplication *IfcOwnerHistory::getOwningApplication() {
     }
 }
 
+const IfcApplication *IfcOwnerHistory::getOwningApplication() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getOwningApplication();
+}
+
 void IfcOwnerHistory::setOwningApplication(const Step::RefPtr< IfcApplication > &value) {
     m_owningApplication = value;
 }
@@ -111,6 +121,11 @@ IfcStateEnum IfcOwnerHistory::getState() {
     else {
         return IfcStateEnum_UNSET;
     }
+}
+
+const IfcStateEnum IfcOwnerHistory::getState() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getState();
 }
 
 void IfcOwnerHistory::setState(IfcStateEnum value) {
@@ -126,6 +141,11 @@ IfcChangeActionEnum IfcOwnerHistory::getChangeAction() {
     }
 }
 
+const IfcChangeActionEnum IfcOwnerHistory::getChangeAction() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getChangeAction();
+}
+
 void IfcOwnerHistory::setChangeAction(IfcChangeActionEnum value) {
     m_changeAction = value;
 }
@@ -137,6 +157,11 @@ IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() {
     else {
         return Step::getUnset(m_lastModifiedDate);
     }
+}
+
+const IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getLastModifiedDate();
 }
 
 void IfcOwnerHistory::setLastModifiedDate(IfcTimeStamp value) {
@@ -152,6 +177,11 @@ IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() {
     }
 }
 
+const IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getLastModifyingUser();
+}
+
 void IfcOwnerHistory::setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value) {
     m_lastModifyingUser = value;
 }
@@ -163,6 +193,11 @@ IfcApplication *IfcOwnerHistory::getLastModifyingApplication() {
     else {
         return NULL;
     }
+}
+
+const IfcApplication *IfcOwnerHistory::getLastModifyingApplication() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getLastModifyingApplication();
 }
 
 void IfcOwnerHistory::setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value) {
@@ -178,15 +213,13 @@ IfcTimeStamp IfcOwnerHistory::getCreationDate() {
     }
 }
 
-void IfcOwnerHistory::setCreationDate(IfcTimeStamp value) {
-    m_creationDate = value;
+const IfcTimeStamp IfcOwnerHistory::getCreationDate() const {
+    IfcOwnerHistory * deConstObject = const_cast< IfcOwnerHistory * > (this);
+    return deConstObject->getCreationDate();
 }
 
-void IfcOwnerHistory::release() {
-    m_owningUser.release();
-    m_owningApplication.release();
-    m_lastModifyingUser.release();
-    m_lastModifyingApplication.release();
+void IfcOwnerHistory::setCreationDate(IfcTimeStamp value) {
+    m_creationDate = value;
 }
 
 bool IfcOwnerHistory::init() {
@@ -196,14 +229,14 @@ bool IfcOwnerHistory::init() {
         m_owningUser = NULL;
     }
     else {
-        m_owningUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_owningUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_owningApplication = NULL;
     }
     else {
-        m_owningApplication = static_cast< IfcApplication * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_owningApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -262,14 +295,14 @@ bool IfcOwnerHistory::init() {
         m_lastModifyingUser = NULL;
     }
     else {
-        m_lastModifyingUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_lastModifyingUser = static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_lastModifyingApplication = NULL;
     }
     else {
-        m_lastModifyingApplication = static_cast< IfcApplication * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_lastModifyingApplication = static_cast< IfcApplication * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -283,13 +316,13 @@ bool IfcOwnerHistory::init() {
 
 void IfcOwnerHistory::copy(const IfcOwnerHistory &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setOwningUser(copyop(obj.m_owningUser.get()));
-    setOwningApplication(copyop(obj.m_owningApplication.get()));
+    setOwningUser((IfcPersonAndOrganization*)copyop(obj.m_owningUser.get()));
+    setOwningApplication((IfcApplication*)copyop(obj.m_owningApplication.get()));
     setState(obj.m_state);
     setChangeAction(obj.m_changeAction);
     setLastModifiedDate(obj.m_lastModifiedDate);
-    setLastModifyingUser(copyop(obj.m_lastModifyingUser.get()));
-    setLastModifyingApplication(copyop(obj.m_lastModifyingApplication.get()));
+    setLastModifyingUser((IfcPersonAndOrganization*)copyop(obj.m_lastModifyingUser.get()));
+    setLastModifyingApplication((IfcApplication*)copyop(obj.m_lastModifyingApplication.get()));
     setCreationDate(obj.m_creationDate);
     return;
 }

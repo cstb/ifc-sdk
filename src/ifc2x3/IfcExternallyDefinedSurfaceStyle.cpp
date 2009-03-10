@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcExternallyDefinedSurfaceStyle::IfcExternallyDefinedSurfaceStyle(Step::Id id, 
 IfcExternallyDefinedSurfaceStyle::~IfcExternallyDefinedSurfaceStyle() {
 }
 
-bool IfcExternallyDefinedSurfaceStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExternallyDefinedSurfaceStyle(this);
+bool IfcExternallyDefinedSurfaceStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExternallyDefinedSurfaceStyle(this);
 }
 
-const std::string &IfcExternallyDefinedSurfaceStyle::type() {
+const std::string &IfcExternallyDefinedSurfaceStyle::type() const {
     return IfcExternallyDefinedSurfaceStyle::s_type.getName();
 }
 
-Step::ClassType IfcExternallyDefinedSurfaceStyle::getClassType() {
+const Step::ClassType &IfcExternallyDefinedSurfaceStyle::getClassType() {
     return IfcExternallyDefinedSurfaceStyle::s_type;
 }
 
-Step::ClassType IfcExternallyDefinedSurfaceStyle::getType() const {
+const Step::ClassType &IfcExternallyDefinedSurfaceStyle::getType() const {
     return IfcExternallyDefinedSurfaceStyle::s_type;
 }
 
-bool IfcExternallyDefinedSurfaceStyle::isOfType(Step::ClassType t) {
+bool IfcExternallyDefinedSurfaceStyle::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedSurfaceStyle::s_type == t ? true : IfcExternalReference::isOfType(t);
-}
-
-void IfcExternallyDefinedSurfaceStyle::release() {
-    IfcExternalReference::release();
 }
 
 bool IfcExternallyDefinedSurfaceStyle::init() {

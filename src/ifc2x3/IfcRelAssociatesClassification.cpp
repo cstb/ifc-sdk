@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcRelAssociatesClassification::IfcRelAssociatesClassification(Step::Id id, Step
 IfcRelAssociatesClassification::~IfcRelAssociatesClassification() {
 }
 
-bool IfcRelAssociatesClassification::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesClassification(this);
+bool IfcRelAssociatesClassification::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesClassification(this);
 }
 
-const std::string &IfcRelAssociatesClassification::type() {
+const std::string &IfcRelAssociatesClassification::type() const {
     return IfcRelAssociatesClassification::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesClassification::getClassType() {
+const Step::ClassType &IfcRelAssociatesClassification::getClassType() {
     return IfcRelAssociatesClassification::s_type;
 }
 
-Step::ClassType IfcRelAssociatesClassification::getType() const {
+const Step::ClassType &IfcRelAssociatesClassification::getType() const {
     return IfcRelAssociatesClassification::s_type;
 }
 
-bool IfcRelAssociatesClassification::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesClassification::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesClassification::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcClassificationNotationSelect *IfcRelAssociatesClassification::getRelatingClas
     }
 }
 
-void IfcRelAssociatesClassification::setRelatingClassification(const Step::RefPtr< IfcClassificationNotationSelect > &value) {
-    m_relatingClassification = value;
+const IfcClassificationNotationSelect *IfcRelAssociatesClassification::getRelatingClassification() const {
+    IfcRelAssociatesClassification * deConstObject = const_cast< IfcRelAssociatesClassification * > (this);
+    return deConstObject->getRelatingClassification();
 }
 
-void IfcRelAssociatesClassification::release() {
-    IfcRelAssociates::release();
+void IfcRelAssociatesClassification::setRelatingClassification(const Step::RefPtr< IfcClassificationNotationSelect > &value) {
+    m_relatingClassification = value;
 }
 
 bool IfcRelAssociatesClassification::init() {

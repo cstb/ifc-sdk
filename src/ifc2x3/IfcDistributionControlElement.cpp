@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -44,29 +45,28 @@ using namespace ifc2x3;
 
 IfcDistributionControlElement::IfcDistributionControlElement(Step::Id id, Step::SPFData *args) : IfcDistributionElement(id, args) {
     m_controlElementId = Step::getUnset(m_controlElementId);
-    m_assignedToFlowElement.setUnset(true);
 }
 
 IfcDistributionControlElement::~IfcDistributionControlElement() {
 }
 
-bool IfcDistributionControlElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDistributionControlElement(this);
+bool IfcDistributionControlElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDistributionControlElement(this);
 }
 
-const std::string &IfcDistributionControlElement::type() {
+const std::string &IfcDistributionControlElement::type() const {
     return IfcDistributionControlElement::s_type.getName();
 }
 
-Step::ClassType IfcDistributionControlElement::getClassType() {
+const Step::ClassType &IfcDistributionControlElement::getClassType() {
     return IfcDistributionControlElement::s_type;
 }
 
-Step::ClassType IfcDistributionControlElement::getType() const {
+const Step::ClassType &IfcDistributionControlElement::getType() const {
     return IfcDistributionControlElement::s_type;
 }
 
-bool IfcDistributionControlElement::isOfType(Step::ClassType t) {
+bool IfcDistributionControlElement::isOfType(const Step::ClassType &t) const {
     return IfcDistributionControlElement::s_type == t ? true : IfcDistributionElement::isOfType(t);
 }
 
@@ -79,11 +79,16 @@ IfcIdentifier IfcDistributionControlElement::getControlElementId() {
     }
 }
 
+const IfcIdentifier IfcDistributionControlElement::getControlElementId() const {
+    IfcDistributionControlElement * deConstObject = const_cast< IfcDistributionControlElement * > (this);
+    return deConstObject->getControlElementId();
+}
+
 void IfcDistributionControlElement::setControlElementId(const IfcIdentifier &value) {
     m_controlElementId = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelFlowControlElements > > &IfcDistributionControlElement::getAssignedToFlowElement() {
+Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() {
     if (Step::BaseObject::inited()) {
         return m_assignedToFlowElement;
     }
@@ -93,8 +98,9 @@ Step::Set< Step::ObsPtr< IfcRelFlowControlElements > > &IfcDistributionControlEl
     }
 }
 
-void IfcDistributionControlElement::release() {
-    IfcDistributionElement::release();
+const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() const {
+    IfcDistributionControlElement * deConstObject = const_cast< IfcDistributionControlElement * > (this);
+    return deConstObject->getAssignedToFlowElement();
 }
 
 bool IfcDistributionControlElement::init() {
@@ -109,7 +115,7 @@ bool IfcDistributionControlElement::init() {
         m_controlElementId = Step::getUnset(m_controlElementId);
     }
     else {
-        m_controlElementId = Step::spfToString(arg);
+        m_controlElementId = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcRelFlowControlElements::getClassType(), 4);
     if (inverses) {

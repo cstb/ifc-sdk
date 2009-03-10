@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcRibPlateProfileProperties::IfcRibPlateProfileProperties(Step::Id id, Step::SP
 IfcRibPlateProfileProperties::~IfcRibPlateProfileProperties() {
 }
 
-bool IfcRibPlateProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRibPlateProfileProperties(this);
+bool IfcRibPlateProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRibPlateProfileProperties(this);
 }
 
-const std::string &IfcRibPlateProfileProperties::type() {
+const std::string &IfcRibPlateProfileProperties::type() const {
     return IfcRibPlateProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcRibPlateProfileProperties::getClassType() {
+const Step::ClassType &IfcRibPlateProfileProperties::getClassType() {
     return IfcRibPlateProfileProperties::s_type;
 }
 
-Step::ClassType IfcRibPlateProfileProperties::getType() const {
+const Step::ClassType &IfcRibPlateProfileProperties::getType() const {
     return IfcRibPlateProfileProperties::s_type;
 }
 
-bool IfcRibPlateProfileProperties::isOfType(Step::ClassType t) {
+bool IfcRibPlateProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcRibPlateProfileProperties::s_type == t ? true : IfcProfileProperties::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getThickness() {
     else {
         return Step::getUnset(m_thickness);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getThickness() const {
+    IfcRibPlateProfileProperties * deConstObject = const_cast< IfcRibPlateProfileProperties * > (this);
+    return deConstObject->getThickness();
 }
 
 void IfcRibPlateProfileProperties::setThickness(IfcPositiveLengthMeasure value) {
@@ -92,6 +97,11 @@ IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibHeight() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibHeight() const {
+    IfcRibPlateProfileProperties * deConstObject = const_cast< IfcRibPlateProfileProperties * > (this);
+    return deConstObject->getRibHeight();
+}
+
 void IfcRibPlateProfileProperties::setRibHeight(IfcPositiveLengthMeasure value) {
     m_ribHeight = value;
 }
@@ -103,6 +113,11 @@ IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibWidth() {
     else {
         return Step::getUnset(m_ribWidth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibWidth() const {
+    IfcRibPlateProfileProperties * deConstObject = const_cast< IfcRibPlateProfileProperties * > (this);
+    return deConstObject->getRibWidth();
 }
 
 void IfcRibPlateProfileProperties::setRibWidth(IfcPositiveLengthMeasure value) {
@@ -118,6 +133,11 @@ IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibSpacing() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibSpacing() const {
+    IfcRibPlateProfileProperties * deConstObject = const_cast< IfcRibPlateProfileProperties * > (this);
+    return deConstObject->getRibSpacing();
+}
+
 void IfcRibPlateProfileProperties::setRibSpacing(IfcPositiveLengthMeasure value) {
     m_ribSpacing = value;
 }
@@ -131,12 +151,13 @@ IfcRibPlateDirectionEnum IfcRibPlateProfileProperties::getDirection() {
     }
 }
 
-void IfcRibPlateProfileProperties::setDirection(IfcRibPlateDirectionEnum value) {
-    m_direction = value;
+const IfcRibPlateDirectionEnum IfcRibPlateProfileProperties::getDirection() const {
+    IfcRibPlateProfileProperties * deConstObject = const_cast< IfcRibPlateProfileProperties * > (this);
+    return deConstObject->getDirection();
 }
 
-void IfcRibPlateProfileProperties::release() {
-    IfcProfileProperties::release();
+void IfcRibPlateProfileProperties::setDirection(IfcRibPlateDirectionEnum value) {
+    m_direction = value;
 }
 
 bool IfcRibPlateProfileProperties::init() {

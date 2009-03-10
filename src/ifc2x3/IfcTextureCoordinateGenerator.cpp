@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -46,29 +47,28 @@ using namespace ifc2x3;
 
 IfcTextureCoordinateGenerator::IfcTextureCoordinateGenerator(Step::Id id, Step::SPFData *args) : IfcTextureCoordinate(id, args) {
     m_mode = Step::getUnset(m_mode);
-    m_parameter.setUnset(true);
 }
 
 IfcTextureCoordinateGenerator::~IfcTextureCoordinateGenerator() {
 }
 
-bool IfcTextureCoordinateGenerator::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextureCoordinateGenerator(this);
+bool IfcTextureCoordinateGenerator::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextureCoordinateGenerator(this);
 }
 
-const std::string &IfcTextureCoordinateGenerator::type() {
+const std::string &IfcTextureCoordinateGenerator::type() const {
     return IfcTextureCoordinateGenerator::s_type.getName();
 }
 
-Step::ClassType IfcTextureCoordinateGenerator::getClassType() {
+const Step::ClassType &IfcTextureCoordinateGenerator::getClassType() {
     return IfcTextureCoordinateGenerator::s_type;
 }
 
-Step::ClassType IfcTextureCoordinateGenerator::getType() const {
+const Step::ClassType &IfcTextureCoordinateGenerator::getType() const {
     return IfcTextureCoordinateGenerator::s_type;
 }
 
-bool IfcTextureCoordinateGenerator::isOfType(Step::ClassType t) {
+bool IfcTextureCoordinateGenerator::isOfType(const Step::ClassType &t) const {
     return IfcTextureCoordinateGenerator::s_type == t ? true : IfcTextureCoordinate::isOfType(t);
 }
 
@@ -81,11 +81,16 @@ IfcLabel IfcTextureCoordinateGenerator::getMode() {
     }
 }
 
+const IfcLabel IfcTextureCoordinateGenerator::getMode() const {
+    IfcTextureCoordinateGenerator * deConstObject = const_cast< IfcTextureCoordinateGenerator * > (this);
+    return deConstObject->getMode();
+}
+
 void IfcTextureCoordinateGenerator::setMode(const IfcLabel &value) {
     m_mode = value;
 }
 
-Step::List< Step::RefPtr< IfcSimpleValue > > &IfcTextureCoordinateGenerator::getParameter() {
+List_IfcSimpleValue_1_n &IfcTextureCoordinateGenerator::getParameter() {
     if (Step::BaseObject::inited()) {
         return m_parameter;
     }
@@ -95,13 +100,13 @@ Step::List< Step::RefPtr< IfcSimpleValue > > &IfcTextureCoordinateGenerator::get
     }
 }
 
-void IfcTextureCoordinateGenerator::setParameter(const Step::List< Step::RefPtr< IfcSimpleValue > > &value) {
-    m_parameter = value;
+const List_IfcSimpleValue_1_n &IfcTextureCoordinateGenerator::getParameter() const {
+    IfcTextureCoordinateGenerator * deConstObject = const_cast< IfcTextureCoordinateGenerator * > (this);
+    return deConstObject->getParameter();
 }
 
-void IfcTextureCoordinateGenerator::release() {
-    IfcTextureCoordinate::release();
-    m_parameter.clear();
+void IfcTextureCoordinateGenerator::setParameter(const List_IfcSimpleValue_1_n &value) {
+    m_parameter = value;
 }
 
 bool IfcTextureCoordinateGenerator::init() {
@@ -115,7 +120,7 @@ bool IfcTextureCoordinateGenerator::init() {
         m_mode = Step::getUnset(m_mode);
     }
     else {
-        m_mode = Step::spfToString(arg);
+        m_mode = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -150,23 +155,23 @@ bool IfcTextureCoordinateGenerator::init() {
                             attr2->setIfcReal(tmp_attr2);
                         }
                         if (type2 == "IFCBOOLEAN") {
-                            Step::Bool tmp_attr2;
-                            tmp_attr2 = Step::spfToBool(str1);
+                            Step::Boolean tmp_attr2;
+                            tmp_attr2 = Step::spfToBoolean(str1);
                             attr2->setIfcBoolean(tmp_attr2);
                         }
                         if (type2 == "IFCIDENTIFIER") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcIdentifier(tmp_attr2);
                         }
                         if (type2 == "IFCTEXT") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcText(tmp_attr2);
                         }
                         if (type2 == "IFCLABEL") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcLabel(tmp_attr2);
                         }
                         if (type2 == "IFCLOGICAL") {
@@ -187,7 +192,7 @@ bool IfcTextureCoordinateGenerator::init() {
 }
 
 void IfcTextureCoordinateGenerator::copy(const IfcTextureCoordinateGenerator &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcSimpleValue > >::const_iterator it_m_parameter;
+    Step::List< Step::RefPtr< IfcSimpleValue >, 1 >::const_iterator it_m_parameter;
     IfcTextureCoordinate::copy(obj, copyop);
     setMode(obj.m_mode);
     for (it_m_parameter = obj.m_parameter.begin(); it_m_parameter != obj.m_parameter.end(); ++it_m_parameter) {

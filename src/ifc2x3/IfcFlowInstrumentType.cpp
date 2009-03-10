@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFlowInstrumentType::IfcFlowInstrumentType(Step::Id id, Step::SPFData *args) :
 IfcFlowInstrumentType::~IfcFlowInstrumentType() {
 }
 
-bool IfcFlowInstrumentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowInstrumentType(this);
+bool IfcFlowInstrumentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowInstrumentType(this);
 }
 
-const std::string &IfcFlowInstrumentType::type() {
+const std::string &IfcFlowInstrumentType::type() const {
     return IfcFlowInstrumentType::s_type.getName();
 }
 
-Step::ClassType IfcFlowInstrumentType::getClassType() {
+const Step::ClassType &IfcFlowInstrumentType::getClassType() {
     return IfcFlowInstrumentType::s_type;
 }
 
-Step::ClassType IfcFlowInstrumentType::getType() const {
+const Step::ClassType &IfcFlowInstrumentType::getType() const {
     return IfcFlowInstrumentType::s_type;
 }
 
-bool IfcFlowInstrumentType::isOfType(Step::ClassType t) {
+bool IfcFlowInstrumentType::isOfType(const Step::ClassType &t) const {
     return IfcFlowInstrumentType::s_type == t ? true : IfcDistributionControlElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFlowInstrumentTypeEnum IfcFlowInstrumentType::getPredefinedType() {
     }
 }
 
-void IfcFlowInstrumentType::setPredefinedType(IfcFlowInstrumentTypeEnum value) {
-    m_predefinedType = value;
+const IfcFlowInstrumentTypeEnum IfcFlowInstrumentType::getPredefinedType() const {
+    IfcFlowInstrumentType * deConstObject = const_cast< IfcFlowInstrumentType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFlowInstrumentType::release() {
-    IfcDistributionControlElementType::release();
+void IfcFlowInstrumentType::setPredefinedType(IfcFlowInstrumentTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFlowInstrumentType::init() {

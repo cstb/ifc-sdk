@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcOpeningElement::IfcOpeningElement(Step::Id id, Step::SPFData *args) : IfcFeatureElementSubtraction(id, args) {
-    m_hasFillings.setUnset(true);
 }
 
 IfcOpeningElement::~IfcOpeningElement() {
 }
 
-bool IfcOpeningElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOpeningElement(this);
+bool IfcOpeningElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOpeningElement(this);
 }
 
-const std::string &IfcOpeningElement::type() {
+const std::string &IfcOpeningElement::type() const {
     return IfcOpeningElement::s_type.getName();
 }
 
-Step::ClassType IfcOpeningElement::getClassType() {
+const Step::ClassType &IfcOpeningElement::getClassType() {
     return IfcOpeningElement::s_type;
 }
 
-Step::ClassType IfcOpeningElement::getType() const {
+const Step::ClassType &IfcOpeningElement::getType() const {
     return IfcOpeningElement::s_type;
 }
 
-bool IfcOpeningElement::isOfType(Step::ClassType t) {
+bool IfcOpeningElement::isOfType(const Step::ClassType &t) const {
     return IfcOpeningElement::s_type == t ? true : IfcFeatureElementSubtraction::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelFillsElement > > &IfcOpeningElement::getHasFillings() {
+Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() {
     if (Step::BaseObject::inited()) {
         return m_hasFillings;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelFillsElement > > &IfcOpeningElement::getHasFillin
     }
 }
 
-void IfcOpeningElement::release() {
-    IfcFeatureElementSubtraction::release();
+const Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() const {
+    IfcOpeningElement * deConstObject = const_cast< IfcOpeningElement * > (this);
+    return deConstObject->getHasFillings();
 }
 
 bool IfcOpeningElement::init() {

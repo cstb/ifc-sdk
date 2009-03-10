@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,19 +26,19 @@
 
 #include "ifc2x3/IfcTypeObject.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcObjectDefinition.h"
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include "ifc2x3/IfcRelDefinesByType.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -47,33 +47,51 @@
 #endif
 using namespace ifc2x3;
 
+Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type() {
+}
+
+void Inverted_IfcTypeObject_HasPropertySets_type::setOwner(IfcTypeObject *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcTypeObject_HasPropertySets_type::insert(const Step::RefPtr< IfcPropertySetDefinition > &value) throw(std::out_of_range) {
+    IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
+    Set_IfcPropertySetDefinition_1_n::insert(value);
+    inverse->m_definesType.insert(mOwner);
+}
+
+Inverted_IfcTypeObject_HasPropertySets_type::size_type Inverted_IfcTypeObject_HasPropertySets_type::erase(const Step::RefPtr< IfcPropertySetDefinition > &value) {
+    IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
+    inverse->m_definesType.erase(mOwner);
+    return Set_IfcPropertySetDefinition_1_n::erase(value);
+}
+
 IfcTypeObject::IfcTypeObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
     m_applicableOccurrence = Step::getUnset(m_applicableOccurrence);
     m_hasPropertySets.setUnset(true);
     m_hasPropertySets.setOwner(this);
-    m_objectTypeOf.setUnset(true);
 }
 
 IfcTypeObject::~IfcTypeObject() {
 }
 
-bool IfcTypeObject::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTypeObject(this);
+bool IfcTypeObject::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTypeObject(this);
 }
 
-const std::string &IfcTypeObject::type() {
+const std::string &IfcTypeObject::type() const {
     return IfcTypeObject::s_type.getName();
 }
 
-Step::ClassType IfcTypeObject::getClassType() {
+const Step::ClassType &IfcTypeObject::getClassType() {
     return IfcTypeObject::s_type;
 }
 
-Step::ClassType IfcTypeObject::getType() const {
+const Step::ClassType &IfcTypeObject::getType() const {
     return IfcTypeObject::s_type;
 }
 
-bool IfcTypeObject::isOfType(Step::ClassType t) {
+bool IfcTypeObject::isOfType(const Step::ClassType &t) const {
     return IfcTypeObject::s_type == t ? true : IfcObjectDefinition::isOfType(t);
 }
 
@@ -86,11 +104,16 @@ IfcLabel IfcTypeObject::getApplicableOccurrence() {
     }
 }
 
+const IfcLabel IfcTypeObject::getApplicableOccurrence() const {
+    IfcTypeObject * deConstObject = const_cast< IfcTypeObject * > (this);
+    return deConstObject->getApplicableOccurrence();
+}
+
 void IfcTypeObject::setApplicableOccurrence(const IfcLabel &value) {
     m_applicableOccurrence = value;
 }
 
-Step::Set< Step::RefPtr< IfcPropertySetDefinition > > &IfcTypeObject::getHasPropertySets() {
+Set_IfcPropertySetDefinition_1_n &IfcTypeObject::getHasPropertySets() {
     if (Step::BaseObject::inited()) {
         return m_hasPropertySets;
     }
@@ -100,7 +123,12 @@ Step::Set< Step::RefPtr< IfcPropertySetDefinition > > &IfcTypeObject::getHasProp
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelDefinesByType > > &IfcTypeObject::getObjectTypeOf() {
+const Set_IfcPropertySetDefinition_1_n &IfcTypeObject::getHasPropertySets() const {
+    IfcTypeObject * deConstObject = const_cast< IfcTypeObject * > (this);
+    return deConstObject->getHasPropertySets();
+}
+
+Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
     if (Step::BaseObject::inited()) {
         return m_objectTypeOf;
     }
@@ -110,9 +138,9 @@ Step::Set< Step::ObsPtr< IfcRelDefinesByType > > &IfcTypeObject::getObjectTypeOf
     }
 }
 
-void IfcTypeObject::release() {
-    IfcObjectDefinition::release();
-    m_hasPropertySets.clear();
+const Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() const {
+    IfcTypeObject * deConstObject = const_cast< IfcTypeObject * > (this);
+    return deConstObject->getObjectTypeOf();
 }
 
 bool IfcTypeObject::init() {
@@ -127,7 +155,7 @@ bool IfcTypeObject::init() {
         m_applicableOccurrence = Step::getUnset(m_applicableOccurrence);
     }
     else {
-        m_applicableOccurrence = Step::spfToString(arg);
+        m_applicableOccurrence = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -140,7 +168,7 @@ bool IfcTypeObject::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcPropertySetDefinition > attr2;
-                attr2 = static_cast< IfcPropertySetDefinition * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcPropertySetDefinition * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_hasPropertySets.insert(attr2);
             }
             else {
@@ -160,27 +188,14 @@ bool IfcTypeObject::init() {
 }
 
 void IfcTypeObject::copy(const IfcTypeObject &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::const_iterator it_m_hasPropertySets;
+    Step::Set< Step::RefPtr< IfcPropertySetDefinition >, 1 >::const_iterator it_m_hasPropertySets;
     IfcObjectDefinition::copy(obj, copyop);
     setApplicableOccurrence(obj.m_applicableOccurrence);
     for (it_m_hasPropertySets = obj.m_hasPropertySets.begin(); it_m_hasPropertySets != obj.m_hasPropertySets.end(); ++it_m_hasPropertySets) {
-        Step::RefPtr< IfcPropertySetDefinition > copyTarget = copyop((*it_m_hasPropertySets).get());
+        Step::RefPtr< IfcPropertySetDefinition > copyTarget = (IfcPropertySetDefinition *) (copyop((*it_m_hasPropertySets).get()));
         m_hasPropertySets.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcTypeObject::s_type("IfcTypeObject");
-IfcTypeObject::Inverted_HasPropertySets_type::Inverted_HasPropertySets_type() {
-}
-
-void IfcTypeObject::Inverted_HasPropertySets_type::setOwner(IfcTypeObject *owner) {
-    mOwner = owner;
-}
-
-void IfcTypeObject::Inverted_HasPropertySets_type::insert(const Step::RefPtr< IfcPropertySetDefinition > &value) {
-    IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
-    Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::insert(value);
-    inverse->m_definesType.insert(mOwner);
-}
-

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStructuralPlanarAction::IfcStructuralPlanarAction(Step::Id id, Step::SPFData 
 IfcStructuralPlanarAction::~IfcStructuralPlanarAction() {
 }
 
-bool IfcStructuralPlanarAction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralPlanarAction(this);
+bool IfcStructuralPlanarAction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralPlanarAction(this);
 }
 
-const std::string &IfcStructuralPlanarAction::type() {
+const std::string &IfcStructuralPlanarAction::type() const {
     return IfcStructuralPlanarAction::s_type.getName();
 }
 
-Step::ClassType IfcStructuralPlanarAction::getClassType() {
+const Step::ClassType &IfcStructuralPlanarAction::getClassType() {
     return IfcStructuralPlanarAction::s_type;
 }
 
-Step::ClassType IfcStructuralPlanarAction::getType() const {
+const Step::ClassType &IfcStructuralPlanarAction::getType() const {
     return IfcStructuralPlanarAction::s_type;
 }
 
-bool IfcStructuralPlanarAction::isOfType(Step::ClassType t) {
+bool IfcStructuralPlanarAction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralPlanarAction::s_type == t ? true : IfcStructuralAction::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcProjectedOrTrueLengthEnum IfcStructuralPlanarAction::getProjectedOrTrue() {
     }
 }
 
-void IfcStructuralPlanarAction::setProjectedOrTrue(IfcProjectedOrTrueLengthEnum value) {
-    m_projectedOrTrue = value;
+const IfcProjectedOrTrueLengthEnum IfcStructuralPlanarAction::getProjectedOrTrue() const {
+    IfcStructuralPlanarAction * deConstObject = const_cast< IfcStructuralPlanarAction * > (this);
+    return deConstObject->getProjectedOrTrue();
 }
 
-void IfcStructuralPlanarAction::release() {
-    IfcStructuralAction::release();
+void IfcStructuralPlanarAction::setProjectedOrTrue(IfcProjectedOrTrueLengthEnum value) {
+    m_projectedOrTrue = value;
 }
 
 bool IfcStructuralPlanarAction::init() {

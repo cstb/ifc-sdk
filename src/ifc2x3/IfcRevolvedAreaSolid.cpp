@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcRevolvedAreaSolid::IfcRevolvedAreaSolid(Step::Id id, Step::SPFData *args) : I
 IfcRevolvedAreaSolid::~IfcRevolvedAreaSolid() {
 }
 
-bool IfcRevolvedAreaSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRevolvedAreaSolid(this);
+bool IfcRevolvedAreaSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRevolvedAreaSolid(this);
 }
 
-const std::string &IfcRevolvedAreaSolid::type() {
+const std::string &IfcRevolvedAreaSolid::type() const {
     return IfcRevolvedAreaSolid::s_type.getName();
 }
 
-Step::ClassType IfcRevolvedAreaSolid::getClassType() {
+const Step::ClassType &IfcRevolvedAreaSolid::getClassType() {
     return IfcRevolvedAreaSolid::s_type;
 }
 
-Step::ClassType IfcRevolvedAreaSolid::getType() const {
+const Step::ClassType &IfcRevolvedAreaSolid::getType() const {
     return IfcRevolvedAreaSolid::s_type;
 }
 
-bool IfcRevolvedAreaSolid::isOfType(Step::ClassType t) {
+bool IfcRevolvedAreaSolid::isOfType(const Step::ClassType &t) const {
     return IfcRevolvedAreaSolid::s_type == t ? true : IfcSweptAreaSolid::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcAxis1Placement *IfcRevolvedAreaSolid::getAxis() {
     else {
         return NULL;
     }
+}
+
+const IfcAxis1Placement *IfcRevolvedAreaSolid::getAxis() const {
+    IfcRevolvedAreaSolid * deConstObject = const_cast< IfcRevolvedAreaSolid * > (this);
+    return deConstObject->getAxis();
 }
 
 void IfcRevolvedAreaSolid::setAxis(const Step::RefPtr< IfcAxis1Placement > &value) {
@@ -93,13 +98,13 @@ IfcPlaneAngleMeasure IfcRevolvedAreaSolid::getAngle() {
     }
 }
 
-void IfcRevolvedAreaSolid::setAngle(IfcPlaneAngleMeasure value) {
-    m_angle = value;
+const IfcPlaneAngleMeasure IfcRevolvedAreaSolid::getAngle() const {
+    IfcRevolvedAreaSolid * deConstObject = const_cast< IfcRevolvedAreaSolid * > (this);
+    return deConstObject->getAngle();
 }
 
-void IfcRevolvedAreaSolid::release() {
-    IfcSweptAreaSolid::release();
-    m_axis.release();
+void IfcRevolvedAreaSolid::setAngle(IfcPlaneAngleMeasure value) {
+    m_angle = value;
 }
 
 bool IfcRevolvedAreaSolid::init() {
@@ -113,7 +118,7 @@ bool IfcRevolvedAreaSolid::init() {
         m_axis = NULL;
     }
     else {
-        m_axis = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_axis = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -127,7 +132,7 @@ bool IfcRevolvedAreaSolid::init() {
 
 void IfcRevolvedAreaSolid::copy(const IfcRevolvedAreaSolid &obj, const CopyOp &copyop) {
     IfcSweptAreaSolid::copy(obj, copyop);
-    setAxis(copyop(obj.m_axis.get()));
+    setAxis((IfcAxis1Placement*)copyop(obj.m_axis.get()));
     setAngle(obj.m_angle);
     return;
 }

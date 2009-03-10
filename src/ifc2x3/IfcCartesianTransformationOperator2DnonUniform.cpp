@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCartesianTransformationOperator2DnonUniform::IfcCartesianTransformationOperat
 IfcCartesianTransformationOperator2DnonUniform::~IfcCartesianTransformationOperator2DnonUniform() {
 }
 
-bool IfcCartesianTransformationOperator2DnonUniform::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCartesianTransformationOperator2DnonUniform(this);
+bool IfcCartesianTransformationOperator2DnonUniform::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCartesianTransformationOperator2DnonUniform(this);
 }
 
-const std::string &IfcCartesianTransformationOperator2DnonUniform::type() {
+const std::string &IfcCartesianTransformationOperator2DnonUniform::type() const {
     return IfcCartesianTransformationOperator2DnonUniform::s_type.getName();
 }
 
-Step::ClassType IfcCartesianTransformationOperator2DnonUniform::getClassType() {
+const Step::ClassType &IfcCartesianTransformationOperator2DnonUniform::getClassType() {
     return IfcCartesianTransformationOperator2DnonUniform::s_type;
 }
 
-Step::ClassType IfcCartesianTransformationOperator2DnonUniform::getType() const {
+const Step::ClassType &IfcCartesianTransformationOperator2DnonUniform::getType() const {
     return IfcCartesianTransformationOperator2DnonUniform::s_type;
 }
 
-bool IfcCartesianTransformationOperator2DnonUniform::isOfType(Step::ClassType t) {
+bool IfcCartesianTransformationOperator2DnonUniform::isOfType(const Step::ClassType &t) const {
     return IfcCartesianTransformationOperator2DnonUniform::s_type == t ? true : IfcCartesianTransformationOperator2D::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ Step::Real IfcCartesianTransformationOperator2DnonUniform::getScale2() {
     }
 }
 
-void IfcCartesianTransformationOperator2DnonUniform::setScale2(Step::Real value) {
-    m_scale2 = value;
+const Step::Real IfcCartesianTransformationOperator2DnonUniform::getScale2() const {
+    IfcCartesianTransformationOperator2DnonUniform * deConstObject = const_cast< IfcCartesianTransformationOperator2DnonUniform * > (this);
+    return deConstObject->getScale2();
 }
 
-void IfcCartesianTransformationOperator2DnonUniform::release() {
-    IfcCartesianTransformationOperator2D::release();
+void IfcCartesianTransformationOperator2DnonUniform::setScale2(Step::Real value) {
+    m_scale2 = value;
 }
 
 bool IfcCartesianTransformationOperator2DnonUniform::init() {

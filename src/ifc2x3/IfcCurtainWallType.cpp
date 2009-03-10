@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCurtainWallType::IfcCurtainWallType(Step::Id id, Step::SPFData *args) : IfcBu
 IfcCurtainWallType::~IfcCurtainWallType() {
 }
 
-bool IfcCurtainWallType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurtainWallType(this);
+bool IfcCurtainWallType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurtainWallType(this);
 }
 
-const std::string &IfcCurtainWallType::type() {
+const std::string &IfcCurtainWallType::type() const {
     return IfcCurtainWallType::s_type.getName();
 }
 
-Step::ClassType IfcCurtainWallType::getClassType() {
+const Step::ClassType &IfcCurtainWallType::getClassType() {
     return IfcCurtainWallType::s_type;
 }
 
-Step::ClassType IfcCurtainWallType::getType() const {
+const Step::ClassType &IfcCurtainWallType::getType() const {
     return IfcCurtainWallType::s_type;
 }
 
-bool IfcCurtainWallType::isOfType(Step::ClassType t) {
+bool IfcCurtainWallType::isOfType(const Step::ClassType &t) const {
     return IfcCurtainWallType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCurtainWallTypeEnum IfcCurtainWallType::getPredefinedType() {
     }
 }
 
-void IfcCurtainWallType::setPredefinedType(IfcCurtainWallTypeEnum value) {
-    m_predefinedType = value;
+const IfcCurtainWallTypeEnum IfcCurtainWallType::getPredefinedType() const {
+    IfcCurtainWallType * deConstObject = const_cast< IfcCurtainWallType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCurtainWallType::release() {
-    IfcBuildingElementType::release();
+void IfcCurtainWallType::setPredefinedType(IfcCurtainWallTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCurtainWallType::init() {

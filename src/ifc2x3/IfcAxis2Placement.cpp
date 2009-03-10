@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcAxis2Placement::~IfcAxis2Placement() {
     deleteUnion();
 }
 
-bool IfcAxis2Placement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAxis2Placement(this);
+bool IfcAxis2Placement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAxis2Placement(this);
 }
 
 bool IfcAxis2Placement::init() {
     return false;
 }
 
-const std::string &IfcAxis2Placement::type() {
+const std::string &IfcAxis2Placement::type() const {
     return IfcAxis2Placement::s_type.getName();
 }
 
-Step::ClassType IfcAxis2Placement::getClassType() {
+const Step::ClassType &IfcAxis2Placement::getClassType() {
     return IfcAxis2Placement::s_type;
 }
 
-Step::ClassType IfcAxis2Placement::getType() const {
+const Step::ClassType &IfcAxis2Placement::getType() const {
     return IfcAxis2Placement::s_type;
 }
 
-bool IfcAxis2Placement::isOfType(Step::ClassType t) {
+bool IfcAxis2Placement::isOfType(const Step::ClassType &t) const {
     return IfcAxis2Placement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcAxis2Placement::copy(const IfcAxis2Placement &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCAXIS2PLACEMENT2D:
-        setIfcAxis2Placement2D(copyop(obj.m_IfcAxis2Placement_union.m_IfcAxis2Placement2D));
+        setIfcAxis2Placement2D((IfcAxis2Placement2D *) (copyop(obj.m_IfcAxis2Placement_union.m_IfcAxis2Placement2D)));
         break;
     case IFCAXIS2PLACEMENT3D:
-        setIfcAxis2Placement3D(copyop(obj.m_IfcAxis2Placement_union.m_IfcAxis2Placement3D));
+        setIfcAxis2Placement3D((IfcAxis2Placement3D *) (copyop(obj.m_IfcAxis2Placement_union.m_IfcAxis2Placement3D)));
         break;
         }
 }
 
-char *IfcAxis2Placement::currentTypeName() {
+std::string IfcAxis2Placement::currentTypeName() const {
     switch(m_type) {
     case IFCAXIS2PLACEMENT2D:
         return "IfcAxis2Placement2D";
@@ -97,7 +97,7 @@ char *IfcAxis2Placement::currentTypeName() {
     }
 }
 
-IfcAxis2Placement::IfcAxis2Placement_select IfcAxis2Placement::currentType() {
+IfcAxis2Placement::IfcAxis2Placement_select IfcAxis2Placement::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcAxis2Placement::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcAxis2Placement2D *IfcAxis2Placement::getIfcAxis2Placement2D() {
-    return m_IfcAxis2Placement_union.m_IfcAxis2Placement2D;
+IfcAxis2Placement2D *IfcAxis2Placement::getIfcAxis2Placement2D() const {
+    if (m_type == IFCAXIS2PLACEMENT2D) {
+        return m_IfcAxis2Placement_union.m_IfcAxis2Placement2D;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcAxis2Placement::setIfcAxis2Placement2D(IfcAxis2Placement2D *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcAxis2Placement::setIfcAxis2Placement2D(IfcAxis2Placement2D *value) {
     m_type = IFCAXIS2PLACEMENT2D;
 }
 
-IfcAxis2Placement3D *IfcAxis2Placement::getIfcAxis2Placement3D() {
-    return m_IfcAxis2Placement_union.m_IfcAxis2Placement3D;
+IfcAxis2Placement3D *IfcAxis2Placement::getIfcAxis2Placement3D() const {
+    if (m_type == IFCAXIS2PLACEMENT3D) {
+        return m_IfcAxis2Placement_union.m_IfcAxis2Placement3D;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcAxis2Placement::setIfcAxis2Placement3D(IfcAxis2Placement3D *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

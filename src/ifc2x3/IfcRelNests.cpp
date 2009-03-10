@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRelNests::IfcRelNests(Step::Id id, Step::SPFData *args) : IfcRelDecomposes(id
 IfcRelNests::~IfcRelNests() {
 }
 
-bool IfcRelNests::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelNests(this);
+bool IfcRelNests::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelNests(this);
 }
 
-const std::string &IfcRelNests::type() {
+const std::string &IfcRelNests::type() const {
     return IfcRelNests::s_type.getName();
 }
 
-Step::ClassType IfcRelNests::getClassType() {
+const Step::ClassType &IfcRelNests::getClassType() {
     return IfcRelNests::s_type;
 }
 
-Step::ClassType IfcRelNests::getType() const {
+const Step::ClassType &IfcRelNests::getType() const {
     return IfcRelNests::s_type;
 }
 
-bool IfcRelNests::isOfType(Step::ClassType t) {
+bool IfcRelNests::isOfType(const Step::ClassType &t) const {
     return IfcRelNests::s_type == t ? true : IfcRelDecomposes::isOfType(t);
-}
-
-void IfcRelNests::release() {
-    IfcRelDecomposes::release();
 }
 
 bool IfcRelNests::init() {

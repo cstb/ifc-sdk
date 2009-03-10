@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,58 +34,93 @@
 #include "ifc2x3/IfcRoot.h"
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelAssigns;
-    class IfcRelAssociates;
-    class IfcRelDecomposes;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcObjectDefinition : public IfcRoot {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the inverse attribute 'HasAssignments'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelAssigns > > &getHasAssignments();
+        Inverse_Set_IfcRelAssigns_0_n &getHasAssignments();
         /**
+         * (const) Returns the value of the explicit attribute 'HasAssignments'.
+         * 
+         * @return the value of the explicit attribute 'HasAssignments'
          */
-        Step::Set< Step::ObsPtr< IfcRelDecomposes > > &getIsDecomposedBy();
+        virtual const Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
         /**
+         * Gets the value of the inverse attribute 'IsDecomposedBy'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelDecomposes > > &getDecomposes();
+        Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy();
         /**
+         * (const) Returns the value of the explicit attribute 'IsDecomposedBy'.
+         * 
+         * @return the value of the explicit attribute 'IsDecomposedBy'
          */
-        Step::Set< Step::ObsPtr< IfcRelAssociates > > &getHasAssociations();
+        virtual const Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
         /**
+         * Gets the value of the inverse attribute 'Decomposes'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes();
+        /**
+         * (const) Returns the value of the explicit attribute 'Decomposes'.
+         * 
+         * @return the value of the explicit attribute 'Decomposes'
+         */
+        virtual const Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
+        /**
+         * Gets the value of the inverse attribute 'HasAssociations'.
+         * 
+         */
+        Inverse_Set_IfcRelAssociates_0_n &getHasAssociations();
+        /**
+         * (const) Returns the value of the explicit attribute 'HasAssociations'.
+         * 
+         * @return the value of the explicit attribute 'HasAssociations'
+         */
+        virtual const Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
         friend class IfcRelDecomposes;
         friend class IfcRelAssociates;
+        friend class Inverted_IfcRelAssociates_RelatedObjects_type;
+        friend class Inverted_IfcRelAssigns_RelatedObjects_type;
         friend class ExpressDataSet;
         friend class IfcRelAssigns;
+        friend class Inverted_IfcRelDecomposes_RelatedObjects_type;
 
     protected:
         /**
@@ -109,16 +144,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelAssigns > > m_hasAssignments;
+        Inverse_Set_IfcRelAssigns_0_n m_hasAssignments;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelDecomposes > > m_isDecomposedBy;
+        Inverse_Set_IfcRelDecomposes_0_n m_isDecomposedBy;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelDecomposes > > m_decomposes;
+        Inverse_Set_IfcRelDecomposes_0_1 m_decomposes;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelAssociates > > m_hasAssociations;
+        Inverse_Set_IfcRelAssociates_0_n m_hasAssociations;
 
     };
 

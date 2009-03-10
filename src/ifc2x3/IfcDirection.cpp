@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,33 +41,32 @@
 using namespace ifc2x3;
 
 IfcDirection::IfcDirection(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_directionRatios.setUnset(true);
 }
 
 IfcDirection::~IfcDirection() {
 }
 
-bool IfcDirection::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDirection(this);
+bool IfcDirection::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDirection(this);
 }
 
-const std::string &IfcDirection::type() {
+const std::string &IfcDirection::type() const {
     return IfcDirection::s_type.getName();
 }
 
-Step::ClassType IfcDirection::getClassType() {
+const Step::ClassType &IfcDirection::getClassType() {
     return IfcDirection::s_type;
 }
 
-Step::ClassType IfcDirection::getType() const {
+const Step::ClassType &IfcDirection::getType() const {
     return IfcDirection::s_type;
 }
 
-bool IfcDirection::isOfType(Step::ClassType t) {
+bool IfcDirection::isOfType(const Step::ClassType &t) const {
     return IfcDirection::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-Step::List< Step::Real > &IfcDirection::getDirectionRatios() {
+List_Real_2_3 &IfcDirection::getDirectionRatios() {
     if (Step::BaseObject::inited()) {
         return m_directionRatios;
     }
@@ -77,13 +76,13 @@ Step::List< Step::Real > &IfcDirection::getDirectionRatios() {
     }
 }
 
-void IfcDirection::setDirectionRatios(const Step::List< Step::Real > &value) {
-    m_directionRatios = value;
+const List_Real_2_3 &IfcDirection::getDirectionRatios() const {
+    IfcDirection * deConstObject = const_cast< IfcDirection * > (this);
+    return deConstObject->getDirectionRatios();
 }
 
-void IfcDirection::release() {
-    IfcGeometricRepresentationItem::release();
-    m_directionRatios.clear();
+void IfcDirection::setDirectionRatios(const List_Real_2_3 &value) {
+    m_directionRatios = value;
 }
 
 bool IfcDirection::init() {
@@ -115,7 +114,7 @@ bool IfcDirection::init() {
 }
 
 void IfcDirection::copy(const IfcDirection &obj, const CopyOp &copyop) {
-    Step::List< Step::Real >::const_iterator it_m_directionRatios;
+    Step::List< Step::Real, 2, 3 >::const_iterator it_m_directionRatios;
     IfcGeometricRepresentationItem::copy(obj, copyop);
     for (it_m_directionRatios = obj.m_directionRatios.begin(); it_m_directionRatios != obj.m_directionRatios.end(); ++it_m_directionRatios) {
         Step::Real copyTarget = (*it_m_directionRatios);

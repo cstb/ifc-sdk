@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcTopologicalRepresentationItem::IfcTopologicalRepresentationItem(Step::Id id, 
 IfcTopologicalRepresentationItem::~IfcTopologicalRepresentationItem() {
 }
 
-bool IfcTopologicalRepresentationItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTopologicalRepresentationItem(this);
+bool IfcTopologicalRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTopologicalRepresentationItem(this);
 }
 
-const std::string &IfcTopologicalRepresentationItem::type() {
+const std::string &IfcTopologicalRepresentationItem::type() const {
     return IfcTopologicalRepresentationItem::s_type.getName();
 }
 
-Step::ClassType IfcTopologicalRepresentationItem::getClassType() {
+const Step::ClassType &IfcTopologicalRepresentationItem::getClassType() {
     return IfcTopologicalRepresentationItem::s_type;
 }
 
-Step::ClassType IfcTopologicalRepresentationItem::getType() const {
+const Step::ClassType &IfcTopologicalRepresentationItem::getType() const {
     return IfcTopologicalRepresentationItem::s_type;
 }
 
-bool IfcTopologicalRepresentationItem::isOfType(Step::ClassType t) {
+bool IfcTopologicalRepresentationItem::isOfType(const Step::ClassType &t) const {
     return IfcTopologicalRepresentationItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
-}
-
-void IfcTopologicalRepresentationItem::release() {
-    IfcRepresentationItem::release();
 }
 
 bool IfcTopologicalRepresentationItem::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::Id id
 IfcCoordinatedUniversalTimeOffset::~IfcCoordinatedUniversalTimeOffset() {
 }
 
-bool IfcCoordinatedUniversalTimeOffset::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCoordinatedUniversalTimeOffset(this);
+bool IfcCoordinatedUniversalTimeOffset::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCoordinatedUniversalTimeOffset(this);
 }
 
-const std::string &IfcCoordinatedUniversalTimeOffset::type() {
+const std::string &IfcCoordinatedUniversalTimeOffset::type() const {
     return IfcCoordinatedUniversalTimeOffset::s_type.getName();
 }
 
-Step::ClassType IfcCoordinatedUniversalTimeOffset::getClassType() {
+const Step::ClassType &IfcCoordinatedUniversalTimeOffset::getClassType() {
     return IfcCoordinatedUniversalTimeOffset::s_type;
 }
 
-Step::ClassType IfcCoordinatedUniversalTimeOffset::getType() const {
+const Step::ClassType &IfcCoordinatedUniversalTimeOffset::getType() const {
     return IfcCoordinatedUniversalTimeOffset::s_type;
 }
 
-bool IfcCoordinatedUniversalTimeOffset::isOfType(Step::ClassType t) {
+bool IfcCoordinatedUniversalTimeOffset::isOfType(const Step::ClassType &t) const {
     return IfcCoordinatedUniversalTimeOffset::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() {
     else {
         return Step::getUnset(m_hourOffset);
     }
+}
+
+const IfcHourInDay IfcCoordinatedUniversalTimeOffset::getHourOffset() const {
+    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
+    return deConstObject->getHourOffset();
 }
 
 void IfcCoordinatedUniversalTimeOffset::setHourOffset(IfcHourInDay value) {
@@ -90,6 +95,11 @@ IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() {
     }
 }
 
+const IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() const {
+    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
+    return deConstObject->getMinuteOffset();
+}
+
 void IfcCoordinatedUniversalTimeOffset::setMinuteOffset(IfcMinuteInHour value) {
     m_minuteOffset = value;
 }
@@ -103,11 +113,13 @@ IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() {
     }
 }
 
-void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value) {
-    m_sense = value;
+const IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() const {
+    IfcCoordinatedUniversalTimeOffset * deConstObject = const_cast< IfcCoordinatedUniversalTimeOffset * > (this);
+    return deConstObject->getSense();
 }
 
-void IfcCoordinatedUniversalTimeOffset::release() {
+void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value) {
+    m_sense = value;
 }
 
 bool IfcCoordinatedUniversalTimeOffset::init() {

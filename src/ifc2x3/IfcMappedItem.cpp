@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcMappedItem::IfcMappedItem(Step::Id id, Step::SPFData *args) : IfcRepresentati
 IfcMappedItem::~IfcMappedItem() {
 }
 
-bool IfcMappedItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMappedItem(this);
+bool IfcMappedItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMappedItem(this);
 }
 
-const std::string &IfcMappedItem::type() {
+const std::string &IfcMappedItem::type() const {
     return IfcMappedItem::s_type.getName();
 }
 
-Step::ClassType IfcMappedItem::getClassType() {
+const Step::ClassType &IfcMappedItem::getClassType() {
     return IfcMappedItem::s_type;
 }
 
-Step::ClassType IfcMappedItem::getType() const {
+const Step::ClassType &IfcMappedItem::getType() const {
     return IfcMappedItem::s_type;
 }
 
-bool IfcMappedItem::isOfType(Step::ClassType t) {
+bool IfcMappedItem::isOfType(const Step::ClassType &t) const {
     return IfcMappedItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcRepresentationMap *IfcMappedItem::getMappingSource() {
     }
 }
 
+const IfcRepresentationMap *IfcMappedItem::getMappingSource() const {
+    IfcMappedItem * deConstObject = const_cast< IfcMappedItem * > (this);
+    return deConstObject->getMappingSource();
+}
+
 void IfcMappedItem::setMappingSource(const Step::RefPtr< IfcRepresentationMap > &value) {
+    if (m_mappingSource.valid()) {
+        m_mappingSource->m_mapUsage.erase(this);
+    }
+    if (value.valid()) {
+        value->m_mapUsage.insert(this);
+    }
     m_mappingSource = value;
-    m_mappingSource->m_mapUsage.insert(this);
 }
 
 IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() {
@@ -95,14 +105,13 @@ IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() {
     }
 }
 
-void IfcMappedItem::setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value) {
-    m_mappingTarget = value;
+const IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() const {
+    IfcMappedItem * deConstObject = const_cast< IfcMappedItem * > (this);
+    return deConstObject->getMappingTarget();
 }
 
-void IfcMappedItem::release() {
-    IfcRepresentationItem::release();
-    m_mappingSource.release();
-    m_mappingTarget.release();
+void IfcMappedItem::setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value) {
+    m_mappingTarget = value;
 }
 
 bool IfcMappedItem::init() {
@@ -116,22 +125,22 @@ bool IfcMappedItem::init() {
         m_mappingSource = NULL;
     }
     else {
-        m_mappingSource = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_mappingSource = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_mappingTarget = NULL;
     }
     else {
-        m_mappingTarget = static_cast< IfcCartesianTransformationOperator * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_mappingTarget = static_cast< IfcCartesianTransformationOperator * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcMappedItem::copy(const IfcMappedItem &obj, const CopyOp &copyop) {
     IfcRepresentationItem::copy(obj, copyop);
-    setMappingSource(copyop(obj.m_mappingSource.get()));
-    setMappingTarget(copyop(obj.m_mappingTarget.get()));
+    setMappingSource((IfcRepresentationMap*)copyop(obj.m_mappingSource.get()));
+    setMappingTarget((IfcCartesianTransformationOperator*)copyop(obj.m_mappingTarget.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcCsgSolid::IfcCsgSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, a
 IfcCsgSolid::~IfcCsgSolid() {
 }
 
-bool IfcCsgSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCsgSolid(this);
+bool IfcCsgSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCsgSolid(this);
 }
 
-const std::string &IfcCsgSolid::type() {
+const std::string &IfcCsgSolid::type() const {
     return IfcCsgSolid::s_type.getName();
 }
 
-Step::ClassType IfcCsgSolid::getClassType() {
+const Step::ClassType &IfcCsgSolid::getClassType() {
     return IfcCsgSolid::s_type;
 }
 
-Step::ClassType IfcCsgSolid::getType() const {
+const Step::ClassType &IfcCsgSolid::getType() const {
     return IfcCsgSolid::s_type;
 }
 
-bool IfcCsgSolid::isOfType(Step::ClassType t) {
+bool IfcCsgSolid::isOfType(const Step::ClassType &t) const {
     return IfcCsgSolid::s_type == t ? true : IfcSolidModel::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() {
     }
 }
 
-void IfcCsgSolid::setTreeRootExpression(const Step::RefPtr< IfcCsgSelect > &value) {
-    m_treeRootExpression = value;
+const IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() const {
+    IfcCsgSolid * deConstObject = const_cast< IfcCsgSolid * > (this);
+    return deConstObject->getTreeRootExpression();
 }
 
-void IfcCsgSolid::release() {
-    IfcSolidModel::release();
+void IfcCsgSolid::setTreeRootExpression(const Step::RefPtr< IfcCsgSelect > &value) {
+    m_treeRootExpression = value;
 }
 
 bool IfcCsgSolid::init() {

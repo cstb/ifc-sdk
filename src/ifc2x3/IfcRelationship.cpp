@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRelationship::IfcRelationship(Step::Id id, Step::SPFData *args) : IfcRoot(id,
 IfcRelationship::~IfcRelationship() {
 }
 
-bool IfcRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelationship(this);
+bool IfcRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelationship(this);
 }
 
-const std::string &IfcRelationship::type() {
+const std::string &IfcRelationship::type() const {
     return IfcRelationship::s_type.getName();
 }
 
-Step::ClassType IfcRelationship::getClassType() {
+const Step::ClassType &IfcRelationship::getClassType() {
     return IfcRelationship::s_type;
 }
 
-Step::ClassType IfcRelationship::getType() const {
+const Step::ClassType &IfcRelationship::getType() const {
     return IfcRelationship::s_type;
 }
 
-bool IfcRelationship::isOfType(Step::ClassType t) {
+bool IfcRelationship::isOfType(const Step::ClassType &t) const {
     return IfcRelationship::s_type == t ? true : IfcRoot::isOfType(t);
-}
-
-void IfcRelationship::release() {
-    IfcRoot::release();
 }
 
 bool IfcRelationship::init() {

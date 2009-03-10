@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,72 +46,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcWindowPanelProperties : public IfcPropertySetDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'OperationType'.
+         * 
          */
-        IfcWindowPanelOperationEnum getOperationType();
+        virtual IfcWindowPanelOperationEnum getOperationType();
+        /**
+         * (const) Returns the value of the explicit attribute 'OperationType'.
+         * 
+         * @return the value of the explicit attribute 'OperationType'
+         */
+        virtual const IfcWindowPanelOperationEnum getOperationType() const;
         /**
          * Sets the value of the explicit attribute 'OperationType'.
          * 
          * @param value
          */
-        void setOperationType(IfcWindowPanelOperationEnum value);
+        virtual void setOperationType(IfcWindowPanelOperationEnum value);
         /**
+         * Gets the value of the explicit attribute 'PanelPosition'.
+         * 
          */
-        IfcWindowPanelPositionEnum getPanelPosition();
+        virtual IfcWindowPanelPositionEnum getPanelPosition();
+        /**
+         * (const) Returns the value of the explicit attribute 'PanelPosition'.
+         * 
+         * @return the value of the explicit attribute 'PanelPosition'
+         */
+        virtual const IfcWindowPanelPositionEnum getPanelPosition() const;
         /**
          * Sets the value of the explicit attribute 'PanelPosition'.
          * 
          * @param value
          */
-        void setPanelPosition(IfcWindowPanelPositionEnum value);
+        virtual void setPanelPosition(IfcWindowPanelPositionEnum value);
         /**
+         * Gets the value of the explicit attribute 'FrameDepth'.
+         * 
          */
-        IfcPositiveLengthMeasure getFrameDepth();
+        virtual IfcPositiveLengthMeasure getFrameDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'FrameDepth'.
+         * 
+         * @return the value of the explicit attribute 'FrameDepth'
+         */
+        virtual const IfcPositiveLengthMeasure getFrameDepth() const;
         /**
          * Sets the value of the explicit attribute 'FrameDepth'.
          * 
          * @param value
          */
-        void setFrameDepth(IfcPositiveLengthMeasure value);
+        virtual void setFrameDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FrameThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getFrameThickness();
+        virtual IfcPositiveLengthMeasure getFrameThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'FrameThickness'.
+         * 
+         * @return the value of the explicit attribute 'FrameThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getFrameThickness() const;
         /**
          * Sets the value of the explicit attribute 'FrameThickness'.
          * 
          * @param value
          */
-        void setFrameThickness(IfcPositiveLengthMeasure value);
+        virtual void setFrameThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
          */
-        IfcShapeAspect *getShapeAspectStyle();
+        virtual IfcShapeAspect *getShapeAspectStyle();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
+         * @return the value of the explicit attribute 'ShapeAspectStyle'
+         */
+        virtual const IfcShapeAspect *getShapeAspectStyle() const;
         /**
          * Sets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          * @param value
          */
-        void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
         friend class ExpressDataSet;
 
     protected:

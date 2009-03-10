@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcGeneralProfileProperties::IfcGeneralProfileProperties(Step::Id id, Step::SPFD
 IfcGeneralProfileProperties::~IfcGeneralProfileProperties() {
 }
 
-bool IfcGeneralProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeneralProfileProperties(this);
+bool IfcGeneralProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeneralProfileProperties(this);
 }
 
-const std::string &IfcGeneralProfileProperties::type() {
+const std::string &IfcGeneralProfileProperties::type() const {
     return IfcGeneralProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcGeneralProfileProperties::getClassType() {
+const Step::ClassType &IfcGeneralProfileProperties::getClassType() {
     return IfcGeneralProfileProperties::s_type;
 }
 
-Step::ClassType IfcGeneralProfileProperties::getType() const {
+const Step::ClassType &IfcGeneralProfileProperties::getType() const {
     return IfcGeneralProfileProperties::s_type;
 }
 
-bool IfcGeneralProfileProperties::isOfType(Step::ClassType t) {
+bool IfcGeneralProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcGeneralProfileProperties::s_type == t ? true : IfcProfileProperties::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcMassPerLengthMeasure IfcGeneralProfileProperties::getPhysicalWeight() {
     else {
         return Step::getUnset(m_physicalWeight);
     }
+}
+
+const IfcMassPerLengthMeasure IfcGeneralProfileProperties::getPhysicalWeight() const {
+    IfcGeneralProfileProperties * deConstObject = const_cast< IfcGeneralProfileProperties * > (this);
+    return deConstObject->getPhysicalWeight();
 }
 
 void IfcGeneralProfileProperties::setPhysicalWeight(IfcMassPerLengthMeasure value) {
@@ -92,6 +97,11 @@ IfcPositiveLengthMeasure IfcGeneralProfileProperties::getPerimeter() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcGeneralProfileProperties::getPerimeter() const {
+    IfcGeneralProfileProperties * deConstObject = const_cast< IfcGeneralProfileProperties * > (this);
+    return deConstObject->getPerimeter();
+}
+
 void IfcGeneralProfileProperties::setPerimeter(IfcPositiveLengthMeasure value) {
     m_perimeter = value;
 }
@@ -103,6 +113,11 @@ IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMinimumPlateThickness()
     else {
         return Step::getUnset(m_minimumPlateThickness);
     }
+}
+
+const IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMinimumPlateThickness() const {
+    IfcGeneralProfileProperties * deConstObject = const_cast< IfcGeneralProfileProperties * > (this);
+    return deConstObject->getMinimumPlateThickness();
 }
 
 void IfcGeneralProfileProperties::setMinimumPlateThickness(IfcPositiveLengthMeasure value) {
@@ -118,6 +133,11 @@ IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMaximumPlateThickness()
     }
 }
 
+const IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMaximumPlateThickness() const {
+    IfcGeneralProfileProperties * deConstObject = const_cast< IfcGeneralProfileProperties * > (this);
+    return deConstObject->getMaximumPlateThickness();
+}
+
 void IfcGeneralProfileProperties::setMaximumPlateThickness(IfcPositiveLengthMeasure value) {
     m_maximumPlateThickness = value;
 }
@@ -131,12 +151,13 @@ IfcAreaMeasure IfcGeneralProfileProperties::getCrossSectionArea() {
     }
 }
 
-void IfcGeneralProfileProperties::setCrossSectionArea(IfcAreaMeasure value) {
-    m_crossSectionArea = value;
+const IfcAreaMeasure IfcGeneralProfileProperties::getCrossSectionArea() const {
+    IfcGeneralProfileProperties * deConstObject = const_cast< IfcGeneralProfileProperties * > (this);
+    return deConstObject->getCrossSectionArea();
 }
 
-void IfcGeneralProfileProperties::release() {
-    IfcProfileProperties::release();
+void IfcGeneralProfileProperties::setCrossSectionArea(IfcAreaMeasure value) {
+    m_crossSectionArea = value;
 }
 
 bool IfcGeneralProfileProperties::init() {

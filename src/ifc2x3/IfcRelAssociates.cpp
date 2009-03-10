@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,26 +26,48 @@
 
 #include "ifc2x3/IfcRelAssociates.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcObjectDefinition.h"
 #include "ifc2x3/IfcPropertyDefinition.h"
 #include "ifc2x3/IfcRelationship.h"
 #include "ifc2x3/IfcRoot.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelAssociates_RelatedObjects_type::Inverted_IfcRelAssociates_RelatedObjects_type() {
+}
+
+void Inverted_IfcRelAssociates_RelatedObjects_type::setOwner(IfcRelAssociates *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelAssociates_RelatedObjects_type::insert(const Step::RefPtr< IfcRoot > &value) throw(std::out_of_range) {
+    IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
+    Set_IfcRoot_1_n::insert(value);
+    if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
+        ((IfcObjectDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
+    }
+    if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
+        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
+    }
+}
+
+Inverted_IfcRelAssociates_RelatedObjects_type::size_type Inverted_IfcRelAssociates_RelatedObjects_type::erase(const Step::RefPtr< IfcRoot > &value) {
+    IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
+    return Set_IfcRoot_1_n::erase(value);
+}
 
 IfcRelAssociates::IfcRelAssociates(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
     m_relatedObjects.setUnset(true);
@@ -55,27 +77,27 @@ IfcRelAssociates::IfcRelAssociates(Step::Id id, Step::SPFData *args) : IfcRelati
 IfcRelAssociates::~IfcRelAssociates() {
 }
 
-bool IfcRelAssociates::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociates(this);
+bool IfcRelAssociates::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociates(this);
 }
 
-const std::string &IfcRelAssociates::type() {
+const std::string &IfcRelAssociates::type() const {
     return IfcRelAssociates::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociates::getClassType() {
+const Step::ClassType &IfcRelAssociates::getClassType() {
     return IfcRelAssociates::s_type;
 }
 
-Step::ClassType IfcRelAssociates::getType() const {
+const Step::ClassType &IfcRelAssociates::getType() const {
     return IfcRelAssociates::s_type;
 }
 
-bool IfcRelAssociates::isOfType(Step::ClassType t) {
+bool IfcRelAssociates::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociates::s_type == t ? true : IfcRelationship::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcRoot > > &IfcRelAssociates::getRelatedObjects() {
+Set_IfcRoot_1_n &IfcRelAssociates::getRelatedObjects() {
     if (Step::BaseObject::inited()) {
         return m_relatedObjects;
     }
@@ -85,9 +107,9 @@ Step::Set< Step::RefPtr< IfcRoot > > &IfcRelAssociates::getRelatedObjects() {
     }
 }
 
-void IfcRelAssociates::release() {
-    IfcRelationship::release();
-    m_relatedObjects.clear();
+const Set_IfcRoot_1_n &IfcRelAssociates::getRelatedObjects() const {
+    IfcRelAssociates * deConstObject = const_cast< IfcRelAssociates * > (this);
+    return deConstObject->getRelatedObjects();
 }
 
 bool IfcRelAssociates::init() {
@@ -107,7 +129,7 @@ bool IfcRelAssociates::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRoot > attr2;
-                attr2 = static_cast< IfcRoot * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRoot * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedObjects.insert(attr2);
             }
             else {
@@ -119,31 +141,13 @@ bool IfcRelAssociates::init() {
 }
 
 void IfcRelAssociates::copy(const IfcRelAssociates &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcRoot > >::const_iterator it_m_relatedObjects;
+    Step::Set< Step::RefPtr< IfcRoot >, 1 >::const_iterator it_m_relatedObjects;
     IfcRelationship::copy(obj, copyop);
     for (it_m_relatedObjects = obj.m_relatedObjects.begin(); it_m_relatedObjects != obj.m_relatedObjects.end(); ++it_m_relatedObjects) {
-        Step::RefPtr< IfcRoot > copyTarget = copyop((*it_m_relatedObjects).get());
+        Step::RefPtr< IfcRoot > copyTarget = (IfcRoot *) (copyop((*it_m_relatedObjects).get()));
         m_relatedObjects.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelAssociates::s_type("IfcRelAssociates");
-IfcRelAssociates::Inverted_RelatedObjects_type::Inverted_RelatedObjects_type() {
-}
-
-void IfcRelAssociates::Inverted_RelatedObjects_type::setOwner(IfcRelAssociates *owner) {
-    mOwner = owner;
-}
-
-void IfcRelAssociates::Inverted_RelatedObjects_type::insert(const Step::RefPtr< IfcRoot > &value) {
-    IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
-    Step::Set< Step::RefPtr< IfcRoot > >::insert(value);
-    if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
-        ((IfcObjectDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
-    }
-    else if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
-        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
-    }
-}
-

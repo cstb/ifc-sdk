@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -55,23 +55,23 @@ IfcSite::IfcSite(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(
 IfcSite::~IfcSite() {
 }
 
-bool IfcSite::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSite(this);
+bool IfcSite::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSite(this);
 }
 
-const std::string &IfcSite::type() {
+const std::string &IfcSite::type() const {
     return IfcSite::s_type.getName();
 }
 
-Step::ClassType IfcSite::getClassType() {
+const Step::ClassType &IfcSite::getClassType() {
     return IfcSite::s_type;
 }
 
-Step::ClassType IfcSite::getType() const {
+const Step::ClassType &IfcSite::getType() const {
     return IfcSite::s_type;
 }
 
-bool IfcSite::isOfType(Step::ClassType t) {
+bool IfcSite::isOfType(const Step::ClassType &t) const {
     return IfcSite::s_type == t ? true : IfcSpatialStructureElement::isOfType(t);
 }
 
@@ -83,6 +83,11 @@ IfcCompoundPlaneAngleMeasure &IfcSite::getRefLatitude() {
         m_refLatitude.setUnset(true);
         return m_refLatitude;
     }
+}
+
+const IfcCompoundPlaneAngleMeasure &IfcSite::getRefLatitude() const {
+    IfcSite * deConstObject = const_cast< IfcSite * > (this);
+    return deConstObject->getRefLatitude();
 }
 
 void IfcSite::setRefLatitude(const IfcCompoundPlaneAngleMeasure &value) {
@@ -99,6 +104,11 @@ IfcCompoundPlaneAngleMeasure &IfcSite::getRefLongitude() {
     }
 }
 
+const IfcCompoundPlaneAngleMeasure &IfcSite::getRefLongitude() const {
+    IfcSite * deConstObject = const_cast< IfcSite * > (this);
+    return deConstObject->getRefLongitude();
+}
+
 void IfcSite::setRefLongitude(const IfcCompoundPlaneAngleMeasure &value) {
     m_refLongitude = value;
 }
@@ -110,6 +120,11 @@ IfcLengthMeasure IfcSite::getRefElevation() {
     else {
         return Step::getUnset(m_refElevation);
     }
+}
+
+const IfcLengthMeasure IfcSite::getRefElevation() const {
+    IfcSite * deConstObject = const_cast< IfcSite * > (this);
+    return deConstObject->getRefElevation();
 }
 
 void IfcSite::setRefElevation(IfcLengthMeasure value) {
@@ -125,6 +140,11 @@ IfcLabel IfcSite::getLandTitleNumber() {
     }
 }
 
+const IfcLabel IfcSite::getLandTitleNumber() const {
+    IfcSite * deConstObject = const_cast< IfcSite * > (this);
+    return deConstObject->getLandTitleNumber();
+}
+
 void IfcSite::setLandTitleNumber(const IfcLabel &value) {
     m_landTitleNumber = value;
 }
@@ -138,15 +158,13 @@ IfcPostalAddress *IfcSite::getSiteAddress() {
     }
 }
 
-void IfcSite::setSiteAddress(const Step::RefPtr< IfcPostalAddress > &value) {
-    m_siteAddress = value;
+const IfcPostalAddress *IfcSite::getSiteAddress() const {
+    IfcSite * deConstObject = const_cast< IfcSite * > (this);
+    return deConstObject->getSiteAddress();
 }
 
-void IfcSite::release() {
-    IfcSpatialStructureElement::release();
-    m_refLatitude.clear();
-    m_refLongitude.clear();
-    m_siteAddress.release();
+void IfcSite::setSiteAddress(const Step::RefPtr< IfcPostalAddress > &value) {
+    m_siteAddress = value;
 }
 
 bool IfcSite::init() {
@@ -205,14 +223,14 @@ bool IfcSite::init() {
         m_landTitleNumber = Step::getUnset(m_landTitleNumber);
     }
     else {
-        m_landTitleNumber = Step::spfToString(arg);
+        m_landTitleNumber = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_siteAddress = NULL;
     }
     else {
-        m_siteAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_siteAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -223,7 +241,7 @@ void IfcSite::copy(const IfcSite &obj, const CopyOp &copyop) {
     setRefLongitude(obj.m_refLongitude);
     setRefElevation(obj.m_refElevation);
     setLandTitleNumber(obj.m_landTitleNumber);
-    setSiteAddress(copyop(obj.m_siteAddress.get()));
+    setSiteAddress((IfcPostalAddress*)copyop(obj.m_siteAddress.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -100,24 +100,32 @@ enum IfcMeasureValue_select {
         IfcMeasureValue();
         virtual ~IfcMeasureValue();
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
          * @param obj
          * @param copyop
@@ -125,163 +133,163 @@ enum IfcMeasureValue_select {
         virtual void copy(const IfcMeasureValue &obj, const CopyOp &copyop);
         /**
          */
-        char *currentTypeName();
+        std::string currentTypeName() const;
         /**
          */
-        IfcMeasureValue_select currentType();
+        IfcMeasureValue_select currentType() const;
         /**
          */
         void deleteUnion();
         /**
          */
-        IfcVolumeMeasure getIfcVolumeMeasure();
+        IfcVolumeMeasure getIfcVolumeMeasure() const;
         /**
          * @param value
          */
         void setIfcVolumeMeasure(IfcVolumeMeasure value);
         /**
          */
-        IfcTimeMeasure getIfcTimeMeasure();
+        IfcTimeMeasure getIfcTimeMeasure() const;
         /**
          * @param value
          */
         void setIfcTimeMeasure(IfcTimeMeasure value);
         /**
          */
-        IfcThermodynamicTemperatureMeasure getIfcThermodynamicTemperatureMeasure();
+        IfcThermodynamicTemperatureMeasure getIfcThermodynamicTemperatureMeasure() const;
         /**
          * @param value
          */
         void setIfcThermodynamicTemperatureMeasure(IfcThermodynamicTemperatureMeasure value);
         /**
          */
-        IfcSolidAngleMeasure getIfcSolidAngleMeasure();
+        IfcSolidAngleMeasure getIfcSolidAngleMeasure() const;
         /**
          * @param value
          */
         void setIfcSolidAngleMeasure(IfcSolidAngleMeasure value);
         /**
          */
-        IfcPositiveRatioMeasure getIfcPositiveRatioMeasure();
+        IfcPositiveRatioMeasure getIfcPositiveRatioMeasure() const;
         /**
          * @param value
          */
         void setIfcPositiveRatioMeasure(IfcPositiveRatioMeasure value);
         /**
          */
-        IfcRatioMeasure getIfcRatioMeasure();
+        IfcRatioMeasure getIfcRatioMeasure() const;
         /**
          * @param value
          */
         void setIfcRatioMeasure(IfcRatioMeasure value);
         /**
          */
-        IfcPositivePlaneAngleMeasure getIfcPositivePlaneAngleMeasure();
+        IfcPositivePlaneAngleMeasure getIfcPositivePlaneAngleMeasure() const;
         /**
          * @param value
          */
         void setIfcPositivePlaneAngleMeasure(IfcPositivePlaneAngleMeasure value);
         /**
          */
-        IfcPlaneAngleMeasure getIfcPlaneAngleMeasure();
+        IfcPlaneAngleMeasure getIfcPlaneAngleMeasure() const;
         /**
          * @param value
          */
         void setIfcPlaneAngleMeasure(IfcPlaneAngleMeasure value);
         /**
          */
-        IfcParameterValue getIfcParameterValue();
+        IfcParameterValue getIfcParameterValue() const;
         /**
          * @param value
          */
         void setIfcParameterValue(IfcParameterValue value);
         /**
          */
-        IfcNumericMeasure getIfcNumericMeasure();
+        IfcNumericMeasure getIfcNumericMeasure() const;
         /**
          * @param value
          */
         void setIfcNumericMeasure(IfcNumericMeasure value);
         /**
          */
-        IfcMassMeasure getIfcMassMeasure();
+        IfcMassMeasure getIfcMassMeasure() const;
         /**
          * @param value
          */
         void setIfcMassMeasure(IfcMassMeasure value);
         /**
          */
-        IfcPositiveLengthMeasure getIfcPositiveLengthMeasure();
+        IfcPositiveLengthMeasure getIfcPositiveLengthMeasure() const;
         /**
          * @param value
          */
         void setIfcPositiveLengthMeasure(IfcPositiveLengthMeasure value);
         /**
          */
-        IfcLengthMeasure getIfcLengthMeasure();
+        IfcLengthMeasure getIfcLengthMeasure() const;
         /**
          * @param value
          */
         void setIfcLengthMeasure(IfcLengthMeasure value);
         /**
          */
-        IfcElectricCurrentMeasure getIfcElectricCurrentMeasure();
+        IfcElectricCurrentMeasure getIfcElectricCurrentMeasure() const;
         /**
          * @param value
          */
         void setIfcElectricCurrentMeasure(IfcElectricCurrentMeasure value);
         /**
          */
-        IfcDescriptiveMeasure getIfcDescriptiveMeasure();
+        IfcDescriptiveMeasure getIfcDescriptiveMeasure() const;
         /**
          * @param value
          */
         void setIfcDescriptiveMeasure(const IfcDescriptiveMeasure &value);
         /**
          */
-        IfcCountMeasure getIfcCountMeasure();
+        IfcCountMeasure getIfcCountMeasure() const;
         /**
          * @param value
          */
         void setIfcCountMeasure(IfcCountMeasure value);
         /**
          */
-        IfcContextDependentMeasure getIfcContextDependentMeasure();
+        IfcContextDependentMeasure getIfcContextDependentMeasure() const;
         /**
          * @param value
          */
         void setIfcContextDependentMeasure(IfcContextDependentMeasure value);
         /**
          */
-        IfcAreaMeasure getIfcAreaMeasure();
+        IfcAreaMeasure getIfcAreaMeasure() const;
         /**
          * @param value
          */
         void setIfcAreaMeasure(IfcAreaMeasure value);
         /**
          */
-        IfcAmountOfSubstanceMeasure getIfcAmountOfSubstanceMeasure();
+        IfcAmountOfSubstanceMeasure getIfcAmountOfSubstanceMeasure() const;
         /**
          * @param value
          */
         void setIfcAmountOfSubstanceMeasure(IfcAmountOfSubstanceMeasure value);
         /**
          */
-        IfcLuminousIntensityMeasure getIfcLuminousIntensityMeasure();
+        IfcLuminousIntensityMeasure getIfcLuminousIntensityMeasure() const;
         /**
          * @param value
          */
         void setIfcLuminousIntensityMeasure(IfcLuminousIntensityMeasure value);
         /**
          */
-        IfcNormalisedRatioMeasure getIfcNormalisedRatioMeasure();
+        IfcNormalisedRatioMeasure getIfcNormalisedRatioMeasure() const;
         /**
          * @param value
          */
         void setIfcNormalisedRatioMeasure(IfcNormalisedRatioMeasure value);
         /**
          */
-        IfcComplexNumber getIfcComplexNumber();
+        IfcComplexNumber getIfcComplexNumber() const;
         /**
          * @param value
          */

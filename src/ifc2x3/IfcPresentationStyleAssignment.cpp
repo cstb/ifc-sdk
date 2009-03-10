@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,33 +45,32 @@
 using namespace ifc2x3;
 
 IfcPresentationStyleAssignment::IfcPresentationStyleAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_styles.setUnset(true);
 }
 
 IfcPresentationStyleAssignment::~IfcPresentationStyleAssignment() {
 }
 
-bool IfcPresentationStyleAssignment::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPresentationStyleAssignment(this);
+bool IfcPresentationStyleAssignment::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPresentationStyleAssignment(this);
 }
 
-const std::string &IfcPresentationStyleAssignment::type() {
+const std::string &IfcPresentationStyleAssignment::type() const {
     return IfcPresentationStyleAssignment::s_type.getName();
 }
 
-Step::ClassType IfcPresentationStyleAssignment::getClassType() {
+const Step::ClassType &IfcPresentationStyleAssignment::getClassType() {
     return IfcPresentationStyleAssignment::s_type;
 }
 
-Step::ClassType IfcPresentationStyleAssignment::getType() const {
+const Step::ClassType &IfcPresentationStyleAssignment::getType() const {
     return IfcPresentationStyleAssignment::s_type;
 }
 
-bool IfcPresentationStyleAssignment::isOfType(Step::ClassType t) {
+bool IfcPresentationStyleAssignment::isOfType(const Step::ClassType &t) const {
     return IfcPresentationStyleAssignment::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &IfcPresentationStyleAssignment::getStyles() {
+Set_IfcPresentationStyleSelect_1_n &IfcPresentationStyleAssignment::getStyles() {
     if (Step::BaseObject::inited()) {
         return m_styles;
     }
@@ -81,12 +80,13 @@ Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &IfcPresentationStyleAss
     }
 }
 
-void IfcPresentationStyleAssignment::setStyles(const Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &value) {
-    m_styles = value;
+const Set_IfcPresentationStyleSelect_1_n &IfcPresentationStyleAssignment::getStyles() const {
+    IfcPresentationStyleAssignment * deConstObject = const_cast< IfcPresentationStyleAssignment * > (this);
+    return deConstObject->getStyles();
 }
 
-void IfcPresentationStyleAssignment::release() {
-    m_styles.clear();
+void IfcPresentationStyleAssignment::setStyles(const Set_IfcPresentationStyleSelect_1_n &value) {
+    m_styles = value;
 }
 
 bool IfcPresentationStyleAssignment::init() {
@@ -133,7 +133,7 @@ bool IfcPresentationStyleAssignment::init() {
 }
 
 void IfcPresentationStyleAssignment::copy(const IfcPresentationStyleAssignment &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPresentationStyleSelect > >::const_iterator it_m_styles;
+    Step::Set< Step::RefPtr< IfcPresentationStyleSelect >, 1 >::const_iterator it_m_styles;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_styles = obj.m_styles.begin(); it_m_styles != obj.m_styles.end(); ++it_m_styles) {
         Step::RefPtr< IfcPresentationStyleSelect > copyTarget = new IfcPresentationStyleSelect;

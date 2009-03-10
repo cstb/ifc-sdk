@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityCount::IfcQuantityCount(Step::Id id, Step::SPFData *args) : IfcPhysic
 IfcQuantityCount::~IfcQuantityCount() {
 }
 
-bool IfcQuantityCount::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityCount(this);
+bool IfcQuantityCount::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityCount(this);
 }
 
-const std::string &IfcQuantityCount::type() {
+const std::string &IfcQuantityCount::type() const {
     return IfcQuantityCount::s_type.getName();
 }
 
-Step::ClassType IfcQuantityCount::getClassType() {
+const Step::ClassType &IfcQuantityCount::getClassType() {
     return IfcQuantityCount::s_type;
 }
 
-Step::ClassType IfcQuantityCount::getType() const {
+const Step::ClassType &IfcQuantityCount::getType() const {
     return IfcQuantityCount::s_type;
 }
 
-bool IfcQuantityCount::isOfType(Step::ClassType t) {
+bool IfcQuantityCount::isOfType(const Step::ClassType &t) const {
     return IfcQuantityCount::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCountMeasure IfcQuantityCount::getCountValue() {
     }
 }
 
-void IfcQuantityCount::setCountValue(IfcCountMeasure value) {
-    m_countValue = value;
+const IfcCountMeasure IfcQuantityCount::getCountValue() const {
+    IfcQuantityCount * deConstObject = const_cast< IfcQuantityCount * > (this);
+    return deConstObject->getCountValue();
 }
 
-void IfcQuantityCount::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityCount::setCountValue(IfcCountMeasure value) {
+    m_countValue = value;
 }
 
 bool IfcQuantityCount::init() {

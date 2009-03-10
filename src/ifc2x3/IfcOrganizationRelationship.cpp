@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,43 @@
 
 #include "ifc2x3/IfcOrganizationRelationship.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcOrganization.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::Inverted_IfcOrganizationRelationship_RelatedOrganizations_type() {
+}
+
+void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::setOwner(IfcOrganizationRelationship *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::insert(const Step::RefPtr< IfcOrganization > &value) throw(std::out_of_range) {
+    IfcOrganization *inverse = const_cast< IfcOrganization * > (value.get());
+    Set_IfcOrganization_1_n::insert(value);
+    inverse->m_isRelatedBy.insert(mOwner);
+}
+
+Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::size_type Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::erase(const Step::RefPtr< IfcOrganization > &value) {
+    IfcOrganization *inverse = const_cast< IfcOrganization * > (value.get());
+    inverse->m_isRelatedBy.erase(mOwner);
+    return Set_IfcOrganization_1_n::erase(value);
+}
 
 IfcOrganizationRelationship::IfcOrganizationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
@@ -56,23 +75,23 @@ IfcOrganizationRelationship::IfcOrganizationRelationship(Step::Id id, Step::SPFD
 IfcOrganizationRelationship::~IfcOrganizationRelationship() {
 }
 
-bool IfcOrganizationRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOrganizationRelationship(this);
+bool IfcOrganizationRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOrganizationRelationship(this);
 }
 
-const std::string &IfcOrganizationRelationship::type() {
+const std::string &IfcOrganizationRelationship::type() const {
     return IfcOrganizationRelationship::s_type.getName();
 }
 
-Step::ClassType IfcOrganizationRelationship::getClassType() {
+const Step::ClassType &IfcOrganizationRelationship::getClassType() {
     return IfcOrganizationRelationship::s_type;
 }
 
-Step::ClassType IfcOrganizationRelationship::getType() const {
+const Step::ClassType &IfcOrganizationRelationship::getType() const {
     return IfcOrganizationRelationship::s_type;
 }
 
-bool IfcOrganizationRelationship::isOfType(Step::ClassType t) {
+bool IfcOrganizationRelationship::isOfType(const Step::ClassType &t) const {
     return IfcOrganizationRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -83,6 +102,11 @@ IfcLabel IfcOrganizationRelationship::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcOrganizationRelationship::getName() const {
+    IfcOrganizationRelationship * deConstObject = const_cast< IfcOrganizationRelationship * > (this);
+    return deConstObject->getName();
 }
 
 void IfcOrganizationRelationship::setName(const IfcLabel &value) {
@@ -98,6 +122,11 @@ IfcText IfcOrganizationRelationship::getDescription() {
     }
 }
 
+const IfcText IfcOrganizationRelationship::getDescription() const {
+    IfcOrganizationRelationship * deConstObject = const_cast< IfcOrganizationRelationship * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcOrganizationRelationship::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -111,12 +140,22 @@ IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization() {
     }
 }
 
-void IfcOrganizationRelationship::setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value) {
-    m_relatingOrganization = value;
-    m_relatingOrganization->m_relates.insert(this);
+const IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization() const {
+    IfcOrganizationRelationship * deConstObject = const_cast< IfcOrganizationRelationship * > (this);
+    return deConstObject->getRelatingOrganization();
 }
 
-Step::Set< Step::RefPtr< IfcOrganization > > &IfcOrganizationRelationship::getRelatedOrganizations() {
+void IfcOrganizationRelationship::setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value) {
+    if (m_relatingOrganization.valid()) {
+        m_relatingOrganization->m_relates.erase(this);
+    }
+    if (value.valid()) {
+        value->m_relates.insert(this);
+    }
+    m_relatingOrganization = value;
+}
+
+Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() {
     if (Step::BaseObject::inited()) {
         return m_relatedOrganizations;
     }
@@ -126,9 +165,9 @@ Step::Set< Step::RefPtr< IfcOrganization > > &IfcOrganizationRelationship::getRe
     }
 }
 
-void IfcOrganizationRelationship::release() {
-    m_relatingOrganization.release();
-    m_relatedOrganizations.clear();
+const Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() const {
+    IfcOrganizationRelationship * deConstObject = const_cast< IfcOrganizationRelationship * > (this);
+    return deConstObject->getRelatedOrganizations();
 }
 
 bool IfcOrganizationRelationship::init() {
@@ -138,21 +177,21 @@ bool IfcOrganizationRelationship::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatingOrganization = NULL;
     }
     else {
-        m_relatingOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -165,7 +204,7 @@ bool IfcOrganizationRelationship::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcOrganization > attr2;
-                attr2 = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedOrganizations.insert(attr2);
             }
             else {
@@ -177,29 +216,16 @@ bool IfcOrganizationRelationship::init() {
 }
 
 void IfcOrganizationRelationship::copy(const IfcOrganizationRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcOrganization > >::const_iterator it_m_relatedOrganizations;
+    Step::Set< Step::RefPtr< IfcOrganization >, 1 >::const_iterator it_m_relatedOrganizations;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     setDescription(obj.m_description);
-    setRelatingOrganization(copyop(obj.m_relatingOrganization.get()));
+    setRelatingOrganization((IfcOrganization*)copyop(obj.m_relatingOrganization.get()));
     for (it_m_relatedOrganizations = obj.m_relatedOrganizations.begin(); it_m_relatedOrganizations != obj.m_relatedOrganizations.end(); ++it_m_relatedOrganizations) {
-        Step::RefPtr< IfcOrganization > copyTarget = copyop((*it_m_relatedOrganizations).get());
+        Step::RefPtr< IfcOrganization > copyTarget = (IfcOrganization *) (copyop((*it_m_relatedOrganizations).get()));
         m_relatedOrganizations.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcOrganizationRelationship::s_type("IfcOrganizationRelationship");
-IfcOrganizationRelationship::Inverted_RelatedOrganizations_type::Inverted_RelatedOrganizations_type() {
-}
-
-void IfcOrganizationRelationship::Inverted_RelatedOrganizations_type::setOwner(IfcOrganizationRelationship *owner) {
-    mOwner = owner;
-}
-
-void IfcOrganizationRelationship::Inverted_RelatedOrganizations_type::insert(const Step::RefPtr< IfcOrganization > &value) {
-    IfcOrganization *inverse = const_cast< IfcOrganization * > (value.get());
-    Step::Set< Step::RefPtr< IfcOrganization > >::insert(value);
-    inverse->m_isRelatedBy.insert(mOwner);
-}
-

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -51,23 +52,23 @@ IfcReinforcementBarProperties::IfcReinforcementBarProperties(Step::Id id, Step::
 IfcReinforcementBarProperties::~IfcReinforcementBarProperties() {
 }
 
-bool IfcReinforcementBarProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReinforcementBarProperties(this);
+bool IfcReinforcementBarProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReinforcementBarProperties(this);
 }
 
-const std::string &IfcReinforcementBarProperties::type() {
+const std::string &IfcReinforcementBarProperties::type() const {
     return IfcReinforcementBarProperties::s_type.getName();
 }
 
-Step::ClassType IfcReinforcementBarProperties::getClassType() {
+const Step::ClassType &IfcReinforcementBarProperties::getClassType() {
     return IfcReinforcementBarProperties::s_type;
 }
 
-Step::ClassType IfcReinforcementBarProperties::getType() const {
+const Step::ClassType &IfcReinforcementBarProperties::getType() const {
     return IfcReinforcementBarProperties::s_type;
 }
 
-bool IfcReinforcementBarProperties::isOfType(Step::ClassType t) {
+bool IfcReinforcementBarProperties::isOfType(const Step::ClassType &t) const {
     return IfcReinforcementBarProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcAreaMeasure IfcReinforcementBarProperties::getTotalCrossSectionArea() {
     else {
         return Step::getUnset(m_totalCrossSectionArea);
     }
+}
+
+const IfcAreaMeasure IfcReinforcementBarProperties::getTotalCrossSectionArea() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getTotalCrossSectionArea();
 }
 
 void IfcReinforcementBarProperties::setTotalCrossSectionArea(IfcAreaMeasure value) {
@@ -93,6 +99,11 @@ IfcLabel IfcReinforcementBarProperties::getSteelGrade() {
     }
 }
 
+const IfcLabel IfcReinforcementBarProperties::getSteelGrade() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getSteelGrade();
+}
+
 void IfcReinforcementBarProperties::setSteelGrade(const IfcLabel &value) {
     m_steelGrade = value;
 }
@@ -104,6 +115,11 @@ IfcReinforcingBarSurfaceEnum IfcReinforcementBarProperties::getBarSurface() {
     else {
         return IfcReinforcingBarSurfaceEnum_UNSET;
     }
+}
+
+const IfcReinforcingBarSurfaceEnum IfcReinforcementBarProperties::getBarSurface() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getBarSurface();
 }
 
 void IfcReinforcementBarProperties::setBarSurface(IfcReinforcingBarSurfaceEnum value) {
@@ -119,6 +135,11 @@ IfcLengthMeasure IfcReinforcementBarProperties::getEffectiveDepth() {
     }
 }
 
+const IfcLengthMeasure IfcReinforcementBarProperties::getEffectiveDepth() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getEffectiveDepth();
+}
+
 void IfcReinforcementBarProperties::setEffectiveDepth(IfcLengthMeasure value) {
     m_effectiveDepth = value;
 }
@@ -130,6 +151,11 @@ IfcPositiveLengthMeasure IfcReinforcementBarProperties::getNominalBarDiameter() 
     else {
         return Step::getUnset(m_nominalBarDiameter);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcementBarProperties::getNominalBarDiameter() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getNominalBarDiameter();
 }
 
 void IfcReinforcementBarProperties::setNominalBarDiameter(IfcPositiveLengthMeasure value) {
@@ -145,11 +171,13 @@ IfcCountMeasure IfcReinforcementBarProperties::getBarCount() {
     }
 }
 
-void IfcReinforcementBarProperties::setBarCount(IfcCountMeasure value) {
-    m_barCount = value;
+const IfcCountMeasure IfcReinforcementBarProperties::getBarCount() const {
+    IfcReinforcementBarProperties * deConstObject = const_cast< IfcReinforcementBarProperties * > (this);
+    return deConstObject->getBarCount();
 }
 
-void IfcReinforcementBarProperties::release() {
+void IfcReinforcementBarProperties::setBarCount(IfcCountMeasure value) {
+    m_barCount = value;
 }
 
 bool IfcReinforcementBarProperties::init() {
@@ -166,7 +194,7 @@ bool IfcReinforcementBarProperties::init() {
         m_steelGrade = Step::getUnset(m_steelGrade);
     }
     else {
-        m_steelGrade = Step::spfToString(arg);
+        m_steelGrade = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRamp::IfcRamp(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcRamp::~IfcRamp() {
 }
 
-bool IfcRamp::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRamp(this);
+bool IfcRamp::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRamp(this);
 }
 
-const std::string &IfcRamp::type() {
+const std::string &IfcRamp::type() const {
     return IfcRamp::s_type.getName();
 }
 
-Step::ClassType IfcRamp::getClassType() {
+const Step::ClassType &IfcRamp::getClassType() {
     return IfcRamp::s_type;
 }
 
-Step::ClassType IfcRamp::getType() const {
+const Step::ClassType &IfcRamp::getType() const {
     return IfcRamp::s_type;
 }
 
-bool IfcRamp::isOfType(Step::ClassType t) {
+bool IfcRamp::isOfType(const Step::ClassType &t) const {
     return IfcRamp::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcRampTypeEnum IfcRamp::getShapeType() {
     }
 }
 
-void IfcRamp::setShapeType(IfcRampTypeEnum value) {
-    m_shapeType = value;
+const IfcRampTypeEnum IfcRamp::getShapeType() const {
+    IfcRamp * deConstObject = const_cast< IfcRamp * > (this);
+    return deConstObject->getShapeType();
 }
 
-void IfcRamp::release() {
-    IfcBuildingElement::release();
+void IfcRamp::setShapeType(IfcRampTypeEnum value) {
+    m_shapeType = value;
 }
 
 bool IfcRamp::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDiscreteAccessoryType::IfcDiscreteAccessoryType(Step::Id id, Step::SPFData *a
 IfcDiscreteAccessoryType::~IfcDiscreteAccessoryType() {
 }
 
-bool IfcDiscreteAccessoryType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDiscreteAccessoryType(this);
+bool IfcDiscreteAccessoryType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDiscreteAccessoryType(this);
 }
 
-const std::string &IfcDiscreteAccessoryType::type() {
+const std::string &IfcDiscreteAccessoryType::type() const {
     return IfcDiscreteAccessoryType::s_type.getName();
 }
 
-Step::ClassType IfcDiscreteAccessoryType::getClassType() {
+const Step::ClassType &IfcDiscreteAccessoryType::getClassType() {
     return IfcDiscreteAccessoryType::s_type;
 }
 
-Step::ClassType IfcDiscreteAccessoryType::getType() const {
+const Step::ClassType &IfcDiscreteAccessoryType::getType() const {
     return IfcDiscreteAccessoryType::s_type;
 }
 
-bool IfcDiscreteAccessoryType::isOfType(Step::ClassType t) {
+bool IfcDiscreteAccessoryType::isOfType(const Step::ClassType &t) const {
     return IfcDiscreteAccessoryType::s_type == t ? true : IfcElementComponentType::isOfType(t);
-}
-
-void IfcDiscreteAccessoryType::release() {
-    IfcElementComponentType::release();
 }
 
 bool IfcDiscreteAccessoryType::init() {

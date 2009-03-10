@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSlab::IfcSlab(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcSlab::~IfcSlab() {
 }
 
-bool IfcSlab::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSlab(this);
+bool IfcSlab::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSlab(this);
 }
 
-const std::string &IfcSlab::type() {
+const std::string &IfcSlab::type() const {
     return IfcSlab::s_type.getName();
 }
 
-Step::ClassType IfcSlab::getClassType() {
+const Step::ClassType &IfcSlab::getClassType() {
     return IfcSlab::s_type;
 }
 
-Step::ClassType IfcSlab::getType() const {
+const Step::ClassType &IfcSlab::getType() const {
     return IfcSlab::s_type;
 }
 
-bool IfcSlab::isOfType(Step::ClassType t) {
+bool IfcSlab::isOfType(const Step::ClassType &t) const {
     return IfcSlab::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSlabTypeEnum IfcSlab::getPredefinedType() {
     }
 }
 
-void IfcSlab::setPredefinedType(IfcSlabTypeEnum value) {
-    m_predefinedType = value;
+const IfcSlabTypeEnum IfcSlab::getPredefinedType() const {
+    IfcSlab * deConstObject = const_cast< IfcSlab * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSlab::release() {
-    IfcBuildingElement::release();
+void IfcSlab::setPredefinedType(IfcSlabTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSlab::init() {

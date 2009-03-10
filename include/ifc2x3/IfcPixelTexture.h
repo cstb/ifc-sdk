@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,8 +33,6 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
-#include <Step/Binary.h>
 #include "ifc2x3/IfcSurfaceTexture.h"
 
 namespace ifc2x3 {
@@ -46,63 +44,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPixelTexture : public IfcSurfaceTexture {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Width'.
+         * 
          */
-        IfcInteger getWidth();
+        virtual IfcInteger getWidth();
+        /**
+         * (const) Returns the value of the explicit attribute 'Width'.
+         * 
+         * @return the value of the explicit attribute 'Width'
+         */
+        virtual const IfcInteger getWidth() const;
         /**
          * Sets the value of the explicit attribute 'Width'.
          * 
          * @param value
          */
-        void setWidth(IfcInteger value);
+        virtual void setWidth(IfcInteger value);
         /**
+         * Gets the value of the explicit attribute 'Height'.
+         * 
          */
-        IfcInteger getHeight();
+        virtual IfcInteger getHeight();
+        /**
+         * (const) Returns the value of the explicit attribute 'Height'.
+         * 
+         * @return the value of the explicit attribute 'Height'
+         */
+        virtual const IfcInteger getHeight() const;
         /**
          * Sets the value of the explicit attribute 'Height'.
          * 
          * @param value
          */
-        void setHeight(IfcInteger value);
+        virtual void setHeight(IfcInteger value);
         /**
+         * Gets the value of the explicit attribute 'ColourComponents'.
+         * 
          */
-        IfcInteger getColourComponents();
+        virtual IfcInteger getColourComponents();
+        /**
+         * (const) Returns the value of the explicit attribute 'ColourComponents'.
+         * 
+         * @return the value of the explicit attribute 'ColourComponents'
+         */
+        virtual const IfcInteger getColourComponents() const;
         /**
          * Sets the value of the explicit attribute 'ColourComponents'.
          * 
          * @param value
          */
-        void setColourComponents(IfcInteger value);
+        virtual void setColourComponents(IfcInteger value);
         /**
+         * Gets the value of the explicit attribute 'Pixel'.
+         * 
          */
-        Step::List< Step::Binary< 32 > > &getPixel();
+        virtual List_32_1_n &getPixel();
+        /**
+         * (const) Returns the value of the explicit attribute 'Pixel'.
+         * 
+         * @return the value of the explicit attribute 'Pixel'
+         */
+        virtual const List_32_1_n &getPixel() const;
         /**
          * Sets the value of the explicit attribute 'Pixel'.
          * 
          * @param value
          */
-        void setPixel(const Step::List< Step::Binary< 32 > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setPixel(const List_32_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -136,7 +171,7 @@ namespace ifc2x3 {
         Step::Integer m_colourComponents;
         /**
          */
-        Step::List< Step::Binary< 32 > > m_pixel;
+        List_32_1_n m_pixel;
 
     };
 

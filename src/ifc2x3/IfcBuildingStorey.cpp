@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcBuildingStorey::IfcBuildingStorey(Step::Id id, Step::SPFData *args) : IfcSpat
 IfcBuildingStorey::~IfcBuildingStorey() {
 }
 
-bool IfcBuildingStorey::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBuildingStorey(this);
+bool IfcBuildingStorey::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBuildingStorey(this);
 }
 
-const std::string &IfcBuildingStorey::type() {
+const std::string &IfcBuildingStorey::type() const {
     return IfcBuildingStorey::s_type.getName();
 }
 
-Step::ClassType IfcBuildingStorey::getClassType() {
+const Step::ClassType &IfcBuildingStorey::getClassType() {
     return IfcBuildingStorey::s_type;
 }
 
-Step::ClassType IfcBuildingStorey::getType() const {
+const Step::ClassType &IfcBuildingStorey::getType() const {
     return IfcBuildingStorey::s_type;
 }
 
-bool IfcBuildingStorey::isOfType(Step::ClassType t) {
+bool IfcBuildingStorey::isOfType(const Step::ClassType &t) const {
     return IfcBuildingStorey::s_type == t ? true : IfcSpatialStructureElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcLengthMeasure IfcBuildingStorey::getElevation() {
     }
 }
 
-void IfcBuildingStorey::setElevation(IfcLengthMeasure value) {
-    m_elevation = value;
+const IfcLengthMeasure IfcBuildingStorey::getElevation() const {
+    IfcBuildingStorey * deConstObject = const_cast< IfcBuildingStorey * > (this);
+    return deConstObject->getElevation();
 }
 
-void IfcBuildingStorey::release() {
-    IfcSpatialStructureElement::release();
+void IfcBuildingStorey::setElevation(IfcLengthMeasure value) {
+    m_elevation = value;
 }
 
 bool IfcBuildingStorey::init() {

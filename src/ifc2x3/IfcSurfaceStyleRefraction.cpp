@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcSurfaceStyleRefraction::IfcSurfaceStyleRefraction(Step::Id id, Step::SPFData 
 IfcSurfaceStyleRefraction::~IfcSurfaceStyleRefraction() {
 }
 
-bool IfcSurfaceStyleRefraction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleRefraction(this);
+bool IfcSurfaceStyleRefraction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleRefraction(this);
 }
 
-const std::string &IfcSurfaceStyleRefraction::type() {
+const std::string &IfcSurfaceStyleRefraction::type() const {
     return IfcSurfaceStyleRefraction::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleRefraction::getClassType() {
+const Step::ClassType &IfcSurfaceStyleRefraction::getClassType() {
     return IfcSurfaceStyleRefraction::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleRefraction::getType() const {
+const Step::ClassType &IfcSurfaceStyleRefraction::getType() const {
     return IfcSurfaceStyleRefraction::s_type;
 }
 
-bool IfcSurfaceStyleRefraction::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleRefraction::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleRefraction::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcReal IfcSurfaceStyleRefraction::getRefractionIndex() {
     else {
         return Step::getUnset(m_refractionIndex);
     }
+}
+
+const IfcReal IfcSurfaceStyleRefraction::getRefractionIndex() const {
+    IfcSurfaceStyleRefraction * deConstObject = const_cast< IfcSurfaceStyleRefraction * > (this);
+    return deConstObject->getRefractionIndex();
 }
 
 void IfcSurfaceStyleRefraction::setRefractionIndex(IfcReal value) {
@@ -89,11 +94,13 @@ IfcReal IfcSurfaceStyleRefraction::getDispersionFactor() {
     }
 }
 
-void IfcSurfaceStyleRefraction::setDispersionFactor(IfcReal value) {
-    m_dispersionFactor = value;
+const IfcReal IfcSurfaceStyleRefraction::getDispersionFactor() const {
+    IfcSurfaceStyleRefraction * deConstObject = const_cast< IfcSurfaceStyleRefraction * > (this);
+    return deConstObject->getDispersionFactor();
 }
 
-void IfcSurfaceStyleRefraction::release() {
+void IfcSurfaceStyleRefraction::setDispersionFactor(IfcReal value) {
+    m_dispersionFactor = value;
 }
 
 bool IfcSurfaceStyleRefraction::init() {

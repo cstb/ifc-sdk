@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBoundedCurve::IfcBoundedCurve(Step::Id id, Step::SPFData *args) : IfcCurve(id
 IfcBoundedCurve::~IfcBoundedCurve() {
 }
 
-bool IfcBoundedCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundedCurve(this);
+bool IfcBoundedCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundedCurve(this);
 }
 
-const std::string &IfcBoundedCurve::type() {
+const std::string &IfcBoundedCurve::type() const {
     return IfcBoundedCurve::s_type.getName();
 }
 
-Step::ClassType IfcBoundedCurve::getClassType() {
+const Step::ClassType &IfcBoundedCurve::getClassType() {
     return IfcBoundedCurve::s_type;
 }
 
-Step::ClassType IfcBoundedCurve::getType() const {
+const Step::ClassType &IfcBoundedCurve::getType() const {
     return IfcBoundedCurve::s_type;
 }
 
-bool IfcBoundedCurve::isOfType(Step::ClassType t) {
+bool IfcBoundedCurve::isOfType(const Step::ClassType &t) const {
     return IfcBoundedCurve::s_type == t ? true : IfcCurve::isOfType(t);
-}
-
-void IfcBoundedCurve::release() {
-    IfcCurve::release();
 }
 
 bool IfcBoundedCurve::init() {

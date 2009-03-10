@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,33 +41,32 @@
 using namespace ifc2x3;
 
 IfcCartesianPoint::IfcCartesianPoint(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
-    m_coordinates.setUnset(true);
 }
 
 IfcCartesianPoint::~IfcCartesianPoint() {
 }
 
-bool IfcCartesianPoint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCartesianPoint(this);
+bool IfcCartesianPoint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCartesianPoint(this);
 }
 
-const std::string &IfcCartesianPoint::type() {
+const std::string &IfcCartesianPoint::type() const {
     return IfcCartesianPoint::s_type.getName();
 }
 
-Step::ClassType IfcCartesianPoint::getClassType() {
+const Step::ClassType &IfcCartesianPoint::getClassType() {
     return IfcCartesianPoint::s_type;
 }
 
-Step::ClassType IfcCartesianPoint::getType() const {
+const Step::ClassType &IfcCartesianPoint::getType() const {
     return IfcCartesianPoint::s_type;
 }
 
-bool IfcCartesianPoint::isOfType(Step::ClassType t) {
+bool IfcCartesianPoint::isOfType(const Step::ClassType &t) const {
     return IfcCartesianPoint::s_type == t ? true : IfcPoint::isOfType(t);
 }
 
-Step::List< IfcLengthMeasure > &IfcCartesianPoint::getCoordinates() {
+List_IfcLengthMeasure_1_3 &IfcCartesianPoint::getCoordinates() {
     if (Step::BaseObject::inited()) {
         return m_coordinates;
     }
@@ -77,13 +76,13 @@ Step::List< IfcLengthMeasure > &IfcCartesianPoint::getCoordinates() {
     }
 }
 
-void IfcCartesianPoint::setCoordinates(const Step::List< IfcLengthMeasure > &value) {
-    m_coordinates = value;
+const List_IfcLengthMeasure_1_3 &IfcCartesianPoint::getCoordinates() const {
+    IfcCartesianPoint * deConstObject = const_cast< IfcCartesianPoint * > (this);
+    return deConstObject->getCoordinates();
 }
 
-void IfcCartesianPoint::release() {
-    IfcPoint::release();
-    m_coordinates.clear();
+void IfcCartesianPoint::setCoordinates(const List_IfcLengthMeasure_1_3 &value) {
+    m_coordinates = value;
 }
 
 bool IfcCartesianPoint::init() {
@@ -115,7 +114,7 @@ bool IfcCartesianPoint::init() {
 }
 
 void IfcCartesianPoint::copy(const IfcCartesianPoint &obj, const CopyOp &copyop) {
-    Step::List< IfcLengthMeasure >::const_iterator it_m_coordinates;
+    Step::List< IfcLengthMeasure, 1, 3 >::const_iterator it_m_coordinates;
     IfcPoint::copy(obj, copyop);
     for (it_m_coordinates = obj.m_coordinates.begin(); it_m_coordinates != obj.m_coordinates.end(); ++it_m_coordinates) {
         IfcLengthMeasure copyTarget = (*it_m_coordinates);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -54,27 +54,27 @@ IfcTimeSeriesSchedule::IfcTimeSeriesSchedule(Step::Id id, Step::SPFData *args) :
 IfcTimeSeriesSchedule::~IfcTimeSeriesSchedule() {
 }
 
-bool IfcTimeSeriesSchedule::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTimeSeriesSchedule(this);
+bool IfcTimeSeriesSchedule::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTimeSeriesSchedule(this);
 }
 
-const std::string &IfcTimeSeriesSchedule::type() {
+const std::string &IfcTimeSeriesSchedule::type() const {
     return IfcTimeSeriesSchedule::s_type.getName();
 }
 
-Step::ClassType IfcTimeSeriesSchedule::getClassType() {
+const Step::ClassType &IfcTimeSeriesSchedule::getClassType() {
     return IfcTimeSeriesSchedule::s_type;
 }
 
-Step::ClassType IfcTimeSeriesSchedule::getType() const {
+const Step::ClassType &IfcTimeSeriesSchedule::getType() const {
     return IfcTimeSeriesSchedule::s_type;
 }
 
-bool IfcTimeSeriesSchedule::isOfType(Step::ClassType t) {
+bool IfcTimeSeriesSchedule::isOfType(const Step::ClassType &t) const {
     return IfcTimeSeriesSchedule::s_type == t ? true : IfcControl::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcDateTimeSelect > > &IfcTimeSeriesSchedule::getApplicableDates() {
+List_IfcDateTimeSelect_1_n &IfcTimeSeriesSchedule::getApplicableDates() {
     if (Step::BaseObject::inited()) {
         return m_applicableDates;
     }
@@ -84,7 +84,12 @@ Step::List< Step::RefPtr< IfcDateTimeSelect > > &IfcTimeSeriesSchedule::getAppli
     }
 }
 
-void IfcTimeSeriesSchedule::setApplicableDates(const Step::List< Step::RefPtr< IfcDateTimeSelect > > &value) {
+const List_IfcDateTimeSelect_1_n &IfcTimeSeriesSchedule::getApplicableDates() const {
+    IfcTimeSeriesSchedule * deConstObject = const_cast< IfcTimeSeriesSchedule * > (this);
+    return deConstObject->getApplicableDates();
+}
+
+void IfcTimeSeriesSchedule::setApplicableDates(const List_IfcDateTimeSelect_1_n &value) {
     m_applicableDates = value;
 }
 
@@ -95,6 +100,11 @@ IfcTimeSeriesScheduleTypeEnum IfcTimeSeriesSchedule::getTimeSeriesScheduleType()
     else {
         return IfcTimeSeriesScheduleTypeEnum_UNSET;
     }
+}
+
+const IfcTimeSeriesScheduleTypeEnum IfcTimeSeriesSchedule::getTimeSeriesScheduleType() const {
+    IfcTimeSeriesSchedule * deConstObject = const_cast< IfcTimeSeriesSchedule * > (this);
+    return deConstObject->getTimeSeriesScheduleType();
 }
 
 void IfcTimeSeriesSchedule::setTimeSeriesScheduleType(IfcTimeSeriesScheduleTypeEnum value) {
@@ -110,14 +120,13 @@ IfcTimeSeries *IfcTimeSeriesSchedule::getTimeSeries() {
     }
 }
 
-void IfcTimeSeriesSchedule::setTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_timeSeries = value;
+const IfcTimeSeries *IfcTimeSeriesSchedule::getTimeSeries() const {
+    IfcTimeSeriesSchedule * deConstObject = const_cast< IfcTimeSeriesSchedule * > (this);
+    return deConstObject->getTimeSeries();
 }
 
-void IfcTimeSeriesSchedule::release() {
-    IfcControl::release();
-    m_applicableDates.clear();
-    m_timeSeries.release();
+void IfcTimeSeriesSchedule::setTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
+    m_timeSeries = value;
 }
 
 bool IfcTimeSeriesSchedule::init() {
@@ -186,13 +195,13 @@ bool IfcTimeSeriesSchedule::init() {
         m_timeSeries = NULL;
     }
     else {
-        m_timeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_timeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcTimeSeriesSchedule::copy(const IfcTimeSeriesSchedule &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcDateTimeSelect > >::const_iterator it_m_applicableDates;
+    Step::List< Step::RefPtr< IfcDateTimeSelect >, 1 >::const_iterator it_m_applicableDates;
     IfcControl::copy(obj, copyop);
     for (it_m_applicableDates = obj.m_applicableDates.begin(); it_m_applicableDates != obj.m_applicableDates.end(); ++it_m_applicableDates) {
         Step::RefPtr< IfcDateTimeSelect > copyTarget = new IfcDateTimeSelect;
@@ -200,7 +209,7 @@ void IfcTimeSeriesSchedule::copy(const IfcTimeSeriesSchedule &obj, const CopyOp 
         m_applicableDates.push_back(copyTarget.get());
     }
     setTimeSeriesScheduleType(obj.m_timeSeriesScheduleType);
-    setTimeSeries(copyop(obj.m_timeSeries.get()));
+    setTimeSeries((IfcTimeSeries*)copyop(obj.m_timeSeries.get()));
     return;
 }
 

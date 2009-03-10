@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,63 +46,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSurfaceTexture : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RepeatS'.
+         * 
          */
-        Step::Bool getRepeatS();
+        virtual Step::Boolean getRepeatS();
+        /**
+         * (const) Returns the value of the explicit attribute 'RepeatS'.
+         * 
+         * @return the value of the explicit attribute 'RepeatS'
+         */
+        virtual const Step::Boolean getRepeatS() const;
         /**
          * Sets the value of the explicit attribute 'RepeatS'.
          * 
          * @param value
          */
-        void setRepeatS(Step::Bool value);
+        virtual void setRepeatS(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'RepeatT'.
+         * 
          */
-        Step::Bool getRepeatT();
+        virtual Step::Boolean getRepeatT();
+        /**
+         * (const) Returns the value of the explicit attribute 'RepeatT'.
+         * 
+         * @return the value of the explicit attribute 'RepeatT'
+         */
+        virtual const Step::Boolean getRepeatT() const;
         /**
          * Sets the value of the explicit attribute 'RepeatT'.
          * 
          * @param value
          */
-        void setRepeatT(Step::Bool value);
+        virtual void setRepeatT(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'TextureType'.
+         * 
          */
-        IfcSurfaceTextureEnum getTextureType();
+        virtual IfcSurfaceTextureEnum getTextureType();
+        /**
+         * (const) Returns the value of the explicit attribute 'TextureType'.
+         * 
+         * @return the value of the explicit attribute 'TextureType'
+         */
+        virtual const IfcSurfaceTextureEnum getTextureType() const;
         /**
          * Sets the value of the explicit attribute 'TextureType'.
          * 
          * @param value
          */
-        void setTextureType(IfcSurfaceTextureEnum value);
+        virtual void setTextureType(IfcSurfaceTextureEnum value);
         /**
+         * Gets the value of the explicit attribute 'TextureTransform'.
+         * 
          */
-        IfcCartesianTransformationOperator2D *getTextureTransform();
+        virtual IfcCartesianTransformationOperator2D *getTextureTransform();
+        /**
+         * (const) Returns the value of the explicit attribute 'TextureTransform'.
+         * 
+         * @return the value of the explicit attribute 'TextureTransform'
+         */
+        virtual const IfcCartesianTransformationOperator2D *getTextureTransform() const;
         /**
          * Sets the value of the explicit attribute 'TextureTransform'.
          * 
          * @param value
          */
-        void setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -127,10 +164,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::Bool m_repeatS;
+        Step::Boolean m_repeatS;
         /**
          */
-        Step::Bool m_repeatT;
+        Step::Boolean m_repeatT;
         /**
          */
         IfcSurfaceTextureEnum m_textureType;

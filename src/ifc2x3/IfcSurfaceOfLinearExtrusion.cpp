@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcSurfaceOfLinearExtrusion::IfcSurfaceOfLinearExtrusion(Step::Id id, Step::SPFD
 IfcSurfaceOfLinearExtrusion::~IfcSurfaceOfLinearExtrusion() {
 }
 
-bool IfcSurfaceOfLinearExtrusion::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceOfLinearExtrusion(this);
+bool IfcSurfaceOfLinearExtrusion::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceOfLinearExtrusion(this);
 }
 
-const std::string &IfcSurfaceOfLinearExtrusion::type() {
+const std::string &IfcSurfaceOfLinearExtrusion::type() const {
     return IfcSurfaceOfLinearExtrusion::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceOfLinearExtrusion::getClassType() {
+const Step::ClassType &IfcSurfaceOfLinearExtrusion::getClassType() {
     return IfcSurfaceOfLinearExtrusion::s_type;
 }
 
-Step::ClassType IfcSurfaceOfLinearExtrusion::getType() const {
+const Step::ClassType &IfcSurfaceOfLinearExtrusion::getType() const {
     return IfcSurfaceOfLinearExtrusion::s_type;
 }
 
-bool IfcSurfaceOfLinearExtrusion::isOfType(Step::ClassType t) {
+bool IfcSurfaceOfLinearExtrusion::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceOfLinearExtrusion::s_type == t ? true : IfcSweptSurface::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcDirection *IfcSurfaceOfLinearExtrusion::getExtrudedDirection() {
     else {
         return NULL;
     }
+}
+
+const IfcDirection *IfcSurfaceOfLinearExtrusion::getExtrudedDirection() const {
+    IfcSurfaceOfLinearExtrusion * deConstObject = const_cast< IfcSurfaceOfLinearExtrusion * > (this);
+    return deConstObject->getExtrudedDirection();
 }
 
 void IfcSurfaceOfLinearExtrusion::setExtrudedDirection(const Step::RefPtr< IfcDirection > &value) {
@@ -93,13 +98,13 @@ IfcLengthMeasure IfcSurfaceOfLinearExtrusion::getDepth() {
     }
 }
 
-void IfcSurfaceOfLinearExtrusion::setDepth(IfcLengthMeasure value) {
-    m_depth = value;
+const IfcLengthMeasure IfcSurfaceOfLinearExtrusion::getDepth() const {
+    IfcSurfaceOfLinearExtrusion * deConstObject = const_cast< IfcSurfaceOfLinearExtrusion * > (this);
+    return deConstObject->getDepth();
 }
 
-void IfcSurfaceOfLinearExtrusion::release() {
-    IfcSweptSurface::release();
-    m_extrudedDirection.release();
+void IfcSurfaceOfLinearExtrusion::setDepth(IfcLengthMeasure value) {
+    m_depth = value;
 }
 
 bool IfcSurfaceOfLinearExtrusion::init() {
@@ -113,7 +118,7 @@ bool IfcSurfaceOfLinearExtrusion::init() {
         m_extrudedDirection = NULL;
     }
     else {
-        m_extrudedDirection = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_extrudedDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -127,7 +132,7 @@ bool IfcSurfaceOfLinearExtrusion::init() {
 
 void IfcSurfaceOfLinearExtrusion::copy(const IfcSurfaceOfLinearExtrusion &obj, const CopyOp &copyop) {
     IfcSweptSurface::copy(obj, copyop);
-    setExtrudedDirection(copyop(obj.m_extrudedDirection.get()));
+    setExtrudedDirection((IfcDirection*)copyop(obj.m_extrudedDirection.get()));
     setDepth(obj.m_depth);
     return;
 }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcVertexLoop::IfcVertexLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, arg
 IfcVertexLoop::~IfcVertexLoop() {
 }
 
-bool IfcVertexLoop::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVertexLoop(this);
+bool IfcVertexLoop::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVertexLoop(this);
 }
 
-const std::string &IfcVertexLoop::type() {
+const std::string &IfcVertexLoop::type() const {
     return IfcVertexLoop::s_type.getName();
 }
 
-Step::ClassType IfcVertexLoop::getClassType() {
+const Step::ClassType &IfcVertexLoop::getClassType() {
     return IfcVertexLoop::s_type;
 }
 
-Step::ClassType IfcVertexLoop::getType() const {
+const Step::ClassType &IfcVertexLoop::getType() const {
     return IfcVertexLoop::s_type;
 }
 
-bool IfcVertexLoop::isOfType(Step::ClassType t) {
+bool IfcVertexLoop::isOfType(const Step::ClassType &t) const {
     return IfcVertexLoop::s_type == t ? true : IfcLoop::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcVertex *IfcVertexLoop::getLoopVertex() {
     }
 }
 
-void IfcVertexLoop::setLoopVertex(const Step::RefPtr< IfcVertex > &value) {
-    m_loopVertex = value;
+const IfcVertex *IfcVertexLoop::getLoopVertex() const {
+    IfcVertexLoop * deConstObject = const_cast< IfcVertexLoop * > (this);
+    return deConstObject->getLoopVertex();
 }
 
-void IfcVertexLoop::release() {
-    IfcLoop::release();
-    m_loopVertex.release();
+void IfcVertexLoop::setLoopVertex(const Step::RefPtr< IfcVertex > &value) {
+    m_loopVertex = value;
 }
 
 bool IfcVertexLoop::init() {
@@ -99,14 +99,14 @@ bool IfcVertexLoop::init() {
         m_loopVertex = NULL;
     }
     else {
-        m_loopVertex = static_cast< IfcVertex * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_loopVertex = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcVertexLoop::copy(const IfcVertexLoop &obj, const CopyOp &copyop) {
     IfcLoop::copy(obj, copyop);
-    setLoopVertex(copyop(obj.m_loopVertex.get()));
+    setLoopVertex((IfcVertex*)copyop(obj.m_loopVertex.get()));
     return;
 }
 

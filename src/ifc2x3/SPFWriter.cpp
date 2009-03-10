@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,13 +38,11 @@
 #include "ifc2x3/IfcAirTerminalType.h"
 #include "ifc2x3/IfcAirToAirHeatRecoveryType.h"
 #include "ifc2x3/IfcAlarmType.h"
-#include "ifc2x3/IfcAlignmentElement.h"
 #include "ifc2x3/IfcAngularDimension.h"
 #include "ifc2x3/IfcAnnotation.h"
 #include "ifc2x3/IfcAnnotationCurveOccurrence.h"
 #include "ifc2x3/IfcAnnotationFillArea.h"
 #include "ifc2x3/IfcAnnotationFillAreaOccurrence.h"
-#include "ifc2x3/IfcAnnotationOccurrence.h"
 #include "ifc2x3/IfcAnnotationSurface.h"
 #include "ifc2x3/IfcAnnotationSurfaceOccurrence.h"
 #include "ifc2x3/IfcAnnotationSymbolOccurrence.h"
@@ -85,20 +83,10 @@
 #include "ifc2x3/IfcBoundedSurface.h"
 #include "ifc2x3/IfcBoundingBox.h"
 #include "ifc2x3/IfcBoxedHalfSpace.h"
-#include "ifc2x3/IfcBridge.h"
-#include "ifc2x3/IfcBridgeContactElement.h"
-#include "ifc2x3/IfcBridgeElement.h"
-#include "ifc2x3/IfcBridgePart.h"
-#include "ifc2x3/IfcBridgePrismaticElement.h"
-#include "ifc2x3/IfcBridgeSegment.h"
-#include "ifc2x3/IfcBridgeSegmentPart.h"
-#include "ifc2x3/IfcBridgeStructureElement.h"
 #include "ifc2x3/IfcBuilding.h"
-#include "ifc2x3/IfcBuildingElement.h"
 #include "ifc2x3/IfcBuildingElementPart.h"
 #include "ifc2x3/IfcBuildingElementProxy.h"
 #include "ifc2x3/IfcBuildingElementProxyType.h"
-#include "ifc2x3/IfcBuildingElementType.h"
 #include "ifc2x3/IfcBuildingStorey.h"
 #include "ifc2x3/IfcCShapeProfileDef.h"
 #include "ifc2x3/IfcCableCarrierFittingType.h"
@@ -118,11 +106,6 @@
 #include "ifc2x3/IfcCircle.h"
 #include "ifc2x3/IfcCircleHollowProfileDef.h"
 #include "ifc2x3/IfcCircleProfileDef.h"
-#include "ifc2x3/IfcCivilElement.h"
-#include "ifc2x3/IfcCivilElementPart.h"
-#include "ifc2x3/IfcCivilSheath.h"
-#include "ifc2x3/IfcCivilStructureElement.h"
-#include "ifc2x3/IfcCivilVoid.h"
 #include "ifc2x3/IfcClassification.h"
 #include "ifc2x3/IfcClassificationItem.h"
 #include "ifc2x3/IfcClassificationItemRelationship.h"
@@ -131,7 +114,6 @@
 #include "ifc2x3/IfcClassificationNotationSelect.h"
 #include "ifc2x3/IfcClassificationReference.h"
 #include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcClothoid.h"
 #include "ifc2x3/IfcCoilType.h"
 #include "ifc2x3/IfcColour.h"
 #include "ifc2x3/IfcColourOrFactor.h"
@@ -216,11 +198,9 @@
 #include "ifc2x3/IfcDistributionChamberElement.h"
 #include "ifc2x3/IfcDistributionChamberElementType.h"
 #include "ifc2x3/IfcDistributionControlElement.h"
-#include "ifc2x3/IfcDistributionControlElementType.h"
 #include "ifc2x3/IfcDistributionElement.h"
 #include "ifc2x3/IfcDistributionElementType.h"
 #include "ifc2x3/IfcDistributionFlowElement.h"
-#include "ifc2x3/IfcDistributionFlowElementType.h"
 #include "ifc2x3/IfcDistributionPort.h"
 #include "ifc2x3/IfcDocumentElectronicFormat.h"
 #include "ifc2x3/IfcDocumentInformation.h"
@@ -256,16 +236,12 @@
 #include "ifc2x3/IfcElectricalElement.h"
 #include "ifc2x3/IfcElement.h"
 #include "ifc2x3/IfcElementAssembly.h"
-#include "ifc2x3/IfcElementComponent.h"
-#include "ifc2x3/IfcElementComponentType.h"
-#include "ifc2x3/IfcElementPart.h"
 #include "ifc2x3/IfcElementQuantity.h"
 #include "ifc2x3/IfcElementType.h"
 #include "ifc2x3/IfcElementarySurface.h"
 #include "ifc2x3/IfcEllipse.h"
 #include "ifc2x3/IfcEllipseProfileDef.h"
 #include "ifc2x3/IfcEnergyConversionDevice.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
 #include "ifc2x3/IfcEnergyProperties.h"
 #include "ifc2x3/IfcEnvironmentalImpactValue.h"
 #include "ifc2x3/IfcEquipmentElement.h"
@@ -290,7 +266,6 @@
 #include "ifc2x3/IfcFanType.h"
 #include "ifc2x3/IfcFastener.h"
 #include "ifc2x3/IfcFastenerType.h"
-#include "ifc2x3/IfcFeatureElement.h"
 #include "ifc2x3/IfcFeatureElementAddition.h"
 #include "ifc2x3/IfcFeatureElementSubtraction.h"
 #include "ifc2x3/IfcFillAreaStyle.h"
@@ -302,21 +277,14 @@
 #include "ifc2x3/IfcFilterType.h"
 #include "ifc2x3/IfcFireSuppressionTerminalType.h"
 #include "ifc2x3/IfcFlowController.h"
-#include "ifc2x3/IfcFlowControllerType.h"
 #include "ifc2x3/IfcFlowFitting.h"
-#include "ifc2x3/IfcFlowFittingType.h"
 #include "ifc2x3/IfcFlowInstrumentType.h"
 #include "ifc2x3/IfcFlowMeterType.h"
 #include "ifc2x3/IfcFlowMovingDevice.h"
-#include "ifc2x3/IfcFlowMovingDeviceType.h"
 #include "ifc2x3/IfcFlowSegment.h"
-#include "ifc2x3/IfcFlowSegmentType.h"
 #include "ifc2x3/IfcFlowStorageDevice.h"
-#include "ifc2x3/IfcFlowStorageDeviceType.h"
 #include "ifc2x3/IfcFlowTerminal.h"
-#include "ifc2x3/IfcFlowTerminalType.h"
 #include "ifc2x3/IfcFlowTreatmentDevice.h"
-#include "ifc2x3/IfcFlowTreatmentDeviceType.h"
 #include "ifc2x3/IfcFluidFlowProperties.h"
 #include "ifc2x3/IfcFooting.h"
 #include "ifc2x3/IfcFuelProperties.h"
@@ -444,14 +412,10 @@
 #include "ifc2x3/IfcPolyline.h"
 #include "ifc2x3/IfcPort.h"
 #include "ifc2x3/IfcPostalAddress.h"
-#include "ifc2x3/IfcPreDefinedColour.h"
-#include "ifc2x3/IfcPreDefinedCurveFont.h"
 #include "ifc2x3/IfcPreDefinedDimensionSymbol.h"
 #include "ifc2x3/IfcPreDefinedItem.h"
 #include "ifc2x3/IfcPreDefinedPointMarkerSymbol.h"
-#include "ifc2x3/IfcPreDefinedSymbol.h"
 #include "ifc2x3/IfcPreDefinedTerminatorSymbol.h"
-#include "ifc2x3/IfcPreDefinedTextFont.h"
 #include "ifc2x3/IfcPresentationLayerAssignment.h"
 #include "ifc2x3/IfcPresentationLayerWithStyle.h"
 #include "ifc2x3/IfcPresentationStyle.h"
@@ -473,7 +437,6 @@
 #include "ifc2x3/IfcProperty.h"
 #include "ifc2x3/IfcPropertyBoundedValue.h"
 #include "ifc2x3/IfcPropertyConstraintRelationship.h"
-#include "ifc2x3/IfcPropertyDefinition.h"
 #include "ifc2x3/IfcPropertyDependencyRelationship.h"
 #include "ifc2x3/IfcPropertyEnumeratedValue.h"
 #include "ifc2x3/IfcPropertyEnumeration.h"
@@ -503,14 +466,6 @@
 #include "ifc2x3/IfcRectangleProfileDef.h"
 #include "ifc2x3/IfcRectangularPyramid.h"
 #include "ifc2x3/IfcRectangularTrimmedSurface.h"
-#include "ifc2x3/IfcReferenceCurve.h"
-#include "ifc2x3/IfcReferenceCurve3D.h"
-#include "ifc2x3/IfcReferenceCurveAlignment2D.h"
-#include "ifc2x3/IfcReferenceCurvePlacement.h"
-#include "ifc2x3/IfcReferenceCurvePlacementSystem.h"
-#include "ifc2x3/IfcReferenceElement.h"
-#include "ifc2x3/IfcReferencePlacement.h"
-#include "ifc2x3/IfcReferencedSectionedSpine.h"
 #include "ifc2x3/IfcReferencesValueDocument.h"
 #include "ifc2x3/IfcRegularTimeSeries.h"
 #include "ifc2x3/IfcReinforcementBarProperties.h"
@@ -537,7 +492,6 @@
 #include "ifc2x3/IfcRelAssociatesLibrary.h"
 #include "ifc2x3/IfcRelAssociatesMaterial.h"
 #include "ifc2x3/IfcRelAssociatesProfileProperties.h"
-#include "ifc2x3/IfcRelConnects.h"
 #include "ifc2x3/IfcRelConnectsElements.h"
 #include "ifc2x3/IfcRelConnectsPathElements.h"
 #include "ifc2x3/IfcRelConnectsPortToElement.h"
@@ -567,7 +521,6 @@
 #include "ifc2x3/IfcRelServicesBuildings.h"
 #include "ifc2x3/IfcRelSpaceBoundary.h"
 #include "ifc2x3/IfcRelVoidsElement.h"
-#include "ifc2x3/IfcRelationship.h"
 #include "ifc2x3/IfcRelaxation.h"
 #include "ifc2x3/IfcRepresentation.h"
 #include "ifc2x3/IfcRepresentationContext.h"
@@ -592,18 +545,15 @@
 #include "ifc2x3/IfcServiceLife.h"
 #include "ifc2x3/IfcServiceLifeFactor.h"
 #include "ifc2x3/IfcShapeAspect.h"
-#include "ifc2x3/IfcShapeModel.h"
 #include "ifc2x3/IfcShapeRepresentation.h"
 #include "ifc2x3/IfcShell.h"
 #include "ifc2x3/IfcShellBasedSurfaceModel.h"
-#include "ifc2x3/IfcSimpleProperty.h"
 #include "ifc2x3/IfcSimpleValue.h"
 #include "ifc2x3/IfcSite.h"
 #include "ifc2x3/IfcSizeSelect.h"
 #include "ifc2x3/IfcSlab.h"
 #include "ifc2x3/IfcSlabType.h"
 #include "ifc2x3/IfcSlippageConnectionCondition.h"
-#include "ifc2x3/IfcSolidModel.h"
 #include "ifc2x3/IfcSoundProperties.h"
 #include "ifc2x3/IfcSoundValue.h"
 #include "ifc2x3/IfcSpace.h"
@@ -612,7 +562,6 @@
 #include "ifc2x3/IfcSpaceThermalLoadProperties.h"
 #include "ifc2x3/IfcSpaceType.h"
 #include "ifc2x3/IfcSpatialStructureElement.h"
-#include "ifc2x3/IfcSpatialStructureElementType.h"
 #include "ifc2x3/IfcSpecularHighlightSelect.h"
 #include "ifc2x3/IfcSphere.h"
 #include "ifc2x3/IfcStackTerminalType.h"
@@ -628,7 +577,6 @@
 #include "ifc2x3/IfcStructuralCurveConnection.h"
 #include "ifc2x3/IfcStructuralCurveMember.h"
 #include "ifc2x3/IfcStructuralCurveMemberVarying.h"
-#include "ifc2x3/IfcStructuralItem.h"
 #include "ifc2x3/IfcStructuralLinearAction.h"
 #include "ifc2x3/IfcStructuralLinearActionVarying.h"
 #include "ifc2x3/IfcStructuralLoad.h"
@@ -639,7 +587,6 @@
 #include "ifc2x3/IfcStructuralLoadSingleDisplacementDistortion.h"
 #include "ifc2x3/IfcStructuralLoadSingleForce.h"
 #include "ifc2x3/IfcStructuralLoadSingleForceWarping.h"
-#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include "ifc2x3/IfcStructuralLoadTemperature.h"
 #include "ifc2x3/IfcStructuralMember.h"
 #include "ifc2x3/IfcStructuralPlanarAction.h"
@@ -655,7 +602,6 @@
 #include "ifc2x3/IfcStructuralSurfaceMember.h"
 #include "ifc2x3/IfcStructuralSurfaceMemberVarying.h"
 #include "ifc2x3/IfcStructuredDimensionCallout.h"
-#include "ifc2x3/IfcStyleModel.h"
 #include "ifc2x3/IfcStyledItem.h"
 #include "ifc2x3/IfcStyledRepresentation.h"
 #include "ifc2x3/IfcSubContractResource.h"
@@ -708,7 +654,6 @@
 #include "ifc2x3/IfcTimeSeriesReferenceRelationship.h"
 #include "ifc2x3/IfcTimeSeriesSchedule.h"
 #include "ifc2x3/IfcTimeSeriesValue.h"
-#include "ifc2x3/IfcTopologicalRepresentationItem.h"
 #include "ifc2x3/IfcTopologyRepresentation.h"
 #include "ifc2x3/IfcTransformerType.h"
 #include "ifc2x3/IfcTransportElement.h"
@@ -749,9 +694,7 @@
 #include "ifc2x3/IfcZShapeProfileDef.h"
 #include "ifc2x3/IfcZone.h"
 #include <Step/Aggregation.h>
-#include <Step/Binary.h>
-#include <Step/Referenced.h>
-#include <string>
+#include <Step/String.h>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
@@ -813,15 +756,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCACTUATORTYPE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcActuatorType(static_cast< IfcActuatorType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcAddress_Map.begin();
-    while (it != expressDataSet->m_IfcAddress_Map.end()) {
-        m_out << "#" << it->first << "=IFCADDRESS(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcAddress(static_cast< IfcAddress * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -907,15 +841,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcAnnotationOccurrence_Map.begin();
-    while (it != expressDataSet->m_IfcAnnotationOccurrence_Map.end()) {
-        m_out << "#" << it->first << "=IFCANNOTATIONOCCURRENCE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcAnnotationOccurrence(static_cast< IfcAnnotationOccurrence * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcAnnotationSurface_Map.begin();
     while (it != expressDataSet->m_IfcAnnotationSurface_Map.end()) {
         m_out << "#" << it->first << "=IFCANNOTATIONSURFACE(";
@@ -957,15 +882,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCAPPLICATION(";
         if (!writeIfNotInited(it->first)) {
             writeIfcApplication(static_cast< IfcApplication * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcAppliedValue_Map.begin();
-    while (it != expressDataSet->m_IfcAppliedValue_Map.end()) {
-        m_out << "#" << it->first << "=IFCAPPLIEDVALUE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcAppliedValue(static_cast< IfcAppliedValue * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1087,15 +1003,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcBSplineCurve_Map.begin();
-    while (it != expressDataSet->m_IfcBSplineCurve_Map.end()) {
-        m_out << "#" << it->first << "=IFCBSPLINECURVE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBSplineCurve(static_cast< IfcBSplineCurve * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcBeam_Map.begin();
     while (it != expressDataSet->m_IfcBeam_Map.end()) {
         m_out << "#" << it->first << "=IFCBEAM(";
@@ -1168,15 +1075,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcBoundaryCondition_Map.begin();
-    while (it != expressDataSet->m_IfcBoundaryCondition_Map.end()) {
-        m_out << "#" << it->first << "=IFCBOUNDARYCONDITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBoundaryCondition(static_cast< IfcBoundaryCondition * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcBoundaryEdgeCondition_Map.begin();
     while (it != expressDataSet->m_IfcBoundaryEdgeCondition_Map.end()) {
         m_out << "#" << it->first << "=IFCBOUNDARYEDGECONDITION(";
@@ -1209,15 +1107,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCBOUNDARYNODECONDITIONWARPING(";
         if (!writeIfNotInited(it->first)) {
             writeIfcBoundaryNodeConditionWarping(static_cast< IfcBoundaryNodeConditionWarping * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBoundedCurve_Map.begin();
-    while (it != expressDataSet->m_IfcBoundedCurve_Map.end()) {
-        m_out << "#" << it->first << "=IFCBOUNDEDCURVE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBoundedCurve(static_cast< IfcBoundedCurve * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1258,15 +1147,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcBuildingElement_Map.begin();
-    while (it != expressDataSet->m_IfcBuildingElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCBUILDINGELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBuildingElement(static_cast< IfcBuildingElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcBuildingElementPart_Map.begin();
     while (it != expressDataSet->m_IfcBuildingElementPart_Map.end()) {
         m_out << "#" << it->first << "=IFCBUILDINGELEMENTPART(";
@@ -1290,15 +1170,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCBUILDINGELEMENTPROXYTYPE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcBuildingElementProxyType(static_cast< IfcBuildingElementProxyType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBuildingElementType_Map.begin();
-    while (it != expressDataSet->m_IfcBuildingElementType_Map.end()) {
-        m_out << "#" << it->first << "=IFCBUILDINGELEMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBuildingElementType(static_cast< IfcBuildingElementType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1362,15 +1233,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCCARTESIANPOINT(";
         if (!writeIfNotInited(it->first)) {
             writeIfcCartesianPoint(static_cast< IfcCartesianPoint * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCartesianTransformationOperator_Map.begin();
-    while (it != expressDataSet->m_IfcCartesianTransformationOperator_Map.end()) {
-        m_out << "#" << it->first << "=IFCCARTESIANTRANSFORMATIONOPERATOR(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCartesianTransformationOperator(static_cast< IfcCartesianTransformationOperator * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1546,15 +1408,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcColourSpecification_Map.begin();
-    while (it != expressDataSet->m_IfcColourSpecification_Map.end()) {
-        m_out << "#" << it->first << "=IFCCOLOURSPECIFICATION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcColourSpecification(static_cast< IfcColourSpecification * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcColumn_Map.begin();
     while (it != expressDataSet->m_IfcColumn_Map.end()) {
         m_out << "#" << it->first << "=IFCCOLUMN(";
@@ -1645,15 +1498,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcConic_Map.begin();
-    while (it != expressDataSet->m_IfcConic_Map.end()) {
-        m_out << "#" << it->first << "=IFCCONIC(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcConic(static_cast< IfcConic * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcConnectedFaceSet_Map.begin();
     while (it != expressDataSet->m_IfcConnectedFaceSet_Map.end()) {
         m_out << "#" << it->first << "=IFCCONNECTEDFACESET(";
@@ -1668,15 +1512,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCCONNECTIONCURVEGEOMETRY(";
         if (!writeIfNotInited(it->first)) {
             writeIfcConnectionCurveGeometry(static_cast< IfcConnectionCurveGeometry * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcConnectionGeometry_Map.begin();
-    while (it != expressDataSet->m_IfcConnectionGeometry_Map.end()) {
-        m_out << "#" << it->first << "=IFCCONNECTIONGEOMETRY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcConnectionGeometry(static_cast< IfcConnectionGeometry * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1713,15 +1548,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCCONNECTIONSURFACEGEOMETRY(";
         if (!writeIfNotInited(it->first)) {
             writeIfcConnectionSurfaceGeometry(static_cast< IfcConnectionSurfaceGeometry * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcConstraint_Map.begin();
-    while (it != expressDataSet->m_IfcConstraint_Map.end()) {
-        m_out << "#" << it->first << "=IFCCONSTRAINT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcConstraint(static_cast< IfcConstraint * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1780,29 +1606,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcConstructionResource_Map.begin();
-    while (it != expressDataSet->m_IfcConstructionResource_Map.end()) {
-        m_out << "#" << it->first << "=IFCCONSTRUCTIONRESOURCE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcConstructionResource(static_cast< IfcConstructionResource * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcContextDependentUnit_Map.begin();
     while (it != expressDataSet->m_IfcContextDependentUnit_Map.end()) {
         m_out << "#" << it->first << "=IFCCONTEXTDEPENDENTUNIT(";
         if (!writeIfNotInited(it->first)) {
             writeIfcContextDependentUnit(static_cast< IfcContextDependentUnit * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcControl_Map.begin();
-    while (it != expressDataSet->m_IfcControl_Map.end()) {
-        m_out << "#" << it->first << "=IFCCONTROL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcControl(static_cast< IfcControl * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -1924,15 +1732,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcCsgPrimitive3D_Map.begin();
-    while (it != expressDataSet->m_IfcCsgPrimitive3D_Map.end()) {
-        m_out << "#" << it->first << "=IFCCSGPRIMITIVE3D(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCsgPrimitive3D(static_cast< IfcCsgPrimitive3D * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcCsgSolid_Map.begin();
     while (it != expressDataSet->m_IfcCsgSolid_Map.end()) {
         m_out << "#" << it->first << "=IFCCSGSOLID(";
@@ -1965,15 +1764,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCCURTAINWALLTYPE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcCurtainWallType(static_cast< IfcCurtainWallType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCurve_Map.begin();
-    while (it != expressDataSet->m_IfcCurve_Map.end()) {
-        m_out << "#" << it->first << "=IFCCURVE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCurve(static_cast< IfcCurve * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2194,15 +1984,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcDistributionControlElementType_Map.begin();
-    while (it != expressDataSet->m_IfcDistributionControlElementType_Map.end()) {
-        m_out << "#" << it->first << "=IFCDISTRIBUTIONCONTROLELEMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcDistributionControlElementType(static_cast< IfcDistributionControlElementType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcDistributionElement_Map.begin();
     while (it != expressDataSet->m_IfcDistributionElement_Map.end()) {
         m_out << "#" << it->first << "=IFCDISTRIBUTIONELEMENT(";
@@ -2226,15 +2007,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCDISTRIBUTIONFLOWELEMENT(";
         if (!writeIfNotInited(it->first)) {
             writeIfcDistributionFlowElement(static_cast< IfcDistributionFlowElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcDistributionFlowElementType_Map.begin();
-    while (it != expressDataSet->m_IfcDistributionFlowElementType_Map.end()) {
-        m_out << "#" << it->first << "=IFCDISTRIBUTIONFLOWELEMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcDistributionFlowElementType(static_cast< IfcDistributionFlowElementType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2410,15 +2182,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcEdgeFeature_Map.begin();
-    while (it != expressDataSet->m_IfcEdgeFeature_Map.end()) {
-        m_out << "#" << it->first << "=IFCEDGEFEATURE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcEdgeFeature(static_cast< IfcEdgeFeature * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcEdgeLoop_Map.begin();
     while (it != expressDataSet->m_IfcEdgeLoop_Map.end()) {
         m_out << "#" << it->first << "=IFCEDGELOOP(";
@@ -2518,15 +2281,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcElement_Map.begin();
-    while (it != expressDataSet->m_IfcElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElement(static_cast< IfcElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcElementAssembly_Map.begin();
     while (it != expressDataSet->m_IfcElementAssembly_Map.end()) {
         m_out << "#" << it->first << "=IFCELEMENTASSEMBLY(";
@@ -2536,47 +2290,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcElementComponent_Map.begin();
-    while (it != expressDataSet->m_IfcElementComponent_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENTCOMPONENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElementComponent(static_cast< IfcElementComponent * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcElementComponentType_Map.begin();
-    while (it != expressDataSet->m_IfcElementComponentType_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENTCOMPONENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElementComponentType(static_cast< IfcElementComponentType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcElementQuantity_Map.begin();
     while (it != expressDataSet->m_IfcElementQuantity_Map.end()) {
         m_out << "#" << it->first << "=IFCELEMENTQUANTITY(";
         if (!writeIfNotInited(it->first)) {
             writeIfcElementQuantity(static_cast< IfcElementQuantity * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcElementType_Map.begin();
-    while (it != expressDataSet->m_IfcElementType_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElementType(static_cast< IfcElementType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcElementarySurface_Map.begin();
-    while (it != expressDataSet->m_IfcElementarySurface_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENTARYSURFACE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElementarySurface(static_cast< IfcElementarySurface * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2604,15 +2322,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCENERGYCONVERSIONDEVICE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcEnergyConversionDevice(static_cast< IfcEnergyConversionDevice * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcEnergyConversionDeviceType_Map.begin();
-    while (it != expressDataSet->m_IfcEnergyConversionDeviceType_Map.end()) {
-        m_out << "#" << it->first << "=IFCENERGYCONVERSIONDEVICETYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcEnergyConversionDeviceType(static_cast< IfcEnergyConversionDeviceType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2676,15 +2385,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCEXTENDEDMATERIALPROPERTIES(";
         if (!writeIfNotInited(it->first)) {
             writeIfcExtendedMaterialProperties(static_cast< IfcExtendedMaterialProperties * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcExternalReference_Map.begin();
-    while (it != expressDataSet->m_IfcExternalReference_Map.end()) {
-        m_out << "#" << it->first << "=IFCEXTERNALREFERENCE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcExternalReference(static_cast< IfcExternalReference * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2833,33 +2533,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcFeatureElement_Map.begin();
-    while (it != expressDataSet->m_IfcFeatureElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCFEATUREELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFeatureElement(static_cast< IfcFeatureElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcFeatureElementAddition_Map.begin();
-    while (it != expressDataSet->m_IfcFeatureElementAddition_Map.end()) {
-        m_out << "#" << it->first << "=IFCFEATUREELEMENTADDITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFeatureElementAddition(static_cast< IfcFeatureElementAddition * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcFeatureElementSubtraction_Map.begin();
-    while (it != expressDataSet->m_IfcFeatureElementSubtraction_Map.end()) {
-        m_out << "#" << it->first << "=IFCFEATUREELEMENTSUBTRACTION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFeatureElementSubtraction(static_cast< IfcFeatureElementSubtraction * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcFillAreaStyle_Map.begin();
     while (it != expressDataSet->m_IfcFillAreaStyle_Map.end()) {
         m_out << "#" << it->first << "=IFCFILLAREASTYLE(";
@@ -2923,29 +2596,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcFlowControllerType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowControllerType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWCONTROLLERTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowControllerType(static_cast< IfcFlowControllerType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcFlowFitting_Map.begin();
     while (it != expressDataSet->m_IfcFlowFitting_Map.end()) {
         m_out << "#" << it->first << "=IFCFLOWFITTING(";
         if (!writeIfNotInited(it->first)) {
             writeIfcFlowFitting(static_cast< IfcFlowFitting * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcFlowFittingType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowFittingType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWFITTINGTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowFittingType(static_cast< IfcFlowFittingType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -2977,29 +2632,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcFlowMovingDeviceType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowMovingDeviceType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWMOVINGDEVICETYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowMovingDeviceType(static_cast< IfcFlowMovingDeviceType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcFlowSegment_Map.begin();
     while (it != expressDataSet->m_IfcFlowSegment_Map.end()) {
         m_out << "#" << it->first << "=IFCFLOWSEGMENT(";
         if (!writeIfNotInited(it->first)) {
             writeIfcFlowSegment(static_cast< IfcFlowSegment * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcFlowSegmentType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowSegmentType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWSEGMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowSegmentType(static_cast< IfcFlowSegmentType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -3013,15 +2650,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcFlowStorageDeviceType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowStorageDeviceType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWSTORAGEDEVICETYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowStorageDeviceType(static_cast< IfcFlowStorageDeviceType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcFlowTerminal_Map.begin();
     while (it != expressDataSet->m_IfcFlowTerminal_Map.end()) {
         m_out << "#" << it->first << "=IFCFLOWTERMINAL(";
@@ -3031,29 +2659,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcFlowTerminalType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowTerminalType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWTERMINALTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowTerminalType(static_cast< IfcFlowTerminalType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcFlowTreatmentDevice_Map.begin();
     while (it != expressDataSet->m_IfcFlowTreatmentDevice_Map.end()) {
         m_out << "#" << it->first << "=IFCFLOWTREATMENTDEVICE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcFlowTreatmentDevice(static_cast< IfcFlowTreatmentDevice * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcFlowTreatmentDeviceType_Map.begin();
-    while (it != expressDataSet->m_IfcFlowTreatmentDeviceType_Map.end()) {
-        m_out << "#" << it->first << "=IFCFLOWTREATMENTDEVICETYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcFlowTreatmentDeviceType(static_cast< IfcFlowTreatmentDeviceType * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -3162,15 +2772,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCGEOMETRICREPRESENTATIONCONTEXT(";
         if (!writeIfNotInited(it->first)) {
             writeIfcGeometricRepresentationContext(static_cast< IfcGeometricRepresentationContext * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcGeometricRepresentationItem_Map.begin();
-    while (it != expressDataSet->m_IfcGeometricRepresentationItem_Map.end()) {
-        m_out << "#" << it->first << "=IFCGEOMETRICREPRESENTATIONITEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcGeometricRepresentationItem(static_cast< IfcGeometricRepresentationItem * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -3391,15 +2992,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcLightSource_Map.begin();
-    while (it != expressDataSet->m_IfcLightSource_Map.end()) {
-        m_out << "#" << it->first << "=IFCLIGHTSOURCE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcLightSource(static_cast< IfcLightSource * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcLightSourceAmbient_Map.begin();
     while (it != expressDataSet->m_IfcLightSourceAmbient_Map.end()) {
         m_out << "#" << it->first << "=IFCLIGHTSOURCEAMBIENT(";
@@ -3490,15 +3082,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcManifoldSolidBrep_Map.begin();
-    while (it != expressDataSet->m_IfcManifoldSolidBrep_Map.end()) {
-        m_out << "#" << it->first << "=IFCMANIFOLDSOLIDBREP(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcManifoldSolidBrep(static_cast< IfcManifoldSolidBrep * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcMappedItem_Map.begin();
     while (it != expressDataSet->m_IfcMappedItem_Map.end()) {
         m_out << "#" << it->first << "=IFCMAPPEDITEM(";
@@ -3567,15 +3150,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCMATERIALLIST(";
         if (!writeIfNotInited(it->first)) {
             writeIfcMaterialList(static_cast< IfcMaterialList * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcMaterialProperties_Map.begin();
-    while (it != expressDataSet->m_IfcMaterialProperties_Map.end()) {
-        m_out << "#" << it->first << "=IFCMATERIALPROPERTIES(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcMaterialProperties(static_cast< IfcMaterialProperties * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -3684,42 +3258,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCMOVE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcMove(static_cast< IfcMove * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcNamedUnit_Map.begin();
-    while (it != expressDataSet->m_IfcNamedUnit_Map.end()) {
-        m_out << "#" << it->first << "=IFCNAMEDUNIT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcNamedUnit(static_cast< IfcNamedUnit * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcObject_Map.begin();
-    while (it != expressDataSet->m_IfcObject_Map.end()) {
-        m_out << "#" << it->first << "=IFCOBJECT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcObject(static_cast< IfcObject * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcObjectDefinition_Map.begin();
-    while (it != expressDataSet->m_IfcObjectDefinition_Map.end()) {
-        m_out << "#" << it->first << "=IFCOBJECTDEFINITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcObjectDefinition(static_cast< IfcObjectDefinition * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcObjectPlacement_Map.begin();
-    while (it != expressDataSet->m_IfcObjectPlacement_Map.end()) {
-        m_out << "#" << it->first << "=IFCOBJECTPLACEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcObjectPlacement(static_cast< IfcObjectPlacement * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -3850,15 +3388,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcParameterizedProfileDef_Map.begin();
-    while (it != expressDataSet->m_IfcParameterizedProfileDef_Map.end()) {
-        m_out << "#" << it->first << "=IFCPARAMETERIZEDPROFILEDEF(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcParameterizedProfileDef(static_cast< IfcParameterizedProfileDef * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPath_Map.begin();
     while (it != expressDataSet->m_IfcPath_Map.end()) {
         m_out << "#" << it->first << "=IFCPATH(";
@@ -3922,24 +3451,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPhysicalQuantity_Map.begin();
-    while (it != expressDataSet->m_IfcPhysicalQuantity_Map.end()) {
-        m_out << "#" << it->first << "=IFCPHYSICALQUANTITY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPhysicalQuantity(static_cast< IfcPhysicalQuantity * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPhysicalSimpleQuantity_Map.begin();
-    while (it != expressDataSet->m_IfcPhysicalSimpleQuantity_Map.end()) {
-        m_out << "#" << it->first << "=IFCPHYSICALSIMPLEQUANTITY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPhysicalSimpleQuantity(static_cast< IfcPhysicalSimpleQuantity * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPile_Map.begin();
     while (it != expressDataSet->m_IfcPile_Map.end()) {
         m_out << "#" << it->first << "=IFCPILE(";
@@ -3972,15 +3483,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCPIXELTEXTURE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcPixelTexture(static_cast< IfcPixelTexture * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPlacement_Map.begin();
-    while (it != expressDataSet->m_IfcPlacement_Map.end()) {
-        m_out << "#" << it->first << "=IFCPLACEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPlacement(static_cast< IfcPlacement * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4030,15 +3532,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPoint_Map.begin();
-    while (it != expressDataSet->m_IfcPoint_Map.end()) {
-        m_out << "#" << it->first << "=IFCPOINT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPoint(static_cast< IfcPoint * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPointOnCurve_Map.begin();
     while (it != expressDataSet->m_IfcPointOnCurve_Map.end()) {
         m_out << "#" << it->first << "=IFCPOINTONCURVE(";
@@ -4084,38 +3577,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPort_Map.begin();
-    while (it != expressDataSet->m_IfcPort_Map.end()) {
-        m_out << "#" << it->first << "=IFCPORT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPort(static_cast< IfcPort * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPostalAddress_Map.begin();
     while (it != expressDataSet->m_IfcPostalAddress_Map.end()) {
         m_out << "#" << it->first << "=IFCPOSTALADDRESS(";
         if (!writeIfNotInited(it->first)) {
             writeIfcPostalAddress(static_cast< IfcPostalAddress * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPreDefinedColour_Map.begin();
-    while (it != expressDataSet->m_IfcPreDefinedColour_Map.end()) {
-        m_out << "#" << it->first << "=IFCPREDEFINEDCOLOUR(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPreDefinedColour(static_cast< IfcPreDefinedColour * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPreDefinedCurveFont_Map.begin();
-    while (it != expressDataSet->m_IfcPreDefinedCurveFont_Map.end()) {
-        m_out << "#" << it->first << "=IFCPREDEFINEDCURVEFONT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPreDefinedCurveFont(static_cast< IfcPreDefinedCurveFont * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4129,15 +3595,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPreDefinedItem_Map.begin();
-    while (it != expressDataSet->m_IfcPreDefinedItem_Map.end()) {
-        m_out << "#" << it->first << "=IFCPREDEFINEDITEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPreDefinedItem(static_cast< IfcPreDefinedItem * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPreDefinedPointMarkerSymbol_Map.begin();
     while (it != expressDataSet->m_IfcPreDefinedPointMarkerSymbol_Map.end()) {
         m_out << "#" << it->first << "=IFCPREDEFINEDPOINTMARKERSYMBOL(";
@@ -4147,29 +3604,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPreDefinedSymbol_Map.begin();
-    while (it != expressDataSet->m_IfcPreDefinedSymbol_Map.end()) {
-        m_out << "#" << it->first << "=IFCPREDEFINEDSYMBOL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPreDefinedSymbol(static_cast< IfcPreDefinedSymbol * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPreDefinedTerminatorSymbol_Map.begin();
     while (it != expressDataSet->m_IfcPreDefinedTerminatorSymbol_Map.end()) {
         m_out << "#" << it->first << "=IFCPREDEFINEDTERMINATORSYMBOL(";
         if (!writeIfNotInited(it->first)) {
             writeIfcPreDefinedTerminatorSymbol(static_cast< IfcPreDefinedTerminatorSymbol * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPreDefinedTextFont_Map.begin();
-    while (it != expressDataSet->m_IfcPreDefinedTextFont_Map.end()) {
-        m_out << "#" << it->first << "=IFCPREDEFINEDTEXTFONT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPreDefinedTextFont(static_cast< IfcPreDefinedTextFont * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4192,15 +3631,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcPresentationStyle_Map.begin();
-    while (it != expressDataSet->m_IfcPresentationStyle_Map.end()) {
-        m_out << "#" << it->first << "=IFCPRESENTATIONSTYLE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPresentationStyle(static_cast< IfcPresentationStyle * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPresentationStyleAssignment_Map.begin();
     while (it != expressDataSet->m_IfcPresentationStyleAssignment_Map.end()) {
         m_out << "#" << it->first << "=IFCPRESENTATIONSTYLEASSIGNMENT(";
@@ -4215,24 +3645,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCPROCEDURE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcProcedure(static_cast< IfcProcedure * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcProcess_Map.begin();
-    while (it != expressDataSet->m_IfcProcess_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROCESS(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcProcess(static_cast< IfcProcess * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcProduct_Map.begin();
-    while (it != expressDataSet->m_IfcProduct_Map.end()) {
-        m_out << "#" << it->first << "=IFCPRODUCT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcProduct(static_cast< IfcProduct * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4260,24 +3672,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCPRODUCTSOFCOMBUSTIONPROPERTIES(";
         if (!writeIfNotInited(it->first)) {
             writeIfcProductsOfCombustionProperties(static_cast< IfcProductsOfCombustionProperties * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcProfileDef_Map.begin();
-    while (it != expressDataSet->m_IfcProfileDef_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROFILEDEF(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcProfileDef(static_cast< IfcProfileDef * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcProfileProperties_Map.begin();
-    while (it != expressDataSet->m_IfcProfileProperties_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROFILEPROPERTIES(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcProfileProperties(static_cast< IfcProfileProperties * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4327,15 +3721,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcProperty_Map.begin();
-    while (it != expressDataSet->m_IfcProperty_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROPERTY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcProperty(static_cast< IfcProperty * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcPropertyBoundedValue_Map.begin();
     while (it != expressDataSet->m_IfcPropertyBoundedValue_Map.end()) {
         m_out << "#" << it->first << "=IFCPROPERTYBOUNDEDVALUE(";
@@ -4350,15 +3735,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCPROPERTYCONSTRAINTRELATIONSHIP(";
         if (!writeIfNotInited(it->first)) {
             writeIfcPropertyConstraintRelationship(static_cast< IfcPropertyConstraintRelationship * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPropertyDefinition_Map.begin();
-    while (it != expressDataSet->m_IfcPropertyDefinition_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROPERTYDEFINITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPropertyDefinition(static_cast< IfcPropertyDefinition * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4413,15 +3789,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCPROPERTYSET(";
         if (!writeIfNotInited(it->first)) {
             writeIfcPropertySet(static_cast< IfcPropertySet * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcPropertySetDefinition_Map.begin();
-    while (it != expressDataSet->m_IfcPropertySetDefinition_Map.end()) {
-        m_out << "#" << it->first << "=IFCPROPERTYSETDEFINITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcPropertySetDefinition(static_cast< IfcPropertySetDefinition * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4669,15 +4036,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcReinforcingElement_Map.begin();
-    while (it != expressDataSet->m_IfcReinforcingElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCREINFORCINGELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReinforcingElement(static_cast< IfcReinforcingElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcReinforcingMesh_Map.begin();
     while (it != expressDataSet->m_IfcReinforcingMesh_Map.end()) {
         m_out << "#" << it->first << "=IFCREINFORCINGMESH(";
@@ -4692,15 +4050,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCRELAGGREGATES(";
         if (!writeIfNotInited(it->first)) {
             writeIfcRelAggregates(static_cast< IfcRelAggregates * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcRelAssigns_Map.begin();
-    while (it != expressDataSet->m_IfcRelAssigns_Map.end()) {
-        m_out << "#" << it->first << "=IFCRELASSIGNS(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRelAssigns(static_cast< IfcRelAssigns * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -4858,15 +4207,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcRelConnects_Map.begin();
-    while (it != expressDataSet->m_IfcRelConnects_Map.end()) {
-        m_out << "#" << it->first << "=IFCRELCONNECTS(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRelConnects(static_cast< IfcRelConnects * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcRelConnectsElements_Map.begin();
     while (it != expressDataSet->m_IfcRelConnectsElements_Map.end()) {
         m_out << "#" << it->first << "=IFCRELCONNECTSELEMENTS(";
@@ -4971,24 +4311,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCRELCOVERSSPACES(";
         if (!writeIfNotInited(it->first)) {
             writeIfcRelCoversSpaces(static_cast< IfcRelCoversSpaces * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcRelDecomposes_Map.begin();
-    while (it != expressDataSet->m_IfcRelDecomposes_Map.end()) {
-        m_out << "#" << it->first << "=IFCRELDECOMPOSES(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRelDecomposes(static_cast< IfcRelDecomposes * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcRelDefines_Map.begin();
-    while (it != expressDataSet->m_IfcRelDefines_Map.end()) {
-        m_out << "#" << it->first << "=IFCRELDEFINES(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRelDefines(static_cast< IfcRelDefines * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5128,15 +4450,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcRelationship_Map.begin();
-    while (it != expressDataSet->m_IfcRelationship_Map.end()) {
-        m_out << "#" << it->first << "=IFCRELATIONSHIP(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRelationship(static_cast< IfcRelationship * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcRelaxation_Map.begin();
     while (it != expressDataSet->m_IfcRelaxation_Map.end()) {
         m_out << "#" << it->first << "=IFCRELAXATION(";
@@ -5164,29 +4477,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcRepresentationItem_Map.begin();
-    while (it != expressDataSet->m_IfcRepresentationItem_Map.end()) {
-        m_out << "#" << it->first << "=IFCREPRESENTATIONITEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRepresentationItem(static_cast< IfcRepresentationItem * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcRepresentationMap_Map.begin();
     while (it != expressDataSet->m_IfcRepresentationMap_Map.end()) {
         m_out << "#" << it->first << "=IFCREPRESENTATIONMAP(";
         if (!writeIfNotInited(it->first)) {
             writeIfcRepresentationMap(static_cast< IfcRepresentationMap * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcResource_Map.begin();
-    while (it != expressDataSet->m_IfcResource_Map.end()) {
-        m_out << "#" << it->first << "=IFCRESOURCE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcResource(static_cast< IfcResource * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5232,15 +4527,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCROOF(";
         if (!writeIfNotInited(it->first)) {
             writeIfcRoof(static_cast< IfcRoof * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcRoot_Map.begin();
-    while (it != expressDataSet->m_IfcRoot_Map.end()) {
-        m_out << "#" << it->first << "=IFCROOT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcRoot(static_cast< IfcRoot * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5353,15 +4639,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcShapeModel_Map.begin();
-    while (it != expressDataSet->m_IfcShapeModel_Map.end()) {
-        m_out << "#" << it->first << "=IFCSHAPEMODEL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcShapeModel(static_cast< IfcShapeModel * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcShapeRepresentation_Map.begin();
     while (it != expressDataSet->m_IfcShapeRepresentation_Map.end()) {
         m_out << "#" << it->first << "=IFCSHAPEREPRESENTATION(";
@@ -5376,15 +4653,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCSHELLBASEDSURFACEMODEL(";
         if (!writeIfNotInited(it->first)) {
             writeIfcShellBasedSurfaceModel(static_cast< IfcShellBasedSurfaceModel * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSimpleProperty_Map.begin();
-    while (it != expressDataSet->m_IfcSimpleProperty_Map.end()) {
-        m_out << "#" << it->first << "=IFCSIMPLEPROPERTY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSimpleProperty(static_cast< IfcSimpleProperty * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5421,15 +4689,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCSLIPPAGECONNECTIONCONDITION(";
         if (!writeIfNotInited(it->first)) {
             writeIfcSlippageConnectionCondition(static_cast< IfcSlippageConnectionCondition * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSolidModel_Map.begin();
-    while (it != expressDataSet->m_IfcSolidModel_Map.end()) {
-        m_out << "#" << it->first << "=IFCSOLIDMODEL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSolidModel(static_cast< IfcSolidModel * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5497,24 +4756,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcSpatialStructureElement_Map.begin();
-    while (it != expressDataSet->m_IfcSpatialStructureElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCSPATIALSTRUCTUREELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSpatialStructureElement(static_cast< IfcSpatialStructureElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSpatialStructureElementType_Map.begin();
-    while (it != expressDataSet->m_IfcSpatialStructureElementType_Map.end()) {
-        m_out << "#" << it->first << "=IFCSPATIALSTRUCTUREELEMENTTYPE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSpatialStructureElementType(static_cast< IfcSpatialStructureElementType * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcSphere_Map.begin();
     while (it != expressDataSet->m_IfcSphere_Map.end()) {
         m_out << "#" << it->first << "=IFCSPHERE(";
@@ -5560,47 +4801,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcStructuralAction_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralAction_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALACTION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralAction(static_cast< IfcStructuralAction * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcStructuralActivity_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralActivity_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALACTIVITY(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralActivity(static_cast< IfcStructuralActivity * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcStructuralAnalysisModel_Map.begin();
     while (it != expressDataSet->m_IfcStructuralAnalysisModel_Map.end()) {
         m_out << "#" << it->first << "=IFCSTRUCTURALANALYSISMODEL(";
         if (!writeIfNotInited(it->first)) {
             writeIfcStructuralAnalysisModel(static_cast< IfcStructuralAnalysisModel * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcStructuralConnection_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralConnection_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALCONNECTION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralConnection(static_cast< IfcStructuralConnection * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcStructuralConnectionCondition_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralConnectionCondition_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALCONNECTIONCONDITION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralConnectionCondition(static_cast< IfcStructuralConnectionCondition * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5632,15 +4837,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcStructuralItem_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralItem_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALITEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralItem(static_cast< IfcStructuralItem * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcStructuralLinearAction_Map.begin();
     while (it != expressDataSet->m_IfcStructuralLinearAction_Map.end()) {
         m_out << "#" << it->first << "=IFCSTRUCTURALLINEARACTION(";
@@ -5655,15 +4851,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCSTRUCTURALLINEARACTIONVARYING(";
         if (!writeIfNotInited(it->first)) {
             writeIfcStructuralLinearActionVarying(static_cast< IfcStructuralLinearActionVarying * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcStructuralLoad_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralLoad_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALLOAD(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralLoad(static_cast< IfcStructuralLoad * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5731,29 +4918,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcStructuralLoadStatic_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralLoadStatic_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALLOADSTATIC(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralLoadStatic(static_cast< IfcStructuralLoadStatic * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcStructuralLoadTemperature_Map.begin();
     while (it != expressDataSet->m_IfcStructuralLoadTemperature_Map.end()) {
         m_out << "#" << it->first << "=IFCSTRUCTURALLOADTEMPERATURE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcStructuralLoadTemperature(static_cast< IfcStructuralLoadTemperature * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcStructuralMember_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralMember_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALMEMBER(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralMember(static_cast< IfcStructuralMember * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -5812,15 +4981,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcStructuralReaction_Map.begin();
-    while (it != expressDataSet->m_IfcStructuralReaction_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTRUCTURALREACTION(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStructuralReaction(static_cast< IfcStructuralReaction * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcStructuralResultGroup_Map.begin();
     while (it != expressDataSet->m_IfcStructuralResultGroup_Map.end()) {
         m_out << "#" << it->first << "=IFCSTRUCTURALRESULTGROUP(";
@@ -5875,15 +5035,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcStyleModel_Map.begin();
-    while (it != expressDataSet->m_IfcStyleModel_Map.end()) {
-        m_out << "#" << it->first << "=IFCSTYLEMODEL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcStyleModel(static_cast< IfcStyleModel * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcStyledItem_Map.begin();
     while (it != expressDataSet->m_IfcStyledItem_Map.end()) {
         m_out << "#" << it->first << "=IFCSTYLEDITEM(";
@@ -5916,15 +5067,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCSUBEDGE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcSubedge(static_cast< IfcSubedge * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSurface_Map.begin();
-    while (it != expressDataSet->m_IfcSurface_Map.end()) {
-        m_out << "#" << it->first << "=IFCSURFACE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSurface(static_cast< IfcSurface * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -6010,38 +5152,11 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcSurfaceTexture_Map.begin();
-    while (it != expressDataSet->m_IfcSurfaceTexture_Map.end()) {
-        m_out << "#" << it->first << "=IFCSURFACETEXTURE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSurfaceTexture(static_cast< IfcSurfaceTexture * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSweptAreaSolid_Map.begin();
-    while (it != expressDataSet->m_IfcSweptAreaSolid_Map.end()) {
-        m_out << "#" << it->first << "=IFCSWEPTAREASOLID(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSweptAreaSolid(static_cast< IfcSweptAreaSolid * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcSweptDiskSolid_Map.begin();
     while (it != expressDataSet->m_IfcSweptDiskSolid_Map.end()) {
         m_out << "#" << it->first << "=IFCSWEPTDISKSOLID(";
         if (!writeIfNotInited(it->first)) {
             writeIfcSweptDiskSolid(static_cast< IfcSweptDiskSolid * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcSweptSurface_Map.begin();
-    while (it != expressDataSet->m_IfcSweptSurface_Map.end()) {
-        m_out << "#" << it->first << "=IFCSWEPTSURFACE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcSweptSurface(static_cast< IfcSweptSurface * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -6226,15 +5341,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcTextureCoordinate_Map.begin();
-    while (it != expressDataSet->m_IfcTextureCoordinate_Map.end()) {
-        m_out << "#" << it->first << "=IFCTEXTURECOORDINATE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcTextureCoordinate(static_cast< IfcTextureCoordinate * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcTextureCoordinateGenerator_Map.begin();
     while (it != expressDataSet->m_IfcTextureCoordinateGenerator_Map.end()) {
         m_out << "#" << it->first << "=IFCTEXTURECOORDINATEGENERATOR(";
@@ -6271,15 +5377,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcTimeSeries_Map.begin();
-    while (it != expressDataSet->m_IfcTimeSeries_Map.end()) {
-        m_out << "#" << it->first << "=IFCTIMESERIES(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcTimeSeries(static_cast< IfcTimeSeries * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcTimeSeriesReferenceRelationship_Map.begin();
     while (it != expressDataSet->m_IfcTimeSeriesReferenceRelationship_Map.end()) {
         m_out << "#" << it->first << "=IFCTIMESERIESREFERENCERELATIONSHIP(";
@@ -6303,15 +5400,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         m_out << "#" << it->first << "=IFCTIMESERIESVALUE(";
         if (!writeIfNotInited(it->first)) {
             writeIfcTimeSeriesValue(static_cast< IfcTimeSeriesValue * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcTopologicalRepresentationItem_Map.begin();
-    while (it != expressDataSet->m_IfcTopologicalRepresentationItem_Map.end()) {
-        m_out << "#" << it->first << "=IFCTOPOLOGICALREPRESENTATIONITEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcTopologicalRepresentationItem(static_cast< IfcTopologicalRepresentationItem * > (it->second.get()));
             m_out << ");\n";
         }
         it++;
@@ -6595,15 +5683,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcWorkControl_Map.begin();
-    while (it != expressDataSet->m_IfcWorkControl_Map.end()) {
-        m_out << "#" << it->first << "=IFCWORKCONTROL(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcWorkControl(static_cast< IfcWorkControl * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     it = expressDataSet->m_IfcWorkPlan_Map.begin();
     while (it != expressDataSet->m_IfcWorkPlan_Map.end()) {
         m_out << "#" << it->first << "=IFCWORKPLAN(";
@@ -6640,222 +5719,6 @@ bool SPFWriter::writeSPF(const std::string &filepath) {
         }
         it++;
     }
-    it = expressDataSet->m_IfcCivilStructureElement_Map.begin();
-    while (it != expressDataSet->m_IfcCivilStructureElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCCIVILSTRUCTUREELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCivilStructureElement(static_cast< IfcCivilStructureElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgeStructureElement_Map.begin();
-    while (it != expressDataSet->m_IfcBridgeStructureElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGESTRUCTUREELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgeStructureElement(static_cast< IfcBridgeStructureElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridge_Map.begin();
-    while (it != expressDataSet->m_IfcBridge_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridge(static_cast< IfcBridge * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgePart_Map.begin();
-    while (it != expressDataSet->m_IfcBridgePart_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGEPART(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgePart(static_cast< IfcBridgePart * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCivilElement_Map.begin();
-    while (it != expressDataSet->m_IfcCivilElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCCIVILELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCivilElement(static_cast< IfcCivilElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgeElement_Map.begin();
-    while (it != expressDataSet->m_IfcBridgeElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGEELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgeElement(static_cast< IfcBridgeElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgeSegment_Map.begin();
-    while (it != expressDataSet->m_IfcBridgeSegment_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGESEGMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgeSegment(static_cast< IfcBridgeSegment * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgeSegmentPart_Map.begin();
-    while (it != expressDataSet->m_IfcBridgeSegmentPart_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGESEGMENTPART(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgeSegmentPart(static_cast< IfcBridgeSegmentPart * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgeContactElement_Map.begin();
-    while (it != expressDataSet->m_IfcBridgeContactElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGECONTACTELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgeContactElement(static_cast< IfcBridgeContactElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcBridgePrismaticElement_Map.begin();
-    while (it != expressDataSet->m_IfcBridgePrismaticElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCBRIDGEPRISMATICELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcBridgePrismaticElement(static_cast< IfcBridgePrismaticElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcAlignmentElement_Map.begin();
-    while (it != expressDataSet->m_IfcAlignmentElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCALIGNMENTELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcAlignmentElement(static_cast< IfcAlignmentElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceElement_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceElement_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCEELEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceElement(static_cast< IfcReferenceElement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceCurve_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceCurve_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCECURVE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceCurve(static_cast< IfcReferenceCurve * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceCurve3D_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceCurve3D_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCECURVE3D(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceCurve3D(static_cast< IfcReferenceCurve3D * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceCurveAlignment2D_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceCurveAlignment2D_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCECURVEALIGNMENT2D(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceCurveAlignment2D(static_cast< IfcReferenceCurveAlignment2D * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferencePlacement_Map.begin();
-    while (it != expressDataSet->m_IfcReferencePlacement_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCEPLACEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferencePlacement(static_cast< IfcReferencePlacement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceCurvePlacement_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceCurvePlacement_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCECURVEPLACEMENT(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceCurvePlacement(static_cast< IfcReferenceCurvePlacement * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferenceCurvePlacementSystem_Map.begin();
-    while (it != expressDataSet->m_IfcReferenceCurvePlacementSystem_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCECURVEPLACEMENTSYSTEM(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferenceCurvePlacementSystem(static_cast< IfcReferenceCurvePlacementSystem * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcElementPart_Map.begin();
-    while (it != expressDataSet->m_IfcElementPart_Map.end()) {
-        m_out << "#" << it->first << "=IFCELEMENTPART(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcElementPart(static_cast< IfcElementPart * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCivilElementPart_Map.begin();
-    while (it != expressDataSet->m_IfcCivilElementPart_Map.end()) {
-        m_out << "#" << it->first << "=IFCCIVILELEMENTPART(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCivilElementPart(static_cast< IfcCivilElementPart * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCivilSheath_Map.begin();
-    while (it != expressDataSet->m_IfcCivilSheath_Map.end()) {
-        m_out << "#" << it->first << "=IFCCIVILSHEATH(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCivilSheath(static_cast< IfcCivilSheath * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcCivilVoid_Map.begin();
-    while (it != expressDataSet->m_IfcCivilVoid_Map.end()) {
-        m_out << "#" << it->first << "=IFCCIVILVOID(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcCivilVoid(static_cast< IfcCivilVoid * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcClothoid_Map.begin();
-    while (it != expressDataSet->m_IfcClothoid_Map.end()) {
-        m_out << "#" << it->first << "=IFCCLOTHOID(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcClothoid(static_cast< IfcClothoid * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
-    it = expressDataSet->m_IfcReferencedSectionedSpine_Map.begin();
-    while (it != expressDataSet->m_IfcReferencedSectionedSpine_Map.end()) {
-        m_out << "#" << it->first << "=IFCREFERENCEDSECTIONEDSPINE(";
-        if (!writeIfNotInited(it->first)) {
-            writeIfcReferencedSectionedSpine(static_cast< IfcReferencedSectionedSpine * > (it->second.get()));
-            m_out << ");\n";
-        }
-        it++;
-    }
     writeEnder();
     return true;
 }
@@ -6867,7 +5730,7 @@ void SPFWriter::writeIfc2DCompositeCurve(Ifc2DCompositeCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCompositeCurveSegment > >::iterator step_it0 = (ptr->getSegments()).begin();
+            List_IfcCompositeCurveSegment_1_n::iterator step_it0 = (ptr->getSegments()).begin();
             if ((ptr->getSegments()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSegments()).end(); step_it0++) {
@@ -7128,7 +5991,7 @@ void SPFWriter::writeIfcActuatorType(IfcActuatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -7146,7 +6009,7 @@ void SPFWriter::writeIfcActuatorType(IfcActuatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -7206,49 +6069,6 @@ void SPFWriter::writeIfcActuatorTypeEnum(IfcActuatorTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcAddress(IfcAddress *ptr) {
-    if (Step::isUnsetEnum(ptr->getPurpose())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcAddressTypeEnum(ptr->getPurpose());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUserDefinedPurpose())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUserDefinedPurpose());
-    }
-}
-
-void SPFWriter::writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData) {
-    switch(enumData) {
-    case IfcAddressTypeEnum_OFFICE:
-        m_out << ".OFFICE.";
-        break;
-    case IfcAddressTypeEnum_SITE:
-        m_out << ".SITE.";
-        break;
-    case IfcAddressTypeEnum_HOME:
-        m_out << ".HOME.";
-        break;
-    case IfcAddressTypeEnum_DISTRIBUTIONPOINT:
-        m_out << ".DISTRIBUTIONPOINT.";
-        break;
-    case IfcAddressTypeEnum_USERDEFINED:
-        m_out << ".USERDEFINED.";
-        break;
-        }
-}
-
 void SPFWriter::writeIfcAirTerminalBoxType(IfcAirTerminalBoxType *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -7291,7 +6111,7 @@ void SPFWriter::writeIfcAirTerminalBoxType(IfcAirTerminalBoxType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -7309,7 +6129,7 @@ void SPFWriter::writeIfcAirTerminalBoxType(IfcAirTerminalBoxType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -7405,7 +6225,7 @@ void SPFWriter::writeIfcAirTerminalType(IfcAirTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -7423,7 +6243,7 @@ void SPFWriter::writeIfcAirTerminalType(IfcAirTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -7531,7 +6351,7 @@ void SPFWriter::writeIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -7549,7 +6369,7 @@ void SPFWriter::writeIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *pt
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -7663,7 +6483,7 @@ void SPFWriter::writeIfcAlarmType(IfcAlarmType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -7681,7 +6501,7 @@ void SPFWriter::writeIfcAlarmType(IfcAlarmType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -7751,7 +6571,7 @@ void SPFWriter::writeIfcAngularDimension(IfcAngularDimension *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -7843,7 +6663,7 @@ void SPFWriter::writeIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -7877,7 +6697,7 @@ void SPFWriter::writeIfcAnnotationFillArea(IfcAnnotationFillArea *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcCurve > >::iterator step_it0 = (ptr->getInnerBoundaries()).begin();
+            Set_IfcCurve_1_n::iterator step_it0 = (ptr->getInnerBoundaries()).begin();
             if ((ptr->getInnerBoundaries()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getInnerBoundaries()).end(); step_it0++) {
@@ -7904,7 +6724,7 @@ void SPFWriter::writeIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurr
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -7949,40 +6769,6 @@ void SPFWriter::writeIfcGlobalOrLocalEnum(IfcGlobalOrLocalEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcAnnotationOccurrence(IfcAnnotationOccurrence *ptr) {
-    if (Step::isUnset(ptr->getItem())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getItem());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getStyles())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
-            if ((ptr->getStyles()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
 void SPFWriter::writeIfcAnnotationSurface(IfcAnnotationSurface *ptr) {
     if (Step::isUnset(ptr->getItem())) {
         m_out << "$";
@@ -8013,7 +6799,7 @@ void SPFWriter::writeIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurren
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -8047,7 +6833,7 @@ void SPFWriter::writeIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -8081,7 +6867,7 @@ void SPFWriter::writeIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -8131,82 +6917,6 @@ void SPFWriter::writeIfcApplication(IfcApplication *ptr) {
     }
 }
 
-void SPFWriter::writeIfcAppliedValue(IfcAppliedValue *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAppliedValue())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcAppliedValueSelect(ptr->getAppliedValue());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUnitBasis())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUnitBasis());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableDate())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getApplicableDate());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getFixedUntilDate())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getFixedUntilDate());
-    }
-}
-
-void SPFWriter::writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData) {
-    switch(selectData->currentType()) {
-    case IfcAppliedValueSelect::IFCRATIOMEASURE:
-        m_out << "IFCRATIOMEASURE(";
-        writeAttribute(selectData->getIfcRatioMeasure());
-        m_out << ")";
-        break;
-    case IfcAppliedValueSelect::IFCMEASUREWITHUNIT:
-        writeAttribute(selectData->getIfcMeasureWithUnit());
-        break;
-    case IfcAppliedValueSelect::IFCMONETARYMEASURE:
-        m_out << "IFCMONETARYMEASURE(";
-        writeAttribute(selectData->getIfcMonetaryMeasure());
-        m_out << ")";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcDateTimeSelect(IfcDateTimeSelect *selectData) {
-    switch(selectData->currentType()) {
-    case IfcDateTimeSelect::IFCCALENDARDATE:
-        writeAttribute(selectData->getIfcCalendarDate());
-        break;
-    case IfcDateTimeSelect::IFCLOCALTIME:
-        writeAttribute(selectData->getIfcLocalTime());
-        break;
-    case IfcDateTimeSelect::IFCDATEANDTIME:
-        writeAttribute(selectData->getIfcDateAndTime());
-        break;
-        }
-}
-
 void SPFWriter::writeIfcAppliedValueRelationship(IfcAppliedValueRelationship *ptr) {
     if (Step::isUnset(ptr->getComponentOfTotal())) {
         m_out << "$";
@@ -8221,7 +6931,7 @@ void SPFWriter::writeIfcAppliedValueRelationship(IfcAppliedValueRelationship *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcAppliedValue > >::iterator step_it0 = (ptr->getComponents()).begin();
+            Set_IfcAppliedValue_1_n::iterator step_it0 = (ptr->getComponents()).begin();
             if ((ptr->getComponents()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getComponents()).end(); step_it0++) {
@@ -8323,6 +7033,20 @@ void SPFWriter::writeIfcApproval(IfcApproval *ptr) {
     }
 }
 
+void SPFWriter::writeIfcDateTimeSelect(IfcDateTimeSelect *selectData) {
+    switch(selectData->currentType()) {
+    case IfcDateTimeSelect::IFCCALENDARDATE:
+        writeAttribute(selectData->getIfcCalendarDate());
+        break;
+    case IfcDateTimeSelect::IFCLOCALTIME:
+        writeAttribute(selectData->getIfcLocalTime());
+        break;
+    case IfcDateTimeSelect::IFCDATEANDTIME:
+        writeAttribute(selectData->getIfcDateAndTime());
+        break;
+        }
+}
+
 void SPFWriter::writeIfcApprovalActorRelationship(IfcApprovalActorRelationship *ptr) {
     if (Step::isUnset(ptr->getActor())) {
         m_out << "$";
@@ -8353,7 +7077,7 @@ void SPFWriter::writeIfcApprovalPropertyRelationship(IfcApprovalPropertyRelation
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getApprovedProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getApprovedProperties()).begin();
             if ((ptr->getApprovedProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getApprovedProperties()).end(); step_it0++) {
@@ -8488,7 +7212,7 @@ void SPFWriter::writeIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithV
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcCurve > >::iterator step_it0 = (ptr->getInnerCurves()).begin();
+            Set_IfcCurve_1_n::iterator step_it0 = (ptr->getInnerCurves()).begin();
             if ((ptr->getInnerCurves()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getInnerCurves()).end(); step_it0++) {
@@ -8742,77 +7466,6 @@ void SPFWriter::writeIfcAxis2Placement3D(IfcAxis2Placement3D *ptr) {
     }
 }
 
-void SPFWriter::writeIfcBSplineCurve(IfcBSplineCurve *ptr) {
-    if (Step::isUnset(ptr->getDegree())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDegree());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getControlPointsList())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getControlPointsList()).begin();
-            if ((ptr->getControlPointsList()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getControlPointsList()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCurveForm())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBSplineCurveForm(ptr->getCurveForm());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getClosedCurve())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getClosedCurve());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getSelfIntersect())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getSelfIntersect());
-    }
-}
-
-void SPFWriter::writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData) {
-    switch(enumData) {
-    case IfcBSplineCurveForm_POLYLINE_FORM:
-        m_out << ".POLYLINE_FORM.";
-        break;
-    case IfcBSplineCurveForm_CIRCULAR_ARC:
-        m_out << ".CIRCULAR_ARC.";
-        break;
-    case IfcBSplineCurveForm_ELLIPTIC_ARC:
-        m_out << ".ELLIPTIC_ARC.";
-        break;
-    case IfcBSplineCurveForm_PARABOLIC_ARC:
-        m_out << ".PARABOLIC_ARC.";
-        break;
-    case IfcBSplineCurveForm_HYPERBOLIC_ARC:
-        m_out << ".HYPERBOLIC_ARC.";
-        break;
-    case IfcBSplineCurveForm_UNSPECIFIED:
-        m_out << ".UNSPECIFIED.";
-        break;
-        }
-}
-
 void SPFWriter::writeIfcBeam(IfcBeam *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -8913,7 +7566,7 @@ void SPFWriter::writeIfcBeamType(IfcBeamType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -8931,7 +7584,7 @@ void SPFWriter::writeIfcBeamType(IfcBeamType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -9002,7 +7655,7 @@ void SPFWriter::writeIfcBezierCurve(IfcBezierCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getControlPointsList()).begin();
+            List_IfcCartesianPoint_2_n::iterator step_it0 = (ptr->getControlPointsList()).begin();
             if ((ptr->getControlPointsList()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getControlPointsList()).end(); step_it0++) {
@@ -9034,6 +7687,29 @@ void SPFWriter::writeIfcBezierCurve(IfcBezierCurve *ptr) {
     else {
         writeAttribute(ptr->getSelfIntersect());
     }
+}
+
+void SPFWriter::writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData) {
+    switch(enumData) {
+    case IfcBSplineCurveForm_POLYLINE_FORM:
+        m_out << ".POLYLINE_FORM.";
+        break;
+    case IfcBSplineCurveForm_CIRCULAR_ARC:
+        m_out << ".CIRCULAR_ARC.";
+        break;
+    case IfcBSplineCurveForm_ELLIPTIC_ARC:
+        m_out << ".ELLIPTIC_ARC.";
+        break;
+    case IfcBSplineCurveForm_PARABOLIC_ARC:
+        m_out << ".PARABOLIC_ARC.";
+        break;
+    case IfcBSplineCurveForm_HYPERBOLIC_ARC:
+        m_out << ".HYPERBOLIC_ARC.";
+        break;
+    case IfcBSplineCurveForm_UNSPECIFIED:
+        m_out << ".UNSPECIFIED.";
+        break;
+        }
 }
 
 void SPFWriter::writeIfcBlobTexture(IfcBlobTexture *ptr) {
@@ -9184,7 +7860,7 @@ void SPFWriter::writeIfcBoilerType(IfcBoilerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -9202,7 +7878,7 @@ void SPFWriter::writeIfcBoilerType(IfcBoilerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -9327,15 +8003,6 @@ void SPFWriter::writeIfcBooleanResult(IfcBooleanResult *ptr) {
     }
     else {
         writeIfcBooleanOperand(ptr->getSecondOperand());
-    }
-}
-
-void SPFWriter::writeIfcBoundaryCondition(IfcBoundaryCondition *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
     }
 }
 
@@ -9529,9 +8196,6 @@ void SPFWriter::writeIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWar
     }
 }
 
-void SPFWriter::writeIfcBoundedCurve(IfcBoundedCurve *ptr) {
-}
-
 void SPFWriter::writeIfcBoundedSurface(IfcBoundedSurface *ptr) {
 }
 
@@ -9686,64 +8350,6 @@ void SPFWriter::writeIfcElementCompositionEnum(IfcElementCompositionEnum enumDat
         m_out << ".PARTIAL.";
         break;
         }
-}
-
-void SPFWriter::writeIfcBuildingElement(IfcBuildingElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
 }
 
 void SPFWriter::writeIfcBuildingElementPart(IfcBuildingElementPart *ptr) {
@@ -9911,7 +8517,7 @@ void SPFWriter::writeIfcBuildingElementProxyType(IfcBuildingElementProxyType *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -9929,7 +8535,7 @@ void SPFWriter::writeIfcBuildingElementProxyType(IfcBuildingElementProxyType *pt
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -9972,93 +8578,6 @@ void SPFWriter::writeIfcBuildingElementProxyTypeEnum(IfcBuildingElementProxyType
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcBuildingElementType(IfcBuildingElementType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
 }
 
 void SPFWriter::writeIfcBuildingStorey(IfcBuildingStorey *ptr) {
@@ -10240,7 +8759,7 @@ void SPFWriter::writeIfcCableCarrierFittingType(IfcCableCarrierFittingType *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -10258,7 +8777,7 @@ void SPFWriter::writeIfcCableCarrierFittingType(IfcCableCarrierFittingType *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -10357,7 +8876,7 @@ void SPFWriter::writeIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -10375,7 +8894,7 @@ void SPFWriter::writeIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -10474,7 +8993,7 @@ void SPFWriter::writeIfcCableSegmentType(IfcCableSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -10492,7 +9011,7 @@ void SPFWriter::writeIfcCableSegmentType(IfcCableSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -10573,7 +9092,7 @@ void SPFWriter::writeIfcCartesianPoint(IfcCartesianPoint *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLengthMeasure >::iterator step_it0 = (ptr->getCoordinates()).begin();
+            List_IfcLengthMeasure_1_3::iterator step_it0 = (ptr->getCoordinates()).begin();
             if ((ptr->getCoordinates()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getCoordinates()).end(); step_it0++) {
@@ -10583,36 +9102,6 @@ void SPFWriter::writeIfcCartesianPoint(IfcCartesianPoint *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *ptr) {
-    if (Step::isUnset(ptr->getAxis1())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAxis1());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAxis2())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAxis2());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLocalOrigin())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLocalOrigin());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getScale())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getScale());
     }
 }
 
@@ -10922,7 +9411,7 @@ void SPFWriter::writeIfcChillerType(IfcChillerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -10940,7 +9429,7 @@ void SPFWriter::writeIfcChillerType(IfcChillerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -11155,7 +9644,7 @@ void SPFWriter::writeIfcClassificationItemRelationship(IfcClassificationItemRela
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcClassificationItem > >::iterator step_it0 = (ptr->getRelatedItems()).begin();
+            Set_IfcClassificationItem_1_n::iterator step_it0 = (ptr->getRelatedItems()).begin();
             if ((ptr->getRelatedItems()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedItems()).end(); step_it0++) {
@@ -11175,7 +9664,7 @@ void SPFWriter::writeIfcClassificationNotation(IfcClassificationNotation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcClassificationNotationFacet > >::iterator step_it0 = (ptr->getNotationFacets()).begin();
+            Set_IfcClassificationNotationFacet_1_n::iterator step_it0 = (ptr->getNotationFacets()).begin();
             if ((ptr->getNotationFacets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getNotationFacets()).end(); step_it0++) {
@@ -11234,7 +9723,7 @@ void SPFWriter::writeIfcClosedShell(IfcClosedShell *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFace > >::iterator step_it0 = (ptr->getCfsFaces()).begin();
+            Set_IfcFace_1_n::iterator step_it0 = (ptr->getCfsFaces()).begin();
             if ((ptr->getCfsFaces()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCfsFaces()).end(); step_it0++) {
@@ -11289,7 +9778,7 @@ void SPFWriter::writeIfcCoilType(IfcCoilType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -11307,7 +9796,7 @@ void SPFWriter::writeIfcCoilType(IfcCoilType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -11397,15 +9886,6 @@ void SPFWriter::writeIfcColourRgb(IfcColourRgb *ptr) {
     }
     else {
         writeAttribute(ptr->getBlue());
-    }
-}
-
-void SPFWriter::writeIfcColourSpecification(IfcColourSpecification *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
     }
 }
 
@@ -11509,7 +9989,7 @@ void SPFWriter::writeIfcColumnType(IfcColumnType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -11527,7 +10007,7 @@ void SPFWriter::writeIfcColumnType(IfcColumnType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -11603,7 +10083,7 @@ void SPFWriter::writeIfcComplexProperty(IfcComplexProperty *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getHasProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getHasProperties()).begin();
             if ((ptr->getHasProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasProperties()).end(); step_it0++) {
@@ -11623,7 +10103,7 @@ void SPFWriter::writeIfcCompositeCurve(IfcCompositeCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCompositeCurveSegment > >::iterator step_it0 = (ptr->getSegments()).begin();
+            List_IfcCompositeCurveSegment_1_n::iterator step_it0 = (ptr->getSegments()).begin();
             if ((ptr->getSegments()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSegments()).end(); step_it0++) {
@@ -11704,7 +10184,7 @@ void SPFWriter::writeIfcCompositeProfileDef(IfcCompositeProfileDef *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProfileDef > >::iterator step_it0 = (ptr->getProfiles()).begin();
+            Set_IfcProfileDef_2_n::iterator step_it0 = (ptr->getProfiles()).begin();
             if ((ptr->getProfiles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getProfiles()).end(); step_it0++) {
@@ -11766,7 +10246,7 @@ void SPFWriter::writeIfcCompressorType(IfcCompressorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -11784,7 +10264,7 @@ void SPFWriter::writeIfcCompressorType(IfcCompressorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -11916,7 +10396,7 @@ void SPFWriter::writeIfcCondenserType(IfcCondenserType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -11934,7 +10414,7 @@ void SPFWriter::writeIfcCondenserType(IfcCondenserType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -12098,15 +10578,6 @@ void SPFWriter::writeIfcConditionCriterionSelect(IfcConditionCriterionSelect *se
         }
 }
 
-void SPFWriter::writeIfcConic(IfcConic *ptr) {
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcAxis2Placement(ptr->getPosition());
-    }
-}
-
 void SPFWriter::writeIfcConnectedFaceSet(IfcConnectedFaceSet *ptr) {
     if (Step::isUnset(ptr->getCfsFaces())) {
         m_out << "$";
@@ -12114,7 +10585,7 @@ void SPFWriter::writeIfcConnectedFaceSet(IfcConnectedFaceSet *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFace > >::iterator step_it0 = (ptr->getCfsFaces()).begin();
+            Set_IfcFace_1_n::iterator step_it0 = (ptr->getCfsFaces()).begin();
             if ((ptr->getCfsFaces()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCfsFaces()).end(); step_it0++) {
@@ -12152,9 +10623,6 @@ void SPFWriter::writeIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *selectData) {
         writeAttribute(selectData->getIfcEdgeCurve());
         break;
         }
-}
-
-void SPFWriter::writeIfcConnectionGeometry(IfcConnectionGeometry *ptr) {
 }
 
 void SPFWriter::writeIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *ptr) {
@@ -12274,77 +10742,6 @@ void SPFWriter::writeIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *selectData
         }
 }
 
-void SPFWriter::writeIfcConstraint(IfcConstraint *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getConstraintGrade())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcConstraintEnum(ptr->getConstraintGrade());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getConstraintSource())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getConstraintSource());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCreatingActor())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcActorSelect(ptr->getCreatingActor());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCreationTime())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getCreationTime());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUserDefinedGrade())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUserDefinedGrade());
-    }
-}
-
-void SPFWriter::writeIfcConstraintEnum(IfcConstraintEnum enumData) {
-    switch(enumData) {
-    case IfcConstraintEnum_HARD:
-        m_out << ".HARD.";
-        break;
-    case IfcConstraintEnum_SOFT:
-        m_out << ".SOFT.";
-        break;
-    case IfcConstraintEnum_ADVISORY:
-        m_out << ".ADVISORY.";
-        break;
-    case IfcConstraintEnum_USERDEFINED:
-        m_out << ".USERDEFINED.";
-        break;
-    case IfcConstraintEnum_NOTDEFINED:
-        m_out << ".NOTDEFINED.";
-        break;
-        }
-}
-
 void SPFWriter::writeIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
@@ -12373,7 +10770,7 @@ void SPFWriter::writeIfcConstraintAggregationRelationship(IfcConstraintAggregati
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcConstraint > >::iterator step_it0 = (ptr->getRelatedConstraints()).begin();
+            List_IfcConstraint_1_n::iterator step_it0 = (ptr->getRelatedConstraints()).begin();
             if ((ptr->getRelatedConstraints()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedConstraints()).end(); step_it0++) {
@@ -12418,7 +10815,7 @@ void SPFWriter::writeIfcConstraintClassificationRelationship(IfcConstraintClassi
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcClassificationNotationSelect > >::iterator step_it0 = (ptr->getRelatedClassifications()).begin();
+            Set_IfcClassificationNotationSelect_1_n::iterator step_it0 = (ptr->getRelatedClassifications()).begin();
             if ((ptr->getRelatedClassifications()).size()) {
                 writeIfcClassificationNotationSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedClassifications()).end(); step_it0++) {
@@ -12470,7 +10867,7 @@ void SPFWriter::writeIfcConstraintRelationship(IfcConstraintRelationship *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcConstraint > >::iterator step_it0 = (ptr->getRelatedConstraints()).begin();
+            Set_IfcConstraint_1_n::iterator step_it0 = (ptr->getRelatedConstraints()).begin();
             if ((ptr->getRelatedConstraints()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedConstraints()).end(); step_it0++) {
@@ -12647,7 +11044,7 @@ void SPFWriter::writeIfcConstructionMaterialResource(IfcConstructionMaterialReso
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcActorSelect > >::iterator step_it0 = (ptr->getSuppliers()).begin();
+            Set_IfcActorSelect_1_n::iterator step_it0 = (ptr->getSuppliers()).begin();
             if ((ptr->getSuppliers()).size()) {
                 writeIfcActorSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSuppliers()).end(); step_it0++) {
@@ -12668,71 +11065,6 @@ void SPFWriter::writeIfcConstructionMaterialResource(IfcConstructionMaterialReso
 }
 
 void SPFWriter::writeIfcConstructionProductResource(IfcConstructionProductResource *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getResourceIdentifier())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getResourceIdentifier());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getResourceGroup())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getResourceGroup());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getResourceConsumption())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcResourceConsumptionEnum(ptr->getResourceConsumption());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getBaseQuantity())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getBaseQuantity());
-    }
-}
-
-void SPFWriter::writeIfcConstructionResource(IfcConstructionResource *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
     }
@@ -12915,43 +11247,6 @@ void SPFWriter::writeIfcUnitEnum(IfcUnitEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcControl(IfcControl *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-}
-
 void SPFWriter::writeIfcControllerType(IfcControllerType *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -12994,7 +11289,7 @@ void SPFWriter::writeIfcControllerType(IfcControllerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -13012,7 +11307,7 @@ void SPFWriter::writeIfcControllerType(IfcControllerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -13147,7 +11442,7 @@ void SPFWriter::writeIfcCooledBeamType(IfcCooledBeamType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -13165,7 +11460,7 @@ void SPFWriter::writeIfcCooledBeamType(IfcCooledBeamType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -13258,7 +11553,7 @@ void SPFWriter::writeIfcCoolingTowerType(IfcCoolingTowerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -13276,7 +11571,7 @@ void SPFWriter::writeIfcCoolingTowerType(IfcCoolingTowerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -13471,7 +11766,7 @@ void SPFWriter::writeIfcCostSchedule(IfcCostSchedule *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcActorSelect > >::iterator step_it0 = (ptr->getTargetUsers()).begin();
+            Set_IfcActorSelect_1_n::iterator step_it0 = (ptr->getTargetUsers()).begin();
             if ((ptr->getTargetUsers()).size()) {
                 writeIfcActorSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTargetUsers()).end(); step_it0++) {
@@ -13593,6 +11888,24 @@ void SPFWriter::writeIfcCostValue(IfcCostValue *ptr) {
     else {
         writeAttribute(ptr->getCondition());
     }
+}
+
+void SPFWriter::writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData) {
+    switch(selectData->currentType()) {
+    case IfcAppliedValueSelect::IFCRATIOMEASURE:
+        m_out << "IFCRATIOMEASURE(";
+        writeAttribute(selectData->getIfcRatioMeasure());
+        m_out << ")";
+        break;
+    case IfcAppliedValueSelect::IFCMEASUREWITHUNIT:
+        writeAttribute(selectData->getIfcMeasureWithUnit());
+        break;
+    case IfcAppliedValueSelect::IFCMONETARYMEASURE:
+        m_out << "IFCMONETARYMEASURE(";
+        writeAttribute(selectData->getIfcMonetaryMeasure());
+        m_out << ")";
+        break;
+        }
 }
 
 void SPFWriter::writeIfcCovering(IfcCovering *ptr) {
@@ -13737,7 +12050,7 @@ void SPFWriter::writeIfcCoveringType(IfcCoveringType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -13755,7 +12068,7 @@ void SPFWriter::writeIfcCoveringType(IfcCoveringType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -14047,15 +12360,6 @@ void SPFWriter::writeIfcCrewResource(IfcCrewResource *ptr) {
     }
 }
 
-void SPFWriter::writeIfcCsgPrimitive3D(IfcCsgPrimitive3D *ptr) {
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPosition());
-    }
-}
-
 void SPFWriter::writeIfcCsgSolid(IfcCsgSolid *ptr) {
     if (Step::isUnset(ptr->getTreeRootExpression())) {
         m_out << "$";
@@ -14213,7 +12517,7 @@ void SPFWriter::writeIfcCurtainWallType(IfcCurtainWallType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -14231,7 +12535,7 @@ void SPFWriter::writeIfcCurtainWallType(IfcCurtainWallType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -14276,9 +12580,6 @@ void SPFWriter::writeIfcCurtainWallTypeEnum(IfcCurtainWallTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcCurve(IfcCurve *ptr) {
-}
-
 void SPFWriter::writeIfcCurveBoundedPlane(IfcCurveBoundedPlane *ptr) {
     if (Step::isUnset(ptr->getBasisSurface())) {
         m_out << "$";
@@ -14300,7 +12601,7 @@ void SPFWriter::writeIfcCurveBoundedPlane(IfcCurveBoundedPlane *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcCurve > >::iterator step_it0 = (ptr->getInnerBoundaries()).begin();
+            Set_IfcCurve_0_n::iterator step_it0 = (ptr->getInnerBoundaries()).begin();
             if ((ptr->getInnerBoundaries()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getInnerBoundaries()).end(); step_it0++) {
@@ -14417,7 +12718,7 @@ void SPFWriter::writeIfcCurveStyleFont(IfcCurveStyleFont *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCurveStyleFontPattern > >::iterator step_it0 = (ptr->getPatternList()).begin();
+            List_IfcCurveStyleFontPattern_1_n::iterator step_it0 = (ptr->getPatternList()).begin();
             if ((ptr->getPatternList()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getPatternList()).end(); step_it0++) {
@@ -14522,7 +12823,7 @@ void SPFWriter::writeIfcDamperType(IfcDamperType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -14540,7 +12841,7 @@ void SPFWriter::writeIfcDamperType(IfcDamperType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -14705,7 +13006,7 @@ void SPFWriter::writeIfcDerivedUnit(IfcDerivedUnit *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDerivedUnitElement > >::iterator step_it0 = (ptr->getElements()).begin();
+            Set_IfcDerivedUnitElement_1_n::iterator step_it0 = (ptr->getElements()).begin();
             if ((ptr->getElements()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getElements()).end(); step_it0++) {
@@ -14907,7 +13208,7 @@ void SPFWriter::writeIfcDiameterDimension(IfcDiameterDimension *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -14964,7 +13265,7 @@ void SPFWriter::writeIfcDimensionCurve(IfcDimensionCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -14991,7 +13292,7 @@ void SPFWriter::writeIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedC
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -15018,7 +13319,7 @@ void SPFWriter::writeIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -15151,7 +13452,7 @@ void SPFWriter::writeIfcDirection(IfcDirection *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::Real >::iterator step_it0 = (ptr->getDirectionRatios()).begin();
+            List_Real_2_3::iterator step_it0 = (ptr->getDirectionRatios()).begin();
             if ((ptr->getDirectionRatios()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getDirectionRatios()).end(); step_it0++) {
@@ -15264,7 +13565,7 @@ void SPFWriter::writeIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -15282,7 +13583,7 @@ void SPFWriter::writeIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -15409,7 +13710,7 @@ void SPFWriter::writeIfcDistributionChamberElementType(IfcDistributionChamberEle
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -15427,7 +13728,7 @@ void SPFWriter::writeIfcDistributionChamberElementType(IfcDistributionChamberEle
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -15561,93 +13862,6 @@ void SPFWriter::writeIfcDistributionControlElement(IfcDistributionControlElement
     }
 }
 
-void SPFWriter::writeIfcDistributionControlElementType(IfcDistributionControlElementType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcDistributionElement(IfcDistributionElement *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -15748,7 +13962,7 @@ void SPFWriter::writeIfcDistributionElementType(IfcDistributionElementType *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -15766,7 +13980,7 @@ void SPFWriter::writeIfcDistributionElementType(IfcDistributionElementType *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -15848,93 +14062,6 @@ void SPFWriter::writeIfcDistributionFlowElement(IfcDistributionFlowElement *ptr)
     }
     else {
         writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcDistributionFlowElementType(IfcDistributionFlowElementType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
     }
 }
 
@@ -16064,7 +14191,7 @@ void SPFWriter::writeIfcDocumentInformation(IfcDocumentInformation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDocumentReference > >::iterator step_it0 = (ptr->getDocumentReferences()).begin();
+            Set_IfcDocumentReference_1_n::iterator step_it0 = (ptr->getDocumentReferences()).begin();
             if ((ptr->getDocumentReferences()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getDocumentReferences()).end(); step_it0++) {
@@ -16117,7 +14244,7 @@ void SPFWriter::writeIfcDocumentInformation(IfcDocumentInformation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcActorSelect > >::iterator step_it0 = (ptr->getEditors()).begin();
+            Set_IfcActorSelect_1_n::iterator step_it0 = (ptr->getEditors()).begin();
             if ((ptr->getEditors()).size()) {
                 writeIfcActorSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getEditors()).end(); step_it0++) {
@@ -16236,7 +14363,7 @@ void SPFWriter::writeIfcDocumentInformationRelationship(IfcDocumentInformationRe
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDocumentInformation > >::iterator step_it0 = (ptr->getRelatedDocuments()).begin();
+            Set_IfcDocumentInformation_1_n::iterator step_it0 = (ptr->getRelatedDocuments()).begin();
             if ((ptr->getRelatedDocuments()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedDocuments()).end(); step_it0++) {
@@ -16611,7 +14738,7 @@ void SPFWriter::writeIfcDoorStyle(IfcDoorStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -16629,7 +14756,7 @@ void SPFWriter::writeIfcDoorStyle(IfcDoorStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -16775,7 +14902,7 @@ void SPFWriter::writeIfcDraughtingCallout(IfcDraughtingCallout *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -16887,7 +15014,7 @@ void SPFWriter::writeIfcDuctFittingType(IfcDuctFittingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -16905,7 +15032,7 @@ void SPFWriter::writeIfcDuctFittingType(IfcDuctFittingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17013,7 +15140,7 @@ void SPFWriter::writeIfcDuctSegmentType(IfcDuctSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17031,7 +15158,7 @@ void SPFWriter::writeIfcDuctSegmentType(IfcDuctSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17124,7 +15251,7 @@ void SPFWriter::writeIfcDuctSilencerType(IfcDuctSilencerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17142,7 +15269,7 @@ void SPFWriter::writeIfcDuctSilencerType(IfcDuctSilencerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17242,71 +15369,6 @@ void SPFWriter::writeIfcEdgeCurve(IfcEdgeCurve *ptr) {
     }
 }
 
-void SPFWriter::writeIfcEdgeFeature(IfcEdgeFeature *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getFeatureLength())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getFeatureLength());
-    }
-}
-
 void SPFWriter::writeIfcEdgeLoop(IfcEdgeLoop *ptr) {
     if (Step::isUnset(ptr->getEdgeList())) {
         m_out << "$";
@@ -17314,7 +15376,7 @@ void SPFWriter::writeIfcEdgeLoop(IfcEdgeLoop *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcOrientedEdge > >::iterator step_it0 = (ptr->getEdgeList()).begin();
+            List_IfcOrientedEdge_1_n::iterator step_it0 = (ptr->getEdgeList()).begin();
             if ((ptr->getEdgeList()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getEdgeList()).end(); step_it0++) {
@@ -17369,7 +15431,7 @@ void SPFWriter::writeIfcElectricApplianceType(IfcElectricApplianceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17387,7 +15449,7 @@ void SPFWriter::writeIfcElectricApplianceType(IfcElectricApplianceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17656,7 +15718,7 @@ void SPFWriter::writeIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDevi
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17674,7 +15736,7 @@ void SPFWriter::writeIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDevi
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17776,7 +15838,7 @@ void SPFWriter::writeIfcElectricGeneratorType(IfcElectricGeneratorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17794,7 +15856,7 @@ void SPFWriter::writeIfcElectricGeneratorType(IfcElectricGeneratorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17881,7 +15943,7 @@ void SPFWriter::writeIfcElectricHeaterType(IfcElectricHeaterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -17899,7 +15961,7 @@ void SPFWriter::writeIfcElectricHeaterType(IfcElectricHeaterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -17995,7 +16057,7 @@ void SPFWriter::writeIfcElectricMotorType(IfcElectricMotorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -18013,7 +16075,7 @@ void SPFWriter::writeIfcElectricMotorType(IfcElectricMotorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -18115,7 +16177,7 @@ void SPFWriter::writeIfcElectricTimeControlType(IfcElectricTimeControlType *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -18133,7 +16195,7 @@ void SPFWriter::writeIfcElectricTimeControlType(IfcElectricTimeControlType *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -18419,64 +16481,6 @@ void SPFWriter::writeIfcElectricalElement(IfcElectricalElement *ptr) {
     }
 }
 
-void SPFWriter::writeIfcElement(IfcElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
 void SPFWriter::writeIfcElementAssembly(IfcElementAssembly *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -18601,151 +16605,6 @@ void SPFWriter::writeIfcElementAssemblyTypeEnum(IfcElementAssemblyTypeEnum enumD
         }
 }
 
-void SPFWriter::writeIfcElementComponent(IfcElementComponent *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcElementComponentType(IfcElementComponentType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcElementQuantity(IfcElementQuantity *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -18788,7 +16647,7 @@ void SPFWriter::writeIfcElementQuantity(IfcElementQuantity *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPhysicalQuantity > >::iterator step_it0 = (ptr->getQuantities()).begin();
+            Set_IfcPhysicalQuantity_1_n::iterator step_it0 = (ptr->getQuantities()).begin();
             if ((ptr->getQuantities()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getQuantities()).end(); step_it0++) {
@@ -18798,102 +16657,6 @@ void SPFWriter::writeIfcElementQuantity(IfcElementQuantity *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcElementType(IfcElementType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
-void SPFWriter::writeIfcElementarySurface(IfcElementarySurface *ptr) {
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPosition());
     }
 }
 
@@ -19012,93 +16775,6 @@ void SPFWriter::writeIfcEnergyConversionDevice(IfcEnergyConversionDevice *ptr) {
     }
     else {
         writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
     }
 }
 
@@ -19377,7 +17053,7 @@ void SPFWriter::writeIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -19395,7 +17071,7 @@ void SPFWriter::writeIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -19509,7 +17185,7 @@ void SPFWriter::writeIfcEvaporatorType(IfcEvaporatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -19527,7 +17203,7 @@ void SPFWriter::writeIfcEvaporatorType(IfcEvaporatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -19601,7 +17277,7 @@ void SPFWriter::writeIfcExtendedMaterialProperties(IfcExtendedMaterialProperties
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getExtendedProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getExtendedProperties()).begin();
             if ((ptr->getExtendedProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getExtendedProperties()).end(); step_it0++) {
@@ -19618,29 +17294,6 @@ void SPFWriter::writeIfcExtendedMaterialProperties(IfcExtendedMaterialProperties
     }
     else {
         writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
-void SPFWriter::writeIfcExternalReference(IfcExternalReference *ptr) {
-    if (Step::isUnset(ptr->getLocation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLocation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getItemReference())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getItemReference());
     }
     m_out << ",";
     if (Step::isUnset(ptr->getName())) {
@@ -19780,7 +17433,7 @@ void SPFWriter::writeIfcFace(IfcFace *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFaceBound > >::iterator step_it0 = (ptr->getBounds()).begin();
+            Set_IfcFaceBound_1_n::iterator step_it0 = (ptr->getBounds()).begin();
             if ((ptr->getBounds()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getBounds()).end(); step_it0++) {
@@ -19800,7 +17453,7 @@ void SPFWriter::writeIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcConnectedFaceSet > >::iterator step_it0 = (ptr->getFbsmFaces()).begin();
+            Set_IfcConnectedFaceSet_1_n::iterator step_it0 = (ptr->getFbsmFaces()).begin();
             if ((ptr->getFbsmFaces()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getFbsmFaces()).end(); step_it0++) {
@@ -19852,7 +17505,7 @@ void SPFWriter::writeIfcFaceSurface(IfcFaceSurface *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFaceBound > >::iterator step_it0 = (ptr->getBounds()).begin();
+            Set_IfcFaceBound_1_n::iterator step_it0 = (ptr->getBounds()).begin();
             if ((ptr->getBounds()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getBounds()).end(); step_it0++) {
@@ -19902,7 +17555,7 @@ void SPFWriter::writeIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcClosedShell > >::iterator step_it0 = (ptr->getVoids()).begin();
+            Set_IfcClosedShell_1_n::iterator step_it0 = (ptr->getVoids()).begin();
             if ((ptr->getVoids()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getVoids()).end(); step_it0++) {
@@ -20008,7 +17661,7 @@ void SPFWriter::writeIfcFanType(IfcFanType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -20026,7 +17679,7 @@ void SPFWriter::writeIfcFanType(IfcFanType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -20192,7 +17845,7 @@ void SPFWriter::writeIfcFastenerType(IfcFastenerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -20210,7 +17863,7 @@ void SPFWriter::writeIfcFastenerType(IfcFastenerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -20237,180 +17890,6 @@ void SPFWriter::writeIfcFastenerType(IfcFastenerType *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFeatureElement(IfcFeatureElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcFeatureElementAddition(IfcFeatureElementAddition *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
 void SPFWriter::writeIfcFillAreaStyle(IfcFillAreaStyle *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
@@ -20425,7 +17904,7 @@ void SPFWriter::writeIfcFillAreaStyle(IfcFillAreaStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFillStyleSelect > >::iterator step_it0 = (ptr->getFillStyles()).begin();
+            Set_IfcFillStyleSelect_1_n::iterator step_it0 = (ptr->getFillStyles()).begin();
             if ((ptr->getFillStyles()).size()) {
                 writeIfcFillStyleSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getFillStyles()).end(); step_it0++) {
@@ -20531,7 +18010,7 @@ void SPFWriter::writeIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > >::iterator step_it0 = (ptr->getTiles()).begin();
+            Set_IfcFillAreaStyleTileShapeSelect_1_n::iterator step_it0 = (ptr->getTiles()).begin();
             if ((ptr->getTiles()).size()) {
                 writeIfcFillAreaStyleTileShapeSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTiles()).end(); step_it0++) {
@@ -20601,7 +18080,7 @@ void SPFWriter::writeIfcFilterType(IfcFilterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -20619,7 +18098,7 @@ void SPFWriter::writeIfcFilterType(IfcFilterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -20721,7 +18200,7 @@ void SPFWriter::writeIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTy
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -20739,7 +18218,7 @@ void SPFWriter::writeIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTy
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -20857,93 +18336,6 @@ void SPFWriter::writeIfcFlowController(IfcFlowController *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFlowControllerType(IfcFlowControllerType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcFlowFitting(IfcFlowFitting *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -21002,93 +18394,6 @@ void SPFWriter::writeIfcFlowFitting(IfcFlowFitting *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFlowFittingType(IfcFlowFittingType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcFlowInstrumentType(IfcFlowInstrumentType *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -21131,7 +18436,7 @@ void SPFWriter::writeIfcFlowInstrumentType(IfcFlowInstrumentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -21149,7 +18454,7 @@ void SPFWriter::writeIfcFlowInstrumentType(IfcFlowInstrumentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -21260,7 +18565,7 @@ void SPFWriter::writeIfcFlowMeterType(IfcFlowMeterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -21278,7 +18583,7 @@ void SPFWriter::writeIfcFlowMeterType(IfcFlowMeterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -21399,93 +18704,6 @@ void SPFWriter::writeIfcFlowMovingDevice(IfcFlowMovingDevice *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcFlowSegment(IfcFlowSegment *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -21541,93 +18759,6 @@ void SPFWriter::writeIfcFlowSegment(IfcFlowSegment *ptr) {
     }
     else {
         writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcFlowSegmentType(IfcFlowSegmentType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
     }
 }
 
@@ -21689,93 +18820,6 @@ void SPFWriter::writeIfcFlowStorageDevice(IfcFlowStorageDevice *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcFlowTerminal(IfcFlowTerminal *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -21834,93 +18878,6 @@ void SPFWriter::writeIfcFlowTerminal(IfcFlowTerminal *ptr) {
     }
 }
 
-void SPFWriter::writeIfcFlowTerminalType(IfcFlowTerminalType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
-}
-
 void SPFWriter::writeIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -21976,93 +18933,6 @@ void SPFWriter::writeIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *ptr) {
     }
     else {
         writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
     }
 }
 
@@ -22814,7 +19684,7 @@ void SPFWriter::writeIfcFurnishingElementType(IfcFurnishingElementType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -22832,7 +19702,7 @@ void SPFWriter::writeIfcFurnishingElementType(IfcFurnishingElementType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -22938,7 +19808,7 @@ void SPFWriter::writeIfcFurnitureType(IfcFurnitureType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -22956,7 +19826,7 @@ void SPFWriter::writeIfcFurnitureType(IfcFurnitureType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -23032,7 +19902,7 @@ void SPFWriter::writeIfcGasTerminalType(IfcGasTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -23050,7 +19920,7 @@ void SPFWriter::writeIfcGasTerminalType(IfcGasTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -23192,7 +20062,7 @@ void SPFWriter::writeIfcGeometricCurveSet(IfcGeometricCurveSet *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcGeometricSetSelect > >::iterator step_it0 = (ptr->getElements()).begin();
+            Set_IfcGeometricSetSelect_1_n::iterator step_it0 = (ptr->getElements()).begin();
             if ((ptr->getElements()).size()) {
                 writeIfcGeometricSetSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getElements()).end(); step_it0++) {
@@ -23261,9 +20131,6 @@ void SPFWriter::writeIfcGeometricRepresentationContext(IfcGeometricRepresentatio
     else {
         writeAttribute(ptr->getTrueNorth());
     }
-}
-
-void SPFWriter::writeIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *ptr) {
 }
 
 void SPFWriter::writeIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *ptr) {
@@ -23357,7 +20224,7 @@ void SPFWriter::writeIfcGeometricSet(IfcGeometricSet *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcGeometricSetSelect > >::iterator step_it0 = (ptr->getElements()).begin();
+            Set_IfcGeometricSetSelect_1_n::iterator step_it0 = (ptr->getElements()).begin();
             if ((ptr->getElements()).size()) {
                 writeIfcGeometricSetSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getElements()).end(); step_it0++) {
@@ -23426,7 +20293,7 @@ void SPFWriter::writeIfcGrid(IfcGrid *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcGridAxis > >::iterator step_it0 = (ptr->getUAxes()).begin();
+            List_IfcGridAxis_1_n::iterator step_it0 = (ptr->getUAxes()).begin();
             if ((ptr->getUAxes()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getUAxes()).end(); step_it0++) {
@@ -23444,7 +20311,7 @@ void SPFWriter::writeIfcGrid(IfcGrid *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcGridAxis > >::iterator step_it0 = (ptr->getVAxes()).begin();
+            List_IfcGridAxis_1_n::iterator step_it0 = (ptr->getVAxes()).begin();
             if ((ptr->getVAxes()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getVAxes()).end(); step_it0++) {
@@ -23462,7 +20329,7 @@ void SPFWriter::writeIfcGrid(IfcGrid *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcGridAxis > >::iterator step_it0 = (ptr->getWAxes()).begin();
+            List_IfcGridAxis_1_n::iterator step_it0 = (ptr->getWAxes()).begin();
             if ((ptr->getWAxes()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getWAxes()).end(); step_it0++) {
@@ -23609,7 +20476,7 @@ void SPFWriter::writeIfcHeatExchangerType(IfcHeatExchangerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -23627,7 +20494,7 @@ void SPFWriter::writeIfcHeatExchangerType(IfcHeatExchangerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -23720,7 +20587,7 @@ void SPFWriter::writeIfcHumidifierType(IfcHumidifierType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -23738,7 +20605,7 @@ void SPFWriter::writeIfcHumidifierType(IfcHumidifierType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -24017,7 +20884,7 @@ void SPFWriter::writeIfcInventory(IfcInventory *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPerson > >::iterator step_it0 = (ptr->getResponsiblePersons()).begin();
+            Set_IfcPerson_1_n::iterator step_it0 = (ptr->getResponsiblePersons()).begin();
             if ((ptr->getResponsiblePersons()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getResponsiblePersons()).end(); step_it0++) {
@@ -24134,7 +21001,7 @@ void SPFWriter::writeIfcIrregularTimeSeries(IfcIrregularTimeSeries *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > >::iterator step_it0 = (ptr->getValues()).begin();
+            List_IfcIrregularTimeSeriesValue_1_n::iterator step_it0 = (ptr->getValues()).begin();
             if ((ptr->getValues()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getValues()).end(); step_it0++) {
@@ -24221,7 +21088,7 @@ void SPFWriter::writeIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *pt
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getListValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getListValues()).begin();
             if ((ptr->getListValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getListValues()).end(); step_it0++) {
@@ -24788,7 +21655,7 @@ void SPFWriter::writeIfcJunctionBoxType(IfcJunctionBoxType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -24806,7 +21673,7 @@ void SPFWriter::writeIfcJunctionBoxType(IfcJunctionBoxType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -25044,7 +21911,7 @@ void SPFWriter::writeIfcLampType(IfcLampType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -25062,7 +21929,7 @@ void SPFWriter::writeIfcLampType(IfcLampType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -25160,7 +22027,7 @@ void SPFWriter::writeIfcLibraryInformation(IfcLibraryInformation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcLibraryReference > >::iterator step_it0 = (ptr->getLibraryReference()).begin();
+            Set_IfcLibraryReference_1_n::iterator step_it0 = (ptr->getLibraryReference()).begin();
             if ((ptr->getLibraryReference()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getLibraryReference()).end(); step_it0++) {
@@ -25210,7 +22077,7 @@ void SPFWriter::writeIfcLightDistributionData(IfcLightDistributionData *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcPlaneAngleMeasure >::iterator step_it0 = (ptr->getSecondaryPlaneAngle()).begin();
+            List_IfcPlaneAngleMeasure_1_n::iterator step_it0 = (ptr->getSecondaryPlaneAngle()).begin();
             if ((ptr->getSecondaryPlaneAngle()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getSecondaryPlaneAngle()).end(); step_it0++) {
@@ -25228,7 +22095,7 @@ void SPFWriter::writeIfcLightDistributionData(IfcLightDistributionData *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLuminousIntensityDistributionMeasure >::iterator step_it0 = (ptr->getLuminousIntensity()).begin();
+            List_IfcLuminousIntensityDistributionMeasure_1_n::iterator step_it0 = (ptr->getLuminousIntensity()).begin();
             if ((ptr->getLuminousIntensity()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getLuminousIntensity()).end(); step_it0++) {
@@ -25283,7 +22150,7 @@ void SPFWriter::writeIfcLightFixtureType(IfcLightFixtureType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -25301,7 +22168,7 @@ void SPFWriter::writeIfcLightFixtureType(IfcLightFixtureType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -25366,7 +22233,7 @@ void SPFWriter::writeIfcLightIntensityDistribution(IfcLightIntensityDistribution
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcLightDistributionData > >::iterator step_it0 = (ptr->getDistributionData()).begin();
+            List_IfcLightDistributionData_1_n::iterator step_it0 = (ptr->getDistributionData()).begin();
             if ((ptr->getDistributionData()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getDistributionData()).end(); step_it0++) {
@@ -25394,36 +22261,6 @@ void SPFWriter::writeIfcLightDistributionCurveEnum(IfcLightDistributionCurveEnum
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcLightSource(IfcLightSource *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLightColour())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLightColour());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAmbientIntensity())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAmbientIntensity());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getIntensity())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getIntensity());
-    }
 }
 
 void SPFWriter::writeIfcLightSourceAmbient(IfcLightSourceAmbient *ptr) {
@@ -25795,7 +22632,7 @@ void SPFWriter::writeIfcLinearDimension(IfcLinearDimension *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -25864,15 +22701,6 @@ void SPFWriter::writeIfcLocalTime(IfcLocalTime *ptr) {
 void SPFWriter::writeIfcLoop(IfcLoop *ptr) {
 }
 
-void SPFWriter::writeIfcManifoldSolidBrep(IfcManifoldSolidBrep *ptr) {
-    if (Step::isUnset(ptr->getOuter())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOuter());
-    }
-}
-
 void SPFWriter::writeIfcMappedItem(IfcMappedItem *ptr) {
     if (Step::isUnset(ptr->getMappingSource())) {
         m_out << "$";
@@ -25905,7 +22733,7 @@ void SPFWriter::writeIfcMaterialClassificationRelationship(IfcMaterialClassifica
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcClassificationNotationSelect > >::iterator step_it0 = (ptr->getMaterialClassifications()).begin();
+            Set_IfcClassificationNotationSelect_1_n::iterator step_it0 = (ptr->getMaterialClassifications()).begin();
             if ((ptr->getMaterialClassifications()).size()) {
                 writeIfcClassificationNotationSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getMaterialClassifications()).end(); step_it0++) {
@@ -25946,7 +22774,7 @@ void SPFWriter::writeIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRe
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentation > >::iterator step_it0 = (ptr->getRepresentations()).begin();
+            List_IfcRepresentation_1_n::iterator step_it0 = (ptr->getRepresentations()).begin();
             if ((ptr->getRepresentations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentations()).end(); step_it0++) {
@@ -25996,7 +22824,7 @@ void SPFWriter::writeIfcMaterialLayerSet(IfcMaterialLayerSet *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcMaterialLayer > >::iterator step_it0 = (ptr->getMaterialLayers()).begin();
+            List_IfcMaterialLayer_1_n::iterator step_it0 = (ptr->getMaterialLayers()).begin();
             if ((ptr->getMaterialLayers()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getMaterialLayers()).end(); step_it0++) {
@@ -26078,7 +22906,7 @@ void SPFWriter::writeIfcMaterialList(IfcMaterialList *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcMaterial > >::iterator step_it0 = (ptr->getMaterials()).begin();
+            List_IfcMaterial_1_n::iterator step_it0 = (ptr->getMaterials()).begin();
             if ((ptr->getMaterials()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getMaterials()).end(); step_it0++) {
@@ -26088,15 +22916,6 @@ void SPFWriter::writeIfcMaterialList(IfcMaterialList *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcMaterialProperties(IfcMaterialProperties *ptr) {
-    if (Step::isUnset(ptr->getMaterial())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getMaterial());
     }
 }
 
@@ -26316,7 +23135,7 @@ void SPFWriter::writeIfcMechanicalFastenerType(IfcMechanicalFastenerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -26334,7 +23153,7 @@ void SPFWriter::writeIfcMechanicalFastenerType(IfcMechanicalFastenerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -26496,7 +23315,7 @@ void SPFWriter::writeIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMate
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRelaxation > >::iterator step_it0 = (ptr->getRelaxations()).begin();
+            Set_IfcRelaxation_1_n::iterator step_it0 = (ptr->getRelaxations()).begin();
             if ((ptr->getRelaxations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelaxations()).end(); step_it0++) {
@@ -26609,7 +23428,7 @@ void SPFWriter::writeIfcMemberType(IfcMemberType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -26627,7 +23446,7 @@ void SPFWriter::writeIfcMemberType(IfcMemberType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -26778,6 +23597,26 @@ void SPFWriter::writeIfcMetric(IfcMetric *ptr) {
     else {
         writeIfcMetricValueSelect(ptr->getDataValue());
     }
+}
+
+void SPFWriter::writeIfcConstraintEnum(IfcConstraintEnum enumData) {
+    switch(enumData) {
+    case IfcConstraintEnum_HARD:
+        m_out << ".HARD.";
+        break;
+    case IfcConstraintEnum_SOFT:
+        m_out << ".SOFT.";
+        break;
+    case IfcConstraintEnum_ADVISORY:
+        m_out << ".ADVISORY.";
+        break;
+    case IfcConstraintEnum_USERDEFINED:
+        m_out << ".USERDEFINED.";
+        break;
+    case IfcConstraintEnum_NOTDEFINED:
+        m_out << ".NOTDEFINED.";
+        break;
+        }
 }
 
 void SPFWriter::writeIfcBenchmarkEnum(IfcBenchmarkEnum enumData) {
@@ -27139,7 +23978,7 @@ void SPFWriter::writeIfcMotorConnectionType(IfcMotorConnectionType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -27157,7 +23996,7 @@ void SPFWriter::writeIfcMotorConnectionType(IfcMotorConnectionType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -27302,7 +24141,7 @@ void SPFWriter::writeIfcMove(IfcMove *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcText >::iterator step_it0 = (ptr->getPunchList()).begin();
+            List_IfcText_1_n::iterator step_it0 = (ptr->getPunchList()).begin();
             if ((ptr->getPunchList()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getPunchList()).end(); step_it0++) {
@@ -27313,92 +24152,6 @@ void SPFWriter::writeIfcMove(IfcMove *ptr) {
         }
         m_out << ")";
     }
-}
-
-void SPFWriter::writeIfcNamedUnit(IfcNamedUnit *ptr) {
-    if (Step::isUnset(ptr->getDimensions())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDimensions());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getUnitType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcUnitEnum(ptr->getUnitType());
-    }
-}
-
-void SPFWriter::writeIfcObject(IfcObject *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-}
-
-void SPFWriter::writeIfcObjectDefinition(IfcObjectDefinition *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-}
-
-void SPFWriter::writeIfcObjectPlacement(IfcObjectPlacement *ptr) {
 }
 
 void SPFWriter::writeIfcObjective(IfcObjective *ptr) {
@@ -27661,7 +24414,7 @@ void SPFWriter::writeIfcOpenShell(IfcOpenShell *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcFace > >::iterator step_it0 = (ptr->getCfsFaces()).begin();
+            Set_IfcFace_1_n::iterator step_it0 = (ptr->getCfsFaces()).begin();
             if ((ptr->getCfsFaces()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCfsFaces()).end(); step_it0++) {
@@ -27911,7 +24664,7 @@ void SPFWriter::writeIfcOrganization(IfcOrganization *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcActorRole > >::iterator step_it0 = (ptr->getRoles()).begin();
+            List_IfcActorRole_1_n::iterator step_it0 = (ptr->getRoles()).begin();
             if ((ptr->getRoles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRoles()).end(); step_it0++) {
@@ -27929,7 +24682,7 @@ void SPFWriter::writeIfcOrganization(IfcOrganization *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcAddress > >::iterator step_it0 = (ptr->getAddresses()).begin();
+            List_IfcAddress_1_n::iterator step_it0 = (ptr->getAddresses()).begin();
             if ((ptr->getAddresses()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getAddresses()).end(); step_it0++) {
@@ -27970,7 +24723,7 @@ void SPFWriter::writeIfcOrganizationRelationship(IfcOrganizationRelationship *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcOrganization > >::iterator step_it0 = (ptr->getRelatedOrganizations()).begin();
+            Set_IfcOrganization_1_n::iterator step_it0 = (ptr->getRelatedOrganizations()).begin();
             if ((ptr->getRelatedOrganizations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedOrganizations()).end(); step_it0++) {
@@ -28045,7 +24798,7 @@ void SPFWriter::writeIfcOutletType(IfcOutletType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -28063,7 +24816,7 @@ void SPFWriter::writeIfcOutletType(IfcOutletType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -28218,29 +24971,6 @@ void SPFWriter::writeIfcChangeActionEnum(IfcChangeActionEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcParameterizedProfileDef(IfcParameterizedProfileDef *ptr) {
-    if (Step::isUnsetEnum(ptr->getProfileType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcProfileTypeEnum(ptr->getProfileType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getProfileName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getProfileName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPosition());
-    }
-}
-
 void SPFWriter::writeIfcPath(IfcPath *ptr) {
     if (Step::isUnset(ptr->getEdgeList())) {
         m_out << "$";
@@ -28248,7 +24978,7 @@ void SPFWriter::writeIfcPath(IfcPath *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcOrientedEdge > >::iterator step_it0 = (ptr->getEdgeList()).begin();
+            List_IfcOrientedEdge_1_n::iterator step_it0 = (ptr->getEdgeList()).begin();
             if ((ptr->getEdgeList()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getEdgeList()).end(); step_it0++) {
@@ -28485,7 +25215,7 @@ void SPFWriter::writeIfcPerson(IfcPerson *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getMiddleNames()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getMiddleNames()).begin();
             if ((ptr->getMiddleNames()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getMiddleNames()).end(); step_it0++) {
@@ -28503,7 +25233,7 @@ void SPFWriter::writeIfcPerson(IfcPerson *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getPrefixTitles()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getPrefixTitles()).begin();
             if ((ptr->getPrefixTitles()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getPrefixTitles()).end(); step_it0++) {
@@ -28521,7 +25251,7 @@ void SPFWriter::writeIfcPerson(IfcPerson *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getSuffixTitles()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getSuffixTitles()).begin();
             if ((ptr->getSuffixTitles()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getSuffixTitles()).end(); step_it0++) {
@@ -28539,7 +25269,7 @@ void SPFWriter::writeIfcPerson(IfcPerson *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcActorRole > >::iterator step_it0 = (ptr->getRoles()).begin();
+            List_IfcActorRole_1_n::iterator step_it0 = (ptr->getRoles()).begin();
             if ((ptr->getRoles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRoles()).end(); step_it0++) {
@@ -28557,7 +25287,7 @@ void SPFWriter::writeIfcPerson(IfcPerson *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcAddress > >::iterator step_it0 = (ptr->getAddresses()).begin();
+            List_IfcAddress_1_n::iterator step_it0 = (ptr->getAddresses()).begin();
             if ((ptr->getAddresses()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getAddresses()).end(); step_it0++) {
@@ -28591,7 +25321,7 @@ void SPFWriter::writeIfcPersonAndOrganization(IfcPersonAndOrganization *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcActorRole > >::iterator step_it0 = (ptr->getRoles()).begin();
+            List_IfcActorRole_1_n::iterator step_it0 = (ptr->getRoles()).begin();
             if ((ptr->getRoles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRoles()).end(); step_it0++) {
@@ -28625,7 +25355,7 @@ void SPFWriter::writeIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPhysicalQuantity > >::iterator step_it0 = (ptr->getHasQuantities()).begin();
+            Set_IfcPhysicalQuantity_1_n::iterator step_it0 = (ptr->getHasQuantities()).begin();
             if ((ptr->getHasQuantities()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasQuantities()).end(); step_it0++) {
@@ -28656,45 +25386,6 @@ void SPFWriter::writeIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *ptr)
     }
     else {
         writeAttribute(ptr->getUsage());
-    }
-}
-
-void SPFWriter::writeIfcPhysicalQuantity(IfcPhysicalQuantity *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-}
-
-void SPFWriter::writeIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUnit())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUnit());
     }
 }
 
@@ -28855,7 +25546,7 @@ void SPFWriter::writeIfcPipeFittingType(IfcPipeFittingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -28873,7 +25564,7 @@ void SPFWriter::writeIfcPipeFittingType(IfcPipeFittingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -28981,7 +25672,7 @@ void SPFWriter::writeIfcPipeSegmentType(IfcPipeSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -28999,7 +25690,7 @@ void SPFWriter::writeIfcPipeSegmentType(IfcPipeSegmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -29112,7 +25803,7 @@ void SPFWriter::writeIfcPixelTexture(IfcPixelTexture *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::Binary< 32 > >::iterator step_it0 = (ptr->getPixel()).begin();
+            List_32_1_n::iterator step_it0 = (ptr->getPixel()).begin();
             if ((ptr->getPixel()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getPixel()).end(); step_it0++) {
@@ -29122,15 +25813,6 @@ void SPFWriter::writeIfcPixelTexture(IfcPixelTexture *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcPlacement(IfcPlacement *ptr) {
-    if (Step::isUnset(ptr->getLocation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLocation());
     }
 }
 
@@ -29282,7 +25964,7 @@ void SPFWriter::writeIfcPlateType(IfcPlateType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -29300,7 +25982,7 @@ void SPFWriter::writeIfcPlateType(IfcPlateType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -29351,9 +26033,6 @@ void SPFWriter::writeIfcPlateTypeEnum(IfcPlateTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcPoint(IfcPoint *ptr) {
-}
-
 void SPFWriter::writeIfcPointOnCurve(IfcPointOnCurve *ptr) {
     if (Step::isUnset(ptr->getBasisCurve())) {
         m_out << "$";
@@ -29400,7 +26079,7 @@ void SPFWriter::writeIfcPolyLoop(IfcPolyLoop *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getPolygon()).begin();
+            List_IfcCartesianPoint_3_n::iterator step_it0 = (ptr->getPolygon()).begin();
             if ((ptr->getPolygon()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getPolygon()).end(); step_it0++) {
@@ -29450,7 +26129,7 @@ void SPFWriter::writeIfcPolyline(IfcPolyline *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getPoints()).begin();
+            List_IfcCartesianPoint_2_n::iterator step_it0 = (ptr->getPoints()).begin();
             if ((ptr->getPoints()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getPoints()).end(); step_it0++) {
@@ -29460,57 +26139,6 @@ void SPFWriter::writeIfcPolyline(IfcPolyline *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcPort(IfcPort *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
     }
 }
 
@@ -29549,7 +26177,7 @@ void SPFWriter::writeIfcPostalAddress(IfcPostalAddress *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getAddressLines()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getAddressLines()).begin();
             if ((ptr->getAddressLines()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getAddressLines()).end(); step_it0++) {
@@ -29597,34 +26225,27 @@ void SPFWriter::writeIfcPostalAddress(IfcPostalAddress *ptr) {
     }
 }
 
-void SPFWriter::writeIfcPreDefinedColour(IfcPreDefinedColour *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
-void SPFWriter::writeIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
+void SPFWriter::writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData) {
+    switch(enumData) {
+    case IfcAddressTypeEnum_OFFICE:
+        m_out << ".OFFICE.";
+        break;
+    case IfcAddressTypeEnum_SITE:
+        m_out << ".SITE.";
+        break;
+    case IfcAddressTypeEnum_HOME:
+        m_out << ".HOME.";
+        break;
+    case IfcAddressTypeEnum_DISTRIBUTIONPOINT:
+        m_out << ".DISTRIBUTIONPOINT.";
+        break;
+    case IfcAddressTypeEnum_USERDEFINED:
+        m_out << ".USERDEFINED.";
+        break;
+        }
 }
 
 void SPFWriter::writeIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
-void SPFWriter::writeIfcPreDefinedItem(IfcPreDefinedItem *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
     }
@@ -29642,25 +26263,7 @@ void SPFWriter::writeIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymb
     }
 }
 
-void SPFWriter::writeIfcPreDefinedSymbol(IfcPreDefinedSymbol *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
 void SPFWriter::writeIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
-void SPFWriter::writeIfcPreDefinedTextFont(IfcPreDefinedTextFont *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
     }
@@ -29690,7 +26293,7 @@ void SPFWriter::writeIfcPresentationLayerAssignment(IfcPresentationLayerAssignme
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcLayeredItem > >::iterator step_it0 = (ptr->getAssignedItems()).begin();
+            Set_IfcLayeredItem_1_n::iterator step_it0 = (ptr->getAssignedItems()).begin();
             if ((ptr->getAssignedItems()).size()) {
                 writeIfcLayeredItem((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getAssignedItems()).end(); step_it0++) {
@@ -29742,7 +26345,7 @@ void SPFWriter::writeIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcLayeredItem > >::iterator step_it0 = (ptr->getAssignedItems()).begin();
+            Set_IfcLayeredItem_1_n::iterator step_it0 = (ptr->getAssignedItems()).begin();
             if ((ptr->getAssignedItems()).size()) {
                 writeIfcLayeredItem((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getAssignedItems()).end(); step_it0++) {
@@ -29788,7 +26391,7 @@ void SPFWriter::writeIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleSelect > >::iterator step_it0 = (ptr->getLayerStyles()).begin();
+            Set_IfcPresentationStyleSelect_0_n::iterator step_it0 = (ptr->getLayerStyles()).begin();
             if ((ptr->getLayerStyles()).size()) {
                 writeIfcPresentationStyleSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getLayerStyles()).end(); step_it0++) {
@@ -29834,15 +26437,6 @@ void SPFWriter::writeIfcNullStyle(IfcNullStyle enumData) {
         }
 }
 
-void SPFWriter::writeIfcPresentationStyle(IfcPresentationStyle *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
 void SPFWriter::writeIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *ptr) {
     if (Step::isUnset(ptr->getStyles())) {
         m_out << "$";
@@ -29850,7 +26444,7 @@ void SPFWriter::writeIfcPresentationStyleAssignment(IfcPresentationStyleAssignme
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleSelect > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleSelect_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeIfcPresentationStyleSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -29953,94 +26547,6 @@ void SPFWriter::writeIfcProcedureTypeEnum(IfcProcedureTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcProcess(IfcProcess *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-}
-
-void SPFWriter::writeIfcProduct(IfcProduct *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-}
-
 void SPFWriter::writeIfcProductDefinitionShape(IfcProductDefinitionShape *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
@@ -30062,7 +26568,7 @@ void SPFWriter::writeIfcProductDefinitionShape(IfcProductDefinitionShape *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentation > >::iterator step_it0 = (ptr->getRepresentations()).begin();
+            List_IfcRepresentation_1_n::iterator step_it0 = (ptr->getRepresentations()).begin();
             if ((ptr->getRepresentations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentations()).end(); step_it0++) {
@@ -30096,7 +26602,7 @@ void SPFWriter::writeIfcProductRepresentation(IfcProductRepresentation *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentation > >::iterator step_it0 = (ptr->getRepresentations()).begin();
+            List_IfcRepresentation_1_n::iterator step_it0 = (ptr->getRepresentations()).begin();
             if ((ptr->getRepresentations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentations()).end(); step_it0++) {
@@ -30143,38 +26649,6 @@ void SPFWriter::writeIfcProductsOfCombustionProperties(IfcProductsOfCombustionPr
     }
     else {
         writeAttribute(ptr->getCO2Content());
-    }
-}
-
-void SPFWriter::writeIfcProfileDef(IfcProfileDef *ptr) {
-    if (Step::isUnsetEnum(ptr->getProfileType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcProfileTypeEnum(ptr->getProfileType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getProfileName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getProfileName());
-    }
-}
-
-void SPFWriter::writeIfcProfileProperties(IfcProfileProperties *ptr) {
-    if (Step::isUnset(ptr->getProfileName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getProfileName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getProfileDefinition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getProfileDefinition());
     }
 }
 
@@ -30234,7 +26708,7 @@ void SPFWriter::writeIfcProject(IfcProject *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRepresentationContext > >::iterator step_it0 = (ptr->getRepresentationContexts()).begin();
+            Set_IfcRepresentationContext_1_n::iterator step_it0 = (ptr->getRepresentationContexts()).begin();
             if ((ptr->getRepresentationContexts()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationContexts()).end(); step_it0++) {
@@ -30380,7 +26854,7 @@ void SPFWriter::writeIfcProjectOrderRecord(IfcProjectOrderRecord *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > >::iterator step_it0 = (ptr->getRecords()).begin();
+            List_IfcRelAssignsToProjectOrder_1_n::iterator step_it0 = (ptr->getRecords()).begin();
             if ((ptr->getRecords()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRecords()).end(); step_it0++) {
@@ -30440,7 +26914,7 @@ void SPFWriter::writeIfcProjectionCurve(IfcProjectionCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -30518,22 +26992,6 @@ void SPFWriter::writeIfcProjectionElement(IfcProjectionElement *ptr) {
     }
 }
 
-void SPFWriter::writeIfcProperty(IfcProperty *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-}
-
 void SPFWriter::writeIfcPropertyBoundedValue(IfcPropertyBoundedValue *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
@@ -30585,7 +27043,7 @@ void SPFWriter::writeIfcPropertyConstraintRelationship(IfcPropertyConstraintRela
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getRelatedProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getRelatedProperties()).begin();
             if ((ptr->getRelatedProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedProperties()).end(); step_it0++) {
@@ -30595,36 +27053,6 @@ void SPFWriter::writeIfcPropertyConstraintRelationship(IfcPropertyConstraintRela
             }
         }
         m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-}
-
-void SPFWriter::writeIfcPropertyDefinition(IfcPropertyDefinition *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
     }
     m_out << ",";
     if (Step::isUnset(ptr->getName())) {
@@ -30700,7 +27128,7 @@ void SPFWriter::writeIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getEnumerationValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getEnumerationValues()).begin();
             if ((ptr->getEnumerationValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getEnumerationValues()).end(); step_it0++) {
@@ -30734,7 +27162,7 @@ void SPFWriter::writeIfcPropertyEnumeration(IfcPropertyEnumeration *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getEnumerationValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getEnumerationValues()).begin();
             if ((ptr->getEnumerationValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getEnumerationValues()).end(); step_it0++) {
@@ -30775,7 +27203,7 @@ void SPFWriter::writeIfcPropertyListValue(IfcPropertyListValue *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getListValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getListValues()).begin();
             if ((ptr->getListValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getListValues()).end(); step_it0++) {
@@ -30904,7 +27332,7 @@ void SPFWriter::writeIfcPropertySet(IfcPropertySet *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getHasProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getHasProperties()).begin();
             if ((ptr->getHasProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasProperties()).end(); step_it0++) {
@@ -30914,36 +27342,6 @@ void SPFWriter::writeIfcPropertySet(IfcPropertySet *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcPropertySetDefinition(IfcPropertySetDefinition *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
     }
 }
 
@@ -30998,7 +27396,7 @@ void SPFWriter::writeIfcPropertyTableValue(IfcPropertyTableValue *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getDefiningValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getDefiningValues()).begin();
             if ((ptr->getDefiningValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getDefiningValues()).end(); step_it0++) {
@@ -31016,7 +27414,7 @@ void SPFWriter::writeIfcPropertyTableValue(IfcPropertyTableValue *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getDefinedValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getDefinedValues()).begin();
             if ((ptr->getDefinedValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getDefinedValues()).end(); step_it0++) {
@@ -31092,7 +27490,7 @@ void SPFWriter::writeIfcProtectiveDeviceType(IfcProtectiveDeviceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -31110,7 +27508,7 @@ void SPFWriter::writeIfcProtectiveDeviceType(IfcProtectiveDeviceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -31309,7 +27707,7 @@ void SPFWriter::writeIfcPumpType(IfcPumpType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -31327,7 +27725,7 @@ void SPFWriter::writeIfcPumpType(IfcPumpType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -31574,7 +27972,7 @@ void SPFWriter::writeIfcRadiusDimension(IfcRadiusDimension *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
@@ -31714,7 +28112,7 @@ void SPFWriter::writeIfcRailingType(IfcRailingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -31732,7 +28130,7 @@ void SPFWriter::writeIfcRailingType(IfcRailingType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -31960,7 +28358,7 @@ void SPFWriter::writeIfcRampFlightType(IfcRampFlightType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -31978,7 +28376,7 @@ void SPFWriter::writeIfcRampFlightType(IfcRampFlightType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -32043,7 +28441,7 @@ void SPFWriter::writeIfcRationalBezierCurve(IfcRationalBezierCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getControlPointsList()).begin();
+            List_IfcCartesianPoint_2_n::iterator step_it0 = (ptr->getControlPointsList()).begin();
             if ((ptr->getControlPointsList()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getControlPointsList()).end(); step_it0++) {
@@ -32082,7 +28480,7 @@ void SPFWriter::writeIfcRationalBezierCurve(IfcRationalBezierCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::Real >::iterator step_it0 = (ptr->getWeightsData()).begin();
+            List_Real_2_n::iterator step_it0 = (ptr->getWeightsData()).begin();
             if ((ptr->getWeightsData()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getWeightsData()).end(); step_it0++) {
@@ -32285,7 +28683,7 @@ void SPFWriter::writeIfcReferencesValueDocument(IfcReferencesValueDocument *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcAppliedValue > >::iterator step_it0 = (ptr->getReferencingValues()).begin();
+            Set_IfcAppliedValue_1_n::iterator step_it0 = (ptr->getReferencingValues()).begin();
             if ((ptr->getReferencingValues()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getReferencingValues()).end(); step_it0++) {
@@ -32393,7 +28791,7 @@ void SPFWriter::writeIfcRegularTimeSeries(IfcRegularTimeSeries *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcTimeSeriesValue > >::iterator step_it0 = (ptr->getValues()).begin();
+            List_IfcTimeSeriesValue_1_n::iterator step_it0 = (ptr->getValues()).begin();
             if ((ptr->getValues()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getValues()).end(); step_it0++) {
@@ -32503,7 +28901,7 @@ void SPFWriter::writeIfcReinforcementDefinitionProperties(IfcReinforcementDefini
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcSectionReinforcementProperties > >::iterator step_it0 = (ptr->getReinforcementSectionDefinitions()).begin();
+            List_IfcSectionReinforcementProperties_1_n::iterator step_it0 = (ptr->getReinforcementSectionDefinitions()).begin();
             if ((ptr->getReinforcementSectionDefinitions()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getReinforcementSectionDefinitions()).end(); step_it0++) {
@@ -32646,71 +29044,6 @@ void SPFWriter::writeIfcReinforcingBarRoleEnum(IfcReinforcingBarRoleEnum enumDat
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcReinforcingElement(IfcReinforcingElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getSteelGrade())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getSteelGrade());
-    }
 }
 
 void SPFWriter::writeIfcReinforcingMesh(IfcReinforcingMesh *ptr) {
@@ -32876,7 +29209,7 @@ void SPFWriter::writeIfcRelAggregates(IfcRelAggregates *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -32886,61 +29219,6 @@ void SPFWriter::writeIfcRelAggregates(IfcRelAggregates *ptr) {
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcRelAssigns(IfcRelAssigns *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRelatedObjects())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
-            if ((ptr->getRelatedObjects()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getRelatedObjectsType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcObjectTypeEnum(ptr->getRelatedObjectsType());
     }
 }
 
@@ -32979,7 +29257,7 @@ void SPFWriter::writeIfcRelAssignsTasks(IfcRelAssignsTasks *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33048,7 +29326,7 @@ void SPFWriter::writeIfcRelAssignsToActor(IfcRelAssignsToActor *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33117,7 +29395,7 @@ void SPFWriter::writeIfcRelAssignsToControl(IfcRelAssignsToControl *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33179,7 +29457,7 @@ void SPFWriter::writeIfcRelAssignsToGroup(IfcRelAssignsToGroup *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33241,7 +29519,7 @@ void SPFWriter::writeIfcRelAssignsToProcess(IfcRelAssignsToProcess *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33310,7 +29588,7 @@ void SPFWriter::writeIfcRelAssignsToProduct(IfcRelAssignsToProduct *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33372,7 +29650,7 @@ void SPFWriter::writeIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *pt
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33434,7 +29712,7 @@ void SPFWriter::writeIfcRelAssignsToResource(IfcRelAssignsToResource *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33496,7 +29774,7 @@ void SPFWriter::writeIfcRelAssociates(IfcRelAssociates *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33544,7 +29822,7 @@ void SPFWriter::writeIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33599,7 +29877,7 @@ void SPFWriter::writeIfcRelAssociatesApproval(IfcRelAssociatesApproval *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33654,7 +29932,7 @@ void SPFWriter::writeIfcRelAssociatesClassification(IfcRelAssociatesClassificati
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33709,7 +29987,7 @@ void SPFWriter::writeIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33771,7 +30049,7 @@ void SPFWriter::writeIfcRelAssociatesDocument(IfcRelAssociatesDocument *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33826,7 +30104,7 @@ void SPFWriter::writeIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33892,7 +30170,7 @@ void SPFWriter::writeIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -33967,7 +30245,7 @@ void SPFWriter::writeIfcRelAssociatesProfileProperties(IfcRelAssociatesProfilePr
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRoot > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcRoot_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -34012,36 +30290,6 @@ void SPFWriter::writeIfcOrientationSelect(IfcOrientationSelect *selectData) {
         writeAttribute(selectData->getIfcDirection());
         break;
         }
-}
-
-void SPFWriter::writeIfcRelConnects(IfcRelConnects *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
 }
 
 void SPFWriter::writeIfcRelConnectsElements(IfcRelConnectsElements *ptr) {
@@ -34151,7 +30399,7 @@ void SPFWriter::writeIfcRelConnectsPathElements(IfcRelConnectsPathElements *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::Integer >::iterator step_it0 = (ptr->getRelatingPriorities()).begin();
+            List_Integer_0_n::iterator step_it0 = (ptr->getRelatingPriorities()).begin();
             if ((ptr->getRelatingPriorities()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getRelatingPriorities()).end(); step_it0++) {
@@ -34169,7 +30417,7 @@ void SPFWriter::writeIfcRelConnectsPathElements(IfcRelConnectsPathElements *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::Integer >::iterator step_it0 = (ptr->getRelatedPriorities()).begin();
+            List_Integer_0_n::iterator step_it0 = (ptr->getRelatedPriorities()).begin();
             if ((ptr->getRelatedPriorities()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getRelatedPriorities()).end(); step_it0++) {
@@ -34614,7 +30862,7 @@ void SPFWriter::writeIfcRelConnectsWithRealizingElements(IfcRelConnectsWithReali
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcElement > >::iterator step_it0 = (ptr->getRealizingElements()).begin();
+            Set_IfcElement_1_n::iterator step_it0 = (ptr->getRealizingElements()).begin();
             if ((ptr->getRealizingElements()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRealizingElements()).end(); step_it0++) {
@@ -34669,7 +30917,7 @@ void SPFWriter::writeIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialS
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProduct > >::iterator step_it0 = (ptr->getRelatedElements()).begin();
+            Set_IfcProduct_1_n::iterator step_it0 = (ptr->getRelatedElements()).begin();
             if ((ptr->getRelatedElements()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedElements()).end(); step_it0++) {
@@ -34731,7 +30979,7 @@ void SPFWriter::writeIfcRelCoversBldgElements(IfcRelCoversBldgElements *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcCovering > >::iterator step_it0 = (ptr->getRelatedCoverings()).begin();
+            Set_IfcCovering_1_n::iterator step_it0 = (ptr->getRelatedCoverings()).begin();
             if ((ptr->getRelatedCoverings()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedCoverings()).end(); step_it0++) {
@@ -34786,113 +31034,10 @@ void SPFWriter::writeIfcRelCoversSpaces(IfcRelCoversSpaces *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcCovering > >::iterator step_it0 = (ptr->getRelatedCoverings()).begin();
+            Set_IfcCovering_1_n::iterator step_it0 = (ptr->getRelatedCoverings()).begin();
             if ((ptr->getRelatedCoverings()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedCoverings()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcRelDecomposes(IfcRelDecomposes *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRelatingObject())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRelatingObject());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRelatedObjects())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
-            if ((ptr->getRelatedObjects()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcRelDefines(IfcRelDefines *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRelatedObjects())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcObject > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
-            if ((ptr->getRelatedObjects()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
                     m_out << ",";
                     writeAttribute((*step_it0).get());
                 }
@@ -34937,7 +31082,7 @@ void SPFWriter::writeIfcRelDefinesByProperties(IfcRelDefinesByProperties *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObject > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObject_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -34992,7 +31137,7 @@ void SPFWriter::writeIfcRelDefinesByType(IfcRelDefinesByType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObject > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObject_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -35091,7 +31236,7 @@ void SPFWriter::writeIfcRelFlowControlElements(IfcRelFlowControlElements *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDistributionControlElement > >::iterator step_it0 = (ptr->getRelatedControlElements()).begin();
+            Set_IfcDistributionControlElement_1_n::iterator step_it0 = (ptr->getRelatedControlElements()).begin();
             if ((ptr->getRelatedControlElements()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedControlElements()).end(); step_it0++) {
@@ -35218,7 +31363,7 @@ void SPFWriter::writeIfcRelNests(IfcRelNests *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -35266,7 +31411,7 @@ void SPFWriter::writeIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -35335,7 +31480,7 @@ void SPFWriter::writeIfcRelOverridesProperties(IfcRelOverridesProperties *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObject > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObject_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -35360,7 +31505,7 @@ void SPFWriter::writeIfcRelOverridesProperties(IfcRelOverridesProperties *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProperty > >::iterator step_it0 = (ptr->getOverridingProperties()).begin();
+            Set_IfcProperty_1_n::iterator step_it0 = (ptr->getOverridingProperties()).begin();
             if ((ptr->getOverridingProperties()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getOverridingProperties()).end(); step_it0++) {
@@ -35452,7 +31597,7 @@ void SPFWriter::writeIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatia
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcProduct > >::iterator step_it0 = (ptr->getRelatedElements()).begin();
+            Set_IfcProduct_1_n::iterator step_it0 = (ptr->getRelatedElements()).begin();
             if ((ptr->getRelatedElements()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedElements()).end(); step_it0++) {
@@ -35507,7 +31652,7 @@ void SPFWriter::writeIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcObjectDefinition > >::iterator step_it0 = (ptr->getRelatedObjects()).begin();
+            Set_IfcObjectDefinition_1_n::iterator step_it0 = (ptr->getRelatedObjects()).begin();
             if ((ptr->getRelatedObjects()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedObjects()).end(); step_it0++) {
@@ -35654,7 +31799,7 @@ void SPFWriter::writeIfcRelServicesBuildings(IfcRelServicesBuildings *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcSpatialStructureElement > >::iterator step_it0 = (ptr->getRelatedBuildings()).begin();
+            Set_IfcSpatialStructureElement_1_n::iterator step_it0 = (ptr->getRelatedBuildings()).begin();
             if ((ptr->getRelatedBuildings()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRelatedBuildings()).end(); step_it0++) {
@@ -35804,36 +31949,6 @@ void SPFWriter::writeIfcRelVoidsElement(IfcRelVoidsElement *ptr) {
     }
 }
 
-void SPFWriter::writeIfcRelationship(IfcRelationship *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-}
-
 void SPFWriter::writeIfcRelaxation(IfcRelaxation *ptr) {
     if (Step::isUnset(ptr->getRelaxationValue())) {
         m_out << "$";
@@ -35878,7 +31993,7 @@ void SPFWriter::writeIfcRepresentation(IfcRepresentation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
+            Set_IfcRepresentationItem_1_n::iterator step_it0 = (ptr->getItems()).begin();
             if ((ptr->getItems()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
@@ -35907,9 +32022,6 @@ void SPFWriter::writeIfcRepresentationContext(IfcRepresentationContext *ptr) {
     }
 }
 
-void SPFWriter::writeIfcRepresentationItem(IfcRepresentationItem *ptr) {
-}
-
 void SPFWriter::writeIfcRepresentationMap(IfcRepresentationMap *ptr) {
     if (Step::isUnset(ptr->getMappingOrigin())) {
         m_out << "$";
@@ -35923,43 +32035,6 @@ void SPFWriter::writeIfcRepresentationMap(IfcRepresentationMap *ptr) {
     }
     else {
         writeAttribute(ptr->getMappedRepresentation());
-    }
-}
-
-void SPFWriter::writeIfcResource(IfcResource *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
     }
 }
 
@@ -36211,36 +32286,6 @@ void SPFWriter::writeIfcRoofTypeEnum(IfcRoofTypeEnum enumData) {
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcRoot(IfcRoot *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
 }
 
 void SPFWriter::writeIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *ptr) {
@@ -36574,7 +32619,7 @@ void SPFWriter::writeIfcSanitaryTerminalType(IfcSanitaryTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -36592,7 +32637,7 @@ void SPFWriter::writeIfcSanitaryTerminalType(IfcSanitaryTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -36906,7 +32951,7 @@ void SPFWriter::writeIfcSectionReinforcementProperties(IfcSectionReinforcementPr
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcReinforcementBarProperties > >::iterator step_it0 = (ptr->getCrossSectionReinforcementDefinitions()).begin();
+            Set_IfcReinforcementBarProperties_1_n::iterator step_it0 = (ptr->getCrossSectionReinforcementDefinitions()).begin();
             if ((ptr->getCrossSectionReinforcementDefinitions()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCrossSectionReinforcementDefinitions()).end(); step_it0++) {
@@ -36933,7 +32978,7 @@ void SPFWriter::writeIfcSectionedSpine(IfcSectionedSpine *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcProfileDef > >::iterator step_it0 = (ptr->getCrossSections()).begin();
+            List_IfcProfileDef_2_n::iterator step_it0 = (ptr->getCrossSections()).begin();
             if ((ptr->getCrossSections()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCrossSections()).end(); step_it0++) {
@@ -36951,7 +32996,7 @@ void SPFWriter::writeIfcSectionedSpine(IfcSectionedSpine *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcAxis2Placement3D > >::iterator step_it0 = (ptr->getCrossSectionPositions()).begin();
+            List_IfcAxis2Placement3D_2_n::iterator step_it0 = (ptr->getCrossSectionPositions()).begin();
             if ((ptr->getCrossSectionPositions()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCrossSectionPositions()).end(); step_it0++) {
@@ -37006,7 +33051,7 @@ void SPFWriter::writeIfcSensorType(IfcSensorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -37024,7 +33069,7 @@ void SPFWriter::writeIfcSensorType(IfcSensorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -37402,7 +33447,7 @@ void SPFWriter::writeIfcShapeAspect(IfcShapeAspect *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcShapeModel > >::iterator step_it0 = (ptr->getShapeRepresentations()).begin();
+            List_IfcShapeModel_1_n::iterator step_it0 = (ptr->getShapeRepresentations()).begin();
             if ((ptr->getShapeRepresentations()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getShapeRepresentations()).end(); step_it0++) {
@@ -37443,47 +33488,6 @@ void SPFWriter::writeIfcShapeAspect(IfcShapeAspect *ptr) {
     }
 }
 
-void SPFWriter::writeIfcShapeModel(IfcShapeModel *ptr) {
-    if (Step::isUnset(ptr->getContextOfItems())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getContextOfItems());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationIdentifier())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentationIdentifier());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentationType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getItems())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
-            if ((ptr->getItems()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-}
-
 void SPFWriter::writeIfcShapeRepresentation(IfcShapeRepresentation *ptr) {
     if (Step::isUnset(ptr->getContextOfItems())) {
         m_out << "$";
@@ -37512,7 +33516,7 @@ void SPFWriter::writeIfcShapeRepresentation(IfcShapeRepresentation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
+            Set_IfcRepresentationItem_1_n::iterator step_it0 = (ptr->getItems()).begin();
             if ((ptr->getItems()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
@@ -37532,7 +33536,7 @@ void SPFWriter::writeIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcShell > >::iterator step_it0 = (ptr->getSbsmBoundary()).begin();
+            Set_IfcShell_1_n::iterator step_it0 = (ptr->getSbsmBoundary()).begin();
             if ((ptr->getSbsmBoundary()).size()) {
                 writeIfcShell((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSbsmBoundary()).end(); step_it0++) {
@@ -37554,22 +33558,6 @@ void SPFWriter::writeIfcShell(IfcShell *selectData) {
         writeAttribute(selectData->getIfcOpenShell());
         break;
         }
-}
-
-void SPFWriter::writeIfcSimpleProperty(IfcSimpleProperty *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
 }
 
 void SPFWriter::writeIfcSite(IfcSite *ptr) {
@@ -37824,7 +33812,7 @@ void SPFWriter::writeIfcSlabType(IfcSlabType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -37842,7 +33830,7 @@ void SPFWriter::writeIfcSlabType(IfcSlabType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -37906,9 +33894,6 @@ void SPFWriter::writeIfcSlippageConnectionCondition(IfcSlippageConnectionConditi
     }
 }
 
-void SPFWriter::writeIfcSolidModel(IfcSolidModel *ptr) {
-}
-
 void SPFWriter::writeIfcSoundProperties(IfcSoundProperties *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -37958,7 +33943,7 @@ void SPFWriter::writeIfcSoundProperties(IfcSoundProperties *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcSoundValue > >::iterator step_it0 = (ptr->getSoundValues()).begin();
+            List_IfcSoundValue_1_8::iterator step_it0 = (ptr->getSoundValues()).begin();
             if ((ptr->getSoundValues()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSoundValues()).end(); step_it0++) {
@@ -38169,7 +34154,7 @@ void SPFWriter::writeIfcSpaceHeaterType(IfcSpaceHeaterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -38187,7 +34172,7 @@ void SPFWriter::writeIfcSpaceHeaterType(IfcSpaceHeaterType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -38528,7 +34513,7 @@ void SPFWriter::writeIfcSpaceType(IfcSpaceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -38546,7 +34531,7 @@ void SPFWriter::writeIfcSpaceType(IfcSpaceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -38589,158 +34574,6 @@ void SPFWriter::writeIfcSpaceTypeEnum(IfcSpaceTypeEnum enumData) {
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcSpatialStructureElement(IfcSpatialStructureElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLongName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLongName());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCompositionType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcElementCompositionEnum(ptr->getCompositionType());
-    }
-}
-
-void SPFWriter::writeIfcSpatialStructureElementType(IfcSpatialStructureElementType *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getApplicableOccurrence())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getApplicableOccurrence());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHasPropertySets())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
-            if ((ptr->getHasPropertySets()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationMaps())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
-            if ((ptr->getRepresentationMaps()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getElementType());
-    }
 }
 
 void SPFWriter::writeIfcSphere(IfcSphere *ptr) {
@@ -38801,7 +34634,7 @@ void SPFWriter::writeIfcStackTerminalType(IfcStackTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -38819,7 +34652,7 @@ void SPFWriter::writeIfcStackTerminalType(IfcStackTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -39119,7 +34952,7 @@ void SPFWriter::writeIfcStairFlightType(IfcStairFlightType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -39137,7 +34970,7 @@ void SPFWriter::writeIfcStairFlightType(IfcStairFlightType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -39197,150 +35030,6 @@ void SPFWriter::writeIfcStairFlightTypeEnum(IfcStairFlightTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcStructuralAction(IfcStructuralAction *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAppliedLoad())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAppliedLoad());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getGlobalOrLocal())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcGlobalOrLocalEnum(ptr->getGlobalOrLocal());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDestabilizingLoad())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDestabilizingLoad());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCausedBy())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getCausedBy());
-    }
-}
-
-void SPFWriter::writeIfcStructuralActivity(IfcStructuralActivity *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAppliedLoad())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAppliedLoad());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getGlobalOrLocal())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcGlobalOrLocalEnum(ptr->getGlobalOrLocal());
-    }
-}
-
 void SPFWriter::writeIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -39397,7 +35086,7 @@ void SPFWriter::writeIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcStructuralLoadGroup > >::iterator step_it0 = (ptr->getLoadedBy()).begin();
+            Set_IfcStructuralLoadGroup_1_n::iterator step_it0 = (ptr->getLoadedBy()).begin();
             if ((ptr->getLoadedBy()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getLoadedBy()).end(); step_it0++) {
@@ -39415,7 +35104,7 @@ void SPFWriter::writeIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *ptr)
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcStructuralResultGroup > >::iterator step_it0 = (ptr->getHasResults()).begin();
+            Set_IfcStructuralResultGroup_1_n::iterator step_it0 = (ptr->getHasResults()).begin();
             if ((ptr->getHasResults()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasResults()).end(); step_it0++) {
@@ -39446,73 +35135,6 @@ void SPFWriter::writeIfcAnalysisModelTypeEnum(IfcAnalysisModelTypeEnum enumData)
         m_out << ".NOTDEFINED.";
         break;
         }
-}
-
-void SPFWriter::writeIfcStructuralConnection(IfcStructuralConnection *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAppliedCondition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAppliedCondition());
-    }
-}
-
-void SPFWriter::writeIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
 }
 
 void SPFWriter::writeIfcStructuralCurveConnection(IfcStructuralCurveConnection *ptr) {
@@ -39715,57 +35337,6 @@ void SPFWriter::writeIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVar
     }
 }
 
-void SPFWriter::writeIfcStructuralItem(IfcStructuralItem *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-}
-
 void SPFWriter::writeIfcStructuralLinearAction(IfcStructuralLinearAction *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -39961,7 +35532,7 @@ void SPFWriter::writeIfcStructuralLinearActionVarying(IfcStructuralLinearActionV
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcStructuralLoad > >::iterator step_it0 = (ptr->getSubsequentAppliedLoads()).begin();
+            List_IfcStructuralLoad_1_n::iterator step_it0 = (ptr->getSubsequentAppliedLoads()).begin();
             if ((ptr->getSubsequentAppliedLoads()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSubsequentAppliedLoads()).end(); step_it0++) {
@@ -39971,15 +35542,6 @@ void SPFWriter::writeIfcStructuralLinearActionVarying(IfcStructuralLinearActionV
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcStructuralLoad(IfcStructuralLoad *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
     }
 }
 
@@ -40483,15 +36045,6 @@ void SPFWriter::writeIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingle
     }
 }
 
-void SPFWriter::writeIfcStructuralLoadStatic(IfcStructuralLoadStatic *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-}
-
 void SPFWriter::writeIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *ptr) {
     if (Step::isUnset(ptr->getName())) {
         m_out << "$";
@@ -40519,57 +36072,6 @@ void SPFWriter::writeIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *
     }
     else {
         writeAttribute(ptr->getDeltaT_Z());
-    }
-}
-
-void SPFWriter::writeIfcStructuralMember(IfcStructuralMember *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
     }
 }
 
@@ -40757,7 +36259,7 @@ void SPFWriter::writeIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionV
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcStructuralLoad > >::iterator step_it0 = (ptr->getSubsequentAppliedLoads()).begin();
+            List_IfcStructuralLoad_2_n::iterator step_it0 = (ptr->getSubsequentAppliedLoads()).begin();
             if ((ptr->getSubsequentAppliedLoads()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getSubsequentAppliedLoads()).end(); step_it0++) {
@@ -41132,71 +36634,6 @@ void SPFWriter::writeIfcStructuralProfileProperties(IfcStructuralProfileProperti
     }
     else {
         writeAttribute(ptr->getCentreOfGravityInY());
-    }
-}
-
-void SPFWriter::writeIfcStructuralReaction(IfcStructuralReaction *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAppliedLoad())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAppliedLoad());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getGlobalOrLocal())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcGlobalOrLocalEnum(ptr->getGlobalOrLocal());
     }
 }
 
@@ -41685,7 +37122,7 @@ void SPFWriter::writeIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMembe
     else {
         m_out << "(";
         {
-            Step::List< IfcPositiveLengthMeasure >::iterator step_it0 = (ptr->getSubsequentThickness()).begin();
+            List_IfcPositiveLengthMeasure_2_n::iterator step_it0 = (ptr->getSubsequentThickness()).begin();
             if ((ptr->getSubsequentThickness()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getSubsequentThickness()).end(); step_it0++) {
@@ -41712,53 +37149,12 @@ void SPFWriter::writeIfcStructuredDimensionCallout(IfcStructuredDimensionCallout
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::iterator step_it0 = (ptr->getContents()).begin();
+            Set_IfcDraughtingCalloutElement_1_n::iterator step_it0 = (ptr->getContents()).begin();
             if ((ptr->getContents()).size()) {
                 writeIfcDraughtingCalloutElement((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getContents()).end(); step_it0++) {
                     m_out << ",";
                     writeIfcDraughtingCalloutElement((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcStyleModel(IfcStyleModel *ptr) {
-    if (Step::isUnset(ptr->getContextOfItems())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getContextOfItems());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationIdentifier())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentationIdentifier());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentationType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentationType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getItems())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
-            if ((ptr->getItems()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
                 }
             }
         }
@@ -41780,7 +37176,7 @@ void SPFWriter::writeIfcStyledItem(IfcStyledItem *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -41828,7 +37224,7 @@ void SPFWriter::writeIfcStyledRepresentation(IfcStyledRepresentation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
+            Set_IfcRepresentationItem_1_n::iterator step_it0 = (ptr->getItems()).begin();
             if ((ptr->getItems()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
@@ -41941,9 +37337,6 @@ void SPFWriter::writeIfcSubedge(IfcSubedge *ptr) {
     else {
         writeAttribute(ptr->getParentEdge());
     }
-}
-
-void SPFWriter::writeIfcSurface(IfcSurface *ptr) {
 }
 
 void SPFWriter::writeIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *ptr) {
@@ -42064,7 +37457,7 @@ void SPFWriter::writeIfcSurfaceStyle(IfcSurfaceStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcSurfaceStyleElementSelect_1_5::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeIfcSurfaceStyleElementSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -42301,7 +37694,7 @@ void SPFWriter::writeIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *pt
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcSurfaceTexture > >::iterator step_it0 = (ptr->getTextures()).begin();
+            List_IfcSurfaceTexture_1_n::iterator step_it0 = (ptr->getTextures()).begin();
             if ((ptr->getTextures()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTextures()).end(); step_it0++) {
@@ -42311,52 +37704,6 @@ void SPFWriter::writeIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *pt
             }
         }
         m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcSurfaceTexture(IfcSurfaceTexture *ptr) {
-    if (Step::isUnset(ptr->getRepeatS())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepeatS());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepeatT())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepeatT());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getTextureType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcSurfaceTextureEnum(ptr->getTextureType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTextureTransform())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTextureTransform());
-    }
-}
-
-void SPFWriter::writeIfcSweptAreaSolid(IfcSweptAreaSolid *ptr) {
-    if (Step::isUnset(ptr->getSweptArea())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getSweptArea());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPosition());
     }
 }
 
@@ -42394,22 +37741,6 @@ void SPFWriter::writeIfcSweptDiskSolid(IfcSweptDiskSolid *ptr) {
     }
     else {
         writeAttribute(ptr->getEndParam());
-    }
-}
-
-void SPFWriter::writeIfcSweptSurface(IfcSweptSurface *ptr) {
-    if (Step::isUnset(ptr->getSweptCurve())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getSweptCurve());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPosition());
     }
 }
 
@@ -42455,7 +37786,7 @@ void SPFWriter::writeIfcSwitchingDeviceType(IfcSwitchingDeviceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -42473,7 +37804,7 @@ void SPFWriter::writeIfcSwitchingDeviceType(IfcSwitchingDeviceType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -42639,7 +37970,7 @@ void SPFWriter::writeIfcSystemFurnitureElementType(IfcSystemFurnitureElementType
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -42657,7 +37988,7 @@ void SPFWriter::writeIfcSystemFurnitureElementType(IfcSystemFurnitureElementType
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -42791,7 +38122,7 @@ void SPFWriter::writeIfcTable(IfcTable *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcTableRow > >::iterator step_it0 = (ptr->getRows()).begin();
+            List_IfcTableRow_1_n::iterator step_it0 = (ptr->getRows()).begin();
             if ((ptr->getRows()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRows()).end(); step_it0++) {
@@ -42811,7 +38142,7 @@ void SPFWriter::writeIfcTableRow(IfcTableRow *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getRowCells()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getRowCells()).begin();
             if ((ptr->getRowCells()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRowCells()).end(); step_it0++) {
@@ -42873,7 +38204,7 @@ void SPFWriter::writeIfcTankType(IfcTankType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -42891,7 +38222,7 @@ void SPFWriter::writeIfcTankType(IfcTankType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -43048,7 +38379,7 @@ void SPFWriter::writeIfcTelecomAddress(IfcTelecomAddress *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getTelephoneNumbers()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getTelephoneNumbers()).begin();
             if ((ptr->getTelephoneNumbers()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getTelephoneNumbers()).end(); step_it0++) {
@@ -43066,7 +38397,7 @@ void SPFWriter::writeIfcTelecomAddress(IfcTelecomAddress *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getFacsimileNumbers()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getFacsimileNumbers()).begin();
             if ((ptr->getFacsimileNumbers()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getFacsimileNumbers()).end(); step_it0++) {
@@ -43091,7 +38422,7 @@ void SPFWriter::writeIfcTelecomAddress(IfcTelecomAddress *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcLabel >::iterator step_it0 = (ptr->getElectronicMailAddresses()).begin();
+            List_IfcLabel_1_n::iterator step_it0 = (ptr->getElectronicMailAddresses()).begin();
             if ((ptr->getElectronicMailAddresses()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getElectronicMailAddresses()).end(); step_it0++) {
@@ -43334,7 +38665,7 @@ void SPFWriter::writeIfcTerminatorSymbol(IfcTerminatorSymbol *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::iterator step_it0 = (ptr->getStyles()).begin();
+            Set_IfcPresentationStyleAssignment_1_n::iterator step_it0 = (ptr->getStyles()).begin();
             if ((ptr->getStyles()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getStyles()).end(); step_it0++) {
@@ -43512,7 +38843,7 @@ void SPFWriter::writeIfcTextStyleFontModel(IfcTextStyleFontModel *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcTextFontName >::iterator step_it0 = (ptr->getFontFamily()).begin();
+            List_IfcTextFontName_1_n::iterator step_it0 = (ptr->getFontFamily()).begin();
             if ((ptr->getFontFamily()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getFontFamily()).end(); step_it0++) {
@@ -43657,9 +38988,6 @@ void SPFWriter::writeIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxChara
     }
 }
 
-void SPFWriter::writeIfcTextureCoordinate(IfcTextureCoordinate *ptr) {
-}
-
 void SPFWriter::writeIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *ptr) {
     if (Step::isUnset(ptr->getMode())) {
         m_out << "$";
@@ -43674,7 +39002,7 @@ void SPFWriter::writeIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcSimpleValue > >::iterator step_it0 = (ptr->getParameter()).begin();
+            List_IfcSimpleValue_1_n::iterator step_it0 = (ptr->getParameter()).begin();
             if ((ptr->getParameter()).size()) {
                 writeIfcSimpleValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getParameter()).end(); step_it0++) {
@@ -43734,7 +39062,7 @@ void SPFWriter::writeIfcTextureMap(IfcTextureMap *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > >::iterator step_it0 = (ptr->getTextureMaps()).begin();
+            Set_IfcVertexBasedTextureMap_1_n::iterator step_it0 = (ptr->getTextureMaps()).begin();
             if ((ptr->getTextureMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTextureMaps()).end(); step_it0++) {
@@ -43754,7 +39082,7 @@ void SPFWriter::writeIfcTextureVertex(IfcTextureVertex *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< IfcParameterValue >::iterator step_it0 = (ptr->getCoordinates()).begin();
+            List_IfcParameterValue_2_2::iterator step_it0 = (ptr->getCoordinates()).begin();
             if ((ptr->getCoordinates()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getCoordinates()).end(); step_it0++) {
@@ -43804,64 +39132,6 @@ void SPFWriter::writeIfcThermalMaterialProperties(IfcThermalMaterialProperties *
     }
 }
 
-void SPFWriter::writeIfcTimeSeries(IfcTimeSeries *ptr) {
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getStartTime())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getStartTime());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getEndTime())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getEndTime());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getTimeSeriesDataType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcTimeSeriesDataTypeEnum(ptr->getTimeSeriesDataType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getDataOrigin())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDataOriginEnum(ptr->getDataOrigin());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUserDefinedDataOrigin())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUserDefinedDataOrigin());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUnit())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcUnit(ptr->getUnit());
-    }
-}
-
 void SPFWriter::writeIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *ptr) {
     if (Step::isUnset(ptr->getReferencedTimeSeries())) {
         m_out << "$";
@@ -43876,7 +39146,7 @@ void SPFWriter::writeIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRe
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcDocumentSelect > >::iterator step_it0 = (ptr->getTimeSeriesReferences()).begin();
+            Set_IfcDocumentSelect_1_n::iterator step_it0 = (ptr->getTimeSeriesReferences()).begin();
             if ((ptr->getTimeSeriesReferences()).size()) {
                 writeIfcDocumentSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTimeSeriesReferences()).end(); step_it0++) {
@@ -43931,7 +39201,7 @@ void SPFWriter::writeIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcDateTimeSelect > >::iterator step_it0 = (ptr->getApplicableDates()).begin();
+            List_IfcDateTimeSelect_1_n::iterator step_it0 = (ptr->getApplicableDates()).begin();
             if ((ptr->getApplicableDates()).size()) {
                 writeIfcDateTimeSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getApplicableDates()).end(); step_it0++) {
@@ -43988,7 +39258,7 @@ void SPFWriter::writeIfcTimeSeriesValue(IfcTimeSeriesValue *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcValue > >::iterator step_it0 = (ptr->getListValues()).begin();
+            List_IfcValue_1_n::iterator step_it0 = (ptr->getListValues()).begin();
             if ((ptr->getListValues()).size()) {
                 writeIfcValue((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getListValues()).end(); step_it0++) {
@@ -43999,9 +39269,6 @@ void SPFWriter::writeIfcTimeSeriesValue(IfcTimeSeriesValue *ptr) {
         }
         m_out << ")";
     }
-}
-
-void SPFWriter::writeIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *ptr) {
 }
 
 void SPFWriter::writeIfcTopologyRepresentation(IfcTopologyRepresentation *ptr) {
@@ -44032,7 +39299,7 @@ void SPFWriter::writeIfcTopologyRepresentation(IfcTopologyRepresentation *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcRepresentationItem > >::iterator step_it0 = (ptr->getItems()).begin();
+            Set_IfcRepresentationItem_1_n::iterator step_it0 = (ptr->getItems()).begin();
             if ((ptr->getItems()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getItems()).end(); step_it0++) {
@@ -44087,7 +39354,7 @@ void SPFWriter::writeIfcTransformerType(IfcTransformerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44105,7 +39372,7 @@ void SPFWriter::writeIfcTransformerType(IfcTransformerType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -44300,7 +39567,7 @@ void SPFWriter::writeIfcTransportElementType(IfcTransportElementType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44318,7 +39585,7 @@ void SPFWriter::writeIfcTransportElementType(IfcTransportElementType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -44417,7 +39684,7 @@ void SPFWriter::writeIfcTrimmedCurve(IfcTrimmedCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcTrimmingSelect > >::iterator step_it0 = (ptr->getTrim1()).begin();
+            Set_IfcTrimmingSelect_1_2::iterator step_it0 = (ptr->getTrim1()).begin();
             if ((ptr->getTrim1()).size()) {
                 writeIfcTrimmingSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTrim1()).end(); step_it0++) {
@@ -44435,7 +39702,7 @@ void SPFWriter::writeIfcTrimmedCurve(IfcTrimmedCurve *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcTrimmingSelect > >::iterator step_it0 = (ptr->getTrim2()).begin();
+            Set_IfcTrimmingSelect_1_2::iterator step_it0 = (ptr->getTrim2()).begin();
             if ((ptr->getTrim2()).size()) {
                 writeIfcTrimmingSelect((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTrim2()).end(); step_it0++) {
@@ -44531,7 +39798,7 @@ void SPFWriter::writeIfcTubeBundleType(IfcTubeBundleType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44549,7 +39816,7 @@ void SPFWriter::writeIfcTubeBundleType(IfcTubeBundleType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -44655,7 +39922,7 @@ void SPFWriter::writeIfcTypeObject(IfcTypeObject *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44710,7 +39977,7 @@ void SPFWriter::writeIfcTypeProduct(IfcTypeProduct *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44728,7 +39995,7 @@ void SPFWriter::writeIfcTypeProduct(IfcTypeProduct *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -44834,7 +40101,7 @@ void SPFWriter::writeIfcUnitAssignment(IfcUnitAssignment *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcUnit > >::iterator step_it0 = (ptr->getUnits()).begin();
+            Set_IfcUnit_1_n::iterator step_it0 = (ptr->getUnits()).begin();
             if ((ptr->getUnits()).size()) {
                 writeIfcUnit((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getUnits()).end(); step_it0++) {
@@ -44889,7 +40156,7 @@ void SPFWriter::writeIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -44907,7 +40174,7 @@ void SPFWriter::writeIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -45006,7 +40273,7 @@ void SPFWriter::writeIfcValveType(IfcValveType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -45024,7 +40291,7 @@ void SPFWriter::writeIfcValveType(IfcValveType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -45158,7 +40425,7 @@ void SPFWriter::writeIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcTextureVertex > >::iterator step_it0 = (ptr->getTextureVertices()).begin();
+            List_IfcTextureVertex_3_n::iterator step_it0 = (ptr->getTextureVertices()).begin();
             if ((ptr->getTextureVertices()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTextureVertices()).end(); step_it0++) {
@@ -45176,7 +40443,7 @@ void SPFWriter::writeIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcCartesianPoint > >::iterator step_it0 = (ptr->getTexturePoints()).begin();
+            List_IfcCartesianPoint_3_n::iterator step_it0 = (ptr->getTexturePoints()).begin();
             if ((ptr->getTexturePoints()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getTexturePoints()).end(); step_it0++) {
@@ -45249,7 +40516,7 @@ void SPFWriter::writeIfcVibrationIsolatorType(IfcVibrationIsolatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -45267,7 +40534,7 @@ void SPFWriter::writeIfcVibrationIsolatorType(IfcVibrationIsolatorType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -45383,7 +40650,7 @@ void SPFWriter::writeIfcVirtualGridIntersection(IfcVirtualGridIntersection *ptr)
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcGridAxis > >::iterator step_it0 = (ptr->getIntersectingAxes()).begin();
+            List_IfcGridAxis_2_2::iterator step_it0 = (ptr->getIntersectingAxes()).begin();
             if ((ptr->getIntersectingAxes()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getIntersectingAxes()).end(); step_it0++) {
@@ -45401,7 +40668,7 @@ void SPFWriter::writeIfcVirtualGridIntersection(IfcVirtualGridIntersection *ptr)
     else {
         m_out << "(";
         {
-            Step::List< IfcLengthMeasure >::iterator step_it0 = (ptr->getOffsetDistances()).begin();
+            List_IfcLengthMeasure_2_3::iterator step_it0 = (ptr->getOffsetDistances()).begin();
             if ((ptr->getOffsetDistances()).size()) {
                 writeAttribute(*step_it0);
                 for (step_it0++; step_it0 != (ptr->getOffsetDistances()).end(); step_it0++) {
@@ -45572,7 +40839,7 @@ void SPFWriter::writeIfcWallType(IfcWallType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -45590,7 +40857,7 @@ void SPFWriter::writeIfcWallType(IfcWallType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -45692,7 +40959,7 @@ void SPFWriter::writeIfcWasteTerminalType(IfcWasteTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -45710,7 +40977,7 @@ void SPFWriter::writeIfcWasteTerminalType(IfcWasteTerminalType *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -46162,7 +41429,7 @@ void SPFWriter::writeIfcWindowStyle(IfcWindowStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPropertySetDefinition > >::iterator step_it0 = (ptr->getHasPropertySets()).begin();
+            Set_IfcPropertySetDefinition_1_n::iterator step_it0 = (ptr->getHasPropertySets()).begin();
             if ((ptr->getHasPropertySets()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getHasPropertySets()).end(); step_it0++) {
@@ -46180,7 +41447,7 @@ void SPFWriter::writeIfcWindowStyle(IfcWindowStyle *ptr) {
     else {
         m_out << "(";
         {
-            Step::List< Step::RefPtr< IfcRepresentationMap > >::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
+            List_IfcRepresentationMap_1_n::iterator step_it0 = (ptr->getRepresentationMaps()).begin();
             if ((ptr->getRepresentationMaps()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getRepresentationMaps()).end(); step_it0++) {
@@ -46295,7 +41562,7 @@ void SPFWriter::writeIfcWindowStyleOperationEnum(IfcWindowStyleOperationEnum enu
         }
 }
 
-void SPFWriter::writeIfcWorkControl(IfcWorkControl *ptr) {
+void SPFWriter::writeIfcWorkPlan(IfcWorkPlan *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
     }
@@ -46351,7 +41618,7 @@ void SPFWriter::writeIfcWorkControl(IfcWorkControl *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPerson > >::iterator step_it0 = (ptr->getCreators()).begin();
+            Set_IfcPerson_1_n::iterator step_it0 = (ptr->getCreators()).begin();
             if ((ptr->getCreators()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCreators()).end(); step_it0++) {
@@ -46433,124 +41700,6 @@ void SPFWriter::writeIfcWorkControlTypeEnum(IfcWorkControlTypeEnum enumData) {
         }
 }
 
-void SPFWriter::writeIfcWorkPlan(IfcWorkPlan *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getIdentifier())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getIdentifier());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCreationDate())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getCreationDate());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCreators())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcPerson > >::iterator step_it0 = (ptr->getCreators()).begin();
-            if ((ptr->getCreators()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getCreators()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getPurpose())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getPurpose());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDuration())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDuration());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTotalFloat())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTotalFloat());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getStartTime())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getStartTime());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getFinishTime())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcDateTimeSelect(ptr->getFinishTime());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getWorkControlType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcWorkControlTypeEnum(ptr->getWorkControlType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getUserDefinedControlType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getUserDefinedControlType());
-    }
-}
-
 void SPFWriter::writeIfcWorkSchedule(IfcWorkSchedule *ptr) {
     if (Step::isUnset(ptr->getGlobalId())) {
         m_out << "$";
@@ -46607,7 +41756,7 @@ void SPFWriter::writeIfcWorkSchedule(IfcWorkSchedule *ptr) {
     else {
         m_out << "(";
         {
-            Step::Set< Step::RefPtr< IfcPerson > >::iterator step_it0 = (ptr->getCreators()).begin();
+            Set_IfcPerson_1_n::iterator step_it0 = (ptr->getCreators()).begin();
             if ((ptr->getCreators()).size()) {
                 writeAttribute((*step_it0).get());
                 for (step_it0++; step_it0 != (ptr->getCreators()).end(); step_it0++) {
@@ -46768,1738 +41917,6 @@ void SPFWriter::writeIfcZone(IfcZone *ptr) {
     }
     else {
         writeAttribute(ptr->getObjectType());
-    }
-}
-
-void SPFWriter::writeIfcCivilStructureElement(IfcCivilStructureElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLongName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLongName());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCompositionType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcElementCompositionEnum(ptr->getCompositionType());
-    }
-}
-
-void SPFWriter::writeIfcBridgeStructureElement(IfcBridgeStructureElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLongName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLongName());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCompositionType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcElementCompositionEnum(ptr->getCompositionType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getStructureIndicator())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeStructureIndicator(ptr->getStructureIndicator());
-    }
-}
-
-void SPFWriter::writeIfcBridgeStructureIndicator(IfcBridgeStructureIndicator enumData) {
-    switch(enumData) {
-    case IfcBridgeStructureIndicator_COMPOSITE:
-        m_out << ".COMPOSITE.";
-        break;
-    case IfcBridgeStructureIndicator_COATED:
-        m_out << ".COATED.";
-        break;
-    case IfcBridgeStructureIndicator_HOMOGENEOUS:
-        m_out << ".HOMOGENEOUS.";
-        break;
-    case IfcBridgeStructureIndicator_OTHER:
-        m_out << ".OTHER.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridge(IfcBridge *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLongName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLongName());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCompositionType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcElementCompositionEnum(ptr->getCompositionType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getStructureIndicator())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeStructureIndicator(ptr->getStructureIndicator());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getStructureType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeStructureType(ptr->getStructureType());
-    }
-}
-
-void SPFWriter::writeIfcBridgeStructureType(IfcBridgeStructureType enumData) {
-    switch(enumData) {
-    case IfcBridgeStructureType_BOX_GIRDER_BRIDGE:
-        m_out << ".BOX_GIRDER_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_ARCHED_BRIDGE:
-        m_out << ".ARCHED_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_SUSPENSION_BRIDGE:
-        m_out << ".SUSPENSION_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_CABLE_STAYED_BRIDGE:
-        m_out << ".CABLE_STAYED_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_GIRDER_BRIDGE:
-        m_out << ".GIRDER_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_SLAB_BRIDGE:
-        m_out << ".SLAB_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_SLAB_BRIDGE_WITH_BROAD_CANTILEVER:
-        m_out << ".SLAB_BRIDGE_WITH_BROAD_CANTILEVER.";
-        break;
-    case IfcBridgeStructureType_BOW_STRING_BRIDGE:
-        m_out << ".BOW_STRING_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_LADDER_BRIDGE:
-        m_out << ".LADDER_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_FRAMEWORK_BRIDGE:
-        m_out << ".FRAMEWORK_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_GISCLARD_BRIDGE:
-        m_out << ".GISCLARD_BRIDGE.";
-        break;
-    case IfcBridgeStructureType_PORTAL_BRIDGE:
-        m_out << ".PORTAL_BRIDGE.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgePart(IfcBridgePart *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getLongName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLongName());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getCompositionType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcElementCompositionEnum(ptr->getCompositionType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getStructureIndicator())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeStructureIndicator(ptr->getStructureIndicator());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getStrutureElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeStructureElementType(ptr->getStrutureElementType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getTechnoElementType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeTechnologicalElementType(ptr->getTechnoElementType());
-    }
-}
-
-void SPFWriter::writeIfcBridgeStructureElementType(IfcBridgeStructureElementType enumData) {
-    switch(enumData) {
-    case IfcBridgeStructureElementType_DECK:
-        m_out << ".DECK.";
-        break;
-    case IfcBridgeStructureElementType_PIER:
-        m_out << ".PIER.";
-        break;
-    case IfcBridgeStructureElementType_SMALL_PIER:
-        m_out << ".SMALL_PIER.";
-        break;
-    case IfcBridgeStructureElementType_PYLON:
-        m_out << ".PYLON.";
-        break;
-    case IfcBridgeStructureElementType_ARCH:
-        m_out << ".ARCH.";
-        break;
-    case IfcBridgeStructureElementType_LAUNCHING_NOSE:
-        m_out << ".LAUNCHING_NOSE.";
-        break;
-    case IfcBridgeStructureElementType_TEMPORARY_BENT:
-        m_out << ".TEMPORARY_BENT.";
-        break;
-    case IfcBridgeStructureElementType_TRANSVERSE_GIRDER:
-        m_out << ".TRANSVERSE_GIRDER.";
-        break;
-    case IfcBridgeStructureElementType_STRUT:
-        m_out << ".STRUT.";
-        break;
-    case IfcBridgeStructureElementType_COUNTER_STRUT:
-        m_out << ".COUNTER_STRUT.";
-        break;
-    case IfcBridgeStructureElementType_CABLE:
-        m_out << ".CABLE.";
-        break;
-    case IfcBridgeStructureElementType_SUSPENDED_TENDON:
-        m_out << ".SUSPENDED_TENDON.";
-        break;
-    case IfcBridgeStructureElementType_SUSPENDER:
-        m_out << ".SUSPENDER.";
-        break;
-    case IfcBridgeStructureElementType_MOBILE_FALSEWORK:
-        m_out << ".MOBILE_FALSEWORK.";
-        break;
-    case IfcBridgeStructureElementType_STAYING_MAST:
-        m_out << ".STAYING_MAST.";
-        break;
-    case IfcBridgeStructureElementType_LAUNCHING_BEAM:
-        m_out << ".LAUNCHING_BEAM.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgeTechnologicalElementType(IfcBridgeTechnologicalElementType enumData) {
-    switch(enumData) {
-    case IfcBridgeTechnologicalElementType_UNICELLULAR_MONO_BOX_GIRDER:
-        m_out << ".UNICELLULAR_MONO_BOX_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_MULTICELLULAR_MONO_BOX_GIRDER:
-        m_out << ".MULTICELLULAR_MONO_BOX_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_UNICELLULAR_MULTI_BOX_GIRDER:
-        m_out << ".UNICELLULAR_MULTI_BOX_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_MULTICELLULAR_MULTI_BOX_GIRDER:
-        m_out << ".MULTICELLULAR_MULTI_BOX_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_SOLID_SLAB:
-        m_out << ".SOLID_SLAB.";
-        break;
-    case IfcBridgeTechnologicalElementType_HOLLOW_SLAB:
-        m_out << ".HOLLOW_SLAB.";
-        break;
-    case IfcBridgeTechnologicalElementType_SLAB_WITH_BROAD_CANTILEVER:
-        m_out << ".SLAB_WITH_BROAD_CANTILEVER.";
-        break;
-    case IfcBridgeTechnologicalElementType_DOUBLE_BEAM_RIBBED_SLAB:
-        m_out << ".DOUBLE_BEAM_RIBBED_SLAB.";
-        break;
-    case IfcBridgeTechnologicalElementType_MULTI_BEAM_RIBBED_SLAB:
-        m_out << ".MULTI_BEAM_RIBBED_SLAB.";
-        break;
-    case IfcBridgeTechnologicalElementType_MASSIVE_SECTION_ELEMENT:
-        m_out << ".MASSIVE_SECTION_ELEMENT.";
-        break;
-    case IfcBridgeTechnologicalElementType_HOLLOW_SECTION_ELEMENT:
-        m_out << ".HOLLOW_SECTION_ELEMENT.";
-        break;
-    case IfcBridgeTechnologicalElementType_MARKETED_SECTION_GIRDER:
-        m_out << ".MARKETED_SECTION_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_RE_ASSEMBLED_SECTION_GIRDER:
-        m_out << ".RE_ASSEMBLED_SECTION_GIRDER.";
-        break;
-    case IfcBridgeTechnologicalElementType_TRUSS:
-        m_out << ".TRUSS.";
-        break;
-    case IfcBridgeTechnologicalElementType_LADDER_OR_VIERENDEEL:
-        m_out << ".LADDER_OR_VIERENDEEL.";
-        break;
-    case IfcBridgeTechnologicalElementType_BOW_STRING:
-        m_out << ".BOW_STRING.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcCivilElement(IfcCivilElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcBridgeElement(IfcBridgeElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcBridgeSegment(IfcBridgeSegment *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getSegmentType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeSegmentType(ptr->getSegmentType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getSegmentParts())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::Set< Step::RefPtr< IfcCivilElementPart > >::iterator step_it0 = (ptr->getSegmentParts()).begin();
-            if ((ptr->getSegmentParts()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getSegmentParts()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-}
-
-void SPFWriter::writeIfcBridgeSegmentType(IfcBridgeSegmentType enumData) {
-    switch(enumData) {
-    case IfcBridgeSegmentType_TYPICAL_SEGMENT:
-        m_out << ".TYPICAL_SEGMENT.";
-        break;
-    case IfcBridgeSegmentType_PIER_SEGMENT:
-        m_out << ".PIER_SEGMENT.";
-        break;
-    case IfcBridgeSegmentType_PIECE:
-        m_out << ".PIECE.";
-        break;
-    case IfcBridgeSegmentType_LIFT:
-        m_out << ".LIFT.";
-        break;
-    case IfcBridgeSegmentType_ELEMENT:
-        m_out << ".ELEMENT.";
-        break;
-    case IfcBridgeSegmentType_JAMB:
-        m_out << ".JAMB.";
-        break;
-    case IfcBridgeSegmentType_PYLON_HEAD:
-        m_out << ".PYLON_HEAD.";
-        break;
-    case IfcBridgeSegmentType_SPAN:
-        m_out << ".SPAN.";
-        break;
-    case IfcBridgeSegmentType_CANTILEVER:
-        m_out << ".CANTILEVER.";
-        break;
-    case IfcBridgeSegmentType_FINITE_ELEMENT_REFERENCE:
-        m_out << ".FINITE_ELEMENT_REFERENCE.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgeSegmentPart(IfcBridgeSegmentPart *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getSubPartType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeSubPartType(ptr->getSubPartType());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getMechanicalRole())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeMechanicalRoleType(ptr->getMechanicalRole());
-    }
-}
-
-void SPFWriter::writeIfcBridgeSubPartType(IfcBridgeSubPartType enumData) {
-    switch(enumData) {
-    case IfcBridgeSubPartType_LEFT_WEB:
-        m_out << ".LEFT_WEB.";
-        break;
-    case IfcBridgeSubPartType_RIGHT_WEB:
-        m_out << ".RIGHT_WEB.";
-        break;
-    case IfcBridgeSubPartType_CENTRAL_WEB:
-        m_out << ".CENTRAL_WEB.";
-        break;
-    case IfcBridgeSubPartType_TOP_SLAB:
-        m_out << ".TOP_SLAB.";
-        break;
-    case IfcBridgeSubPartType_LOWER_SLAB:
-        m_out << ".LOWER_SLAB.";
-        break;
-    case IfcBridgeSubPartType_RIGHT_OVERHANG:
-        m_out << ".RIGHT_OVERHANG.";
-        break;
-    case IfcBridgeSubPartType_LEFT_OVERHANG:
-        m_out << ".LEFT_OVERHANG.";
-        break;
-    case IfcBridgeSubPartType_UPPER_FLANGE_:
-        m_out << ".UPPER_FLANGE_.";
-        break;
-    case IfcBridgeSubPartType_LOWER_FLANGE:
-        m_out << ".LOWER_FLANGE.";
-        break;
-    case IfcBridgeSubPartType_LOWER_FLOORING:
-        m_out << ".LOWER_FLOORING.";
-        break;
-    case IfcBridgeSubPartType_UPPER_FLOORING:
-        m_out << ".UPPER_FLOORING.";
-        break;
-    case IfcBridgeSubPartType_MORPHOLOGY_NODE:
-        m_out << ".MORPHOLOGY_NODE.";
-        break;
-    case IfcBridgeSubPartType_REFERENCE_FIBRE:
-        m_out << ".REFERENCE_FIBRE.";
-        break;
-    case IfcBridgeSubPartType_BRANCH_WALL:
-        m_out << ".BRANCH_WALL.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgeMechanicalRoleType(IfcBridgeMechanicalRoleType enumData) {
-    switch(enumData) {
-    case IfcBridgeMechanicalRoleType_LONGITUDINAL:
-        m_out << ".LONGITUDINAL.";
-        break;
-    case IfcBridgeMechanicalRoleType_TRANSVERSAL:
-        m_out << ".TRANSVERSAL.";
-        break;
-    case IfcBridgeMechanicalRoleType_COMPLETE:
-        m_out << ".COMPLETE.";
-        break;
-    case IfcBridgeMechanicalRoleType_NONE:
-        m_out << ".NONE.";
-        break;
-    case IfcBridgeMechanicalRoleType_UNDEFINED:
-        m_out << ".UNDEFINED.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgeContactElement(IfcBridgeContactElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getContactType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgeContactType(ptr->getContactType());
-    }
-}
-
-void SPFWriter::writeIfcBridgeContactType(IfcBridgeContactType enumData) {
-    switch(enumData) {
-    case IfcBridgeContactType_GLUE:
-        m_out << ".GLUE.";
-        break;
-    case IfcBridgeContactType_RIVET:
-        m_out << ".RIVET.";
-        break;
-    case IfcBridgeContactType_CONNECTOR:
-        m_out << ".CONNECTOR.";
-        break;
-    case IfcBridgeContactType_WELD:
-        m_out << ".WELD.";
-        break;
-    case IfcBridgeContactType_RESUMPTION_OF_CONCRETE:
-        m_out << ".RESUMPTION_OF_CONCRETE.";
-        break;
-    case IfcBridgeContactType_SLIDING:
-        m_out << ".SLIDING.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcBridgePrismaticElement(IfcBridgePrismaticElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-    m_out << ",";
-    if (Step::isUnsetEnum(ptr->getPredefinedType())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcBridgePrismaticElementType(ptr->getPredefinedType());
-    }
-}
-
-void SPFWriter::writeIfcBridgePrismaticElementType(IfcBridgePrismaticElementType enumData) {
-    switch(enumData) {
-    case IfcBridgePrismaticElementType_UNICELLULAR_MONO_BOX_GIRDER:
-        m_out << ".UNICELLULAR_MONO_BOX_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_MULTICELLULAR_MONO_BOX_GIRDER:
-        m_out << ".MULTICELLULAR_MONO_BOX_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_UNICELLULAR_MULTI_BOX_GIRDER:
-        m_out << ".UNICELLULAR_MULTI_BOX_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_MULTICELLULAR_MULTI_BOX_GIRDER:
-        m_out << ".MULTICELLULAR_MULTI_BOX_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_DOUBLE_BEAM_RIBBED_SLAB:
-        m_out << ".DOUBLE_BEAM_RIBBED_SLAB.";
-        break;
-    case IfcBridgePrismaticElementType_MULTI_BEAM_RIBBED_SLAB:
-        m_out << ".MULTI_BEAM_RIBBED_SLAB.";
-        break;
-    case IfcBridgePrismaticElementType_MASSIVE_SECTION_ELEMENT:
-        m_out << ".MASSIVE_SECTION_ELEMENT.";
-        break;
-    case IfcBridgePrismaticElementType_HOLLOW_SECTION_ELEMENT:
-        m_out << ".HOLLOW_SECTION_ELEMENT.";
-        break;
-    case IfcBridgePrismaticElementType_SOLID_SLAB:
-        m_out << ".SOLID_SLAB.";
-        break;
-    case IfcBridgePrismaticElementType_HOLLOW_SLAB:
-        m_out << ".HOLLOW_SLAB.";
-        break;
-    case IfcBridgePrismaticElementType_SLAB_WITH_BROAD_CANTILEVER:
-        m_out << ".SLAB_WITH_BROAD_CANTILEVER.";
-        break;
-    case IfcBridgePrismaticElementType_MASTER_BEAM:
-        m_out << ".MASTER_BEAM.";
-        break;
-    case IfcBridgePrismaticElementType_LONGITUDINAL_GIRDER:
-        m_out << ".LONGITUDINAL_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_RIGIDITY_BEAM:
-        m_out << ".RIGIDITY_BEAM.";
-        break;
-    case IfcBridgePrismaticElementType_BRACING:
-        m_out << ".BRACING.";
-        break;
-    case IfcBridgePrismaticElementType_UPPER_FLANGE:
-        m_out << ".UPPER_FLANGE.";
-        break;
-    case IfcBridgePrismaticElementType_LOWER_FLANGE:
-        m_out << ".LOWER_FLANGE.";
-        break;
-    case IfcBridgePrismaticElementType_UPPER_FOOTING:
-        m_out << ".UPPER_FOOTING.";
-        break;
-    case IfcBridgePrismaticElementType_LOWER_FOOTING:
-        m_out << ".LOWER_FOOTING.";
-        break;
-    case IfcBridgePrismaticElementType_WEB:
-        m_out << ".WEB.";
-        break;
-    case IfcBridgePrismaticElementType_FLOORING_SHEET:
-        m_out << ".FLOORING_SHEET.";
-        break;
-    case IfcBridgePrismaticElementType_BOTTOM_SHEET:
-        m_out << ".BOTTOM_SHEET.";
-        break;
-    case IfcBridgePrismaticElementType_KERB_SHEET:
-        m_out << ".KERB_SHEET.";
-        break;
-    case IfcBridgePrismaticElementType_CANTILEVER_SHEET:
-        m_out << ".CANTILEVER_SHEET.";
-        break;
-    case IfcBridgePrismaticElementType_PAVEMENT_SHEET:
-        m_out << ".PAVEMENT_SHEET.";
-        break;
-    case IfcBridgePrismaticElementType_AUGET:
-        m_out << ".AUGET.";
-        break;
-    case IfcBridgePrismaticElementType_LONGITUDINAL_WEB_STIFFENER:
-        m_out << ".LONGITUDINAL_WEB_STIFFENER.";
-        break;
-    case IfcBridgePrismaticElementType_RAKER:
-        m_out << ".RAKER.";
-        break;
-    case IfcBridgePrismaticElementType_TRANSVERSE_GIRDER:
-        m_out << ".TRANSVERSE_GIRDER.";
-        break;
-    case IfcBridgePrismaticElementType_DEFLECTER:
-        m_out << ".DEFLECTER.";
-        break;
-    case IfcBridgePrismaticElementType_TRANSVERSE_MEMBER:
-        m_out << ".TRANSVERSE_MEMBER.";
-        break;
-    case IfcBridgePrismaticElementType_TRANSVERSE:
-        m_out << ".TRANSVERSE.";
-        break;
-    case IfcBridgePrismaticElementType_DIAGONALE:
-        m_out << ".DIAGONALE.";
-        break;
-    case IfcBridgePrismaticElementType_JAMB:
-        m_out << ".JAMB.";
-        break;
-    case IfcBridgePrismaticElementType_TENSION_MEMBER:
-        m_out << ".TENSION_MEMBER.";
-        break;
-    case IfcBridgePrismaticElementType_BONDING_BAR:
-        m_out << ".BONDING_BAR.";
-        break;
-    case IfcBridgePrismaticElementType_TRANSVERSAL_STIFFENER:
-        m_out << ".TRANSVERSAL_STIFFENER.";
-        break;
-    case IfcBridgePrismaticElementType_STIFFENER_FOOTING:
-        m_out << ".STIFFENER_FOOTING.";
-        break;
-    case IfcBridgePrismaticElementType_TENDON:
-        m_out << ".TENDON.";
-        break;
-        }
-}
-
-void SPFWriter::writeIfcAlignmentElement(IfcAlignmentElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-}
-
-void SPFWriter::writeIfcReferenceElement(IfcReferenceElement *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-}
-
-void SPFWriter::writeIfcReferenceCurve(IfcReferenceCurve *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-}
-
-void SPFWriter::writeIfcReferenceCurve3D(IfcReferenceCurve3D *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCurve3D())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getCurve3D());
-    }
-}
-
-void SPFWriter::writeIfcReferenceCurveAlignment2D(IfcReferenceCurveAlignment2D *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getHorizontalAlignment())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getHorizontalAlignment());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getVerticalAlignment())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getVerticalAlignment());
-    }
-}
-
-void SPFWriter::writeIfcReferencePlacement(IfcReferencePlacement *ptr) {
-}
-
-void SPFWriter::writeIfcReferenceCurvePlacement(IfcReferenceCurvePlacement *ptr) {
-    if (Step::isUnset(ptr->getCurvilinearAbscissa())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getCurvilinearAbscissa());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getAxis())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getAxis());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRefDirection())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRefDirection());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRelativeTo())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRelativeTo());
-    }
-}
-
-void SPFWriter::writeIfcReferenceCurvePlacementSystem(IfcReferenceCurvePlacementSystem *ptr) {
-    if (Step::isUnset(ptr->getLabel())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getLabel());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getBasedOn())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getBasedOn());
-    }
-}
-
-void SPFWriter::writeIfcElementPart(IfcElementPart *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcCivilElementPart(IfcCivilElementPart *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcCivilSheath(IfcCivilSheath *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcCivilVoid(IfcCivilVoid *ptr) {
-    if (Step::isUnset(ptr->getGlobalId())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getGlobalId());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getOwnerHistory())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getOwnerHistory());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getName())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getName());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getDescription())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getDescription());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectType())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectType());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getObjectPlacement())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getObjectPlacement());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getRepresentation())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getRepresentation());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getTag())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getTag());
-    }
-}
-
-void SPFWriter::writeIfcClothoid(IfcClothoid *ptr) {
-    if (Step::isUnset(ptr->getPosition())) {
-        m_out << "$";
-    }
-    else {
-        writeIfcAxis2Placement(ptr->getPosition());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getClothoidConstant())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getClothoidConstant());
-    }
-}
-
-void SPFWriter::writeIfcReferencedSectionedSpine(IfcReferencedSectionedSpine *ptr) {
-    if (Step::isUnset(ptr->getSpineCurve())) {
-        m_out << "$";
-    }
-    else {
-        writeAttribute(ptr->getSpineCurve());
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCrossSections())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcProfileDef > >::iterator step_it0 = (ptr->getCrossSections()).begin();
-            if ((ptr->getCrossSections()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getCrossSections()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
-    }
-    m_out << ",";
-    if (Step::isUnset(ptr->getCrossSectionPositions())) {
-        m_out << "$";
-    }
-    else {
-        m_out << "(";
-        {
-            Step::List< Step::RefPtr< IfcReferencePlacement > >::iterator step_it0 = (ptr->getCrossSectionPositions()).begin();
-            if ((ptr->getCrossSectionPositions()).size()) {
-                writeAttribute((*step_it0).get());
-                for (step_it0++; step_it0 != (ptr->getCrossSectionPositions()).end(); step_it0++) {
-                    m_out << ",";
-                    writeAttribute((*step_it0).get());
-                }
-            }
-        }
-        m_out << ")";
     }
 }
 

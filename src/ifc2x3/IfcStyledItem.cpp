@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -46,30 +46,29 @@ using namespace ifc2x3;
 
 IfcStyledItem::IfcStyledItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
     m_item = NULL;
-    m_styles.setUnset(true);
     m_name = Step::getUnset(m_name);
 }
 
 IfcStyledItem::~IfcStyledItem() {
 }
 
-bool IfcStyledItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStyledItem(this);
+bool IfcStyledItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStyledItem(this);
 }
 
-const std::string &IfcStyledItem::type() {
+const std::string &IfcStyledItem::type() const {
     return IfcStyledItem::s_type.getName();
 }
 
-Step::ClassType IfcStyledItem::getClassType() {
+const Step::ClassType &IfcStyledItem::getClassType() {
     return IfcStyledItem::s_type;
 }
 
-Step::ClassType IfcStyledItem::getType() const {
+const Step::ClassType &IfcStyledItem::getType() const {
     return IfcStyledItem::s_type;
 }
 
-bool IfcStyledItem::isOfType(Step::ClassType t) {
+bool IfcStyledItem::isOfType(const Step::ClassType &t) const {
     return IfcStyledItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
 }
 
@@ -82,12 +81,22 @@ IfcRepresentationItem *IfcStyledItem::getItem() {
     }
 }
 
-void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) {
-    m_item = value;
-    m_item->m_styledByItem.insert(this);
+const IfcRepresentationItem *IfcStyledItem::getItem() const {
+    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
+    return deConstObject->getItem();
 }
 
-Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > > &IfcStyledItem::getStyles() {
+void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) {
+    if (m_item.valid()) {
+        m_item->m_styledByItem.erase(this);
+    }
+    if (value.valid()) {
+        value->m_styledByItem.insert(this);
+    }
+    m_item = value;
+}
+
+Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() {
     if (Step::BaseObject::inited()) {
         return m_styles;
     }
@@ -97,7 +106,12 @@ Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > > &IfcStyledItem::getS
     }
 }
 
-void IfcStyledItem::setStyles(const Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > > &value) {
+const Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() const {
+    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
+    return deConstObject->getStyles();
+}
+
+void IfcStyledItem::setStyles(const Set_IfcPresentationStyleAssignment_1_n &value) {
     m_styles = value;
 }
 
@@ -110,14 +124,13 @@ IfcLabel IfcStyledItem::getName() {
     }
 }
 
-void IfcStyledItem::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcStyledItem::getName() const {
+    IfcStyledItem * deConstObject = const_cast< IfcStyledItem * > (this);
+    return deConstObject->getName();
 }
 
-void IfcStyledItem::release() {
-    IfcRepresentationItem::release();
-    m_item.release();
-    m_styles.clear();
+void IfcStyledItem::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcStyledItem::init() {
@@ -131,7 +144,7 @@ bool IfcStyledItem::init() {
         m_item = NULL;
     }
     else {
-        m_item = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_item = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -144,7 +157,7 @@ bool IfcStyledItem::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcPresentationStyleAssignment > attr2;
-                attr2 = static_cast< IfcPresentationStyleAssignment * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcPresentationStyleAssignment * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_styles.insert(attr2);
             }
             else {
@@ -157,17 +170,17 @@ bool IfcStyledItem::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcStyledItem::copy(const IfcStyledItem &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPresentationStyleAssignment > >::const_iterator it_m_styles;
+    Step::Set< Step::RefPtr< IfcPresentationStyleAssignment >, 1 >::const_iterator it_m_styles;
     IfcRepresentationItem::copy(obj, copyop);
-    setItem(copyop(obj.m_item.get()));
+    setItem((IfcRepresentationItem*)copyop(obj.m_item.get()));
     for (it_m_styles = obj.m_styles.begin(); it_m_styles != obj.m_styles.end(); ++it_m_styles) {
-        Step::RefPtr< IfcPresentationStyleAssignment > copyTarget = copyop((*it_m_styles).get());
+        Step::RefPtr< IfcPresentationStyleAssignment > copyTarget = (IfcPresentationStyleAssignment *) (copyop((*it_m_styles).get()));
         m_styles.insert(copyTarget.get());
     }
     setName(obj.m_name);

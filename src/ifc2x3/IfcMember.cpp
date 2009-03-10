@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcMember::IfcMember(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, 
 IfcMember::~IfcMember() {
 }
 
-bool IfcMember::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMember(this);
+bool IfcMember::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMember(this);
 }
 
-const std::string &IfcMember::type() {
+const std::string &IfcMember::type() const {
     return IfcMember::s_type.getName();
 }
 
-Step::ClassType IfcMember::getClassType() {
+const Step::ClassType &IfcMember::getClassType() {
     return IfcMember::s_type;
 }
 
-Step::ClassType IfcMember::getType() const {
+const Step::ClassType &IfcMember::getType() const {
     return IfcMember::s_type;
 }
 
-bool IfcMember::isOfType(Step::ClassType t) {
+bool IfcMember::isOfType(const Step::ClassType &t) const {
     return IfcMember::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcMember::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcMember::init() {

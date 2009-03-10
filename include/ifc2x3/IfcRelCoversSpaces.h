@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,9 +29,10 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
 #include <string>
 #include <Step/SPFData.h>
 #include <Step/Referenced.h>
@@ -39,8 +40,39 @@
 
 namespace ifc2x3 {
 
-    class CopyOp;
     class IfcCovering;
+    class IfcRelCoversSpaces;
+
+    /**
+     */
+    class Inverted_IfcRelCoversSpaces_RelatedCoverings_type : public Set_IfcCovering_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcCovering_1_n::size_type size_type;
+
+        /**
+         */
+        IfcRelCoversSpaces *mOwner;
+        /**
+         */
+        Inverted_IfcRelCoversSpaces_RelatedCoverings_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcRelCoversSpaces *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcCovering > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcCovering > &value);
+
+    };
+
+    class CopyOp;
     class IfcSpace;
 
     /**
@@ -48,61 +80,61 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRelCoversSpaces : public IfcRelConnects {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RelatedSpace'.
+         * 
          */
-        IfcSpace *getRelatedSpace();
+        virtual IfcSpace *getRelatedSpace();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatedSpace'.
+         * 
+         * @return the value of the explicit attribute 'RelatedSpace'
+         */
+        virtual const IfcSpace *getRelatedSpace() const;
         /**
          * Sets the value of the explicit attribute 'RelatedSpace'.
          * 
          * @param value
          */
-        void setRelatedSpace(const Step::RefPtr< IfcSpace > &value);
+        virtual void setRelatedSpace(const Step::RefPtr< IfcSpace > &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedCoverings'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcCovering > > &getRelatedCoverings();
+        virtual Set_IfcCovering_1_n &getRelatedCoverings();
         /**
+         * (const) Returns the value of the explicit attribute 'RelatedCoverings'.
+         * 
+         * @return the value of the explicit attribute 'RelatedCoverings'
          */
-        virtual void release();
+        virtual const Set_IfcCovering_1_n &getRelatedCoverings() const;
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_RelatedCoverings_type : public Step::Set< Step::RefPtr< IfcCovering > > {
-        public:
-            /**
-             */
-            IfcRelCoversSpaces *mOwner;
-            /**
-             */
-            Inverted_RelatedCoverings_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcRelCoversSpaces *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcCovering > &value);
-
-        };
-
 
     protected:
         /**
@@ -129,7 +161,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcSpace > m_relatedSpace;
         /**
          */
-        Inverted_RelatedCoverings_type m_relatedCoverings;
+        Inverted_IfcRelCoversSpaces_RelatedCoverings_type m_relatedCoverings;
 
     };
 

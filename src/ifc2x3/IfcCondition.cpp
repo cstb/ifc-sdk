@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCondition::IfcCondition(Step::Id id, Step::SPFData *args) : IfcGroup(id, args
 IfcCondition::~IfcCondition() {
 }
 
-bool IfcCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCondition(this);
+bool IfcCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCondition(this);
 }
 
-const std::string &IfcCondition::type() {
+const std::string &IfcCondition::type() const {
     return IfcCondition::s_type.getName();
 }
 
-Step::ClassType IfcCondition::getClassType() {
+const Step::ClassType &IfcCondition::getClassType() {
     return IfcCondition::s_type;
 }
 
-Step::ClassType IfcCondition::getType() const {
+const Step::ClassType &IfcCondition::getType() const {
     return IfcCondition::s_type;
 }
 
-bool IfcCondition::isOfType(Step::ClassType t) {
+bool IfcCondition::isOfType(const Step::ClassType &t) const {
     return IfcCondition::s_type == t ? true : IfcGroup::isOfType(t);
-}
-
-void IfcCondition::release() {
-    IfcGroup::release();
 }
 
 bool IfcCondition::init() {

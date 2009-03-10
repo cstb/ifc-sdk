@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcColourSpecification::IfcColourSpecification(Step::Id id, Step::SPFData *args)
 IfcColourSpecification::~IfcColourSpecification() {
 }
 
-bool IfcColourSpecification::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColourSpecification(this);
+bool IfcColourSpecification::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColourSpecification(this);
 }
 
-const std::string &IfcColourSpecification::type() {
+const std::string &IfcColourSpecification::type() const {
     return IfcColourSpecification::s_type.getName();
 }
 
-Step::ClassType IfcColourSpecification::getClassType() {
+const Step::ClassType &IfcColourSpecification::getClassType() {
     return IfcColourSpecification::s_type;
 }
 
-Step::ClassType IfcColourSpecification::getType() const {
+const Step::ClassType &IfcColourSpecification::getType() const {
     return IfcColourSpecification::s_type;
 }
 
-bool IfcColourSpecification::isOfType(Step::ClassType t) {
+bool IfcColourSpecification::isOfType(const Step::ClassType &t) const {
     return IfcColourSpecification::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcColourSpecification::getName() {
     }
 }
 
-void IfcColourSpecification::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcColourSpecification::getName() const {
+    IfcColourSpecification * deConstObject = const_cast< IfcColourSpecification * > (this);
+    return deConstObject->getName();
 }
 
-void IfcColourSpecification::release() {
+void IfcColourSpecification::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcColourSpecification::init() {
@@ -89,7 +92,7 @@ bool IfcColourSpecification::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

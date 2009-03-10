@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowStorageDeviceType::IfcFlowStorageDeviceType(Step::Id id, Step::SPFData *a
 IfcFlowStorageDeviceType::~IfcFlowStorageDeviceType() {
 }
 
-bool IfcFlowStorageDeviceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowStorageDeviceType(this);
+bool IfcFlowStorageDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowStorageDeviceType(this);
 }
 
-const std::string &IfcFlowStorageDeviceType::type() {
+const std::string &IfcFlowStorageDeviceType::type() const {
     return IfcFlowStorageDeviceType::s_type.getName();
 }
 
-Step::ClassType IfcFlowStorageDeviceType::getClassType() {
+const Step::ClassType &IfcFlowStorageDeviceType::getClassType() {
     return IfcFlowStorageDeviceType::s_type;
 }
 
-Step::ClassType IfcFlowStorageDeviceType::getType() const {
+const Step::ClassType &IfcFlowStorageDeviceType::getType() const {
     return IfcFlowStorageDeviceType::s_type;
 }
 
-bool IfcFlowStorageDeviceType::isOfType(Step::ClassType t) {
+bool IfcFlowStorageDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcFlowStorageDeviceType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
-}
-
-void IfcFlowStorageDeviceType::release() {
-    IfcDistributionFlowElementType::release();
 }
 
 bool IfcFlowStorageDeviceType::init() {

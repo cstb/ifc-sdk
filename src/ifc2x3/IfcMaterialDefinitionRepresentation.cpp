@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcMaterialDefinitionRepresentation::IfcMaterialDefinitionRepresentation(Step::I
 IfcMaterialDefinitionRepresentation::~IfcMaterialDefinitionRepresentation() {
 }
 
-bool IfcMaterialDefinitionRepresentation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialDefinitionRepresentation(this);
+bool IfcMaterialDefinitionRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialDefinitionRepresentation(this);
 }
 
-const std::string &IfcMaterialDefinitionRepresentation::type() {
+const std::string &IfcMaterialDefinitionRepresentation::type() const {
     return IfcMaterialDefinitionRepresentation::s_type.getName();
 }
 
-Step::ClassType IfcMaterialDefinitionRepresentation::getClassType() {
+const Step::ClassType &IfcMaterialDefinitionRepresentation::getClassType() {
     return IfcMaterialDefinitionRepresentation::s_type;
 }
 
-Step::ClassType IfcMaterialDefinitionRepresentation::getType() const {
+const Step::ClassType &IfcMaterialDefinitionRepresentation::getType() const {
     return IfcMaterialDefinitionRepresentation::s_type;
 }
 
-bool IfcMaterialDefinitionRepresentation::isOfType(Step::ClassType t) {
+bool IfcMaterialDefinitionRepresentation::isOfType(const Step::ClassType &t) const {
     return IfcMaterialDefinitionRepresentation::s_type == t ? true : IfcProductRepresentation::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() {
     }
 }
 
-void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    m_representedMaterial = value;
-    m_representedMaterial->m_hasRepresentation.insert(this);
+const IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial() const {
+    IfcMaterialDefinitionRepresentation * deConstObject = const_cast< IfcMaterialDefinitionRepresentation * > (this);
+    return deConstObject->getRepresentedMaterial();
 }
 
-void IfcMaterialDefinitionRepresentation::release() {
-    IfcProductRepresentation::release();
-    m_representedMaterial.release();
+void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value) {
+    if (m_representedMaterial.valid()) {
+        m_representedMaterial->m_hasRepresentation.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasRepresentation.insert(this);
+    }
+    m_representedMaterial = value;
 }
 
 bool IfcMaterialDefinitionRepresentation::init() {
@@ -100,14 +105,14 @@ bool IfcMaterialDefinitionRepresentation::init() {
         m_representedMaterial = NULL;
     }
     else {
-        m_representedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_representedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcMaterialDefinitionRepresentation::copy(const IfcMaterialDefinitionRepresentation &obj, const CopyOp &copyop) {
     IfcProductRepresentation::copy(obj, copyop);
-    setRepresentedMaterial(copyop(obj.m_representedMaterial.get()));
+    setRepresentedMaterial((IfcMaterial*)copyop(obj.m_representedMaterial.get()));
     return;
 }
 

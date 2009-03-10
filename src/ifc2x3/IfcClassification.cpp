@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -50,29 +51,28 @@ IfcClassification::IfcClassification(Step::Id id, Step::SPFData *args) : Step::B
     m_edition = Step::getUnset(m_edition);
     m_editionDate = NULL;
     m_name = Step::getUnset(m_name);
-    m_contains.setUnset(true);
 }
 
 IfcClassification::~IfcClassification() {
 }
 
-bool IfcClassification::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassification(this);
+bool IfcClassification::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassification(this);
 }
 
-const std::string &IfcClassification::type() {
+const std::string &IfcClassification::type() const {
     return IfcClassification::s_type.getName();
 }
 
-Step::ClassType IfcClassification::getClassType() {
+const Step::ClassType &IfcClassification::getClassType() {
     return IfcClassification::s_type;
 }
 
-Step::ClassType IfcClassification::getType() const {
+const Step::ClassType &IfcClassification::getType() const {
     return IfcClassification::s_type;
 }
 
-bool IfcClassification::isOfType(Step::ClassType t) {
+bool IfcClassification::isOfType(const Step::ClassType &t) const {
     return IfcClassification::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -83,6 +83,11 @@ IfcLabel IfcClassification::getSource() {
     else {
         return Step::getUnset(m_source);
     }
+}
+
+const IfcLabel IfcClassification::getSource() const {
+    IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
+    return deConstObject->getSource();
 }
 
 void IfcClassification::setSource(const IfcLabel &value) {
@@ -98,6 +103,11 @@ IfcLabel IfcClassification::getEdition() {
     }
 }
 
+const IfcLabel IfcClassification::getEdition() const {
+    IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
+    return deConstObject->getEdition();
+}
+
 void IfcClassification::setEdition(const IfcLabel &value) {
     m_edition = value;
 }
@@ -109,6 +119,11 @@ IfcCalendarDate *IfcClassification::getEditionDate() {
     else {
         return NULL;
     }
+}
+
+const IfcCalendarDate *IfcClassification::getEditionDate() const {
+    IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
+    return deConstObject->getEditionDate();
 }
 
 void IfcClassification::setEditionDate(const Step::RefPtr< IfcCalendarDate > &value) {
@@ -124,11 +139,16 @@ IfcLabel IfcClassification::getName() {
     }
 }
 
+const IfcLabel IfcClassification::getName() const {
+    IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
+    return deConstObject->getName();
+}
+
 void IfcClassification::setName(const IfcLabel &value) {
     m_name = value;
 }
 
-Step::Set< Step::ObsPtr< IfcClassificationItem > > &IfcClassification::getContains() {
+Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() {
     if (Step::BaseObject::inited()) {
         return m_contains;
     }
@@ -138,8 +158,9 @@ Step::Set< Step::ObsPtr< IfcClassificationItem > > &IfcClassification::getContai
     }
 }
 
-void IfcClassification::release() {
-    m_editionDate.release();
+const Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() const {
+    IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
+    return deConstObject->getContains();
 }
 
 bool IfcClassification::init() {
@@ -150,28 +171,28 @@ bool IfcClassification::init() {
         m_source = Step::getUnset(m_source);
     }
     else {
-        m_source = Step::spfToString(arg);
+        m_source = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_edition = Step::getUnset(m_edition);
     }
     else {
-        m_edition = Step::spfToString(arg);
+        m_edition = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_editionDate = NULL;
     }
     else {
-        m_editionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_editionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcClassificationItem::getClassType(), 1);
     if (inverses) {
@@ -188,7 +209,7 @@ void IfcClassification::copy(const IfcClassification &obj, const CopyOp &copyop)
     Step::BaseEntity::copy(obj, copyop);
     setSource(obj.m_source);
     setEdition(obj.m_edition);
-    setEditionDate(copyop(obj.m_editionDate.get()));
+    setEditionDate((IfcCalendarDate*)copyop(obj.m_editionDate.get()));
     setName(obj.m_name);
     return;
 }

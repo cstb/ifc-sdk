@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,51 +52,51 @@ IfcSurfaceStyleElementSelect::~IfcSurfaceStyleElementSelect() {
     deleteUnion();
 }
 
-bool IfcSurfaceStyleElementSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleElementSelect(this);
+bool IfcSurfaceStyleElementSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleElementSelect(this);
 }
 
 bool IfcSurfaceStyleElementSelect::init() {
     return false;
 }
 
-const std::string &IfcSurfaceStyleElementSelect::type() {
+const std::string &IfcSurfaceStyleElementSelect::type() const {
     return IfcSurfaceStyleElementSelect::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleElementSelect::getClassType() {
+const Step::ClassType &IfcSurfaceStyleElementSelect::getClassType() {
     return IfcSurfaceStyleElementSelect::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleElementSelect::getType() const {
+const Step::ClassType &IfcSurfaceStyleElementSelect::getType() const {
     return IfcSurfaceStyleElementSelect::s_type;
 }
 
-bool IfcSurfaceStyleElementSelect::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleElementSelect::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleElementSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcSurfaceStyleElementSelect::copy(const IfcSurfaceStyleElementSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCSURFACESTYLESHADING:
-        setIfcSurfaceStyleShading(copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleShading));
+        setIfcSurfaceStyleShading((IfcSurfaceStyleShading *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleShading)));
         break;
     case IFCSURFACESTYLELIGHTING:
-        setIfcSurfaceStyleLighting(copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleLighting));
+        setIfcSurfaceStyleLighting((IfcSurfaceStyleLighting *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleLighting)));
         break;
     case IFCSURFACESTYLEWITHTEXTURES:
-        setIfcSurfaceStyleWithTextures(copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleWithTextures));
+        setIfcSurfaceStyleWithTextures((IfcSurfaceStyleWithTextures *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleWithTextures)));
         break;
     case IFCEXTERNALLYDEFINEDSURFACESTYLE:
-        setIfcExternallyDefinedSurfaceStyle(copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcExternallyDefinedSurfaceStyle));
+        setIfcExternallyDefinedSurfaceStyle((IfcExternallyDefinedSurfaceStyle *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcExternallyDefinedSurfaceStyle)));
         break;
     case IFCSURFACESTYLEREFRACTION:
-        setIfcSurfaceStyleRefraction(copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction));
+        setIfcSurfaceStyleRefraction((IfcSurfaceStyleRefraction *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction)));
         break;
         }
 }
 
-char *IfcSurfaceStyleElementSelect::currentTypeName() {
+std::string IfcSurfaceStyleElementSelect::currentTypeName() const {
     switch(m_type) {
     case IFCSURFACESTYLESHADING:
         return "IfcSurfaceStyleShading";
@@ -118,7 +118,7 @@ char *IfcSurfaceStyleElementSelect::currentTypeName() {
     }
 }
 
-IfcSurfaceStyleElementSelect::IfcSurfaceStyleElementSelect_select IfcSurfaceStyleElementSelect::currentType() {
+IfcSurfaceStyleElementSelect::IfcSurfaceStyleElementSelect_select IfcSurfaceStyleElementSelect::currentType() const {
     return m_type;
 }
 
@@ -143,12 +143,16 @@ void IfcSurfaceStyleElementSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcSurfaceStyleShading *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleShading() {
-    return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleShading;
+IfcSurfaceStyleShading *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleShading() const {
+    if (m_type == IFCSURFACESTYLESHADING) {
+        return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleShading;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleShading(IfcSurfaceStyleShading *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +167,16 @@ void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleShading(IfcSurfaceStyleShad
     m_type = IFCSURFACESTYLESHADING;
 }
 
-IfcSurfaceStyleLighting *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleLighting() {
-    return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleLighting;
+IfcSurfaceStyleLighting *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleLighting() const {
+    if (m_type == IFCSURFACESTYLELIGHTING) {
+        return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleLighting;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -183,12 +191,16 @@ void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleLighting(IfcSurfaceStyleLig
     m_type = IFCSURFACESTYLELIGHTING;
 }
 
-IfcSurfaceStyleWithTextures *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleWithTextures() {
-    return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleWithTextures;
+IfcSurfaceStyleWithTextures *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleWithTextures() const {
+    if (m_type == IFCSURFACESTYLEWITHTEXTURES) {
+        return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleWithTextures;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -203,12 +215,16 @@ void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleWithTextures(IfcSurfaceStyl
     m_type = IFCSURFACESTYLEWITHTEXTURES;
 }
 
-IfcExternallyDefinedSurfaceStyle *IfcSurfaceStyleElementSelect::getIfcExternallyDefinedSurfaceStyle() {
-    return m_IfcSurfaceStyleElementSelect_union.m_IfcExternallyDefinedSurfaceStyle;
+IfcExternallyDefinedSurfaceStyle *IfcSurfaceStyleElementSelect::getIfcExternallyDefinedSurfaceStyle() const {
+    if (m_type == IFCEXTERNALLYDEFINEDSURFACESTYLE) {
+        return m_IfcSurfaceStyleElementSelect_union.m_IfcExternallyDefinedSurfaceStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceStyleElementSelect::setIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -223,12 +239,16 @@ void IfcSurfaceStyleElementSelect::setIfcExternallyDefinedSurfaceStyle(IfcExtern
     m_type = IFCEXTERNALLYDEFINEDSURFACESTYLE;
 }
 
-IfcSurfaceStyleRefraction *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleRefraction() {
-    return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction;
+IfcSurfaceStyleRefraction *IfcSurfaceStyleElementSelect::getIfcSurfaceStyleRefraction() const {
+    if (m_type == IFCSURFACESTYLEREFRACTION) {
+        return m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

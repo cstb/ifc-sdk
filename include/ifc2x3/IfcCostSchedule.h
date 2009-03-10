@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,15 +32,15 @@
 #include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
-#include "ifc2x3/IfcActorSelect.h"
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
+    class IfcActorSelect;
     class IfcDateTimeSelect;
 
     /**
@@ -48,99 +48,168 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCostSchedule : public IfcControl {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SubmittedBy'.
+         * 
          */
-        IfcActorSelect *getSubmittedBy();
+        virtual IfcActorSelect *getSubmittedBy();
+        /**
+         * (const) Returns the value of the explicit attribute 'SubmittedBy'.
+         * 
+         * @return the value of the explicit attribute 'SubmittedBy'
+         */
+        virtual const IfcActorSelect *getSubmittedBy() const;
         /**
          * Sets the value of the explicit attribute 'SubmittedBy'.
          * 
          * @param value
          */
-        void setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'PreparedBy'.
+         * 
          */
-        IfcActorSelect *getPreparedBy();
+        virtual IfcActorSelect *getPreparedBy();
+        /**
+         * (const) Returns the value of the explicit attribute 'PreparedBy'.
+         * 
+         * @return the value of the explicit attribute 'PreparedBy'
+         */
+        virtual const IfcActorSelect *getPreparedBy() const;
         /**
          * Sets the value of the explicit attribute 'PreparedBy'.
          * 
          * @param value
          */
-        void setPreparedBy(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setPreparedBy(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'SubmittedOn'.
+         * 
          */
-        IfcDateTimeSelect *getSubmittedOn();
+        virtual IfcDateTimeSelect *getSubmittedOn();
+        /**
+         * (const) Returns the value of the explicit attribute 'SubmittedOn'.
+         * 
+         * @return the value of the explicit attribute 'SubmittedOn'
+         */
+        virtual const IfcDateTimeSelect *getSubmittedOn() const;
         /**
          * Sets the value of the explicit attribute 'SubmittedOn'.
          * 
          * @param value
          */
-        void setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'Status'.
+         * 
          */
-        IfcLabel getStatus();
+        virtual IfcLabel getStatus();
+        /**
+         * (const) Returns the value of the explicit attribute 'Status'.
+         * 
+         * @return the value of the explicit attribute 'Status'
+         */
+        virtual const IfcLabel getStatus() const;
         /**
          * Sets the value of the explicit attribute 'Status'.
          * 
          * @param value
          */
-        void setStatus(const IfcLabel &value);
+        virtual void setStatus(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'TargetUsers'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcActorSelect > > &getTargetUsers();
+        virtual Set_IfcActorSelect_1_n &getTargetUsers();
+        /**
+         * (const) Returns the value of the explicit attribute 'TargetUsers'.
+         * 
+         * @return the value of the explicit attribute 'TargetUsers'
+         */
+        virtual const Set_IfcActorSelect_1_n &getTargetUsers() const;
         /**
          * Sets the value of the explicit attribute 'TargetUsers'.
          * 
          * @param value
          */
-        void setTargetUsers(const Step::Set< Step::RefPtr< IfcActorSelect > > &value);
+        virtual void setTargetUsers(const Set_IfcActorSelect_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'UpdateDate'.
+         * 
          */
-        IfcDateTimeSelect *getUpdateDate();
+        virtual IfcDateTimeSelect *getUpdateDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'UpdateDate'.
+         * 
+         * @return the value of the explicit attribute 'UpdateDate'
+         */
+        virtual const IfcDateTimeSelect *getUpdateDate() const;
         /**
          * Sets the value of the explicit attribute 'UpdateDate'.
          * 
          * @param value
          */
-        void setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'ID'.
+         * 
          */
-        IfcIdentifier getID();
+        virtual IfcIdentifier getID();
+        /**
+         * (const) Returns the value of the explicit attribute 'ID'.
+         * 
+         * @return the value of the explicit attribute 'ID'
+         */
+        virtual const IfcIdentifier getID() const;
         /**
          * Sets the value of the explicit attribute 'ID'.
          * 
          * @param value
          */
-        void setID(const IfcIdentifier &value);
+        virtual void setID(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'PredefinedType'.
+         * 
          */
-        IfcCostScheduleTypeEnum getPredefinedType();
+        virtual IfcCostScheduleTypeEnum getPredefinedType();
+        /**
+         * (const) Returns the value of the explicit attribute 'PredefinedType'.
+         * 
+         * @return the value of the explicit attribute 'PredefinedType'
+         */
+        virtual const IfcCostScheduleTypeEnum getPredefinedType() const;
         /**
          * Sets the value of the explicit attribute 'PredefinedType'.
          * 
          * @param value
          */
-        void setPredefinedType(IfcCostScheduleTypeEnum value);
-        /**
-         */
-        virtual void release();
+        virtual void setPredefinedType(IfcCostScheduleTypeEnum value);
         friend class ExpressDataSet;
 
     protected:
@@ -174,16 +243,16 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDateTimeSelect > m_submittedOn;
         /**
          */
-        std::string m_status;
+        Step::String m_status;
         /**
          */
-        Step::Set< Step::RefPtr< IfcActorSelect > > m_targetUsers;
+        Set_IfcActorSelect_1_n m_targetUsers;
         /**
          */
         Step::RefPtr< IfcDateTimeSelect > m_updateDate;
         /**
          */
-        std::string m_iD;
+        Step::String m_iD;
         /**
          */
         IfcCostScheduleTypeEnum m_predefinedType;

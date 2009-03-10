@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBeam::IfcBeam(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcBeam::~IfcBeam() {
 }
 
-bool IfcBeam::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBeam(this);
+bool IfcBeam::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBeam(this);
 }
 
-const std::string &IfcBeam::type() {
+const std::string &IfcBeam::type() const {
     return IfcBeam::s_type.getName();
 }
 
-Step::ClassType IfcBeam::getClassType() {
+const Step::ClassType &IfcBeam::getClassType() {
     return IfcBeam::s_type;
 }
 
-Step::ClassType IfcBeam::getType() const {
+const Step::ClassType &IfcBeam::getType() const {
     return IfcBeam::s_type;
 }
 
-bool IfcBeam::isOfType(Step::ClassType t) {
+bool IfcBeam::isOfType(const Step::ClassType &t) const {
     return IfcBeam::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcBeam::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcBeam::init() {

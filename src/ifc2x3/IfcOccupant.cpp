@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcOccupant::IfcOccupant(Step::Id id, Step::SPFData *args) : IfcActor(id, args) 
 IfcOccupant::~IfcOccupant() {
 }
 
-bool IfcOccupant::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOccupant(this);
+bool IfcOccupant::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOccupant(this);
 }
 
-const std::string &IfcOccupant::type() {
+const std::string &IfcOccupant::type() const {
     return IfcOccupant::s_type.getName();
 }
 
-Step::ClassType IfcOccupant::getClassType() {
+const Step::ClassType &IfcOccupant::getClassType() {
     return IfcOccupant::s_type;
 }
 
-Step::ClassType IfcOccupant::getType() const {
+const Step::ClassType &IfcOccupant::getType() const {
     return IfcOccupant::s_type;
 }
 
-bool IfcOccupant::isOfType(Step::ClassType t) {
+bool IfcOccupant::isOfType(const Step::ClassType &t) const {
     return IfcOccupant::s_type == t ? true : IfcActor::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcOccupantTypeEnum IfcOccupant::getPredefinedType() {
     }
 }
 
-void IfcOccupant::setPredefinedType(IfcOccupantTypeEnum value) {
-    m_predefinedType = value;
+const IfcOccupantTypeEnum IfcOccupant::getPredefinedType() const {
+    IfcOccupant * deConstObject = const_cast< IfcOccupant * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcOccupant::release() {
-    IfcActor::release();
+void IfcOccupant::setPredefinedType(IfcOccupantTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcOccupant::init() {

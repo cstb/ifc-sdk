@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,34 +44,32 @@
 using namespace ifc2x3;
 
 IfcStructuralMember::IfcStructuralMember(Step::Id id, Step::SPFData *args) : IfcStructuralItem(id, args) {
-    m_referencesElement.setUnset(true);
-    m_connectedBy.setUnset(true);
 }
 
 IfcStructuralMember::~IfcStructuralMember() {
 }
 
-bool IfcStructuralMember::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralMember(this);
+bool IfcStructuralMember::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralMember(this);
 }
 
-const std::string &IfcStructuralMember::type() {
+const std::string &IfcStructuralMember::type() const {
     return IfcStructuralMember::s_type.getName();
 }
 
-Step::ClassType IfcStructuralMember::getClassType() {
+const Step::ClassType &IfcStructuralMember::getClassType() {
     return IfcStructuralMember::s_type;
 }
 
-Step::ClassType IfcStructuralMember::getType() const {
+const Step::ClassType &IfcStructuralMember::getType() const {
     return IfcStructuralMember::s_type;
 }
 
-bool IfcStructuralMember::isOfType(Step::ClassType t) {
+bool IfcStructuralMember::isOfType(const Step::ClassType &t) const {
     return IfcStructuralMember::s_type == t ? true : IfcStructuralItem::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > &IfcStructuralMember::getReferencesElement() {
+Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getReferencesElement() {
     if (Step::BaseObject::inited()) {
         return m_referencesElement;
     }
@@ -81,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > &IfcStructuralMembe
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > &IfcStructuralMember::getConnectedBy() {
+const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getReferencesElement() const {
+    IfcStructuralMember * deConstObject = const_cast< IfcStructuralMember * > (this);
+    return deConstObject->getReferencesElement();
+}
+
+Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() {
     if (Step::BaseObject::inited()) {
         return m_connectedBy;
     }
@@ -91,8 +94,9 @@ Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > &IfcStructuralMember
     }
 }
 
-void IfcStructuralMember::release() {
-    IfcStructuralItem::release();
+const Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() const {
+    IfcStructuralMember * deConstObject = const_cast< IfcStructuralMember * > (this);
+    return deConstObject->getConnectedBy();
 }
 
 bool IfcStructuralMember::init() {

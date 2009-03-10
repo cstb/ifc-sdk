@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,10 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include "ifc2x3/IfcAddress.h"
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
@@ -45,90 +45,151 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPostalAddress : public IfcAddress {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'InternalLocation'.
+         * 
          */
-        IfcLabel getInternalLocation();
+        virtual IfcLabel getInternalLocation();
+        /**
+         * (const) Returns the value of the explicit attribute 'InternalLocation'.
+         * 
+         * @return the value of the explicit attribute 'InternalLocation'
+         */
+        virtual const IfcLabel getInternalLocation() const;
         /**
          * Sets the value of the explicit attribute 'InternalLocation'.
          * 
          * @param value
          */
-        void setInternalLocation(const IfcLabel &value);
+        virtual void setInternalLocation(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'AddressLines'.
+         * 
          */
-        Step::List< IfcLabel > &getAddressLines();
+        virtual List_IfcLabel_1_n &getAddressLines();
+        /**
+         * (const) Returns the value of the explicit attribute 'AddressLines'.
+         * 
+         * @return the value of the explicit attribute 'AddressLines'
+         */
+        virtual const List_IfcLabel_1_n &getAddressLines() const;
         /**
          * Sets the value of the explicit attribute 'AddressLines'.
          * 
          * @param value
          */
-        void setAddressLines(const Step::List< IfcLabel > &value);
+        virtual void setAddressLines(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'PostalBox'.
+         * 
          */
-        IfcLabel getPostalBox();
+        virtual IfcLabel getPostalBox();
+        /**
+         * (const) Returns the value of the explicit attribute 'PostalBox'.
+         * 
+         * @return the value of the explicit attribute 'PostalBox'
+         */
+        virtual const IfcLabel getPostalBox() const;
         /**
          * Sets the value of the explicit attribute 'PostalBox'.
          * 
          * @param value
          */
-        void setPostalBox(const IfcLabel &value);
+        virtual void setPostalBox(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Town'.
+         * 
          */
-        IfcLabel getTown();
+        virtual IfcLabel getTown();
+        /**
+         * (const) Returns the value of the explicit attribute 'Town'.
+         * 
+         * @return the value of the explicit attribute 'Town'
+         */
+        virtual const IfcLabel getTown() const;
         /**
          * Sets the value of the explicit attribute 'Town'.
          * 
          * @param value
          */
-        void setTown(const IfcLabel &value);
+        virtual void setTown(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Region'.
+         * 
          */
-        IfcLabel getRegion();
+        virtual IfcLabel getRegion();
+        /**
+         * (const) Returns the value of the explicit attribute 'Region'.
+         * 
+         * @return the value of the explicit attribute 'Region'
+         */
+        virtual const IfcLabel getRegion() const;
         /**
          * Sets the value of the explicit attribute 'Region'.
          * 
          * @param value
          */
-        void setRegion(const IfcLabel &value);
+        virtual void setRegion(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'PostalCode'.
+         * 
          */
-        IfcLabel getPostalCode();
+        virtual IfcLabel getPostalCode();
+        /**
+         * (const) Returns the value of the explicit attribute 'PostalCode'.
+         * 
+         * @return the value of the explicit attribute 'PostalCode'
+         */
+        virtual const IfcLabel getPostalCode() const;
         /**
          * Sets the value of the explicit attribute 'PostalCode'.
          * 
          * @param value
          */
-        void setPostalCode(const IfcLabel &value);
+        virtual void setPostalCode(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Country'.
+         * 
          */
-        IfcLabel getCountry();
+        virtual IfcLabel getCountry();
+        /**
+         * (const) Returns the value of the explicit attribute 'Country'.
+         * 
+         * @return the value of the explicit attribute 'Country'
+         */
+        virtual const IfcLabel getCountry() const;
         /**
          * Sets the value of the explicit attribute 'Country'.
          * 
          * @param value
          */
-        void setCountry(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setCountry(const IfcLabel &value);
         friend class ExpressDataSet;
 
     protected:
@@ -153,25 +214,25 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_internalLocation;
+        Step::String m_internalLocation;
         /**
          */
-        Step::List< IfcLabel > m_addressLines;
+        List_IfcLabel_1_n m_addressLines;
         /**
          */
-        std::string m_postalBox;
+        Step::String m_postalBox;
         /**
          */
-        std::string m_town;
+        Step::String m_town;
         /**
          */
-        std::string m_region;
+        Step::String m_region;
         /**
          */
-        std::string m_postalCode;
+        Step::String m_postalCode;
         /**
          */
-        std::string m_country;
+        Step::String m_country;
 
     };
 

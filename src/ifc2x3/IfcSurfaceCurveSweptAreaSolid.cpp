@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcSurfaceCurveSweptAreaSolid::IfcSurfaceCurveSweptAreaSolid(Step::Id id, Step::
 IfcSurfaceCurveSweptAreaSolid::~IfcSurfaceCurveSweptAreaSolid() {
 }
 
-bool IfcSurfaceCurveSweptAreaSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceCurveSweptAreaSolid(this);
+bool IfcSurfaceCurveSweptAreaSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceCurveSweptAreaSolid(this);
 }
 
-const std::string &IfcSurfaceCurveSweptAreaSolid::type() {
+const std::string &IfcSurfaceCurveSweptAreaSolid::type() const {
     return IfcSurfaceCurveSweptAreaSolid::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceCurveSweptAreaSolid::getClassType() {
+const Step::ClassType &IfcSurfaceCurveSweptAreaSolid::getClassType() {
     return IfcSurfaceCurveSweptAreaSolid::s_type;
 }
 
-Step::ClassType IfcSurfaceCurveSweptAreaSolid::getType() const {
+const Step::ClassType &IfcSurfaceCurveSweptAreaSolid::getType() const {
     return IfcSurfaceCurveSweptAreaSolid::s_type;
 }
 
-bool IfcSurfaceCurveSweptAreaSolid::isOfType(Step::ClassType t) {
+bool IfcSurfaceCurveSweptAreaSolid::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceCurveSweptAreaSolid::s_type == t ? true : IfcSweptAreaSolid::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcCurve *IfcSurfaceCurveSweptAreaSolid::getDirectrix() {
     else {
         return NULL;
     }
+}
+
+const IfcCurve *IfcSurfaceCurveSweptAreaSolid::getDirectrix() const {
+    IfcSurfaceCurveSweptAreaSolid * deConstObject = const_cast< IfcSurfaceCurveSweptAreaSolid * > (this);
+    return deConstObject->getDirectrix();
 }
 
 void IfcSurfaceCurveSweptAreaSolid::setDirectrix(const Step::RefPtr< IfcCurve > &value) {
@@ -96,6 +101,11 @@ IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getStartParam() {
     }
 }
 
+const IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getStartParam() const {
+    IfcSurfaceCurveSweptAreaSolid * deConstObject = const_cast< IfcSurfaceCurveSweptAreaSolid * > (this);
+    return deConstObject->getStartParam();
+}
+
 void IfcSurfaceCurveSweptAreaSolid::setStartParam(IfcParameterValue value) {
     m_startParam = value;
 }
@@ -107,6 +117,11 @@ IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getEndParam() {
     else {
         return Step::getUnset(m_endParam);
     }
+}
+
+const IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getEndParam() const {
+    IfcSurfaceCurveSweptAreaSolid * deConstObject = const_cast< IfcSurfaceCurveSweptAreaSolid * > (this);
+    return deConstObject->getEndParam();
 }
 
 void IfcSurfaceCurveSweptAreaSolid::setEndParam(IfcParameterValue value) {
@@ -122,14 +137,13 @@ IfcSurface *IfcSurfaceCurveSweptAreaSolid::getReferenceSurface() {
     }
 }
 
-void IfcSurfaceCurveSweptAreaSolid::setReferenceSurface(const Step::RefPtr< IfcSurface > &value) {
-    m_referenceSurface = value;
+const IfcSurface *IfcSurfaceCurveSweptAreaSolid::getReferenceSurface() const {
+    IfcSurfaceCurveSweptAreaSolid * deConstObject = const_cast< IfcSurfaceCurveSweptAreaSolid * > (this);
+    return deConstObject->getReferenceSurface();
 }
 
-void IfcSurfaceCurveSweptAreaSolid::release() {
-    IfcSweptAreaSolid::release();
-    m_directrix.release();
-    m_referenceSurface.release();
+void IfcSurfaceCurveSweptAreaSolid::setReferenceSurface(const Step::RefPtr< IfcSurface > &value) {
+    m_referenceSurface = value;
 }
 
 bool IfcSurfaceCurveSweptAreaSolid::init() {
@@ -143,7 +157,7 @@ bool IfcSurfaceCurveSweptAreaSolid::init() {
         m_directrix = NULL;
     }
     else {
-        m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -164,17 +178,17 @@ bool IfcSurfaceCurveSweptAreaSolid::init() {
         m_referenceSurface = NULL;
     }
     else {
-        m_referenceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_referenceSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSurfaceCurveSweptAreaSolid::copy(const IfcSurfaceCurveSweptAreaSolid &obj, const CopyOp &copyop) {
     IfcSweptAreaSolid::copy(obj, copyop);
-    setDirectrix(copyop(obj.m_directrix.get()));
+    setDirectrix((IfcCurve*)copyop(obj.m_directrix.get()));
     setStartParam(obj.m_startParam);
     setEndParam(obj.m_endParam);
-    setReferenceSurface(copyop(obj.m_referenceSurface.get()));
+    setReferenceSurface((IfcSurface*)copyop(obj.m_referenceSurface.get()));
     return;
 }
 

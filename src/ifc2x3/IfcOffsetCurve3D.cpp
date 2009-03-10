@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcOffsetCurve3D::IfcOffsetCurve3D(Step::Id id, Step::SPFData *args) : IfcCurve(
 IfcOffsetCurve3D::~IfcOffsetCurve3D() {
 }
 
-bool IfcOffsetCurve3D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOffsetCurve3D(this);
+bool IfcOffsetCurve3D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOffsetCurve3D(this);
 }
 
-const std::string &IfcOffsetCurve3D::type() {
+const std::string &IfcOffsetCurve3D::type() const {
     return IfcOffsetCurve3D::s_type.getName();
 }
 
-Step::ClassType IfcOffsetCurve3D::getClassType() {
+const Step::ClassType &IfcOffsetCurve3D::getClassType() {
     return IfcOffsetCurve3D::s_type;
 }
 
-Step::ClassType IfcOffsetCurve3D::getType() const {
+const Step::ClassType &IfcOffsetCurve3D::getType() const {
     return IfcOffsetCurve3D::s_type;
 }
 
-bool IfcOffsetCurve3D::isOfType(Step::ClassType t) {
+bool IfcOffsetCurve3D::isOfType(const Step::ClassType &t) const {
     return IfcOffsetCurve3D::s_type == t ? true : IfcCurve::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcCurve *IfcOffsetCurve3D::getBasisCurve() {
     else {
         return NULL;
     }
+}
+
+const IfcCurve *IfcOffsetCurve3D::getBasisCurve() const {
+    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
+    return deConstObject->getBasisCurve();
 }
 
 void IfcOffsetCurve3D::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
@@ -95,6 +100,11 @@ IfcLengthMeasure IfcOffsetCurve3D::getDistance() {
     }
 }
 
+const IfcLengthMeasure IfcOffsetCurve3D::getDistance() const {
+    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
+    return deConstObject->getDistance();
+}
+
 void IfcOffsetCurve3D::setDistance(IfcLengthMeasure value) {
     m_distance = value;
 }
@@ -106,6 +116,11 @@ Step::Logical IfcOffsetCurve3D::getSelfIntersect() {
     else {
         return Step::getUnset(m_selfIntersect);
     }
+}
+
+const Step::Logical IfcOffsetCurve3D::getSelfIntersect() const {
+    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
+    return deConstObject->getSelfIntersect();
 }
 
 void IfcOffsetCurve3D::setSelfIntersect(Step::Logical value) {
@@ -121,14 +136,13 @@ IfcDirection *IfcOffsetCurve3D::getRefDirection() {
     }
 }
 
-void IfcOffsetCurve3D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
-    m_refDirection = value;
+const IfcDirection *IfcOffsetCurve3D::getRefDirection() const {
+    IfcOffsetCurve3D * deConstObject = const_cast< IfcOffsetCurve3D * > (this);
+    return deConstObject->getRefDirection();
 }
 
-void IfcOffsetCurve3D::release() {
-    IfcCurve::release();
-    m_basisCurve.release();
-    m_refDirection.release();
+void IfcOffsetCurve3D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
+    m_refDirection = value;
 }
 
 bool IfcOffsetCurve3D::init() {
@@ -142,7 +156,7 @@ bool IfcOffsetCurve3D::init() {
         m_basisCurve = NULL;
     }
     else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -163,17 +177,17 @@ bool IfcOffsetCurve3D::init() {
         m_refDirection = NULL;
     }
     else {
-        m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcOffsetCurve3D::copy(const IfcOffsetCurve3D &obj, const CopyOp &copyop) {
     IfcCurve::copy(obj, copyop);
-    setBasisCurve(copyop(obj.m_basisCurve.get()));
+    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
     setDistance(obj.m_distance);
     setSelfIntersect(obj.m_selfIntersect);
-    setRefDirection(copyop(obj.m_refDirection.get()));
+    setRefDirection((IfcDirection*)copyop(obj.m_refDirection.get()));
     return;
 }
 

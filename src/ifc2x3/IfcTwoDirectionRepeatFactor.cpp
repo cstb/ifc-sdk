@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcTwoDirectionRepeatFactor::IfcTwoDirectionRepeatFactor(Step::Id id, Step::SPFD
 IfcTwoDirectionRepeatFactor::~IfcTwoDirectionRepeatFactor() {
 }
 
-bool IfcTwoDirectionRepeatFactor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTwoDirectionRepeatFactor(this);
+bool IfcTwoDirectionRepeatFactor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTwoDirectionRepeatFactor(this);
 }
 
-const std::string &IfcTwoDirectionRepeatFactor::type() {
+const std::string &IfcTwoDirectionRepeatFactor::type() const {
     return IfcTwoDirectionRepeatFactor::s_type.getName();
 }
 
-Step::ClassType IfcTwoDirectionRepeatFactor::getClassType() {
+const Step::ClassType &IfcTwoDirectionRepeatFactor::getClassType() {
     return IfcTwoDirectionRepeatFactor::s_type;
 }
 
-Step::ClassType IfcTwoDirectionRepeatFactor::getType() const {
+const Step::ClassType &IfcTwoDirectionRepeatFactor::getType() const {
     return IfcTwoDirectionRepeatFactor::s_type;
 }
 
-bool IfcTwoDirectionRepeatFactor::isOfType(Step::ClassType t) {
+bool IfcTwoDirectionRepeatFactor::isOfType(const Step::ClassType &t) const {
     return IfcTwoDirectionRepeatFactor::s_type == t ? true : IfcOneDirectionRepeatFactor::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcVector *IfcTwoDirectionRepeatFactor::getSecondRepeatFactor() {
     }
 }
 
-void IfcTwoDirectionRepeatFactor::setSecondRepeatFactor(const Step::RefPtr< IfcVector > &value) {
-    m_secondRepeatFactor = value;
+const IfcVector *IfcTwoDirectionRepeatFactor::getSecondRepeatFactor() const {
+    IfcTwoDirectionRepeatFactor * deConstObject = const_cast< IfcTwoDirectionRepeatFactor * > (this);
+    return deConstObject->getSecondRepeatFactor();
 }
 
-void IfcTwoDirectionRepeatFactor::release() {
-    IfcOneDirectionRepeatFactor::release();
-    m_secondRepeatFactor.release();
+void IfcTwoDirectionRepeatFactor::setSecondRepeatFactor(const Step::RefPtr< IfcVector > &value) {
+    m_secondRepeatFactor = value;
 }
 
 bool IfcTwoDirectionRepeatFactor::init() {
@@ -99,14 +99,14 @@ bool IfcTwoDirectionRepeatFactor::init() {
         m_secondRepeatFactor = NULL;
     }
     else {
-        m_secondRepeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_secondRepeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcTwoDirectionRepeatFactor::copy(const IfcTwoDirectionRepeatFactor &obj, const CopyOp &copyop) {
     IfcOneDirectionRepeatFactor::copy(obj, copyop);
-    setSecondRepeatFactor(copyop(obj.m_secondRepeatFactor.get()));
+    setSecondRepeatFactor((IfcVector*)copyop(obj.m_secondRepeatFactor.get()));
     return;
 }
 

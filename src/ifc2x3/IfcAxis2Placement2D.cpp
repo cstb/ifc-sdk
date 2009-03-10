@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcAxis2Placement2D::IfcAxis2Placement2D(Step::Id id, Step::SPFData *args) : Ifc
 IfcAxis2Placement2D::~IfcAxis2Placement2D() {
 }
 
-bool IfcAxis2Placement2D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAxis2Placement2D(this);
+bool IfcAxis2Placement2D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAxis2Placement2D(this);
 }
 
-const std::string &IfcAxis2Placement2D::type() {
+const std::string &IfcAxis2Placement2D::type() const {
     return IfcAxis2Placement2D::s_type.getName();
 }
 
-Step::ClassType IfcAxis2Placement2D::getClassType() {
+const Step::ClassType &IfcAxis2Placement2D::getClassType() {
     return IfcAxis2Placement2D::s_type;
 }
 
-Step::ClassType IfcAxis2Placement2D::getType() const {
+const Step::ClassType &IfcAxis2Placement2D::getType() const {
     return IfcAxis2Placement2D::s_type;
 }
 
-bool IfcAxis2Placement2D::isOfType(Step::ClassType t) {
+bool IfcAxis2Placement2D::isOfType(const Step::ClassType &t) const {
     return IfcAxis2Placement2D::s_type == t ? true : IfcPlacement::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcDirection *IfcAxis2Placement2D::getRefDirection() {
     }
 }
 
-void IfcAxis2Placement2D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
-    m_refDirection = value;
+const IfcDirection *IfcAxis2Placement2D::getRefDirection() const {
+    IfcAxis2Placement2D * deConstObject = const_cast< IfcAxis2Placement2D * > (this);
+    return deConstObject->getRefDirection();
 }
 
-void IfcAxis2Placement2D::release() {
-    IfcPlacement::release();
-    m_refDirection.release();
+void IfcAxis2Placement2D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
+    m_refDirection = value;
 }
 
 bool IfcAxis2Placement2D::init() {
@@ -99,14 +99,14 @@ bool IfcAxis2Placement2D::init() {
         m_refDirection = NULL;
     }
     else {
-        m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_refDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcAxis2Placement2D::copy(const IfcAxis2Placement2D &obj, const CopyOp &copyop) {
     IfcPlacement::copy(obj, copyop);
-    setRefDirection(copyop(obj.m_refDirection.get()));
+    setRefDirection((IfcDirection*)copyop(obj.m_refDirection.get()));
     return;
 }
 

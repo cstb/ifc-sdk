@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -54,60 +54,60 @@ IfcMetricValueSelect::~IfcMetricValueSelect() {
     deleteUnion();
 }
 
-bool IfcMetricValueSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMetricValueSelect(this);
+bool IfcMetricValueSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMetricValueSelect(this);
 }
 
 bool IfcMetricValueSelect::init() {
     return false;
 }
 
-const std::string &IfcMetricValueSelect::type() {
+const std::string &IfcMetricValueSelect::type() const {
     return IfcMetricValueSelect::s_type.getName();
 }
 
-Step::ClassType IfcMetricValueSelect::getClassType() {
+const Step::ClassType &IfcMetricValueSelect::getClassType() {
     return IfcMetricValueSelect::s_type;
 }
 
-Step::ClassType IfcMetricValueSelect::getType() const {
+const Step::ClassType &IfcMetricValueSelect::getType() const {
     return IfcMetricValueSelect::s_type;
 }
 
-bool IfcMetricValueSelect::isOfType(Step::ClassType t) {
+bool IfcMetricValueSelect::isOfType(const Step::ClassType &t) const {
     return IfcMetricValueSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcMetricValueSelect::copy(const IfcMetricValueSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCALENDARDATE:
-        setIfcCalendarDate(copyop(obj.m_IfcMetricValueSelect_union.m_IfcCalendarDate));
+        setIfcCalendarDate((IfcCalendarDate *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcCalendarDate)));
         break;
     case IFCLOCALTIME:
-        setIfcLocalTime(copyop(obj.m_IfcMetricValueSelect_union.m_IfcLocalTime));
+        setIfcLocalTime((IfcLocalTime *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcLocalTime)));
         break;
     case IFCDATEANDTIME:
-        setIfcDateAndTime(copyop(obj.m_IfcMetricValueSelect_union.m_IfcDateAndTime));
+        setIfcDateAndTime((IfcDateAndTime *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcDateAndTime)));
         break;
     case IFCMEASUREWITHUNIT:
-        setIfcMeasureWithUnit(copyop(obj.m_IfcMetricValueSelect_union.m_IfcMeasureWithUnit));
+        setIfcMeasureWithUnit((IfcMeasureWithUnit *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcMeasureWithUnit)));
         break;
     case IFCTABLE:
-        setIfcTable(copyop(obj.m_IfcMetricValueSelect_union.m_IfcTable));
+        setIfcTable((IfcTable *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcTable)));
         break;
     case IFCTEXT:
         setIfcText(*obj.m_IfcMetricValueSelect_union.m_IfcText);
         break;
     case IFCTIMESERIES:
-        setIfcTimeSeries(copyop(obj.m_IfcMetricValueSelect_union.m_IfcTimeSeries));
+        setIfcTimeSeries((IfcTimeSeries *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcTimeSeries)));
         break;
     case IFCCOSTVALUE:
-        setIfcCostValue(copyop(obj.m_IfcMetricValueSelect_union.m_IfcCostValue));
+        setIfcCostValue((IfcCostValue *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcCostValue)));
         break;
         }
 }
 
-char *IfcMetricValueSelect::currentTypeName() {
+std::string IfcMetricValueSelect::currentTypeName() const {
     switch(m_type) {
     case IFCCALENDARDATE:
         return "IfcCalendarDate";
@@ -138,7 +138,7 @@ char *IfcMetricValueSelect::currentTypeName() {
     }
 }
 
-IfcMetricValueSelect::IfcMetricValueSelect_select IfcMetricValueSelect::currentType() {
+IfcMetricValueSelect::IfcMetricValueSelect_select IfcMetricValueSelect::currentType() const {
     return m_type;
 }
 
@@ -172,12 +172,16 @@ void IfcMetricValueSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcCalendarDate *IfcMetricValueSelect::getIfcCalendarDate() {
-    return m_IfcMetricValueSelect_union.m_IfcCalendarDate;
+IfcCalendarDate *IfcMetricValueSelect::getIfcCalendarDate() const {
+    if (m_type == IFCCALENDARDATE) {
+        return m_IfcMetricValueSelect_union.m_IfcCalendarDate;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcCalendarDate(IfcCalendarDate *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -192,12 +196,16 @@ void IfcMetricValueSelect::setIfcCalendarDate(IfcCalendarDate *value) {
     m_type = IFCCALENDARDATE;
 }
 
-IfcLocalTime *IfcMetricValueSelect::getIfcLocalTime() {
-    return m_IfcMetricValueSelect_union.m_IfcLocalTime;
+IfcLocalTime *IfcMetricValueSelect::getIfcLocalTime() const {
+    if (m_type == IFCLOCALTIME) {
+        return m_IfcMetricValueSelect_union.m_IfcLocalTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcLocalTime(IfcLocalTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -212,12 +220,16 @@ void IfcMetricValueSelect::setIfcLocalTime(IfcLocalTime *value) {
     m_type = IFCLOCALTIME;
 }
 
-IfcDateAndTime *IfcMetricValueSelect::getIfcDateAndTime() {
-    return m_IfcMetricValueSelect_union.m_IfcDateAndTime;
+IfcDateAndTime *IfcMetricValueSelect::getIfcDateAndTime() const {
+    if (m_type == IFCDATEANDTIME) {
+        return m_IfcMetricValueSelect_union.m_IfcDateAndTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcDateAndTime(IfcDateAndTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -232,12 +244,16 @@ void IfcMetricValueSelect::setIfcDateAndTime(IfcDateAndTime *value) {
     m_type = IFCDATEANDTIME;
 }
 
-IfcMeasureWithUnit *IfcMetricValueSelect::getIfcMeasureWithUnit() {
-    return m_IfcMetricValueSelect_union.m_IfcMeasureWithUnit;
+IfcMeasureWithUnit *IfcMetricValueSelect::getIfcMeasureWithUnit() const {
+    if (m_type == IFCMEASUREWITHUNIT) {
+        return m_IfcMetricValueSelect_union.m_IfcMeasureWithUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -252,12 +268,16 @@ void IfcMetricValueSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
     m_type = IFCMEASUREWITHUNIT;
 }
 
-IfcTable *IfcMetricValueSelect::getIfcTable() {
-    return m_IfcMetricValueSelect_union.m_IfcTable;
+IfcTable *IfcMetricValueSelect::getIfcTable() const {
+    if (m_type == IFCTABLE) {
+        return m_IfcMetricValueSelect_union.m_IfcTable;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcTable(IfcTable *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -272,22 +292,30 @@ void IfcMetricValueSelect::setIfcTable(IfcTable *value) {
     m_type = IFCTABLE;
 }
 
-IfcText IfcMetricValueSelect::getIfcText() {
-    return *m_IfcMetricValueSelect_union.m_IfcText;
+IfcText IfcMetricValueSelect::getIfcText() const {
+    if (m_type == IFCTEXT) {
+        return *m_IfcMetricValueSelect_union.m_IfcText;
+    }
+    else {
+        return Step::getUnset(*m_IfcMetricValueSelect_union.m_IfcText);
+    }
 }
 
 void IfcMetricValueSelect::setIfcText(const IfcText &value) {
-    deleteUnion();
     m_IfcMetricValueSelect_union.m_IfcText = new IfcText(value);
     m_type = IFCTEXT;
 }
 
-IfcTimeSeries *IfcMetricValueSelect::getIfcTimeSeries() {
-    return m_IfcMetricValueSelect_union.m_IfcTimeSeries;
+IfcTimeSeries *IfcMetricValueSelect::getIfcTimeSeries() const {
+    if (m_type == IFCTIMESERIES) {
+        return m_IfcMetricValueSelect_union.m_IfcTimeSeries;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcTimeSeries(IfcTimeSeries *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -302,12 +330,16 @@ void IfcMetricValueSelect::setIfcTimeSeries(IfcTimeSeries *value) {
     m_type = IFCTIMESERIES;
 }
 
-IfcCostValue *IfcMetricValueSelect::getIfcCostValue() {
-    return m_IfcMetricValueSelect_union.m_IfcCostValue;
+IfcCostValue *IfcMetricValueSelect::getIfcCostValue() const {
+    if (m_type == IFCCOSTVALUE) {
+        return m_IfcMetricValueSelect_union.m_IfcCostValue;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMetricValueSelect::setIfcCostValue(IfcCostValue *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

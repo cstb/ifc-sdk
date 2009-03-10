@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,23 +26,42 @@
 
 #include "ifc2x3/IfcComplexProperty.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcProperty.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type() {
+}
+
+void Inverted_IfcComplexProperty_HasProperties_type::setOwner(IfcComplexProperty *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcComplexProperty_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value) throw(std::out_of_range) {
+    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
+    Set_IfcProperty_1_n::insert(value);
+    inverse->m_partOfComplex.insert(mOwner);
+}
+
+Inverted_IfcComplexProperty_HasProperties_type::size_type Inverted_IfcComplexProperty_HasProperties_type::erase(const Step::RefPtr< IfcProperty > &value) {
+    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
+    inverse->m_partOfComplex.erase(mOwner);
+    return Set_IfcProperty_1_n::erase(value);
+}
 
 IfcComplexProperty::IfcComplexProperty(Step::Id id, Step::SPFData *args) : IfcProperty(id, args) {
     m_usageName = Step::getUnset(m_usageName);
@@ -53,23 +72,23 @@ IfcComplexProperty::IfcComplexProperty(Step::Id id, Step::SPFData *args) : IfcPr
 IfcComplexProperty::~IfcComplexProperty() {
 }
 
-bool IfcComplexProperty::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcComplexProperty(this);
+bool IfcComplexProperty::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcComplexProperty(this);
 }
 
-const std::string &IfcComplexProperty::type() {
+const std::string &IfcComplexProperty::type() const {
     return IfcComplexProperty::s_type.getName();
 }
 
-Step::ClassType IfcComplexProperty::getClassType() {
+const Step::ClassType &IfcComplexProperty::getClassType() {
     return IfcComplexProperty::s_type;
 }
 
-Step::ClassType IfcComplexProperty::getType() const {
+const Step::ClassType &IfcComplexProperty::getType() const {
     return IfcComplexProperty::s_type;
 }
 
-bool IfcComplexProperty::isOfType(Step::ClassType t) {
+bool IfcComplexProperty::isOfType(const Step::ClassType &t) const {
     return IfcComplexProperty::s_type == t ? true : IfcProperty::isOfType(t);
 }
 
@@ -82,11 +101,16 @@ IfcIdentifier IfcComplexProperty::getUsageName() {
     }
 }
 
+const IfcIdentifier IfcComplexProperty::getUsageName() const {
+    IfcComplexProperty * deConstObject = const_cast< IfcComplexProperty * > (this);
+    return deConstObject->getUsageName();
+}
+
 void IfcComplexProperty::setUsageName(const IfcIdentifier &value) {
     m_usageName = value;
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcComplexProperty::getHasProperties() {
+Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() {
     if (Step::BaseObject::inited()) {
         return m_hasProperties;
     }
@@ -96,9 +120,9 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcComplexProperty::getHasProperties()
     }
 }
 
-void IfcComplexProperty::release() {
-    IfcProperty::release();
-    m_hasProperties.clear();
+const Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() const {
+    IfcComplexProperty * deConstObject = const_cast< IfcComplexProperty * > (this);
+    return deConstObject->getHasProperties();
 }
 
 bool IfcComplexProperty::init() {
@@ -112,7 +136,7 @@ bool IfcComplexProperty::init() {
         m_usageName = Step::getUnset(m_usageName);
     }
     else {
-        m_usageName = Step::spfToString(arg);
+        m_usageName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -125,7 +149,7 @@ bool IfcComplexProperty::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_hasProperties.insert(attr2);
             }
             else {
@@ -137,27 +161,14 @@ bool IfcComplexProperty::init() {
 }
 
 void IfcComplexProperty::copy(const IfcComplexProperty &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_hasProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_hasProperties;
     IfcProperty::copy(obj, copyop);
     setUsageName(obj.m_usageName);
     for (it_m_hasProperties = obj.m_hasProperties.begin(); it_m_hasProperties != obj.m_hasProperties.end(); ++it_m_hasProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_hasProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_hasProperties).get()));
         m_hasProperties.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcComplexProperty::s_type("IfcComplexProperty");
-IfcComplexProperty::Inverted_HasProperties_type::Inverted_HasProperties_type() {
-}
-
-void IfcComplexProperty::Inverted_HasProperties_type::setOwner(IfcComplexProperty *owner) {
-    mOwner = owner;
-}
-
-void IfcComplexProperty::Inverted_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value) {
-    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
-    Step::Set< Step::RefPtr< IfcProperty > >::insert(value);
-    inverse->m_partOfComplex.insert(mOwner);
-}
-

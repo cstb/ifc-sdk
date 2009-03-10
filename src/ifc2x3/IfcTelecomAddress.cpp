@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,6 +32,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -51,27 +52,27 @@ IfcTelecomAddress::IfcTelecomAddress(Step::Id id, Step::SPFData *args) : IfcAddr
 IfcTelecomAddress::~IfcTelecomAddress() {
 }
 
-bool IfcTelecomAddress::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTelecomAddress(this);
+bool IfcTelecomAddress::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTelecomAddress(this);
 }
 
-const std::string &IfcTelecomAddress::type() {
+const std::string &IfcTelecomAddress::type() const {
     return IfcTelecomAddress::s_type.getName();
 }
 
-Step::ClassType IfcTelecomAddress::getClassType() {
+const Step::ClassType &IfcTelecomAddress::getClassType() {
     return IfcTelecomAddress::s_type;
 }
 
-Step::ClassType IfcTelecomAddress::getType() const {
+const Step::ClassType &IfcTelecomAddress::getType() const {
     return IfcTelecomAddress::s_type;
 }
 
-bool IfcTelecomAddress::isOfType(Step::ClassType t) {
+bool IfcTelecomAddress::isOfType(const Step::ClassType &t) const {
     return IfcTelecomAddress::s_type == t ? true : IfcAddress::isOfType(t);
 }
 
-Step::List< IfcLabel > &IfcTelecomAddress::getTelephoneNumbers() {
+List_IfcLabel_1_n &IfcTelecomAddress::getTelephoneNumbers() {
     if (Step::BaseObject::inited()) {
         return m_telephoneNumbers;
     }
@@ -81,11 +82,16 @@ Step::List< IfcLabel > &IfcTelecomAddress::getTelephoneNumbers() {
     }
 }
 
-void IfcTelecomAddress::setTelephoneNumbers(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcTelecomAddress::getTelephoneNumbers() const {
+    IfcTelecomAddress * deConstObject = const_cast< IfcTelecomAddress * > (this);
+    return deConstObject->getTelephoneNumbers();
+}
+
+void IfcTelecomAddress::setTelephoneNumbers(const List_IfcLabel_1_n &value) {
     m_telephoneNumbers = value;
 }
 
-Step::List< IfcLabel > &IfcTelecomAddress::getFacsimileNumbers() {
+List_IfcLabel_1_n &IfcTelecomAddress::getFacsimileNumbers() {
     if (Step::BaseObject::inited()) {
         return m_facsimileNumbers;
     }
@@ -95,7 +101,12 @@ Step::List< IfcLabel > &IfcTelecomAddress::getFacsimileNumbers() {
     }
 }
 
-void IfcTelecomAddress::setFacsimileNumbers(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcTelecomAddress::getFacsimileNumbers() const {
+    IfcTelecomAddress * deConstObject = const_cast< IfcTelecomAddress * > (this);
+    return deConstObject->getFacsimileNumbers();
+}
+
+void IfcTelecomAddress::setFacsimileNumbers(const List_IfcLabel_1_n &value) {
     m_facsimileNumbers = value;
 }
 
@@ -108,11 +119,16 @@ IfcLabel IfcTelecomAddress::getPagerNumber() {
     }
 }
 
+const IfcLabel IfcTelecomAddress::getPagerNumber() const {
+    IfcTelecomAddress * deConstObject = const_cast< IfcTelecomAddress * > (this);
+    return deConstObject->getPagerNumber();
+}
+
 void IfcTelecomAddress::setPagerNumber(const IfcLabel &value) {
     m_pagerNumber = value;
 }
 
-Step::List< IfcLabel > &IfcTelecomAddress::getElectronicMailAddresses() {
+List_IfcLabel_1_n &IfcTelecomAddress::getElectronicMailAddresses() {
     if (Step::BaseObject::inited()) {
         return m_electronicMailAddresses;
     }
@@ -122,7 +138,12 @@ Step::List< IfcLabel > &IfcTelecomAddress::getElectronicMailAddresses() {
     }
 }
 
-void IfcTelecomAddress::setElectronicMailAddresses(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcTelecomAddress::getElectronicMailAddresses() const {
+    IfcTelecomAddress * deConstObject = const_cast< IfcTelecomAddress * > (this);
+    return deConstObject->getElectronicMailAddresses();
+}
+
+void IfcTelecomAddress::setElectronicMailAddresses(const List_IfcLabel_1_n &value) {
     m_electronicMailAddresses = value;
 }
 
@@ -135,15 +156,13 @@ IfcLabel IfcTelecomAddress::getWWWHomePageURL() {
     }
 }
 
-void IfcTelecomAddress::setWWWHomePageURL(const IfcLabel &value) {
-    m_wWWHomePageURL = value;
+const IfcLabel IfcTelecomAddress::getWWWHomePageURL() const {
+    IfcTelecomAddress * deConstObject = const_cast< IfcTelecomAddress * > (this);
+    return deConstObject->getWWWHomePageURL();
 }
 
-void IfcTelecomAddress::release() {
-    IfcAddress::release();
-    m_telephoneNumbers.clear();
-    m_facsimileNumbers.clear();
-    m_electronicMailAddresses.clear();
+void IfcTelecomAddress::setWWWHomePageURL(const IfcLabel &value) {
+    m_wWWHomePageURL = value;
 }
 
 bool IfcTelecomAddress::init() {
@@ -163,7 +182,7 @@ bool IfcTelecomAddress::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_telephoneNumbers.push_back(attr2);
             }
             else {
@@ -182,7 +201,7 @@ bool IfcTelecomAddress::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_facsimileNumbers.push_back(attr2);
             }
             else {
@@ -195,7 +214,7 @@ bool IfcTelecomAddress::init() {
         m_pagerNumber = Step::getUnset(m_pagerNumber);
     }
     else {
-        m_pagerNumber = Step::spfToString(arg);
+        m_pagerNumber = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -208,7 +227,7 @@ bool IfcTelecomAddress::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_electronicMailAddresses.push_back(attr2);
             }
             else {
@@ -221,15 +240,15 @@ bool IfcTelecomAddress::init() {
         m_wWWHomePageURL = Step::getUnset(m_wWWHomePageURL);
     }
     else {
-        m_wWWHomePageURL = Step::spfToString(arg);
+        m_wWWHomePageURL = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcTelecomAddress::copy(const IfcTelecomAddress &obj, const CopyOp &copyop) {
-    Step::List< IfcLabel >::const_iterator it_m_telephoneNumbers;
-    Step::List< IfcLabel >::const_iterator it_m_facsimileNumbers;
-    Step::List< IfcLabel >::const_iterator it_m_electronicMailAddresses;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_telephoneNumbers;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_facsimileNumbers;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_electronicMailAddresses;
     IfcAddress::copy(obj, copyop);
     for (it_m_telephoneNumbers = obj.m_telephoneNumbers.begin(); it_m_telephoneNumbers != obj.m_telephoneNumbers.end(); ++it_m_telephoneNumbers) {
         IfcLabel copyTarget = (*it_m_telephoneNumbers);

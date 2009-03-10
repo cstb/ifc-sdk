@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcVertexPoint::IfcVertexPoint(Step::Id id, Step::SPFData *args) : IfcVertex(id,
 IfcVertexPoint::~IfcVertexPoint() {
 }
 
-bool IfcVertexPoint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVertexPoint(this);
+bool IfcVertexPoint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVertexPoint(this);
 }
 
-const std::string &IfcVertexPoint::type() {
+const std::string &IfcVertexPoint::type() const {
     return IfcVertexPoint::s_type.getName();
 }
 
-Step::ClassType IfcVertexPoint::getClassType() {
+const Step::ClassType &IfcVertexPoint::getClassType() {
     return IfcVertexPoint::s_type;
 }
 
-Step::ClassType IfcVertexPoint::getType() const {
+const Step::ClassType &IfcVertexPoint::getType() const {
     return IfcVertexPoint::s_type;
 }
 
-bool IfcVertexPoint::isOfType(Step::ClassType t) {
+bool IfcVertexPoint::isOfType(const Step::ClassType &t) const {
     return IfcVertexPoint::s_type == t ? true : IfcVertex::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcPoint *IfcVertexPoint::getVertexGeometry() {
     }
 }
 
-void IfcVertexPoint::setVertexGeometry(const Step::RefPtr< IfcPoint > &value) {
-    m_vertexGeometry = value;
+const IfcPoint *IfcVertexPoint::getVertexGeometry() const {
+    IfcVertexPoint * deConstObject = const_cast< IfcVertexPoint * > (this);
+    return deConstObject->getVertexGeometry();
 }
 
-void IfcVertexPoint::release() {
-    IfcVertex::release();
-    m_vertexGeometry.release();
+void IfcVertexPoint::setVertexGeometry(const Step::RefPtr< IfcPoint > &value) {
+    m_vertexGeometry = value;
 }
 
 bool IfcVertexPoint::init() {
@@ -99,14 +99,14 @@ bool IfcVertexPoint::init() {
         m_vertexGeometry = NULL;
     }
     else {
-        m_vertexGeometry = static_cast< IfcPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_vertexGeometry = static_cast< IfcPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcVertexPoint::copy(const IfcVertexPoint &obj, const CopyOp &copyop) {
     IfcVertex::copy(obj, copyop);
-    setVertexGeometry(copyop(obj.m_vertexGeometry.get()));
+    setVertexGeometry((IfcPoint*)copyop(obj.m_vertexGeometry.get()));
     return;
 }
 

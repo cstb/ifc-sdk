@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,33 +41,32 @@
 using namespace ifc2x3;
 
 IfcRationalBezierCurve::IfcRationalBezierCurve(Step::Id id, Step::SPFData *args) : IfcBezierCurve(id, args) {
-    m_weightsData.setUnset(true);
 }
 
 IfcRationalBezierCurve::~IfcRationalBezierCurve() {
 }
 
-bool IfcRationalBezierCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRationalBezierCurve(this);
+bool IfcRationalBezierCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRationalBezierCurve(this);
 }
 
-const std::string &IfcRationalBezierCurve::type() {
+const std::string &IfcRationalBezierCurve::type() const {
     return IfcRationalBezierCurve::s_type.getName();
 }
 
-Step::ClassType IfcRationalBezierCurve::getClassType() {
+const Step::ClassType &IfcRationalBezierCurve::getClassType() {
     return IfcRationalBezierCurve::s_type;
 }
 
-Step::ClassType IfcRationalBezierCurve::getType() const {
+const Step::ClassType &IfcRationalBezierCurve::getType() const {
     return IfcRationalBezierCurve::s_type;
 }
 
-bool IfcRationalBezierCurve::isOfType(Step::ClassType t) {
+bool IfcRationalBezierCurve::isOfType(const Step::ClassType &t) const {
     return IfcRationalBezierCurve::s_type == t ? true : IfcBezierCurve::isOfType(t);
 }
 
-Step::List< Step::Real > &IfcRationalBezierCurve::getWeightsData() {
+List_Real_2_n &IfcRationalBezierCurve::getWeightsData() {
     if (Step::BaseObject::inited()) {
         return m_weightsData;
     }
@@ -77,13 +76,13 @@ Step::List< Step::Real > &IfcRationalBezierCurve::getWeightsData() {
     }
 }
 
-void IfcRationalBezierCurve::setWeightsData(const Step::List< Step::Real > &value) {
-    m_weightsData = value;
+const List_Real_2_n &IfcRationalBezierCurve::getWeightsData() const {
+    IfcRationalBezierCurve * deConstObject = const_cast< IfcRationalBezierCurve * > (this);
+    return deConstObject->getWeightsData();
 }
 
-void IfcRationalBezierCurve::release() {
-    IfcBezierCurve::release();
-    m_weightsData.clear();
+void IfcRationalBezierCurve::setWeightsData(const List_Real_2_n &value) {
+    m_weightsData = value;
 }
 
 bool IfcRationalBezierCurve::init() {
@@ -115,7 +114,7 @@ bool IfcRationalBezierCurve::init() {
 }
 
 void IfcRationalBezierCurve::copy(const IfcRationalBezierCurve &obj, const CopyOp &copyop) {
-    Step::List< Step::Real >::const_iterator it_m_weightsData;
+    Step::List< Step::Real, 2 >::const_iterator it_m_weightsData;
     IfcBezierCurve::copy(obj, copyop);
     for (it_m_weightsData = obj.m_weightsData.begin(); it_m_weightsData != obj.m_weightsData.end(); ++it_m_weightsData) {
         Step::Real copyTarget = (*it_m_weightsData);

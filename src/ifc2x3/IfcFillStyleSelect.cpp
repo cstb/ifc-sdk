@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,51 +52,51 @@ IfcFillStyleSelect::~IfcFillStyleSelect() {
     deleteUnion();
 }
 
-bool IfcFillStyleSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillStyleSelect(this);
+bool IfcFillStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillStyleSelect(this);
 }
 
 bool IfcFillStyleSelect::init() {
     return false;
 }
 
-const std::string &IfcFillStyleSelect::type() {
+const std::string &IfcFillStyleSelect::type() const {
     return IfcFillStyleSelect::s_type.getName();
 }
 
-Step::ClassType IfcFillStyleSelect::getClassType() {
+const Step::ClassType &IfcFillStyleSelect::getClassType() {
     return IfcFillStyleSelect::s_type;
 }
 
-Step::ClassType IfcFillStyleSelect::getType() const {
+const Step::ClassType &IfcFillStyleSelect::getType() const {
     return IfcFillStyleSelect::s_type;
 }
 
-bool IfcFillStyleSelect::isOfType(Step::ClassType t) {
+bool IfcFillStyleSelect::isOfType(const Step::ClassType &t) const {
     return IfcFillStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcFillStyleSelect::copy(const IfcFillStyleSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCFILLAREASTYLEHATCHING:
-        setIfcFillAreaStyleHatching(copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching));
+        setIfcFillAreaStyleHatching((IfcFillAreaStyleHatching *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching)));
         break;
     case IFCFILLAREASTYLETILES:
-        setIfcFillAreaStyleTiles(copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles));
+        setIfcFillAreaStyleTiles((IfcFillAreaStyleTiles *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles)));
         break;
     case IFCCOLOURSPECIFICATION:
-        setIfcColourSpecification(copyop(obj.m_IfcFillStyleSelect_union.m_IfcColourSpecification));
+        setIfcColourSpecification((IfcColourSpecification *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcColourSpecification)));
         break;
     case IFCPREDEFINEDCOLOUR:
-        setIfcPreDefinedColour(copyop(obj.m_IfcFillStyleSelect_union.m_IfcPreDefinedColour));
+        setIfcPreDefinedColour((IfcPreDefinedColour *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcPreDefinedColour)));
         break;
     case IFCEXTERNALLYDEFINEDHATCHSTYLE:
-        setIfcExternallyDefinedHatchStyle(copyop(obj.m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle));
+        setIfcExternallyDefinedHatchStyle((IfcExternallyDefinedHatchStyle *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle)));
         break;
         }
 }
 
-char *IfcFillStyleSelect::currentTypeName() {
+std::string IfcFillStyleSelect::currentTypeName() const {
     switch(m_type) {
     case IFCFILLAREASTYLEHATCHING:
         return "IfcFillAreaStyleHatching";
@@ -118,7 +118,7 @@ char *IfcFillStyleSelect::currentTypeName() {
     }
 }
 
-IfcFillStyleSelect::IfcFillStyleSelect_select IfcFillStyleSelect::currentType() {
+IfcFillStyleSelect::IfcFillStyleSelect_select IfcFillStyleSelect::currentType() const {
     return m_type;
 }
 
@@ -143,12 +143,16 @@ void IfcFillStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcFillAreaStyleHatching *IfcFillStyleSelect::getIfcFillAreaStyleHatching() {
-    return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching;
+IfcFillAreaStyleHatching *IfcFillStyleSelect::getIfcFillAreaStyleHatching() const {
+    if (m_type == IFCFILLAREASTYLEHATCHING) {
+        return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleHatching;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillStyleSelect::setIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +167,16 @@ void IfcFillStyleSelect::setIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *v
     m_type = IFCFILLAREASTYLEHATCHING;
 }
 
-IfcFillAreaStyleTiles *IfcFillStyleSelect::getIfcFillAreaStyleTiles() {
-    return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles;
+IfcFillAreaStyleTiles *IfcFillStyleSelect::getIfcFillAreaStyleTiles() const {
+    if (m_type == IFCFILLAREASTYLETILES) {
+        return m_IfcFillStyleSelect_union.m_IfcFillAreaStyleTiles;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillStyleSelect::setIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -183,12 +191,16 @@ void IfcFillStyleSelect::setIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) 
     m_type = IFCFILLAREASTYLETILES;
 }
 
-IfcColourSpecification *IfcFillStyleSelect::getIfcColourSpecification() {
-    return m_IfcFillStyleSelect_union.m_IfcColourSpecification;
+IfcColourSpecification *IfcFillStyleSelect::getIfcColourSpecification() const {
+    if (m_type == IFCCOLOURSPECIFICATION) {
+        return m_IfcFillStyleSelect_union.m_IfcColourSpecification;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillStyleSelect::setIfcColourSpecification(IfcColourSpecification *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -203,12 +215,16 @@ void IfcFillStyleSelect::setIfcColourSpecification(IfcColourSpecification *value
     m_type = IFCCOLOURSPECIFICATION;
 }
 
-IfcPreDefinedColour *IfcFillStyleSelect::getIfcPreDefinedColour() {
-    return m_IfcFillStyleSelect_union.m_IfcPreDefinedColour;
+IfcPreDefinedColour *IfcFillStyleSelect::getIfcPreDefinedColour() const {
+    if (m_type == IFCPREDEFINEDCOLOUR) {
+        return m_IfcFillStyleSelect_union.m_IfcPreDefinedColour;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -223,12 +239,16 @@ void IfcFillStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
     m_type = IFCPREDEFINEDCOLOUR;
 }
 
-IfcExternallyDefinedHatchStyle *IfcFillStyleSelect::getIfcExternallyDefinedHatchStyle() {
-    return m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle;
+IfcExternallyDefinedHatchStyle *IfcFillStyleSelect::getIfcExternallyDefinedHatchStyle() const {
+    if (m_type == IFCEXTERNALLYDEFINEDHATCHSTYLE) {
+        return m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillStyleSelect::setIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

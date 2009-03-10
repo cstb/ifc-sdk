@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelProjectsElement::IfcRelProjectsElement(Step::Id id, Step::SPFData *args) :
 IfcRelProjectsElement::~IfcRelProjectsElement() {
 }
 
-bool IfcRelProjectsElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelProjectsElement(this);
+bool IfcRelProjectsElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelProjectsElement(this);
 }
 
-const std::string &IfcRelProjectsElement::type() {
+const std::string &IfcRelProjectsElement::type() const {
     return IfcRelProjectsElement::s_type.getName();
 }
 
-Step::ClassType IfcRelProjectsElement::getClassType() {
+const Step::ClassType &IfcRelProjectsElement::getClassType() {
     return IfcRelProjectsElement::s_type;
 }
 
-Step::ClassType IfcRelProjectsElement::getType() const {
+const Step::ClassType &IfcRelProjectsElement::getType() const {
     return IfcRelProjectsElement::s_type;
 }
 
-bool IfcRelProjectsElement::isOfType(Step::ClassType t) {
+bool IfcRelProjectsElement::isOfType(const Step::ClassType &t) const {
     return IfcRelProjectsElement::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcElement *IfcRelProjectsElement::getRelatingElement() {
     }
 }
 
+const IfcElement *IfcRelProjectsElement::getRelatingElement() const {
+    IfcRelProjectsElement * deConstObject = const_cast< IfcRelProjectsElement * > (this);
+    return deConstObject->getRelatingElement();
+}
+
 void IfcRelProjectsElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatingElement.valid()) {
+        m_relatingElement->m_hasProjections.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasProjections.insert(this);
+    }
     m_relatingElement = value;
-    m_relatingElement->m_hasProjections.insert(this);
 }
 
 IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement() {
@@ -95,15 +105,19 @@ IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement() {
     }
 }
 
-void IfcRelProjectsElement::setRelatedFeatureElement(const Step::RefPtr< IfcFeatureElementAddition > &value) {
-    m_relatedFeatureElement = value;
-    m_relatedFeatureElement->m_projectsElements = this;
+const IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement() const {
+    IfcRelProjectsElement * deConstObject = const_cast< IfcRelProjectsElement * > (this);
+    return deConstObject->getRelatedFeatureElement();
 }
 
-void IfcRelProjectsElement::release() {
-    IfcRelConnects::release();
-    m_relatingElement.release();
-    m_relatedFeatureElement.release();
+void IfcRelProjectsElement::setRelatedFeatureElement(const Step::RefPtr< IfcFeatureElementAddition > &value) {
+    if (m_relatedFeatureElement.valid()) {
+        m_relatedFeatureElement->m_projectsElements = NULL;
+    }
+    if (value.valid()) {
+        value->m_projectsElements = this;
+    }
+    m_relatedFeatureElement = value;
 }
 
 bool IfcRelProjectsElement::init() {
@@ -117,22 +131,22 @@ bool IfcRelProjectsElement::init() {
         m_relatingElement = NULL;
     }
     else {
-        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedFeatureElement = NULL;
     }
     else {
-        m_relatedFeatureElement = static_cast< IfcFeatureElementAddition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedFeatureElement = static_cast< IfcFeatureElementAddition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelProjectsElement::copy(const IfcRelProjectsElement &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingElement(copyop(obj.m_relatingElement.get()));
-    setRelatedFeatureElement(copyop(obj.m_relatedFeatureElement.get()));
+    setRelatingElement((IfcElement*)copyop(obj.m_relatingElement.get()));
+    setRelatedFeatureElement((IfcFeatureElementAddition*)copyop(obj.m_relatedFeatureElement.get()));
     return;
 }
 

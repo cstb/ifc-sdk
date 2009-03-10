@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,6 +38,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -55,31 +57,28 @@ IfcAppliedValue::IfcAppliedValue(Step::Id id, Step::SPFData *args) : Step::BaseE
     m_unitBasis = NULL;
     m_applicableDate = NULL;
     m_fixedUntilDate = NULL;
-    m_valuesReferenced.setUnset(true);
-    m_valueOfComponents.setUnset(true);
-    m_isComponentIn.setUnset(true);
 }
 
 IfcAppliedValue::~IfcAppliedValue() {
 }
 
-bool IfcAppliedValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAppliedValue(this);
+bool IfcAppliedValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAppliedValue(this);
 }
 
-const std::string &IfcAppliedValue::type() {
+const std::string &IfcAppliedValue::type() const {
     return IfcAppliedValue::s_type.getName();
 }
 
-Step::ClassType IfcAppliedValue::getClassType() {
+const Step::ClassType &IfcAppliedValue::getClassType() {
     return IfcAppliedValue::s_type;
 }
 
-Step::ClassType IfcAppliedValue::getType() const {
+const Step::ClassType &IfcAppliedValue::getType() const {
     return IfcAppliedValue::s_type;
 }
 
-bool IfcAppliedValue::isOfType(Step::ClassType t) {
+bool IfcAppliedValue::isOfType(const Step::ClassType &t) const {
     return IfcAppliedValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -90,6 +89,11 @@ IfcLabel IfcAppliedValue::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcAppliedValue::getName() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getName();
 }
 
 void IfcAppliedValue::setName(const IfcLabel &value) {
@@ -105,6 +109,11 @@ IfcText IfcAppliedValue::getDescription() {
     }
 }
 
+const IfcText IfcAppliedValue::getDescription() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcAppliedValue::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -116,6 +125,11 @@ IfcAppliedValueSelect *IfcAppliedValue::getAppliedValue() {
     else {
         return NULL;
     }
+}
+
+const IfcAppliedValueSelect *IfcAppliedValue::getAppliedValue() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getAppliedValue();
 }
 
 void IfcAppliedValue::setAppliedValue(const Step::RefPtr< IfcAppliedValueSelect > &value) {
@@ -131,6 +145,11 @@ IfcMeasureWithUnit *IfcAppliedValue::getUnitBasis() {
     }
 }
 
+const IfcMeasureWithUnit *IfcAppliedValue::getUnitBasis() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getUnitBasis();
+}
+
 void IfcAppliedValue::setUnitBasis(const Step::RefPtr< IfcMeasureWithUnit > &value) {
     m_unitBasis = value;
 }
@@ -142,6 +161,11 @@ IfcDateTimeSelect *IfcAppliedValue::getApplicableDate() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcAppliedValue::getApplicableDate() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getApplicableDate();
 }
 
 void IfcAppliedValue::setApplicableDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -157,11 +181,16 @@ IfcDateTimeSelect *IfcAppliedValue::getFixedUntilDate() {
     }
 }
 
+const IfcDateTimeSelect *IfcAppliedValue::getFixedUntilDate() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getFixedUntilDate();
+}
+
 void IfcAppliedValue::setFixedUntilDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_fixedUntilDate = value;
 }
 
-Step::Set< Step::ObsPtr< IfcReferencesValueDocument > > &IfcAppliedValue::getValuesReferenced() {
+Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() {
     if (Step::BaseObject::inited()) {
         return m_valuesReferenced;
     }
@@ -171,7 +200,12 @@ Step::Set< Step::ObsPtr< IfcReferencesValueDocument > > &IfcAppliedValue::getVal
     }
 }
 
-Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > &IfcAppliedValue::getValueOfComponents() {
+const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getValuesReferenced();
+}
+
+Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() {
     if (Step::BaseObject::inited()) {
         return m_valueOfComponents;
     }
@@ -181,7 +215,12 @@ Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > &IfcAppliedValue::getVa
     }
 }
 
-Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > &IfcAppliedValue::getIsComponentIn() {
+const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getValueOfComponents();
+}
+
+Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() {
     if (Step::BaseObject::inited()) {
         return m_isComponentIn;
     }
@@ -191,8 +230,9 @@ Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > &IfcAppliedValue::getIs
     }
 }
 
-void IfcAppliedValue::release() {
-    m_unitBasis.release();
+const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() const {
+    IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
+    return deConstObject->getIsComponentIn();
 }
 
 bool IfcAppliedValue::init() {
@@ -203,14 +243,14 @@ bool IfcAppliedValue::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -246,7 +286,7 @@ bool IfcAppliedValue::init() {
         m_unitBasis = NULL;
     }
     else {
-        m_unitBasis = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_unitBasis = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -319,7 +359,7 @@ void IfcAppliedValue::copy(const IfcAppliedValue &obj, const CopyOp &copyop) {
     setDescription(obj.m_description);
     m_appliedValue = new IfcAppliedValueSelect;
     m_appliedValue->copy(*(obj.m_appliedValue.get()), copyop);
-    setUnitBasis(copyop(obj.m_unitBasis.get()));
+    setUnitBasis((IfcMeasureWithUnit*)copyop(obj.m_unitBasis.get()));
     m_applicableDate = new IfcDateTimeSelect;
     m_applicableDate->copy(*(obj.m_applicableDate.get()), copyop);
     m_fixedUntilDate = new IfcDateTimeSelect;

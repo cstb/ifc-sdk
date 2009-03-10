@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,27 +47,27 @@ IfcSpecularHighlightSelect::~IfcSpecularHighlightSelect() {
     deleteUnion();
 }
 
-bool IfcSpecularHighlightSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpecularHighlightSelect(this);
+bool IfcSpecularHighlightSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpecularHighlightSelect(this);
 }
 
 bool IfcSpecularHighlightSelect::init() {
     return false;
 }
 
-const std::string &IfcSpecularHighlightSelect::type() {
+const std::string &IfcSpecularHighlightSelect::type() const {
     return IfcSpecularHighlightSelect::s_type.getName();
 }
 
-Step::ClassType IfcSpecularHighlightSelect::getClassType() {
+const Step::ClassType &IfcSpecularHighlightSelect::getClassType() {
     return IfcSpecularHighlightSelect::s_type;
 }
 
-Step::ClassType IfcSpecularHighlightSelect::getType() const {
+const Step::ClassType &IfcSpecularHighlightSelect::getType() const {
     return IfcSpecularHighlightSelect::s_type;
 }
 
-bool IfcSpecularHighlightSelect::isOfType(Step::ClassType t) {
+bool IfcSpecularHighlightSelect::isOfType(const Step::ClassType &t) const {
     return IfcSpecularHighlightSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,7 +82,7 @@ void IfcSpecularHighlightSelect::copy(const IfcSpecularHighlightSelect &obj, con
         }
 }
 
-char *IfcSpecularHighlightSelect::currentTypeName() {
+std::string IfcSpecularHighlightSelect::currentTypeName() const {
     switch(m_type) {
     case IFCSPECULAREXPONENT:
         return "IfcSpecularExponent";
@@ -95,7 +95,7 @@ char *IfcSpecularHighlightSelect::currentTypeName() {
     }
 }
 
-IfcSpecularHighlightSelect::IfcSpecularHighlightSelect_select IfcSpecularHighlightSelect::currentType() {
+IfcSpecularHighlightSelect::IfcSpecularHighlightSelect_select IfcSpecularHighlightSelect::currentType() const {
     return m_type;
 }
 
@@ -103,22 +103,30 @@ void IfcSpecularHighlightSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcSpecularExponent IfcSpecularHighlightSelect::getIfcSpecularExponent() {
-    return m_IfcSpecularHighlightSelect_union.m_IfcSpecularExponent;
+IfcSpecularExponent IfcSpecularHighlightSelect::getIfcSpecularExponent() const {
+    if (m_type == IFCSPECULAREXPONENT) {
+        return m_IfcSpecularHighlightSelect_union.m_IfcSpecularExponent;
+    }
+    else {
+        return Step::getUnset(m_IfcSpecularHighlightSelect_union.m_IfcSpecularExponent);
+    }
 }
 
 void IfcSpecularHighlightSelect::setIfcSpecularExponent(IfcSpecularExponent value) {
-    deleteUnion();
     m_IfcSpecularHighlightSelect_union.m_IfcSpecularExponent = value;
     m_type = IFCSPECULAREXPONENT;
 }
 
-IfcSpecularRoughness IfcSpecularHighlightSelect::getIfcSpecularRoughness() {
-    return m_IfcSpecularHighlightSelect_union.m_IfcSpecularRoughness;
+IfcSpecularRoughness IfcSpecularHighlightSelect::getIfcSpecularRoughness() const {
+    if (m_type == IFCSPECULARROUGHNESS) {
+        return m_IfcSpecularHighlightSelect_union.m_IfcSpecularRoughness;
+    }
+    else {
+        return Step::getUnset(m_IfcSpecularHighlightSelect_union.m_IfcSpecularRoughness);
+    }
 }
 
 void IfcSpecularHighlightSelect::setIfcSpecularRoughness(IfcSpecularRoughness value) {
-    deleteUnion();
     m_IfcSpecularHighlightSelect_union.m_IfcSpecularRoughness = value;
     m_type = IFCSPECULARROUGHNESS;
 }

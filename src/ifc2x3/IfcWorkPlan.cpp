@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcWorkPlan::IfcWorkPlan(Step::Id id, Step::SPFData *args) : IfcWorkControl(id, 
 IfcWorkPlan::~IfcWorkPlan() {
 }
 
-bool IfcWorkPlan::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWorkPlan(this);
+bool IfcWorkPlan::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWorkPlan(this);
 }
 
-const std::string &IfcWorkPlan::type() {
+const std::string &IfcWorkPlan::type() const {
     return IfcWorkPlan::s_type.getName();
 }
 
-Step::ClassType IfcWorkPlan::getClassType() {
+const Step::ClassType &IfcWorkPlan::getClassType() {
     return IfcWorkPlan::s_type;
 }
 
-Step::ClassType IfcWorkPlan::getType() const {
+const Step::ClassType &IfcWorkPlan::getType() const {
     return IfcWorkPlan::s_type;
 }
 
-bool IfcWorkPlan::isOfType(Step::ClassType t) {
+bool IfcWorkPlan::isOfType(const Step::ClassType &t) const {
     return IfcWorkPlan::s_type == t ? true : IfcWorkControl::isOfType(t);
-}
-
-void IfcWorkPlan::release() {
-    IfcWorkControl::release();
 }
 
 bool IfcWorkPlan::init() {

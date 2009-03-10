@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcPolyline::IfcPolyline(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
-    m_points.setUnset(true);
 }
 
 IfcPolyline::~IfcPolyline() {
 }
 
-bool IfcPolyline::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPolyline(this);
+bool IfcPolyline::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPolyline(this);
 }
 
-const std::string &IfcPolyline::type() {
+const std::string &IfcPolyline::type() const {
     return IfcPolyline::s_type.getName();
 }
 
-Step::ClassType IfcPolyline::getClassType() {
+const Step::ClassType &IfcPolyline::getClassType() {
     return IfcPolyline::s_type;
 }
 
-Step::ClassType IfcPolyline::getType() const {
+const Step::ClassType &IfcPolyline::getType() const {
     return IfcPolyline::s_type;
 }
 
-bool IfcPolyline::isOfType(Step::ClassType t) {
+bool IfcPolyline::isOfType(const Step::ClassType &t) const {
     return IfcPolyline::s_type == t ? true : IfcBoundedCurve::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcPolyline::getPoints() {
+List_IfcCartesianPoint_2_n &IfcPolyline::getPoints() {
     if (Step::BaseObject::inited()) {
         return m_points;
     }
@@ -81,13 +79,13 @@ Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcPolyline::getPoints() {
     }
 }
 
-void IfcPolyline::setPoints(const Step::List< Step::RefPtr< IfcCartesianPoint > > &value) {
-    m_points = value;
+const List_IfcCartesianPoint_2_n &IfcPolyline::getPoints() const {
+    IfcPolyline * deConstObject = const_cast< IfcPolyline * > (this);
+    return deConstObject->getPoints();
 }
 
-void IfcPolyline::release() {
-    IfcBoundedCurve::release();
-    m_points.clear();
+void IfcPolyline::setPoints(const List_IfcCartesianPoint_2_n &value) {
+    m_points = value;
 }
 
 bool IfcPolyline::init() {
@@ -107,7 +105,7 @@ bool IfcPolyline::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCartesianPoint > attr2;
-                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_points.push_back(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcPolyline::init() {
 }
 
 void IfcPolyline::copy(const IfcPolyline &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcCartesianPoint > >::const_iterator it_m_points;
+    Step::List< Step::RefPtr< IfcCartesianPoint >, 2 >::const_iterator it_m_points;
     IfcBoundedCurve::copy(obj, copyop);
     for (it_m_points = obj.m_points.begin(); it_m_points != obj.m_points.end(); ++it_m_points) {
-        Step::RefPtr< IfcCartesianPoint > copyTarget = copyop((*it_m_points).get());
+        Step::RefPtr< IfcCartesianPoint > copyTarget = (IfcCartesianPoint *) (copyop((*it_m_points).get()));
         m_points.push_back(copyTarget.get());
     }
     return;

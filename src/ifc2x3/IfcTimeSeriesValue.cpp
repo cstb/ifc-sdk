@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -46,33 +46,32 @@
 using namespace ifc2x3;
 
 IfcTimeSeriesValue::IfcTimeSeriesValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_listValues.setUnset(true);
 }
 
 IfcTimeSeriesValue::~IfcTimeSeriesValue() {
 }
 
-bool IfcTimeSeriesValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTimeSeriesValue(this);
+bool IfcTimeSeriesValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTimeSeriesValue(this);
 }
 
-const std::string &IfcTimeSeriesValue::type() {
+const std::string &IfcTimeSeriesValue::type() const {
     return IfcTimeSeriesValue::s_type.getName();
 }
 
-Step::ClassType IfcTimeSeriesValue::getClassType() {
+const Step::ClassType &IfcTimeSeriesValue::getClassType() {
     return IfcTimeSeriesValue::s_type;
 }
 
-Step::ClassType IfcTimeSeriesValue::getType() const {
+const Step::ClassType &IfcTimeSeriesValue::getType() const {
     return IfcTimeSeriesValue::s_type;
 }
 
-bool IfcTimeSeriesValue::isOfType(Step::ClassType t) {
+bool IfcTimeSeriesValue::isOfType(const Step::ClassType &t) const {
     return IfcTimeSeriesValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcValue > > &IfcTimeSeriesValue::getListValues() {
+List_IfcValue_1_n &IfcTimeSeriesValue::getListValues() {
     if (Step::BaseObject::inited()) {
         return m_listValues;
     }
@@ -82,12 +81,13 @@ Step::List< Step::RefPtr< IfcValue > > &IfcTimeSeriesValue::getListValues() {
     }
 }
 
-void IfcTimeSeriesValue::setListValues(const Step::List< Step::RefPtr< IfcValue > > &value) {
-    m_listValues = value;
+const List_IfcValue_1_n &IfcTimeSeriesValue::getListValues() const {
+    IfcTimeSeriesValue * deConstObject = const_cast< IfcTimeSeriesValue * > (this);
+    return deConstObject->getListValues();
 }
 
-void IfcTimeSeriesValue::release() {
-    m_listValues.clear();
+void IfcTimeSeriesValue::setListValues(const List_IfcValue_1_n &value) {
+    m_listValues = value;
 }
 
 bool IfcTimeSeriesValue::init() {
@@ -160,7 +160,7 @@ bool IfcTimeSeriesValue::init() {
                             attr2->setIfcParameterValue(tmp_attr2);
                         }
                         if (type2 == "IFCNUMERICMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcNumericMeasure(tmp_attr2);
                         }
@@ -185,12 +185,12 @@ bool IfcTimeSeriesValue::init() {
                             attr2->setIfcElectricCurrentMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCDESCRIPTIVEMEASURE") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcDescriptiveMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOUNTMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcCountMeasure(tmp_attr2);
                         }
@@ -220,7 +220,8 @@ bool IfcTimeSeriesValue::init() {
                             attr2->setIfcNormalisedRatioMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPLEXNUMBER") {
-                            Step::Array< Step::Real > tmp_attr2;
+                            Array_Real_1_2 tmp_attr2;
+                            Array_Real_1_2::iterator it_tmp_attr2 = tmp_attr2.begin();
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -228,7 +229,7 @@ bool IfcTimeSeriesValue::init() {
                                 if (str3 != "") {
                                     Step::Real attr4;
                                     attr4 = Step::spfToReal(str3);
-                                    tmp_attr2.push_back(attr4);
+                                    *(it_tmp_attr2++) = attr4;
                                 }
                                 else {
                                     break;
@@ -247,23 +248,23 @@ bool IfcTimeSeriesValue::init() {
                             attr2->setIfcReal(tmp_attr2);
                         }
                         if (type2 == "IFCBOOLEAN") {
-                            Step::Bool tmp_attr2;
-                            tmp_attr2 = Step::spfToBool(str1);
+                            Step::Boolean tmp_attr2;
+                            tmp_attr2 = Step::spfToBoolean(str1);
                             attr2->setIfcBoolean(tmp_attr2);
                         }
                         if (type2 == "IFCIDENTIFIER") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcIdentifier(tmp_attr2);
                         }
                         if (type2 == "IFCTEXT") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcText(tmp_attr2);
                         }
                         if (type2 == "IFCLABEL") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcLabel(tmp_attr2);
                         }
                         if (type2 == "IFCLOGICAL") {
@@ -357,7 +358,7 @@ bool IfcTimeSeriesValue::init() {
                             attr2->setIfcDynamicViscosityMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                            Step::List< Step::Integer > tmp_attr2;
+                            List_Integer_3_4 tmp_attr2;
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -636,7 +637,7 @@ bool IfcTimeSeriesValue::init() {
 }
 
 void IfcTimeSeriesValue::copy(const IfcTimeSeriesValue &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcValue > >::const_iterator it_m_listValues;
+    Step::List< Step::RefPtr< IfcValue >, 1 >::const_iterator it_m_listValues;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_listValues = obj.m_listValues.begin(); it_m_listValues != obj.m_listValues.end(); ++it_m_listValues) {
         Step::RefPtr< IfcValue > copyTarget = new IfcValue;

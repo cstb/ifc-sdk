@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,34 +46,33 @@
 using namespace ifc2x3;
 
 IfcMaterialClassificationRelationship::IfcMaterialClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_materialClassifications.setUnset(true);
     m_classifiedMaterial = NULL;
 }
 
 IfcMaterialClassificationRelationship::~IfcMaterialClassificationRelationship() {
 }
 
-bool IfcMaterialClassificationRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialClassificationRelationship(this);
+bool IfcMaterialClassificationRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialClassificationRelationship(this);
 }
 
-const std::string &IfcMaterialClassificationRelationship::type() {
+const std::string &IfcMaterialClassificationRelationship::type() const {
     return IfcMaterialClassificationRelationship::s_type.getName();
 }
 
-Step::ClassType IfcMaterialClassificationRelationship::getClassType() {
+const Step::ClassType &IfcMaterialClassificationRelationship::getClassType() {
     return IfcMaterialClassificationRelationship::s_type;
 }
 
-Step::ClassType IfcMaterialClassificationRelationship::getType() const {
+const Step::ClassType &IfcMaterialClassificationRelationship::getType() const {
     return IfcMaterialClassificationRelationship::s_type;
 }
 
-bool IfcMaterialClassificationRelationship::isOfType(Step::ClassType t) {
+bool IfcMaterialClassificationRelationship::isOfType(const Step::ClassType &t) const {
     return IfcMaterialClassificationRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > &IfcMaterialClassificationRelationship::getMaterialClassifications() {
+Set_IfcClassificationNotationSelect_1_n &IfcMaterialClassificationRelationship::getMaterialClassifications() {
     if (Step::BaseObject::inited()) {
         return m_materialClassifications;
     }
@@ -83,7 +82,12 @@ Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > &IfcMaterialClassif
     }
 }
 
-void IfcMaterialClassificationRelationship::setMaterialClassifications(const Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > &value) {
+const Set_IfcClassificationNotationSelect_1_n &IfcMaterialClassificationRelationship::getMaterialClassifications() const {
+    IfcMaterialClassificationRelationship * deConstObject = const_cast< IfcMaterialClassificationRelationship * > (this);
+    return deConstObject->getMaterialClassifications();
+}
+
+void IfcMaterialClassificationRelationship::setMaterialClassifications(const Set_IfcClassificationNotationSelect_1_n &value) {
     m_materialClassifications = value;
 }
 
@@ -96,14 +100,19 @@ IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial() {
     }
 }
 
-void IfcMaterialClassificationRelationship::setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    m_classifiedMaterial = value;
-    m_classifiedMaterial->m_classifiedAs.insert(this);
+const IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial() const {
+    IfcMaterialClassificationRelationship * deConstObject = const_cast< IfcMaterialClassificationRelationship * > (this);
+    return deConstObject->getClassifiedMaterial();
 }
 
-void IfcMaterialClassificationRelationship::release() {
-    m_materialClassifications.clear();
-    m_classifiedMaterial.release();
+void IfcMaterialClassificationRelationship::setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value) {
+    if (m_classifiedMaterial.valid()) {
+        m_classifiedMaterial->m_classifiedAs.erase(this);
+    }
+    if (value.valid()) {
+        value->m_classifiedAs.insert(this);
+    }
+    m_classifiedMaterial = value;
 }
 
 bool IfcMaterialClassificationRelationship::init() {
@@ -144,20 +153,20 @@ bool IfcMaterialClassificationRelationship::init() {
         m_classifiedMaterial = NULL;
     }
     else {
-        m_classifiedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_classifiedMaterial = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcMaterialClassificationRelationship::copy(const IfcMaterialClassificationRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcClassificationNotationSelect > >::const_iterator it_m_materialClassifications;
+    Step::Set< Step::RefPtr< IfcClassificationNotationSelect >, 1 >::const_iterator it_m_materialClassifications;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_materialClassifications = obj.m_materialClassifications.begin(); it_m_materialClassifications != obj.m_materialClassifications.end(); ++it_m_materialClassifications) {
         Step::RefPtr< IfcClassificationNotationSelect > copyTarget = new IfcClassificationNotationSelect;
         copyTarget->copy(*((*it_m_materialClassifications).get()), copyop);
         m_materialClassifications.insert(copyTarget.get());
     }
-    setClassifiedMaterial(copyop(obj.m_classifiedMaterial.get()));
+    setClassifiedMaterial((IfcMaterial*)copyop(obj.m_classifiedMaterial.get()));
     return;
 }
 

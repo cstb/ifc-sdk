@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,33 +47,34 @@ IfcValue::~IfcValue() {
     deleteUnion();
 }
 
-bool IfcValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcValue(this);
+bool IfcValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcValue(this);
 }
 
 bool IfcValue::init() {
     return false;
 }
 
-const std::string &IfcValue::type() {
+const std::string &IfcValue::type() const {
     return IfcValue::s_type.getName();
 }
 
-Step::ClassType IfcValue::getClassType() {
+const Step::ClassType &IfcValue::getClassType() {
     return IfcValue::s_type;
 }
 
-Step::ClassType IfcValue::getType() const {
+const Step::ClassType &IfcValue::getType() const {
     return IfcValue::s_type;
 }
 
-bool IfcValue::isOfType(Step::ClassType t) {
+bool IfcValue::isOfType(const Step::ClassType &t) const {
     return IfcValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcValue::copy(const IfcValue &obj, const CopyOp &copyop) {
-    Step::Array< Step::Real >::const_iterator it_IfcComplexNumber;
-    Step::List< Step::Integer >::const_iterator it_IfcCompoundPlaneAngleMeasure;
+    Step::Array< Step::Real, 1, 2 >::const_iterator it_IfcComplexNumber;
+    Step::Array< Step::Real, 1, 2 >::iterator it_current_IfcComplexNumber;
+    Step::List< Step::Integer, 3, 4 >::const_iterator it_IfcCompoundPlaneAngleMeasure;
     switch(obj.m_type) {
     case IFCVOLUMEMEASURE:
         setIfcVolumeMeasure(obj.m_IfcValue_union.m_IfcVolumeMeasure);
@@ -139,9 +140,9 @@ void IfcValue::copy(const IfcValue &obj, const CopyOp &copyop) {
         setIfcNormalisedRatioMeasure(obj.m_IfcValue_union.m_IfcNormalisedRatioMeasure);
         break;
     case IFCCOMPLEXNUMBER:
-        for (it_IfcComplexNumber = obj.m_IfcValue_union.m_IfcComplexNumber->begin(); it_IfcComplexNumber != obj.m_IfcValue_union.m_IfcComplexNumber->end(); ++it_IfcComplexNumber) {
+        for (it_IfcComplexNumber = obj.m_IfcValue_union.m_IfcComplexNumber->begin(), it_current_IfcComplexNumber = m_IfcValue_union.m_IfcComplexNumber->begin(); it_IfcComplexNumber != obj.m_IfcValue_union.m_IfcComplexNumber->end(); ++it_IfcComplexNumber, ++it_current_IfcComplexNumber) {
             Step::Real copyTarget = (*it_IfcComplexNumber);
-            m_IfcValue_union.m_IfcComplexNumber->push_back(copyTarget);
+            *it_current_IfcComplexNumber = copyTarget;
         }
         break;
     case IFCINTEGER:
@@ -375,7 +376,7 @@ void IfcValue::copy(const IfcValue &obj, const CopyOp &copyop) {
         }
 }
 
-char *IfcValue::currentTypeName() {
+std::string IfcValue::currentTypeName() const {
     switch(m_type) {
     case IFCVOLUMEMEASURE:
         return "IfcVolumeMeasure";
@@ -673,7 +674,7 @@ char *IfcValue::currentTypeName() {
     }
 }
 
-IfcValue::IfcValue_select IfcValue::currentType() {
+IfcValue::IfcValue_select IfcValue::currentType() const {
     return m_type;
 }
 
@@ -701,972 +702,1360 @@ void IfcValue::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcVolumeMeasure IfcValue::getIfcVolumeMeasure() {
-    return m_IfcValue_union.m_IfcVolumeMeasure;
+IfcVolumeMeasure IfcValue::getIfcVolumeMeasure() const {
+    if (m_type == IFCVOLUMEMEASURE) {
+        return m_IfcValue_union.m_IfcVolumeMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcVolumeMeasure);
+    }
 }
 
 void IfcValue::setIfcVolumeMeasure(IfcVolumeMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcVolumeMeasure = value;
     m_type = IFCVOLUMEMEASURE;
 }
 
-IfcTimeMeasure IfcValue::getIfcTimeMeasure() {
-    return m_IfcValue_union.m_IfcTimeMeasure;
+IfcTimeMeasure IfcValue::getIfcTimeMeasure() const {
+    if (m_type == IFCTIMEMEASURE) {
+        return m_IfcValue_union.m_IfcTimeMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcTimeMeasure);
+    }
 }
 
 void IfcValue::setIfcTimeMeasure(IfcTimeMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcTimeMeasure = value;
     m_type = IFCTIMEMEASURE;
 }
 
-IfcThermodynamicTemperatureMeasure IfcValue::getIfcThermodynamicTemperatureMeasure() {
-    return m_IfcValue_union.m_IfcThermodynamicTemperatureMeasure;
+IfcThermodynamicTemperatureMeasure IfcValue::getIfcThermodynamicTemperatureMeasure() const {
+    if (m_type == IFCTHERMODYNAMICTEMPERATUREMEASURE) {
+        return m_IfcValue_union.m_IfcThermodynamicTemperatureMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermodynamicTemperatureMeasure);
+    }
 }
 
 void IfcValue::setIfcThermodynamicTemperatureMeasure(IfcThermodynamicTemperatureMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermodynamicTemperatureMeasure = value;
     m_type = IFCTHERMODYNAMICTEMPERATUREMEASURE;
 }
 
-IfcSolidAngleMeasure IfcValue::getIfcSolidAngleMeasure() {
-    return m_IfcValue_union.m_IfcSolidAngleMeasure;
+IfcSolidAngleMeasure IfcValue::getIfcSolidAngleMeasure() const {
+    if (m_type == IFCSOLIDANGLEMEASURE) {
+        return m_IfcValue_union.m_IfcSolidAngleMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSolidAngleMeasure);
+    }
 }
 
 void IfcValue::setIfcSolidAngleMeasure(IfcSolidAngleMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSolidAngleMeasure = value;
     m_type = IFCSOLIDANGLEMEASURE;
 }
 
-IfcPositiveRatioMeasure IfcValue::getIfcPositiveRatioMeasure() {
-    return m_IfcValue_union.m_IfcPositiveRatioMeasure;
+IfcPositiveRatioMeasure IfcValue::getIfcPositiveRatioMeasure() const {
+    if (m_type == IFCPOSITIVERATIOMEASURE) {
+        return m_IfcValue_union.m_IfcPositiveRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPositiveRatioMeasure);
+    }
 }
 
 void IfcValue::setIfcPositiveRatioMeasure(IfcPositiveRatioMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPositiveRatioMeasure = value;
     m_type = IFCPOSITIVERATIOMEASURE;
 }
 
-IfcRatioMeasure IfcValue::getIfcRatioMeasure() {
-    return m_IfcValue_union.m_IfcRatioMeasure;
+IfcRatioMeasure IfcValue::getIfcRatioMeasure() const {
+    if (m_type == IFCRATIOMEASURE) {
+        return m_IfcValue_union.m_IfcRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcRatioMeasure);
+    }
 }
 
 void IfcValue::setIfcRatioMeasure(IfcRatioMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcRatioMeasure = value;
     m_type = IFCRATIOMEASURE;
 }
 
-IfcPositivePlaneAngleMeasure IfcValue::getIfcPositivePlaneAngleMeasure() {
-    return m_IfcValue_union.m_IfcPositivePlaneAngleMeasure;
+IfcPositivePlaneAngleMeasure IfcValue::getIfcPositivePlaneAngleMeasure() const {
+    if (m_type == IFCPOSITIVEPLANEANGLEMEASURE) {
+        return m_IfcValue_union.m_IfcPositivePlaneAngleMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPositivePlaneAngleMeasure);
+    }
 }
 
 void IfcValue::setIfcPositivePlaneAngleMeasure(IfcPositivePlaneAngleMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPositivePlaneAngleMeasure = value;
     m_type = IFCPOSITIVEPLANEANGLEMEASURE;
 }
 
-IfcPlaneAngleMeasure IfcValue::getIfcPlaneAngleMeasure() {
-    return m_IfcValue_union.m_IfcPlaneAngleMeasure;
+IfcPlaneAngleMeasure IfcValue::getIfcPlaneAngleMeasure() const {
+    if (m_type == IFCPLANEANGLEMEASURE) {
+        return m_IfcValue_union.m_IfcPlaneAngleMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPlaneAngleMeasure);
+    }
 }
 
 void IfcValue::setIfcPlaneAngleMeasure(IfcPlaneAngleMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPlaneAngleMeasure = value;
     m_type = IFCPLANEANGLEMEASURE;
 }
 
-IfcParameterValue IfcValue::getIfcParameterValue() {
-    return m_IfcValue_union.m_IfcParameterValue;
+IfcParameterValue IfcValue::getIfcParameterValue() const {
+    if (m_type == IFCPARAMETERVALUE) {
+        return m_IfcValue_union.m_IfcParameterValue;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcParameterValue);
+    }
 }
 
 void IfcValue::setIfcParameterValue(IfcParameterValue value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcParameterValue = value;
     m_type = IFCPARAMETERVALUE;
 }
 
-IfcNumericMeasure IfcValue::getIfcNumericMeasure() {
-    return m_IfcValue_union.m_IfcNumericMeasure;
+IfcNumericMeasure IfcValue::getIfcNumericMeasure() const {
+    if (m_type == IFCNUMERICMEASURE) {
+        return m_IfcValue_union.m_IfcNumericMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcNumericMeasure);
+    }
 }
 
 void IfcValue::setIfcNumericMeasure(IfcNumericMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcNumericMeasure = value;
     m_type = IFCNUMERICMEASURE;
 }
 
-IfcMassMeasure IfcValue::getIfcMassMeasure() {
-    return m_IfcValue_union.m_IfcMassMeasure;
+IfcMassMeasure IfcValue::getIfcMassMeasure() const {
+    if (m_type == IFCMASSMEASURE) {
+        return m_IfcValue_union.m_IfcMassMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMassMeasure);
+    }
 }
 
 void IfcValue::setIfcMassMeasure(IfcMassMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMassMeasure = value;
     m_type = IFCMASSMEASURE;
 }
 
-IfcPositiveLengthMeasure IfcValue::getIfcPositiveLengthMeasure() {
-    return m_IfcValue_union.m_IfcPositiveLengthMeasure;
+IfcPositiveLengthMeasure IfcValue::getIfcPositiveLengthMeasure() const {
+    if (m_type == IFCPOSITIVELENGTHMEASURE) {
+        return m_IfcValue_union.m_IfcPositiveLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPositiveLengthMeasure);
+    }
 }
 
 void IfcValue::setIfcPositiveLengthMeasure(IfcPositiveLengthMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPositiveLengthMeasure = value;
     m_type = IFCPOSITIVELENGTHMEASURE;
 }
 
-IfcLengthMeasure IfcValue::getIfcLengthMeasure() {
-    return m_IfcValue_union.m_IfcLengthMeasure;
+IfcLengthMeasure IfcValue::getIfcLengthMeasure() const {
+    if (m_type == IFCLENGTHMEASURE) {
+        return m_IfcValue_union.m_IfcLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLengthMeasure);
+    }
 }
 
 void IfcValue::setIfcLengthMeasure(IfcLengthMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLengthMeasure = value;
     m_type = IFCLENGTHMEASURE;
 }
 
-IfcElectricCurrentMeasure IfcValue::getIfcElectricCurrentMeasure() {
-    return m_IfcValue_union.m_IfcElectricCurrentMeasure;
+IfcElectricCurrentMeasure IfcValue::getIfcElectricCurrentMeasure() const {
+    if (m_type == IFCELECTRICCURRENTMEASURE) {
+        return m_IfcValue_union.m_IfcElectricCurrentMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricCurrentMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricCurrentMeasure(IfcElectricCurrentMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricCurrentMeasure = value;
     m_type = IFCELECTRICCURRENTMEASURE;
 }
 
-IfcDescriptiveMeasure IfcValue::getIfcDescriptiveMeasure() {
-    return *m_IfcValue_union.m_IfcDescriptiveMeasure;
+IfcDescriptiveMeasure IfcValue::getIfcDescriptiveMeasure() const {
+    if (m_type == IFCDESCRIPTIVEMEASURE) {
+        return *m_IfcValue_union.m_IfcDescriptiveMeasure;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcDescriptiveMeasure);
+    }
 }
 
 void IfcValue::setIfcDescriptiveMeasure(const IfcDescriptiveMeasure &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcDescriptiveMeasure = new IfcDescriptiveMeasure(value);
     m_type = IFCDESCRIPTIVEMEASURE;
 }
 
-IfcCountMeasure IfcValue::getIfcCountMeasure() {
-    return m_IfcValue_union.m_IfcCountMeasure;
+IfcCountMeasure IfcValue::getIfcCountMeasure() const {
+    if (m_type == IFCCOUNTMEASURE) {
+        return m_IfcValue_union.m_IfcCountMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcCountMeasure);
+    }
 }
 
 void IfcValue::setIfcCountMeasure(IfcCountMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcCountMeasure = value;
     m_type = IFCCOUNTMEASURE;
 }
 
-IfcContextDependentMeasure IfcValue::getIfcContextDependentMeasure() {
-    return m_IfcValue_union.m_IfcContextDependentMeasure;
+IfcContextDependentMeasure IfcValue::getIfcContextDependentMeasure() const {
+    if (m_type == IFCCONTEXTDEPENDENTMEASURE) {
+        return m_IfcValue_union.m_IfcContextDependentMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcContextDependentMeasure);
+    }
 }
 
 void IfcValue::setIfcContextDependentMeasure(IfcContextDependentMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcContextDependentMeasure = value;
     m_type = IFCCONTEXTDEPENDENTMEASURE;
 }
 
-IfcAreaMeasure IfcValue::getIfcAreaMeasure() {
-    return m_IfcValue_union.m_IfcAreaMeasure;
+IfcAreaMeasure IfcValue::getIfcAreaMeasure() const {
+    if (m_type == IFCAREAMEASURE) {
+        return m_IfcValue_union.m_IfcAreaMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcAreaMeasure);
+    }
 }
 
 void IfcValue::setIfcAreaMeasure(IfcAreaMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcAreaMeasure = value;
     m_type = IFCAREAMEASURE;
 }
 
-IfcAmountOfSubstanceMeasure IfcValue::getIfcAmountOfSubstanceMeasure() {
-    return m_IfcValue_union.m_IfcAmountOfSubstanceMeasure;
+IfcAmountOfSubstanceMeasure IfcValue::getIfcAmountOfSubstanceMeasure() const {
+    if (m_type == IFCAMOUNTOFSUBSTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcAmountOfSubstanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcAmountOfSubstanceMeasure);
+    }
 }
 
 void IfcValue::setIfcAmountOfSubstanceMeasure(IfcAmountOfSubstanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcAmountOfSubstanceMeasure = value;
     m_type = IFCAMOUNTOFSUBSTANCEMEASURE;
 }
 
-IfcLuminousIntensityMeasure IfcValue::getIfcLuminousIntensityMeasure() {
-    return m_IfcValue_union.m_IfcLuminousIntensityMeasure;
+IfcLuminousIntensityMeasure IfcValue::getIfcLuminousIntensityMeasure() const {
+    if (m_type == IFCLUMINOUSINTENSITYMEASURE) {
+        return m_IfcValue_union.m_IfcLuminousIntensityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLuminousIntensityMeasure);
+    }
 }
 
 void IfcValue::setIfcLuminousIntensityMeasure(IfcLuminousIntensityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLuminousIntensityMeasure = value;
     m_type = IFCLUMINOUSINTENSITYMEASURE;
 }
 
-IfcNormalisedRatioMeasure IfcValue::getIfcNormalisedRatioMeasure() {
-    return m_IfcValue_union.m_IfcNormalisedRatioMeasure;
+IfcNormalisedRatioMeasure IfcValue::getIfcNormalisedRatioMeasure() const {
+    if (m_type == IFCNORMALISEDRATIOMEASURE) {
+        return m_IfcValue_union.m_IfcNormalisedRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcNormalisedRatioMeasure);
+    }
 }
 
 void IfcValue::setIfcNormalisedRatioMeasure(IfcNormalisedRatioMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcNormalisedRatioMeasure = value;
     m_type = IFCNORMALISEDRATIOMEASURE;
 }
 
-IfcComplexNumber IfcValue::getIfcComplexNumber() {
-    return *m_IfcValue_union.m_IfcComplexNumber;
+IfcComplexNumber IfcValue::getIfcComplexNumber() const {
+    if (m_type == IFCCOMPLEXNUMBER) {
+        return *m_IfcValue_union.m_IfcComplexNumber;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcComplexNumber);
+    }
 }
 
 void IfcValue::setIfcComplexNumber(const IfcComplexNumber &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcComplexNumber = new IfcComplexNumber(value);
     m_type = IFCCOMPLEXNUMBER;
 }
 
-IfcInteger IfcValue::getIfcInteger() {
-    return m_IfcValue_union.m_IfcInteger;
+IfcInteger IfcValue::getIfcInteger() const {
+    if (m_type == IFCINTEGER) {
+        return m_IfcValue_union.m_IfcInteger;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcInteger);
+    }
 }
 
 void IfcValue::setIfcInteger(IfcInteger value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcInteger = value;
     m_type = IFCINTEGER;
 }
 
-IfcReal IfcValue::getIfcReal() {
-    return m_IfcValue_union.m_IfcReal;
+IfcReal IfcValue::getIfcReal() const {
+    if (m_type == IFCREAL) {
+        return m_IfcValue_union.m_IfcReal;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcReal);
+    }
 }
 
 void IfcValue::setIfcReal(IfcReal value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcReal = value;
     m_type = IFCREAL;
 }
 
-IfcBoolean IfcValue::getIfcBoolean() {
-    return m_IfcValue_union.m_IfcBoolean;
+IfcBoolean IfcValue::getIfcBoolean() const {
+    if (m_type == IFCBOOLEAN) {
+        return m_IfcValue_union.m_IfcBoolean;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcBoolean);
+    }
 }
 
 void IfcValue::setIfcBoolean(IfcBoolean value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcBoolean = value;
     m_type = IFCBOOLEAN;
 }
 
-IfcIdentifier IfcValue::getIfcIdentifier() {
-    return *m_IfcValue_union.m_IfcIdentifier;
+IfcIdentifier IfcValue::getIfcIdentifier() const {
+    if (m_type == IFCIDENTIFIER) {
+        return *m_IfcValue_union.m_IfcIdentifier;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcIdentifier);
+    }
 }
 
 void IfcValue::setIfcIdentifier(const IfcIdentifier &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcIdentifier = new IfcIdentifier(value);
     m_type = IFCIDENTIFIER;
 }
 
-IfcText IfcValue::getIfcText() {
-    return *m_IfcValue_union.m_IfcText;
+IfcText IfcValue::getIfcText() const {
+    if (m_type == IFCTEXT) {
+        return *m_IfcValue_union.m_IfcText;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcText);
+    }
 }
 
 void IfcValue::setIfcText(const IfcText &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcText = new IfcText(value);
     m_type = IFCTEXT;
 }
 
-IfcLabel IfcValue::getIfcLabel() {
-    return *m_IfcValue_union.m_IfcLabel;
+IfcLabel IfcValue::getIfcLabel() const {
+    if (m_type == IFCLABEL) {
+        return *m_IfcValue_union.m_IfcLabel;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcLabel);
+    }
 }
 
 void IfcValue::setIfcLabel(const IfcLabel &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLabel = new IfcLabel(value);
     m_type = IFCLABEL;
 }
 
-IfcLogical IfcValue::getIfcLogical() {
-    return m_IfcValue_union.m_IfcLogical;
+IfcLogical IfcValue::getIfcLogical() const {
+    if (m_type == IFCLOGICAL) {
+        return m_IfcValue_union.m_IfcLogical;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLogical);
+    }
 }
 
 void IfcValue::setIfcLogical(IfcLogical value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLogical = value;
     m_type = IFCLOGICAL;
 }
 
-IfcVolumetricFlowRateMeasure IfcValue::getIfcVolumetricFlowRateMeasure() {
-    return m_IfcValue_union.m_IfcVolumetricFlowRateMeasure;
+IfcVolumetricFlowRateMeasure IfcValue::getIfcVolumetricFlowRateMeasure() const {
+    if (m_type == IFCVOLUMETRICFLOWRATEMEASURE) {
+        return m_IfcValue_union.m_IfcVolumetricFlowRateMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcVolumetricFlowRateMeasure);
+    }
 }
 
 void IfcValue::setIfcVolumetricFlowRateMeasure(IfcVolumetricFlowRateMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcVolumetricFlowRateMeasure = value;
     m_type = IFCVOLUMETRICFLOWRATEMEASURE;
 }
 
-IfcTimeStamp IfcValue::getIfcTimeStamp() {
-    return m_IfcValue_union.m_IfcTimeStamp;
+IfcTimeStamp IfcValue::getIfcTimeStamp() const {
+    if (m_type == IFCTIMESTAMP) {
+        return m_IfcValue_union.m_IfcTimeStamp;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcTimeStamp);
+    }
 }
 
 void IfcValue::setIfcTimeStamp(IfcTimeStamp value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcTimeStamp = value;
     m_type = IFCTIMESTAMP;
 }
 
-IfcThermalTransmittanceMeasure IfcValue::getIfcThermalTransmittanceMeasure() {
-    return m_IfcValue_union.m_IfcThermalTransmittanceMeasure;
+IfcThermalTransmittanceMeasure IfcValue::getIfcThermalTransmittanceMeasure() const {
+    if (m_type == IFCTHERMALTRANSMITTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcThermalTransmittanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermalTransmittanceMeasure);
+    }
 }
 
 void IfcValue::setIfcThermalTransmittanceMeasure(IfcThermalTransmittanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermalTransmittanceMeasure = value;
     m_type = IFCTHERMALTRANSMITTANCEMEASURE;
 }
 
-IfcThermalResistanceMeasure IfcValue::getIfcThermalResistanceMeasure() {
-    return m_IfcValue_union.m_IfcThermalResistanceMeasure;
+IfcThermalResistanceMeasure IfcValue::getIfcThermalResistanceMeasure() const {
+    if (m_type == IFCTHERMALRESISTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcThermalResistanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermalResistanceMeasure);
+    }
 }
 
 void IfcValue::setIfcThermalResistanceMeasure(IfcThermalResistanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermalResistanceMeasure = value;
     m_type = IFCTHERMALRESISTANCEMEASURE;
 }
 
-IfcThermalAdmittanceMeasure IfcValue::getIfcThermalAdmittanceMeasure() {
-    return m_IfcValue_union.m_IfcThermalAdmittanceMeasure;
+IfcThermalAdmittanceMeasure IfcValue::getIfcThermalAdmittanceMeasure() const {
+    if (m_type == IFCTHERMALADMITTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcThermalAdmittanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermalAdmittanceMeasure);
+    }
 }
 
 void IfcValue::setIfcThermalAdmittanceMeasure(IfcThermalAdmittanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermalAdmittanceMeasure = value;
     m_type = IFCTHERMALADMITTANCEMEASURE;
 }
 
-IfcPressureMeasure IfcValue::getIfcPressureMeasure() {
-    return m_IfcValue_union.m_IfcPressureMeasure;
+IfcPressureMeasure IfcValue::getIfcPressureMeasure() const {
+    if (m_type == IFCPRESSUREMEASURE) {
+        return m_IfcValue_union.m_IfcPressureMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPressureMeasure);
+    }
 }
 
 void IfcValue::setIfcPressureMeasure(IfcPressureMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPressureMeasure = value;
     m_type = IFCPRESSUREMEASURE;
 }
 
-IfcPowerMeasure IfcValue::getIfcPowerMeasure() {
-    return m_IfcValue_union.m_IfcPowerMeasure;
+IfcPowerMeasure IfcValue::getIfcPowerMeasure() const {
+    if (m_type == IFCPOWERMEASURE) {
+        return m_IfcValue_union.m_IfcPowerMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPowerMeasure);
+    }
 }
 
 void IfcValue::setIfcPowerMeasure(IfcPowerMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPowerMeasure = value;
     m_type = IFCPOWERMEASURE;
 }
 
-IfcMassFlowRateMeasure IfcValue::getIfcMassFlowRateMeasure() {
-    return m_IfcValue_union.m_IfcMassFlowRateMeasure;
+IfcMassFlowRateMeasure IfcValue::getIfcMassFlowRateMeasure() const {
+    if (m_type == IFCMASSFLOWRATEMEASURE) {
+        return m_IfcValue_union.m_IfcMassFlowRateMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMassFlowRateMeasure);
+    }
 }
 
 void IfcValue::setIfcMassFlowRateMeasure(IfcMassFlowRateMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMassFlowRateMeasure = value;
     m_type = IFCMASSFLOWRATEMEASURE;
 }
 
-IfcMassDensityMeasure IfcValue::getIfcMassDensityMeasure() {
-    return m_IfcValue_union.m_IfcMassDensityMeasure;
+IfcMassDensityMeasure IfcValue::getIfcMassDensityMeasure() const {
+    if (m_type == IFCMASSDENSITYMEASURE) {
+        return m_IfcValue_union.m_IfcMassDensityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMassDensityMeasure);
+    }
 }
 
 void IfcValue::setIfcMassDensityMeasure(IfcMassDensityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMassDensityMeasure = value;
     m_type = IFCMASSDENSITYMEASURE;
 }
 
-IfcLinearVelocityMeasure IfcValue::getIfcLinearVelocityMeasure() {
-    return m_IfcValue_union.m_IfcLinearVelocityMeasure;
+IfcLinearVelocityMeasure IfcValue::getIfcLinearVelocityMeasure() const {
+    if (m_type == IFCLINEARVELOCITYMEASURE) {
+        return m_IfcValue_union.m_IfcLinearVelocityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLinearVelocityMeasure);
+    }
 }
 
 void IfcValue::setIfcLinearVelocityMeasure(IfcLinearVelocityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLinearVelocityMeasure = value;
     m_type = IFCLINEARVELOCITYMEASURE;
 }
 
-IfcKinematicViscosityMeasure IfcValue::getIfcKinematicViscosityMeasure() {
-    return m_IfcValue_union.m_IfcKinematicViscosityMeasure;
+IfcKinematicViscosityMeasure IfcValue::getIfcKinematicViscosityMeasure() const {
+    if (m_type == IFCKINEMATICVISCOSITYMEASURE) {
+        return m_IfcValue_union.m_IfcKinematicViscosityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcKinematicViscosityMeasure);
+    }
 }
 
 void IfcValue::setIfcKinematicViscosityMeasure(IfcKinematicViscosityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcKinematicViscosityMeasure = value;
     m_type = IFCKINEMATICVISCOSITYMEASURE;
 }
 
-IfcIntegerCountRateMeasure IfcValue::getIfcIntegerCountRateMeasure() {
-    return m_IfcValue_union.m_IfcIntegerCountRateMeasure;
+IfcIntegerCountRateMeasure IfcValue::getIfcIntegerCountRateMeasure() const {
+    if (m_type == IFCINTEGERCOUNTRATEMEASURE) {
+        return m_IfcValue_union.m_IfcIntegerCountRateMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcIntegerCountRateMeasure);
+    }
 }
 
 void IfcValue::setIfcIntegerCountRateMeasure(IfcIntegerCountRateMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcIntegerCountRateMeasure = value;
     m_type = IFCINTEGERCOUNTRATEMEASURE;
 }
 
-IfcHeatFluxDensityMeasure IfcValue::getIfcHeatFluxDensityMeasure() {
-    return m_IfcValue_union.m_IfcHeatFluxDensityMeasure;
+IfcHeatFluxDensityMeasure IfcValue::getIfcHeatFluxDensityMeasure() const {
+    if (m_type == IFCHEATFLUXDENSITYMEASURE) {
+        return m_IfcValue_union.m_IfcHeatFluxDensityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcHeatFluxDensityMeasure);
+    }
 }
 
 void IfcValue::setIfcHeatFluxDensityMeasure(IfcHeatFluxDensityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcHeatFluxDensityMeasure = value;
     m_type = IFCHEATFLUXDENSITYMEASURE;
 }
 
-IfcFrequencyMeasure IfcValue::getIfcFrequencyMeasure() {
-    return m_IfcValue_union.m_IfcFrequencyMeasure;
+IfcFrequencyMeasure IfcValue::getIfcFrequencyMeasure() const {
+    if (m_type == IFCFREQUENCYMEASURE) {
+        return m_IfcValue_union.m_IfcFrequencyMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcFrequencyMeasure);
+    }
 }
 
 void IfcValue::setIfcFrequencyMeasure(IfcFrequencyMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcFrequencyMeasure = value;
     m_type = IFCFREQUENCYMEASURE;
 }
 
-IfcEnergyMeasure IfcValue::getIfcEnergyMeasure() {
-    return m_IfcValue_union.m_IfcEnergyMeasure;
+IfcEnergyMeasure IfcValue::getIfcEnergyMeasure() const {
+    if (m_type == IFCENERGYMEASURE) {
+        return m_IfcValue_union.m_IfcEnergyMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcEnergyMeasure);
+    }
 }
 
 void IfcValue::setIfcEnergyMeasure(IfcEnergyMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcEnergyMeasure = value;
     m_type = IFCENERGYMEASURE;
 }
 
-IfcElectricVoltageMeasure IfcValue::getIfcElectricVoltageMeasure() {
-    return m_IfcValue_union.m_IfcElectricVoltageMeasure;
+IfcElectricVoltageMeasure IfcValue::getIfcElectricVoltageMeasure() const {
+    if (m_type == IFCELECTRICVOLTAGEMEASURE) {
+        return m_IfcValue_union.m_IfcElectricVoltageMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricVoltageMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricVoltageMeasure(IfcElectricVoltageMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricVoltageMeasure = value;
     m_type = IFCELECTRICVOLTAGEMEASURE;
 }
 
-IfcDynamicViscosityMeasure IfcValue::getIfcDynamicViscosityMeasure() {
-    return m_IfcValue_union.m_IfcDynamicViscosityMeasure;
+IfcDynamicViscosityMeasure IfcValue::getIfcDynamicViscosityMeasure() const {
+    if (m_type == IFCDYNAMICVISCOSITYMEASURE) {
+        return m_IfcValue_union.m_IfcDynamicViscosityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcDynamicViscosityMeasure);
+    }
 }
 
 void IfcValue::setIfcDynamicViscosityMeasure(IfcDynamicViscosityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcDynamicViscosityMeasure = value;
     m_type = IFCDYNAMICVISCOSITYMEASURE;
 }
 
-IfcCompoundPlaneAngleMeasure IfcValue::getIfcCompoundPlaneAngleMeasure() {
-    return *m_IfcValue_union.m_IfcCompoundPlaneAngleMeasure;
+IfcCompoundPlaneAngleMeasure IfcValue::getIfcCompoundPlaneAngleMeasure() const {
+    if (m_type == IFCCOMPOUNDPLANEANGLEMEASURE) {
+        return *m_IfcValue_union.m_IfcCompoundPlaneAngleMeasure;
+    }
+    else {
+        return Step::getUnset(*m_IfcValue_union.m_IfcCompoundPlaneAngleMeasure);
+    }
 }
 
 void IfcValue::setIfcCompoundPlaneAngleMeasure(const IfcCompoundPlaneAngleMeasure &value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcCompoundPlaneAngleMeasure = new IfcCompoundPlaneAngleMeasure(value);
     m_type = IFCCOMPOUNDPLANEANGLEMEASURE;
 }
 
-IfcAngularVelocityMeasure IfcValue::getIfcAngularVelocityMeasure() {
-    return m_IfcValue_union.m_IfcAngularVelocityMeasure;
+IfcAngularVelocityMeasure IfcValue::getIfcAngularVelocityMeasure() const {
+    if (m_type == IFCANGULARVELOCITYMEASURE) {
+        return m_IfcValue_union.m_IfcAngularVelocityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcAngularVelocityMeasure);
+    }
 }
 
 void IfcValue::setIfcAngularVelocityMeasure(IfcAngularVelocityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcAngularVelocityMeasure = value;
     m_type = IFCANGULARVELOCITYMEASURE;
 }
 
-IfcThermalConductivityMeasure IfcValue::getIfcThermalConductivityMeasure() {
-    return m_IfcValue_union.m_IfcThermalConductivityMeasure;
+IfcThermalConductivityMeasure IfcValue::getIfcThermalConductivityMeasure() const {
+    if (m_type == IFCTHERMALCONDUCTIVITYMEASURE) {
+        return m_IfcValue_union.m_IfcThermalConductivityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermalConductivityMeasure);
+    }
 }
 
 void IfcValue::setIfcThermalConductivityMeasure(IfcThermalConductivityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermalConductivityMeasure = value;
     m_type = IFCTHERMALCONDUCTIVITYMEASURE;
 }
 
-IfcMolecularWeightMeasure IfcValue::getIfcMolecularWeightMeasure() {
-    return m_IfcValue_union.m_IfcMolecularWeightMeasure;
+IfcMolecularWeightMeasure IfcValue::getIfcMolecularWeightMeasure() const {
+    if (m_type == IFCMOLECULARWEIGHTMEASURE) {
+        return m_IfcValue_union.m_IfcMolecularWeightMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMolecularWeightMeasure);
+    }
 }
 
 void IfcValue::setIfcMolecularWeightMeasure(IfcMolecularWeightMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMolecularWeightMeasure = value;
     m_type = IFCMOLECULARWEIGHTMEASURE;
 }
 
-IfcVaporPermeabilityMeasure IfcValue::getIfcVaporPermeabilityMeasure() {
-    return m_IfcValue_union.m_IfcVaporPermeabilityMeasure;
+IfcVaporPermeabilityMeasure IfcValue::getIfcVaporPermeabilityMeasure() const {
+    if (m_type == IFCVAPORPERMEABILITYMEASURE) {
+        return m_IfcValue_union.m_IfcVaporPermeabilityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcVaporPermeabilityMeasure);
+    }
 }
 
 void IfcValue::setIfcVaporPermeabilityMeasure(IfcVaporPermeabilityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcVaporPermeabilityMeasure = value;
     m_type = IFCVAPORPERMEABILITYMEASURE;
 }
 
-IfcMoistureDiffusivityMeasure IfcValue::getIfcMoistureDiffusivityMeasure() {
-    return m_IfcValue_union.m_IfcMoistureDiffusivityMeasure;
+IfcMoistureDiffusivityMeasure IfcValue::getIfcMoistureDiffusivityMeasure() const {
+    if (m_type == IFCMOISTUREDIFFUSIVITYMEASURE) {
+        return m_IfcValue_union.m_IfcMoistureDiffusivityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMoistureDiffusivityMeasure);
+    }
 }
 
 void IfcValue::setIfcMoistureDiffusivityMeasure(IfcMoistureDiffusivityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMoistureDiffusivityMeasure = value;
     m_type = IFCMOISTUREDIFFUSIVITYMEASURE;
 }
 
-IfcIsothermalMoistureCapacityMeasure IfcValue::getIfcIsothermalMoistureCapacityMeasure() {
-    return m_IfcValue_union.m_IfcIsothermalMoistureCapacityMeasure;
+IfcIsothermalMoistureCapacityMeasure IfcValue::getIfcIsothermalMoistureCapacityMeasure() const {
+    if (m_type == IFCISOTHERMALMOISTURECAPACITYMEASURE) {
+        return m_IfcValue_union.m_IfcIsothermalMoistureCapacityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcIsothermalMoistureCapacityMeasure);
+    }
 }
 
 void IfcValue::setIfcIsothermalMoistureCapacityMeasure(IfcIsothermalMoistureCapacityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcIsothermalMoistureCapacityMeasure = value;
     m_type = IFCISOTHERMALMOISTURECAPACITYMEASURE;
 }
 
-IfcSpecificHeatCapacityMeasure IfcValue::getIfcSpecificHeatCapacityMeasure() {
-    return m_IfcValue_union.m_IfcSpecificHeatCapacityMeasure;
+IfcSpecificHeatCapacityMeasure IfcValue::getIfcSpecificHeatCapacityMeasure() const {
+    if (m_type == IFCSPECIFICHEATCAPACITYMEASURE) {
+        return m_IfcValue_union.m_IfcSpecificHeatCapacityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSpecificHeatCapacityMeasure);
+    }
 }
 
 void IfcValue::setIfcSpecificHeatCapacityMeasure(IfcSpecificHeatCapacityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSpecificHeatCapacityMeasure = value;
     m_type = IFCSPECIFICHEATCAPACITYMEASURE;
 }
 
-IfcMonetaryMeasure IfcValue::getIfcMonetaryMeasure() {
-    return m_IfcValue_union.m_IfcMonetaryMeasure;
+IfcMonetaryMeasure IfcValue::getIfcMonetaryMeasure() const {
+    if (m_type == IFCMONETARYMEASURE) {
+        return m_IfcValue_union.m_IfcMonetaryMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMonetaryMeasure);
+    }
 }
 
 void IfcValue::setIfcMonetaryMeasure(IfcMonetaryMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMonetaryMeasure = value;
     m_type = IFCMONETARYMEASURE;
 }
 
-IfcMagneticFluxDensityMeasure IfcValue::getIfcMagneticFluxDensityMeasure() {
-    return m_IfcValue_union.m_IfcMagneticFluxDensityMeasure;
+IfcMagneticFluxDensityMeasure IfcValue::getIfcMagneticFluxDensityMeasure() const {
+    if (m_type == IFCMAGNETICFLUXDENSITYMEASURE) {
+        return m_IfcValue_union.m_IfcMagneticFluxDensityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMagneticFluxDensityMeasure);
+    }
 }
 
 void IfcValue::setIfcMagneticFluxDensityMeasure(IfcMagneticFluxDensityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMagneticFluxDensityMeasure = value;
     m_type = IFCMAGNETICFLUXDENSITYMEASURE;
 }
 
-IfcMagneticFluxMeasure IfcValue::getIfcMagneticFluxMeasure() {
-    return m_IfcValue_union.m_IfcMagneticFluxMeasure;
+IfcMagneticFluxMeasure IfcValue::getIfcMagneticFluxMeasure() const {
+    if (m_type == IFCMAGNETICFLUXMEASURE) {
+        return m_IfcValue_union.m_IfcMagneticFluxMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMagneticFluxMeasure);
+    }
 }
 
 void IfcValue::setIfcMagneticFluxMeasure(IfcMagneticFluxMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMagneticFluxMeasure = value;
     m_type = IFCMAGNETICFLUXMEASURE;
 }
 
-IfcLuminousFluxMeasure IfcValue::getIfcLuminousFluxMeasure() {
-    return m_IfcValue_union.m_IfcLuminousFluxMeasure;
+IfcLuminousFluxMeasure IfcValue::getIfcLuminousFluxMeasure() const {
+    if (m_type == IFCLUMINOUSFLUXMEASURE) {
+        return m_IfcValue_union.m_IfcLuminousFluxMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLuminousFluxMeasure);
+    }
 }
 
 void IfcValue::setIfcLuminousFluxMeasure(IfcLuminousFluxMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLuminousFluxMeasure = value;
     m_type = IFCLUMINOUSFLUXMEASURE;
 }
 
-IfcForceMeasure IfcValue::getIfcForceMeasure() {
-    return m_IfcValue_union.m_IfcForceMeasure;
+IfcForceMeasure IfcValue::getIfcForceMeasure() const {
+    if (m_type == IFCFORCEMEASURE) {
+        return m_IfcValue_union.m_IfcForceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcForceMeasure);
+    }
 }
 
 void IfcValue::setIfcForceMeasure(IfcForceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcForceMeasure = value;
     m_type = IFCFORCEMEASURE;
 }
 
-IfcInductanceMeasure IfcValue::getIfcInductanceMeasure() {
-    return m_IfcValue_union.m_IfcInductanceMeasure;
+IfcInductanceMeasure IfcValue::getIfcInductanceMeasure() const {
+    if (m_type == IFCINDUCTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcInductanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcInductanceMeasure);
+    }
 }
 
 void IfcValue::setIfcInductanceMeasure(IfcInductanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcInductanceMeasure = value;
     m_type = IFCINDUCTANCEMEASURE;
 }
 
-IfcIlluminanceMeasure IfcValue::getIfcIlluminanceMeasure() {
-    return m_IfcValue_union.m_IfcIlluminanceMeasure;
+IfcIlluminanceMeasure IfcValue::getIfcIlluminanceMeasure() const {
+    if (m_type == IFCILLUMINANCEMEASURE) {
+        return m_IfcValue_union.m_IfcIlluminanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcIlluminanceMeasure);
+    }
 }
 
 void IfcValue::setIfcIlluminanceMeasure(IfcIlluminanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcIlluminanceMeasure = value;
     m_type = IFCILLUMINANCEMEASURE;
 }
 
-IfcElectricResistanceMeasure IfcValue::getIfcElectricResistanceMeasure() {
-    return m_IfcValue_union.m_IfcElectricResistanceMeasure;
+IfcElectricResistanceMeasure IfcValue::getIfcElectricResistanceMeasure() const {
+    if (m_type == IFCELECTRICRESISTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcElectricResistanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricResistanceMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricResistanceMeasure(IfcElectricResistanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricResistanceMeasure = value;
     m_type = IFCELECTRICRESISTANCEMEASURE;
 }
 
-IfcElectricConductanceMeasure IfcValue::getIfcElectricConductanceMeasure() {
-    return m_IfcValue_union.m_IfcElectricConductanceMeasure;
+IfcElectricConductanceMeasure IfcValue::getIfcElectricConductanceMeasure() const {
+    if (m_type == IFCELECTRICCONDUCTANCEMEASURE) {
+        return m_IfcValue_union.m_IfcElectricConductanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricConductanceMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricConductanceMeasure(IfcElectricConductanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricConductanceMeasure = value;
     m_type = IFCELECTRICCONDUCTANCEMEASURE;
 }
 
-IfcElectricChargeMeasure IfcValue::getIfcElectricChargeMeasure() {
-    return m_IfcValue_union.m_IfcElectricChargeMeasure;
+IfcElectricChargeMeasure IfcValue::getIfcElectricChargeMeasure() const {
+    if (m_type == IFCELECTRICCHARGEMEASURE) {
+        return m_IfcValue_union.m_IfcElectricChargeMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricChargeMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricChargeMeasure(IfcElectricChargeMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricChargeMeasure = value;
     m_type = IFCELECTRICCHARGEMEASURE;
 }
 
-IfcDoseEquivalentMeasure IfcValue::getIfcDoseEquivalentMeasure() {
-    return m_IfcValue_union.m_IfcDoseEquivalentMeasure;
+IfcDoseEquivalentMeasure IfcValue::getIfcDoseEquivalentMeasure() const {
+    if (m_type == IFCDOSEEQUIVALENTMEASURE) {
+        return m_IfcValue_union.m_IfcDoseEquivalentMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcDoseEquivalentMeasure);
+    }
 }
 
 void IfcValue::setIfcDoseEquivalentMeasure(IfcDoseEquivalentMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcDoseEquivalentMeasure = value;
     m_type = IFCDOSEEQUIVALENTMEASURE;
 }
 
-IfcElectricCapacitanceMeasure IfcValue::getIfcElectricCapacitanceMeasure() {
-    return m_IfcValue_union.m_IfcElectricCapacitanceMeasure;
+IfcElectricCapacitanceMeasure IfcValue::getIfcElectricCapacitanceMeasure() const {
+    if (m_type == IFCELECTRICCAPACITANCEMEASURE) {
+        return m_IfcValue_union.m_IfcElectricCapacitanceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcElectricCapacitanceMeasure);
+    }
 }
 
 void IfcValue::setIfcElectricCapacitanceMeasure(IfcElectricCapacitanceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcElectricCapacitanceMeasure = value;
     m_type = IFCELECTRICCAPACITANCEMEASURE;
 }
 
-IfcAbsorbedDoseMeasure IfcValue::getIfcAbsorbedDoseMeasure() {
-    return m_IfcValue_union.m_IfcAbsorbedDoseMeasure;
+IfcAbsorbedDoseMeasure IfcValue::getIfcAbsorbedDoseMeasure() const {
+    if (m_type == IFCABSORBEDDOSEMEASURE) {
+        return m_IfcValue_union.m_IfcAbsorbedDoseMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcAbsorbedDoseMeasure);
+    }
 }
 
 void IfcValue::setIfcAbsorbedDoseMeasure(IfcAbsorbedDoseMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcAbsorbedDoseMeasure = value;
     m_type = IFCABSORBEDDOSEMEASURE;
 }
 
-IfcRadioActivityMeasure IfcValue::getIfcRadioActivityMeasure() {
-    return m_IfcValue_union.m_IfcRadioActivityMeasure;
+IfcRadioActivityMeasure IfcValue::getIfcRadioActivityMeasure() const {
+    if (m_type == IFCRADIOACTIVITYMEASURE) {
+        return m_IfcValue_union.m_IfcRadioActivityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcRadioActivityMeasure);
+    }
 }
 
 void IfcValue::setIfcRadioActivityMeasure(IfcRadioActivityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcRadioActivityMeasure = value;
     m_type = IFCRADIOACTIVITYMEASURE;
 }
 
-IfcRotationalFrequencyMeasure IfcValue::getIfcRotationalFrequencyMeasure() {
-    return m_IfcValue_union.m_IfcRotationalFrequencyMeasure;
+IfcRotationalFrequencyMeasure IfcValue::getIfcRotationalFrequencyMeasure() const {
+    if (m_type == IFCROTATIONALFREQUENCYMEASURE) {
+        return m_IfcValue_union.m_IfcRotationalFrequencyMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcRotationalFrequencyMeasure);
+    }
 }
 
 void IfcValue::setIfcRotationalFrequencyMeasure(IfcRotationalFrequencyMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcRotationalFrequencyMeasure = value;
     m_type = IFCROTATIONALFREQUENCYMEASURE;
 }
 
-IfcTorqueMeasure IfcValue::getIfcTorqueMeasure() {
-    return m_IfcValue_union.m_IfcTorqueMeasure;
+IfcTorqueMeasure IfcValue::getIfcTorqueMeasure() const {
+    if (m_type == IFCTORQUEMEASURE) {
+        return m_IfcValue_union.m_IfcTorqueMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcTorqueMeasure);
+    }
 }
 
 void IfcValue::setIfcTorqueMeasure(IfcTorqueMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcTorqueMeasure = value;
     m_type = IFCTORQUEMEASURE;
 }
 
-IfcAccelerationMeasure IfcValue::getIfcAccelerationMeasure() {
-    return m_IfcValue_union.m_IfcAccelerationMeasure;
+IfcAccelerationMeasure IfcValue::getIfcAccelerationMeasure() const {
+    if (m_type == IFCACCELERATIONMEASURE) {
+        return m_IfcValue_union.m_IfcAccelerationMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcAccelerationMeasure);
+    }
 }
 
 void IfcValue::setIfcAccelerationMeasure(IfcAccelerationMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcAccelerationMeasure = value;
     m_type = IFCACCELERATIONMEASURE;
 }
 
-IfcLinearForceMeasure IfcValue::getIfcLinearForceMeasure() {
-    return m_IfcValue_union.m_IfcLinearForceMeasure;
+IfcLinearForceMeasure IfcValue::getIfcLinearForceMeasure() const {
+    if (m_type == IFCLINEARFORCEMEASURE) {
+        return m_IfcValue_union.m_IfcLinearForceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLinearForceMeasure);
+    }
 }
 
 void IfcValue::setIfcLinearForceMeasure(IfcLinearForceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLinearForceMeasure = value;
     m_type = IFCLINEARFORCEMEASURE;
 }
 
-IfcLinearStiffnessMeasure IfcValue::getIfcLinearStiffnessMeasure() {
-    return m_IfcValue_union.m_IfcLinearStiffnessMeasure;
+IfcLinearStiffnessMeasure IfcValue::getIfcLinearStiffnessMeasure() const {
+    if (m_type == IFCLINEARSTIFFNESSMEASURE) {
+        return m_IfcValue_union.m_IfcLinearStiffnessMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLinearStiffnessMeasure);
+    }
 }
 
 void IfcValue::setIfcLinearStiffnessMeasure(IfcLinearStiffnessMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLinearStiffnessMeasure = value;
     m_type = IFCLINEARSTIFFNESSMEASURE;
 }
 
-IfcModulusOfSubgradeReactionMeasure IfcValue::getIfcModulusOfSubgradeReactionMeasure() {
-    return m_IfcValue_union.m_IfcModulusOfSubgradeReactionMeasure;
+IfcModulusOfSubgradeReactionMeasure IfcValue::getIfcModulusOfSubgradeReactionMeasure() const {
+    if (m_type == IFCMODULUSOFSUBGRADEREACTIONMEASURE) {
+        return m_IfcValue_union.m_IfcModulusOfSubgradeReactionMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcModulusOfSubgradeReactionMeasure);
+    }
 }
 
 void IfcValue::setIfcModulusOfSubgradeReactionMeasure(IfcModulusOfSubgradeReactionMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcModulusOfSubgradeReactionMeasure = value;
     m_type = IFCMODULUSOFSUBGRADEREACTIONMEASURE;
 }
 
-IfcModulusOfElasticityMeasure IfcValue::getIfcModulusOfElasticityMeasure() {
-    return m_IfcValue_union.m_IfcModulusOfElasticityMeasure;
+IfcModulusOfElasticityMeasure IfcValue::getIfcModulusOfElasticityMeasure() const {
+    if (m_type == IFCMODULUSOFELASTICITYMEASURE) {
+        return m_IfcValue_union.m_IfcModulusOfElasticityMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcModulusOfElasticityMeasure);
+    }
 }
 
 void IfcValue::setIfcModulusOfElasticityMeasure(IfcModulusOfElasticityMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcModulusOfElasticityMeasure = value;
     m_type = IFCMODULUSOFELASTICITYMEASURE;
 }
 
-IfcMomentOfInertiaMeasure IfcValue::getIfcMomentOfInertiaMeasure() {
-    return m_IfcValue_union.m_IfcMomentOfInertiaMeasure;
+IfcMomentOfInertiaMeasure IfcValue::getIfcMomentOfInertiaMeasure() const {
+    if (m_type == IFCMOMENTOFINERTIAMEASURE) {
+        return m_IfcValue_union.m_IfcMomentOfInertiaMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMomentOfInertiaMeasure);
+    }
 }
 
 void IfcValue::setIfcMomentOfInertiaMeasure(IfcMomentOfInertiaMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMomentOfInertiaMeasure = value;
     m_type = IFCMOMENTOFINERTIAMEASURE;
 }
 
-IfcPlanarForceMeasure IfcValue::getIfcPlanarForceMeasure() {
-    return m_IfcValue_union.m_IfcPlanarForceMeasure;
+IfcPlanarForceMeasure IfcValue::getIfcPlanarForceMeasure() const {
+    if (m_type == IFCPLANARFORCEMEASURE) {
+        return m_IfcValue_union.m_IfcPlanarForceMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPlanarForceMeasure);
+    }
 }
 
 void IfcValue::setIfcPlanarForceMeasure(IfcPlanarForceMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPlanarForceMeasure = value;
     m_type = IFCPLANARFORCEMEASURE;
 }
 
-IfcRotationalStiffnessMeasure IfcValue::getIfcRotationalStiffnessMeasure() {
-    return m_IfcValue_union.m_IfcRotationalStiffnessMeasure;
+IfcRotationalStiffnessMeasure IfcValue::getIfcRotationalStiffnessMeasure() const {
+    if (m_type == IFCROTATIONALSTIFFNESSMEASURE) {
+        return m_IfcValue_union.m_IfcRotationalStiffnessMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcRotationalStiffnessMeasure);
+    }
 }
 
 void IfcValue::setIfcRotationalStiffnessMeasure(IfcRotationalStiffnessMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcRotationalStiffnessMeasure = value;
     m_type = IFCROTATIONALSTIFFNESSMEASURE;
 }
 
-IfcShearModulusMeasure IfcValue::getIfcShearModulusMeasure() {
-    return m_IfcValue_union.m_IfcShearModulusMeasure;
+IfcShearModulusMeasure IfcValue::getIfcShearModulusMeasure() const {
+    if (m_type == IFCSHEARMODULUSMEASURE) {
+        return m_IfcValue_union.m_IfcShearModulusMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcShearModulusMeasure);
+    }
 }
 
 void IfcValue::setIfcShearModulusMeasure(IfcShearModulusMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcShearModulusMeasure = value;
     m_type = IFCSHEARMODULUSMEASURE;
 }
 
-IfcLinearMomentMeasure IfcValue::getIfcLinearMomentMeasure() {
-    return m_IfcValue_union.m_IfcLinearMomentMeasure;
+IfcLinearMomentMeasure IfcValue::getIfcLinearMomentMeasure() const {
+    if (m_type == IFCLINEARMOMENTMEASURE) {
+        return m_IfcValue_union.m_IfcLinearMomentMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLinearMomentMeasure);
+    }
 }
 
 void IfcValue::setIfcLinearMomentMeasure(IfcLinearMomentMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLinearMomentMeasure = value;
     m_type = IFCLINEARMOMENTMEASURE;
 }
 
-IfcLuminousIntensityDistributionMeasure IfcValue::getIfcLuminousIntensityDistributionMeasure() {
-    return m_IfcValue_union.m_IfcLuminousIntensityDistributionMeasure;
+IfcLuminousIntensityDistributionMeasure IfcValue::getIfcLuminousIntensityDistributionMeasure() const {
+    if (m_type == IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE) {
+        return m_IfcValue_union.m_IfcLuminousIntensityDistributionMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcLuminousIntensityDistributionMeasure);
+    }
 }
 
 void IfcValue::setIfcLuminousIntensityDistributionMeasure(IfcLuminousIntensityDistributionMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcLuminousIntensityDistributionMeasure = value;
     m_type = IFCLUMINOUSINTENSITYDISTRIBUTIONMEASURE;
 }
 
-IfcCurvatureMeasure IfcValue::getIfcCurvatureMeasure() {
-    return m_IfcValue_union.m_IfcCurvatureMeasure;
+IfcCurvatureMeasure IfcValue::getIfcCurvatureMeasure() const {
+    if (m_type == IFCCURVATUREMEASURE) {
+        return m_IfcValue_union.m_IfcCurvatureMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcCurvatureMeasure);
+    }
 }
 
 void IfcValue::setIfcCurvatureMeasure(IfcCurvatureMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcCurvatureMeasure = value;
     m_type = IFCCURVATUREMEASURE;
 }
 
-IfcMassPerLengthMeasure IfcValue::getIfcMassPerLengthMeasure() {
-    return m_IfcValue_union.m_IfcMassPerLengthMeasure;
+IfcMassPerLengthMeasure IfcValue::getIfcMassPerLengthMeasure() const {
+    if (m_type == IFCMASSPERLENGTHMEASURE) {
+        return m_IfcValue_union.m_IfcMassPerLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcMassPerLengthMeasure);
+    }
 }
 
 void IfcValue::setIfcMassPerLengthMeasure(IfcMassPerLengthMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcMassPerLengthMeasure = value;
     m_type = IFCMASSPERLENGTHMEASURE;
 }
 
-IfcModulusOfLinearSubgradeReactionMeasure IfcValue::getIfcModulusOfLinearSubgradeReactionMeasure() {
-    return m_IfcValue_union.m_IfcModulusOfLinearSubgradeReactionMeasure;
+IfcModulusOfLinearSubgradeReactionMeasure IfcValue::getIfcModulusOfLinearSubgradeReactionMeasure() const {
+    if (m_type == IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE) {
+        return m_IfcValue_union.m_IfcModulusOfLinearSubgradeReactionMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcModulusOfLinearSubgradeReactionMeasure);
+    }
 }
 
 void IfcValue::setIfcModulusOfLinearSubgradeReactionMeasure(IfcModulusOfLinearSubgradeReactionMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcModulusOfLinearSubgradeReactionMeasure = value;
     m_type = IFCMODULUSOFLINEARSUBGRADEREACTIONMEASURE;
 }
 
-IfcModulusOfRotationalSubgradeReactionMeasure IfcValue::getIfcModulusOfRotationalSubgradeReactionMeasure() {
-    return m_IfcValue_union.m_IfcModulusOfRotationalSubgradeReactionMeasure;
+IfcModulusOfRotationalSubgradeReactionMeasure IfcValue::getIfcModulusOfRotationalSubgradeReactionMeasure() const {
+    if (m_type == IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE) {
+        return m_IfcValue_union.m_IfcModulusOfRotationalSubgradeReactionMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcModulusOfRotationalSubgradeReactionMeasure);
+    }
 }
 
 void IfcValue::setIfcModulusOfRotationalSubgradeReactionMeasure(IfcModulusOfRotationalSubgradeReactionMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcModulusOfRotationalSubgradeReactionMeasure = value;
     m_type = IFCMODULUSOFROTATIONALSUBGRADEREACTIONMEASURE;
 }
 
-IfcRotationalMassMeasure IfcValue::getIfcRotationalMassMeasure() {
-    return m_IfcValue_union.m_IfcRotationalMassMeasure;
+IfcRotationalMassMeasure IfcValue::getIfcRotationalMassMeasure() const {
+    if (m_type == IFCROTATIONALMASSMEASURE) {
+        return m_IfcValue_union.m_IfcRotationalMassMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcRotationalMassMeasure);
+    }
 }
 
 void IfcValue::setIfcRotationalMassMeasure(IfcRotationalMassMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcRotationalMassMeasure = value;
     m_type = IFCROTATIONALMASSMEASURE;
 }
 
-IfcSectionalAreaIntegralMeasure IfcValue::getIfcSectionalAreaIntegralMeasure() {
-    return m_IfcValue_union.m_IfcSectionalAreaIntegralMeasure;
+IfcSectionalAreaIntegralMeasure IfcValue::getIfcSectionalAreaIntegralMeasure() const {
+    if (m_type == IFCSECTIONALAREAINTEGRALMEASURE) {
+        return m_IfcValue_union.m_IfcSectionalAreaIntegralMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSectionalAreaIntegralMeasure);
+    }
 }
 
 void IfcValue::setIfcSectionalAreaIntegralMeasure(IfcSectionalAreaIntegralMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSectionalAreaIntegralMeasure = value;
     m_type = IFCSECTIONALAREAINTEGRALMEASURE;
 }
 
-IfcSectionModulusMeasure IfcValue::getIfcSectionModulusMeasure() {
-    return m_IfcValue_union.m_IfcSectionModulusMeasure;
+IfcSectionModulusMeasure IfcValue::getIfcSectionModulusMeasure() const {
+    if (m_type == IFCSECTIONMODULUSMEASURE) {
+        return m_IfcValue_union.m_IfcSectionModulusMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSectionModulusMeasure);
+    }
 }
 
 void IfcValue::setIfcSectionModulusMeasure(IfcSectionModulusMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSectionModulusMeasure = value;
     m_type = IFCSECTIONMODULUSMEASURE;
 }
 
-IfcTemperatureGradientMeasure IfcValue::getIfcTemperatureGradientMeasure() {
-    return m_IfcValue_union.m_IfcTemperatureGradientMeasure;
+IfcTemperatureGradientMeasure IfcValue::getIfcTemperatureGradientMeasure() const {
+    if (m_type == IFCTEMPERATUREGRADIENTMEASURE) {
+        return m_IfcValue_union.m_IfcTemperatureGradientMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcTemperatureGradientMeasure);
+    }
 }
 
 void IfcValue::setIfcTemperatureGradientMeasure(IfcTemperatureGradientMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcTemperatureGradientMeasure = value;
     m_type = IFCTEMPERATUREGRADIENTMEASURE;
 }
 
-IfcThermalExpansionCoefficientMeasure IfcValue::getIfcThermalExpansionCoefficientMeasure() {
-    return m_IfcValue_union.m_IfcThermalExpansionCoefficientMeasure;
+IfcThermalExpansionCoefficientMeasure IfcValue::getIfcThermalExpansionCoefficientMeasure() const {
+    if (m_type == IFCTHERMALEXPANSIONCOEFFICIENTMEASURE) {
+        return m_IfcValue_union.m_IfcThermalExpansionCoefficientMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcThermalExpansionCoefficientMeasure);
+    }
 }
 
 void IfcValue::setIfcThermalExpansionCoefficientMeasure(IfcThermalExpansionCoefficientMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcThermalExpansionCoefficientMeasure = value;
     m_type = IFCTHERMALEXPANSIONCOEFFICIENTMEASURE;
 }
 
-IfcWarpingConstantMeasure IfcValue::getIfcWarpingConstantMeasure() {
-    return m_IfcValue_union.m_IfcWarpingConstantMeasure;
+IfcWarpingConstantMeasure IfcValue::getIfcWarpingConstantMeasure() const {
+    if (m_type == IFCWARPINGCONSTANTMEASURE) {
+        return m_IfcValue_union.m_IfcWarpingConstantMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcWarpingConstantMeasure);
+    }
 }
 
 void IfcValue::setIfcWarpingConstantMeasure(IfcWarpingConstantMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcWarpingConstantMeasure = value;
     m_type = IFCWARPINGCONSTANTMEASURE;
 }
 
-IfcWarpingMomentMeasure IfcValue::getIfcWarpingMomentMeasure() {
-    return m_IfcValue_union.m_IfcWarpingMomentMeasure;
+IfcWarpingMomentMeasure IfcValue::getIfcWarpingMomentMeasure() const {
+    if (m_type == IFCWARPINGMOMENTMEASURE) {
+        return m_IfcValue_union.m_IfcWarpingMomentMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcWarpingMomentMeasure);
+    }
 }
 
 void IfcValue::setIfcWarpingMomentMeasure(IfcWarpingMomentMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcWarpingMomentMeasure = value;
     m_type = IFCWARPINGMOMENTMEASURE;
 }
 
-IfcSoundPowerMeasure IfcValue::getIfcSoundPowerMeasure() {
-    return m_IfcValue_union.m_IfcSoundPowerMeasure;
+IfcSoundPowerMeasure IfcValue::getIfcSoundPowerMeasure() const {
+    if (m_type == IFCSOUNDPOWERMEASURE) {
+        return m_IfcValue_union.m_IfcSoundPowerMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSoundPowerMeasure);
+    }
 }
 
 void IfcValue::setIfcSoundPowerMeasure(IfcSoundPowerMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSoundPowerMeasure = value;
     m_type = IFCSOUNDPOWERMEASURE;
 }
 
-IfcSoundPressureMeasure IfcValue::getIfcSoundPressureMeasure() {
-    return m_IfcValue_union.m_IfcSoundPressureMeasure;
+IfcSoundPressureMeasure IfcValue::getIfcSoundPressureMeasure() const {
+    if (m_type == IFCSOUNDPRESSUREMEASURE) {
+        return m_IfcValue_union.m_IfcSoundPressureMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcSoundPressureMeasure);
+    }
 }
 
 void IfcValue::setIfcSoundPressureMeasure(IfcSoundPressureMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcSoundPressureMeasure = value;
     m_type = IFCSOUNDPRESSUREMEASURE;
 }
 
-IfcHeatingValueMeasure IfcValue::getIfcHeatingValueMeasure() {
-    return m_IfcValue_union.m_IfcHeatingValueMeasure;
+IfcHeatingValueMeasure IfcValue::getIfcHeatingValueMeasure() const {
+    if (m_type == IFCHEATINGVALUEMEASURE) {
+        return m_IfcValue_union.m_IfcHeatingValueMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcHeatingValueMeasure);
+    }
 }
 
 void IfcValue::setIfcHeatingValueMeasure(IfcHeatingValueMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcHeatingValueMeasure = value;
     m_type = IFCHEATINGVALUEMEASURE;
 }
 
-IfcPHMeasure IfcValue::getIfcPHMeasure() {
-    return m_IfcValue_union.m_IfcPHMeasure;
+IfcPHMeasure IfcValue::getIfcPHMeasure() const {
+    if (m_type == IFCPHMEASURE) {
+        return m_IfcValue_union.m_IfcPHMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcPHMeasure);
+    }
 }
 
 void IfcValue::setIfcPHMeasure(IfcPHMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcPHMeasure = value;
     m_type = IFCPHMEASURE;
 }
 
-IfcIonConcentrationMeasure IfcValue::getIfcIonConcentrationMeasure() {
-    return m_IfcValue_union.m_IfcIonConcentrationMeasure;
+IfcIonConcentrationMeasure IfcValue::getIfcIonConcentrationMeasure() const {
+    if (m_type == IFCIONCONCENTRATIONMEASURE) {
+        return m_IfcValue_union.m_IfcIonConcentrationMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcValue_union.m_IfcIonConcentrationMeasure);
+    }
 }
 
 void IfcValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMeasure value) {
-    deleteUnion();
     m_IfcValue_union.m_IfcIonConcentrationMeasure = value;
     m_type = IFCIONCONCENTRATIONMEASURE;
 }

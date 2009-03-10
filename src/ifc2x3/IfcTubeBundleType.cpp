@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcTubeBundleType::IfcTubeBundleType(Step::Id id, Step::SPFData *args) : IfcEner
 IfcTubeBundleType::~IfcTubeBundleType() {
 }
 
-bool IfcTubeBundleType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTubeBundleType(this);
+bool IfcTubeBundleType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTubeBundleType(this);
 }
 
-const std::string &IfcTubeBundleType::type() {
+const std::string &IfcTubeBundleType::type() const {
     return IfcTubeBundleType::s_type.getName();
 }
 
-Step::ClassType IfcTubeBundleType::getClassType() {
+const Step::ClassType &IfcTubeBundleType::getClassType() {
     return IfcTubeBundleType::s_type;
 }
 
-Step::ClassType IfcTubeBundleType::getType() const {
+const Step::ClassType &IfcTubeBundleType::getType() const {
     return IfcTubeBundleType::s_type;
 }
 
-bool IfcTubeBundleType::isOfType(Step::ClassType t) {
+bool IfcTubeBundleType::isOfType(const Step::ClassType &t) const {
     return IfcTubeBundleType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcTubeBundleTypeEnum IfcTubeBundleType::getPredefinedType() {
     }
 }
 
-void IfcTubeBundleType::setPredefinedType(IfcTubeBundleTypeEnum value) {
-    m_predefinedType = value;
+const IfcTubeBundleTypeEnum IfcTubeBundleType::getPredefinedType() const {
+    IfcTubeBundleType * deConstObject = const_cast< IfcTubeBundleType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcTubeBundleType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcTubeBundleType::setPredefinedType(IfcTubeBundleTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcTubeBundleType::init() {

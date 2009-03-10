@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcElementAssembly::IfcElementAssembly(Step::Id id, Step::SPFData *args) : IfcEl
 IfcElementAssembly::~IfcElementAssembly() {
 }
 
-bool IfcElementAssembly::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElementAssembly(this);
+bool IfcElementAssembly::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElementAssembly(this);
 }
 
-const std::string &IfcElementAssembly::type() {
+const std::string &IfcElementAssembly::type() const {
     return IfcElementAssembly::s_type.getName();
 }
 
-Step::ClassType IfcElementAssembly::getClassType() {
+const Step::ClassType &IfcElementAssembly::getClassType() {
     return IfcElementAssembly::s_type;
 }
 
-Step::ClassType IfcElementAssembly::getType() const {
+const Step::ClassType &IfcElementAssembly::getType() const {
     return IfcElementAssembly::s_type;
 }
 
-bool IfcElementAssembly::isOfType(Step::ClassType t) {
+bool IfcElementAssembly::isOfType(const Step::ClassType &t) const {
     return IfcElementAssembly::s_type == t ? true : IfcElement::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcAssemblyPlaceEnum IfcElementAssembly::getAssemblyPlace() {
     else {
         return IfcAssemblyPlaceEnum_UNSET;
     }
+}
+
+const IfcAssemblyPlaceEnum IfcElementAssembly::getAssemblyPlace() const {
+    IfcElementAssembly * deConstObject = const_cast< IfcElementAssembly * > (this);
+    return deConstObject->getAssemblyPlace();
 }
 
 void IfcElementAssembly::setAssemblyPlace(IfcAssemblyPlaceEnum value) {
@@ -89,12 +94,13 @@ IfcElementAssemblyTypeEnum IfcElementAssembly::getPredefinedType() {
     }
 }
 
-void IfcElementAssembly::setPredefinedType(IfcElementAssemblyTypeEnum value) {
-    m_predefinedType = value;
+const IfcElementAssemblyTypeEnum IfcElementAssembly::getPredefinedType() const {
+    IfcElementAssembly * deConstObject = const_cast< IfcElementAssembly * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElementAssembly::release() {
-    IfcElement::release();
+void IfcElementAssembly::setPredefinedType(IfcElementAssemblyTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElementAssembly::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricHeaterType::IfcElectricHeaterType(Step::Id id, Step::SPFData *args) :
 IfcElectricHeaterType::~IfcElectricHeaterType() {
 }
 
-bool IfcElectricHeaterType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricHeaterType(this);
+bool IfcElectricHeaterType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricHeaterType(this);
 }
 
-const std::string &IfcElectricHeaterType::type() {
+const std::string &IfcElectricHeaterType::type() const {
     return IfcElectricHeaterType::s_type.getName();
 }
 
-Step::ClassType IfcElectricHeaterType::getClassType() {
+const Step::ClassType &IfcElectricHeaterType::getClassType() {
     return IfcElectricHeaterType::s_type;
 }
 
-Step::ClassType IfcElectricHeaterType::getType() const {
+const Step::ClassType &IfcElectricHeaterType::getType() const {
     return IfcElectricHeaterType::s_type;
 }
 
-bool IfcElectricHeaterType::isOfType(Step::ClassType t) {
+bool IfcElectricHeaterType::isOfType(const Step::ClassType &t) const {
     return IfcElectricHeaterType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricHeaterTypeEnum IfcElectricHeaterType::getPredefinedType() {
     }
 }
 
-void IfcElectricHeaterType::setPredefinedType(IfcElectricHeaterTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricHeaterTypeEnum IfcElectricHeaterType::getPredefinedType() const {
+    IfcElectricHeaterType * deConstObject = const_cast< IfcElectricHeaterType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricHeaterType::release() {
-    IfcFlowTerminalType::release();
+void IfcElectricHeaterType::setPredefinedType(IfcElectricHeaterTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricHeaterType::init() {

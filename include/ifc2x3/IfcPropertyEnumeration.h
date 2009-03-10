@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,12 +31,11 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcValue.h"
 
 namespace ifc2x3 {
 
@@ -48,54 +47,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPropertyEnumeration : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'EnumerationValues'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcValue > > &getEnumerationValues();
+        virtual List_IfcValue_1_n &getEnumerationValues();
+        /**
+         * (const) Returns the value of the explicit attribute 'EnumerationValues'.
+         * 
+         * @return the value of the explicit attribute 'EnumerationValues'
+         */
+        virtual const List_IfcValue_1_n &getEnumerationValues() const;
         /**
          * Sets the value of the explicit attribute 'EnumerationValues'.
          * 
          * @param value
          */
-        void setEnumerationValues(const Step::List< Step::RefPtr< IfcValue > > &value);
+        virtual void setEnumerationValues(const List_IfcValue_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'Unit'.
+         * 
          */
-        IfcUnit *getUnit();
+        virtual IfcUnit *getUnit();
+        /**
+         * (const) Returns the value of the explicit attribute 'Unit'.
+         * 
+         * @return the value of the explicit attribute 'Unit'
+         */
+        virtual const IfcUnit *getUnit() const;
         /**
          * Sets the value of the explicit attribute 'Unit'.
          * 
          * @param value
          */
-        void setUnit(const Step::RefPtr< IfcUnit > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setUnit(const Step::RefPtr< IfcUnit > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -120,10 +148,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        Step::List< Step::RefPtr< IfcValue > > m_enumerationValues;
+        List_IfcValue_1_n m_enumerationValues;
         /**
          */
         Step::RefPtr< IfcUnit > m_unit;

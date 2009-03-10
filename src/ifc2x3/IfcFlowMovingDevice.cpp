@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowMovingDevice::IfcFlowMovingDevice(Step::Id id, Step::SPFData *args) : Ifc
 IfcFlowMovingDevice::~IfcFlowMovingDevice() {
 }
 
-bool IfcFlowMovingDevice::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowMovingDevice(this);
+bool IfcFlowMovingDevice::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowMovingDevice(this);
 }
 
-const std::string &IfcFlowMovingDevice::type() {
+const std::string &IfcFlowMovingDevice::type() const {
     return IfcFlowMovingDevice::s_type.getName();
 }
 
-Step::ClassType IfcFlowMovingDevice::getClassType() {
+const Step::ClassType &IfcFlowMovingDevice::getClassType() {
     return IfcFlowMovingDevice::s_type;
 }
 
-Step::ClassType IfcFlowMovingDevice::getType() const {
+const Step::ClassType &IfcFlowMovingDevice::getType() const {
     return IfcFlowMovingDevice::s_type;
 }
 
-bool IfcFlowMovingDevice::isOfType(Step::ClassType t) {
+bool IfcFlowMovingDevice::isOfType(const Step::ClassType &t) const {
     return IfcFlowMovingDevice::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcFlowMovingDevice::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcFlowMovingDevice::init() {

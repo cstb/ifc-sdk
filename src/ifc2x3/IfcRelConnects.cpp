@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRelConnects::IfcRelConnects(Step::Id id, Step::SPFData *args) : IfcRelationsh
 IfcRelConnects::~IfcRelConnects() {
 }
 
-bool IfcRelConnects::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnects(this);
+bool IfcRelConnects::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnects(this);
 }
 
-const std::string &IfcRelConnects::type() {
+const std::string &IfcRelConnects::type() const {
     return IfcRelConnects::s_type.getName();
 }
 
-Step::ClassType IfcRelConnects::getClassType() {
+const Step::ClassType &IfcRelConnects::getClassType() {
     return IfcRelConnects::s_type;
 }
 
-Step::ClassType IfcRelConnects::getType() const {
+const Step::ClassType &IfcRelConnects::getType() const {
     return IfcRelConnects::s_type;
 }
 
-bool IfcRelConnects::isOfType(Step::ClassType t) {
+bool IfcRelConnects::isOfType(const Step::ClassType &t) const {
     return IfcRelConnects::s_type == t ? true : IfcRelationship::isOfType(t);
-}
-
-void IfcRelConnects::release() {
-    IfcRelationship::release();
 }
 
 bool IfcRelConnects::init() {

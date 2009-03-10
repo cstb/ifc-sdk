@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,54 +46,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSectionProperties : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SectionType'.
+         * 
          */
-        IfcSectionTypeEnum getSectionType();
+        virtual IfcSectionTypeEnum getSectionType();
+        /**
+         * (const) Returns the value of the explicit attribute 'SectionType'.
+         * 
+         * @return the value of the explicit attribute 'SectionType'
+         */
+        virtual const IfcSectionTypeEnum getSectionType() const;
         /**
          * Sets the value of the explicit attribute 'SectionType'.
          * 
          * @param value
          */
-        void setSectionType(IfcSectionTypeEnum value);
+        virtual void setSectionType(IfcSectionTypeEnum value);
         /**
+         * Gets the value of the explicit attribute 'StartProfile'.
+         * 
          */
-        IfcProfileDef *getStartProfile();
+        virtual IfcProfileDef *getStartProfile();
+        /**
+         * (const) Returns the value of the explicit attribute 'StartProfile'.
+         * 
+         * @return the value of the explicit attribute 'StartProfile'
+         */
+        virtual const IfcProfileDef *getStartProfile() const;
         /**
          * Sets the value of the explicit attribute 'StartProfile'.
          * 
          * @param value
          */
-        void setStartProfile(const Step::RefPtr< IfcProfileDef > &value);
+        virtual void setStartProfile(const Step::RefPtr< IfcProfileDef > &value);
         /**
+         * Gets the value of the explicit attribute 'EndProfile'.
+         * 
          */
-        IfcProfileDef *getEndProfile();
+        virtual IfcProfileDef *getEndProfile();
+        /**
+         * (const) Returns the value of the explicit attribute 'EndProfile'.
+         * 
+         * @return the value of the explicit attribute 'EndProfile'
+         */
+        virtual const IfcProfileDef *getEndProfile() const;
         /**
          * Sets the value of the explicit attribute 'EndProfile'.
          * 
          * @param value
          */
-        void setEndProfile(const Step::RefPtr< IfcProfileDef > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setEndProfile(const Step::RefPtr< IfcProfileDef > &value);
         friend class ExpressDataSet;
 
     protected:

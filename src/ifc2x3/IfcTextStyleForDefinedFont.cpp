@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcTextStyleForDefinedFont::IfcTextStyleForDefinedFont(Step::Id id, Step::SPFDat
 IfcTextStyleForDefinedFont::~IfcTextStyleForDefinedFont() {
 }
 
-bool IfcTextStyleForDefinedFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyleForDefinedFont(this);
+bool IfcTextStyleForDefinedFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyleForDefinedFont(this);
 }
 
-const std::string &IfcTextStyleForDefinedFont::type() {
+const std::string &IfcTextStyleForDefinedFont::type() const {
     return IfcTextStyleForDefinedFont::s_type.getName();
 }
 
-Step::ClassType IfcTextStyleForDefinedFont::getClassType() {
+const Step::ClassType &IfcTextStyleForDefinedFont::getClassType() {
     return IfcTextStyleForDefinedFont::s_type;
 }
 
-Step::ClassType IfcTextStyleForDefinedFont::getType() const {
+const Step::ClassType &IfcTextStyleForDefinedFont::getType() const {
     return IfcTextStyleForDefinedFont::s_type;
 }
 
-bool IfcTextStyleForDefinedFont::isOfType(Step::ClassType t) {
+bool IfcTextStyleForDefinedFont::isOfType(const Step::ClassType &t) const {
     return IfcTextStyleForDefinedFont::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcColour *IfcTextStyleForDefinedFont::getColour() {
     else {
         return NULL;
     }
+}
+
+const IfcColour *IfcTextStyleForDefinedFont::getColour() const {
+    IfcTextStyleForDefinedFont * deConstObject = const_cast< IfcTextStyleForDefinedFont * > (this);
+    return deConstObject->getColour();
 }
 
 void IfcTextStyleForDefinedFont::setColour(const Step::RefPtr< IfcColour > &value) {
@@ -92,11 +97,13 @@ IfcColour *IfcTextStyleForDefinedFont::getBackgroundColour() {
     }
 }
 
-void IfcTextStyleForDefinedFont::setBackgroundColour(const Step::RefPtr< IfcColour > &value) {
-    m_backgroundColour = value;
+const IfcColour *IfcTextStyleForDefinedFont::getBackgroundColour() const {
+    IfcTextStyleForDefinedFont * deConstObject = const_cast< IfcTextStyleForDefinedFont * > (this);
+    return deConstObject->getBackgroundColour();
 }
 
-void IfcTextStyleForDefinedFont::release() {
+void IfcTextStyleForDefinedFont::setBackgroundColour(const Step::RefPtr< IfcColour > &value) {
+    m_backgroundColour = value;
 }
 
 bool IfcTextStyleForDefinedFont::init() {

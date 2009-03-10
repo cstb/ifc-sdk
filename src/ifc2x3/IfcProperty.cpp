@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -46,31 +47,28 @@ using namespace ifc2x3;
 IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_propertyForDependance.setUnset(true);
-    m_propertyDependsOn.setUnset(true);
-    m_partOfComplex.setUnset(true);
 }
 
 IfcProperty::~IfcProperty() {
 }
 
-bool IfcProperty::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProperty(this);
+bool IfcProperty::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProperty(this);
 }
 
-const std::string &IfcProperty::type() {
+const std::string &IfcProperty::type() const {
     return IfcProperty::s_type.getName();
 }
 
-Step::ClassType IfcProperty::getClassType() {
+const Step::ClassType &IfcProperty::getClassType() {
     return IfcProperty::s_type;
 }
 
-Step::ClassType IfcProperty::getType() const {
+const Step::ClassType &IfcProperty::getType() const {
     return IfcProperty::s_type;
 }
 
-bool IfcProperty::isOfType(Step::ClassType t) {
+bool IfcProperty::isOfType(const Step::ClassType &t) const {
     return IfcProperty::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,6 +79,11 @@ IfcIdentifier IfcProperty::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcIdentifier IfcProperty::getName() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getName();
 }
 
 void IfcProperty::setName(const IfcIdentifier &value) {
@@ -96,11 +99,16 @@ IfcText IfcProperty::getDescription() {
     }
 }
 
+const IfcText IfcProperty::getDescription() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcProperty::setDescription(const IfcText &value) {
     m_description = value;
 }
 
-Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > &IfcProperty::getPropertyForDependance() {
+Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() {
     if (Step::BaseObject::inited()) {
         return m_propertyForDependance;
     }
@@ -110,7 +118,12 @@ Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > &IfcProperty::get
     }
 }
 
-Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > &IfcProperty::getPropertyDependsOn() {
+const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getPropertyForDependance();
+}
+
+Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() {
     if (Step::BaseObject::inited()) {
         return m_propertyDependsOn;
     }
@@ -120,7 +133,12 @@ Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > &IfcProperty::get
     }
 }
 
-Step::Set< Step::ObsPtr< IfcComplexProperty > > &IfcProperty::getPartOfComplex() {
+const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getPropertyDependsOn();
+}
+
+Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return m_partOfComplex;
     }
@@ -130,7 +148,9 @@ Step::Set< Step::ObsPtr< IfcComplexProperty > > &IfcProperty::getPartOfComplex()
     }
 }
 
-void IfcProperty::release() {
+const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const {
+    IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
+    return deConstObject->getPartOfComplex();
 }
 
 bool IfcProperty::init() {
@@ -141,14 +161,14 @@ bool IfcProperty::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 0);
     if (inverses) {

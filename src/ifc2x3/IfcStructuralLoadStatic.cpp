@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuralLoadStatic::IfcStructuralLoadStatic(Step::Id id, Step::SPFData *arg
 IfcStructuralLoadStatic::~IfcStructuralLoadStatic() {
 }
 
-bool IfcStructuralLoadStatic::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadStatic(this);
+bool IfcStructuralLoadStatic::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadStatic(this);
 }
 
-const std::string &IfcStructuralLoadStatic::type() {
+const std::string &IfcStructuralLoadStatic::type() const {
     return IfcStructuralLoadStatic::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadStatic::getClassType() {
+const Step::ClassType &IfcStructuralLoadStatic::getClassType() {
     return IfcStructuralLoadStatic::s_type;
 }
 
-Step::ClassType IfcStructuralLoadStatic::getType() const {
+const Step::ClassType &IfcStructuralLoadStatic::getType() const {
     return IfcStructuralLoadStatic::s_type;
 }
 
-bool IfcStructuralLoadStatic::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadStatic::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadStatic::s_type == t ? true : IfcStructuralLoad::isOfType(t);
-}
-
-void IfcStructuralLoadStatic::release() {
-    IfcStructuralLoad::release();
 }
 
 bool IfcStructuralLoadStatic::init() {

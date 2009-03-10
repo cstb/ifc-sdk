@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,7 +30,6 @@
 
 #include "ifc2x3/IfcSpatialStructureElementType.h"
 #include "ifc2x3/IfcOpenShell.h"
-#include "ifc2x3/IfcBridgeElement.h"
 #include "ifc2x3/IfcRectangleProfileDef.h"
 #include "ifc2x3/IfcTask.h"
 #include "ifc2x3/IfcRamp.h"
@@ -38,7 +37,6 @@
 #include "ifc2x3/IfcProduct.h"
 #include "ifc2x3/IfcPostalAddress.h"
 #include "ifc2x3/IfcVector.h"
-#include "ifc2x3/IfcReferenceCurvePlacement.h"
 #include "ifc2x3/IfcRelConnectsStructuralElement.h"
 #include "ifc2x3/IfcAnnotationFillAreaOccurrence.h"
 #include "ifc2x3/IfcDoorStyle.h"
@@ -53,7 +51,6 @@
 #include "ifc2x3/IfcAnnotationSurface.h"
 #include "ifc2x3/IfcSurface.h"
 #include "ifc2x3/IfcWallType.h"
-#include "ifc2x3/IfcBridgeSegmentPart.h"
 #include "ifc2x3/IfcSubedge.h"
 #include "ifc2x3/IfcZShapeProfileDef.h"
 #include "ifc2x3/IfcProjectionCurve.h"
@@ -109,8 +106,8 @@
 #include "ifc2x3/IfcLightSourceGoniometric.h"
 #include "ifc2x3/IfcTextLiteral.h"
 #include "ifc2x3/IfcCableCarrierSegmentType.h"
-#include "ifc2x3/IfcElectricTimeControlType.h"
 #include "ifc2x3/IfcDoorLiningProperties.h"
+#include "ifc2x3/IfcElectricTimeControlType.h"
 #include "ifc2x3/IfcDimensionCalloutRelationship.h"
 #include "ifc2x3/IfcAnnotationOccurrence.h"
 #include "ifc2x3/IfcTextStyleWithBoxCharacteristics.h"
@@ -137,7 +134,6 @@
 #include "ifc2x3/IfcDocumentInformationRelationship.h"
 #include "ifc2x3/IfcRelConnectsPathElements.h"
 #include "ifc2x3/IfcBoilerType.h"
-#include "ifc2x3/IfcReferencedSectionedSpine.h"
 #include "ifc2x3/IfcEdge.h"
 #include "ifc2x3/IfcReinforcementDefinitionProperties.h"
 #include "ifc2x3/IfcAirTerminalType.h"
@@ -147,8 +143,6 @@
 #include "ifc2x3/IfcElectricHeaterType.h"
 #include "ifc2x3/IfcResource.h"
 #include "ifc2x3/IfcRelOverridesProperties.h"
-#include "ifc2x3/IfcReferenceElement.h"
-#include "ifc2x3/IfcBridgeStructureElement.h"
 #include "ifc2x3/IfcProfileProperties.h"
 #include "ifc2x3/IfcIrregularTimeSeriesValue.h"
 #include "ifc2x3/IfcOrderAction.h"
@@ -164,7 +158,6 @@
 #include "ifc2x3/IfcPerformanceHistory.h"
 #include "ifc2x3/IfcPersonAndOrganization.h"
 #include "ifc2x3/IfcConnectedFaceSet.h"
-#include "ifc2x3/IfcCivilElement.h"
 #include "ifc2x3/IfcStairFlight.h"
 #include "ifc2x3/IfcFuelProperties.h"
 #include "ifc2x3/IfcOwnerHistory.h"
@@ -199,7 +192,6 @@
 #include "ifc2x3/IfcPlate.h"
 #include "ifc2x3/IfcStructuralSurfaceMember.h"
 #include "ifc2x3/IfcStructuralLoadSingleDisplacement.h"
-#include "ifc2x3/IfcBridgeSegment.h"
 #include "ifc2x3/IfcSectionedSpine.h"
 #include "ifc2x3/IfcPropertyBoundedValue.h"
 #include "ifc2x3/IfcSolidModel.h"
@@ -257,6 +249,7 @@
 #include "ifc2x3/IfcSlabType.h"
 #include "ifc2x3/IfcConstraintClassificationRelationship.h"
 #include "ifc2x3/IfcOffsetCurve3D.h"
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include "ifc2x3/IfcReinforcementBarProperties.h"
 #include "ifc2x3/IfcEquipmentElement.h"
 #include "ifc2x3/IfcRelAssociatesApproval.h"
@@ -282,7 +275,6 @@
 #include "ifc2x3/IfcElectricalElement.h"
 #include "ifc2x3/IfcAnnotationCurveOccurrence.h"
 #include "ifc2x3/IfcPixelTexture.h"
-#include "ifc2x3/IfcAlignmentElement.h"
 #include "ifc2x3/IfcRelConnectsStructuralMember.h"
 #include "ifc2x3/IfcBoundaryCondition.h"
 #include "ifc2x3/IfcWorkSchedule.h"
@@ -299,7 +291,6 @@
 #include "ifc2x3/IfcSurfaceStyle.h"
 #include "ifc2x3/IfcDocumentElectronicFormat.h"
 #include "ifc2x3/IfcDiscreteAccessory.h"
-#include "ifc2x3/IfcReferenceCurve3D.h"
 #include "ifc2x3/IfcRelAggregates.h"
 #include "ifc2x3/IfcRelConnectsWithRealizingElements.h"
 #include "ifc2x3/IfcRelConnectsWithEccentricity.h"
@@ -332,13 +323,11 @@
 #include "ifc2x3/IfcCostItem.h"
 #include "ifc2x3/IfcElement.h"
 #include "ifc2x3/IfcFace.h"
-#include "ifc2x3/IfcBridgePart.h"
 #include "ifc2x3/IfcPermit.h"
 #include "ifc2x3/IfcFastener.h"
 #include "ifc2x3/IfcPresentationLayerWithStyle.h"
 #include "ifc2x3/IfcCurrencyRelationship.h"
 #include "ifc2x3/IfcAddress.h"
-#include "ifc2x3/IfcReferenceCurveAlignment2D.h"
 #include "ifc2x3/IfcRectangleHollowProfileDef.h"
 #include "ifc2x3/IfcConnectionSurfaceGeometry.h"
 #include "ifc2x3/IfcTable.h"
@@ -372,7 +361,6 @@
 #include "ifc2x3/IfcConnectionPointGeometry.h"
 #include "ifc2x3/IfcQuantityLength.h"
 #include "ifc2x3/IfcDocumentInformation.h"
-#include "ifc2x3/IfcElementPart.h"
 #include "ifc2x3/IfcFlowMovingDeviceType.h"
 #include "ifc2x3/IfcDistributionControlElementType.h"
 #include "ifc2x3/IfcCraneRailAShapeProfileDef.h"
@@ -441,7 +429,6 @@
 #include "ifc2x3/IfcSymbolStyle.h"
 #include "ifc2x3/IfcConnectionPointEccentricity.h"
 #include "ifc2x3/IfcLine.h"
-#include "ifc2x3/IfcCivilSheath.h"
 #include "ifc2x3/IfcSurfaceStyleRefraction.h"
 #include "ifc2x3/IfcStructuralLoadSingleForce.h"
 #include "ifc2x3/IfcTransportElementType.h"
@@ -470,9 +457,7 @@
 #include "ifc2x3/IfcLinearDimension.h"
 #include "ifc2x3/IfcFlowStorageDeviceType.h"
 #include "ifc2x3/IfcSpaceType.h"
-#include "ifc2x3/IfcReferenceCurvePlacementSystem.h"
 #include "ifc2x3/IfcDistributionElementType.h"
-#include "ifc2x3/IfcBridge.h"
 #include "ifc2x3/IfcBoundaryEdgeCondition.h"
 #include "ifc2x3/IfcRailing.h"
 #include "ifc2x3/IfcQuantityWeight.h"
@@ -488,7 +473,6 @@
 #include "ifc2x3/IfcRightCircularCone.h"
 #include "ifc2x3/IfcHalfSpaceSolid.h"
 #include "ifc2x3/IfcPropertyConstraintRelationship.h"
-#include "ifc2x3/IfcReferencePlacement.h"
 #include "ifc2x3/IfcFluidFlowProperties.h"
 #include "ifc2x3/IfcBoundaryNodeConditionWarping.h"
 #include "ifc2x3/IfcFlowMovingDevice.h"
@@ -523,11 +507,9 @@
 #include "ifc2x3/IfcCartesianTransformationOperator.h"
 #include "ifc2x3/IfcSwitchingDeviceType.h"
 #include "ifc2x3/IfcCsgPrimitive3D.h"
-#include "ifc2x3/IfcCivilStructureElement.h"
 #include "ifc2x3/IfcApprovalRelationship.h"
 #include "ifc2x3/IfcCondition.h"
 #include "ifc2x3/IfcPreDefinedDimensionSymbol.h"
-#include "ifc2x3/IfcCivilElementPart.h"
 #include "ifc2x3/IfcCartesianPoint.h"
 #include "ifc2x3/IfcElementComponent.h"
 #include "ifc2x3/IfcDocumentReference.h"
@@ -647,11 +629,9 @@
 #include "ifc2x3/IfcFlowSegment.h"
 #include "ifc2x3/IfcMechanicalMaterialProperties.h"
 #include "ifc2x3/IfcBuildingElementPart.h"
-#include "ifc2x3/IfcCivilVoid.h"
 #include "ifc2x3/IfcPerson.h"
 #include "ifc2x3/IfcVirtualElement.h"
 #include "ifc2x3/IfcMaterialLayer.h"
-#include "ifc2x3/IfcBridgePrismaticElement.h"
 #include "ifc2x3/IfcRelCoversSpaces.h"
 #include "ifc2x3/IfcScheduleTimeControl.h"
 #include "ifc2x3/IfcCooledBeamType.h"
@@ -666,7 +646,6 @@
 #include "ifc2x3/IfcFlowMeterType.h"
 #include "ifc2x3/IfcConstructionMaterialResource.h"
 #include "ifc2x3/IfcElectricApplianceType.h"
-#include "ifc2x3/IfcBridgeContactElement.h"
 #include "ifc2x3/IfcCartesianTransformationOperator2D.h"
 #include "ifc2x3/IfcFlowTreatmentDevice.h"
 #include "ifc2x3/IfcBooleanResult.h"
@@ -703,9 +682,7 @@
 #include "ifc2x3/IfcEnergyProperties.h"
 #include "ifc2x3/IfcWorkControl.h"
 #include "ifc2x3/IfcAppliedValue.h"
-#include "ifc2x3/IfcReferenceCurve.h"
 #include "ifc2x3/IfcDistributionControlElement.h"
-#include "ifc2x3/IfcClothoid.h"
 #include "ifc2x3/IfcAnnotationTextOccurrence.h"
 #include "ifc2x3/IfcLightSourceAmbient.h"
 
@@ -728,16 +705,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(Ifc2DCompositeCurve *arg);
+        bool removeIfc2DCompositeCurve(Ifc2DCompositeCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< Ifc2DCompositeCurve > createIfc2DCompositeCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static Ifc2DCompositeCurve *cloneIfc2DCompositeCurve(ExpressDataSet *expressDataSet, const Ifc2DCompositeCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< Ifc2DCompositeCurve > createIfc2DCompositeCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -750,16 +722,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcActionRequest *arg);
+        bool removeIfcActionRequest(IfcActionRequest *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcActionRequest > createIfcActionRequest();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcActionRequest *cloneIfcActionRequest(ExpressDataSet *expressDataSet, const IfcActionRequest &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcActionRequest > createIfcActionRequest(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -772,16 +739,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcActor *arg);
+        bool removeIfcActor(IfcActor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcActor > createIfcActor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcActor *cloneIfcActor(ExpressDataSet *expressDataSet, const IfcActor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcActor > createIfcActor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -794,16 +756,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcActorRole *arg);
+        bool removeIfcActorRole(IfcActorRole *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcActorRole > createIfcActorRole();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcActorRole *cloneIfcActorRole(ExpressDataSet *expressDataSet, const IfcActorRole &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcActorRole > createIfcActorRole(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -816,16 +773,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcActuatorType *arg);
+        bool removeIfcActuatorType(IfcActuatorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcActuatorType > createIfcActuatorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcActuatorType *cloneIfcActuatorType(ExpressDataSet *expressDataSet, const IfcActuatorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcActuatorType > createIfcActuatorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -834,42 +786,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcAddress *getIfcAddress(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcAddress *arg);
-        /**
-         */
-        Step::RefPtr< IfcAddress > createIfcAddress();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAddress *cloneIfcAddress(ExpressDataSet *expressDataSet, const IfcAddress &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcAddress *cloneIfcAddress(const IfcAddress &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcAirTerminalBoxType *getIfcAirTerminalBoxType(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcAirTerminalBoxType *arg);
+        bool removeIfcAirTerminalBoxType(IfcAirTerminalBoxType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAirTerminalBoxType > createIfcAirTerminalBoxType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAirTerminalBoxType *cloneIfcAirTerminalBoxType(ExpressDataSet *expressDataSet, const IfcAirTerminalBoxType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAirTerminalBoxType > createIfcAirTerminalBoxType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -882,16 +807,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAirTerminalType *arg);
+        bool removeIfcAirTerminalType(IfcAirTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAirTerminalType > createIfcAirTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAirTerminalType *cloneIfcAirTerminalType(ExpressDataSet *expressDataSet, const IfcAirTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAirTerminalType > createIfcAirTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -904,16 +824,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAirToAirHeatRecoveryType *arg);
+        bool removeIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAirToAirHeatRecoveryType > createIfcAirToAirHeatRecoveryType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAirToAirHeatRecoveryType *cloneIfcAirToAirHeatRecoveryType(ExpressDataSet *expressDataSet, const IfcAirToAirHeatRecoveryType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAirToAirHeatRecoveryType > createIfcAirToAirHeatRecoveryType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -926,16 +841,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAlarmType *arg);
+        bool removeIfcAlarmType(IfcAlarmType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAlarmType > createIfcAlarmType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAlarmType *cloneIfcAlarmType(ExpressDataSet *expressDataSet, const IfcAlarmType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAlarmType > createIfcAlarmType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -948,16 +858,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAngularDimension *arg);
+        bool removeIfcAngularDimension(IfcAngularDimension *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAngularDimension > createIfcAngularDimension();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAngularDimension *cloneIfcAngularDimension(ExpressDataSet *expressDataSet, const IfcAngularDimension &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAngularDimension > createIfcAngularDimension(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -970,16 +875,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotation *arg);
+        bool removeIfcAnnotation(IfcAnnotation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotation > createIfcAnnotation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotation *cloneIfcAnnotation(ExpressDataSet *expressDataSet, const IfcAnnotation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotation > createIfcAnnotation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -992,16 +892,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationCurveOccurrence *arg);
+        bool removeIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationCurveOccurrence > createIfcAnnotationCurveOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationCurveOccurrence *cloneIfcAnnotationCurveOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationCurveOccurrence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationCurveOccurrence > createIfcAnnotationCurveOccurrence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1014,16 +909,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationFillArea *arg);
+        bool removeIfcAnnotationFillArea(IfcAnnotationFillArea *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationFillArea > createIfcAnnotationFillArea();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationFillArea *cloneIfcAnnotationFillArea(ExpressDataSet *expressDataSet, const IfcAnnotationFillArea &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationFillArea > createIfcAnnotationFillArea(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1036,16 +926,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationFillAreaOccurrence *arg);
+        bool removeIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationFillAreaOccurrence > createIfcAnnotationFillAreaOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationFillAreaOccurrence *cloneIfcAnnotationFillAreaOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationFillAreaOccurrence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationFillAreaOccurrence > createIfcAnnotationFillAreaOccurrence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1054,42 +939,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcAnnotationOccurrence *getIfcAnnotationOccurrence(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcAnnotationOccurrence *arg);
-        /**
-         */
-        Step::RefPtr< IfcAnnotationOccurrence > createIfcAnnotationOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationOccurrence *cloneIfcAnnotationOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationOccurrence &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcAnnotationOccurrence *cloneIfcAnnotationOccurrence(const IfcAnnotationOccurrence &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcAnnotationSurface *getIfcAnnotationSurface(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationSurface *arg);
+        bool removeIfcAnnotationSurface(IfcAnnotationSurface *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationSurface > createIfcAnnotationSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationSurface *cloneIfcAnnotationSurface(ExpressDataSet *expressDataSet, const IfcAnnotationSurface &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationSurface > createIfcAnnotationSurface(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1102,16 +960,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationSurfaceOccurrence *arg);
+        bool removeIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurrence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationSurfaceOccurrence > createIfcAnnotationSurfaceOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationSurfaceOccurrence *cloneIfcAnnotationSurfaceOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationSurfaceOccurrence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationSurfaceOccurrence > createIfcAnnotationSurfaceOccurrence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1124,16 +977,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationSymbolOccurrence *arg);
+        bool removeIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationSymbolOccurrence > createIfcAnnotationSymbolOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationSymbolOccurrence *cloneIfcAnnotationSymbolOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationSymbolOccurrence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationSymbolOccurrence > createIfcAnnotationSymbolOccurrence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1146,16 +994,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAnnotationTextOccurrence *arg);
+        bool removeIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAnnotationTextOccurrence > createIfcAnnotationTextOccurrence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAnnotationTextOccurrence *cloneIfcAnnotationTextOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationTextOccurrence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAnnotationTextOccurrence > createIfcAnnotationTextOccurrence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1168,16 +1011,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcApplication *arg);
+        bool removeIfcApplication(IfcApplication *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcApplication > createIfcApplication();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcApplication *cloneIfcApplication(ExpressDataSet *expressDataSet, const IfcApplication &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcApplication > createIfcApplication(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1186,42 +1024,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcAppliedValue *getIfcAppliedValue(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcAppliedValue *arg);
-        /**
-         */
-        Step::RefPtr< IfcAppliedValue > createIfcAppliedValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAppliedValue *cloneIfcAppliedValue(ExpressDataSet *expressDataSet, const IfcAppliedValue &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcAppliedValue *cloneIfcAppliedValue(const IfcAppliedValue &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcAppliedValueRelationship *getIfcAppliedValueRelationship(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcAppliedValueRelationship *arg);
+        bool removeIfcAppliedValueRelationship(IfcAppliedValueRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAppliedValueRelationship > createIfcAppliedValueRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAppliedValueRelationship *cloneIfcAppliedValueRelationship(ExpressDataSet *expressDataSet, const IfcAppliedValueRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAppliedValueRelationship > createIfcAppliedValueRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1234,16 +1045,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcApproval *arg);
+        bool removeIfcApproval(IfcApproval *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcApproval > createIfcApproval();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcApproval *cloneIfcApproval(ExpressDataSet *expressDataSet, const IfcApproval &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcApproval > createIfcApproval(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1256,16 +1062,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcApprovalActorRelationship *arg);
+        bool removeIfcApprovalActorRelationship(IfcApprovalActorRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcApprovalActorRelationship > createIfcApprovalActorRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcApprovalActorRelationship *cloneIfcApprovalActorRelationship(ExpressDataSet *expressDataSet, const IfcApprovalActorRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcApprovalActorRelationship > createIfcApprovalActorRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1278,16 +1079,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcApprovalPropertyRelationship *arg);
+        bool removeIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcApprovalPropertyRelationship > createIfcApprovalPropertyRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcApprovalPropertyRelationship *cloneIfcApprovalPropertyRelationship(ExpressDataSet *expressDataSet, const IfcApprovalPropertyRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcApprovalPropertyRelationship > createIfcApprovalPropertyRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1300,16 +1096,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcApprovalRelationship *arg);
+        bool removeIfcApprovalRelationship(IfcApprovalRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcApprovalRelationship > createIfcApprovalRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcApprovalRelationship *cloneIfcApprovalRelationship(ExpressDataSet *expressDataSet, const IfcApprovalRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcApprovalRelationship > createIfcApprovalRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1322,16 +1113,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcArbitraryClosedProfileDef *arg);
+        bool removeIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcArbitraryClosedProfileDef > createIfcArbitraryClosedProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcArbitraryClosedProfileDef *cloneIfcArbitraryClosedProfileDef(ExpressDataSet *expressDataSet, const IfcArbitraryClosedProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcArbitraryClosedProfileDef > createIfcArbitraryClosedProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1344,16 +1130,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcArbitraryOpenProfileDef *arg);
+        bool removeIfcArbitraryOpenProfileDef(IfcArbitraryOpenProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcArbitraryOpenProfileDef > createIfcArbitraryOpenProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcArbitraryOpenProfileDef *cloneIfcArbitraryOpenProfileDef(ExpressDataSet *expressDataSet, const IfcArbitraryOpenProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcArbitraryOpenProfileDef > createIfcArbitraryOpenProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1366,16 +1147,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcArbitraryProfileDefWithVoids *arg);
+        bool removeIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithVoids *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcArbitraryProfileDefWithVoids > createIfcArbitraryProfileDefWithVoids();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcArbitraryProfileDefWithVoids *cloneIfcArbitraryProfileDefWithVoids(ExpressDataSet *expressDataSet, const IfcArbitraryProfileDefWithVoids &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcArbitraryProfileDefWithVoids > createIfcArbitraryProfileDefWithVoids(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1388,16 +1164,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAsset *arg);
+        bool removeIfcAsset(IfcAsset *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAsset > createIfcAsset();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAsset *cloneIfcAsset(ExpressDataSet *expressDataSet, const IfcAsset &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAsset > createIfcAsset(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1410,16 +1181,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAsymmetricIShapeProfileDef *arg);
+        bool removeIfcAsymmetricIShapeProfileDef(IfcAsymmetricIShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAsymmetricIShapeProfileDef > createIfcAsymmetricIShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAsymmetricIShapeProfileDef *cloneIfcAsymmetricIShapeProfileDef(ExpressDataSet *expressDataSet, const IfcAsymmetricIShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAsymmetricIShapeProfileDef > createIfcAsymmetricIShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1432,16 +1198,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAxis1Placement *arg);
+        bool removeIfcAxis1Placement(IfcAxis1Placement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAxis1Placement > createIfcAxis1Placement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAxis1Placement *cloneIfcAxis1Placement(ExpressDataSet *expressDataSet, const IfcAxis1Placement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAxis1Placement > createIfcAxis1Placement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1454,16 +1215,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAxis2Placement2D *arg);
+        bool removeIfcAxis2Placement2D(IfcAxis2Placement2D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAxis2Placement2D > createIfcAxis2Placement2D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAxis2Placement2D *cloneIfcAxis2Placement2D(ExpressDataSet *expressDataSet, const IfcAxis2Placement2D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAxis2Placement2D > createIfcAxis2Placement2D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1476,16 +1232,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcAxis2Placement3D *arg);
+        bool removeIfcAxis2Placement3D(IfcAxis2Placement3D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcAxis2Placement3D > createIfcAxis2Placement3D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAxis2Placement3D *cloneIfcAxis2Placement3D(ExpressDataSet *expressDataSet, const IfcAxis2Placement3D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcAxis2Placement3D > createIfcAxis2Placement3D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1494,42 +1245,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcBSplineCurve *getIfcBSplineCurve(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBSplineCurve *arg);
-        /**
-         */
-        Step::RefPtr< IfcBSplineCurve > createIfcBSplineCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBSplineCurve *cloneIfcBSplineCurve(ExpressDataSet *expressDataSet, const IfcBSplineCurve &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBSplineCurve *cloneIfcBSplineCurve(const IfcBSplineCurve &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcBeam *getIfcBeam(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcBeam *arg);
+        bool removeIfcBeam(IfcBeam *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBeam > createIfcBeam();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBeam *cloneIfcBeam(ExpressDataSet *expressDataSet, const IfcBeam &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBeam > createIfcBeam(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1542,16 +1266,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBeamType *arg);
+        bool removeIfcBeamType(IfcBeamType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBeamType > createIfcBeamType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBeamType *cloneIfcBeamType(ExpressDataSet *expressDataSet, const IfcBeamType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBeamType > createIfcBeamType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1564,16 +1283,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBezierCurve *arg);
+        bool removeIfcBezierCurve(IfcBezierCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBezierCurve > createIfcBezierCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBezierCurve *cloneIfcBezierCurve(ExpressDataSet *expressDataSet, const IfcBezierCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBezierCurve > createIfcBezierCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1586,16 +1300,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBlobTexture *arg);
+        bool removeIfcBlobTexture(IfcBlobTexture *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBlobTexture > createIfcBlobTexture();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBlobTexture *cloneIfcBlobTexture(ExpressDataSet *expressDataSet, const IfcBlobTexture &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBlobTexture > createIfcBlobTexture(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1608,16 +1317,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBlock *arg);
+        bool removeIfcBlock(IfcBlock *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBlock > createIfcBlock();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBlock *cloneIfcBlock(ExpressDataSet *expressDataSet, const IfcBlock &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBlock > createIfcBlock(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1630,16 +1334,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoilerType *arg);
+        bool removeIfcBoilerType(IfcBoilerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoilerType > createIfcBoilerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoilerType *cloneIfcBoilerType(ExpressDataSet *expressDataSet, const IfcBoilerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoilerType > createIfcBoilerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1652,16 +1351,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBooleanClippingResult *arg);
+        bool removeIfcBooleanClippingResult(IfcBooleanClippingResult *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBooleanClippingResult > createIfcBooleanClippingResult();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBooleanClippingResult *cloneIfcBooleanClippingResult(ExpressDataSet *expressDataSet, const IfcBooleanClippingResult &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBooleanClippingResult > createIfcBooleanClippingResult(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1674,16 +1368,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBooleanResult *arg);
+        bool removeIfcBooleanResult(IfcBooleanResult *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBooleanResult > createIfcBooleanResult();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBooleanResult *cloneIfcBooleanResult(ExpressDataSet *expressDataSet, const IfcBooleanResult &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBooleanResult > createIfcBooleanResult(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1692,42 +1381,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcBoundaryCondition *getIfcBoundaryCondition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBoundaryCondition *arg);
-        /**
-         */
-        Step::RefPtr< IfcBoundaryCondition > createIfcBoundaryCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundaryCondition *cloneIfcBoundaryCondition(ExpressDataSet *expressDataSet, const IfcBoundaryCondition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBoundaryCondition *cloneIfcBoundaryCondition(const IfcBoundaryCondition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcBoundaryEdgeCondition *getIfcBoundaryEdgeCondition(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcBoundaryEdgeCondition *arg);
+        bool removeIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundaryEdgeCondition > createIfcBoundaryEdgeCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundaryEdgeCondition *cloneIfcBoundaryEdgeCondition(ExpressDataSet *expressDataSet, const IfcBoundaryEdgeCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundaryEdgeCondition > createIfcBoundaryEdgeCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1740,16 +1402,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoundaryFaceCondition *arg);
+        bool removeIfcBoundaryFaceCondition(IfcBoundaryFaceCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundaryFaceCondition > createIfcBoundaryFaceCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundaryFaceCondition *cloneIfcBoundaryFaceCondition(ExpressDataSet *expressDataSet, const IfcBoundaryFaceCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundaryFaceCondition > createIfcBoundaryFaceCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1762,16 +1419,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoundaryNodeCondition *arg);
+        bool removeIfcBoundaryNodeCondition(IfcBoundaryNodeCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundaryNodeCondition > createIfcBoundaryNodeCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundaryNodeCondition *cloneIfcBoundaryNodeCondition(ExpressDataSet *expressDataSet, const IfcBoundaryNodeCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundaryNodeCondition > createIfcBoundaryNodeCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1784,16 +1436,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoundaryNodeConditionWarping *arg);
+        bool removeIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundaryNodeConditionWarping > createIfcBoundaryNodeConditionWarping();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundaryNodeConditionWarping *cloneIfcBoundaryNodeConditionWarping(ExpressDataSet *expressDataSet, const IfcBoundaryNodeConditionWarping &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundaryNodeConditionWarping > createIfcBoundaryNodeConditionWarping(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1802,42 +1449,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcBoundedCurve *getIfcBoundedCurve(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBoundedCurve *arg);
-        /**
-         */
-        Step::RefPtr< IfcBoundedCurve > createIfcBoundedCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundedCurve *cloneIfcBoundedCurve(ExpressDataSet *expressDataSet, const IfcBoundedCurve &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBoundedCurve *cloneIfcBoundedCurve(const IfcBoundedCurve &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcBoundedSurface *getIfcBoundedSurface(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcBoundedSurface *arg);
+        bool removeIfcBoundedSurface(IfcBoundedSurface *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundedSurface > createIfcBoundedSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundedSurface *cloneIfcBoundedSurface(ExpressDataSet *expressDataSet, const IfcBoundedSurface &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundedSurface > createIfcBoundedSurface(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1850,16 +1470,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoundingBox *arg);
+        bool removeIfcBoundingBox(IfcBoundingBox *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoundingBox > createIfcBoundingBox();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoundingBox *cloneIfcBoundingBox(ExpressDataSet *expressDataSet, const IfcBoundingBox &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoundingBox > createIfcBoundingBox(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1872,16 +1487,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBoxedHalfSpace *arg);
+        bool removeIfcBoxedHalfSpace(IfcBoxedHalfSpace *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBoxedHalfSpace > createIfcBoxedHalfSpace();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBoxedHalfSpace *cloneIfcBoxedHalfSpace(ExpressDataSet *expressDataSet, const IfcBoxedHalfSpace &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBoxedHalfSpace > createIfcBoxedHalfSpace(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1894,16 +1504,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBuilding *arg);
+        bool removeIfcBuilding(IfcBuilding *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBuilding > createIfcBuilding();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuilding *cloneIfcBuilding(ExpressDataSet *expressDataSet, const IfcBuilding &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBuilding > createIfcBuilding(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1912,42 +1517,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcBuildingElement *getIfcBuildingElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBuildingElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcBuildingElement > createIfcBuildingElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingElement *cloneIfcBuildingElement(ExpressDataSet *expressDataSet, const IfcBuildingElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBuildingElement *cloneIfcBuildingElement(const IfcBuildingElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcBuildingElementPart *getIfcBuildingElementPart(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcBuildingElementPart *arg);
+        bool removeIfcBuildingElementPart(IfcBuildingElementPart *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBuildingElementPart > createIfcBuildingElementPart();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingElementPart *cloneIfcBuildingElementPart(ExpressDataSet *expressDataSet, const IfcBuildingElementPart &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBuildingElementPart > createIfcBuildingElementPart(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1960,16 +1538,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBuildingElementProxy *arg);
+        bool removeIfcBuildingElementProxy(IfcBuildingElementProxy *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBuildingElementProxy > createIfcBuildingElementProxy();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingElementProxy *cloneIfcBuildingElementProxy(ExpressDataSet *expressDataSet, const IfcBuildingElementProxy &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBuildingElementProxy > createIfcBuildingElementProxy(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -1982,16 +1555,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcBuildingElementProxyType *arg);
+        bool removeIfcBuildingElementProxyType(IfcBuildingElementProxyType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBuildingElementProxyType > createIfcBuildingElementProxyType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingElementProxyType *cloneIfcBuildingElementProxyType(ExpressDataSet *expressDataSet, const IfcBuildingElementProxyType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBuildingElementProxyType > createIfcBuildingElementProxyType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2000,42 +1568,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcBuildingElementType *getIfcBuildingElementType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBuildingElementType *arg);
-        /**
-         */
-        Step::RefPtr< IfcBuildingElementType > createIfcBuildingElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingElementType *cloneIfcBuildingElementType(ExpressDataSet *expressDataSet, const IfcBuildingElementType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBuildingElementType *cloneIfcBuildingElementType(const IfcBuildingElementType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcBuildingStorey *getIfcBuildingStorey(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcBuildingStorey *arg);
+        bool removeIfcBuildingStorey(IfcBuildingStorey *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcBuildingStorey > createIfcBuildingStorey();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBuildingStorey *cloneIfcBuildingStorey(ExpressDataSet *expressDataSet, const IfcBuildingStorey &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcBuildingStorey > createIfcBuildingStorey(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2048,16 +1589,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCShapeProfileDef *arg);
+        bool removeIfcCShapeProfileDef(IfcCShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCShapeProfileDef > createIfcCShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCShapeProfileDef *cloneIfcCShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCShapeProfileDef > createIfcCShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2070,16 +1606,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCableCarrierFittingType *arg);
+        bool removeIfcCableCarrierFittingType(IfcCableCarrierFittingType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCableCarrierFittingType > createIfcCableCarrierFittingType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCableCarrierFittingType *cloneIfcCableCarrierFittingType(ExpressDataSet *expressDataSet, const IfcCableCarrierFittingType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCableCarrierFittingType > createIfcCableCarrierFittingType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2092,16 +1623,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCableCarrierSegmentType *arg);
+        bool removeIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCableCarrierSegmentType > createIfcCableCarrierSegmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCableCarrierSegmentType *cloneIfcCableCarrierSegmentType(ExpressDataSet *expressDataSet, const IfcCableCarrierSegmentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCableCarrierSegmentType > createIfcCableCarrierSegmentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2114,16 +1640,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCableSegmentType *arg);
+        bool removeIfcCableSegmentType(IfcCableSegmentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCableSegmentType > createIfcCableSegmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCableSegmentType *cloneIfcCableSegmentType(ExpressDataSet *expressDataSet, const IfcCableSegmentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCableSegmentType > createIfcCableSegmentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2136,16 +1657,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCalendarDate *arg);
+        bool removeIfcCalendarDate(IfcCalendarDate *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCalendarDate > createIfcCalendarDate();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCalendarDate *cloneIfcCalendarDate(ExpressDataSet *expressDataSet, const IfcCalendarDate &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCalendarDate > createIfcCalendarDate(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2158,16 +1674,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCartesianPoint *arg);
+        bool removeIfcCartesianPoint(IfcCartesianPoint *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCartesianPoint > createIfcCartesianPoint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianPoint *cloneIfcCartesianPoint(ExpressDataSet *expressDataSet, const IfcCartesianPoint &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCartesianPoint > createIfcCartesianPoint(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2176,42 +1687,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcCartesianTransformationOperator *getIfcCartesianTransformationOperator(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCartesianTransformationOperator *arg);
-        /**
-         */
-        Step::RefPtr< IfcCartesianTransformationOperator > createIfcCartesianTransformationOperator();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianTransformationOperator *cloneIfcCartesianTransformationOperator(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCartesianTransformationOperator *cloneIfcCartesianTransformationOperator(const IfcCartesianTransformationOperator &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcCartesianTransformationOperator2D *getIfcCartesianTransformationOperator2D(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcCartesianTransformationOperator2D *arg);
+        bool removeIfcCartesianTransformationOperator2D(IfcCartesianTransformationOperator2D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCartesianTransformationOperator2D > createIfcCartesianTransformationOperator2D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianTransformationOperator2D *cloneIfcCartesianTransformationOperator2D(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator2D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCartesianTransformationOperator2D > createIfcCartesianTransformationOperator2D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2224,16 +1708,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCartesianTransformationOperator2DnonUniform *arg);
+        bool removeIfcCartesianTransformationOperator2DnonUniform(IfcCartesianTransformationOperator2DnonUniform *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCartesianTransformationOperator2DnonUniform > createIfcCartesianTransformationOperator2DnonUniform();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianTransformationOperator2DnonUniform *cloneIfcCartesianTransformationOperator2DnonUniform(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator2DnonUniform &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCartesianTransformationOperator2DnonUniform > createIfcCartesianTransformationOperator2DnonUniform(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2246,16 +1725,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCartesianTransformationOperator3D *arg);
+        bool removeIfcCartesianTransformationOperator3D(IfcCartesianTransformationOperator3D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCartesianTransformationOperator3D > createIfcCartesianTransformationOperator3D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianTransformationOperator3D *cloneIfcCartesianTransformationOperator3D(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator3D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCartesianTransformationOperator3D > createIfcCartesianTransformationOperator3D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2268,16 +1742,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCartesianTransformationOperator3DnonUniform *arg);
+        bool removeIfcCartesianTransformationOperator3DnonUniform(IfcCartesianTransformationOperator3DnonUniform *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCartesianTransformationOperator3DnonUniform > createIfcCartesianTransformationOperator3DnonUniform();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCartesianTransformationOperator3DnonUniform *cloneIfcCartesianTransformationOperator3DnonUniform(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator3DnonUniform &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCartesianTransformationOperator3DnonUniform > createIfcCartesianTransformationOperator3DnonUniform(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2290,16 +1759,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCenterLineProfileDef *arg);
+        bool removeIfcCenterLineProfileDef(IfcCenterLineProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCenterLineProfileDef > createIfcCenterLineProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCenterLineProfileDef *cloneIfcCenterLineProfileDef(ExpressDataSet *expressDataSet, const IfcCenterLineProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCenterLineProfileDef > createIfcCenterLineProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2312,16 +1776,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcChamferEdgeFeature *arg);
+        bool removeIfcChamferEdgeFeature(IfcChamferEdgeFeature *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcChamferEdgeFeature > createIfcChamferEdgeFeature();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcChamferEdgeFeature *cloneIfcChamferEdgeFeature(ExpressDataSet *expressDataSet, const IfcChamferEdgeFeature &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcChamferEdgeFeature > createIfcChamferEdgeFeature(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2334,16 +1793,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcChillerType *arg);
+        bool removeIfcChillerType(IfcChillerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcChillerType > createIfcChillerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcChillerType *cloneIfcChillerType(ExpressDataSet *expressDataSet, const IfcChillerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcChillerType > createIfcChillerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2356,16 +1810,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCircle *arg);
+        bool removeIfcCircle(IfcCircle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCircle > createIfcCircle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCircle *cloneIfcCircle(ExpressDataSet *expressDataSet, const IfcCircle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCircle > createIfcCircle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2378,16 +1827,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCircleHollowProfileDef *arg);
+        bool removeIfcCircleHollowProfileDef(IfcCircleHollowProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCircleHollowProfileDef > createIfcCircleHollowProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCircleHollowProfileDef *cloneIfcCircleHollowProfileDef(ExpressDataSet *expressDataSet, const IfcCircleHollowProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCircleHollowProfileDef > createIfcCircleHollowProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2400,16 +1844,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCircleProfileDef *arg);
+        bool removeIfcCircleProfileDef(IfcCircleProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCircleProfileDef > createIfcCircleProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCircleProfileDef *cloneIfcCircleProfileDef(ExpressDataSet *expressDataSet, const IfcCircleProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCircleProfileDef > createIfcCircleProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2422,16 +1861,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassification *arg);
+        bool removeIfcClassification(IfcClassification *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassification > createIfcClassification();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassification *cloneIfcClassification(ExpressDataSet *expressDataSet, const IfcClassification &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassification > createIfcClassification(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2444,16 +1878,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassificationItem *arg);
+        bool removeIfcClassificationItem(IfcClassificationItem *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassificationItem > createIfcClassificationItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassificationItem *cloneIfcClassificationItem(ExpressDataSet *expressDataSet, const IfcClassificationItem &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassificationItem > createIfcClassificationItem(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2466,16 +1895,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassificationItemRelationship *arg);
+        bool removeIfcClassificationItemRelationship(IfcClassificationItemRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassificationItemRelationship > createIfcClassificationItemRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassificationItemRelationship *cloneIfcClassificationItemRelationship(ExpressDataSet *expressDataSet, const IfcClassificationItemRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassificationItemRelationship > createIfcClassificationItemRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2488,16 +1912,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassificationNotation *arg);
+        bool removeIfcClassificationNotation(IfcClassificationNotation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassificationNotation > createIfcClassificationNotation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassificationNotation *cloneIfcClassificationNotation(ExpressDataSet *expressDataSet, const IfcClassificationNotation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassificationNotation > createIfcClassificationNotation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2510,16 +1929,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassificationNotationFacet *arg);
+        bool removeIfcClassificationNotationFacet(IfcClassificationNotationFacet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassificationNotationFacet > createIfcClassificationNotationFacet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassificationNotationFacet *cloneIfcClassificationNotationFacet(ExpressDataSet *expressDataSet, const IfcClassificationNotationFacet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassificationNotationFacet > createIfcClassificationNotationFacet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2532,16 +1946,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClassificationReference *arg);
+        bool removeIfcClassificationReference(IfcClassificationReference *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClassificationReference > createIfcClassificationReference();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClassificationReference *cloneIfcClassificationReference(ExpressDataSet *expressDataSet, const IfcClassificationReference &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClassificationReference > createIfcClassificationReference(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2554,16 +1963,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcClosedShell *arg);
+        bool removeIfcClosedShell(IfcClosedShell *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcClosedShell > createIfcClosedShell();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClosedShell *cloneIfcClosedShell(ExpressDataSet *expressDataSet, const IfcClosedShell &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcClosedShell > createIfcClosedShell(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2576,16 +1980,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCoilType *arg);
+        bool removeIfcCoilType(IfcCoilType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCoilType > createIfcCoilType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCoilType *cloneIfcCoilType(ExpressDataSet *expressDataSet, const IfcCoilType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCoilType > createIfcCoilType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2598,16 +1997,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcColourRgb *arg);
+        bool removeIfcColourRgb(IfcColourRgb *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcColourRgb > createIfcColourRgb();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcColourRgb *cloneIfcColourRgb(ExpressDataSet *expressDataSet, const IfcColourRgb &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcColourRgb > createIfcColourRgb(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2616,42 +2010,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcColourSpecification *getIfcColourSpecification(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcColourSpecification *arg);
-        /**
-         */
-        Step::RefPtr< IfcColourSpecification > createIfcColourSpecification();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcColourSpecification *cloneIfcColourSpecification(ExpressDataSet *expressDataSet, const IfcColourSpecification &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcColourSpecification *cloneIfcColourSpecification(const IfcColourSpecification &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcColumn *getIfcColumn(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcColumn *arg);
+        bool removeIfcColumn(IfcColumn *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcColumn > createIfcColumn();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcColumn *cloneIfcColumn(ExpressDataSet *expressDataSet, const IfcColumn &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcColumn > createIfcColumn(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2664,16 +2031,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcColumnType *arg);
+        bool removeIfcColumnType(IfcColumnType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcColumnType > createIfcColumnType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcColumnType *cloneIfcColumnType(ExpressDataSet *expressDataSet, const IfcColumnType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcColumnType > createIfcColumnType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2686,16 +2048,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcComplexProperty *arg);
+        bool removeIfcComplexProperty(IfcComplexProperty *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcComplexProperty > createIfcComplexProperty();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcComplexProperty *cloneIfcComplexProperty(ExpressDataSet *expressDataSet, const IfcComplexProperty &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcComplexProperty > createIfcComplexProperty(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2708,16 +2065,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCompositeCurve *arg);
+        bool removeIfcCompositeCurve(IfcCompositeCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCompositeCurve > createIfcCompositeCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCompositeCurve *cloneIfcCompositeCurve(ExpressDataSet *expressDataSet, const IfcCompositeCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCompositeCurve > createIfcCompositeCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2730,16 +2082,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCompositeCurveSegment *arg);
+        bool removeIfcCompositeCurveSegment(IfcCompositeCurveSegment *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCompositeCurveSegment > createIfcCompositeCurveSegment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCompositeCurveSegment *cloneIfcCompositeCurveSegment(ExpressDataSet *expressDataSet, const IfcCompositeCurveSegment &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCompositeCurveSegment > createIfcCompositeCurveSegment(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2752,16 +2099,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCompositeProfileDef *arg);
+        bool removeIfcCompositeProfileDef(IfcCompositeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCompositeProfileDef > createIfcCompositeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCompositeProfileDef *cloneIfcCompositeProfileDef(ExpressDataSet *expressDataSet, const IfcCompositeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCompositeProfileDef > createIfcCompositeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2774,16 +2116,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCompressorType *arg);
+        bool removeIfcCompressorType(IfcCompressorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCompressorType > createIfcCompressorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCompressorType *cloneIfcCompressorType(ExpressDataSet *expressDataSet, const IfcCompressorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCompressorType > createIfcCompressorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2796,16 +2133,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCondenserType *arg);
+        bool removeIfcCondenserType(IfcCondenserType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCondenserType > createIfcCondenserType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCondenserType *cloneIfcCondenserType(ExpressDataSet *expressDataSet, const IfcCondenserType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCondenserType > createIfcCondenserType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2818,16 +2150,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCondition *arg);
+        bool removeIfcCondition(IfcCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCondition > createIfcCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCondition *cloneIfcCondition(ExpressDataSet *expressDataSet, const IfcCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCondition > createIfcCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2840,16 +2167,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConditionCriterion *arg);
+        bool removeIfcConditionCriterion(IfcConditionCriterion *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConditionCriterion > createIfcConditionCriterion();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConditionCriterion *cloneIfcConditionCriterion(ExpressDataSet *expressDataSet, const IfcConditionCriterion &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConditionCriterion > createIfcConditionCriterion(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2858,42 +2180,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcConic *getIfcConic(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcConic *arg);
-        /**
-         */
-        Step::RefPtr< IfcConic > createIfcConic();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConic *cloneIfcConic(ExpressDataSet *expressDataSet, const IfcConic &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcConic *cloneIfcConic(const IfcConic &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcConnectedFaceSet *getIfcConnectedFaceSet(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcConnectedFaceSet *arg);
+        bool removeIfcConnectedFaceSet(IfcConnectedFaceSet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectedFaceSet > createIfcConnectedFaceSet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectedFaceSet *cloneIfcConnectedFaceSet(ExpressDataSet *expressDataSet, const IfcConnectedFaceSet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectedFaceSet > createIfcConnectedFaceSet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2906,16 +2201,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConnectionCurveGeometry *arg);
+        bool removeIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectionCurveGeometry > createIfcConnectionCurveGeometry();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionCurveGeometry *cloneIfcConnectionCurveGeometry(ExpressDataSet *expressDataSet, const IfcConnectionCurveGeometry &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectionCurveGeometry > createIfcConnectionCurveGeometry(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2924,42 +2214,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcConnectionGeometry *getIfcConnectionGeometry(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcConnectionGeometry *arg);
-        /**
-         */
-        Step::RefPtr< IfcConnectionGeometry > createIfcConnectionGeometry();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionGeometry *cloneIfcConnectionGeometry(ExpressDataSet *expressDataSet, const IfcConnectionGeometry &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcConnectionGeometry *cloneIfcConnectionGeometry(const IfcConnectionGeometry &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcConnectionPointEccentricity *getIfcConnectionPointEccentricity(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcConnectionPointEccentricity *arg);
+        bool removeIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectionPointEccentricity > createIfcConnectionPointEccentricity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionPointEccentricity *cloneIfcConnectionPointEccentricity(ExpressDataSet *expressDataSet, const IfcConnectionPointEccentricity &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectionPointEccentricity > createIfcConnectionPointEccentricity(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2972,16 +2235,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConnectionPointGeometry *arg);
+        bool removeIfcConnectionPointGeometry(IfcConnectionPointGeometry *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectionPointGeometry > createIfcConnectionPointGeometry();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionPointGeometry *cloneIfcConnectionPointGeometry(ExpressDataSet *expressDataSet, const IfcConnectionPointGeometry &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectionPointGeometry > createIfcConnectionPointGeometry(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -2994,16 +2252,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConnectionPortGeometry *arg);
+        bool removeIfcConnectionPortGeometry(IfcConnectionPortGeometry *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectionPortGeometry > createIfcConnectionPortGeometry();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionPortGeometry *cloneIfcConnectionPortGeometry(ExpressDataSet *expressDataSet, const IfcConnectionPortGeometry &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectionPortGeometry > createIfcConnectionPortGeometry(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3016,16 +2269,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConnectionSurfaceGeometry *arg);
+        bool removeIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConnectionSurfaceGeometry > createIfcConnectionSurfaceGeometry();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConnectionSurfaceGeometry *cloneIfcConnectionSurfaceGeometry(ExpressDataSet *expressDataSet, const IfcConnectionSurfaceGeometry &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConnectionSurfaceGeometry > createIfcConnectionSurfaceGeometry(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3034,42 +2282,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcConstraint *getIfcConstraint(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcConstraint *arg);
-        /**
-         */
-        Step::RefPtr< IfcConstraint > createIfcConstraint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstraint *cloneIfcConstraint(ExpressDataSet *expressDataSet, const IfcConstraint &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcConstraint *cloneIfcConstraint(const IfcConstraint &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcConstraintAggregationRelationship *getIfcConstraintAggregationRelationship(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcConstraintAggregationRelationship *arg);
+        bool removeIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstraintAggregationRelationship > createIfcConstraintAggregationRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstraintAggregationRelationship *cloneIfcConstraintAggregationRelationship(ExpressDataSet *expressDataSet, const IfcConstraintAggregationRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstraintAggregationRelationship > createIfcConstraintAggregationRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3082,16 +2303,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConstraintClassificationRelationship *arg);
+        bool removeIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstraintClassificationRelationship > createIfcConstraintClassificationRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstraintClassificationRelationship *cloneIfcConstraintClassificationRelationship(ExpressDataSet *expressDataSet, const IfcConstraintClassificationRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstraintClassificationRelationship > createIfcConstraintClassificationRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3104,16 +2320,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConstraintRelationship *arg);
+        bool removeIfcConstraintRelationship(IfcConstraintRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstraintRelationship > createIfcConstraintRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstraintRelationship *cloneIfcConstraintRelationship(ExpressDataSet *expressDataSet, const IfcConstraintRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstraintRelationship > createIfcConstraintRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3126,16 +2337,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConstructionEquipmentResource *arg);
+        bool removeIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstructionEquipmentResource > createIfcConstructionEquipmentResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstructionEquipmentResource *cloneIfcConstructionEquipmentResource(ExpressDataSet *expressDataSet, const IfcConstructionEquipmentResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstructionEquipmentResource > createIfcConstructionEquipmentResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3148,16 +2354,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConstructionMaterialResource *arg);
+        bool removeIfcConstructionMaterialResource(IfcConstructionMaterialResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstructionMaterialResource > createIfcConstructionMaterialResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstructionMaterialResource *cloneIfcConstructionMaterialResource(ExpressDataSet *expressDataSet, const IfcConstructionMaterialResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstructionMaterialResource > createIfcConstructionMaterialResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3170,16 +2371,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConstructionProductResource *arg);
+        bool removeIfcConstructionProductResource(IfcConstructionProductResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConstructionProductResource > createIfcConstructionProductResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstructionProductResource *cloneIfcConstructionProductResource(ExpressDataSet *expressDataSet, const IfcConstructionProductResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConstructionProductResource > createIfcConstructionProductResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3188,42 +2384,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcConstructionResource *getIfcConstructionResource(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcConstructionResource *arg);
-        /**
-         */
-        Step::RefPtr< IfcConstructionResource > createIfcConstructionResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConstructionResource *cloneIfcConstructionResource(ExpressDataSet *expressDataSet, const IfcConstructionResource &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcConstructionResource *cloneIfcConstructionResource(const IfcConstructionResource &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcContextDependentUnit *getIfcContextDependentUnit(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcContextDependentUnit *arg);
+        bool removeIfcContextDependentUnit(IfcContextDependentUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcContextDependentUnit > createIfcContextDependentUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcContextDependentUnit *cloneIfcContextDependentUnit(ExpressDataSet *expressDataSet, const IfcContextDependentUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcContextDependentUnit > createIfcContextDependentUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3232,42 +2401,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcControl *getIfcControl(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcControl *arg);
-        /**
-         */
-        Step::RefPtr< IfcControl > createIfcControl();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcControl *cloneIfcControl(ExpressDataSet *expressDataSet, const IfcControl &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcControl *cloneIfcControl(const IfcControl &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcControllerType *getIfcControllerType(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcControllerType *arg);
+        bool removeIfcControllerType(IfcControllerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcControllerType > createIfcControllerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcControllerType *cloneIfcControllerType(ExpressDataSet *expressDataSet, const IfcControllerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcControllerType > createIfcControllerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3280,16 +2422,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcConversionBasedUnit *arg);
+        bool removeIfcConversionBasedUnit(IfcConversionBasedUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcConversionBasedUnit > createIfcConversionBasedUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcConversionBasedUnit *cloneIfcConversionBasedUnit(ExpressDataSet *expressDataSet, const IfcConversionBasedUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcConversionBasedUnit > createIfcConversionBasedUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3302,16 +2439,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCooledBeamType *arg);
+        bool removeIfcCooledBeamType(IfcCooledBeamType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCooledBeamType > createIfcCooledBeamType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCooledBeamType *cloneIfcCooledBeamType(ExpressDataSet *expressDataSet, const IfcCooledBeamType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCooledBeamType > createIfcCooledBeamType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3324,16 +2456,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCoolingTowerType *arg);
+        bool removeIfcCoolingTowerType(IfcCoolingTowerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCoolingTowerType > createIfcCoolingTowerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCoolingTowerType *cloneIfcCoolingTowerType(ExpressDataSet *expressDataSet, const IfcCoolingTowerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCoolingTowerType > createIfcCoolingTowerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3346,16 +2473,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCoordinatedUniversalTimeOffset *arg);
+        bool removeIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCoordinatedUniversalTimeOffset > createIfcCoordinatedUniversalTimeOffset();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCoordinatedUniversalTimeOffset *cloneIfcCoordinatedUniversalTimeOffset(ExpressDataSet *expressDataSet, const IfcCoordinatedUniversalTimeOffset &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCoordinatedUniversalTimeOffset > createIfcCoordinatedUniversalTimeOffset(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3368,16 +2490,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCostItem *arg);
+        bool removeIfcCostItem(IfcCostItem *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCostItem > createIfcCostItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCostItem *cloneIfcCostItem(ExpressDataSet *expressDataSet, const IfcCostItem &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCostItem > createIfcCostItem(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3390,16 +2507,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCostSchedule *arg);
+        bool removeIfcCostSchedule(IfcCostSchedule *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCostSchedule > createIfcCostSchedule();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCostSchedule *cloneIfcCostSchedule(ExpressDataSet *expressDataSet, const IfcCostSchedule &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCostSchedule > createIfcCostSchedule(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3412,16 +2524,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCostValue *arg);
+        bool removeIfcCostValue(IfcCostValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCostValue > createIfcCostValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCostValue *cloneIfcCostValue(ExpressDataSet *expressDataSet, const IfcCostValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCostValue > createIfcCostValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3434,16 +2541,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCovering *arg);
+        bool removeIfcCovering(IfcCovering *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCovering > createIfcCovering();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCovering *cloneIfcCovering(ExpressDataSet *expressDataSet, const IfcCovering &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCovering > createIfcCovering(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3456,16 +2558,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCoveringType *arg);
+        bool removeIfcCoveringType(IfcCoveringType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCoveringType > createIfcCoveringType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCoveringType *cloneIfcCoveringType(ExpressDataSet *expressDataSet, const IfcCoveringType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCoveringType > createIfcCoveringType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3478,16 +2575,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCraneRailAShapeProfileDef *arg);
+        bool removeIfcCraneRailAShapeProfileDef(IfcCraneRailAShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCraneRailAShapeProfileDef > createIfcCraneRailAShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCraneRailAShapeProfileDef *cloneIfcCraneRailAShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCraneRailAShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCraneRailAShapeProfileDef > createIfcCraneRailAShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3500,16 +2592,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCraneRailFShapeProfileDef *arg);
+        bool removeIfcCraneRailFShapeProfileDef(IfcCraneRailFShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCraneRailFShapeProfileDef > createIfcCraneRailFShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCraneRailFShapeProfileDef *cloneIfcCraneRailFShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCraneRailFShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCraneRailFShapeProfileDef > createIfcCraneRailFShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3522,16 +2609,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCrewResource *arg);
+        bool removeIfcCrewResource(IfcCrewResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCrewResource > createIfcCrewResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCrewResource *cloneIfcCrewResource(ExpressDataSet *expressDataSet, const IfcCrewResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCrewResource > createIfcCrewResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3540,42 +2622,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcCsgPrimitive3D *getIfcCsgPrimitive3D(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCsgPrimitive3D *arg);
-        /**
-         */
-        Step::RefPtr< IfcCsgPrimitive3D > createIfcCsgPrimitive3D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCsgPrimitive3D *cloneIfcCsgPrimitive3D(ExpressDataSet *expressDataSet, const IfcCsgPrimitive3D &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCsgPrimitive3D *cloneIfcCsgPrimitive3D(const IfcCsgPrimitive3D &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcCsgSolid *getIfcCsgSolid(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcCsgSolid *arg);
+        bool removeIfcCsgSolid(IfcCsgSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCsgSolid > createIfcCsgSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCsgSolid *cloneIfcCsgSolid(ExpressDataSet *expressDataSet, const IfcCsgSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCsgSolid > createIfcCsgSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3588,16 +2643,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurrencyRelationship *arg);
+        bool removeIfcCurrencyRelationship(IfcCurrencyRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurrencyRelationship > createIfcCurrencyRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurrencyRelationship *cloneIfcCurrencyRelationship(ExpressDataSet *expressDataSet, const IfcCurrencyRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurrencyRelationship > createIfcCurrencyRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3610,16 +2660,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurtainWall *arg);
+        bool removeIfcCurtainWall(IfcCurtainWall *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurtainWall > createIfcCurtainWall();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurtainWall *cloneIfcCurtainWall(ExpressDataSet *expressDataSet, const IfcCurtainWall &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurtainWall > createIfcCurtainWall(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3632,16 +2677,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurtainWallType *arg);
+        bool removeIfcCurtainWallType(IfcCurtainWallType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurtainWallType > createIfcCurtainWallType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurtainWallType *cloneIfcCurtainWallType(ExpressDataSet *expressDataSet, const IfcCurtainWallType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurtainWallType > createIfcCurtainWallType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3650,42 +2690,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcCurve *getIfcCurve(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCurve *arg);
-        /**
-         */
-        Step::RefPtr< IfcCurve > createIfcCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurve *cloneIfcCurve(ExpressDataSet *expressDataSet, const IfcCurve &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCurve *cloneIfcCurve(const IfcCurve &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcCurveBoundedPlane *getIfcCurveBoundedPlane(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcCurveBoundedPlane *arg);
+        bool removeIfcCurveBoundedPlane(IfcCurveBoundedPlane *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurveBoundedPlane > createIfcCurveBoundedPlane();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurveBoundedPlane *cloneIfcCurveBoundedPlane(ExpressDataSet *expressDataSet, const IfcCurveBoundedPlane &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurveBoundedPlane > createIfcCurveBoundedPlane(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3698,16 +2711,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurveStyle *arg);
+        bool removeIfcCurveStyle(IfcCurveStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurveStyle > createIfcCurveStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurveStyle *cloneIfcCurveStyle(ExpressDataSet *expressDataSet, const IfcCurveStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurveStyle > createIfcCurveStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3720,16 +2728,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurveStyleFont *arg);
+        bool removeIfcCurveStyleFont(IfcCurveStyleFont *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurveStyleFont > createIfcCurveStyleFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurveStyleFont *cloneIfcCurveStyleFont(ExpressDataSet *expressDataSet, const IfcCurveStyleFont &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurveStyleFont > createIfcCurveStyleFont(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3742,16 +2745,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurveStyleFontAndScaling *arg);
+        bool removeIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurveStyleFontAndScaling > createIfcCurveStyleFontAndScaling();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurveStyleFontAndScaling *cloneIfcCurveStyleFontAndScaling(ExpressDataSet *expressDataSet, const IfcCurveStyleFontAndScaling &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurveStyleFontAndScaling > createIfcCurveStyleFontAndScaling(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3764,16 +2762,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcCurveStyleFontPattern *arg);
+        bool removeIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcCurveStyleFontPattern > createIfcCurveStyleFontPattern();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCurveStyleFontPattern *cloneIfcCurveStyleFontPattern(ExpressDataSet *expressDataSet, const IfcCurveStyleFontPattern &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcCurveStyleFontPattern > createIfcCurveStyleFontPattern(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3786,16 +2779,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDamperType *arg);
+        bool removeIfcDamperType(IfcDamperType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDamperType > createIfcDamperType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDamperType *cloneIfcDamperType(ExpressDataSet *expressDataSet, const IfcDamperType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDamperType > createIfcDamperType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3808,16 +2796,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDateAndTime *arg);
+        bool removeIfcDateAndTime(IfcDateAndTime *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDateAndTime > createIfcDateAndTime();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDateAndTime *cloneIfcDateAndTime(ExpressDataSet *expressDataSet, const IfcDateAndTime &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDateAndTime > createIfcDateAndTime(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3830,16 +2813,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDefinedSymbol *arg);
+        bool removeIfcDefinedSymbol(IfcDefinedSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDefinedSymbol > createIfcDefinedSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDefinedSymbol *cloneIfcDefinedSymbol(ExpressDataSet *expressDataSet, const IfcDefinedSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDefinedSymbol > createIfcDefinedSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3852,16 +2830,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDerivedProfileDef *arg);
+        bool removeIfcDerivedProfileDef(IfcDerivedProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDerivedProfileDef > createIfcDerivedProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDerivedProfileDef *cloneIfcDerivedProfileDef(ExpressDataSet *expressDataSet, const IfcDerivedProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDerivedProfileDef > createIfcDerivedProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3874,16 +2847,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDerivedUnit *arg);
+        bool removeIfcDerivedUnit(IfcDerivedUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDerivedUnit > createIfcDerivedUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDerivedUnit *cloneIfcDerivedUnit(ExpressDataSet *expressDataSet, const IfcDerivedUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDerivedUnit > createIfcDerivedUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3896,16 +2864,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDerivedUnitElement *arg);
+        bool removeIfcDerivedUnitElement(IfcDerivedUnitElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDerivedUnitElement > createIfcDerivedUnitElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDerivedUnitElement *cloneIfcDerivedUnitElement(ExpressDataSet *expressDataSet, const IfcDerivedUnitElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDerivedUnitElement > createIfcDerivedUnitElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3918,16 +2881,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDiameterDimension *arg);
+        bool removeIfcDiameterDimension(IfcDiameterDimension *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDiameterDimension > createIfcDiameterDimension();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDiameterDimension *cloneIfcDiameterDimension(ExpressDataSet *expressDataSet, const IfcDiameterDimension &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDiameterDimension > createIfcDiameterDimension(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3940,16 +2898,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionCalloutRelationship *arg);
+        bool removeIfcDimensionCalloutRelationship(IfcDimensionCalloutRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionCalloutRelationship > createIfcDimensionCalloutRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionCalloutRelationship *cloneIfcDimensionCalloutRelationship(ExpressDataSet *expressDataSet, const IfcDimensionCalloutRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionCalloutRelationship > createIfcDimensionCalloutRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3962,16 +2915,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionCurve *arg);
+        bool removeIfcDimensionCurve(IfcDimensionCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionCurve > createIfcDimensionCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionCurve *cloneIfcDimensionCurve(ExpressDataSet *expressDataSet, const IfcDimensionCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionCurve > createIfcDimensionCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -3984,16 +2932,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionCurveDirectedCallout *arg);
+        bool removeIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionCurveDirectedCallout > createIfcDimensionCurveDirectedCallout();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionCurveDirectedCallout *cloneIfcDimensionCurveDirectedCallout(ExpressDataSet *expressDataSet, const IfcDimensionCurveDirectedCallout &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionCurveDirectedCallout > createIfcDimensionCurveDirectedCallout(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4006,16 +2949,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionCurveTerminator *arg);
+        bool removeIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionCurveTerminator > createIfcDimensionCurveTerminator();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionCurveTerminator *cloneIfcDimensionCurveTerminator(ExpressDataSet *expressDataSet, const IfcDimensionCurveTerminator &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionCurveTerminator > createIfcDimensionCurveTerminator(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4028,16 +2966,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionPair *arg);
+        bool removeIfcDimensionPair(IfcDimensionPair *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionPair > createIfcDimensionPair();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionPair *cloneIfcDimensionPair(ExpressDataSet *expressDataSet, const IfcDimensionPair &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionPair > createIfcDimensionPair(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4050,16 +2983,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDimensionalExponents *arg);
+        bool removeIfcDimensionalExponents(IfcDimensionalExponents *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDimensionalExponents > createIfcDimensionalExponents();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDimensionalExponents *cloneIfcDimensionalExponents(ExpressDataSet *expressDataSet, const IfcDimensionalExponents &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDimensionalExponents > createIfcDimensionalExponents(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4072,16 +3000,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDirection *arg);
+        bool removeIfcDirection(IfcDirection *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDirection > createIfcDirection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDirection *cloneIfcDirection(ExpressDataSet *expressDataSet, const IfcDirection &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDirection > createIfcDirection(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4094,16 +3017,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDiscreteAccessory *arg);
+        bool removeIfcDiscreteAccessory(IfcDiscreteAccessory *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDiscreteAccessory > createIfcDiscreteAccessory();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDiscreteAccessory *cloneIfcDiscreteAccessory(ExpressDataSet *expressDataSet, const IfcDiscreteAccessory &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDiscreteAccessory > createIfcDiscreteAccessory(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4116,16 +3034,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDiscreteAccessoryType *arg);
+        bool removeIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDiscreteAccessoryType > createIfcDiscreteAccessoryType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDiscreteAccessoryType *cloneIfcDiscreteAccessoryType(ExpressDataSet *expressDataSet, const IfcDiscreteAccessoryType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDiscreteAccessoryType > createIfcDiscreteAccessoryType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4138,16 +3051,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDistributionChamberElement *arg);
+        bool removeIfcDistributionChamberElement(IfcDistributionChamberElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionChamberElement > createIfcDistributionChamberElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionChamberElement *cloneIfcDistributionChamberElement(ExpressDataSet *expressDataSet, const IfcDistributionChamberElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionChamberElement > createIfcDistributionChamberElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4160,16 +3068,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDistributionChamberElementType *arg);
+        bool removeIfcDistributionChamberElementType(IfcDistributionChamberElementType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionChamberElementType > createIfcDistributionChamberElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionChamberElementType *cloneIfcDistributionChamberElementType(ExpressDataSet *expressDataSet, const IfcDistributionChamberElementType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionChamberElementType > createIfcDistributionChamberElementType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4182,16 +3085,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDistributionControlElement *arg);
+        bool removeIfcDistributionControlElement(IfcDistributionControlElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionControlElement > createIfcDistributionControlElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionControlElement *cloneIfcDistributionControlElement(ExpressDataSet *expressDataSet, const IfcDistributionControlElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionControlElement > createIfcDistributionControlElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4200,42 +3098,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcDistributionControlElementType *getIfcDistributionControlElementType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcDistributionControlElementType *arg);
-        /**
-         */
-        Step::RefPtr< IfcDistributionControlElementType > createIfcDistributionControlElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionControlElementType *cloneIfcDistributionControlElementType(ExpressDataSet *expressDataSet, const IfcDistributionControlElementType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcDistributionControlElementType *cloneIfcDistributionControlElementType(const IfcDistributionControlElementType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcDistributionElement *getIfcDistributionElement(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcDistributionElement *arg);
+        bool removeIfcDistributionElement(IfcDistributionElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionElement > createIfcDistributionElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionElement *cloneIfcDistributionElement(ExpressDataSet *expressDataSet, const IfcDistributionElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionElement > createIfcDistributionElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4248,16 +3119,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDistributionElementType *arg);
+        bool removeIfcDistributionElementType(IfcDistributionElementType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionElementType > createIfcDistributionElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionElementType *cloneIfcDistributionElementType(ExpressDataSet *expressDataSet, const IfcDistributionElementType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionElementType > createIfcDistributionElementType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4270,16 +3136,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDistributionFlowElement *arg);
+        bool removeIfcDistributionFlowElement(IfcDistributionFlowElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionFlowElement > createIfcDistributionFlowElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionFlowElement *cloneIfcDistributionFlowElement(ExpressDataSet *expressDataSet, const IfcDistributionFlowElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionFlowElement > createIfcDistributionFlowElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4288,42 +3149,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcDistributionFlowElementType *getIfcDistributionFlowElementType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcDistributionFlowElementType *arg);
-        /**
-         */
-        Step::RefPtr< IfcDistributionFlowElementType > createIfcDistributionFlowElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionFlowElementType *cloneIfcDistributionFlowElementType(ExpressDataSet *expressDataSet, const IfcDistributionFlowElementType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcDistributionFlowElementType *cloneIfcDistributionFlowElementType(const IfcDistributionFlowElementType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcDistributionPort *getIfcDistributionPort(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcDistributionPort *arg);
+        bool removeIfcDistributionPort(IfcDistributionPort *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDistributionPort > createIfcDistributionPort();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDistributionPort *cloneIfcDistributionPort(ExpressDataSet *expressDataSet, const IfcDistributionPort &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDistributionPort > createIfcDistributionPort(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4336,16 +3170,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDocumentElectronicFormat *arg);
+        bool removeIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDocumentElectronicFormat > createIfcDocumentElectronicFormat();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDocumentElectronicFormat *cloneIfcDocumentElectronicFormat(ExpressDataSet *expressDataSet, const IfcDocumentElectronicFormat &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDocumentElectronicFormat > createIfcDocumentElectronicFormat(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4358,16 +3187,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDocumentInformation *arg);
+        bool removeIfcDocumentInformation(IfcDocumentInformation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDocumentInformation > createIfcDocumentInformation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDocumentInformation *cloneIfcDocumentInformation(ExpressDataSet *expressDataSet, const IfcDocumentInformation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDocumentInformation > createIfcDocumentInformation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4380,16 +3204,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDocumentInformationRelationship *arg);
+        bool removeIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDocumentInformationRelationship > createIfcDocumentInformationRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDocumentInformationRelationship *cloneIfcDocumentInformationRelationship(ExpressDataSet *expressDataSet, const IfcDocumentInformationRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDocumentInformationRelationship > createIfcDocumentInformationRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4402,16 +3221,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDocumentReference *arg);
+        bool removeIfcDocumentReference(IfcDocumentReference *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDocumentReference > createIfcDocumentReference();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDocumentReference *cloneIfcDocumentReference(ExpressDataSet *expressDataSet, const IfcDocumentReference &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDocumentReference > createIfcDocumentReference(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4424,16 +3238,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDoor *arg);
+        bool removeIfcDoor(IfcDoor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDoor > createIfcDoor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDoor *cloneIfcDoor(ExpressDataSet *expressDataSet, const IfcDoor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDoor > createIfcDoor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4446,16 +3255,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDoorLiningProperties *arg);
+        bool removeIfcDoorLiningProperties(IfcDoorLiningProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDoorLiningProperties > createIfcDoorLiningProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDoorLiningProperties *cloneIfcDoorLiningProperties(ExpressDataSet *expressDataSet, const IfcDoorLiningProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDoorLiningProperties > createIfcDoorLiningProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4468,16 +3272,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDoorPanelProperties *arg);
+        bool removeIfcDoorPanelProperties(IfcDoorPanelProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDoorPanelProperties > createIfcDoorPanelProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDoorPanelProperties *cloneIfcDoorPanelProperties(ExpressDataSet *expressDataSet, const IfcDoorPanelProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDoorPanelProperties > createIfcDoorPanelProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4490,16 +3289,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDoorStyle *arg);
+        bool removeIfcDoorStyle(IfcDoorStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDoorStyle > createIfcDoorStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDoorStyle *cloneIfcDoorStyle(ExpressDataSet *expressDataSet, const IfcDoorStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDoorStyle > createIfcDoorStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4512,16 +3306,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDraughtingCallout *arg);
+        bool removeIfcDraughtingCallout(IfcDraughtingCallout *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDraughtingCallout > createIfcDraughtingCallout();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDraughtingCallout *cloneIfcDraughtingCallout(ExpressDataSet *expressDataSet, const IfcDraughtingCallout &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDraughtingCallout > createIfcDraughtingCallout(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4534,16 +3323,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDraughtingCalloutRelationship *arg);
+        bool removeIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDraughtingCalloutRelationship > createIfcDraughtingCalloutRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDraughtingCalloutRelationship *cloneIfcDraughtingCalloutRelationship(ExpressDataSet *expressDataSet, const IfcDraughtingCalloutRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDraughtingCalloutRelationship > createIfcDraughtingCalloutRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4556,16 +3340,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDraughtingPreDefinedColour *arg);
+        bool removeIfcDraughtingPreDefinedColour(IfcDraughtingPreDefinedColour *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDraughtingPreDefinedColour > createIfcDraughtingPreDefinedColour();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDraughtingPreDefinedColour *cloneIfcDraughtingPreDefinedColour(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedColour &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDraughtingPreDefinedColour > createIfcDraughtingPreDefinedColour(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4578,16 +3357,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDraughtingPreDefinedCurveFont *arg);
+        bool removeIfcDraughtingPreDefinedCurveFont(IfcDraughtingPreDefinedCurveFont *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDraughtingPreDefinedCurveFont > createIfcDraughtingPreDefinedCurveFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDraughtingPreDefinedCurveFont *cloneIfcDraughtingPreDefinedCurveFont(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedCurveFont &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDraughtingPreDefinedCurveFont > createIfcDraughtingPreDefinedCurveFont(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4600,16 +3374,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDraughtingPreDefinedTextFont *arg);
+        bool removeIfcDraughtingPreDefinedTextFont(IfcDraughtingPreDefinedTextFont *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDraughtingPreDefinedTextFont > createIfcDraughtingPreDefinedTextFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDraughtingPreDefinedTextFont *cloneIfcDraughtingPreDefinedTextFont(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedTextFont &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDraughtingPreDefinedTextFont > createIfcDraughtingPreDefinedTextFont(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4622,16 +3391,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDuctFittingType *arg);
+        bool removeIfcDuctFittingType(IfcDuctFittingType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDuctFittingType > createIfcDuctFittingType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDuctFittingType *cloneIfcDuctFittingType(ExpressDataSet *expressDataSet, const IfcDuctFittingType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDuctFittingType > createIfcDuctFittingType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4644,16 +3408,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDuctSegmentType *arg);
+        bool removeIfcDuctSegmentType(IfcDuctSegmentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDuctSegmentType > createIfcDuctSegmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDuctSegmentType *cloneIfcDuctSegmentType(ExpressDataSet *expressDataSet, const IfcDuctSegmentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDuctSegmentType > createIfcDuctSegmentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4666,16 +3425,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcDuctSilencerType *arg);
+        bool removeIfcDuctSilencerType(IfcDuctSilencerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcDuctSilencerType > createIfcDuctSilencerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcDuctSilencerType *cloneIfcDuctSilencerType(ExpressDataSet *expressDataSet, const IfcDuctSilencerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcDuctSilencerType > createIfcDuctSilencerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4688,16 +3442,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEdge *arg);
+        bool removeIfcEdge(IfcEdge *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEdge > createIfcEdge();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEdge *cloneIfcEdge(ExpressDataSet *expressDataSet, const IfcEdge &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEdge > createIfcEdge(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4710,16 +3459,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEdgeCurve *arg);
+        bool removeIfcEdgeCurve(IfcEdgeCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEdgeCurve > createIfcEdgeCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEdgeCurve *cloneIfcEdgeCurve(ExpressDataSet *expressDataSet, const IfcEdgeCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEdgeCurve > createIfcEdgeCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4728,42 +3472,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcEdgeFeature *getIfcEdgeFeature(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcEdgeFeature *arg);
-        /**
-         */
-        Step::RefPtr< IfcEdgeFeature > createIfcEdgeFeature();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEdgeFeature *cloneIfcEdgeFeature(ExpressDataSet *expressDataSet, const IfcEdgeFeature &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcEdgeFeature *cloneIfcEdgeFeature(const IfcEdgeFeature &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcEdgeLoop *getIfcEdgeLoop(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcEdgeLoop *arg);
+        bool removeIfcEdgeLoop(IfcEdgeLoop *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEdgeLoop > createIfcEdgeLoop();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEdgeLoop *cloneIfcEdgeLoop(ExpressDataSet *expressDataSet, const IfcEdgeLoop &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEdgeLoop > createIfcEdgeLoop(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4776,16 +3493,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricApplianceType *arg);
+        bool removeIfcElectricApplianceType(IfcElectricApplianceType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricApplianceType > createIfcElectricApplianceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricApplianceType *cloneIfcElectricApplianceType(ExpressDataSet *expressDataSet, const IfcElectricApplianceType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricApplianceType > createIfcElectricApplianceType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4798,16 +3510,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricDistributionPoint *arg);
+        bool removeIfcElectricDistributionPoint(IfcElectricDistributionPoint *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricDistributionPoint > createIfcElectricDistributionPoint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricDistributionPoint *cloneIfcElectricDistributionPoint(ExpressDataSet *expressDataSet, const IfcElectricDistributionPoint &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricDistributionPoint > createIfcElectricDistributionPoint(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4820,16 +3527,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricFlowStorageDeviceType *arg);
+        bool removeIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricFlowStorageDeviceType > createIfcElectricFlowStorageDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricFlowStorageDeviceType *cloneIfcElectricFlowStorageDeviceType(ExpressDataSet *expressDataSet, const IfcElectricFlowStorageDeviceType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricFlowStorageDeviceType > createIfcElectricFlowStorageDeviceType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4842,16 +3544,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricGeneratorType *arg);
+        bool removeIfcElectricGeneratorType(IfcElectricGeneratorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricGeneratorType > createIfcElectricGeneratorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricGeneratorType *cloneIfcElectricGeneratorType(ExpressDataSet *expressDataSet, const IfcElectricGeneratorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricGeneratorType > createIfcElectricGeneratorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4864,16 +3561,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricHeaterType *arg);
+        bool removeIfcElectricHeaterType(IfcElectricHeaterType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricHeaterType > createIfcElectricHeaterType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricHeaterType *cloneIfcElectricHeaterType(ExpressDataSet *expressDataSet, const IfcElectricHeaterType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricHeaterType > createIfcElectricHeaterType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4886,16 +3578,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricMotorType *arg);
+        bool removeIfcElectricMotorType(IfcElectricMotorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricMotorType > createIfcElectricMotorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricMotorType *cloneIfcElectricMotorType(ExpressDataSet *expressDataSet, const IfcElectricMotorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricMotorType > createIfcElectricMotorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4908,16 +3595,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricTimeControlType *arg);
+        bool removeIfcElectricTimeControlType(IfcElectricTimeControlType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricTimeControlType > createIfcElectricTimeControlType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricTimeControlType *cloneIfcElectricTimeControlType(ExpressDataSet *expressDataSet, const IfcElectricTimeControlType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricTimeControlType > createIfcElectricTimeControlType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4930,16 +3612,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricalBaseProperties *arg);
+        bool removeIfcElectricalBaseProperties(IfcElectricalBaseProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricalBaseProperties > createIfcElectricalBaseProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricalBaseProperties *cloneIfcElectricalBaseProperties(ExpressDataSet *expressDataSet, const IfcElectricalBaseProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricalBaseProperties > createIfcElectricalBaseProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4952,16 +3629,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricalCircuit *arg);
+        bool removeIfcElectricalCircuit(IfcElectricalCircuit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricalCircuit > createIfcElectricalCircuit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricalCircuit *cloneIfcElectricalCircuit(ExpressDataSet *expressDataSet, const IfcElectricalCircuit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricalCircuit > createIfcElectricalCircuit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4974,16 +3646,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcElectricalElement *arg);
+        bool removeIfcElectricalElement(IfcElectricalElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElectricalElement > createIfcElectricalElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElectricalElement *cloneIfcElectricalElement(ExpressDataSet *expressDataSet, const IfcElectricalElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElectricalElement > createIfcElectricalElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -4992,42 +3659,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcElement *getIfcElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcElement > createIfcElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElement *cloneIfcElement(ExpressDataSet *expressDataSet, const IfcElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElement *cloneIfcElement(const IfcElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcElementAssembly *getIfcElementAssembly(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcElementAssembly *arg);
+        bool removeIfcElementAssembly(IfcElementAssembly *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElementAssembly > createIfcElementAssembly();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementAssembly *cloneIfcElementAssembly(ExpressDataSet *expressDataSet, const IfcElementAssembly &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElementAssembly > createIfcElementAssembly(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5036,64 +3676,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcElementComponent *getIfcElementComponent(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElementComponent *arg);
-        /**
-         */
-        Step::RefPtr< IfcElementComponent > createIfcElementComponent();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementComponent *cloneIfcElementComponent(ExpressDataSet *expressDataSet, const IfcElementComponent &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElementComponent *cloneIfcElementComponent(const IfcElementComponent &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcElementComponentType *getIfcElementComponentType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElementComponentType *arg);
-        /**
-         */
-        Step::RefPtr< IfcElementComponentType > createIfcElementComponentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementComponentType *cloneIfcElementComponentType(ExpressDataSet *expressDataSet, const IfcElementComponentType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElementComponentType *cloneIfcElementComponentType(const IfcElementComponentType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcElementQuantity *getIfcElementQuantity(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcElementQuantity *arg);
+        bool removeIfcElementQuantity(IfcElementQuantity *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcElementQuantity > createIfcElementQuantity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementQuantity *cloneIfcElementQuantity(ExpressDataSet *expressDataSet, const IfcElementQuantity &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcElementQuantity > createIfcElementQuantity(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5102,64 +3693,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcElementType *getIfcElementType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElementType *arg);
-        /**
-         */
-        Step::RefPtr< IfcElementType > createIfcElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementType *cloneIfcElementType(ExpressDataSet *expressDataSet, const IfcElementType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElementType *cloneIfcElementType(const IfcElementType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcElementarySurface *getIfcElementarySurface(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElementarySurface *arg);
-        /**
-         */
-        Step::RefPtr< IfcElementarySurface > createIfcElementarySurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementarySurface *cloneIfcElementarySurface(ExpressDataSet *expressDataSet, const IfcElementarySurface &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElementarySurface *cloneIfcElementarySurface(const IfcElementarySurface &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcEllipse *getIfcEllipse(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcEllipse *arg);
+        bool removeIfcEllipse(IfcEllipse *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEllipse > createIfcEllipse();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEllipse *cloneIfcEllipse(ExpressDataSet *expressDataSet, const IfcEllipse &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEllipse > createIfcEllipse(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5172,16 +3714,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEllipseProfileDef *arg);
+        bool removeIfcEllipseProfileDef(IfcEllipseProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEllipseProfileDef > createIfcEllipseProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEllipseProfileDef *cloneIfcEllipseProfileDef(ExpressDataSet *expressDataSet, const IfcEllipseProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEllipseProfileDef > createIfcEllipseProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5194,16 +3731,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEnergyConversionDevice *arg);
+        bool removeIfcEnergyConversionDevice(IfcEnergyConversionDevice *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEnergyConversionDevice > createIfcEnergyConversionDevice();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEnergyConversionDevice *cloneIfcEnergyConversionDevice(ExpressDataSet *expressDataSet, const IfcEnergyConversionDevice &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEnergyConversionDevice > createIfcEnergyConversionDevice(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5212,42 +3744,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcEnergyConversionDeviceType *getIfcEnergyConversionDeviceType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcEnergyConversionDeviceType *arg);
-        /**
-         */
-        Step::RefPtr< IfcEnergyConversionDeviceType > createIfcEnergyConversionDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEnergyConversionDeviceType *cloneIfcEnergyConversionDeviceType(ExpressDataSet *expressDataSet, const IfcEnergyConversionDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcEnergyConversionDeviceType *cloneIfcEnergyConversionDeviceType(const IfcEnergyConversionDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcEnergyProperties *getIfcEnergyProperties(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcEnergyProperties *arg);
+        bool removeIfcEnergyProperties(IfcEnergyProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEnergyProperties > createIfcEnergyProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEnergyProperties *cloneIfcEnergyProperties(ExpressDataSet *expressDataSet, const IfcEnergyProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEnergyProperties > createIfcEnergyProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5260,16 +3765,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEnvironmentalImpactValue *arg);
+        bool removeIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEnvironmentalImpactValue > createIfcEnvironmentalImpactValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEnvironmentalImpactValue *cloneIfcEnvironmentalImpactValue(ExpressDataSet *expressDataSet, const IfcEnvironmentalImpactValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEnvironmentalImpactValue > createIfcEnvironmentalImpactValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5282,16 +3782,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEquipmentElement *arg);
+        bool removeIfcEquipmentElement(IfcEquipmentElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEquipmentElement > createIfcEquipmentElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEquipmentElement *cloneIfcEquipmentElement(ExpressDataSet *expressDataSet, const IfcEquipmentElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEquipmentElement > createIfcEquipmentElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5304,16 +3799,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEquipmentStandard *arg);
+        bool removeIfcEquipmentStandard(IfcEquipmentStandard *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEquipmentStandard > createIfcEquipmentStandard();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEquipmentStandard *cloneIfcEquipmentStandard(ExpressDataSet *expressDataSet, const IfcEquipmentStandard &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEquipmentStandard > createIfcEquipmentStandard(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5326,16 +3816,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEvaporativeCoolerType *arg);
+        bool removeIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEvaporativeCoolerType > createIfcEvaporativeCoolerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEvaporativeCoolerType *cloneIfcEvaporativeCoolerType(ExpressDataSet *expressDataSet, const IfcEvaporativeCoolerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEvaporativeCoolerType > createIfcEvaporativeCoolerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5348,16 +3833,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcEvaporatorType *arg);
+        bool removeIfcEvaporatorType(IfcEvaporatorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcEvaporatorType > createIfcEvaporatorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcEvaporatorType *cloneIfcEvaporatorType(ExpressDataSet *expressDataSet, const IfcEvaporatorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcEvaporatorType > createIfcEvaporatorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5370,16 +3850,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcExtendedMaterialProperties *arg);
+        bool removeIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExtendedMaterialProperties > createIfcExtendedMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExtendedMaterialProperties *cloneIfcExtendedMaterialProperties(ExpressDataSet *expressDataSet, const IfcExtendedMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExtendedMaterialProperties > createIfcExtendedMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5388,42 +3863,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcExternalReference *getIfcExternalReference(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcExternalReference *arg);
-        /**
-         */
-        Step::RefPtr< IfcExternalReference > createIfcExternalReference();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExternalReference *cloneIfcExternalReference(ExpressDataSet *expressDataSet, const IfcExternalReference &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcExternalReference *cloneIfcExternalReference(const IfcExternalReference &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcExternallyDefinedHatchStyle *getIfcExternallyDefinedHatchStyle(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcExternallyDefinedHatchStyle *arg);
+        bool removeIfcExternallyDefinedHatchStyle(IfcExternallyDefinedHatchStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExternallyDefinedHatchStyle > createIfcExternallyDefinedHatchStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExternallyDefinedHatchStyle *cloneIfcExternallyDefinedHatchStyle(ExpressDataSet *expressDataSet, const IfcExternallyDefinedHatchStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExternallyDefinedHatchStyle > createIfcExternallyDefinedHatchStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5436,16 +3884,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcExternallyDefinedSurfaceStyle *arg);
+        bool removeIfcExternallyDefinedSurfaceStyle(IfcExternallyDefinedSurfaceStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExternallyDefinedSurfaceStyle > createIfcExternallyDefinedSurfaceStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExternallyDefinedSurfaceStyle *cloneIfcExternallyDefinedSurfaceStyle(ExpressDataSet *expressDataSet, const IfcExternallyDefinedSurfaceStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExternallyDefinedSurfaceStyle > createIfcExternallyDefinedSurfaceStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5458,16 +3901,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcExternallyDefinedSymbol *arg);
+        bool removeIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExternallyDefinedSymbol > createIfcExternallyDefinedSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExternallyDefinedSymbol *cloneIfcExternallyDefinedSymbol(ExpressDataSet *expressDataSet, const IfcExternallyDefinedSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExternallyDefinedSymbol > createIfcExternallyDefinedSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5480,16 +3918,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcExternallyDefinedTextFont *arg);
+        bool removeIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExternallyDefinedTextFont > createIfcExternallyDefinedTextFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExternallyDefinedTextFont *cloneIfcExternallyDefinedTextFont(ExpressDataSet *expressDataSet, const IfcExternallyDefinedTextFont &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExternallyDefinedTextFont > createIfcExternallyDefinedTextFont(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5502,16 +3935,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcExtrudedAreaSolid *arg);
+        bool removeIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcExtrudedAreaSolid > createIfcExtrudedAreaSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcExtrudedAreaSolid *cloneIfcExtrudedAreaSolid(ExpressDataSet *expressDataSet, const IfcExtrudedAreaSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcExtrudedAreaSolid > createIfcExtrudedAreaSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5524,16 +3952,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFace *arg);
+        bool removeIfcFace(IfcFace *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFace > createIfcFace();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFace *cloneIfcFace(ExpressDataSet *expressDataSet, const IfcFace &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFace > createIfcFace(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5546,16 +3969,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFaceBasedSurfaceModel *arg);
+        bool removeIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFaceBasedSurfaceModel > createIfcFaceBasedSurfaceModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFaceBasedSurfaceModel *cloneIfcFaceBasedSurfaceModel(ExpressDataSet *expressDataSet, const IfcFaceBasedSurfaceModel &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFaceBasedSurfaceModel > createIfcFaceBasedSurfaceModel(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5568,16 +3986,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFaceBound *arg);
+        bool removeIfcFaceBound(IfcFaceBound *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFaceBound > createIfcFaceBound();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFaceBound *cloneIfcFaceBound(ExpressDataSet *expressDataSet, const IfcFaceBound &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFaceBound > createIfcFaceBound(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5590,16 +4003,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFaceOuterBound *arg);
+        bool removeIfcFaceOuterBound(IfcFaceOuterBound *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFaceOuterBound > createIfcFaceOuterBound();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFaceOuterBound *cloneIfcFaceOuterBound(ExpressDataSet *expressDataSet, const IfcFaceOuterBound &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFaceOuterBound > createIfcFaceOuterBound(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5612,16 +4020,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFaceSurface *arg);
+        bool removeIfcFaceSurface(IfcFaceSurface *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFaceSurface > createIfcFaceSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFaceSurface *cloneIfcFaceSurface(ExpressDataSet *expressDataSet, const IfcFaceSurface &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFaceSurface > createIfcFaceSurface(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5634,16 +4037,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFacetedBrep *arg);
+        bool removeIfcFacetedBrep(IfcFacetedBrep *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFacetedBrep > createIfcFacetedBrep();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFacetedBrep *cloneIfcFacetedBrep(ExpressDataSet *expressDataSet, const IfcFacetedBrep &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFacetedBrep > createIfcFacetedBrep(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5656,16 +4054,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFacetedBrepWithVoids *arg);
+        bool removeIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFacetedBrepWithVoids > createIfcFacetedBrepWithVoids();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFacetedBrepWithVoids *cloneIfcFacetedBrepWithVoids(ExpressDataSet *expressDataSet, const IfcFacetedBrepWithVoids &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFacetedBrepWithVoids > createIfcFacetedBrepWithVoids(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5678,16 +4071,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFailureConnectionCondition *arg);
+        bool removeIfcFailureConnectionCondition(IfcFailureConnectionCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFailureConnectionCondition > createIfcFailureConnectionCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFailureConnectionCondition *cloneIfcFailureConnectionCondition(ExpressDataSet *expressDataSet, const IfcFailureConnectionCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFailureConnectionCondition > createIfcFailureConnectionCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5700,16 +4088,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFanType *arg);
+        bool removeIfcFanType(IfcFanType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFanType > createIfcFanType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFanType *cloneIfcFanType(ExpressDataSet *expressDataSet, const IfcFanType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFanType > createIfcFanType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5722,16 +4105,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFastener *arg);
+        bool removeIfcFastener(IfcFastener *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFastener > createIfcFastener();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFastener *cloneIfcFastener(ExpressDataSet *expressDataSet, const IfcFastener &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFastener > createIfcFastener(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5744,16 +4122,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFastenerType *arg);
+        bool removeIfcFastenerType(IfcFastenerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFastenerType > createIfcFastenerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFastenerType *cloneIfcFastenerType(ExpressDataSet *expressDataSet, const IfcFastenerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFastenerType > createIfcFastenerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5762,86 +4135,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFeatureElement *getIfcFeatureElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFeatureElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcFeatureElement > createIfcFeatureElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFeatureElement *cloneIfcFeatureElement(ExpressDataSet *expressDataSet, const IfcFeatureElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFeatureElement *cloneIfcFeatureElement(const IfcFeatureElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcFeatureElementAddition *getIfcFeatureElementAddition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFeatureElementAddition *arg);
-        /**
-         */
-        Step::RefPtr< IfcFeatureElementAddition > createIfcFeatureElementAddition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFeatureElementAddition *cloneIfcFeatureElementAddition(ExpressDataSet *expressDataSet, const IfcFeatureElementAddition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFeatureElementAddition *cloneIfcFeatureElementAddition(const IfcFeatureElementAddition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcFeatureElementSubtraction *getIfcFeatureElementSubtraction(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFeatureElementSubtraction *arg);
-        /**
-         */
-        Step::RefPtr< IfcFeatureElementSubtraction > createIfcFeatureElementSubtraction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFeatureElementSubtraction *cloneIfcFeatureElementSubtraction(ExpressDataSet *expressDataSet, const IfcFeatureElementSubtraction &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFeatureElementSubtraction *cloneIfcFeatureElementSubtraction(const IfcFeatureElementSubtraction &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFillAreaStyle *getIfcFillAreaStyle(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFillAreaStyle *arg);
+        bool removeIfcFillAreaStyle(IfcFillAreaStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFillAreaStyle > createIfcFillAreaStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFillAreaStyle *cloneIfcFillAreaStyle(ExpressDataSet *expressDataSet, const IfcFillAreaStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFillAreaStyle > createIfcFillAreaStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5854,16 +4156,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFillAreaStyleHatching *arg);
+        bool removeIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFillAreaStyleHatching > createIfcFillAreaStyleHatching();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFillAreaStyleHatching *cloneIfcFillAreaStyleHatching(ExpressDataSet *expressDataSet, const IfcFillAreaStyleHatching &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFillAreaStyleHatching > createIfcFillAreaStyleHatching(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5876,16 +4173,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFillAreaStyleTileSymbolWithStyle *arg);
+        bool removeIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFillAreaStyleTileSymbolWithStyle > createIfcFillAreaStyleTileSymbolWithStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFillAreaStyleTileSymbolWithStyle *cloneIfcFillAreaStyleTileSymbolWithStyle(ExpressDataSet *expressDataSet, const IfcFillAreaStyleTileSymbolWithStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFillAreaStyleTileSymbolWithStyle > createIfcFillAreaStyleTileSymbolWithStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5898,16 +4190,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFillAreaStyleTiles *arg);
+        bool removeIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFillAreaStyleTiles > createIfcFillAreaStyleTiles();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFillAreaStyleTiles *cloneIfcFillAreaStyleTiles(ExpressDataSet *expressDataSet, const IfcFillAreaStyleTiles &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFillAreaStyleTiles > createIfcFillAreaStyleTiles(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5920,16 +4207,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFilterType *arg);
+        bool removeIfcFilterType(IfcFilterType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFilterType > createIfcFilterType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFilterType *cloneIfcFilterType(ExpressDataSet *expressDataSet, const IfcFilterType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFilterType > createIfcFilterType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5942,16 +4224,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFireSuppressionTerminalType *arg);
+        bool removeIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFireSuppressionTerminalType > createIfcFireSuppressionTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFireSuppressionTerminalType *cloneIfcFireSuppressionTerminalType(ExpressDataSet *expressDataSet, const IfcFireSuppressionTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFireSuppressionTerminalType > createIfcFireSuppressionTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5964,16 +4241,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFlowController *arg);
+        bool removeIfcFlowController(IfcFlowController *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowController > createIfcFlowController();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowController *cloneIfcFlowController(ExpressDataSet *expressDataSet, const IfcFlowController &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowController > createIfcFlowController(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -5982,42 +4254,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowControllerType *getIfcFlowControllerType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowControllerType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowControllerType > createIfcFlowControllerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowControllerType *cloneIfcFlowControllerType(ExpressDataSet *expressDataSet, const IfcFlowControllerType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowControllerType *cloneIfcFlowControllerType(const IfcFlowControllerType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowFitting *getIfcFlowFitting(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowFitting *arg);
+        bool removeIfcFlowFitting(IfcFlowFitting *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowFitting > createIfcFlowFitting();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowFitting *cloneIfcFlowFitting(ExpressDataSet *expressDataSet, const IfcFlowFitting &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowFitting > createIfcFlowFitting(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6026,42 +4271,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowFittingType *getIfcFlowFittingType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowFittingType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowFittingType > createIfcFlowFittingType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowFittingType *cloneIfcFlowFittingType(ExpressDataSet *expressDataSet, const IfcFlowFittingType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowFittingType *cloneIfcFlowFittingType(const IfcFlowFittingType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowInstrumentType *getIfcFlowInstrumentType(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowInstrumentType *arg);
+        bool removeIfcFlowInstrumentType(IfcFlowInstrumentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowInstrumentType > createIfcFlowInstrumentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowInstrumentType *cloneIfcFlowInstrumentType(ExpressDataSet *expressDataSet, const IfcFlowInstrumentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowInstrumentType > createIfcFlowInstrumentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6074,16 +4292,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFlowMeterType *arg);
+        bool removeIfcFlowMeterType(IfcFlowMeterType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowMeterType > createIfcFlowMeterType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowMeterType *cloneIfcFlowMeterType(ExpressDataSet *expressDataSet, const IfcFlowMeterType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowMeterType > createIfcFlowMeterType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6096,16 +4309,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFlowMovingDevice *arg);
+        bool removeIfcFlowMovingDevice(IfcFlowMovingDevice *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowMovingDevice > createIfcFlowMovingDevice();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowMovingDevice *cloneIfcFlowMovingDevice(ExpressDataSet *expressDataSet, const IfcFlowMovingDevice &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowMovingDevice > createIfcFlowMovingDevice(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6114,42 +4322,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowMovingDeviceType *getIfcFlowMovingDeviceType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowMovingDeviceType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowMovingDeviceType > createIfcFlowMovingDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowMovingDeviceType *cloneIfcFlowMovingDeviceType(ExpressDataSet *expressDataSet, const IfcFlowMovingDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowMovingDeviceType *cloneIfcFlowMovingDeviceType(const IfcFlowMovingDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowSegment *getIfcFlowSegment(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowSegment *arg);
+        bool removeIfcFlowSegment(IfcFlowSegment *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowSegment > createIfcFlowSegment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowSegment *cloneIfcFlowSegment(ExpressDataSet *expressDataSet, const IfcFlowSegment &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowSegment > createIfcFlowSegment(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6158,42 +4339,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowSegmentType *getIfcFlowSegmentType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowSegmentType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowSegmentType > createIfcFlowSegmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowSegmentType *cloneIfcFlowSegmentType(ExpressDataSet *expressDataSet, const IfcFlowSegmentType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowSegmentType *cloneIfcFlowSegmentType(const IfcFlowSegmentType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowStorageDevice *getIfcFlowStorageDevice(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowStorageDevice *arg);
+        bool removeIfcFlowStorageDevice(IfcFlowStorageDevice *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowStorageDevice > createIfcFlowStorageDevice();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowStorageDevice *cloneIfcFlowStorageDevice(ExpressDataSet *expressDataSet, const IfcFlowStorageDevice &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowStorageDevice > createIfcFlowStorageDevice(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6202,42 +4356,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowStorageDeviceType *getIfcFlowStorageDeviceType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowStorageDeviceType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowStorageDeviceType > createIfcFlowStorageDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowStorageDeviceType *cloneIfcFlowStorageDeviceType(ExpressDataSet *expressDataSet, const IfcFlowStorageDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowStorageDeviceType *cloneIfcFlowStorageDeviceType(const IfcFlowStorageDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowTerminal *getIfcFlowTerminal(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowTerminal *arg);
+        bool removeIfcFlowTerminal(IfcFlowTerminal *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowTerminal > createIfcFlowTerminal();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowTerminal *cloneIfcFlowTerminal(ExpressDataSet *expressDataSet, const IfcFlowTerminal &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowTerminal > createIfcFlowTerminal(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6246,42 +4373,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowTerminalType *getIfcFlowTerminalType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowTerminalType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowTerminalType > createIfcFlowTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowTerminalType *cloneIfcFlowTerminalType(ExpressDataSet *expressDataSet, const IfcFlowTerminalType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowTerminalType *cloneIfcFlowTerminalType(const IfcFlowTerminalType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFlowTreatmentDevice *getIfcFlowTreatmentDevice(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFlowTreatmentDevice *arg);
+        bool removeIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFlowTreatmentDevice > createIfcFlowTreatmentDevice();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowTreatmentDevice *cloneIfcFlowTreatmentDevice(ExpressDataSet *expressDataSet, const IfcFlowTreatmentDevice &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFlowTreatmentDevice > createIfcFlowTreatmentDevice(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6290,42 +4390,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcFlowTreatmentDeviceType *getIfcFlowTreatmentDeviceType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcFlowTreatmentDeviceType *arg);
-        /**
-         */
-        Step::RefPtr< IfcFlowTreatmentDeviceType > createIfcFlowTreatmentDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFlowTreatmentDeviceType *cloneIfcFlowTreatmentDeviceType(ExpressDataSet *expressDataSet, const IfcFlowTreatmentDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcFlowTreatmentDeviceType *cloneIfcFlowTreatmentDeviceType(const IfcFlowTreatmentDeviceType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcFluidFlowProperties *getIfcFluidFlowProperties(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcFluidFlowProperties *arg);
+        bool removeIfcFluidFlowProperties(IfcFluidFlowProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFluidFlowProperties > createIfcFluidFlowProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFluidFlowProperties *cloneIfcFluidFlowProperties(ExpressDataSet *expressDataSet, const IfcFluidFlowProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFluidFlowProperties > createIfcFluidFlowProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6338,16 +4411,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFooting *arg);
+        bool removeIfcFooting(IfcFooting *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFooting > createIfcFooting();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFooting *cloneIfcFooting(ExpressDataSet *expressDataSet, const IfcFooting &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFooting > createIfcFooting(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6360,16 +4428,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFuelProperties *arg);
+        bool removeIfcFuelProperties(IfcFuelProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFuelProperties > createIfcFuelProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFuelProperties *cloneIfcFuelProperties(ExpressDataSet *expressDataSet, const IfcFuelProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFuelProperties > createIfcFuelProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6382,16 +4445,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFurnishingElement *arg);
+        bool removeIfcFurnishingElement(IfcFurnishingElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFurnishingElement > createIfcFurnishingElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFurnishingElement *cloneIfcFurnishingElement(ExpressDataSet *expressDataSet, const IfcFurnishingElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFurnishingElement > createIfcFurnishingElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6404,16 +4462,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFurnishingElementType *arg);
+        bool removeIfcFurnishingElementType(IfcFurnishingElementType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFurnishingElementType > createIfcFurnishingElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFurnishingElementType *cloneIfcFurnishingElementType(ExpressDataSet *expressDataSet, const IfcFurnishingElementType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFurnishingElementType > createIfcFurnishingElementType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6426,16 +4479,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFurnitureStandard *arg);
+        bool removeIfcFurnitureStandard(IfcFurnitureStandard *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFurnitureStandard > createIfcFurnitureStandard();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFurnitureStandard *cloneIfcFurnitureStandard(ExpressDataSet *expressDataSet, const IfcFurnitureStandard &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFurnitureStandard > createIfcFurnitureStandard(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6448,16 +4496,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcFurnitureType *arg);
+        bool removeIfcFurnitureType(IfcFurnitureType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcFurnitureType > createIfcFurnitureType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcFurnitureType *cloneIfcFurnitureType(ExpressDataSet *expressDataSet, const IfcFurnitureType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcFurnitureType > createIfcFurnitureType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6470,16 +4513,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGasTerminalType *arg);
+        bool removeIfcGasTerminalType(IfcGasTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGasTerminalType > createIfcGasTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGasTerminalType *cloneIfcGasTerminalType(ExpressDataSet *expressDataSet, const IfcGasTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGasTerminalType > createIfcGasTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6492,16 +4530,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGeneralMaterialProperties *arg);
+        bool removeIfcGeneralMaterialProperties(IfcGeneralMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeneralMaterialProperties > createIfcGeneralMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeneralMaterialProperties *cloneIfcGeneralMaterialProperties(ExpressDataSet *expressDataSet, const IfcGeneralMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeneralMaterialProperties > createIfcGeneralMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6514,16 +4547,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGeneralProfileProperties *arg);
+        bool removeIfcGeneralProfileProperties(IfcGeneralProfileProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeneralProfileProperties > createIfcGeneralProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeneralProfileProperties *cloneIfcGeneralProfileProperties(ExpressDataSet *expressDataSet, const IfcGeneralProfileProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeneralProfileProperties > createIfcGeneralProfileProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6536,16 +4564,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGeometricCurveSet *arg);
+        bool removeIfcGeometricCurveSet(IfcGeometricCurveSet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeometricCurveSet > createIfcGeometricCurveSet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeometricCurveSet *cloneIfcGeometricCurveSet(ExpressDataSet *expressDataSet, const IfcGeometricCurveSet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeometricCurveSet > createIfcGeometricCurveSet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6558,16 +4581,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGeometricRepresentationContext *arg);
+        bool removeIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeometricRepresentationContext > createIfcGeometricRepresentationContext();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeometricRepresentationContext *cloneIfcGeometricRepresentationContext(ExpressDataSet *expressDataSet, const IfcGeometricRepresentationContext &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeometricRepresentationContext > createIfcGeometricRepresentationContext(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6576,42 +4594,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcGeometricRepresentationItem *getIfcGeometricRepresentationItem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcGeometricRepresentationItem *arg);
-        /**
-         */
-        Step::RefPtr< IfcGeometricRepresentationItem > createIfcGeometricRepresentationItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeometricRepresentationItem *cloneIfcGeometricRepresentationItem(ExpressDataSet *expressDataSet, const IfcGeometricRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcGeometricRepresentationItem *cloneIfcGeometricRepresentationItem(const IfcGeometricRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcGeometricRepresentationSubContext *getIfcGeometricRepresentationSubContext(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcGeometricRepresentationSubContext *arg);
+        bool removeIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeometricRepresentationSubContext > createIfcGeometricRepresentationSubContext();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeometricRepresentationSubContext *cloneIfcGeometricRepresentationSubContext(ExpressDataSet *expressDataSet, const IfcGeometricRepresentationSubContext &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeometricRepresentationSubContext > createIfcGeometricRepresentationSubContext(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6624,16 +4615,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGeometricSet *arg);
+        bool removeIfcGeometricSet(IfcGeometricSet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGeometricSet > createIfcGeometricSet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGeometricSet *cloneIfcGeometricSet(ExpressDataSet *expressDataSet, const IfcGeometricSet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGeometricSet > createIfcGeometricSet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6646,16 +4632,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGrid *arg);
+        bool removeIfcGrid(IfcGrid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGrid > createIfcGrid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGrid *cloneIfcGrid(ExpressDataSet *expressDataSet, const IfcGrid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGrid > createIfcGrid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6668,16 +4649,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGridAxis *arg);
+        bool removeIfcGridAxis(IfcGridAxis *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGridAxis > createIfcGridAxis();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGridAxis *cloneIfcGridAxis(ExpressDataSet *expressDataSet, const IfcGridAxis &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGridAxis > createIfcGridAxis(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6690,16 +4666,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGridPlacement *arg);
+        bool removeIfcGridPlacement(IfcGridPlacement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGridPlacement > createIfcGridPlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGridPlacement *cloneIfcGridPlacement(ExpressDataSet *expressDataSet, const IfcGridPlacement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGridPlacement > createIfcGridPlacement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6712,16 +4683,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcGroup *arg);
+        bool removeIfcGroup(IfcGroup *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcGroup > createIfcGroup();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcGroup *cloneIfcGroup(ExpressDataSet *expressDataSet, const IfcGroup &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcGroup > createIfcGroup(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6734,16 +4700,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcHalfSpaceSolid *arg);
+        bool removeIfcHalfSpaceSolid(IfcHalfSpaceSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcHalfSpaceSolid > createIfcHalfSpaceSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcHalfSpaceSolid *cloneIfcHalfSpaceSolid(ExpressDataSet *expressDataSet, const IfcHalfSpaceSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcHalfSpaceSolid > createIfcHalfSpaceSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6756,16 +4717,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcHeatExchangerType *arg);
+        bool removeIfcHeatExchangerType(IfcHeatExchangerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcHeatExchangerType > createIfcHeatExchangerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcHeatExchangerType *cloneIfcHeatExchangerType(ExpressDataSet *expressDataSet, const IfcHeatExchangerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcHeatExchangerType > createIfcHeatExchangerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6778,16 +4734,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcHumidifierType *arg);
+        bool removeIfcHumidifierType(IfcHumidifierType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcHumidifierType > createIfcHumidifierType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcHumidifierType *cloneIfcHumidifierType(ExpressDataSet *expressDataSet, const IfcHumidifierType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcHumidifierType > createIfcHumidifierType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6800,16 +4751,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcHygroscopicMaterialProperties *arg);
+        bool removeIfcHygroscopicMaterialProperties(IfcHygroscopicMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcHygroscopicMaterialProperties > createIfcHygroscopicMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcHygroscopicMaterialProperties *cloneIfcHygroscopicMaterialProperties(ExpressDataSet *expressDataSet, const IfcHygroscopicMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcHygroscopicMaterialProperties > createIfcHygroscopicMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6822,16 +4768,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcIShapeProfileDef *arg);
+        bool removeIfcIShapeProfileDef(IfcIShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcIShapeProfileDef > createIfcIShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcIShapeProfileDef *cloneIfcIShapeProfileDef(ExpressDataSet *expressDataSet, const IfcIShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcIShapeProfileDef > createIfcIShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6844,16 +4785,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcImageTexture *arg);
+        bool removeIfcImageTexture(IfcImageTexture *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcImageTexture > createIfcImageTexture();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcImageTexture *cloneIfcImageTexture(ExpressDataSet *expressDataSet, const IfcImageTexture &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcImageTexture > createIfcImageTexture(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6866,16 +4802,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcInventory *arg);
+        bool removeIfcInventory(IfcInventory *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcInventory > createIfcInventory();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcInventory *cloneIfcInventory(ExpressDataSet *expressDataSet, const IfcInventory &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcInventory > createIfcInventory(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6888,16 +4819,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcIrregularTimeSeries *arg);
+        bool removeIfcIrregularTimeSeries(IfcIrregularTimeSeries *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcIrregularTimeSeries > createIfcIrregularTimeSeries();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcIrregularTimeSeries *cloneIfcIrregularTimeSeries(ExpressDataSet *expressDataSet, const IfcIrregularTimeSeries &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcIrregularTimeSeries > createIfcIrregularTimeSeries(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6910,16 +4836,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcIrregularTimeSeriesValue *arg);
+        bool removeIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcIrregularTimeSeriesValue > createIfcIrregularTimeSeriesValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcIrregularTimeSeriesValue *cloneIfcIrregularTimeSeriesValue(ExpressDataSet *expressDataSet, const IfcIrregularTimeSeriesValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcIrregularTimeSeriesValue > createIfcIrregularTimeSeriesValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6932,16 +4853,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcJunctionBoxType *arg);
+        bool removeIfcJunctionBoxType(IfcJunctionBoxType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcJunctionBoxType > createIfcJunctionBoxType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcJunctionBoxType *cloneIfcJunctionBoxType(ExpressDataSet *expressDataSet, const IfcJunctionBoxType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcJunctionBoxType > createIfcJunctionBoxType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6954,16 +4870,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLShapeProfileDef *arg);
+        bool removeIfcLShapeProfileDef(IfcLShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLShapeProfileDef > createIfcLShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLShapeProfileDef *cloneIfcLShapeProfileDef(ExpressDataSet *expressDataSet, const IfcLShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLShapeProfileDef > createIfcLShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6976,16 +4887,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLaborResource *arg);
+        bool removeIfcLaborResource(IfcLaborResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLaborResource > createIfcLaborResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLaborResource *cloneIfcLaborResource(ExpressDataSet *expressDataSet, const IfcLaborResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLaborResource > createIfcLaborResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -6998,16 +4904,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLampType *arg);
+        bool removeIfcLampType(IfcLampType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLampType > createIfcLampType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLampType *cloneIfcLampType(ExpressDataSet *expressDataSet, const IfcLampType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLampType > createIfcLampType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7020,16 +4921,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLibraryInformation *arg);
+        bool removeIfcLibraryInformation(IfcLibraryInformation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLibraryInformation > createIfcLibraryInformation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLibraryInformation *cloneIfcLibraryInformation(ExpressDataSet *expressDataSet, const IfcLibraryInformation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLibraryInformation > createIfcLibraryInformation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7042,16 +4938,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLibraryReference *arg);
+        bool removeIfcLibraryReference(IfcLibraryReference *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLibraryReference > createIfcLibraryReference();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLibraryReference *cloneIfcLibraryReference(ExpressDataSet *expressDataSet, const IfcLibraryReference &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLibraryReference > createIfcLibraryReference(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7064,16 +4955,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightDistributionData *arg);
+        bool removeIfcLightDistributionData(IfcLightDistributionData *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightDistributionData > createIfcLightDistributionData();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightDistributionData *cloneIfcLightDistributionData(ExpressDataSet *expressDataSet, const IfcLightDistributionData &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightDistributionData > createIfcLightDistributionData(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7086,16 +4972,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightFixtureType *arg);
+        bool removeIfcLightFixtureType(IfcLightFixtureType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightFixtureType > createIfcLightFixtureType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightFixtureType *cloneIfcLightFixtureType(ExpressDataSet *expressDataSet, const IfcLightFixtureType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightFixtureType > createIfcLightFixtureType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7108,16 +4989,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightIntensityDistribution *arg);
+        bool removeIfcLightIntensityDistribution(IfcLightIntensityDistribution *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightIntensityDistribution > createIfcLightIntensityDistribution();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightIntensityDistribution *cloneIfcLightIntensityDistribution(ExpressDataSet *expressDataSet, const IfcLightIntensityDistribution &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightIntensityDistribution > createIfcLightIntensityDistribution(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7126,42 +5002,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcLightSource *getIfcLightSource(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcLightSource *arg);
-        /**
-         */
-        Step::RefPtr< IfcLightSource > createIfcLightSource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSource *cloneIfcLightSource(ExpressDataSet *expressDataSet, const IfcLightSource &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcLightSource *cloneIfcLightSource(const IfcLightSource &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcLightSourceAmbient *getIfcLightSourceAmbient(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcLightSourceAmbient *arg);
+        bool removeIfcLightSourceAmbient(IfcLightSourceAmbient *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightSourceAmbient > createIfcLightSourceAmbient();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSourceAmbient *cloneIfcLightSourceAmbient(ExpressDataSet *expressDataSet, const IfcLightSourceAmbient &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightSourceAmbient > createIfcLightSourceAmbient(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7174,16 +5023,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightSourceDirectional *arg);
+        bool removeIfcLightSourceDirectional(IfcLightSourceDirectional *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightSourceDirectional > createIfcLightSourceDirectional();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSourceDirectional *cloneIfcLightSourceDirectional(ExpressDataSet *expressDataSet, const IfcLightSourceDirectional &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightSourceDirectional > createIfcLightSourceDirectional(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7196,16 +5040,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightSourceGoniometric *arg);
+        bool removeIfcLightSourceGoniometric(IfcLightSourceGoniometric *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightSourceGoniometric > createIfcLightSourceGoniometric();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSourceGoniometric *cloneIfcLightSourceGoniometric(ExpressDataSet *expressDataSet, const IfcLightSourceGoniometric &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightSourceGoniometric > createIfcLightSourceGoniometric(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7218,16 +5057,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightSourcePositional *arg);
+        bool removeIfcLightSourcePositional(IfcLightSourcePositional *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightSourcePositional > createIfcLightSourcePositional();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSourcePositional *cloneIfcLightSourcePositional(ExpressDataSet *expressDataSet, const IfcLightSourcePositional &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightSourcePositional > createIfcLightSourcePositional(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7240,16 +5074,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLightSourceSpot *arg);
+        bool removeIfcLightSourceSpot(IfcLightSourceSpot *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLightSourceSpot > createIfcLightSourceSpot();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLightSourceSpot *cloneIfcLightSourceSpot(ExpressDataSet *expressDataSet, const IfcLightSourceSpot &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLightSourceSpot > createIfcLightSourceSpot(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7262,16 +5091,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLine *arg);
+        bool removeIfcLine(IfcLine *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLine > createIfcLine();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLine *cloneIfcLine(ExpressDataSet *expressDataSet, const IfcLine &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLine > createIfcLine(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7284,16 +5108,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLinearDimension *arg);
+        bool removeIfcLinearDimension(IfcLinearDimension *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLinearDimension > createIfcLinearDimension();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLinearDimension *cloneIfcLinearDimension(ExpressDataSet *expressDataSet, const IfcLinearDimension &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLinearDimension > createIfcLinearDimension(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7306,16 +5125,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLocalPlacement *arg);
+        bool removeIfcLocalPlacement(IfcLocalPlacement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLocalPlacement > createIfcLocalPlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLocalPlacement *cloneIfcLocalPlacement(ExpressDataSet *expressDataSet, const IfcLocalPlacement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLocalPlacement > createIfcLocalPlacement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7328,16 +5142,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLocalTime *arg);
+        bool removeIfcLocalTime(IfcLocalTime *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLocalTime > createIfcLocalTime();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLocalTime *cloneIfcLocalTime(ExpressDataSet *expressDataSet, const IfcLocalTime &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLocalTime > createIfcLocalTime(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7350,16 +5159,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcLoop *arg);
+        bool removeIfcLoop(IfcLoop *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcLoop > createIfcLoop();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcLoop *cloneIfcLoop(ExpressDataSet *expressDataSet, const IfcLoop &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcLoop > createIfcLoop(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7368,42 +5172,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcManifoldSolidBrep *getIfcManifoldSolidBrep(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcManifoldSolidBrep *arg);
-        /**
-         */
-        Step::RefPtr< IfcManifoldSolidBrep > createIfcManifoldSolidBrep();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcManifoldSolidBrep *cloneIfcManifoldSolidBrep(ExpressDataSet *expressDataSet, const IfcManifoldSolidBrep &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcManifoldSolidBrep *cloneIfcManifoldSolidBrep(const IfcManifoldSolidBrep &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcMappedItem *getIfcMappedItem(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcMappedItem *arg);
+        bool removeIfcMappedItem(IfcMappedItem *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMappedItem > createIfcMappedItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMappedItem *cloneIfcMappedItem(ExpressDataSet *expressDataSet, const IfcMappedItem &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMappedItem > createIfcMappedItem(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7416,16 +5193,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterial *arg);
+        bool removeIfcMaterial(IfcMaterial *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterial > createIfcMaterial();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterial *cloneIfcMaterial(ExpressDataSet *expressDataSet, const IfcMaterial &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterial > createIfcMaterial(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7438,16 +5210,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialClassificationRelationship *arg);
+        bool removeIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialClassificationRelationship > createIfcMaterialClassificationRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialClassificationRelationship *cloneIfcMaterialClassificationRelationship(ExpressDataSet *expressDataSet, const IfcMaterialClassificationRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialClassificationRelationship > createIfcMaterialClassificationRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7460,16 +5227,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialDefinitionRepresentation *arg);
+        bool removeIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialDefinitionRepresentation > createIfcMaterialDefinitionRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialDefinitionRepresentation *cloneIfcMaterialDefinitionRepresentation(ExpressDataSet *expressDataSet, const IfcMaterialDefinitionRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialDefinitionRepresentation > createIfcMaterialDefinitionRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7482,16 +5244,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialLayer *arg);
+        bool removeIfcMaterialLayer(IfcMaterialLayer *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialLayer > createIfcMaterialLayer();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialLayer *cloneIfcMaterialLayer(ExpressDataSet *expressDataSet, const IfcMaterialLayer &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialLayer > createIfcMaterialLayer(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7504,16 +5261,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialLayerSet *arg);
+        bool removeIfcMaterialLayerSet(IfcMaterialLayerSet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialLayerSet > createIfcMaterialLayerSet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialLayerSet *cloneIfcMaterialLayerSet(ExpressDataSet *expressDataSet, const IfcMaterialLayerSet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialLayerSet > createIfcMaterialLayerSet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7526,16 +5278,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialLayerSetUsage *arg);
+        bool removeIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialLayerSetUsage > createIfcMaterialLayerSetUsage();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialLayerSetUsage *cloneIfcMaterialLayerSetUsage(ExpressDataSet *expressDataSet, const IfcMaterialLayerSetUsage &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialLayerSetUsage > createIfcMaterialLayerSetUsage(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7548,16 +5295,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMaterialList *arg);
+        bool removeIfcMaterialList(IfcMaterialList *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMaterialList > createIfcMaterialList();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialList *cloneIfcMaterialList(ExpressDataSet *expressDataSet, const IfcMaterialList &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMaterialList > createIfcMaterialList(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7566,42 +5308,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcMaterialProperties *getIfcMaterialProperties(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcMaterialProperties *arg);
-        /**
-         */
-        Step::RefPtr< IfcMaterialProperties > createIfcMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMaterialProperties *cloneIfcMaterialProperties(ExpressDataSet *expressDataSet, const IfcMaterialProperties &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcMaterialProperties *cloneIfcMaterialProperties(const IfcMaterialProperties &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcMeasureWithUnit *getIfcMeasureWithUnit(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcMeasureWithUnit *arg);
+        bool removeIfcMeasureWithUnit(IfcMeasureWithUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMeasureWithUnit > createIfcMeasureWithUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMeasureWithUnit *cloneIfcMeasureWithUnit(ExpressDataSet *expressDataSet, const IfcMeasureWithUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMeasureWithUnit > createIfcMeasureWithUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7614,16 +5329,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMechanicalConcreteMaterialProperties *arg);
+        bool removeIfcMechanicalConcreteMaterialProperties(IfcMechanicalConcreteMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMechanicalConcreteMaterialProperties > createIfcMechanicalConcreteMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMechanicalConcreteMaterialProperties *cloneIfcMechanicalConcreteMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalConcreteMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMechanicalConcreteMaterialProperties > createIfcMechanicalConcreteMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7636,16 +5346,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMechanicalFastener *arg);
+        bool removeIfcMechanicalFastener(IfcMechanicalFastener *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMechanicalFastener > createIfcMechanicalFastener();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMechanicalFastener *cloneIfcMechanicalFastener(ExpressDataSet *expressDataSet, const IfcMechanicalFastener &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMechanicalFastener > createIfcMechanicalFastener(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7658,16 +5363,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMechanicalFastenerType *arg);
+        bool removeIfcMechanicalFastenerType(IfcMechanicalFastenerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMechanicalFastenerType > createIfcMechanicalFastenerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMechanicalFastenerType *cloneIfcMechanicalFastenerType(ExpressDataSet *expressDataSet, const IfcMechanicalFastenerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMechanicalFastenerType > createIfcMechanicalFastenerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7680,16 +5380,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMechanicalMaterialProperties *arg);
+        bool removeIfcMechanicalMaterialProperties(IfcMechanicalMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMechanicalMaterialProperties > createIfcMechanicalMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMechanicalMaterialProperties *cloneIfcMechanicalMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMechanicalMaterialProperties > createIfcMechanicalMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7702,16 +5397,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMechanicalSteelMaterialProperties *arg);
+        bool removeIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMechanicalSteelMaterialProperties > createIfcMechanicalSteelMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMechanicalSteelMaterialProperties *cloneIfcMechanicalSteelMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMechanicalSteelMaterialProperties > createIfcMechanicalSteelMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7724,16 +5414,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMember *arg);
+        bool removeIfcMember(IfcMember *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMember > createIfcMember();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMember *cloneIfcMember(ExpressDataSet *expressDataSet, const IfcMember &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMember > createIfcMember(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7746,16 +5431,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMemberType *arg);
+        bool removeIfcMemberType(IfcMemberType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMemberType > createIfcMemberType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMemberType *cloneIfcMemberType(ExpressDataSet *expressDataSet, const IfcMemberType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMemberType > createIfcMemberType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7768,16 +5448,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMetric *arg);
+        bool removeIfcMetric(IfcMetric *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMetric > createIfcMetric();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMetric *cloneIfcMetric(ExpressDataSet *expressDataSet, const IfcMetric &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMetric > createIfcMetric(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7790,16 +5465,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMonetaryUnit *arg);
+        bool removeIfcMonetaryUnit(IfcMonetaryUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMonetaryUnit > createIfcMonetaryUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMonetaryUnit *cloneIfcMonetaryUnit(ExpressDataSet *expressDataSet, const IfcMonetaryUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMonetaryUnit > createIfcMonetaryUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7812,16 +5482,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMotorConnectionType *arg);
+        bool removeIfcMotorConnectionType(IfcMotorConnectionType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMotorConnectionType > createIfcMotorConnectionType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMotorConnectionType *cloneIfcMotorConnectionType(ExpressDataSet *expressDataSet, const IfcMotorConnectionType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMotorConnectionType > createIfcMotorConnectionType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7834,16 +5499,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcMove *arg);
+        bool removeIfcMove(IfcMove *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcMove > createIfcMove();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcMove *cloneIfcMove(ExpressDataSet *expressDataSet, const IfcMove &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcMove > createIfcMove(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7852,108 +5512,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcNamedUnit *getIfcNamedUnit(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcNamedUnit *arg);
-        /**
-         */
-        Step::RefPtr< IfcNamedUnit > createIfcNamedUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcNamedUnit *cloneIfcNamedUnit(ExpressDataSet *expressDataSet, const IfcNamedUnit &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcNamedUnit *cloneIfcNamedUnit(const IfcNamedUnit &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcObject *getIfcObject(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcObject *arg);
-        /**
-         */
-        Step::RefPtr< IfcObject > createIfcObject();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcObject *cloneIfcObject(ExpressDataSet *expressDataSet, const IfcObject &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcObject *cloneIfcObject(const IfcObject &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcObjectDefinition *getIfcObjectDefinition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcObjectDefinition *arg);
-        /**
-         */
-        Step::RefPtr< IfcObjectDefinition > createIfcObjectDefinition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcObjectDefinition *cloneIfcObjectDefinition(ExpressDataSet *expressDataSet, const IfcObjectDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcObjectDefinition *cloneIfcObjectDefinition(const IfcObjectDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcObjectPlacement *getIfcObjectPlacement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcObjectPlacement *arg);
-        /**
-         */
-        Step::RefPtr< IfcObjectPlacement > createIfcObjectPlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcObjectPlacement *cloneIfcObjectPlacement(ExpressDataSet *expressDataSet, const IfcObjectPlacement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcObjectPlacement *cloneIfcObjectPlacement(const IfcObjectPlacement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcObjective *getIfcObjective(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcObjective *arg);
+        bool removeIfcObjective(IfcObjective *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcObjective > createIfcObjective();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcObjective *cloneIfcObjective(ExpressDataSet *expressDataSet, const IfcObjective &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcObjective > createIfcObjective(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7966,16 +5533,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOccupant *arg);
+        bool removeIfcOccupant(IfcOccupant *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOccupant > createIfcOccupant();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOccupant *cloneIfcOccupant(ExpressDataSet *expressDataSet, const IfcOccupant &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOccupant > createIfcOccupant(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -7988,16 +5550,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOffsetCurve2D *arg);
+        bool removeIfcOffsetCurve2D(IfcOffsetCurve2D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOffsetCurve2D > createIfcOffsetCurve2D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOffsetCurve2D *cloneIfcOffsetCurve2D(ExpressDataSet *expressDataSet, const IfcOffsetCurve2D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOffsetCurve2D > createIfcOffsetCurve2D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8010,16 +5567,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOffsetCurve3D *arg);
+        bool removeIfcOffsetCurve3D(IfcOffsetCurve3D *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOffsetCurve3D > createIfcOffsetCurve3D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOffsetCurve3D *cloneIfcOffsetCurve3D(ExpressDataSet *expressDataSet, const IfcOffsetCurve3D &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOffsetCurve3D > createIfcOffsetCurve3D(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8032,16 +5584,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOneDirectionRepeatFactor *arg);
+        bool removeIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOneDirectionRepeatFactor > createIfcOneDirectionRepeatFactor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOneDirectionRepeatFactor *cloneIfcOneDirectionRepeatFactor(ExpressDataSet *expressDataSet, const IfcOneDirectionRepeatFactor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOneDirectionRepeatFactor > createIfcOneDirectionRepeatFactor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8054,16 +5601,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOpenShell *arg);
+        bool removeIfcOpenShell(IfcOpenShell *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOpenShell > createIfcOpenShell();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOpenShell *cloneIfcOpenShell(ExpressDataSet *expressDataSet, const IfcOpenShell &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOpenShell > createIfcOpenShell(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8076,16 +5618,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOpeningElement *arg);
+        bool removeIfcOpeningElement(IfcOpeningElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOpeningElement > createIfcOpeningElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOpeningElement *cloneIfcOpeningElement(ExpressDataSet *expressDataSet, const IfcOpeningElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOpeningElement > createIfcOpeningElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8098,16 +5635,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOpticalMaterialProperties *arg);
+        bool removeIfcOpticalMaterialProperties(IfcOpticalMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOpticalMaterialProperties > createIfcOpticalMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOpticalMaterialProperties *cloneIfcOpticalMaterialProperties(ExpressDataSet *expressDataSet, const IfcOpticalMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOpticalMaterialProperties > createIfcOpticalMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8120,16 +5652,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOrderAction *arg);
+        bool removeIfcOrderAction(IfcOrderAction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOrderAction > createIfcOrderAction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOrderAction *cloneIfcOrderAction(ExpressDataSet *expressDataSet, const IfcOrderAction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOrderAction > createIfcOrderAction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8142,16 +5669,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOrganization *arg);
+        bool removeIfcOrganization(IfcOrganization *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOrganization > createIfcOrganization();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOrganization *cloneIfcOrganization(ExpressDataSet *expressDataSet, const IfcOrganization &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOrganization > createIfcOrganization(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8164,16 +5686,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOrganizationRelationship *arg);
+        bool removeIfcOrganizationRelationship(IfcOrganizationRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOrganizationRelationship > createIfcOrganizationRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOrganizationRelationship *cloneIfcOrganizationRelationship(ExpressDataSet *expressDataSet, const IfcOrganizationRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOrganizationRelationship > createIfcOrganizationRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8186,16 +5703,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOrientedEdge *arg);
+        bool removeIfcOrientedEdge(IfcOrientedEdge *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOrientedEdge > createIfcOrientedEdge();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOrientedEdge *cloneIfcOrientedEdge(ExpressDataSet *expressDataSet, const IfcOrientedEdge &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOrientedEdge > createIfcOrientedEdge(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8208,16 +5720,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOutletType *arg);
+        bool removeIfcOutletType(IfcOutletType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOutletType > createIfcOutletType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOutletType *cloneIfcOutletType(ExpressDataSet *expressDataSet, const IfcOutletType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOutletType > createIfcOutletType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8230,16 +5737,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcOwnerHistory *arg);
+        bool removeIfcOwnerHistory(IfcOwnerHistory *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcOwnerHistory > createIfcOwnerHistory();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcOwnerHistory *cloneIfcOwnerHistory(ExpressDataSet *expressDataSet, const IfcOwnerHistory &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcOwnerHistory > createIfcOwnerHistory(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8248,42 +5750,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcParameterizedProfileDef *getIfcParameterizedProfileDef(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcParameterizedProfileDef *arg);
-        /**
-         */
-        Step::RefPtr< IfcParameterizedProfileDef > createIfcParameterizedProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcParameterizedProfileDef *cloneIfcParameterizedProfileDef(ExpressDataSet *expressDataSet, const IfcParameterizedProfileDef &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcParameterizedProfileDef *cloneIfcParameterizedProfileDef(const IfcParameterizedProfileDef &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPath *getIfcPath(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPath *arg);
+        bool removeIfcPath(IfcPath *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPath > createIfcPath();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPath *cloneIfcPath(ExpressDataSet *expressDataSet, const IfcPath &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPath > createIfcPath(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8296,16 +5771,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPerformanceHistory *arg);
+        bool removeIfcPerformanceHistory(IfcPerformanceHistory *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPerformanceHistory > createIfcPerformanceHistory();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPerformanceHistory *cloneIfcPerformanceHistory(ExpressDataSet *expressDataSet, const IfcPerformanceHistory &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPerformanceHistory > createIfcPerformanceHistory(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8318,16 +5788,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPermeableCoveringProperties *arg);
+        bool removeIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPermeableCoveringProperties > createIfcPermeableCoveringProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPermeableCoveringProperties *cloneIfcPermeableCoveringProperties(ExpressDataSet *expressDataSet, const IfcPermeableCoveringProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPermeableCoveringProperties > createIfcPermeableCoveringProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8340,16 +5805,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPermit *arg);
+        bool removeIfcPermit(IfcPermit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPermit > createIfcPermit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPermit *cloneIfcPermit(ExpressDataSet *expressDataSet, const IfcPermit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPermit > createIfcPermit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8362,16 +5822,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPerson *arg);
+        bool removeIfcPerson(IfcPerson *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPerson > createIfcPerson();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPerson *cloneIfcPerson(ExpressDataSet *expressDataSet, const IfcPerson &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPerson > createIfcPerson(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8384,16 +5839,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPersonAndOrganization *arg);
+        bool removeIfcPersonAndOrganization(IfcPersonAndOrganization *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPersonAndOrganization > createIfcPersonAndOrganization();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPersonAndOrganization *cloneIfcPersonAndOrganization(ExpressDataSet *expressDataSet, const IfcPersonAndOrganization &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPersonAndOrganization > createIfcPersonAndOrganization(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8406,16 +5856,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPhysicalComplexQuantity *arg);
+        bool removeIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPhysicalComplexQuantity > createIfcPhysicalComplexQuantity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPhysicalComplexQuantity *cloneIfcPhysicalComplexQuantity(ExpressDataSet *expressDataSet, const IfcPhysicalComplexQuantity &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPhysicalComplexQuantity > createIfcPhysicalComplexQuantity(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8424,64 +5869,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPhysicalQuantity *getIfcPhysicalQuantity(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPhysicalQuantity *arg);
-        /**
-         */
-        Step::RefPtr< IfcPhysicalQuantity > createIfcPhysicalQuantity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPhysicalQuantity *cloneIfcPhysicalQuantity(ExpressDataSet *expressDataSet, const IfcPhysicalQuantity &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPhysicalQuantity *cloneIfcPhysicalQuantity(const IfcPhysicalQuantity &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcPhysicalSimpleQuantity *getIfcPhysicalSimpleQuantity(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPhysicalSimpleQuantity *arg);
-        /**
-         */
-        Step::RefPtr< IfcPhysicalSimpleQuantity > createIfcPhysicalSimpleQuantity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPhysicalSimpleQuantity *cloneIfcPhysicalSimpleQuantity(ExpressDataSet *expressDataSet, const IfcPhysicalSimpleQuantity &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPhysicalSimpleQuantity *cloneIfcPhysicalSimpleQuantity(const IfcPhysicalSimpleQuantity &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPile *getIfcPile(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPile *arg);
+        bool removeIfcPile(IfcPile *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPile > createIfcPile();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPile *cloneIfcPile(ExpressDataSet *expressDataSet, const IfcPile &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPile > createIfcPile(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8494,16 +5890,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPipeFittingType *arg);
+        bool removeIfcPipeFittingType(IfcPipeFittingType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPipeFittingType > createIfcPipeFittingType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPipeFittingType *cloneIfcPipeFittingType(ExpressDataSet *expressDataSet, const IfcPipeFittingType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPipeFittingType > createIfcPipeFittingType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8516,16 +5907,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPipeSegmentType *arg);
+        bool removeIfcPipeSegmentType(IfcPipeSegmentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPipeSegmentType > createIfcPipeSegmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPipeSegmentType *cloneIfcPipeSegmentType(ExpressDataSet *expressDataSet, const IfcPipeSegmentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPipeSegmentType > createIfcPipeSegmentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8538,16 +5924,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPixelTexture *arg);
+        bool removeIfcPixelTexture(IfcPixelTexture *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPixelTexture > createIfcPixelTexture();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPixelTexture *cloneIfcPixelTexture(ExpressDataSet *expressDataSet, const IfcPixelTexture &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPixelTexture > createIfcPixelTexture(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8556,42 +5937,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPlacement *getIfcPlacement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPlacement *arg);
-        /**
-         */
-        Step::RefPtr< IfcPlacement > createIfcPlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlacement *cloneIfcPlacement(ExpressDataSet *expressDataSet, const IfcPlacement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPlacement *cloneIfcPlacement(const IfcPlacement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPlanarBox *getIfcPlanarBox(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPlanarBox *arg);
+        bool removeIfcPlanarBox(IfcPlanarBox *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPlanarBox > createIfcPlanarBox();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlanarBox *cloneIfcPlanarBox(ExpressDataSet *expressDataSet, const IfcPlanarBox &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPlanarBox > createIfcPlanarBox(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8604,16 +5958,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPlanarExtent *arg);
+        bool removeIfcPlanarExtent(IfcPlanarExtent *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPlanarExtent > createIfcPlanarExtent();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlanarExtent *cloneIfcPlanarExtent(ExpressDataSet *expressDataSet, const IfcPlanarExtent &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPlanarExtent > createIfcPlanarExtent(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8626,16 +5975,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPlane *arg);
+        bool removeIfcPlane(IfcPlane *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPlane > createIfcPlane();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlane *cloneIfcPlane(ExpressDataSet *expressDataSet, const IfcPlane &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPlane > createIfcPlane(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8648,16 +5992,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPlate *arg);
+        bool removeIfcPlate(IfcPlate *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPlate > createIfcPlate();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlate *cloneIfcPlate(ExpressDataSet *expressDataSet, const IfcPlate &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPlate > createIfcPlate(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8670,16 +6009,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPlateType *arg);
+        bool removeIfcPlateType(IfcPlateType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPlateType > createIfcPlateType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPlateType *cloneIfcPlateType(ExpressDataSet *expressDataSet, const IfcPlateType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPlateType > createIfcPlateType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8688,42 +6022,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPoint *getIfcPoint(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPoint *arg);
-        /**
-         */
-        Step::RefPtr< IfcPoint > createIfcPoint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPoint *cloneIfcPoint(ExpressDataSet *expressDataSet, const IfcPoint &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPoint *cloneIfcPoint(const IfcPoint &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPointOnCurve *getIfcPointOnCurve(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPointOnCurve *arg);
+        bool removeIfcPointOnCurve(IfcPointOnCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPointOnCurve > createIfcPointOnCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPointOnCurve *cloneIfcPointOnCurve(ExpressDataSet *expressDataSet, const IfcPointOnCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPointOnCurve > createIfcPointOnCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8736,16 +6043,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPointOnSurface *arg);
+        bool removeIfcPointOnSurface(IfcPointOnSurface *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPointOnSurface > createIfcPointOnSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPointOnSurface *cloneIfcPointOnSurface(ExpressDataSet *expressDataSet, const IfcPointOnSurface &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPointOnSurface > createIfcPointOnSurface(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8758,16 +6060,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPolyLoop *arg);
+        bool removeIfcPolyLoop(IfcPolyLoop *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPolyLoop > createIfcPolyLoop();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPolyLoop *cloneIfcPolyLoop(ExpressDataSet *expressDataSet, const IfcPolyLoop &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPolyLoop > createIfcPolyLoop(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8780,16 +6077,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPolygonalBoundedHalfSpace *arg);
+        bool removeIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPolygonalBoundedHalfSpace > createIfcPolygonalBoundedHalfSpace();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPolygonalBoundedHalfSpace *cloneIfcPolygonalBoundedHalfSpace(ExpressDataSet *expressDataSet, const IfcPolygonalBoundedHalfSpace &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPolygonalBoundedHalfSpace > createIfcPolygonalBoundedHalfSpace(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8802,16 +6094,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPolyline *arg);
+        bool removeIfcPolyline(IfcPolyline *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPolyline > createIfcPolyline();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPolyline *cloneIfcPolyline(ExpressDataSet *expressDataSet, const IfcPolyline &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPolyline > createIfcPolyline(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8820,42 +6107,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPort *getIfcPort(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPort *arg);
-        /**
-         */
-        Step::RefPtr< IfcPort > createIfcPort();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPort *cloneIfcPort(ExpressDataSet *expressDataSet, const IfcPort &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPort *cloneIfcPort(const IfcPort &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPostalAddress *getIfcPostalAddress(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPostalAddress *arg);
+        bool removeIfcPostalAddress(IfcPostalAddress *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPostalAddress > createIfcPostalAddress();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPostalAddress *cloneIfcPostalAddress(ExpressDataSet *expressDataSet, const IfcPostalAddress &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPostalAddress > createIfcPostalAddress(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8864,64 +6124,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPreDefinedColour *getIfcPreDefinedColour(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPreDefinedColour *arg);
-        /**
-         */
-        Step::RefPtr< IfcPreDefinedColour > createIfcPreDefinedColour();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedColour *cloneIfcPreDefinedColour(ExpressDataSet *expressDataSet, const IfcPreDefinedColour &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPreDefinedColour *cloneIfcPreDefinedColour(const IfcPreDefinedColour &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcPreDefinedCurveFont *getIfcPreDefinedCurveFont(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPreDefinedCurveFont *arg);
-        /**
-         */
-        Step::RefPtr< IfcPreDefinedCurveFont > createIfcPreDefinedCurveFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedCurveFont *cloneIfcPreDefinedCurveFont(ExpressDataSet *expressDataSet, const IfcPreDefinedCurveFont &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPreDefinedCurveFont *cloneIfcPreDefinedCurveFont(const IfcPreDefinedCurveFont &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPreDefinedDimensionSymbol *getIfcPreDefinedDimensionSymbol(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPreDefinedDimensionSymbol *arg);
+        bool removeIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPreDefinedDimensionSymbol > createIfcPreDefinedDimensionSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedDimensionSymbol *cloneIfcPreDefinedDimensionSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedDimensionSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPreDefinedDimensionSymbol > createIfcPreDefinedDimensionSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8930,42 +6141,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPreDefinedItem *getIfcPreDefinedItem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPreDefinedItem *arg);
-        /**
-         */
-        Step::RefPtr< IfcPreDefinedItem > createIfcPreDefinedItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedItem *cloneIfcPreDefinedItem(ExpressDataSet *expressDataSet, const IfcPreDefinedItem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPreDefinedItem *cloneIfcPreDefinedItem(const IfcPreDefinedItem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPreDefinedPointMarkerSymbol *getIfcPreDefinedPointMarkerSymbol(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPreDefinedPointMarkerSymbol *arg);
+        bool removeIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPreDefinedPointMarkerSymbol > createIfcPreDefinedPointMarkerSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedPointMarkerSymbol *cloneIfcPreDefinedPointMarkerSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedPointMarkerSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPreDefinedPointMarkerSymbol > createIfcPreDefinedPointMarkerSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -8974,42 +6158,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPreDefinedSymbol *getIfcPreDefinedSymbol(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPreDefinedSymbol *arg);
-        /**
-         */
-        Step::RefPtr< IfcPreDefinedSymbol > createIfcPreDefinedSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedSymbol *cloneIfcPreDefinedSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedSymbol &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPreDefinedSymbol *cloneIfcPreDefinedSymbol(const IfcPreDefinedSymbol &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPreDefinedTerminatorSymbol *getIfcPreDefinedTerminatorSymbol(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPreDefinedTerminatorSymbol *arg);
+        bool removeIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPreDefinedTerminatorSymbol > createIfcPreDefinedTerminatorSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedTerminatorSymbol *cloneIfcPreDefinedTerminatorSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedTerminatorSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPreDefinedTerminatorSymbol > createIfcPreDefinedTerminatorSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9018,42 +6175,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPreDefinedTextFont *getIfcPreDefinedTextFont(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPreDefinedTextFont *arg);
-        /**
-         */
-        Step::RefPtr< IfcPreDefinedTextFont > createIfcPreDefinedTextFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPreDefinedTextFont *cloneIfcPreDefinedTextFont(ExpressDataSet *expressDataSet, const IfcPreDefinedTextFont &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPreDefinedTextFont *cloneIfcPreDefinedTextFont(const IfcPreDefinedTextFont &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPresentationLayerAssignment *getIfcPresentationLayerAssignment(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPresentationLayerAssignment *arg);
+        bool removeIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPresentationLayerAssignment > createIfcPresentationLayerAssignment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPresentationLayerAssignment *cloneIfcPresentationLayerAssignment(ExpressDataSet *expressDataSet, const IfcPresentationLayerAssignment &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPresentationLayerAssignment > createIfcPresentationLayerAssignment(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9066,16 +6196,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPresentationLayerWithStyle *arg);
+        bool removeIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPresentationLayerWithStyle > createIfcPresentationLayerWithStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPresentationLayerWithStyle *cloneIfcPresentationLayerWithStyle(ExpressDataSet *expressDataSet, const IfcPresentationLayerWithStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPresentationLayerWithStyle > createIfcPresentationLayerWithStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9084,42 +6209,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPresentationStyle *getIfcPresentationStyle(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPresentationStyle *arg);
-        /**
-         */
-        Step::RefPtr< IfcPresentationStyle > createIfcPresentationStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPresentationStyle *cloneIfcPresentationStyle(ExpressDataSet *expressDataSet, const IfcPresentationStyle &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPresentationStyle *cloneIfcPresentationStyle(const IfcPresentationStyle &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPresentationStyleAssignment *getIfcPresentationStyleAssignment(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPresentationStyleAssignment *arg);
+        bool removeIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPresentationStyleAssignment > createIfcPresentationStyleAssignment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPresentationStyleAssignment *cloneIfcPresentationStyleAssignment(ExpressDataSet *expressDataSet, const IfcPresentationStyleAssignment &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPresentationStyleAssignment > createIfcPresentationStyleAssignment(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9132,16 +6230,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProcedure *arg);
+        bool removeIfcProcedure(IfcProcedure *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProcedure > createIfcProcedure();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProcedure *cloneIfcProcedure(ExpressDataSet *expressDataSet, const IfcProcedure &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProcedure > createIfcProcedure(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9150,64 +6243,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcProcess *getIfcProcess(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcProcess *arg);
-        /**
-         */
-        Step::RefPtr< IfcProcess > createIfcProcess();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProcess *cloneIfcProcess(ExpressDataSet *expressDataSet, const IfcProcess &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcProcess *cloneIfcProcess(const IfcProcess &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcProduct *getIfcProduct(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcProduct *arg);
-        /**
-         */
-        Step::RefPtr< IfcProduct > createIfcProduct();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProduct *cloneIfcProduct(ExpressDataSet *expressDataSet, const IfcProduct &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcProduct *cloneIfcProduct(const IfcProduct &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcProductDefinitionShape *getIfcProductDefinitionShape(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcProductDefinitionShape *arg);
+        bool removeIfcProductDefinitionShape(IfcProductDefinitionShape *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProductDefinitionShape > createIfcProductDefinitionShape();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProductDefinitionShape *cloneIfcProductDefinitionShape(ExpressDataSet *expressDataSet, const IfcProductDefinitionShape &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProductDefinitionShape > createIfcProductDefinitionShape(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9220,16 +6264,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProductRepresentation *arg);
+        bool removeIfcProductRepresentation(IfcProductRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProductRepresentation > createIfcProductRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProductRepresentation *cloneIfcProductRepresentation(ExpressDataSet *expressDataSet, const IfcProductRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProductRepresentation > createIfcProductRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9242,16 +6281,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProductsOfCombustionProperties *arg);
+        bool removeIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProductsOfCombustionProperties > createIfcProductsOfCombustionProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProductsOfCombustionProperties *cloneIfcProductsOfCombustionProperties(ExpressDataSet *expressDataSet, const IfcProductsOfCombustionProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProductsOfCombustionProperties > createIfcProductsOfCombustionProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9260,64 +6294,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcProfileDef *getIfcProfileDef(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcProfileDef *arg);
-        /**
-         */
-        Step::RefPtr< IfcProfileDef > createIfcProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProfileDef *cloneIfcProfileDef(ExpressDataSet *expressDataSet, const IfcProfileDef &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcProfileDef *cloneIfcProfileDef(const IfcProfileDef &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcProfileProperties *getIfcProfileProperties(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcProfileProperties *arg);
-        /**
-         */
-        Step::RefPtr< IfcProfileProperties > createIfcProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProfileProperties *cloneIfcProfileProperties(ExpressDataSet *expressDataSet, const IfcProfileProperties &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcProfileProperties *cloneIfcProfileProperties(const IfcProfileProperties &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcProject *getIfcProject(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcProject *arg);
+        bool removeIfcProject(IfcProject *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProject > createIfcProject();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProject *cloneIfcProject(ExpressDataSet *expressDataSet, const IfcProject &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProject > createIfcProject(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9330,16 +6315,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProjectOrder *arg);
+        bool removeIfcProjectOrder(IfcProjectOrder *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProjectOrder > createIfcProjectOrder();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProjectOrder *cloneIfcProjectOrder(ExpressDataSet *expressDataSet, const IfcProjectOrder &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProjectOrder > createIfcProjectOrder(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9352,16 +6332,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProjectOrderRecord *arg);
+        bool removeIfcProjectOrderRecord(IfcProjectOrderRecord *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProjectOrderRecord > createIfcProjectOrderRecord();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProjectOrderRecord *cloneIfcProjectOrderRecord(ExpressDataSet *expressDataSet, const IfcProjectOrderRecord &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProjectOrderRecord > createIfcProjectOrderRecord(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9374,16 +6349,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProjectionCurve *arg);
+        bool removeIfcProjectionCurve(IfcProjectionCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProjectionCurve > createIfcProjectionCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProjectionCurve *cloneIfcProjectionCurve(ExpressDataSet *expressDataSet, const IfcProjectionCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProjectionCurve > createIfcProjectionCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9396,16 +6366,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProjectionElement *arg);
+        bool removeIfcProjectionElement(IfcProjectionElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProjectionElement > createIfcProjectionElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProjectionElement *cloneIfcProjectionElement(ExpressDataSet *expressDataSet, const IfcProjectionElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProjectionElement > createIfcProjectionElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9414,42 +6379,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcProperty *getIfcProperty(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcProperty *arg);
-        /**
-         */
-        Step::RefPtr< IfcProperty > createIfcProperty();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProperty *cloneIfcProperty(ExpressDataSet *expressDataSet, const IfcProperty &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcProperty *cloneIfcProperty(const IfcProperty &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPropertyBoundedValue *getIfcPropertyBoundedValue(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPropertyBoundedValue *arg);
+        bool removeIfcPropertyBoundedValue(IfcPropertyBoundedValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyBoundedValue > createIfcPropertyBoundedValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyBoundedValue *cloneIfcPropertyBoundedValue(ExpressDataSet *expressDataSet, const IfcPropertyBoundedValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyBoundedValue > createIfcPropertyBoundedValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9462,16 +6400,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyConstraintRelationship *arg);
+        bool removeIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyConstraintRelationship > createIfcPropertyConstraintRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyConstraintRelationship *cloneIfcPropertyConstraintRelationship(ExpressDataSet *expressDataSet, const IfcPropertyConstraintRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyConstraintRelationship > createIfcPropertyConstraintRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9480,42 +6413,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPropertyDefinition *getIfcPropertyDefinition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPropertyDefinition *arg);
-        /**
-         */
-        Step::RefPtr< IfcPropertyDefinition > createIfcPropertyDefinition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyDefinition *cloneIfcPropertyDefinition(ExpressDataSet *expressDataSet, const IfcPropertyDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPropertyDefinition *cloneIfcPropertyDefinition(const IfcPropertyDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPropertyDependencyRelationship *getIfcPropertyDependencyRelationship(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPropertyDependencyRelationship *arg);
+        bool removeIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyDependencyRelationship > createIfcPropertyDependencyRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyDependencyRelationship *cloneIfcPropertyDependencyRelationship(ExpressDataSet *expressDataSet, const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyDependencyRelationship > createIfcPropertyDependencyRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9528,16 +6434,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyEnumeratedValue *arg);
+        bool removeIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyEnumeratedValue > createIfcPropertyEnumeratedValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyEnumeratedValue *cloneIfcPropertyEnumeratedValue(ExpressDataSet *expressDataSet, const IfcPropertyEnumeratedValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyEnumeratedValue > createIfcPropertyEnumeratedValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9550,16 +6451,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyEnumeration *arg);
+        bool removeIfcPropertyEnumeration(IfcPropertyEnumeration *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyEnumeration > createIfcPropertyEnumeration();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyEnumeration *cloneIfcPropertyEnumeration(ExpressDataSet *expressDataSet, const IfcPropertyEnumeration &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyEnumeration > createIfcPropertyEnumeration(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9572,16 +6468,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyListValue *arg);
+        bool removeIfcPropertyListValue(IfcPropertyListValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyListValue > createIfcPropertyListValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyListValue *cloneIfcPropertyListValue(ExpressDataSet *expressDataSet, const IfcPropertyListValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyListValue > createIfcPropertyListValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9594,16 +6485,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyReferenceValue *arg);
+        bool removeIfcPropertyReferenceValue(IfcPropertyReferenceValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyReferenceValue > createIfcPropertyReferenceValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyReferenceValue *cloneIfcPropertyReferenceValue(ExpressDataSet *expressDataSet, const IfcPropertyReferenceValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyReferenceValue > createIfcPropertyReferenceValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9616,16 +6502,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertySet *arg);
+        bool removeIfcPropertySet(IfcPropertySet *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertySet > createIfcPropertySet();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertySet *cloneIfcPropertySet(ExpressDataSet *expressDataSet, const IfcPropertySet &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertySet > createIfcPropertySet(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9634,42 +6515,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcPropertySetDefinition *getIfcPropertySetDefinition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcPropertySetDefinition *arg);
-        /**
-         */
-        Step::RefPtr< IfcPropertySetDefinition > createIfcPropertySetDefinition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertySetDefinition *cloneIfcPropertySetDefinition(ExpressDataSet *expressDataSet, const IfcPropertySetDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcPropertySetDefinition *cloneIfcPropertySetDefinition(const IfcPropertySetDefinition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcPropertySingleValue *getIfcPropertySingleValue(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcPropertySingleValue *arg);
+        bool removeIfcPropertySingleValue(IfcPropertySingleValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertySingleValue > createIfcPropertySingleValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertySingleValue *cloneIfcPropertySingleValue(ExpressDataSet *expressDataSet, const IfcPropertySingleValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertySingleValue > createIfcPropertySingleValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9682,16 +6536,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPropertyTableValue *arg);
+        bool removeIfcPropertyTableValue(IfcPropertyTableValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPropertyTableValue > createIfcPropertyTableValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPropertyTableValue *cloneIfcPropertyTableValue(ExpressDataSet *expressDataSet, const IfcPropertyTableValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPropertyTableValue > createIfcPropertyTableValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9704,16 +6553,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProtectiveDeviceType *arg);
+        bool removeIfcProtectiveDeviceType(IfcProtectiveDeviceType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProtectiveDeviceType > createIfcProtectiveDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProtectiveDeviceType *cloneIfcProtectiveDeviceType(ExpressDataSet *expressDataSet, const IfcProtectiveDeviceType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProtectiveDeviceType > createIfcProtectiveDeviceType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9726,16 +6570,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcProxy *arg);
+        bool removeIfcProxy(IfcProxy *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcProxy > createIfcProxy();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcProxy *cloneIfcProxy(ExpressDataSet *expressDataSet, const IfcProxy &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcProxy > createIfcProxy(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9748,16 +6587,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcPumpType *arg);
+        bool removeIfcPumpType(IfcPumpType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcPumpType > createIfcPumpType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcPumpType *cloneIfcPumpType(ExpressDataSet *expressDataSet, const IfcPumpType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcPumpType > createIfcPumpType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9770,16 +6604,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityArea *arg);
+        bool removeIfcQuantityArea(IfcQuantityArea *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityArea > createIfcQuantityArea();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityArea *cloneIfcQuantityArea(ExpressDataSet *expressDataSet, const IfcQuantityArea &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityArea > createIfcQuantityArea(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9792,16 +6621,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityCount *arg);
+        bool removeIfcQuantityCount(IfcQuantityCount *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityCount > createIfcQuantityCount();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityCount *cloneIfcQuantityCount(ExpressDataSet *expressDataSet, const IfcQuantityCount &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityCount > createIfcQuantityCount(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9814,16 +6638,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityLength *arg);
+        bool removeIfcQuantityLength(IfcQuantityLength *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityLength > createIfcQuantityLength();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityLength *cloneIfcQuantityLength(ExpressDataSet *expressDataSet, const IfcQuantityLength &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityLength > createIfcQuantityLength(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9836,16 +6655,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityTime *arg);
+        bool removeIfcQuantityTime(IfcQuantityTime *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityTime > createIfcQuantityTime();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityTime *cloneIfcQuantityTime(ExpressDataSet *expressDataSet, const IfcQuantityTime &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityTime > createIfcQuantityTime(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9858,16 +6672,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityVolume *arg);
+        bool removeIfcQuantityVolume(IfcQuantityVolume *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityVolume > createIfcQuantityVolume();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityVolume *cloneIfcQuantityVolume(ExpressDataSet *expressDataSet, const IfcQuantityVolume &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityVolume > createIfcQuantityVolume(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9880,16 +6689,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcQuantityWeight *arg);
+        bool removeIfcQuantityWeight(IfcQuantityWeight *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcQuantityWeight > createIfcQuantityWeight();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcQuantityWeight *cloneIfcQuantityWeight(ExpressDataSet *expressDataSet, const IfcQuantityWeight &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcQuantityWeight > createIfcQuantityWeight(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9902,16 +6706,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRadiusDimension *arg);
+        bool removeIfcRadiusDimension(IfcRadiusDimension *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRadiusDimension > createIfcRadiusDimension();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRadiusDimension *cloneIfcRadiusDimension(ExpressDataSet *expressDataSet, const IfcRadiusDimension &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRadiusDimension > createIfcRadiusDimension(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9924,16 +6723,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRailing *arg);
+        bool removeIfcRailing(IfcRailing *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRailing > createIfcRailing();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRailing *cloneIfcRailing(ExpressDataSet *expressDataSet, const IfcRailing &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRailing > createIfcRailing(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9946,16 +6740,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRailingType *arg);
+        bool removeIfcRailingType(IfcRailingType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRailingType > createIfcRailingType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRailingType *cloneIfcRailingType(ExpressDataSet *expressDataSet, const IfcRailingType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRailingType > createIfcRailingType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9968,16 +6757,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRamp *arg);
+        bool removeIfcRamp(IfcRamp *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRamp > createIfcRamp();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRamp *cloneIfcRamp(ExpressDataSet *expressDataSet, const IfcRamp &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRamp > createIfcRamp(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -9990,16 +6774,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRampFlight *arg);
+        bool removeIfcRampFlight(IfcRampFlight *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRampFlight > createIfcRampFlight();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRampFlight *cloneIfcRampFlight(ExpressDataSet *expressDataSet, const IfcRampFlight &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRampFlight > createIfcRampFlight(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10012,16 +6791,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRampFlightType *arg);
+        bool removeIfcRampFlightType(IfcRampFlightType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRampFlightType > createIfcRampFlightType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRampFlightType *cloneIfcRampFlightType(ExpressDataSet *expressDataSet, const IfcRampFlightType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRampFlightType > createIfcRampFlightType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10034,16 +6808,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRationalBezierCurve *arg);
+        bool removeIfcRationalBezierCurve(IfcRationalBezierCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRationalBezierCurve > createIfcRationalBezierCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRationalBezierCurve *cloneIfcRationalBezierCurve(ExpressDataSet *expressDataSet, const IfcRationalBezierCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRationalBezierCurve > createIfcRationalBezierCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10056,16 +6825,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRectangleHollowProfileDef *arg);
+        bool removeIfcRectangleHollowProfileDef(IfcRectangleHollowProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRectangleHollowProfileDef > createIfcRectangleHollowProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRectangleHollowProfileDef *cloneIfcRectangleHollowProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleHollowProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRectangleHollowProfileDef > createIfcRectangleHollowProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10078,16 +6842,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRectangleProfileDef *arg);
+        bool removeIfcRectangleProfileDef(IfcRectangleProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRectangleProfileDef > createIfcRectangleProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRectangleProfileDef *cloneIfcRectangleProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRectangleProfileDef > createIfcRectangleProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10100,16 +6859,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRectangularPyramid *arg);
+        bool removeIfcRectangularPyramid(IfcRectangularPyramid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRectangularPyramid > createIfcRectangularPyramid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRectangularPyramid *cloneIfcRectangularPyramid(ExpressDataSet *expressDataSet, const IfcRectangularPyramid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRectangularPyramid > createIfcRectangularPyramid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10122,16 +6876,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRectangularTrimmedSurface *arg);
+        bool removeIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurface *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRectangularTrimmedSurface > createIfcRectangularTrimmedSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRectangularTrimmedSurface *cloneIfcRectangularTrimmedSurface(ExpressDataSet *expressDataSet, const IfcRectangularTrimmedSurface &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRectangularTrimmedSurface > createIfcRectangularTrimmedSurface(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10144,16 +6893,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcReferencesValueDocument *arg);
+        bool removeIfcReferencesValueDocument(IfcReferencesValueDocument *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcReferencesValueDocument > createIfcReferencesValueDocument();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferencesValueDocument *cloneIfcReferencesValueDocument(ExpressDataSet *expressDataSet, const IfcReferencesValueDocument &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcReferencesValueDocument > createIfcReferencesValueDocument(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10166,16 +6910,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRegularTimeSeries *arg);
+        bool removeIfcRegularTimeSeries(IfcRegularTimeSeries *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRegularTimeSeries > createIfcRegularTimeSeries();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRegularTimeSeries *cloneIfcRegularTimeSeries(ExpressDataSet *expressDataSet, const IfcRegularTimeSeries &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRegularTimeSeries > createIfcRegularTimeSeries(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10188,16 +6927,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcReinforcementBarProperties *arg);
+        bool removeIfcReinforcementBarProperties(IfcReinforcementBarProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcReinforcementBarProperties > createIfcReinforcementBarProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReinforcementBarProperties *cloneIfcReinforcementBarProperties(ExpressDataSet *expressDataSet, const IfcReinforcementBarProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcReinforcementBarProperties > createIfcReinforcementBarProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10210,16 +6944,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcReinforcementDefinitionProperties *arg);
+        bool removeIfcReinforcementDefinitionProperties(IfcReinforcementDefinitionProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcReinforcementDefinitionProperties > createIfcReinforcementDefinitionProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReinforcementDefinitionProperties *cloneIfcReinforcementDefinitionProperties(ExpressDataSet *expressDataSet, const IfcReinforcementDefinitionProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcReinforcementDefinitionProperties > createIfcReinforcementDefinitionProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10232,16 +6961,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcReinforcingBar *arg);
+        bool removeIfcReinforcingBar(IfcReinforcingBar *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcReinforcingBar > createIfcReinforcingBar();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReinforcingBar *cloneIfcReinforcingBar(ExpressDataSet *expressDataSet, const IfcReinforcingBar &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcReinforcingBar > createIfcReinforcingBar(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10250,42 +6974,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcReinforcingElement *getIfcReinforcingElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReinforcingElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcReinforcingElement > createIfcReinforcingElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReinforcingElement *cloneIfcReinforcingElement(ExpressDataSet *expressDataSet, const IfcReinforcingElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReinforcingElement *cloneIfcReinforcingElement(const IfcReinforcingElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcReinforcingMesh *getIfcReinforcingMesh(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcReinforcingMesh *arg);
+        bool removeIfcReinforcingMesh(IfcReinforcingMesh *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcReinforcingMesh > createIfcReinforcingMesh();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReinforcingMesh *cloneIfcReinforcingMesh(ExpressDataSet *expressDataSet, const IfcReinforcingMesh &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcReinforcingMesh > createIfcReinforcingMesh(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10298,16 +6995,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAggregates *arg);
+        bool removeIfcRelAggregates(IfcRelAggregates *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAggregates > createIfcRelAggregates();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAggregates *cloneIfcRelAggregates(ExpressDataSet *expressDataSet, const IfcRelAggregates &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAggregates > createIfcRelAggregates(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10316,42 +7008,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRelAssigns *getIfcRelAssigns(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRelAssigns *arg);
-        /**
-         */
-        Step::RefPtr< IfcRelAssigns > createIfcRelAssigns();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssigns *cloneIfcRelAssigns(ExpressDataSet *expressDataSet, const IfcRelAssigns &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRelAssigns *cloneIfcRelAssigns(const IfcRelAssigns &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRelAssignsTasks *getIfcRelAssignsTasks(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsTasks *arg);
+        bool removeIfcRelAssignsTasks(IfcRelAssignsTasks *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsTasks > createIfcRelAssignsTasks();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsTasks *cloneIfcRelAssignsTasks(ExpressDataSet *expressDataSet, const IfcRelAssignsTasks &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsTasks > createIfcRelAssignsTasks(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10364,16 +7029,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToActor *arg);
+        bool removeIfcRelAssignsToActor(IfcRelAssignsToActor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToActor > createIfcRelAssignsToActor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToActor *cloneIfcRelAssignsToActor(ExpressDataSet *expressDataSet, const IfcRelAssignsToActor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToActor > createIfcRelAssignsToActor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10386,16 +7046,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToControl *arg);
+        bool removeIfcRelAssignsToControl(IfcRelAssignsToControl *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToControl > createIfcRelAssignsToControl();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToControl *cloneIfcRelAssignsToControl(ExpressDataSet *expressDataSet, const IfcRelAssignsToControl &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToControl > createIfcRelAssignsToControl(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10408,16 +7063,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToGroup *arg);
+        bool removeIfcRelAssignsToGroup(IfcRelAssignsToGroup *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToGroup > createIfcRelAssignsToGroup();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToGroup *cloneIfcRelAssignsToGroup(ExpressDataSet *expressDataSet, const IfcRelAssignsToGroup &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToGroup > createIfcRelAssignsToGroup(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10430,16 +7080,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToProcess *arg);
+        bool removeIfcRelAssignsToProcess(IfcRelAssignsToProcess *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToProcess > createIfcRelAssignsToProcess();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToProcess *cloneIfcRelAssignsToProcess(ExpressDataSet *expressDataSet, const IfcRelAssignsToProcess &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToProcess > createIfcRelAssignsToProcess(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10452,16 +7097,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToProduct *arg);
+        bool removeIfcRelAssignsToProduct(IfcRelAssignsToProduct *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToProduct > createIfcRelAssignsToProduct();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToProduct *cloneIfcRelAssignsToProduct(ExpressDataSet *expressDataSet, const IfcRelAssignsToProduct &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToProduct > createIfcRelAssignsToProduct(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10474,16 +7114,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToProjectOrder *arg);
+        bool removeIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToProjectOrder > createIfcRelAssignsToProjectOrder();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToProjectOrder *cloneIfcRelAssignsToProjectOrder(ExpressDataSet *expressDataSet, const IfcRelAssignsToProjectOrder &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToProjectOrder > createIfcRelAssignsToProjectOrder(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10496,16 +7131,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssignsToResource *arg);
+        bool removeIfcRelAssignsToResource(IfcRelAssignsToResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssignsToResource > createIfcRelAssignsToResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssignsToResource *cloneIfcRelAssignsToResource(ExpressDataSet *expressDataSet, const IfcRelAssignsToResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssignsToResource > createIfcRelAssignsToResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10518,16 +7148,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociates *arg);
+        bool removeIfcRelAssociates(IfcRelAssociates *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociates > createIfcRelAssociates();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociates *cloneIfcRelAssociates(ExpressDataSet *expressDataSet, const IfcRelAssociates &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociates > createIfcRelAssociates(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10540,16 +7165,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesAppliedValue *arg);
+        bool removeIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesAppliedValue > createIfcRelAssociatesAppliedValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesAppliedValue *cloneIfcRelAssociatesAppliedValue(ExpressDataSet *expressDataSet, const IfcRelAssociatesAppliedValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesAppliedValue > createIfcRelAssociatesAppliedValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10562,16 +7182,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesApproval *arg);
+        bool removeIfcRelAssociatesApproval(IfcRelAssociatesApproval *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesApproval > createIfcRelAssociatesApproval();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesApproval *cloneIfcRelAssociatesApproval(ExpressDataSet *expressDataSet, const IfcRelAssociatesApproval &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesApproval > createIfcRelAssociatesApproval(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10584,16 +7199,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesClassification *arg);
+        bool removeIfcRelAssociatesClassification(IfcRelAssociatesClassification *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesClassification > createIfcRelAssociatesClassification();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesClassification *cloneIfcRelAssociatesClassification(ExpressDataSet *expressDataSet, const IfcRelAssociatesClassification &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesClassification > createIfcRelAssociatesClassification(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10606,16 +7216,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesConstraint *arg);
+        bool removeIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesConstraint > createIfcRelAssociatesConstraint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesConstraint *cloneIfcRelAssociatesConstraint(ExpressDataSet *expressDataSet, const IfcRelAssociatesConstraint &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesConstraint > createIfcRelAssociatesConstraint(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10628,16 +7233,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesDocument *arg);
+        bool removeIfcRelAssociatesDocument(IfcRelAssociatesDocument *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesDocument > createIfcRelAssociatesDocument();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesDocument *cloneIfcRelAssociatesDocument(ExpressDataSet *expressDataSet, const IfcRelAssociatesDocument &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesDocument > createIfcRelAssociatesDocument(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10650,16 +7250,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesLibrary *arg);
+        bool removeIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesLibrary > createIfcRelAssociatesLibrary();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesLibrary *cloneIfcRelAssociatesLibrary(ExpressDataSet *expressDataSet, const IfcRelAssociatesLibrary &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesLibrary > createIfcRelAssociatesLibrary(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10672,16 +7267,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesMaterial *arg);
+        bool removeIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesMaterial > createIfcRelAssociatesMaterial();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesMaterial *cloneIfcRelAssociatesMaterial(ExpressDataSet *expressDataSet, const IfcRelAssociatesMaterial &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesMaterial > createIfcRelAssociatesMaterial(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10694,16 +7284,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelAssociatesProfileProperties *arg);
+        bool removeIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelAssociatesProfileProperties > createIfcRelAssociatesProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelAssociatesProfileProperties *cloneIfcRelAssociatesProfileProperties(ExpressDataSet *expressDataSet, const IfcRelAssociatesProfileProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelAssociatesProfileProperties > createIfcRelAssociatesProfileProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10712,42 +7297,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRelConnects *getIfcRelConnects(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRelConnects *arg);
-        /**
-         */
-        Step::RefPtr< IfcRelConnects > createIfcRelConnects();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnects *cloneIfcRelConnects(ExpressDataSet *expressDataSet, const IfcRelConnects &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRelConnects *cloneIfcRelConnects(const IfcRelConnects &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRelConnectsElements *getIfcRelConnectsElements(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsElements *arg);
+        bool removeIfcRelConnectsElements(IfcRelConnectsElements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsElements > createIfcRelConnectsElements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsElements *cloneIfcRelConnectsElements(ExpressDataSet *expressDataSet, const IfcRelConnectsElements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsElements > createIfcRelConnectsElements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10760,16 +7318,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsPathElements *arg);
+        bool removeIfcRelConnectsPathElements(IfcRelConnectsPathElements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsPathElements > createIfcRelConnectsPathElements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsPathElements *cloneIfcRelConnectsPathElements(ExpressDataSet *expressDataSet, const IfcRelConnectsPathElements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsPathElements > createIfcRelConnectsPathElements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10782,16 +7335,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsPortToElement *arg);
+        bool removeIfcRelConnectsPortToElement(IfcRelConnectsPortToElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsPortToElement > createIfcRelConnectsPortToElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsPortToElement *cloneIfcRelConnectsPortToElement(ExpressDataSet *expressDataSet, const IfcRelConnectsPortToElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsPortToElement > createIfcRelConnectsPortToElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10804,16 +7352,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsPorts *arg);
+        bool removeIfcRelConnectsPorts(IfcRelConnectsPorts *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsPorts > createIfcRelConnectsPorts();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsPorts *cloneIfcRelConnectsPorts(ExpressDataSet *expressDataSet, const IfcRelConnectsPorts &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsPorts > createIfcRelConnectsPorts(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10826,16 +7369,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsStructuralActivity *arg);
+        bool removeIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsStructuralActivity > createIfcRelConnectsStructuralActivity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsStructuralActivity *cloneIfcRelConnectsStructuralActivity(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralActivity &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsStructuralActivity > createIfcRelConnectsStructuralActivity(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10848,16 +7386,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsStructuralElement *arg);
+        bool removeIfcRelConnectsStructuralElement(IfcRelConnectsStructuralElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsStructuralElement > createIfcRelConnectsStructuralElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsStructuralElement *cloneIfcRelConnectsStructuralElement(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsStructuralElement > createIfcRelConnectsStructuralElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10870,16 +7403,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsStructuralMember *arg);
+        bool removeIfcRelConnectsStructuralMember(IfcRelConnectsStructuralMember *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsStructuralMember > createIfcRelConnectsStructuralMember();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsStructuralMember *cloneIfcRelConnectsStructuralMember(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralMember &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsStructuralMember > createIfcRelConnectsStructuralMember(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10892,16 +7420,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsWithEccentricity *arg);
+        bool removeIfcRelConnectsWithEccentricity(IfcRelConnectsWithEccentricity *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsWithEccentricity > createIfcRelConnectsWithEccentricity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsWithEccentricity *cloneIfcRelConnectsWithEccentricity(ExpressDataSet *expressDataSet, const IfcRelConnectsWithEccentricity &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsWithEccentricity > createIfcRelConnectsWithEccentricity(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10914,16 +7437,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelConnectsWithRealizingElements *arg);
+        bool removeIfcRelConnectsWithRealizingElements(IfcRelConnectsWithRealizingElements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelConnectsWithRealizingElements > createIfcRelConnectsWithRealizingElements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelConnectsWithRealizingElements *cloneIfcRelConnectsWithRealizingElements(ExpressDataSet *expressDataSet, const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelConnectsWithRealizingElements > createIfcRelConnectsWithRealizingElements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10936,16 +7454,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelContainedInSpatialStructure *arg);
+        bool removeIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialStructure *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelContainedInSpatialStructure > createIfcRelContainedInSpatialStructure();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelContainedInSpatialStructure *cloneIfcRelContainedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelContainedInSpatialStructure &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelContainedInSpatialStructure > createIfcRelContainedInSpatialStructure(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10958,16 +7471,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelCoversBldgElements *arg);
+        bool removeIfcRelCoversBldgElements(IfcRelCoversBldgElements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelCoversBldgElements > createIfcRelCoversBldgElements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelCoversBldgElements *cloneIfcRelCoversBldgElements(ExpressDataSet *expressDataSet, const IfcRelCoversBldgElements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelCoversBldgElements > createIfcRelCoversBldgElements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10980,16 +7488,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelCoversSpaces *arg);
+        bool removeIfcRelCoversSpaces(IfcRelCoversSpaces *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelCoversSpaces > createIfcRelCoversSpaces();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelCoversSpaces *cloneIfcRelCoversSpaces(ExpressDataSet *expressDataSet, const IfcRelCoversSpaces &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelCoversSpaces > createIfcRelCoversSpaces(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -10998,64 +7501,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRelDecomposes *getIfcRelDecomposes(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRelDecomposes *arg);
-        /**
-         */
-        Step::RefPtr< IfcRelDecomposes > createIfcRelDecomposes();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelDecomposes *cloneIfcRelDecomposes(ExpressDataSet *expressDataSet, const IfcRelDecomposes &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRelDecomposes *cloneIfcRelDecomposes(const IfcRelDecomposes &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcRelDefines *getIfcRelDefines(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRelDefines *arg);
-        /**
-         */
-        Step::RefPtr< IfcRelDefines > createIfcRelDefines();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelDefines *cloneIfcRelDefines(ExpressDataSet *expressDataSet, const IfcRelDefines &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRelDefines *cloneIfcRelDefines(const IfcRelDefines &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRelDefinesByProperties *getIfcRelDefinesByProperties(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRelDefinesByProperties *arg);
+        bool removeIfcRelDefinesByProperties(IfcRelDefinesByProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelDefinesByProperties > createIfcRelDefinesByProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelDefinesByProperties *cloneIfcRelDefinesByProperties(ExpressDataSet *expressDataSet, const IfcRelDefinesByProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelDefinesByProperties > createIfcRelDefinesByProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11068,16 +7522,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelDefinesByType *arg);
+        bool removeIfcRelDefinesByType(IfcRelDefinesByType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelDefinesByType > createIfcRelDefinesByType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelDefinesByType *cloneIfcRelDefinesByType(ExpressDataSet *expressDataSet, const IfcRelDefinesByType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelDefinesByType > createIfcRelDefinesByType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11090,16 +7539,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelFillsElement *arg);
+        bool removeIfcRelFillsElement(IfcRelFillsElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelFillsElement > createIfcRelFillsElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelFillsElement *cloneIfcRelFillsElement(ExpressDataSet *expressDataSet, const IfcRelFillsElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelFillsElement > createIfcRelFillsElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11112,16 +7556,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelFlowControlElements *arg);
+        bool removeIfcRelFlowControlElements(IfcRelFlowControlElements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelFlowControlElements > createIfcRelFlowControlElements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelFlowControlElements *cloneIfcRelFlowControlElements(ExpressDataSet *expressDataSet, const IfcRelFlowControlElements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelFlowControlElements > createIfcRelFlowControlElements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11134,16 +7573,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelInteractionRequirements *arg);
+        bool removeIfcRelInteractionRequirements(IfcRelInteractionRequirements *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelInteractionRequirements > createIfcRelInteractionRequirements();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelInteractionRequirements *cloneIfcRelInteractionRequirements(ExpressDataSet *expressDataSet, const IfcRelInteractionRequirements &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelInteractionRequirements > createIfcRelInteractionRequirements(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11156,16 +7590,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelNests *arg);
+        bool removeIfcRelNests(IfcRelNests *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelNests > createIfcRelNests();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelNests *cloneIfcRelNests(ExpressDataSet *expressDataSet, const IfcRelNests &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelNests > createIfcRelNests(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11178,16 +7607,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelOccupiesSpaces *arg);
+        bool removeIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelOccupiesSpaces > createIfcRelOccupiesSpaces();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelOccupiesSpaces *cloneIfcRelOccupiesSpaces(ExpressDataSet *expressDataSet, const IfcRelOccupiesSpaces &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelOccupiesSpaces > createIfcRelOccupiesSpaces(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11200,16 +7624,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelOverridesProperties *arg);
+        bool removeIfcRelOverridesProperties(IfcRelOverridesProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelOverridesProperties > createIfcRelOverridesProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelOverridesProperties *cloneIfcRelOverridesProperties(ExpressDataSet *expressDataSet, const IfcRelOverridesProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelOverridesProperties > createIfcRelOverridesProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11222,16 +7641,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelProjectsElement *arg);
+        bool removeIfcRelProjectsElement(IfcRelProjectsElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelProjectsElement > createIfcRelProjectsElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelProjectsElement *cloneIfcRelProjectsElement(ExpressDataSet *expressDataSet, const IfcRelProjectsElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelProjectsElement > createIfcRelProjectsElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11244,16 +7658,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelReferencedInSpatialStructure *arg);
+        bool removeIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatialStructure *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelReferencedInSpatialStructure > createIfcRelReferencedInSpatialStructure();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelReferencedInSpatialStructure *cloneIfcRelReferencedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelReferencedInSpatialStructure &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelReferencedInSpatialStructure > createIfcRelReferencedInSpatialStructure(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11266,16 +7675,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelSchedulesCostItems *arg);
+        bool removeIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelSchedulesCostItems > createIfcRelSchedulesCostItems();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelSchedulesCostItems *cloneIfcRelSchedulesCostItems(ExpressDataSet *expressDataSet, const IfcRelSchedulesCostItems &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelSchedulesCostItems > createIfcRelSchedulesCostItems(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11288,16 +7692,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelSequence *arg);
+        bool removeIfcRelSequence(IfcRelSequence *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelSequence > createIfcRelSequence();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelSequence *cloneIfcRelSequence(ExpressDataSet *expressDataSet, const IfcRelSequence &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelSequence > createIfcRelSequence(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11310,16 +7709,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelServicesBuildings *arg);
+        bool removeIfcRelServicesBuildings(IfcRelServicesBuildings *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelServicesBuildings > createIfcRelServicesBuildings();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelServicesBuildings *cloneIfcRelServicesBuildings(ExpressDataSet *expressDataSet, const IfcRelServicesBuildings &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelServicesBuildings > createIfcRelServicesBuildings(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11332,16 +7726,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelSpaceBoundary *arg);
+        bool removeIfcRelSpaceBoundary(IfcRelSpaceBoundary *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelSpaceBoundary > createIfcRelSpaceBoundary();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelSpaceBoundary *cloneIfcRelSpaceBoundary(ExpressDataSet *expressDataSet, const IfcRelSpaceBoundary &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelSpaceBoundary > createIfcRelSpaceBoundary(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11354,16 +7743,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRelVoidsElement *arg);
+        bool removeIfcRelVoidsElement(IfcRelVoidsElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelVoidsElement > createIfcRelVoidsElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelVoidsElement *cloneIfcRelVoidsElement(ExpressDataSet *expressDataSet, const IfcRelVoidsElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelVoidsElement > createIfcRelVoidsElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11372,42 +7756,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRelationship *getIfcRelationship(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRelationship *arg);
-        /**
-         */
-        Step::RefPtr< IfcRelationship > createIfcRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelationship *cloneIfcRelationship(ExpressDataSet *expressDataSet, const IfcRelationship &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRelationship *cloneIfcRelationship(const IfcRelationship &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRelaxation *getIfcRelaxation(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRelaxation *arg);
+        bool removeIfcRelaxation(IfcRelaxation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRelaxation > createIfcRelaxation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRelaxation *cloneIfcRelaxation(ExpressDataSet *expressDataSet, const IfcRelaxation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRelaxation > createIfcRelaxation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11420,16 +7777,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRepresentation *arg);
+        bool removeIfcRepresentation(IfcRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRepresentation > createIfcRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRepresentation *cloneIfcRepresentation(ExpressDataSet *expressDataSet, const IfcRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRepresentation > createIfcRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11442,16 +7794,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRepresentationContext *arg);
+        bool removeIfcRepresentationContext(IfcRepresentationContext *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRepresentationContext > createIfcRepresentationContext();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRepresentationContext *cloneIfcRepresentationContext(ExpressDataSet *expressDataSet, const IfcRepresentationContext &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRepresentationContext > createIfcRepresentationContext(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11460,42 +7807,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRepresentationItem *getIfcRepresentationItem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRepresentationItem *arg);
-        /**
-         */
-        Step::RefPtr< IfcRepresentationItem > createIfcRepresentationItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRepresentationItem *cloneIfcRepresentationItem(ExpressDataSet *expressDataSet, const IfcRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRepresentationItem *cloneIfcRepresentationItem(const IfcRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRepresentationMap *getIfcRepresentationMap(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRepresentationMap *arg);
+        bool removeIfcRepresentationMap(IfcRepresentationMap *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRepresentationMap > createIfcRepresentationMap();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRepresentationMap *cloneIfcRepresentationMap(ExpressDataSet *expressDataSet, const IfcRepresentationMap &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRepresentationMap > createIfcRepresentationMap(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11504,42 +7824,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcResource *getIfcResource(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcResource *arg);
-        /**
-         */
-        Step::RefPtr< IfcResource > createIfcResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcResource *cloneIfcResource(ExpressDataSet *expressDataSet, const IfcResource &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcResource *cloneIfcResource(const IfcResource &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRevolvedAreaSolid *getIfcRevolvedAreaSolid(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRevolvedAreaSolid *arg);
+        bool removeIfcRevolvedAreaSolid(IfcRevolvedAreaSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRevolvedAreaSolid > createIfcRevolvedAreaSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRevolvedAreaSolid *cloneIfcRevolvedAreaSolid(ExpressDataSet *expressDataSet, const IfcRevolvedAreaSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRevolvedAreaSolid > createIfcRevolvedAreaSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11552,16 +7845,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRibPlateProfileProperties *arg);
+        bool removeIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRibPlateProfileProperties > createIfcRibPlateProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRibPlateProfileProperties *cloneIfcRibPlateProfileProperties(ExpressDataSet *expressDataSet, const IfcRibPlateProfileProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRibPlateProfileProperties > createIfcRibPlateProfileProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11574,16 +7862,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRightCircularCone *arg);
+        bool removeIfcRightCircularCone(IfcRightCircularCone *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRightCircularCone > createIfcRightCircularCone();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRightCircularCone *cloneIfcRightCircularCone(ExpressDataSet *expressDataSet, const IfcRightCircularCone &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRightCircularCone > createIfcRightCircularCone(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11596,16 +7879,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRightCircularCylinder *arg);
+        bool removeIfcRightCircularCylinder(IfcRightCircularCylinder *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRightCircularCylinder > createIfcRightCircularCylinder();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRightCircularCylinder *cloneIfcRightCircularCylinder(ExpressDataSet *expressDataSet, const IfcRightCircularCylinder &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRightCircularCylinder > createIfcRightCircularCylinder(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11618,16 +7896,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRoof *arg);
+        bool removeIfcRoof(IfcRoof *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRoof > createIfcRoof();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRoof *cloneIfcRoof(ExpressDataSet *expressDataSet, const IfcRoof &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRoof > createIfcRoof(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11636,42 +7909,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcRoot *getIfcRoot(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcRoot *arg);
-        /**
-         */
-        Step::RefPtr< IfcRoot > createIfcRoot();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRoot *cloneIfcRoot(ExpressDataSet *expressDataSet, const IfcRoot &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcRoot *cloneIfcRoot(const IfcRoot &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcRoundedEdgeFeature *getIfcRoundedEdgeFeature(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcRoundedEdgeFeature *arg);
+        bool removeIfcRoundedEdgeFeature(IfcRoundedEdgeFeature *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRoundedEdgeFeature > createIfcRoundedEdgeFeature();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRoundedEdgeFeature *cloneIfcRoundedEdgeFeature(ExpressDataSet *expressDataSet, const IfcRoundedEdgeFeature &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRoundedEdgeFeature > createIfcRoundedEdgeFeature(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11684,16 +7930,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcRoundedRectangleProfileDef *arg);
+        bool removeIfcRoundedRectangleProfileDef(IfcRoundedRectangleProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcRoundedRectangleProfileDef > createIfcRoundedRectangleProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcRoundedRectangleProfileDef *cloneIfcRoundedRectangleProfileDef(ExpressDataSet *expressDataSet, const IfcRoundedRectangleProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcRoundedRectangleProfileDef > createIfcRoundedRectangleProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11706,16 +7947,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSIUnit *arg);
+        bool removeIfcSIUnit(IfcSIUnit *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSIUnit > createIfcSIUnit();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSIUnit *cloneIfcSIUnit(ExpressDataSet *expressDataSet, const IfcSIUnit &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSIUnit > createIfcSIUnit(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11728,16 +7964,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSanitaryTerminalType *arg);
+        bool removeIfcSanitaryTerminalType(IfcSanitaryTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSanitaryTerminalType > createIfcSanitaryTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSanitaryTerminalType *cloneIfcSanitaryTerminalType(ExpressDataSet *expressDataSet, const IfcSanitaryTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSanitaryTerminalType > createIfcSanitaryTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11750,16 +7981,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcScheduleTimeControl *arg);
+        bool removeIfcScheduleTimeControl(IfcScheduleTimeControl *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcScheduleTimeControl > createIfcScheduleTimeControl();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcScheduleTimeControl *cloneIfcScheduleTimeControl(ExpressDataSet *expressDataSet, const IfcScheduleTimeControl &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcScheduleTimeControl > createIfcScheduleTimeControl(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11772,16 +7998,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSectionProperties *arg);
+        bool removeIfcSectionProperties(IfcSectionProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSectionProperties > createIfcSectionProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSectionProperties *cloneIfcSectionProperties(ExpressDataSet *expressDataSet, const IfcSectionProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSectionProperties > createIfcSectionProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11794,16 +8015,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSectionReinforcementProperties *arg);
+        bool removeIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSectionReinforcementProperties > createIfcSectionReinforcementProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSectionReinforcementProperties *cloneIfcSectionReinforcementProperties(ExpressDataSet *expressDataSet, const IfcSectionReinforcementProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSectionReinforcementProperties > createIfcSectionReinforcementProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11816,16 +8032,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSectionedSpine *arg);
+        bool removeIfcSectionedSpine(IfcSectionedSpine *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSectionedSpine > createIfcSectionedSpine();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSectionedSpine *cloneIfcSectionedSpine(ExpressDataSet *expressDataSet, const IfcSectionedSpine &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSectionedSpine > createIfcSectionedSpine(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11838,16 +8049,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSensorType *arg);
+        bool removeIfcSensorType(IfcSensorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSensorType > createIfcSensorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSensorType *cloneIfcSensorType(ExpressDataSet *expressDataSet, const IfcSensorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSensorType > createIfcSensorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11860,16 +8066,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcServiceLife *arg);
+        bool removeIfcServiceLife(IfcServiceLife *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcServiceLife > createIfcServiceLife();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcServiceLife *cloneIfcServiceLife(ExpressDataSet *expressDataSet, const IfcServiceLife &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcServiceLife > createIfcServiceLife(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11882,16 +8083,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcServiceLifeFactor *arg);
+        bool removeIfcServiceLifeFactor(IfcServiceLifeFactor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcServiceLifeFactor > createIfcServiceLifeFactor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcServiceLifeFactor *cloneIfcServiceLifeFactor(ExpressDataSet *expressDataSet, const IfcServiceLifeFactor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcServiceLifeFactor > createIfcServiceLifeFactor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11904,16 +8100,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcShapeAspect *arg);
+        bool removeIfcShapeAspect(IfcShapeAspect *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcShapeAspect > createIfcShapeAspect();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcShapeAspect *cloneIfcShapeAspect(ExpressDataSet *expressDataSet, const IfcShapeAspect &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcShapeAspect > createIfcShapeAspect(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11922,42 +8113,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcShapeModel *getIfcShapeModel(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcShapeModel *arg);
-        /**
-         */
-        Step::RefPtr< IfcShapeModel > createIfcShapeModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcShapeModel *cloneIfcShapeModel(ExpressDataSet *expressDataSet, const IfcShapeModel &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcShapeModel *cloneIfcShapeModel(const IfcShapeModel &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcShapeRepresentation *getIfcShapeRepresentation(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcShapeRepresentation *arg);
+        bool removeIfcShapeRepresentation(IfcShapeRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcShapeRepresentation > createIfcShapeRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcShapeRepresentation *cloneIfcShapeRepresentation(ExpressDataSet *expressDataSet, const IfcShapeRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcShapeRepresentation > createIfcShapeRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11970,16 +8134,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcShellBasedSurfaceModel *arg);
+        bool removeIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcShellBasedSurfaceModel > createIfcShellBasedSurfaceModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcShellBasedSurfaceModel *cloneIfcShellBasedSurfaceModel(ExpressDataSet *expressDataSet, const IfcShellBasedSurfaceModel &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcShellBasedSurfaceModel > createIfcShellBasedSurfaceModel(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -11988,42 +8147,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSimpleProperty *getIfcSimpleProperty(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSimpleProperty *arg);
-        /**
-         */
-        Step::RefPtr< IfcSimpleProperty > createIfcSimpleProperty();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSimpleProperty *cloneIfcSimpleProperty(ExpressDataSet *expressDataSet, const IfcSimpleProperty &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSimpleProperty *cloneIfcSimpleProperty(const IfcSimpleProperty &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSite *getIfcSite(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSite *arg);
+        bool removeIfcSite(IfcSite *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSite > createIfcSite();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSite *cloneIfcSite(ExpressDataSet *expressDataSet, const IfcSite &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSite > createIfcSite(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12036,16 +8168,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSlab *arg);
+        bool removeIfcSlab(IfcSlab *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSlab > createIfcSlab();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSlab *cloneIfcSlab(ExpressDataSet *expressDataSet, const IfcSlab &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSlab > createIfcSlab(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12058,16 +8185,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSlabType *arg);
+        bool removeIfcSlabType(IfcSlabType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSlabType > createIfcSlabType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSlabType *cloneIfcSlabType(ExpressDataSet *expressDataSet, const IfcSlabType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSlabType > createIfcSlabType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12080,16 +8202,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSlippageConnectionCondition *arg);
+        bool removeIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSlippageConnectionCondition > createIfcSlippageConnectionCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSlippageConnectionCondition *cloneIfcSlippageConnectionCondition(ExpressDataSet *expressDataSet, const IfcSlippageConnectionCondition &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSlippageConnectionCondition > createIfcSlippageConnectionCondition(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12098,42 +8215,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSolidModel *getIfcSolidModel(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSolidModel *arg);
-        /**
-         */
-        Step::RefPtr< IfcSolidModel > createIfcSolidModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSolidModel *cloneIfcSolidModel(ExpressDataSet *expressDataSet, const IfcSolidModel &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSolidModel *cloneIfcSolidModel(const IfcSolidModel &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSoundProperties *getIfcSoundProperties(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSoundProperties *arg);
+        bool removeIfcSoundProperties(IfcSoundProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSoundProperties > createIfcSoundProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSoundProperties *cloneIfcSoundProperties(ExpressDataSet *expressDataSet, const IfcSoundProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSoundProperties > createIfcSoundProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12146,16 +8236,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSoundValue *arg);
+        bool removeIfcSoundValue(IfcSoundValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSoundValue > createIfcSoundValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSoundValue *cloneIfcSoundValue(ExpressDataSet *expressDataSet, const IfcSoundValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSoundValue > createIfcSoundValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12168,16 +8253,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSpace *arg);
+        bool removeIfcSpace(IfcSpace *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSpace > createIfcSpace();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpace *cloneIfcSpace(ExpressDataSet *expressDataSet, const IfcSpace &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSpace > createIfcSpace(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12190,16 +8270,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSpaceHeaterType *arg);
+        bool removeIfcSpaceHeaterType(IfcSpaceHeaterType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSpaceHeaterType > createIfcSpaceHeaterType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpaceHeaterType *cloneIfcSpaceHeaterType(ExpressDataSet *expressDataSet, const IfcSpaceHeaterType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSpaceHeaterType > createIfcSpaceHeaterType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12212,16 +8287,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSpaceProgram *arg);
+        bool removeIfcSpaceProgram(IfcSpaceProgram *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSpaceProgram > createIfcSpaceProgram();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpaceProgram *cloneIfcSpaceProgram(ExpressDataSet *expressDataSet, const IfcSpaceProgram &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSpaceProgram > createIfcSpaceProgram(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12234,16 +8304,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSpaceThermalLoadProperties *arg);
+        bool removeIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSpaceThermalLoadProperties > createIfcSpaceThermalLoadProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpaceThermalLoadProperties *cloneIfcSpaceThermalLoadProperties(ExpressDataSet *expressDataSet, const IfcSpaceThermalLoadProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSpaceThermalLoadProperties > createIfcSpaceThermalLoadProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12256,16 +8321,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSpaceType *arg);
+        bool removeIfcSpaceType(IfcSpaceType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSpaceType > createIfcSpaceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpaceType *cloneIfcSpaceType(ExpressDataSet *expressDataSet, const IfcSpaceType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSpaceType > createIfcSpaceType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12274,64 +8334,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSpatialStructureElement *getIfcSpatialStructureElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSpatialStructureElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcSpatialStructureElement > createIfcSpatialStructureElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpatialStructureElement *cloneIfcSpatialStructureElement(ExpressDataSet *expressDataSet, const IfcSpatialStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSpatialStructureElement *cloneIfcSpatialStructureElement(const IfcSpatialStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcSpatialStructureElementType *getIfcSpatialStructureElementType(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSpatialStructureElementType *arg);
-        /**
-         */
-        Step::RefPtr< IfcSpatialStructureElementType > createIfcSpatialStructureElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSpatialStructureElementType *cloneIfcSpatialStructureElementType(ExpressDataSet *expressDataSet, const IfcSpatialStructureElementType &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSpatialStructureElementType *cloneIfcSpatialStructureElementType(const IfcSpatialStructureElementType &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSphere *getIfcSphere(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSphere *arg);
+        bool removeIfcSphere(IfcSphere *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSphere > createIfcSphere();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSphere *cloneIfcSphere(ExpressDataSet *expressDataSet, const IfcSphere &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSphere > createIfcSphere(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12344,16 +8355,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStackTerminalType *arg);
+        bool removeIfcStackTerminalType(IfcStackTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStackTerminalType > createIfcStackTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStackTerminalType *cloneIfcStackTerminalType(ExpressDataSet *expressDataSet, const IfcStackTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStackTerminalType > createIfcStackTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12366,16 +8372,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStair *arg);
+        bool removeIfcStair(IfcStair *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStair > createIfcStair();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStair *cloneIfcStair(ExpressDataSet *expressDataSet, const IfcStair &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStair > createIfcStair(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12388,16 +8389,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStairFlight *arg);
+        bool removeIfcStairFlight(IfcStairFlight *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStairFlight > createIfcStairFlight();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStairFlight *cloneIfcStairFlight(ExpressDataSet *expressDataSet, const IfcStairFlight &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStairFlight > createIfcStairFlight(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12410,16 +8406,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStairFlightType *arg);
+        bool removeIfcStairFlightType(IfcStairFlightType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStairFlightType > createIfcStairFlightType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStairFlightType *cloneIfcStairFlightType(ExpressDataSet *expressDataSet, const IfcStairFlightType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStairFlightType > createIfcStairFlightType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12428,64 +8419,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralAction *getIfcStructuralAction(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralAction *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralAction > createIfcStructuralAction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralAction *cloneIfcStructuralAction(ExpressDataSet *expressDataSet, const IfcStructuralAction &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralAction *cloneIfcStructuralAction(const IfcStructuralAction &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcStructuralActivity *getIfcStructuralActivity(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralActivity *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralActivity > createIfcStructuralActivity();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralActivity *cloneIfcStructuralActivity(ExpressDataSet *expressDataSet, const IfcStructuralActivity &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralActivity *cloneIfcStructuralActivity(const IfcStructuralActivity &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralAnalysisModel *getIfcStructuralAnalysisModel(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralAnalysisModel *arg);
+        bool removeIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralAnalysisModel > createIfcStructuralAnalysisModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralAnalysisModel *cloneIfcStructuralAnalysisModel(ExpressDataSet *expressDataSet, const IfcStructuralAnalysisModel &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralAnalysisModel > createIfcStructuralAnalysisModel(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12494,64 +8436,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralConnection *getIfcStructuralConnection(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralConnection *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralConnection > createIfcStructuralConnection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralConnection *cloneIfcStructuralConnection(ExpressDataSet *expressDataSet, const IfcStructuralConnection &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralConnection *cloneIfcStructuralConnection(const IfcStructuralConnection &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcStructuralConnectionCondition *getIfcStructuralConnectionCondition(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralConnectionCondition *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralConnectionCondition > createIfcStructuralConnectionCondition();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralConnectionCondition *cloneIfcStructuralConnectionCondition(ExpressDataSet *expressDataSet, const IfcStructuralConnectionCondition &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralConnectionCondition *cloneIfcStructuralConnectionCondition(const IfcStructuralConnectionCondition &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralCurveConnection *getIfcStructuralCurveConnection(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralCurveConnection *arg);
+        bool removeIfcStructuralCurveConnection(IfcStructuralCurveConnection *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralCurveConnection > createIfcStructuralCurveConnection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralCurveConnection *cloneIfcStructuralCurveConnection(ExpressDataSet *expressDataSet, const IfcStructuralCurveConnection &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralCurveConnection > createIfcStructuralCurveConnection(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12564,16 +8457,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralCurveMember *arg);
+        bool removeIfcStructuralCurveMember(IfcStructuralCurveMember *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralCurveMember > createIfcStructuralCurveMember();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralCurveMember *cloneIfcStructuralCurveMember(ExpressDataSet *expressDataSet, const IfcStructuralCurveMember &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralCurveMember > createIfcStructuralCurveMember(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12586,16 +8474,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralCurveMemberVarying *arg);
+        bool removeIfcStructuralCurveMemberVarying(IfcStructuralCurveMemberVarying *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralCurveMemberVarying > createIfcStructuralCurveMemberVarying();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralCurveMemberVarying *cloneIfcStructuralCurveMemberVarying(ExpressDataSet *expressDataSet, const IfcStructuralCurveMemberVarying &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralCurveMemberVarying > createIfcStructuralCurveMemberVarying(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12604,42 +8487,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralItem *getIfcStructuralItem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralItem *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralItem > createIfcStructuralItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralItem *cloneIfcStructuralItem(ExpressDataSet *expressDataSet, const IfcStructuralItem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralItem *cloneIfcStructuralItem(const IfcStructuralItem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralLinearAction *getIfcStructuralLinearAction(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLinearAction *arg);
+        bool removeIfcStructuralLinearAction(IfcStructuralLinearAction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLinearAction > createIfcStructuralLinearAction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLinearAction *cloneIfcStructuralLinearAction(ExpressDataSet *expressDataSet, const IfcStructuralLinearAction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLinearAction > createIfcStructuralLinearAction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12652,16 +8508,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLinearActionVarying *arg);
+        bool removeIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLinearActionVarying > createIfcStructuralLinearActionVarying();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLinearActionVarying *cloneIfcStructuralLinearActionVarying(ExpressDataSet *expressDataSet, const IfcStructuralLinearActionVarying &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLinearActionVarying > createIfcStructuralLinearActionVarying(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12670,42 +8521,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralLoad *getIfcStructuralLoad(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralLoad *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralLoad > createIfcStructuralLoad();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoad *cloneIfcStructuralLoad(ExpressDataSet *expressDataSet, const IfcStructuralLoad &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralLoad *cloneIfcStructuralLoad(const IfcStructuralLoad &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralLoadGroup *getIfcStructuralLoadGroup(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadGroup *arg);
+        bool removeIfcStructuralLoadGroup(IfcStructuralLoadGroup *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadGroup > createIfcStructuralLoadGroup();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadGroup *cloneIfcStructuralLoadGroup(ExpressDataSet *expressDataSet, const IfcStructuralLoadGroup &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadGroup > createIfcStructuralLoadGroup(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12718,16 +8542,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadLinearForce *arg);
+        bool removeIfcStructuralLoadLinearForce(IfcStructuralLoadLinearForce *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadLinearForce > createIfcStructuralLoadLinearForce();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadLinearForce *cloneIfcStructuralLoadLinearForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadLinearForce &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadLinearForce > createIfcStructuralLoadLinearForce(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12740,16 +8559,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadPlanarForce *arg);
+        bool removeIfcStructuralLoadPlanarForce(IfcStructuralLoadPlanarForce *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadPlanarForce > createIfcStructuralLoadPlanarForce();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadPlanarForce *cloneIfcStructuralLoadPlanarForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadPlanarForce &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadPlanarForce > createIfcStructuralLoadPlanarForce(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12762,16 +8576,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadSingleDisplacement *arg);
+        bool removeIfcStructuralLoadSingleDisplacement(IfcStructuralLoadSingleDisplacement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadSingleDisplacement > createIfcStructuralLoadSingleDisplacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadSingleDisplacement *cloneIfcStructuralLoadSingleDisplacement(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleDisplacement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadSingleDisplacement > createIfcStructuralLoadSingleDisplacement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12784,16 +8593,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadSingleDisplacementDistortion *arg);
+        bool removeIfcStructuralLoadSingleDisplacementDistortion(IfcStructuralLoadSingleDisplacementDistortion *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadSingleDisplacementDistortion > createIfcStructuralLoadSingleDisplacementDistortion();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadSingleDisplacementDistortion *cloneIfcStructuralLoadSingleDisplacementDistortion(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleDisplacementDistortion &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadSingleDisplacementDistortion > createIfcStructuralLoadSingleDisplacementDistortion(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12806,16 +8610,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadSingleForce *arg);
+        bool removeIfcStructuralLoadSingleForce(IfcStructuralLoadSingleForce *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadSingleForce > createIfcStructuralLoadSingleForce();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadSingleForce *cloneIfcStructuralLoadSingleForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleForce &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadSingleForce > createIfcStructuralLoadSingleForce(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12828,16 +8627,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadSingleForceWarping *arg);
+        bool removeIfcStructuralLoadSingleForceWarping(IfcStructuralLoadSingleForceWarping *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadSingleForceWarping > createIfcStructuralLoadSingleForceWarping();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadSingleForceWarping *cloneIfcStructuralLoadSingleForceWarping(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleForceWarping &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadSingleForceWarping > createIfcStructuralLoadSingleForceWarping(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12846,42 +8640,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralLoadStatic *getIfcStructuralLoadStatic(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralLoadStatic *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralLoadStatic > createIfcStructuralLoadStatic();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadStatic *cloneIfcStructuralLoadStatic(ExpressDataSet *expressDataSet, const IfcStructuralLoadStatic &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralLoadStatic *cloneIfcStructuralLoadStatic(const IfcStructuralLoadStatic &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralLoadTemperature *getIfcStructuralLoadTemperature(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralLoadTemperature *arg);
+        bool removeIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralLoadTemperature > createIfcStructuralLoadTemperature();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralLoadTemperature *cloneIfcStructuralLoadTemperature(ExpressDataSet *expressDataSet, const IfcStructuralLoadTemperature &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralLoadTemperature > createIfcStructuralLoadTemperature(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12890,42 +8657,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralMember *getIfcStructuralMember(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralMember *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralMember > createIfcStructuralMember();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralMember *cloneIfcStructuralMember(ExpressDataSet *expressDataSet, const IfcStructuralMember &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralMember *cloneIfcStructuralMember(const IfcStructuralMember &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralPlanarAction *getIfcStructuralPlanarAction(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralPlanarAction *arg);
+        bool removeIfcStructuralPlanarAction(IfcStructuralPlanarAction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralPlanarAction > createIfcStructuralPlanarAction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralPlanarAction *cloneIfcStructuralPlanarAction(ExpressDataSet *expressDataSet, const IfcStructuralPlanarAction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralPlanarAction > createIfcStructuralPlanarAction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12938,16 +8678,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralPlanarActionVarying *arg);
+        bool removeIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionVarying *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralPlanarActionVarying > createIfcStructuralPlanarActionVarying();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralPlanarActionVarying *cloneIfcStructuralPlanarActionVarying(ExpressDataSet *expressDataSet, const IfcStructuralPlanarActionVarying &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralPlanarActionVarying > createIfcStructuralPlanarActionVarying(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12960,16 +8695,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralPointAction *arg);
+        bool removeIfcStructuralPointAction(IfcStructuralPointAction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralPointAction > createIfcStructuralPointAction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralPointAction *cloneIfcStructuralPointAction(ExpressDataSet *expressDataSet, const IfcStructuralPointAction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralPointAction > createIfcStructuralPointAction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -12982,16 +8712,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralPointConnection *arg);
+        bool removeIfcStructuralPointConnection(IfcStructuralPointConnection *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralPointConnection > createIfcStructuralPointConnection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralPointConnection *cloneIfcStructuralPointConnection(ExpressDataSet *expressDataSet, const IfcStructuralPointConnection &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralPointConnection > createIfcStructuralPointConnection(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13004,16 +8729,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralPointReaction *arg);
+        bool removeIfcStructuralPointReaction(IfcStructuralPointReaction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralPointReaction > createIfcStructuralPointReaction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralPointReaction *cloneIfcStructuralPointReaction(ExpressDataSet *expressDataSet, const IfcStructuralPointReaction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralPointReaction > createIfcStructuralPointReaction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13026,16 +8746,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralProfileProperties *arg);
+        bool removeIfcStructuralProfileProperties(IfcStructuralProfileProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralProfileProperties > createIfcStructuralProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralProfileProperties *cloneIfcStructuralProfileProperties(ExpressDataSet *expressDataSet, const IfcStructuralProfileProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralProfileProperties > createIfcStructuralProfileProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13044,42 +8759,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStructuralReaction *getIfcStructuralReaction(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStructuralReaction *arg);
-        /**
-         */
-        Step::RefPtr< IfcStructuralReaction > createIfcStructuralReaction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralReaction *cloneIfcStructuralReaction(ExpressDataSet *expressDataSet, const IfcStructuralReaction &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStructuralReaction *cloneIfcStructuralReaction(const IfcStructuralReaction &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStructuralResultGroup *getIfcStructuralResultGroup(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStructuralResultGroup *arg);
+        bool removeIfcStructuralResultGroup(IfcStructuralResultGroup *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralResultGroup > createIfcStructuralResultGroup();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralResultGroup *cloneIfcStructuralResultGroup(ExpressDataSet *expressDataSet, const IfcStructuralResultGroup &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralResultGroup > createIfcStructuralResultGroup(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13092,16 +8780,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralSteelProfileProperties *arg);
+        bool removeIfcStructuralSteelProfileProperties(IfcStructuralSteelProfileProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralSteelProfileProperties > createIfcStructuralSteelProfileProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralSteelProfileProperties *cloneIfcStructuralSteelProfileProperties(ExpressDataSet *expressDataSet, const IfcStructuralSteelProfileProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralSteelProfileProperties > createIfcStructuralSteelProfileProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13114,16 +8797,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralSurfaceConnection *arg);
+        bool removeIfcStructuralSurfaceConnection(IfcStructuralSurfaceConnection *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralSurfaceConnection > createIfcStructuralSurfaceConnection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralSurfaceConnection *cloneIfcStructuralSurfaceConnection(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceConnection &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralSurfaceConnection > createIfcStructuralSurfaceConnection(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13136,16 +8814,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralSurfaceMember *arg);
+        bool removeIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralSurfaceMember > createIfcStructuralSurfaceMember();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralSurfaceMember *cloneIfcStructuralSurfaceMember(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceMember &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralSurfaceMember > createIfcStructuralSurfaceMember(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13158,16 +8831,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuralSurfaceMemberVarying *arg);
+        bool removeIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberVarying *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuralSurfaceMemberVarying > createIfcStructuralSurfaceMemberVarying();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuralSurfaceMemberVarying *cloneIfcStructuralSurfaceMemberVarying(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceMemberVarying &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuralSurfaceMemberVarying > createIfcStructuralSurfaceMemberVarying(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13180,16 +8848,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStructuredDimensionCallout *arg);
+        bool removeIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStructuredDimensionCallout > createIfcStructuredDimensionCallout();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStructuredDimensionCallout *cloneIfcStructuredDimensionCallout(ExpressDataSet *expressDataSet, const IfcStructuredDimensionCallout &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStructuredDimensionCallout > createIfcStructuredDimensionCallout(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13198,42 +8861,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcStyleModel *getIfcStyleModel(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcStyleModel *arg);
-        /**
-         */
-        Step::RefPtr< IfcStyleModel > createIfcStyleModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStyleModel *cloneIfcStyleModel(ExpressDataSet *expressDataSet, const IfcStyleModel &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcStyleModel *cloneIfcStyleModel(const IfcStyleModel &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcStyledItem *getIfcStyledItem(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcStyledItem *arg);
+        bool removeIfcStyledItem(IfcStyledItem *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStyledItem > createIfcStyledItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStyledItem *cloneIfcStyledItem(ExpressDataSet *expressDataSet, const IfcStyledItem &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStyledItem > createIfcStyledItem(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13246,16 +8882,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcStyledRepresentation *arg);
+        bool removeIfcStyledRepresentation(IfcStyledRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcStyledRepresentation > createIfcStyledRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcStyledRepresentation *cloneIfcStyledRepresentation(ExpressDataSet *expressDataSet, const IfcStyledRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcStyledRepresentation > createIfcStyledRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13268,16 +8899,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSubContractResource *arg);
+        bool removeIfcSubContractResource(IfcSubContractResource *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSubContractResource > createIfcSubContractResource();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSubContractResource *cloneIfcSubContractResource(ExpressDataSet *expressDataSet, const IfcSubContractResource &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSubContractResource > createIfcSubContractResource(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13290,16 +8916,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSubedge *arg);
+        bool removeIfcSubedge(IfcSubedge *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSubedge > createIfcSubedge();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSubedge *cloneIfcSubedge(ExpressDataSet *expressDataSet, const IfcSubedge &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSubedge > createIfcSubedge(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13308,42 +8929,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSurface *getIfcSurface(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSurface *arg);
-        /**
-         */
-        Step::RefPtr< IfcSurface > createIfcSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurface *cloneIfcSurface(ExpressDataSet *expressDataSet, const IfcSurface &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSurface *cloneIfcSurface(const IfcSurface &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSurfaceCurveSweptAreaSolid *getIfcSurfaceCurveSweptAreaSolid(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceCurveSweptAreaSolid *arg);
+        bool removeIfcSurfaceCurveSweptAreaSolid(IfcSurfaceCurveSweptAreaSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceCurveSweptAreaSolid > createIfcSurfaceCurveSweptAreaSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceCurveSweptAreaSolid *cloneIfcSurfaceCurveSweptAreaSolid(ExpressDataSet *expressDataSet, const IfcSurfaceCurveSweptAreaSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceCurveSweptAreaSolid > createIfcSurfaceCurveSweptAreaSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13356,16 +8950,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceOfLinearExtrusion *arg);
+        bool removeIfcSurfaceOfLinearExtrusion(IfcSurfaceOfLinearExtrusion *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceOfLinearExtrusion > createIfcSurfaceOfLinearExtrusion();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceOfLinearExtrusion *cloneIfcSurfaceOfLinearExtrusion(ExpressDataSet *expressDataSet, const IfcSurfaceOfLinearExtrusion &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceOfLinearExtrusion > createIfcSurfaceOfLinearExtrusion(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13378,16 +8967,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceOfRevolution *arg);
+        bool removeIfcSurfaceOfRevolution(IfcSurfaceOfRevolution *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceOfRevolution > createIfcSurfaceOfRevolution();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceOfRevolution *cloneIfcSurfaceOfRevolution(ExpressDataSet *expressDataSet, const IfcSurfaceOfRevolution &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceOfRevolution > createIfcSurfaceOfRevolution(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13400,16 +8984,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyle *arg);
+        bool removeIfcSurfaceStyle(IfcSurfaceStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyle > createIfcSurfaceStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyle *cloneIfcSurfaceStyle(ExpressDataSet *expressDataSet, const IfcSurfaceStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyle > createIfcSurfaceStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13422,16 +9001,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyleLighting *arg);
+        bool removeIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyleLighting > createIfcSurfaceStyleLighting();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyleLighting *cloneIfcSurfaceStyleLighting(ExpressDataSet *expressDataSet, const IfcSurfaceStyleLighting &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyleLighting > createIfcSurfaceStyleLighting(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13444,16 +9018,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyleRefraction *arg);
+        bool removeIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyleRefraction > createIfcSurfaceStyleRefraction();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyleRefraction *cloneIfcSurfaceStyleRefraction(ExpressDataSet *expressDataSet, const IfcSurfaceStyleRefraction &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyleRefraction > createIfcSurfaceStyleRefraction(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13466,16 +9035,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyleRendering *arg);
+        bool removeIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyleRendering > createIfcSurfaceStyleRendering();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyleRendering *cloneIfcSurfaceStyleRendering(ExpressDataSet *expressDataSet, const IfcSurfaceStyleRendering &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyleRendering > createIfcSurfaceStyleRendering(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13488,16 +9052,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyleShading *arg);
+        bool removeIfcSurfaceStyleShading(IfcSurfaceStyleShading *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyleShading > createIfcSurfaceStyleShading();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyleShading *cloneIfcSurfaceStyleShading(ExpressDataSet *expressDataSet, const IfcSurfaceStyleShading &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyleShading > createIfcSurfaceStyleShading(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13510,16 +9069,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSurfaceStyleWithTextures *arg);
+        bool removeIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSurfaceStyleWithTextures > createIfcSurfaceStyleWithTextures();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceStyleWithTextures *cloneIfcSurfaceStyleWithTextures(ExpressDataSet *expressDataSet, const IfcSurfaceStyleWithTextures &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSurfaceStyleWithTextures > createIfcSurfaceStyleWithTextures(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13528,64 +9082,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSurfaceTexture *getIfcSurfaceTexture(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSurfaceTexture *arg);
-        /**
-         */
-        Step::RefPtr< IfcSurfaceTexture > createIfcSurfaceTexture();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSurfaceTexture *cloneIfcSurfaceTexture(ExpressDataSet *expressDataSet, const IfcSurfaceTexture &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSurfaceTexture *cloneIfcSurfaceTexture(const IfcSurfaceTexture &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcSweptAreaSolid *getIfcSweptAreaSolid(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSweptAreaSolid *arg);
-        /**
-         */
-        Step::RefPtr< IfcSweptAreaSolid > createIfcSweptAreaSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSweptAreaSolid *cloneIfcSweptAreaSolid(ExpressDataSet *expressDataSet, const IfcSweptAreaSolid &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSweptAreaSolid *cloneIfcSweptAreaSolid(const IfcSweptAreaSolid &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSweptDiskSolid *getIfcSweptDiskSolid(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSweptDiskSolid *arg);
+        bool removeIfcSweptDiskSolid(IfcSweptDiskSolid *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSweptDiskSolid > createIfcSweptDiskSolid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSweptDiskSolid *cloneIfcSweptDiskSolid(ExpressDataSet *expressDataSet, const IfcSweptDiskSolid &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSweptDiskSolid > createIfcSweptDiskSolid(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13594,42 +9099,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcSweptSurface *getIfcSweptSurface(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcSweptSurface *arg);
-        /**
-         */
-        Step::RefPtr< IfcSweptSurface > createIfcSweptSurface();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSweptSurface *cloneIfcSweptSurface(ExpressDataSet *expressDataSet, const IfcSweptSurface &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcSweptSurface *cloneIfcSweptSurface(const IfcSweptSurface &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcSwitchingDeviceType *getIfcSwitchingDeviceType(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcSwitchingDeviceType *arg);
+        bool removeIfcSwitchingDeviceType(IfcSwitchingDeviceType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSwitchingDeviceType > createIfcSwitchingDeviceType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSwitchingDeviceType *cloneIfcSwitchingDeviceType(ExpressDataSet *expressDataSet, const IfcSwitchingDeviceType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSwitchingDeviceType > createIfcSwitchingDeviceType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13642,16 +9120,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSymbolStyle *arg);
+        bool removeIfcSymbolStyle(IfcSymbolStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSymbolStyle > createIfcSymbolStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSymbolStyle *cloneIfcSymbolStyle(ExpressDataSet *expressDataSet, const IfcSymbolStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSymbolStyle > createIfcSymbolStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13664,16 +9137,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSystem *arg);
+        bool removeIfcSystem(IfcSystem *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSystem > createIfcSystem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSystem *cloneIfcSystem(ExpressDataSet *expressDataSet, const IfcSystem &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSystem > createIfcSystem(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13686,16 +9154,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcSystemFurnitureElementType *arg);
+        bool removeIfcSystemFurnitureElementType(IfcSystemFurnitureElementType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcSystemFurnitureElementType > createIfcSystemFurnitureElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcSystemFurnitureElementType *cloneIfcSystemFurnitureElementType(ExpressDataSet *expressDataSet, const IfcSystemFurnitureElementType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcSystemFurnitureElementType > createIfcSystemFurnitureElementType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13708,16 +9171,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTShapeProfileDef *arg);
+        bool removeIfcTShapeProfileDef(IfcTShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTShapeProfileDef > createIfcTShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTShapeProfileDef *cloneIfcTShapeProfileDef(ExpressDataSet *expressDataSet, const IfcTShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTShapeProfileDef > createIfcTShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13730,16 +9188,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTable *arg);
+        bool removeIfcTable(IfcTable *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTable > createIfcTable();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTable *cloneIfcTable(ExpressDataSet *expressDataSet, const IfcTable &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTable > createIfcTable(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13752,16 +9205,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTableRow *arg);
+        bool removeIfcTableRow(IfcTableRow *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTableRow > createIfcTableRow();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTableRow *cloneIfcTableRow(ExpressDataSet *expressDataSet, const IfcTableRow &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTableRow > createIfcTableRow(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13774,16 +9222,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTankType *arg);
+        bool removeIfcTankType(IfcTankType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTankType > createIfcTankType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTankType *cloneIfcTankType(ExpressDataSet *expressDataSet, const IfcTankType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTankType > createIfcTankType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13796,16 +9239,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTask *arg);
+        bool removeIfcTask(IfcTask *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTask > createIfcTask();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTask *cloneIfcTask(ExpressDataSet *expressDataSet, const IfcTask &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTask > createIfcTask(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13818,16 +9256,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTelecomAddress *arg);
+        bool removeIfcTelecomAddress(IfcTelecomAddress *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTelecomAddress > createIfcTelecomAddress();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTelecomAddress *cloneIfcTelecomAddress(ExpressDataSet *expressDataSet, const IfcTelecomAddress &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTelecomAddress > createIfcTelecomAddress(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13840,16 +9273,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTendon *arg);
+        bool removeIfcTendon(IfcTendon *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTendon > createIfcTendon();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTendon *cloneIfcTendon(ExpressDataSet *expressDataSet, const IfcTendon &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTendon > createIfcTendon(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13862,16 +9290,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTendonAnchor *arg);
+        bool removeIfcTendonAnchor(IfcTendonAnchor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTendonAnchor > createIfcTendonAnchor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTendonAnchor *cloneIfcTendonAnchor(ExpressDataSet *expressDataSet, const IfcTendonAnchor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTendonAnchor > createIfcTendonAnchor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13884,16 +9307,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTerminatorSymbol *arg);
+        bool removeIfcTerminatorSymbol(IfcTerminatorSymbol *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTerminatorSymbol > createIfcTerminatorSymbol();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTerminatorSymbol *cloneIfcTerminatorSymbol(ExpressDataSet *expressDataSet, const IfcTerminatorSymbol &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTerminatorSymbol > createIfcTerminatorSymbol(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13906,16 +9324,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextLiteral *arg);
+        bool removeIfcTextLiteral(IfcTextLiteral *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextLiteral > createIfcTextLiteral();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextLiteral *cloneIfcTextLiteral(ExpressDataSet *expressDataSet, const IfcTextLiteral &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextLiteral > createIfcTextLiteral(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13928,16 +9341,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextLiteralWithExtent *arg);
+        bool removeIfcTextLiteralWithExtent(IfcTextLiteralWithExtent *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextLiteralWithExtent > createIfcTextLiteralWithExtent();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextLiteralWithExtent *cloneIfcTextLiteralWithExtent(ExpressDataSet *expressDataSet, const IfcTextLiteralWithExtent &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextLiteralWithExtent > createIfcTextLiteralWithExtent(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13950,16 +9358,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextStyle *arg);
+        bool removeIfcTextStyle(IfcTextStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextStyle > createIfcTextStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextStyle *cloneIfcTextStyle(ExpressDataSet *expressDataSet, const IfcTextStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextStyle > createIfcTextStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13972,16 +9375,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextStyleFontModel *arg);
+        bool removeIfcTextStyleFontModel(IfcTextStyleFontModel *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextStyleFontModel > createIfcTextStyleFontModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextStyleFontModel *cloneIfcTextStyleFontModel(ExpressDataSet *expressDataSet, const IfcTextStyleFontModel &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextStyleFontModel > createIfcTextStyleFontModel(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -13994,16 +9392,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextStyleForDefinedFont *arg);
+        bool removeIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextStyleForDefinedFont > createIfcTextStyleForDefinedFont();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextStyleForDefinedFont *cloneIfcTextStyleForDefinedFont(ExpressDataSet *expressDataSet, const IfcTextStyleForDefinedFont &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextStyleForDefinedFont > createIfcTextStyleForDefinedFont(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14016,16 +9409,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextStyleTextModel *arg);
+        bool removeIfcTextStyleTextModel(IfcTextStyleTextModel *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextStyleTextModel > createIfcTextStyleTextModel();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextStyleTextModel *cloneIfcTextStyleTextModel(ExpressDataSet *expressDataSet, const IfcTextStyleTextModel &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextStyleTextModel > createIfcTextStyleTextModel(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14038,16 +9426,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextStyleWithBoxCharacteristics *arg);
+        bool removeIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextStyleWithBoxCharacteristics > createIfcTextStyleWithBoxCharacteristics();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextStyleWithBoxCharacteristics *cloneIfcTextStyleWithBoxCharacteristics(ExpressDataSet *expressDataSet, const IfcTextStyleWithBoxCharacteristics &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextStyleWithBoxCharacteristics > createIfcTextStyleWithBoxCharacteristics(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14056,42 +9439,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcTextureCoordinate *getIfcTextureCoordinate(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcTextureCoordinate *arg);
-        /**
-         */
-        Step::RefPtr< IfcTextureCoordinate > createIfcTextureCoordinate();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextureCoordinate *cloneIfcTextureCoordinate(ExpressDataSet *expressDataSet, const IfcTextureCoordinate &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcTextureCoordinate *cloneIfcTextureCoordinate(const IfcTextureCoordinate &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcTextureCoordinateGenerator *getIfcTextureCoordinateGenerator(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcTextureCoordinateGenerator *arg);
+        bool removeIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextureCoordinateGenerator > createIfcTextureCoordinateGenerator();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextureCoordinateGenerator *cloneIfcTextureCoordinateGenerator(ExpressDataSet *expressDataSet, const IfcTextureCoordinateGenerator &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextureCoordinateGenerator > createIfcTextureCoordinateGenerator(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14104,16 +9460,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextureMap *arg);
+        bool removeIfcTextureMap(IfcTextureMap *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextureMap > createIfcTextureMap();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextureMap *cloneIfcTextureMap(ExpressDataSet *expressDataSet, const IfcTextureMap &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextureMap > createIfcTextureMap(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14126,16 +9477,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTextureVertex *arg);
+        bool removeIfcTextureVertex(IfcTextureVertex *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTextureVertex > createIfcTextureVertex();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTextureVertex *cloneIfcTextureVertex(ExpressDataSet *expressDataSet, const IfcTextureVertex &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTextureVertex > createIfcTextureVertex(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14148,16 +9494,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcThermalMaterialProperties *arg);
+        bool removeIfcThermalMaterialProperties(IfcThermalMaterialProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcThermalMaterialProperties > createIfcThermalMaterialProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcThermalMaterialProperties *cloneIfcThermalMaterialProperties(ExpressDataSet *expressDataSet, const IfcThermalMaterialProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcThermalMaterialProperties > createIfcThermalMaterialProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14166,42 +9507,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcTimeSeries *getIfcTimeSeries(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcTimeSeries *arg);
-        /**
-         */
-        Step::RefPtr< IfcTimeSeries > createIfcTimeSeries();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTimeSeries *cloneIfcTimeSeries(ExpressDataSet *expressDataSet, const IfcTimeSeries &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcTimeSeries *cloneIfcTimeSeries(const IfcTimeSeries &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcTimeSeriesReferenceRelationship *getIfcTimeSeriesReferenceRelationship(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcTimeSeriesReferenceRelationship *arg);
+        bool removeIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTimeSeriesReferenceRelationship > createIfcTimeSeriesReferenceRelationship();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTimeSeriesReferenceRelationship *cloneIfcTimeSeriesReferenceRelationship(ExpressDataSet *expressDataSet, const IfcTimeSeriesReferenceRelationship &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTimeSeriesReferenceRelationship > createIfcTimeSeriesReferenceRelationship(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14214,16 +9528,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTimeSeriesSchedule *arg);
+        bool removeIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTimeSeriesSchedule > createIfcTimeSeriesSchedule();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTimeSeriesSchedule *cloneIfcTimeSeriesSchedule(ExpressDataSet *expressDataSet, const IfcTimeSeriesSchedule &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTimeSeriesSchedule > createIfcTimeSeriesSchedule(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14236,16 +9545,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTimeSeriesValue *arg);
+        bool removeIfcTimeSeriesValue(IfcTimeSeriesValue *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTimeSeriesValue > createIfcTimeSeriesValue();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTimeSeriesValue *cloneIfcTimeSeriesValue(ExpressDataSet *expressDataSet, const IfcTimeSeriesValue &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTimeSeriesValue > createIfcTimeSeriesValue(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14254,42 +9558,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcTopologicalRepresentationItem *getIfcTopologicalRepresentationItem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcTopologicalRepresentationItem *arg);
-        /**
-         */
-        Step::RefPtr< IfcTopologicalRepresentationItem > createIfcTopologicalRepresentationItem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTopologicalRepresentationItem *cloneIfcTopologicalRepresentationItem(ExpressDataSet *expressDataSet, const IfcTopologicalRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcTopologicalRepresentationItem *cloneIfcTopologicalRepresentationItem(const IfcTopologicalRepresentationItem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcTopologyRepresentation *getIfcTopologyRepresentation(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcTopologyRepresentation *arg);
+        bool removeIfcTopologyRepresentation(IfcTopologyRepresentation *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTopologyRepresentation > createIfcTopologyRepresentation();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTopologyRepresentation *cloneIfcTopologyRepresentation(ExpressDataSet *expressDataSet, const IfcTopologyRepresentation &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTopologyRepresentation > createIfcTopologyRepresentation(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14302,16 +9579,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTransformerType *arg);
+        bool removeIfcTransformerType(IfcTransformerType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTransformerType > createIfcTransformerType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTransformerType *cloneIfcTransformerType(ExpressDataSet *expressDataSet, const IfcTransformerType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTransformerType > createIfcTransformerType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14324,16 +9596,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTransportElement *arg);
+        bool removeIfcTransportElement(IfcTransportElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTransportElement > createIfcTransportElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTransportElement *cloneIfcTransportElement(ExpressDataSet *expressDataSet, const IfcTransportElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTransportElement > createIfcTransportElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14346,16 +9613,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTransportElementType *arg);
+        bool removeIfcTransportElementType(IfcTransportElementType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTransportElementType > createIfcTransportElementType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTransportElementType *cloneIfcTransportElementType(ExpressDataSet *expressDataSet, const IfcTransportElementType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTransportElementType > createIfcTransportElementType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14368,16 +9630,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTrapeziumProfileDef *arg);
+        bool removeIfcTrapeziumProfileDef(IfcTrapeziumProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTrapeziumProfileDef > createIfcTrapeziumProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTrapeziumProfileDef *cloneIfcTrapeziumProfileDef(ExpressDataSet *expressDataSet, const IfcTrapeziumProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTrapeziumProfileDef > createIfcTrapeziumProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14390,16 +9647,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTrimmedCurve *arg);
+        bool removeIfcTrimmedCurve(IfcTrimmedCurve *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTrimmedCurve > createIfcTrimmedCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTrimmedCurve *cloneIfcTrimmedCurve(ExpressDataSet *expressDataSet, const IfcTrimmedCurve &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTrimmedCurve > createIfcTrimmedCurve(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14412,16 +9664,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTubeBundleType *arg);
+        bool removeIfcTubeBundleType(IfcTubeBundleType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTubeBundleType > createIfcTubeBundleType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTubeBundleType *cloneIfcTubeBundleType(ExpressDataSet *expressDataSet, const IfcTubeBundleType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTubeBundleType > createIfcTubeBundleType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14434,16 +9681,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTwoDirectionRepeatFactor *arg);
+        bool removeIfcTwoDirectionRepeatFactor(IfcTwoDirectionRepeatFactor *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTwoDirectionRepeatFactor > createIfcTwoDirectionRepeatFactor();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTwoDirectionRepeatFactor *cloneIfcTwoDirectionRepeatFactor(ExpressDataSet *expressDataSet, const IfcTwoDirectionRepeatFactor &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTwoDirectionRepeatFactor > createIfcTwoDirectionRepeatFactor(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14456,16 +9698,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTypeObject *arg);
+        bool removeIfcTypeObject(IfcTypeObject *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTypeObject > createIfcTypeObject();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTypeObject *cloneIfcTypeObject(ExpressDataSet *expressDataSet, const IfcTypeObject &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTypeObject > createIfcTypeObject(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14478,16 +9715,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcTypeProduct *arg);
+        bool removeIfcTypeProduct(IfcTypeProduct *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcTypeProduct > createIfcTypeProduct();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcTypeProduct *cloneIfcTypeProduct(ExpressDataSet *expressDataSet, const IfcTypeProduct &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcTypeProduct > createIfcTypeProduct(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14500,16 +9732,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcUShapeProfileDef *arg);
+        bool removeIfcUShapeProfileDef(IfcUShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcUShapeProfileDef > createIfcUShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcUShapeProfileDef *cloneIfcUShapeProfileDef(ExpressDataSet *expressDataSet, const IfcUShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcUShapeProfileDef > createIfcUShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14522,16 +9749,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcUnitAssignment *arg);
+        bool removeIfcUnitAssignment(IfcUnitAssignment *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcUnitAssignment > createIfcUnitAssignment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcUnitAssignment *cloneIfcUnitAssignment(ExpressDataSet *expressDataSet, const IfcUnitAssignment &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcUnitAssignment > createIfcUnitAssignment(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14544,16 +9766,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcUnitaryEquipmentType *arg);
+        bool removeIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcUnitaryEquipmentType > createIfcUnitaryEquipmentType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcUnitaryEquipmentType *cloneIfcUnitaryEquipmentType(ExpressDataSet *expressDataSet, const IfcUnitaryEquipmentType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcUnitaryEquipmentType > createIfcUnitaryEquipmentType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14566,16 +9783,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcValveType *arg);
+        bool removeIfcValveType(IfcValveType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcValveType > createIfcValveType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcValveType *cloneIfcValveType(ExpressDataSet *expressDataSet, const IfcValveType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcValveType > createIfcValveType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14588,16 +9800,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVector *arg);
+        bool removeIfcVector(IfcVector *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVector > createIfcVector();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVector *cloneIfcVector(ExpressDataSet *expressDataSet, const IfcVector &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVector > createIfcVector(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14610,16 +9817,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVertex *arg);
+        bool removeIfcVertex(IfcVertex *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVertex > createIfcVertex();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVertex *cloneIfcVertex(ExpressDataSet *expressDataSet, const IfcVertex &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVertex > createIfcVertex(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14632,16 +9834,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVertexBasedTextureMap *arg);
+        bool removeIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVertexBasedTextureMap > createIfcVertexBasedTextureMap();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVertexBasedTextureMap *cloneIfcVertexBasedTextureMap(ExpressDataSet *expressDataSet, const IfcVertexBasedTextureMap &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVertexBasedTextureMap > createIfcVertexBasedTextureMap(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14654,16 +9851,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVertexLoop *arg);
+        bool removeIfcVertexLoop(IfcVertexLoop *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVertexLoop > createIfcVertexLoop();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVertexLoop *cloneIfcVertexLoop(ExpressDataSet *expressDataSet, const IfcVertexLoop &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVertexLoop > createIfcVertexLoop(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14676,16 +9868,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVertexPoint *arg);
+        bool removeIfcVertexPoint(IfcVertexPoint *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVertexPoint > createIfcVertexPoint();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVertexPoint *cloneIfcVertexPoint(ExpressDataSet *expressDataSet, const IfcVertexPoint &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVertexPoint > createIfcVertexPoint(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14698,16 +9885,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVibrationIsolatorType *arg);
+        bool removeIfcVibrationIsolatorType(IfcVibrationIsolatorType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVibrationIsolatorType > createIfcVibrationIsolatorType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVibrationIsolatorType *cloneIfcVibrationIsolatorType(ExpressDataSet *expressDataSet, const IfcVibrationIsolatorType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVibrationIsolatorType > createIfcVibrationIsolatorType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14720,16 +9902,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVirtualElement *arg);
+        bool removeIfcVirtualElement(IfcVirtualElement *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVirtualElement > createIfcVirtualElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVirtualElement *cloneIfcVirtualElement(ExpressDataSet *expressDataSet, const IfcVirtualElement &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVirtualElement > createIfcVirtualElement(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14742,16 +9919,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcVirtualGridIntersection *arg);
+        bool removeIfcVirtualGridIntersection(IfcVirtualGridIntersection *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcVirtualGridIntersection > createIfcVirtualGridIntersection();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcVirtualGridIntersection *cloneIfcVirtualGridIntersection(ExpressDataSet *expressDataSet, const IfcVirtualGridIntersection &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcVirtualGridIntersection > createIfcVirtualGridIntersection(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14764,16 +9936,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWall *arg);
+        bool removeIfcWall(IfcWall *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWall > createIfcWall();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWall *cloneIfcWall(ExpressDataSet *expressDataSet, const IfcWall &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWall > createIfcWall(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14786,16 +9953,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWallStandardCase *arg);
+        bool removeIfcWallStandardCase(IfcWallStandardCase *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWallStandardCase > createIfcWallStandardCase();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWallStandardCase *cloneIfcWallStandardCase(ExpressDataSet *expressDataSet, const IfcWallStandardCase &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWallStandardCase > createIfcWallStandardCase(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14808,16 +9970,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWallType *arg);
+        bool removeIfcWallType(IfcWallType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWallType > createIfcWallType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWallType *cloneIfcWallType(ExpressDataSet *expressDataSet, const IfcWallType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWallType > createIfcWallType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14830,16 +9987,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWasteTerminalType *arg);
+        bool removeIfcWasteTerminalType(IfcWasteTerminalType *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWasteTerminalType > createIfcWasteTerminalType();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWasteTerminalType *cloneIfcWasteTerminalType(ExpressDataSet *expressDataSet, const IfcWasteTerminalType &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWasteTerminalType > createIfcWasteTerminalType(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14852,16 +10004,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWaterProperties *arg);
+        bool removeIfcWaterProperties(IfcWaterProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWaterProperties > createIfcWaterProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWaterProperties *cloneIfcWaterProperties(ExpressDataSet *expressDataSet, const IfcWaterProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWaterProperties > createIfcWaterProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14874,16 +10021,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWindow *arg);
+        bool removeIfcWindow(IfcWindow *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWindow > createIfcWindow();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWindow *cloneIfcWindow(ExpressDataSet *expressDataSet, const IfcWindow &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWindow > createIfcWindow(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14896,16 +10038,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWindowLiningProperties *arg);
+        bool removeIfcWindowLiningProperties(IfcWindowLiningProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWindowLiningProperties > createIfcWindowLiningProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWindowLiningProperties *cloneIfcWindowLiningProperties(ExpressDataSet *expressDataSet, const IfcWindowLiningProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWindowLiningProperties > createIfcWindowLiningProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14918,16 +10055,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWindowPanelProperties *arg);
+        bool removeIfcWindowPanelProperties(IfcWindowPanelProperties *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWindowPanelProperties > createIfcWindowPanelProperties();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWindowPanelProperties *cloneIfcWindowPanelProperties(ExpressDataSet *expressDataSet, const IfcWindowPanelProperties &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWindowPanelProperties > createIfcWindowPanelProperties(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14940,16 +10072,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWindowStyle *arg);
+        bool removeIfcWindowStyle(IfcWindowStyle *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWindowStyle > createIfcWindowStyle();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWindowStyle *cloneIfcWindowStyle(ExpressDataSet *expressDataSet, const IfcWindowStyle &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWindowStyle > createIfcWindowStyle(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -14958,42 +10085,15 @@ namespace ifc2x3 {
         /**
          * @param id
          */
-        IfcWorkControl *getIfcWorkControl(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcWorkControl *arg);
-        /**
-         */
-        Step::RefPtr< IfcWorkControl > createIfcWorkControl();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWorkControl *cloneIfcWorkControl(ExpressDataSet *expressDataSet, const IfcWorkControl &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcWorkControl *cloneIfcWorkControl(const IfcWorkControl &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
         IfcWorkPlan *getIfcWorkPlan(Step::Id id);
         /**
          * @param arg
          */
-        bool remove(IfcWorkPlan *arg);
+        bool removeIfcWorkPlan(IfcWorkPlan *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWorkPlan > createIfcWorkPlan();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWorkPlan *cloneIfcWorkPlan(ExpressDataSet *expressDataSet, const IfcWorkPlan &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWorkPlan > createIfcWorkPlan(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -15006,16 +10106,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcWorkSchedule *arg);
+        bool removeIfcWorkSchedule(IfcWorkSchedule *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcWorkSchedule > createIfcWorkSchedule();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcWorkSchedule *cloneIfcWorkSchedule(ExpressDataSet *expressDataSet, const IfcWorkSchedule &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcWorkSchedule > createIfcWorkSchedule(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -15028,16 +10123,11 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcZShapeProfileDef *arg);
+        bool removeIfcZShapeProfileDef(IfcZShapeProfileDef *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcZShapeProfileDef > createIfcZShapeProfileDef();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcZShapeProfileDef *cloneIfcZShapeProfileDef(ExpressDataSet *expressDataSet, const IfcZShapeProfileDef &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcZShapeProfileDef > createIfcZShapeProfileDef(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
@@ -15050,549 +10140,16 @@ namespace ifc2x3 {
         /**
          * @param arg
          */
-        bool remove(IfcZone *arg);
+        bool removeIfcZone(IfcZone *arg);
         /**
+         * @param isVolatile
          */
-        Step::RefPtr< IfcZone > createIfcZone();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcZone *cloneIfcZone(ExpressDataSet *expressDataSet, const IfcZone &obj, const CopyOp &copyop);
+        Step::RefPtr< IfcZone > createIfcZone(bool isVolatile = false);
         /**
          * @param obj
          * @param copyop
          */
         IfcZone *cloneIfcZone(const IfcZone &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcCivilStructureElement *getIfcCivilStructureElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCivilStructureElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcCivilStructureElement > createIfcCivilStructureElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCivilStructureElement *cloneIfcCivilStructureElement(ExpressDataSet *expressDataSet, const IfcCivilStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCivilStructureElement *cloneIfcCivilStructureElement(const IfcCivilStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgeStructureElement *getIfcBridgeStructureElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgeStructureElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgeStructureElement > createIfcBridgeStructureElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgeStructureElement *cloneIfcBridgeStructureElement(ExpressDataSet *expressDataSet, const IfcBridgeStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgeStructureElement *cloneIfcBridgeStructureElement(const IfcBridgeStructureElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridge *getIfcBridge(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridge *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridge > createIfcBridge();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridge *cloneIfcBridge(ExpressDataSet *expressDataSet, const IfcBridge &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridge *cloneIfcBridge(const IfcBridge &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgePart *getIfcBridgePart(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgePart *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgePart > createIfcBridgePart();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgePart *cloneIfcBridgePart(ExpressDataSet *expressDataSet, const IfcBridgePart &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgePart *cloneIfcBridgePart(const IfcBridgePart &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcCivilElement *getIfcCivilElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCivilElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcCivilElement > createIfcCivilElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCivilElement *cloneIfcCivilElement(ExpressDataSet *expressDataSet, const IfcCivilElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCivilElement *cloneIfcCivilElement(const IfcCivilElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgeElement *getIfcBridgeElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgeElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgeElement > createIfcBridgeElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgeElement *cloneIfcBridgeElement(ExpressDataSet *expressDataSet, const IfcBridgeElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgeElement *cloneIfcBridgeElement(const IfcBridgeElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgeSegment *getIfcBridgeSegment(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgeSegment *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgeSegment > createIfcBridgeSegment();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgeSegment *cloneIfcBridgeSegment(ExpressDataSet *expressDataSet, const IfcBridgeSegment &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgeSegment *cloneIfcBridgeSegment(const IfcBridgeSegment &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgeSegmentPart *getIfcBridgeSegmentPart(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgeSegmentPart *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgeSegmentPart > createIfcBridgeSegmentPart();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgeSegmentPart *cloneIfcBridgeSegmentPart(ExpressDataSet *expressDataSet, const IfcBridgeSegmentPart &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgeSegmentPart *cloneIfcBridgeSegmentPart(const IfcBridgeSegmentPart &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgeContactElement *getIfcBridgeContactElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgeContactElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgeContactElement > createIfcBridgeContactElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgeContactElement *cloneIfcBridgeContactElement(ExpressDataSet *expressDataSet, const IfcBridgeContactElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgeContactElement *cloneIfcBridgeContactElement(const IfcBridgeContactElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcBridgePrismaticElement *getIfcBridgePrismaticElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcBridgePrismaticElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcBridgePrismaticElement > createIfcBridgePrismaticElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcBridgePrismaticElement *cloneIfcBridgePrismaticElement(ExpressDataSet *expressDataSet, const IfcBridgePrismaticElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcBridgePrismaticElement *cloneIfcBridgePrismaticElement(const IfcBridgePrismaticElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcAlignmentElement *getIfcAlignmentElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcAlignmentElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcAlignmentElement > createIfcAlignmentElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcAlignmentElement *cloneIfcAlignmentElement(ExpressDataSet *expressDataSet, const IfcAlignmentElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcAlignmentElement *cloneIfcAlignmentElement(const IfcAlignmentElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceElement *getIfcReferenceElement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceElement *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceElement > createIfcReferenceElement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceElement *cloneIfcReferenceElement(ExpressDataSet *expressDataSet, const IfcReferenceElement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceElement *cloneIfcReferenceElement(const IfcReferenceElement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceCurve *getIfcReferenceCurve(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceCurve *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceCurve > createIfcReferenceCurve();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceCurve *cloneIfcReferenceCurve(ExpressDataSet *expressDataSet, const IfcReferenceCurve &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceCurve *cloneIfcReferenceCurve(const IfcReferenceCurve &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceCurve3D *getIfcReferenceCurve3D(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceCurve3D *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceCurve3D > createIfcReferenceCurve3D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceCurve3D *cloneIfcReferenceCurve3D(ExpressDataSet *expressDataSet, const IfcReferenceCurve3D &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceCurve3D *cloneIfcReferenceCurve3D(const IfcReferenceCurve3D &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceCurveAlignment2D *getIfcReferenceCurveAlignment2D(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceCurveAlignment2D *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceCurveAlignment2D > createIfcReferenceCurveAlignment2D();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceCurveAlignment2D *cloneIfcReferenceCurveAlignment2D(ExpressDataSet *expressDataSet, const IfcReferenceCurveAlignment2D &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceCurveAlignment2D *cloneIfcReferenceCurveAlignment2D(const IfcReferenceCurveAlignment2D &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferencePlacement *getIfcReferencePlacement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferencePlacement *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferencePlacement > createIfcReferencePlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferencePlacement *cloneIfcReferencePlacement(ExpressDataSet *expressDataSet, const IfcReferencePlacement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferencePlacement *cloneIfcReferencePlacement(const IfcReferencePlacement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceCurvePlacement *getIfcReferenceCurvePlacement(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceCurvePlacement *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceCurvePlacement > createIfcReferenceCurvePlacement();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceCurvePlacement *cloneIfcReferenceCurvePlacement(ExpressDataSet *expressDataSet, const IfcReferenceCurvePlacement &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceCurvePlacement *cloneIfcReferenceCurvePlacement(const IfcReferenceCurvePlacement &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferenceCurvePlacementSystem *getIfcReferenceCurvePlacementSystem(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferenceCurvePlacementSystem *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferenceCurvePlacementSystem > createIfcReferenceCurvePlacementSystem();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferenceCurvePlacementSystem *cloneIfcReferenceCurvePlacementSystem(ExpressDataSet *expressDataSet, const IfcReferenceCurvePlacementSystem &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferenceCurvePlacementSystem *cloneIfcReferenceCurvePlacementSystem(const IfcReferenceCurvePlacementSystem &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcElementPart *getIfcElementPart(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcElementPart *arg);
-        /**
-         */
-        Step::RefPtr< IfcElementPart > createIfcElementPart();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcElementPart *cloneIfcElementPart(ExpressDataSet *expressDataSet, const IfcElementPart &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcElementPart *cloneIfcElementPart(const IfcElementPart &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcCivilElementPart *getIfcCivilElementPart(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCivilElementPart *arg);
-        /**
-         */
-        Step::RefPtr< IfcCivilElementPart > createIfcCivilElementPart();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCivilElementPart *cloneIfcCivilElementPart(ExpressDataSet *expressDataSet, const IfcCivilElementPart &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCivilElementPart *cloneIfcCivilElementPart(const IfcCivilElementPart &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcCivilSheath *getIfcCivilSheath(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCivilSheath *arg);
-        /**
-         */
-        Step::RefPtr< IfcCivilSheath > createIfcCivilSheath();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCivilSheath *cloneIfcCivilSheath(ExpressDataSet *expressDataSet, const IfcCivilSheath &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCivilSheath *cloneIfcCivilSheath(const IfcCivilSheath &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcCivilVoid *getIfcCivilVoid(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcCivilVoid *arg);
-        /**
-         */
-        Step::RefPtr< IfcCivilVoid > createIfcCivilVoid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcCivilVoid *cloneIfcCivilVoid(ExpressDataSet *expressDataSet, const IfcCivilVoid &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcCivilVoid *cloneIfcCivilVoid(const IfcCivilVoid &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcClothoid *getIfcClothoid(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcClothoid *arg);
-        /**
-         */
-        Step::RefPtr< IfcClothoid > createIfcClothoid();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcClothoid *cloneIfcClothoid(ExpressDataSet *expressDataSet, const IfcClothoid &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcClothoid *cloneIfcClothoid(const IfcClothoid &obj, const CopyOp &copyop);
-        /**
-         * @param id
-         */
-        IfcReferencedSectionedSpine *getIfcReferencedSectionedSpine(Step::Id id);
-        /**
-         * @param arg
-         */
-        bool remove(IfcReferencedSectionedSpine *arg);
-        /**
-         */
-        Step::RefPtr< IfcReferencedSectionedSpine > createIfcReferencedSectionedSpine();
-        /**
-         * @param expressDataSet
-         * @param obj
-         * @param copyop
-         */
-        static IfcReferencedSectionedSpine *cloneIfcReferencedSectionedSpine(ExpressDataSet *expressDataSet, const IfcReferencedSectionedSpine &obj, const CopyOp &copyop);
-        /**
-         * @param obj
-         * @param copyop
-         */
-        IfcReferencedSectionedSpine *cloneIfcReferencedSectionedSpine(const IfcReferencedSectionedSpine &obj, const CopyOp &copyop);
         /**
          */
         Step::RefLinkedList< Ifc2DCompositeCurve > &getAllIfc2DCompositeCurve();
@@ -15758,6 +10315,9 @@ namespace ifc2x3 {
         /**
          */
         Step::RefLinkedList< IfcBuildingElement > &getAllIfcBuildingElement();
+        /**
+         */
+        Step::RefLinkedList< IfcBuildingElementComponent > &getAllIfcBuildingElementComponent();
         /**
          */
         Step::RefLinkedList< IfcBuildingElementPart > &getAllIfcBuildingElementPart();
@@ -17549,78 +12109,6 @@ namespace ifc2x3 {
         /**
          */
         Step::RefLinkedList< IfcZone > &getAllIfcZone();
-        /**
-         */
-        Step::RefLinkedList< IfcCivilStructureElement > &getAllIfcCivilStructureElement();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeStructureElement > &getAllIfcBridgeStructureElement();
-        /**
-         */
-        Step::RefLinkedList< IfcBridge > &getAllIfcBridge();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgePart > &getAllIfcBridgePart();
-        /**
-         */
-        Step::RefLinkedList< IfcCivilElement > &getAllIfcCivilElement();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeElement > &getAllIfcBridgeElement();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeSegment > &getAllIfcBridgeSegment();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeSegmentPart > &getAllIfcBridgeSegmentPart();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeContactElement > &getAllIfcBridgeContactElement();
-        /**
-         */
-        Step::RefLinkedList< IfcBridgePrismaticElement > &getAllIfcBridgePrismaticElement();
-        /**
-         */
-        Step::RefLinkedList< IfcAlignmentElement > &getAllIfcAlignmentElement();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceElement > &getAllIfcReferenceElement();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurve > &getAllIfcReferenceCurve();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurve3D > &getAllIfcReferenceCurve3D();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurveAlignment2D > &getAllIfcReferenceCurveAlignment2D();
-        /**
-         */
-        Step::RefLinkedList< IfcReferencePlacement > &getAllIfcReferencePlacement();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurvePlacement > &getAllIfcReferenceCurvePlacement();
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurvePlacementSystem > &getAllIfcReferenceCurvePlacementSystem();
-        /**
-         */
-        Step::RefLinkedList< IfcElementPart > &getAllIfcElementPart();
-        /**
-         */
-        Step::RefLinkedList< IfcCivilElementPart > &getAllIfcCivilElementPart();
-        /**
-         */
-        Step::RefLinkedList< IfcCivilSheath > &getAllIfcCivilSheath();
-        /**
-         */
-        Step::RefLinkedList< IfcCivilVoid > &getAllIfcCivilVoid();
-        /**
-         */
-        Step::RefLinkedList< IfcClothoid > &getAllIfcClothoid();
-        /**
-         */
-        Step::RefLinkedList< IfcReferencedSectionedSpine > &getAllIfcReferencedSectionedSpine();
         friend class SPFWriter;
         friend class SPFReader;
 
@@ -17640,9 +12128,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcActuatorType_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAddress_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcAirTerminalBoxType_Map;
@@ -17672,9 +12157,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationFillAreaOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationOccurrence_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSurface_Map;
         /**
          */
@@ -17688,9 +12170,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcApplication_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAppliedValue_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcAppliedValueRelationship_Map;
@@ -17732,9 +12211,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcAxis2Placement3D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBSplineCurve_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBeam_Map;
         /**
          */
@@ -17759,9 +12235,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBooleanResult_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryCondition_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryEdgeCondition_Map;
         /**
          */
@@ -17772,9 +12245,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryNodeConditionWarping_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundedCurve_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundedSurface_Map;
@@ -17789,9 +12259,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuilding_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElement_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementPart_Map;
         /**
          */
@@ -17799,9 +12266,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementProxyType_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingStorey_Map;
@@ -17823,9 +12287,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianPoint_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator2D_Map;
@@ -17885,9 +12346,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcColourRgb_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcColourSpecification_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcColumn_Map;
         /**
          */
@@ -17918,16 +12376,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConditionCriterion_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConic_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectedFaceSet_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionCurveGeometry_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionGeometry_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPointEccentricity_Map;
@@ -17940,9 +12392,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionSurfaceGeometry_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstraint_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstraintAggregationRelationship_Map;
@@ -17963,13 +12412,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstructionProductResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstructionResource_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcContextDependentUnit_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcControl_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcControllerType_Map;
@@ -18011,9 +12454,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCrewResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCsgPrimitive3D_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCsgSolid_Map;
         /**
          */
@@ -18024,9 +12464,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurtainWallType_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurve_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveBoundedPlane_Map;
@@ -18101,9 +12538,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionControlElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionControlElementType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionElement_Map;
         /**
          */
@@ -18111,9 +12545,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionFlowElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionFlowElementType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionPort_Map;
@@ -18173,9 +12604,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdgeCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdgeFeature_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdgeLoop_Map;
         /**
          */
@@ -18209,25 +12637,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricalElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElement_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementAssembly_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementComponent_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementComponentType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementQuantity_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementType_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementarySurface_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcEllipse_Map;
@@ -18237,9 +12650,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnergyConversionDevice_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnergyConversionDeviceType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnergyProperties_Map;
@@ -18261,9 +12671,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcExtendedMaterialProperties_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternalReference_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedHatchStyle_Map;
@@ -18314,15 +12721,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFastenerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFeatureElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFeatureElementAddition_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFeatureElementSubtraction_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyle_Map;
         /**
          */
@@ -18344,13 +12742,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowController_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowControllerType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowFitting_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowFittingType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowInstrumentType_Map;
@@ -18362,31 +12754,16 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowMovingDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowMovingDeviceType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowSegment_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowSegmentType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowStorageDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowStorageDeviceType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTerminal_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTerminalType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTreatmentDevice_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTreatmentDeviceType_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcFluidFlowProperties_Map;
@@ -18423,9 +12800,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationContext_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationItem_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationSubContext_Map;
@@ -18500,9 +12874,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightIntensityDistribution_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSource_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceAmbient_Map;
         /**
          */
@@ -18533,9 +12904,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcLoop_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcManifoldSolidBrep_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcMappedItem_Map;
         /**
          */
@@ -18558,9 +12926,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialList_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialProperties_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcMeasureWithUnit_Map;
@@ -18597,18 +12962,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcMove_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcNamedUnit_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcObject_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcObjectDefinition_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcObjectPlacement_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcObjective_Map;
@@ -18653,9 +13006,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcOwnerHistory_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcParameterizedProfileDef_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPath_Map;
         /**
          */
@@ -18677,12 +13027,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPhysicalComplexQuantity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPhysicalQuantity_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPhysicalSimpleQuantity_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPile_Map;
         /**
          */
@@ -18693,9 +13037,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPixelTexture_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlacement_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlanarBox_Map;
@@ -18713,9 +13054,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlateType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPoint_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPointOnCurve_Map;
         /**
          */
@@ -18731,34 +13069,16 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPolyline_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPort_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPostalAddress_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedColour_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedCurveFont_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedDimensionSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedItem_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedPointMarkerSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedSymbol_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedTerminatorSymbol_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedTextFont_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerAssignment_Map;
@@ -18767,19 +13087,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerWithStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationStyle_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationStyleAssignment_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcProcedure_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProcess_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProduct_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcProductDefinitionShape_Map;
@@ -18789,12 +13100,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcProductsOfCombustionProperties_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProfileDef_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProfileProperties_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcProject_Map;
@@ -18812,16 +13117,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcProjectionElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProperty_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyBoundedValue_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyConstraintRelationship_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyDefinition_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyDependencyRelationship_Map;
@@ -18840,9 +13139,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertySet_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertySetDefinition_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertySingleValue_Map;
@@ -18926,16 +13222,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingBar_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingElement_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingMesh_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAggregates_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssigns_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsTasks_Map;
@@ -18989,9 +13279,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnects_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsElements_Map;
         /**
          */
@@ -19026,12 +13313,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelCoversSpaces_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelDecomposes_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelDefines_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelDefinesByProperties_Map;
@@ -19079,9 +13360,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelVoidsElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelationship_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelaxation_Map;
         /**
          */
@@ -19091,13 +13369,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationContext_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationItem_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationMap_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcResource_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRevolvedAreaSolid_Map;
@@ -19113,9 +13385,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoof_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoot_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoundedEdgeFeature_Map;
@@ -19154,16 +13423,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcShapeAspect_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcShapeModel_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcShapeRepresentation_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcShellBasedSurfaceModel_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSimpleProperty_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSite_Map;
@@ -19176,9 +13439,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSlippageConnectionCondition_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSolidModel_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSoundProperties_Map;
@@ -19202,12 +13462,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpaceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpatialStructureElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpatialStructureElementType_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSphere_Map;
         /**
          */
@@ -19223,19 +13477,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStairFlightType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralAction_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralActivity_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralAnalysisModel_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralConnection_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralConnectionCondition_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveConnection_Map;
@@ -19247,16 +13489,10 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveMemberVarying_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralItem_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearAction_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearActionVarying_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoad_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadGroup_Map;
@@ -19280,13 +13516,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleForceWarping_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadStatic_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadTemperature_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralMember_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPlanarAction_Map;
@@ -19307,9 +13537,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralReaction_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralResultGroup_Map;
         /**
          */
@@ -19328,9 +13555,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuredDimensionCallout_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStyleModel_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcStyledItem_Map;
         /**
          */
@@ -19341,9 +13565,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSubedge_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurface_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceCurveSweptAreaSolid_Map;
@@ -19373,16 +13594,7 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleWithTextures_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceTexture_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSweptAreaSolid_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSweptDiskSolid_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSweptSurface_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcSwitchingDeviceType_Map;
@@ -19445,9 +13657,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleWithBoxCharacteristics_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextureCoordinate_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextureCoordinateGenerator_Map;
         /**
          */
@@ -19460,9 +13669,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcThermalMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeries_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesReferenceRelationship_Map;
         /**
          */
@@ -19470,9 +13676,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesValue_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTopologicalRepresentationItem_Map;
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcTopologyRepresentation_Map;
@@ -19568,9 +13771,6 @@ namespace ifc2x3 {
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcWindowStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWorkControl_Map;
-        /**
-         */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcWorkPlan_Map;
         /**
          */
@@ -19581,78 +13781,6 @@ namespace ifc2x3 {
         /**
          */
         std::map<Step::Id, Step::BaseObjectPtr > m_IfcZone_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCivilStructureElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgeStructureElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridge_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgePart_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCivilElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgeElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgeSegment_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgeSegmentPart_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgeContactElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBridgePrismaticElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAlignmentElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceElement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceCurve_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceCurve3D_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceCurveAlignment2D_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferencePlacement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceCurvePlacement_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferenceCurvePlacementSystem_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementPart_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCivilElementPart_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCivilSheath_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCivilVoid_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClothoid_Map;
-        /**
-         */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferencedSectionedSpine_Map;
         /**
          */
         Step::RefLinkedList< Ifc2DCompositeCurve > m_refIfc2DCompositeCurveList;
@@ -19818,6 +13946,9 @@ namespace ifc2x3 {
         /**
          */
         Step::RefLinkedList< IfcBuildingElement > m_refIfcBuildingElementList;
+        /**
+         */
+        Step::RefLinkedList< IfcBuildingElementComponent > m_refIfcBuildingElementComponentList;
         /**
          */
         Step::RefLinkedList< IfcBuildingElementPart > m_refIfcBuildingElementPartList;
@@ -21610,82 +15741,16 @@ namespace ifc2x3 {
          */
         Step::RefLinkedList< IfcZone > m_refIfcZoneList;
         /**
-         */
-        Step::RefLinkedList< IfcCivilStructureElement > m_refIfcCivilStructureElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeStructureElement > m_refIfcBridgeStructureElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridge > m_refIfcBridgeList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgePart > m_refIfcBridgePartList;
-        /**
-         */
-        Step::RefLinkedList< IfcCivilElement > m_refIfcCivilElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeElement > m_refIfcBridgeElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeSegment > m_refIfcBridgeSegmentList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeSegmentPart > m_refIfcBridgeSegmentPartList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgeContactElement > m_refIfcBridgeContactElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcBridgePrismaticElement > m_refIfcBridgePrismaticElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcAlignmentElement > m_refIfcAlignmentElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceElement > m_refIfcReferenceElementList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurve > m_refIfcReferenceCurveList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurve3D > m_refIfcReferenceCurve3DList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurveAlignment2D > m_refIfcReferenceCurveAlignment2DList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferencePlacement > m_refIfcReferencePlacementList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurvePlacement > m_refIfcReferenceCurvePlacementList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferenceCurvePlacementSystem > m_refIfcReferenceCurvePlacementSystemList;
-        /**
-         */
-        Step::RefLinkedList< IfcElementPart > m_refIfcElementPartList;
-        /**
-         */
-        Step::RefLinkedList< IfcCivilElementPart > m_refIfcCivilElementPartList;
-        /**
-         */
-        Step::RefLinkedList< IfcCivilSheath > m_refIfcCivilSheathList;
-        /**
-         */
-        Step::RefLinkedList< IfcCivilVoid > m_refIfcCivilVoidList;
-        /**
-         */
-        Step::RefLinkedList< IfcClothoid > m_refIfcClothoidList;
-        /**
-         */
-        Step::RefLinkedList< IfcReferencedSectionedSpine > m_refIfcReferencedSectionedSpineList;
-        /**
          * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfc2DCompositeCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static Ifc2DCompositeCurve *cloneIfc2DCompositeCurve(ExpressDataSet *expressDataSet, const Ifc2DCompositeCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21693,9 +15758,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcActionRequest(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcActionRequest *cloneIfcActionRequest(ExpressDataSet *expressDataSet, const IfcActionRequest &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcActor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcActor *cloneIfcActor(ExpressDataSet *expressDataSet, const IfcActor &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21703,14 +15780,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcActorRole(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcActorRole *cloneIfcActorRole(ExpressDataSet *expressDataSet, const IfcActorRole &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcActuatorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcAddress(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcActuatorType *cloneIfcActuatorType(ExpressDataSet *expressDataSet, const IfcActuatorType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21718,9 +15802,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAirTerminalBoxType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAirTerminalBoxType *cloneIfcAirTerminalBoxType(ExpressDataSet *expressDataSet, const IfcAirTerminalBoxType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAirTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAirTerminalType *cloneIfcAirTerminalType(ExpressDataSet *expressDataSet, const IfcAirTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21728,9 +15824,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAirToAirHeatRecoveryType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAirToAirHeatRecoveryType *cloneIfcAirToAirHeatRecoveryType(ExpressDataSet *expressDataSet, const IfcAirToAirHeatRecoveryType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAlarmType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAlarmType *cloneIfcAlarmType(ExpressDataSet *expressDataSet, const IfcAlarmType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21738,9 +15846,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAngularDimension(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAngularDimension *cloneIfcAngularDimension(ExpressDataSet *expressDataSet, const IfcAngularDimension &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAnnotation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotation *cloneIfcAnnotation(ExpressDataSet *expressDataSet, const IfcAnnotation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21748,9 +15868,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAnnotationCurveOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationCurveOccurrence *cloneIfcAnnotationCurveOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationCurveOccurrence &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAnnotationFillArea(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationFillArea *cloneIfcAnnotationFillArea(ExpressDataSet *expressDataSet, const IfcAnnotationFillArea &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21758,9 +15890,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAnnotationFillAreaOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcAnnotationOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcAnnotationFillAreaOccurrence *cloneIfcAnnotationFillAreaOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationFillAreaOccurrence &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21768,9 +15901,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAnnotationSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationSurface *cloneIfcAnnotationSurface(ExpressDataSet *expressDataSet, const IfcAnnotationSurface &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAnnotationSurfaceOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationSurfaceOccurrence *cloneIfcAnnotationSurfaceOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationSurfaceOccurrence &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21778,9 +15923,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAnnotationSymbolOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationSymbolOccurrence *cloneIfcAnnotationSymbolOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationSymbolOccurrence &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAnnotationTextOccurrence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAnnotationTextOccurrence *cloneIfcAnnotationTextOccurrence(ExpressDataSet *expressDataSet, const IfcAnnotationTextOccurrence &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21788,9 +15945,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcApplication(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcAppliedValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcApplication *cloneIfcApplication(ExpressDataSet *expressDataSet, const IfcApplication &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21798,9 +15956,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAppliedValueRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAppliedValueRelationship *cloneIfcAppliedValueRelationship(ExpressDataSet *expressDataSet, const IfcAppliedValueRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcApproval(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcApproval *cloneIfcApproval(ExpressDataSet *expressDataSet, const IfcApproval &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21808,9 +15978,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcApprovalActorRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcApprovalActorRelationship *cloneIfcApprovalActorRelationship(ExpressDataSet *expressDataSet, const IfcApprovalActorRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcApprovalPropertyRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcApprovalPropertyRelationship *cloneIfcApprovalPropertyRelationship(ExpressDataSet *expressDataSet, const IfcApprovalPropertyRelationship &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21818,9 +16000,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcApprovalRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcApprovalRelationship *cloneIfcApprovalRelationship(ExpressDataSet *expressDataSet, const IfcApprovalRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcArbitraryClosedProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcArbitraryClosedProfileDef *cloneIfcArbitraryClosedProfileDef(ExpressDataSet *expressDataSet, const IfcArbitraryClosedProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21828,9 +16022,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcArbitraryOpenProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcArbitraryOpenProfileDef *cloneIfcArbitraryOpenProfileDef(ExpressDataSet *expressDataSet, const IfcArbitraryOpenProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcArbitraryProfileDefWithVoids(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcArbitraryProfileDefWithVoids *cloneIfcArbitraryProfileDefWithVoids(ExpressDataSet *expressDataSet, const IfcArbitraryProfileDefWithVoids &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21838,9 +16044,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAsset(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAsset *cloneIfcAsset(ExpressDataSet *expressDataSet, const IfcAsset &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAsymmetricIShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAsymmetricIShapeProfileDef *cloneIfcAsymmetricIShapeProfileDef(ExpressDataSet *expressDataSet, const IfcAsymmetricIShapeProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21848,9 +16066,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAxis1Placement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAxis1Placement *cloneIfcAxis1Placement(ExpressDataSet *expressDataSet, const IfcAxis1Placement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcAxis2Placement2D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcAxis2Placement2D *cloneIfcAxis2Placement2D(ExpressDataSet *expressDataSet, const IfcAxis2Placement2D &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21858,9 +16088,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcAxis2Placement3D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcBSplineCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcAxis2Placement3D *cloneIfcAxis2Placement3D(ExpressDataSet *expressDataSet, const IfcAxis2Placement3D &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21868,9 +16099,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBeam(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBeam *cloneIfcBeam(ExpressDataSet *expressDataSet, const IfcBeam &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBeamType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBeamType *cloneIfcBeamType(ExpressDataSet *expressDataSet, const IfcBeamType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21878,9 +16121,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBezierCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBezierCurve *cloneIfcBezierCurve(ExpressDataSet *expressDataSet, const IfcBezierCurve &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBlobTexture(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBlobTexture *cloneIfcBlobTexture(ExpressDataSet *expressDataSet, const IfcBlobTexture &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21888,9 +16143,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBlock(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBlock *cloneIfcBlock(ExpressDataSet *expressDataSet, const IfcBlock &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBoilerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoilerType *cloneIfcBoilerType(ExpressDataSet *expressDataSet, const IfcBoilerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21898,14 +16165,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBooleanClippingResult(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBooleanClippingResult *cloneIfcBooleanClippingResult(ExpressDataSet *expressDataSet, const IfcBooleanClippingResult &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBooleanResult(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcBoundaryCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcBooleanResult *cloneIfcBooleanResult(ExpressDataSet *expressDataSet, const IfcBooleanResult &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21913,9 +16187,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBoundaryEdgeCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoundaryEdgeCondition *cloneIfcBoundaryEdgeCondition(ExpressDataSet *expressDataSet, const IfcBoundaryEdgeCondition &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBoundaryFaceCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoundaryFaceCondition *cloneIfcBoundaryFaceCondition(ExpressDataSet *expressDataSet, const IfcBoundaryFaceCondition &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21923,14 +16209,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBoundaryNodeCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoundaryNodeCondition *cloneIfcBoundaryNodeCondition(ExpressDataSet *expressDataSet, const IfcBoundaryNodeCondition &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBoundaryNodeConditionWarping(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcBoundedCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcBoundaryNodeConditionWarping *cloneIfcBoundaryNodeConditionWarping(ExpressDataSet *expressDataSet, const IfcBoundaryNodeConditionWarping &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21938,9 +16231,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBoundedSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoundedSurface *cloneIfcBoundedSurface(ExpressDataSet *expressDataSet, const IfcBoundedSurface &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBoundingBox(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoundingBox *cloneIfcBoundingBox(ExpressDataSet *expressDataSet, const IfcBoundingBox &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21948,14 +16253,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBoxedHalfSpace(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBoxedHalfSpace *cloneIfcBoxedHalfSpace(ExpressDataSet *expressDataSet, const IfcBoxedHalfSpace &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBuilding(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcBuildingElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcBuilding *cloneIfcBuilding(ExpressDataSet *expressDataSet, const IfcBuilding &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21963,9 +16275,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBuildingElementPart(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBuildingElementPart *cloneIfcBuildingElementPart(ExpressDataSet *expressDataSet, const IfcBuildingElementPart &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcBuildingElementProxy(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBuildingElementProxy *cloneIfcBuildingElementProxy(ExpressDataSet *expressDataSet, const IfcBuildingElementProxy &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21973,9 +16297,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBuildingElementProxyType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcBuildingElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcBuildingElementProxyType *cloneIfcBuildingElementProxyType(ExpressDataSet *expressDataSet, const IfcBuildingElementProxyType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21983,9 +16308,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcBuildingStorey(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcBuildingStorey *cloneIfcBuildingStorey(ExpressDataSet *expressDataSet, const IfcBuildingStorey &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCShapeProfileDef *cloneIfcCShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCShapeProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -21993,9 +16330,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCableCarrierFittingType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCableCarrierFittingType *cloneIfcCableCarrierFittingType(ExpressDataSet *expressDataSet, const IfcCableCarrierFittingType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCableCarrierSegmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCableCarrierSegmentType *cloneIfcCableCarrierSegmentType(ExpressDataSet *expressDataSet, const IfcCableCarrierSegmentType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22003,9 +16352,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCableSegmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCableSegmentType *cloneIfcCableSegmentType(ExpressDataSet *expressDataSet, const IfcCableSegmentType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCalendarDate(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCalendarDate *cloneIfcCalendarDate(ExpressDataSet *expressDataSet, const IfcCalendarDate &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22013,9 +16374,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCartesianPoint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcCartesianTransformationOperator(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcCartesianPoint *cloneIfcCartesianPoint(ExpressDataSet *expressDataSet, const IfcCartesianPoint &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22023,9 +16385,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCartesianTransformationOperator2D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCartesianTransformationOperator2D *cloneIfcCartesianTransformationOperator2D(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator2D &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCartesianTransformationOperator2DnonUniform(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCartesianTransformationOperator2DnonUniform *cloneIfcCartesianTransformationOperator2DnonUniform(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator2DnonUniform &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22033,9 +16407,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCartesianTransformationOperator3D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCartesianTransformationOperator3D *cloneIfcCartesianTransformationOperator3D(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator3D &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCartesianTransformationOperator3DnonUniform(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCartesianTransformationOperator3DnonUniform *cloneIfcCartesianTransformationOperator3DnonUniform(ExpressDataSet *expressDataSet, const IfcCartesianTransformationOperator3DnonUniform &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22043,9 +16429,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCenterLineProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCenterLineProfileDef *cloneIfcCenterLineProfileDef(ExpressDataSet *expressDataSet, const IfcCenterLineProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcChamferEdgeFeature(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcChamferEdgeFeature *cloneIfcChamferEdgeFeature(ExpressDataSet *expressDataSet, const IfcChamferEdgeFeature &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22053,9 +16451,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcChillerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcChillerType *cloneIfcChillerType(ExpressDataSet *expressDataSet, const IfcChillerType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCircle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCircle *cloneIfcCircle(ExpressDataSet *expressDataSet, const IfcCircle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22063,9 +16473,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCircleHollowProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCircleHollowProfileDef *cloneIfcCircleHollowProfileDef(ExpressDataSet *expressDataSet, const IfcCircleHollowProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCircleProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCircleProfileDef *cloneIfcCircleProfileDef(ExpressDataSet *expressDataSet, const IfcCircleProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22073,9 +16495,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcClassification(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassification *cloneIfcClassification(ExpressDataSet *expressDataSet, const IfcClassification &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcClassificationItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassificationItem *cloneIfcClassificationItem(ExpressDataSet *expressDataSet, const IfcClassificationItem &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22083,9 +16517,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcClassificationItemRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassificationItemRelationship *cloneIfcClassificationItemRelationship(ExpressDataSet *expressDataSet, const IfcClassificationItemRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcClassificationNotation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassificationNotation *cloneIfcClassificationNotation(ExpressDataSet *expressDataSet, const IfcClassificationNotation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22093,9 +16539,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcClassificationNotationFacet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassificationNotationFacet *cloneIfcClassificationNotationFacet(ExpressDataSet *expressDataSet, const IfcClassificationNotationFacet &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcClassificationReference(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClassificationReference *cloneIfcClassificationReference(ExpressDataSet *expressDataSet, const IfcClassificationReference &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22103,9 +16561,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcClosedShell(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcClosedShell *cloneIfcClosedShell(ExpressDataSet *expressDataSet, const IfcClosedShell &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCoilType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCoilType *cloneIfcCoilType(ExpressDataSet *expressDataSet, const IfcCoilType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22113,9 +16583,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcColourRgb(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcColourSpecification(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcColourRgb *cloneIfcColourRgb(ExpressDataSet *expressDataSet, const IfcColourRgb &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22123,9 +16594,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcColumn(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcColumn *cloneIfcColumn(ExpressDataSet *expressDataSet, const IfcColumn &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcColumnType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcColumnType *cloneIfcColumnType(ExpressDataSet *expressDataSet, const IfcColumnType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22133,9 +16616,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcComplexProperty(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcComplexProperty *cloneIfcComplexProperty(ExpressDataSet *expressDataSet, const IfcComplexProperty &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCompositeCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCompositeCurve *cloneIfcCompositeCurve(ExpressDataSet *expressDataSet, const IfcCompositeCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22143,9 +16638,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCompositeCurveSegment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCompositeCurveSegment *cloneIfcCompositeCurveSegment(ExpressDataSet *expressDataSet, const IfcCompositeCurveSegment &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCompositeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCompositeProfileDef *cloneIfcCompositeProfileDef(ExpressDataSet *expressDataSet, const IfcCompositeProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22153,9 +16660,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCompressorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCompressorType *cloneIfcCompressorType(ExpressDataSet *expressDataSet, const IfcCompressorType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCondenserType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCondenserType *cloneIfcCondenserType(ExpressDataSet *expressDataSet, const IfcCondenserType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22163,14 +16682,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCondition *cloneIfcCondition(ExpressDataSet *expressDataSet, const IfcCondition &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConditionCriterion(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcConic(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcConditionCriterion *cloneIfcConditionCriterion(ExpressDataSet *expressDataSet, const IfcConditionCriterion &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22178,14 +16704,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConnectedFaceSet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConnectedFaceSet *cloneIfcConnectedFaceSet(ExpressDataSet *expressDataSet, const IfcConnectedFaceSet &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConnectionCurveGeometry(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcConnectionGeometry(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcConnectionCurveGeometry *cloneIfcConnectionCurveGeometry(ExpressDataSet *expressDataSet, const IfcConnectionCurveGeometry &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22193,9 +16726,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConnectionPointEccentricity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConnectionPointEccentricity *cloneIfcConnectionPointEccentricity(ExpressDataSet *expressDataSet, const IfcConnectionPointEccentricity &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConnectionPointGeometry(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConnectionPointGeometry *cloneIfcConnectionPointGeometry(ExpressDataSet *expressDataSet, const IfcConnectionPointGeometry &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22203,14 +16748,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConnectionPortGeometry(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConnectionPortGeometry *cloneIfcConnectionPortGeometry(ExpressDataSet *expressDataSet, const IfcConnectionPortGeometry &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConnectionSurfaceGeometry(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcConstraint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcConnectionSurfaceGeometry *cloneIfcConnectionSurfaceGeometry(ExpressDataSet *expressDataSet, const IfcConnectionSurfaceGeometry &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22218,9 +16770,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConstraintAggregationRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConstraintAggregationRelationship *cloneIfcConstraintAggregationRelationship(ExpressDataSet *expressDataSet, const IfcConstraintAggregationRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConstraintClassificationRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConstraintClassificationRelationship *cloneIfcConstraintClassificationRelationship(ExpressDataSet *expressDataSet, const IfcConstraintClassificationRelationship &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22228,9 +16792,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConstraintRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConstraintRelationship *cloneIfcConstraintRelationship(ExpressDataSet *expressDataSet, const IfcConstraintRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConstructionEquipmentResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConstructionEquipmentResource *cloneIfcConstructionEquipmentResource(ExpressDataSet *expressDataSet, const IfcConstructionEquipmentResource &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22238,14 +16814,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcConstructionMaterialResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConstructionMaterialResource *cloneIfcConstructionMaterialResource(ExpressDataSet *expressDataSet, const IfcConstructionMaterialResource &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConstructionProductResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcConstructionResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcConstructionProductResource *cloneIfcConstructionProductResource(ExpressDataSet *expressDataSet, const IfcConstructionProductResource &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22253,9 +16836,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcContextDependentUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcControl(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcContextDependentUnit *cloneIfcContextDependentUnit(ExpressDataSet *expressDataSet, const IfcContextDependentUnit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22263,9 +16847,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcControllerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcControllerType *cloneIfcControllerType(ExpressDataSet *expressDataSet, const IfcControllerType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcConversionBasedUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcConversionBasedUnit *cloneIfcConversionBasedUnit(ExpressDataSet *expressDataSet, const IfcConversionBasedUnit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22273,9 +16869,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCooledBeamType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCooledBeamType *cloneIfcCooledBeamType(ExpressDataSet *expressDataSet, const IfcCooledBeamType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCoolingTowerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCoolingTowerType *cloneIfcCoolingTowerType(ExpressDataSet *expressDataSet, const IfcCoolingTowerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22283,9 +16891,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCoordinatedUniversalTimeOffset(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCoordinatedUniversalTimeOffset *cloneIfcCoordinatedUniversalTimeOffset(ExpressDataSet *expressDataSet, const IfcCoordinatedUniversalTimeOffset &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCostItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCostItem *cloneIfcCostItem(ExpressDataSet *expressDataSet, const IfcCostItem &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22293,9 +16913,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCostSchedule(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCostSchedule *cloneIfcCostSchedule(ExpressDataSet *expressDataSet, const IfcCostSchedule &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCostValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCostValue *cloneIfcCostValue(ExpressDataSet *expressDataSet, const IfcCostValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22303,9 +16935,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCovering(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCovering *cloneIfcCovering(ExpressDataSet *expressDataSet, const IfcCovering &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCoveringType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCoveringType *cloneIfcCoveringType(ExpressDataSet *expressDataSet, const IfcCoveringType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22313,9 +16957,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCraneRailAShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCraneRailAShapeProfileDef *cloneIfcCraneRailAShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCraneRailAShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCraneRailFShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCraneRailFShapeProfileDef *cloneIfcCraneRailFShapeProfileDef(ExpressDataSet *expressDataSet, const IfcCraneRailFShapeProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22323,9 +16979,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCrewResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcCsgPrimitive3D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcCrewResource *cloneIfcCrewResource(ExpressDataSet *expressDataSet, const IfcCrewResource &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22333,9 +16990,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCsgSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCsgSolid *cloneIfcCsgSolid(ExpressDataSet *expressDataSet, const IfcCsgSolid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCurrencyRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurrencyRelationship *cloneIfcCurrencyRelationship(ExpressDataSet *expressDataSet, const IfcCurrencyRelationship &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22343,14 +17012,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCurtainWall(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurtainWall *cloneIfcCurtainWall(ExpressDataSet *expressDataSet, const IfcCurtainWall &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCurtainWallType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcCurtainWallType *cloneIfcCurtainWallType(ExpressDataSet *expressDataSet, const IfcCurtainWallType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22358,9 +17034,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCurveBoundedPlane(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurveBoundedPlane *cloneIfcCurveBoundedPlane(ExpressDataSet *expressDataSet, const IfcCurveBoundedPlane &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCurveStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurveStyle *cloneIfcCurveStyle(ExpressDataSet *expressDataSet, const IfcCurveStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22368,9 +17056,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCurveStyleFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurveStyleFont *cloneIfcCurveStyleFont(ExpressDataSet *expressDataSet, const IfcCurveStyleFont &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcCurveStyleFontAndScaling(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurveStyleFontAndScaling *cloneIfcCurveStyleFontAndScaling(ExpressDataSet *expressDataSet, const IfcCurveStyleFontAndScaling &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22378,9 +17078,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcCurveStyleFontPattern(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcCurveStyleFontPattern *cloneIfcCurveStyleFontPattern(ExpressDataSet *expressDataSet, const IfcCurveStyleFontPattern &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDamperType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDamperType *cloneIfcDamperType(ExpressDataSet *expressDataSet, const IfcDamperType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22388,9 +17100,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDateAndTime(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDateAndTime *cloneIfcDateAndTime(ExpressDataSet *expressDataSet, const IfcDateAndTime &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDefinedSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDefinedSymbol *cloneIfcDefinedSymbol(ExpressDataSet *expressDataSet, const IfcDefinedSymbol &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22398,9 +17122,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDerivedProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDerivedProfileDef *cloneIfcDerivedProfileDef(ExpressDataSet *expressDataSet, const IfcDerivedProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDerivedUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDerivedUnit *cloneIfcDerivedUnit(ExpressDataSet *expressDataSet, const IfcDerivedUnit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22408,9 +17144,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDerivedUnitElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDerivedUnitElement *cloneIfcDerivedUnitElement(ExpressDataSet *expressDataSet, const IfcDerivedUnitElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDiameterDimension(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDiameterDimension *cloneIfcDiameterDimension(ExpressDataSet *expressDataSet, const IfcDiameterDimension &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22418,9 +17166,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDimensionCalloutRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionCalloutRelationship *cloneIfcDimensionCalloutRelationship(ExpressDataSet *expressDataSet, const IfcDimensionCalloutRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDimensionCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionCurve *cloneIfcDimensionCurve(ExpressDataSet *expressDataSet, const IfcDimensionCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22428,9 +17188,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDimensionCurveDirectedCallout(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionCurveDirectedCallout *cloneIfcDimensionCurveDirectedCallout(ExpressDataSet *expressDataSet, const IfcDimensionCurveDirectedCallout &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDimensionCurveTerminator(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionCurveTerminator *cloneIfcDimensionCurveTerminator(ExpressDataSet *expressDataSet, const IfcDimensionCurveTerminator &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22438,9 +17210,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDimensionPair(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionPair *cloneIfcDimensionPair(ExpressDataSet *expressDataSet, const IfcDimensionPair &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDimensionalExponents(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDimensionalExponents *cloneIfcDimensionalExponents(ExpressDataSet *expressDataSet, const IfcDimensionalExponents &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22448,9 +17232,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDirection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDirection *cloneIfcDirection(ExpressDataSet *expressDataSet, const IfcDirection &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDiscreteAccessory(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDiscreteAccessory *cloneIfcDiscreteAccessory(ExpressDataSet *expressDataSet, const IfcDiscreteAccessory &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22458,9 +17254,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDiscreteAccessoryType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDiscreteAccessoryType *cloneIfcDiscreteAccessoryType(ExpressDataSet *expressDataSet, const IfcDiscreteAccessoryType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDistributionChamberElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDistributionChamberElement *cloneIfcDistributionChamberElement(ExpressDataSet *expressDataSet, const IfcDistributionChamberElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22468,14 +17276,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDistributionChamberElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDistributionChamberElementType *cloneIfcDistributionChamberElementType(ExpressDataSet *expressDataSet, const IfcDistributionChamberElementType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDistributionControlElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcDistributionControlElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcDistributionControlElement *cloneIfcDistributionControlElement(ExpressDataSet *expressDataSet, const IfcDistributionControlElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22483,9 +17298,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDistributionElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDistributionElement *cloneIfcDistributionElement(ExpressDataSet *expressDataSet, const IfcDistributionElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDistributionElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDistributionElementType *cloneIfcDistributionElementType(ExpressDataSet *expressDataSet, const IfcDistributionElementType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22493,9 +17320,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDistributionFlowElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcDistributionFlowElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcDistributionFlowElement *cloneIfcDistributionFlowElement(ExpressDataSet *expressDataSet, const IfcDistributionFlowElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22503,9 +17331,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDistributionPort(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDistributionPort *cloneIfcDistributionPort(ExpressDataSet *expressDataSet, const IfcDistributionPort &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDocumentElectronicFormat(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDocumentElectronicFormat *cloneIfcDocumentElectronicFormat(ExpressDataSet *expressDataSet, const IfcDocumentElectronicFormat &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22513,9 +17353,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDocumentInformation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDocumentInformation *cloneIfcDocumentInformation(ExpressDataSet *expressDataSet, const IfcDocumentInformation &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDocumentInformationRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDocumentInformationRelationship *cloneIfcDocumentInformationRelationship(ExpressDataSet *expressDataSet, const IfcDocumentInformationRelationship &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22523,9 +17375,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDocumentReference(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDocumentReference *cloneIfcDocumentReference(ExpressDataSet *expressDataSet, const IfcDocumentReference &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDoor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDoor *cloneIfcDoor(ExpressDataSet *expressDataSet, const IfcDoor &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22533,9 +17397,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDoorLiningProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDoorLiningProperties *cloneIfcDoorLiningProperties(ExpressDataSet *expressDataSet, const IfcDoorLiningProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDoorPanelProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDoorPanelProperties *cloneIfcDoorPanelProperties(ExpressDataSet *expressDataSet, const IfcDoorPanelProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22543,9 +17419,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDoorStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDoorStyle *cloneIfcDoorStyle(ExpressDataSet *expressDataSet, const IfcDoorStyle &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDraughtingCallout(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDraughtingCallout *cloneIfcDraughtingCallout(ExpressDataSet *expressDataSet, const IfcDraughtingCallout &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22553,9 +17441,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDraughtingCalloutRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDraughtingCalloutRelationship *cloneIfcDraughtingCalloutRelationship(ExpressDataSet *expressDataSet, const IfcDraughtingCalloutRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDraughtingPreDefinedColour(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDraughtingPreDefinedColour *cloneIfcDraughtingPreDefinedColour(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedColour &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22563,9 +17463,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDraughtingPreDefinedCurveFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDraughtingPreDefinedCurveFont *cloneIfcDraughtingPreDefinedCurveFont(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedCurveFont &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDraughtingPreDefinedTextFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDraughtingPreDefinedTextFont *cloneIfcDraughtingPreDefinedTextFont(ExpressDataSet *expressDataSet, const IfcDraughtingPreDefinedTextFont &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22573,9 +17485,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDuctFittingType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDuctFittingType *cloneIfcDuctFittingType(ExpressDataSet *expressDataSet, const IfcDuctFittingType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcDuctSegmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDuctSegmentType *cloneIfcDuctSegmentType(ExpressDataSet *expressDataSet, const IfcDuctSegmentType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22583,9 +17507,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcDuctSilencerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcDuctSilencerType *cloneIfcDuctSilencerType(ExpressDataSet *expressDataSet, const IfcDuctSilencerType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcEdge(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEdge *cloneIfcEdge(ExpressDataSet *expressDataSet, const IfcEdge &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22593,9 +17529,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEdgeCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcEdgeFeature(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcEdgeCurve *cloneIfcEdgeCurve(ExpressDataSet *expressDataSet, const IfcEdgeCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22603,9 +17540,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEdgeLoop(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEdgeLoop *cloneIfcEdgeLoop(ExpressDataSet *expressDataSet, const IfcEdgeLoop &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcElectricApplianceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricApplianceType *cloneIfcElectricApplianceType(ExpressDataSet *expressDataSet, const IfcElectricApplianceType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22613,9 +17562,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElectricDistributionPoint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricDistributionPoint *cloneIfcElectricDistributionPoint(ExpressDataSet *expressDataSet, const IfcElectricDistributionPoint &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcElectricFlowStorageDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricFlowStorageDeviceType *cloneIfcElectricFlowStorageDeviceType(ExpressDataSet *expressDataSet, const IfcElectricFlowStorageDeviceType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22623,9 +17584,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElectricGeneratorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricGeneratorType *cloneIfcElectricGeneratorType(ExpressDataSet *expressDataSet, const IfcElectricGeneratorType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcElectricHeaterType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricHeaterType *cloneIfcElectricHeaterType(ExpressDataSet *expressDataSet, const IfcElectricHeaterType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22633,9 +17606,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElectricMotorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricMotorType *cloneIfcElectricMotorType(ExpressDataSet *expressDataSet, const IfcElectricMotorType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcElectricTimeControlType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricTimeControlType *cloneIfcElectricTimeControlType(ExpressDataSet *expressDataSet, const IfcElectricTimeControlType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22643,9 +17628,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElectricalBaseProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricalBaseProperties *cloneIfcElectricalBaseProperties(ExpressDataSet *expressDataSet, const IfcElectricalBaseProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcElectricalCircuit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcElectricalCircuit *cloneIfcElectricalCircuit(ExpressDataSet *expressDataSet, const IfcElectricalCircuit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22653,9 +17650,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElectricalElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcElectricalElement *cloneIfcElectricalElement(ExpressDataSet *expressDataSet, const IfcElectricalElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22663,14 +17661,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElementAssembly(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcElementComponent(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcElementComponentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcElementAssembly *cloneIfcElementAssembly(ExpressDataSet *expressDataSet, const IfcElementAssembly &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22678,14 +17672,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcElementQuantity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcElementarySurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcElementQuantity *cloneIfcElementQuantity(ExpressDataSet *expressDataSet, const IfcElementQuantity &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22693,9 +17683,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEllipse(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEllipse *cloneIfcEllipse(ExpressDataSet *expressDataSet, const IfcEllipse &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcEllipseProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEllipseProfileDef *cloneIfcEllipseProfileDef(ExpressDataSet *expressDataSet, const IfcEllipseProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22703,9 +17705,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEnergyConversionDevice(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcEnergyConversionDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcEnergyConversionDevice *cloneIfcEnergyConversionDevice(ExpressDataSet *expressDataSet, const IfcEnergyConversionDevice &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22713,9 +17716,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEnergyProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEnergyProperties *cloneIfcEnergyProperties(ExpressDataSet *expressDataSet, const IfcEnergyProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcEnvironmentalImpactValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEnvironmentalImpactValue *cloneIfcEnvironmentalImpactValue(ExpressDataSet *expressDataSet, const IfcEnvironmentalImpactValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22723,9 +17738,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEquipmentElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEquipmentElement *cloneIfcEquipmentElement(ExpressDataSet *expressDataSet, const IfcEquipmentElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcEquipmentStandard(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEquipmentStandard *cloneIfcEquipmentStandard(ExpressDataSet *expressDataSet, const IfcEquipmentStandard &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22733,9 +17760,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcEvaporativeCoolerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEvaporativeCoolerType *cloneIfcEvaporativeCoolerType(ExpressDataSet *expressDataSet, const IfcEvaporativeCoolerType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcEvaporatorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcEvaporatorType *cloneIfcEvaporatorType(ExpressDataSet *expressDataSet, const IfcEvaporatorType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22743,9 +17782,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcExtendedMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcExternalReference(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcExtendedMaterialProperties *cloneIfcExtendedMaterialProperties(ExpressDataSet *expressDataSet, const IfcExtendedMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22753,9 +17793,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcExternallyDefinedHatchStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcExternallyDefinedHatchStyle *cloneIfcExternallyDefinedHatchStyle(ExpressDataSet *expressDataSet, const IfcExternallyDefinedHatchStyle &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcExternallyDefinedSurfaceStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcExternallyDefinedSurfaceStyle *cloneIfcExternallyDefinedSurfaceStyle(ExpressDataSet *expressDataSet, const IfcExternallyDefinedSurfaceStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22763,9 +17815,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcExternallyDefinedSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcExternallyDefinedSymbol *cloneIfcExternallyDefinedSymbol(ExpressDataSet *expressDataSet, const IfcExternallyDefinedSymbol &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcExternallyDefinedTextFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcExternallyDefinedTextFont *cloneIfcExternallyDefinedTextFont(ExpressDataSet *expressDataSet, const IfcExternallyDefinedTextFont &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22773,9 +17837,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcExtrudedAreaSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcExtrudedAreaSolid *cloneIfcExtrudedAreaSolid(ExpressDataSet *expressDataSet, const IfcExtrudedAreaSolid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFace(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFace *cloneIfcFace(ExpressDataSet *expressDataSet, const IfcFace &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22783,9 +17859,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFaceBasedSurfaceModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFaceBasedSurfaceModel *cloneIfcFaceBasedSurfaceModel(ExpressDataSet *expressDataSet, const IfcFaceBasedSurfaceModel &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFaceBound(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFaceBound *cloneIfcFaceBound(ExpressDataSet *expressDataSet, const IfcFaceBound &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22793,9 +17881,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFaceOuterBound(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFaceOuterBound *cloneIfcFaceOuterBound(ExpressDataSet *expressDataSet, const IfcFaceOuterBound &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFaceSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFaceSurface *cloneIfcFaceSurface(ExpressDataSet *expressDataSet, const IfcFaceSurface &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22803,9 +17903,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFacetedBrep(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFacetedBrep *cloneIfcFacetedBrep(ExpressDataSet *expressDataSet, const IfcFacetedBrep &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFacetedBrepWithVoids(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFacetedBrepWithVoids *cloneIfcFacetedBrepWithVoids(ExpressDataSet *expressDataSet, const IfcFacetedBrepWithVoids &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22813,9 +17925,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFailureConnectionCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFailureConnectionCondition *cloneIfcFailureConnectionCondition(ExpressDataSet *expressDataSet, const IfcFailureConnectionCondition &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFanType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFanType *cloneIfcFanType(ExpressDataSet *expressDataSet, const IfcFanType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22823,24 +17947,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFastener(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFastener *cloneIfcFastener(ExpressDataSet *expressDataSet, const IfcFastener &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFastenerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFeatureElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcFeatureElementAddition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcFeatureElementSubtraction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFastenerType *cloneIfcFastenerType(ExpressDataSet *expressDataSet, const IfcFastenerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22848,9 +17969,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFillAreaStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFillAreaStyle *cloneIfcFillAreaStyle(ExpressDataSet *expressDataSet, const IfcFillAreaStyle &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFillAreaStyleHatching(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFillAreaStyleHatching *cloneIfcFillAreaStyleHatching(ExpressDataSet *expressDataSet, const IfcFillAreaStyleHatching &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22858,9 +17991,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFillAreaStyleTileSymbolWithStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFillAreaStyleTileSymbolWithStyle *cloneIfcFillAreaStyleTileSymbolWithStyle(ExpressDataSet *expressDataSet, const IfcFillAreaStyleTileSymbolWithStyle &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFillAreaStyleTiles(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFillAreaStyleTiles *cloneIfcFillAreaStyleTiles(ExpressDataSet *expressDataSet, const IfcFillAreaStyleTiles &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22868,9 +18013,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFilterType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFilterType *cloneIfcFilterType(ExpressDataSet *expressDataSet, const IfcFilterType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFireSuppressionTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFireSuppressionTerminalType *cloneIfcFireSuppressionTerminalType(ExpressDataSet *expressDataSet, const IfcFireSuppressionTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22878,9 +18035,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowController(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowControllerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowController *cloneIfcFlowController(ExpressDataSet *expressDataSet, const IfcFlowController &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22888,9 +18046,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowFitting(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowFittingType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowFitting *cloneIfcFlowFitting(ExpressDataSet *expressDataSet, const IfcFlowFitting &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22898,9 +18057,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowInstrumentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFlowInstrumentType *cloneIfcFlowInstrumentType(ExpressDataSet *expressDataSet, const IfcFlowInstrumentType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFlowMeterType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFlowMeterType *cloneIfcFlowMeterType(ExpressDataSet *expressDataSet, const IfcFlowMeterType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22908,9 +18079,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowMovingDevice(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowMovingDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowMovingDevice *cloneIfcFlowMovingDevice(ExpressDataSet *expressDataSet, const IfcFlowMovingDevice &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22918,9 +18090,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowSegment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowSegmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowSegment *cloneIfcFlowSegment(ExpressDataSet *expressDataSet, const IfcFlowSegment &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22928,9 +18101,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowStorageDevice(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowStorageDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowStorageDevice *cloneIfcFlowStorageDevice(ExpressDataSet *expressDataSet, const IfcFlowStorageDevice &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22938,9 +18112,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowTerminal(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowTerminal *cloneIfcFlowTerminal(ExpressDataSet *expressDataSet, const IfcFlowTerminal &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22948,9 +18123,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFlowTreatmentDevice(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcFlowTreatmentDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcFlowTreatmentDevice *cloneIfcFlowTreatmentDevice(ExpressDataSet *expressDataSet, const IfcFlowTreatmentDevice &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22958,9 +18134,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFluidFlowProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFluidFlowProperties *cloneIfcFluidFlowProperties(ExpressDataSet *expressDataSet, const IfcFluidFlowProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFooting(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFooting *cloneIfcFooting(ExpressDataSet *expressDataSet, const IfcFooting &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22968,9 +18156,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFuelProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFuelProperties *cloneIfcFuelProperties(ExpressDataSet *expressDataSet, const IfcFuelProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFurnishingElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFurnishingElement *cloneIfcFurnishingElement(ExpressDataSet *expressDataSet, const IfcFurnishingElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22978,9 +18178,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFurnishingElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFurnishingElementType *cloneIfcFurnishingElementType(ExpressDataSet *expressDataSet, const IfcFurnishingElementType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcFurnitureStandard(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFurnitureStandard *cloneIfcFurnitureStandard(ExpressDataSet *expressDataSet, const IfcFurnitureStandard &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22988,9 +18200,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcFurnitureType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcFurnitureType *cloneIfcFurnitureType(ExpressDataSet *expressDataSet, const IfcFurnitureType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGasTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGasTerminalType *cloneIfcGasTerminalType(ExpressDataSet *expressDataSet, const IfcGasTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -22998,9 +18222,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcGeneralMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGeneralMaterialProperties *cloneIfcGeneralMaterialProperties(ExpressDataSet *expressDataSet, const IfcGeneralMaterialProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGeneralProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGeneralProfileProperties *cloneIfcGeneralProfileProperties(ExpressDataSet *expressDataSet, const IfcGeneralProfileProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23008,14 +18244,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcGeometricCurveSet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGeometricCurveSet *cloneIfcGeometricCurveSet(ExpressDataSet *expressDataSet, const IfcGeometricCurveSet &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGeometricRepresentationContext(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcGeometricRepresentationItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcGeometricRepresentationContext *cloneIfcGeometricRepresentationContext(ExpressDataSet *expressDataSet, const IfcGeometricRepresentationContext &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23023,9 +18266,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcGeometricRepresentationSubContext(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGeometricRepresentationSubContext *cloneIfcGeometricRepresentationSubContext(ExpressDataSet *expressDataSet, const IfcGeometricRepresentationSubContext &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGeometricSet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGeometricSet *cloneIfcGeometricSet(ExpressDataSet *expressDataSet, const IfcGeometricSet &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23033,9 +18288,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcGrid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGrid *cloneIfcGrid(ExpressDataSet *expressDataSet, const IfcGrid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGridAxis(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGridAxis *cloneIfcGridAxis(ExpressDataSet *expressDataSet, const IfcGridAxis &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23043,9 +18310,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcGridPlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGridPlacement *cloneIfcGridPlacement(ExpressDataSet *expressDataSet, const IfcGridPlacement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcGroup(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcGroup *cloneIfcGroup(ExpressDataSet *expressDataSet, const IfcGroup &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23053,9 +18332,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcHalfSpaceSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcHalfSpaceSolid *cloneIfcHalfSpaceSolid(ExpressDataSet *expressDataSet, const IfcHalfSpaceSolid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcHeatExchangerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcHeatExchangerType *cloneIfcHeatExchangerType(ExpressDataSet *expressDataSet, const IfcHeatExchangerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23063,9 +18354,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcHumidifierType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcHumidifierType *cloneIfcHumidifierType(ExpressDataSet *expressDataSet, const IfcHumidifierType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcHygroscopicMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcHygroscopicMaterialProperties *cloneIfcHygroscopicMaterialProperties(ExpressDataSet *expressDataSet, const IfcHygroscopicMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23073,9 +18376,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcIShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcIShapeProfileDef *cloneIfcIShapeProfileDef(ExpressDataSet *expressDataSet, const IfcIShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcImageTexture(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcImageTexture *cloneIfcImageTexture(ExpressDataSet *expressDataSet, const IfcImageTexture &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23083,9 +18398,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcInventory(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcInventory *cloneIfcInventory(ExpressDataSet *expressDataSet, const IfcInventory &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcIrregularTimeSeries(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcIrregularTimeSeries *cloneIfcIrregularTimeSeries(ExpressDataSet *expressDataSet, const IfcIrregularTimeSeries &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23093,9 +18420,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcIrregularTimeSeriesValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcIrregularTimeSeriesValue *cloneIfcIrregularTimeSeriesValue(ExpressDataSet *expressDataSet, const IfcIrregularTimeSeriesValue &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcJunctionBoxType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcJunctionBoxType *cloneIfcJunctionBoxType(ExpressDataSet *expressDataSet, const IfcJunctionBoxType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23103,9 +18442,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLShapeProfileDef *cloneIfcLShapeProfileDef(ExpressDataSet *expressDataSet, const IfcLShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLaborResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLaborResource *cloneIfcLaborResource(ExpressDataSet *expressDataSet, const IfcLaborResource &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23113,9 +18464,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLampType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLampType *cloneIfcLampType(ExpressDataSet *expressDataSet, const IfcLampType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLibraryInformation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLibraryInformation *cloneIfcLibraryInformation(ExpressDataSet *expressDataSet, const IfcLibraryInformation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23123,9 +18486,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLibraryReference(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLibraryReference *cloneIfcLibraryReference(ExpressDataSet *expressDataSet, const IfcLibraryReference &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLightDistributionData(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightDistributionData *cloneIfcLightDistributionData(ExpressDataSet *expressDataSet, const IfcLightDistributionData &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23133,14 +18508,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLightFixtureType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightFixtureType *cloneIfcLightFixtureType(ExpressDataSet *expressDataSet, const IfcLightFixtureType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLightIntensityDistribution(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcLightSource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcLightIntensityDistribution *cloneIfcLightIntensityDistribution(ExpressDataSet *expressDataSet, const IfcLightIntensityDistribution &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23148,9 +18530,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLightSourceAmbient(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightSourceAmbient *cloneIfcLightSourceAmbient(ExpressDataSet *expressDataSet, const IfcLightSourceAmbient &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLightSourceDirectional(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightSourceDirectional *cloneIfcLightSourceDirectional(ExpressDataSet *expressDataSet, const IfcLightSourceDirectional &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23158,9 +18552,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLightSourceGoniometric(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightSourceGoniometric *cloneIfcLightSourceGoniometric(ExpressDataSet *expressDataSet, const IfcLightSourceGoniometric &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLightSourcePositional(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightSourcePositional *cloneIfcLightSourcePositional(ExpressDataSet *expressDataSet, const IfcLightSourcePositional &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23168,9 +18574,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLightSourceSpot(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLightSourceSpot *cloneIfcLightSourceSpot(ExpressDataSet *expressDataSet, const IfcLightSourceSpot &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLine(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLine *cloneIfcLine(ExpressDataSet *expressDataSet, const IfcLine &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23178,9 +18596,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLinearDimension(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLinearDimension *cloneIfcLinearDimension(ExpressDataSet *expressDataSet, const IfcLinearDimension &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLocalPlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLocalPlacement *cloneIfcLocalPlacement(ExpressDataSet *expressDataSet, const IfcLocalPlacement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23188,14 +18618,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcLocalTime(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcLocalTime *cloneIfcLocalTime(ExpressDataSet *expressDataSet, const IfcLocalTime &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcLoop(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcManifoldSolidBrep(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcLoop *cloneIfcLoop(ExpressDataSet *expressDataSet, const IfcLoop &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23203,9 +18640,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMappedItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMappedItem *cloneIfcMappedItem(ExpressDataSet *expressDataSet, const IfcMappedItem &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMaterial(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterial *cloneIfcMaterial(ExpressDataSet *expressDataSet, const IfcMaterial &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23213,9 +18662,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMaterialClassificationRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterialClassificationRelationship *cloneIfcMaterialClassificationRelationship(ExpressDataSet *expressDataSet, const IfcMaterialClassificationRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMaterialDefinitionRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterialDefinitionRepresentation *cloneIfcMaterialDefinitionRepresentation(ExpressDataSet *expressDataSet, const IfcMaterialDefinitionRepresentation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23223,9 +18684,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMaterialLayer(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterialLayer *cloneIfcMaterialLayer(ExpressDataSet *expressDataSet, const IfcMaterialLayer &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMaterialLayerSet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterialLayerSet *cloneIfcMaterialLayerSet(ExpressDataSet *expressDataSet, const IfcMaterialLayerSet &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23233,14 +18706,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMaterialLayerSetUsage(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMaterialLayerSetUsage *cloneIfcMaterialLayerSetUsage(ExpressDataSet *expressDataSet, const IfcMaterialLayerSetUsage &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMaterialList(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcMaterialList *cloneIfcMaterialList(ExpressDataSet *expressDataSet, const IfcMaterialList &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23248,9 +18728,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMeasureWithUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMeasureWithUnit *cloneIfcMeasureWithUnit(ExpressDataSet *expressDataSet, const IfcMeasureWithUnit &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMechanicalConcreteMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMechanicalConcreteMaterialProperties *cloneIfcMechanicalConcreteMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalConcreteMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23258,9 +18750,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMechanicalFastener(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMechanicalFastener *cloneIfcMechanicalFastener(ExpressDataSet *expressDataSet, const IfcMechanicalFastener &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMechanicalFastenerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMechanicalFastenerType *cloneIfcMechanicalFastenerType(ExpressDataSet *expressDataSet, const IfcMechanicalFastenerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23268,9 +18772,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMechanicalMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMechanicalMaterialProperties *cloneIfcMechanicalMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalMaterialProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMechanicalSteelMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMechanicalSteelMaterialProperties *cloneIfcMechanicalSteelMaterialProperties(ExpressDataSet *expressDataSet, const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23278,9 +18794,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMember(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMember *cloneIfcMember(ExpressDataSet *expressDataSet, const IfcMember &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMemberType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMemberType *cloneIfcMemberType(ExpressDataSet *expressDataSet, const IfcMemberType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23288,9 +18816,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMetric(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMetric *cloneIfcMetric(ExpressDataSet *expressDataSet, const IfcMetric &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMonetaryUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMonetaryUnit *cloneIfcMonetaryUnit(ExpressDataSet *expressDataSet, const IfcMonetaryUnit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23298,29 +18838,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcMotorConnectionType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcMotorConnectionType *cloneIfcMotorConnectionType(ExpressDataSet *expressDataSet, const IfcMotorConnectionType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcMove(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcNamedUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcObject(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcObjectDefinition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcObjectPlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcMove *cloneIfcMove(ExpressDataSet *expressDataSet, const IfcMove &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23328,9 +18860,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcObjective(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcObjective *cloneIfcObjective(ExpressDataSet *expressDataSet, const IfcObjective &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOccupant(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOccupant *cloneIfcOccupant(ExpressDataSet *expressDataSet, const IfcOccupant &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23338,9 +18882,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOffsetCurve2D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOffsetCurve2D *cloneIfcOffsetCurve2D(ExpressDataSet *expressDataSet, const IfcOffsetCurve2D &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOffsetCurve3D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOffsetCurve3D *cloneIfcOffsetCurve3D(ExpressDataSet *expressDataSet, const IfcOffsetCurve3D &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23348,9 +18904,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOneDirectionRepeatFactor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOneDirectionRepeatFactor *cloneIfcOneDirectionRepeatFactor(ExpressDataSet *expressDataSet, const IfcOneDirectionRepeatFactor &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOpenShell(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOpenShell *cloneIfcOpenShell(ExpressDataSet *expressDataSet, const IfcOpenShell &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23358,9 +18926,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOpeningElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOpeningElement *cloneIfcOpeningElement(ExpressDataSet *expressDataSet, const IfcOpeningElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOpticalMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOpticalMaterialProperties *cloneIfcOpticalMaterialProperties(ExpressDataSet *expressDataSet, const IfcOpticalMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23368,9 +18948,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOrderAction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOrderAction *cloneIfcOrderAction(ExpressDataSet *expressDataSet, const IfcOrderAction &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOrganization(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOrganization *cloneIfcOrganization(ExpressDataSet *expressDataSet, const IfcOrganization &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23378,9 +18970,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOrganizationRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOrganizationRelationship *cloneIfcOrganizationRelationship(ExpressDataSet *expressDataSet, const IfcOrganizationRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOrientedEdge(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOrientedEdge *cloneIfcOrientedEdge(ExpressDataSet *expressDataSet, const IfcOrientedEdge &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23388,14 +18992,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcOutletType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcOutletType *cloneIfcOutletType(ExpressDataSet *expressDataSet, const IfcOutletType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcOwnerHistory(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcParameterizedProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcOwnerHistory *cloneIfcOwnerHistory(ExpressDataSet *expressDataSet, const IfcOwnerHistory &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23403,9 +19014,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPath(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPath *cloneIfcPath(ExpressDataSet *expressDataSet, const IfcPath &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPerformanceHistory(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPerformanceHistory *cloneIfcPerformanceHistory(ExpressDataSet *expressDataSet, const IfcPerformanceHistory &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23413,9 +19036,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPermeableCoveringProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPermeableCoveringProperties *cloneIfcPermeableCoveringProperties(ExpressDataSet *expressDataSet, const IfcPermeableCoveringProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPermit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPermit *cloneIfcPermit(ExpressDataSet *expressDataSet, const IfcPermit &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23423,9 +19058,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPerson(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPerson *cloneIfcPerson(ExpressDataSet *expressDataSet, const IfcPerson &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPersonAndOrganization(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPersonAndOrganization *cloneIfcPersonAndOrganization(ExpressDataSet *expressDataSet, const IfcPersonAndOrganization &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23433,14 +19080,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPhysicalComplexQuantity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPhysicalQuantity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcPhysicalSimpleQuantity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPhysicalComplexQuantity *cloneIfcPhysicalComplexQuantity(ExpressDataSet *expressDataSet, const IfcPhysicalComplexQuantity &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23448,9 +19091,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPile(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPile *cloneIfcPile(ExpressDataSet *expressDataSet, const IfcPile &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPipeFittingType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPipeFittingType *cloneIfcPipeFittingType(ExpressDataSet *expressDataSet, const IfcPipeFittingType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23458,14 +19113,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPipeSegmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPipeSegmentType *cloneIfcPipeSegmentType(ExpressDataSet *expressDataSet, const IfcPipeSegmentType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPixelTexture(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPixelTexture *cloneIfcPixelTexture(ExpressDataSet *expressDataSet, const IfcPixelTexture &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23473,9 +19135,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPlanarBox(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPlanarBox *cloneIfcPlanarBox(ExpressDataSet *expressDataSet, const IfcPlanarBox &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPlanarExtent(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPlanarExtent *cloneIfcPlanarExtent(ExpressDataSet *expressDataSet, const IfcPlanarExtent &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23483,9 +19157,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPlane(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPlane *cloneIfcPlane(ExpressDataSet *expressDataSet, const IfcPlane &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPlate(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPlate *cloneIfcPlate(ExpressDataSet *expressDataSet, const IfcPlate &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23493,9 +19179,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPlateType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPoint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPlateType *cloneIfcPlateType(ExpressDataSet *expressDataSet, const IfcPlateType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23503,9 +19190,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPointOnCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPointOnCurve *cloneIfcPointOnCurve(ExpressDataSet *expressDataSet, const IfcPointOnCurve &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPointOnSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPointOnSurface *cloneIfcPointOnSurface(ExpressDataSet *expressDataSet, const IfcPointOnSurface &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23513,9 +19212,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPolyLoop(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPolyLoop *cloneIfcPolyLoop(ExpressDataSet *expressDataSet, const IfcPolyLoop &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPolygonalBoundedHalfSpace(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPolygonalBoundedHalfSpace *cloneIfcPolygonalBoundedHalfSpace(ExpressDataSet *expressDataSet, const IfcPolygonalBoundedHalfSpace &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23523,9 +19234,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPolyline(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPort(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPolyline *cloneIfcPolyline(ExpressDataSet *expressDataSet, const IfcPolyline &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23533,14 +19245,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPostalAddress(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPreDefinedColour(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcPreDefinedCurveFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPostalAddress *cloneIfcPostalAddress(ExpressDataSet *expressDataSet, const IfcPostalAddress &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23548,9 +19256,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPreDefinedDimensionSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPreDefinedItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPreDefinedDimensionSymbol *cloneIfcPreDefinedDimensionSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedDimensionSymbol &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23558,9 +19267,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPreDefinedPointMarkerSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPreDefinedSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPreDefinedPointMarkerSymbol *cloneIfcPreDefinedPointMarkerSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedPointMarkerSymbol &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23568,9 +19278,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPreDefinedTerminatorSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPreDefinedTextFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPreDefinedTerminatorSymbol *cloneIfcPreDefinedTerminatorSymbol(ExpressDataSet *expressDataSet, const IfcPreDefinedTerminatorSymbol &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23578,14 +19289,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPresentationLayerAssignment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPresentationLayerAssignment *cloneIfcPresentationLayerAssignment(ExpressDataSet *expressDataSet, const IfcPresentationLayerAssignment &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPresentationLayerWithStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPresentationStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPresentationLayerWithStyle *cloneIfcPresentationLayerWithStyle(ExpressDataSet *expressDataSet, const IfcPresentationLayerWithStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23593,19 +19311,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPresentationStyleAssignment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPresentationStyleAssignment *cloneIfcPresentationStyleAssignment(ExpressDataSet *expressDataSet, const IfcPresentationStyleAssignment &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcProcedure(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcProcess(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcProduct(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcProcedure *cloneIfcProcedure(ExpressDataSet *expressDataSet, const IfcProcedure &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23613,9 +19333,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProductDefinitionShape(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProductDefinitionShape *cloneIfcProductDefinitionShape(ExpressDataSet *expressDataSet, const IfcProductDefinitionShape &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcProductRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProductRepresentation *cloneIfcProductRepresentation(ExpressDataSet *expressDataSet, const IfcProductRepresentation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23623,14 +19355,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProductsOfCombustionProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcProductsOfCombustionProperties *cloneIfcProductsOfCombustionProperties(ExpressDataSet *expressDataSet, const IfcProductsOfCombustionProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23638,9 +19366,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProject(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProject *cloneIfcProject(ExpressDataSet *expressDataSet, const IfcProject &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcProjectOrder(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProjectOrder *cloneIfcProjectOrder(ExpressDataSet *expressDataSet, const IfcProjectOrder &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23648,9 +19388,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProjectOrderRecord(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProjectOrderRecord *cloneIfcProjectOrderRecord(ExpressDataSet *expressDataSet, const IfcProjectOrderRecord &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcProjectionCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProjectionCurve *cloneIfcProjectionCurve(ExpressDataSet *expressDataSet, const IfcProjectionCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23658,9 +19410,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProjectionElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcProperty(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcProjectionElement *cloneIfcProjectionElement(ExpressDataSet *expressDataSet, const IfcProjectionElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23668,14 +19421,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPropertyBoundedValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyBoundedValue *cloneIfcPropertyBoundedValue(ExpressDataSet *expressDataSet, const IfcPropertyBoundedValue &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPropertyConstraintRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPropertyDefinition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPropertyConstraintRelationship *cloneIfcPropertyConstraintRelationship(ExpressDataSet *expressDataSet, const IfcPropertyConstraintRelationship &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23683,9 +19443,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPropertyDependencyRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyDependencyRelationship *cloneIfcPropertyDependencyRelationship(ExpressDataSet *expressDataSet, const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPropertyEnumeratedValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyEnumeratedValue *cloneIfcPropertyEnumeratedValue(ExpressDataSet *expressDataSet, const IfcPropertyEnumeratedValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23693,9 +19465,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPropertyEnumeration(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyEnumeration *cloneIfcPropertyEnumeration(ExpressDataSet *expressDataSet, const IfcPropertyEnumeration &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPropertyListValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyListValue *cloneIfcPropertyListValue(ExpressDataSet *expressDataSet, const IfcPropertyListValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23703,14 +19487,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPropertyReferenceValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyReferenceValue *cloneIfcPropertyReferenceValue(ExpressDataSet *expressDataSet, const IfcPropertyReferenceValue &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPropertySet(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcPropertySetDefinition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcPropertySet *cloneIfcPropertySet(ExpressDataSet *expressDataSet, const IfcPropertySet &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23718,9 +19509,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPropertySingleValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertySingleValue *cloneIfcPropertySingleValue(ExpressDataSet *expressDataSet, const IfcPropertySingleValue &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcPropertyTableValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPropertyTableValue *cloneIfcPropertyTableValue(ExpressDataSet *expressDataSet, const IfcPropertyTableValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23728,9 +19531,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcProtectiveDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProtectiveDeviceType *cloneIfcProtectiveDeviceType(ExpressDataSet *expressDataSet, const IfcProtectiveDeviceType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcProxy(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcProxy *cloneIfcProxy(ExpressDataSet *expressDataSet, const IfcProxy &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23738,9 +19553,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcPumpType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcPumpType *cloneIfcPumpType(ExpressDataSet *expressDataSet, const IfcPumpType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcQuantityArea(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityArea *cloneIfcQuantityArea(ExpressDataSet *expressDataSet, const IfcQuantityArea &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23748,9 +19575,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcQuantityCount(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityCount *cloneIfcQuantityCount(ExpressDataSet *expressDataSet, const IfcQuantityCount &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcQuantityLength(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityLength *cloneIfcQuantityLength(ExpressDataSet *expressDataSet, const IfcQuantityLength &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23758,9 +19597,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcQuantityTime(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityTime *cloneIfcQuantityTime(ExpressDataSet *expressDataSet, const IfcQuantityTime &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcQuantityVolume(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityVolume *cloneIfcQuantityVolume(ExpressDataSet *expressDataSet, const IfcQuantityVolume &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23768,9 +19619,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcQuantityWeight(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcQuantityWeight *cloneIfcQuantityWeight(ExpressDataSet *expressDataSet, const IfcQuantityWeight &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRadiusDimension(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRadiusDimension *cloneIfcRadiusDimension(ExpressDataSet *expressDataSet, const IfcRadiusDimension &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23778,9 +19641,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRailing(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRailing *cloneIfcRailing(ExpressDataSet *expressDataSet, const IfcRailing &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRailingType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRailingType *cloneIfcRailingType(ExpressDataSet *expressDataSet, const IfcRailingType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23788,9 +19663,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRamp(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRamp *cloneIfcRamp(ExpressDataSet *expressDataSet, const IfcRamp &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRampFlight(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRampFlight *cloneIfcRampFlight(ExpressDataSet *expressDataSet, const IfcRampFlight &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23798,9 +19685,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRampFlightType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRampFlightType *cloneIfcRampFlightType(ExpressDataSet *expressDataSet, const IfcRampFlightType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRationalBezierCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRationalBezierCurve *cloneIfcRationalBezierCurve(ExpressDataSet *expressDataSet, const IfcRationalBezierCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23808,9 +19707,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRectangleHollowProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRectangleHollowProfileDef *cloneIfcRectangleHollowProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleHollowProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRectangleProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRectangleProfileDef *cloneIfcRectangleProfileDef(ExpressDataSet *expressDataSet, const IfcRectangleProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23818,9 +19729,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRectangularPyramid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRectangularPyramid *cloneIfcRectangularPyramid(ExpressDataSet *expressDataSet, const IfcRectangularPyramid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRectangularTrimmedSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRectangularTrimmedSurface *cloneIfcRectangularTrimmedSurface(ExpressDataSet *expressDataSet, const IfcRectangularTrimmedSurface &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23828,9 +19751,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcReferencesValueDocument(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcReferencesValueDocument *cloneIfcReferencesValueDocument(ExpressDataSet *expressDataSet, const IfcReferencesValueDocument &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRegularTimeSeries(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRegularTimeSeries *cloneIfcRegularTimeSeries(ExpressDataSet *expressDataSet, const IfcRegularTimeSeries &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23838,9 +19773,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcReinforcementBarProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcReinforcementBarProperties *cloneIfcReinforcementBarProperties(ExpressDataSet *expressDataSet, const IfcReinforcementBarProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcReinforcementDefinitionProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcReinforcementDefinitionProperties *cloneIfcReinforcementDefinitionProperties(ExpressDataSet *expressDataSet, const IfcReinforcementDefinitionProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23848,9 +19795,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcReinforcingBar(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcReinforcingElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcReinforcingBar *cloneIfcReinforcingBar(ExpressDataSet *expressDataSet, const IfcReinforcingBar &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23858,14 +19806,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcReinforcingMesh(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcReinforcingMesh *cloneIfcReinforcingMesh(ExpressDataSet *expressDataSet, const IfcReinforcingMesh &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAggregates(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRelAssigns(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRelAggregates *cloneIfcRelAggregates(ExpressDataSet *expressDataSet, const IfcRelAggregates &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23873,9 +19828,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssignsTasks(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsTasks *cloneIfcRelAssignsTasks(ExpressDataSet *expressDataSet, const IfcRelAssignsTasks &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssignsToActor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToActor *cloneIfcRelAssignsToActor(ExpressDataSet *expressDataSet, const IfcRelAssignsToActor &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23883,9 +19850,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssignsToControl(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToControl *cloneIfcRelAssignsToControl(ExpressDataSet *expressDataSet, const IfcRelAssignsToControl &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssignsToGroup(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToGroup *cloneIfcRelAssignsToGroup(ExpressDataSet *expressDataSet, const IfcRelAssignsToGroup &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23893,9 +19872,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssignsToProcess(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToProcess *cloneIfcRelAssignsToProcess(ExpressDataSet *expressDataSet, const IfcRelAssignsToProcess &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssignsToProduct(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToProduct *cloneIfcRelAssignsToProduct(ExpressDataSet *expressDataSet, const IfcRelAssignsToProduct &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23903,9 +19894,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssignsToProjectOrder(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToProjectOrder *cloneIfcRelAssignsToProjectOrder(ExpressDataSet *expressDataSet, const IfcRelAssignsToProjectOrder &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssignsToResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssignsToResource *cloneIfcRelAssignsToResource(ExpressDataSet *expressDataSet, const IfcRelAssignsToResource &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23913,9 +19916,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssociates(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociates *cloneIfcRelAssociates(ExpressDataSet *expressDataSet, const IfcRelAssociates &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssociatesAppliedValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesAppliedValue *cloneIfcRelAssociatesAppliedValue(ExpressDataSet *expressDataSet, const IfcRelAssociatesAppliedValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23923,9 +19938,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssociatesApproval(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesApproval *cloneIfcRelAssociatesApproval(ExpressDataSet *expressDataSet, const IfcRelAssociatesApproval &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssociatesClassification(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesClassification *cloneIfcRelAssociatesClassification(ExpressDataSet *expressDataSet, const IfcRelAssociatesClassification &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23933,9 +19960,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssociatesConstraint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesConstraint *cloneIfcRelAssociatesConstraint(ExpressDataSet *expressDataSet, const IfcRelAssociatesConstraint &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssociatesDocument(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesDocument *cloneIfcRelAssociatesDocument(ExpressDataSet *expressDataSet, const IfcRelAssociatesDocument &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23943,9 +19982,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssociatesLibrary(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesLibrary *cloneIfcRelAssociatesLibrary(ExpressDataSet *expressDataSet, const IfcRelAssociatesLibrary &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelAssociatesMaterial(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelAssociatesMaterial *cloneIfcRelAssociatesMaterial(ExpressDataSet *expressDataSet, const IfcRelAssociatesMaterial &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23953,9 +20004,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelAssociatesProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRelConnects(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRelAssociatesProfileProperties *cloneIfcRelAssociatesProfileProperties(ExpressDataSet *expressDataSet, const IfcRelAssociatesProfileProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23963,9 +20015,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelConnectsElements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsElements *cloneIfcRelConnectsElements(ExpressDataSet *expressDataSet, const IfcRelConnectsElements &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelConnectsPathElements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsPathElements *cloneIfcRelConnectsPathElements(ExpressDataSet *expressDataSet, const IfcRelConnectsPathElements &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23973,9 +20037,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelConnectsPortToElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsPortToElement *cloneIfcRelConnectsPortToElement(ExpressDataSet *expressDataSet, const IfcRelConnectsPortToElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelConnectsPorts(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsPorts *cloneIfcRelConnectsPorts(ExpressDataSet *expressDataSet, const IfcRelConnectsPorts &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23983,9 +20059,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelConnectsStructuralActivity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsStructuralActivity *cloneIfcRelConnectsStructuralActivity(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralActivity &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelConnectsStructuralElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsStructuralElement *cloneIfcRelConnectsStructuralElement(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -23993,9 +20081,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelConnectsStructuralMember(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsStructuralMember *cloneIfcRelConnectsStructuralMember(ExpressDataSet *expressDataSet, const IfcRelConnectsStructuralMember &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelConnectsWithEccentricity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsWithEccentricity *cloneIfcRelConnectsWithEccentricity(ExpressDataSet *expressDataSet, const IfcRelConnectsWithEccentricity &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24003,9 +20103,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelConnectsWithRealizingElements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelConnectsWithRealizingElements *cloneIfcRelConnectsWithRealizingElements(ExpressDataSet *expressDataSet, const IfcRelConnectsWithRealizingElements &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelContainedInSpatialStructure(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelContainedInSpatialStructure *cloneIfcRelContainedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelContainedInSpatialStructure &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24013,19 +20125,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelCoversBldgElements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelCoversBldgElements *cloneIfcRelCoversBldgElements(ExpressDataSet *expressDataSet, const IfcRelCoversBldgElements &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelCoversSpaces(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRelDecomposes(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcRelDefines(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRelCoversSpaces *cloneIfcRelCoversSpaces(ExpressDataSet *expressDataSet, const IfcRelCoversSpaces &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24033,9 +20147,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelDefinesByProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelDefinesByProperties *cloneIfcRelDefinesByProperties(ExpressDataSet *expressDataSet, const IfcRelDefinesByProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelDefinesByType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelDefinesByType *cloneIfcRelDefinesByType(ExpressDataSet *expressDataSet, const IfcRelDefinesByType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24043,9 +20169,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelFillsElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelFillsElement *cloneIfcRelFillsElement(ExpressDataSet *expressDataSet, const IfcRelFillsElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelFlowControlElements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelFlowControlElements *cloneIfcRelFlowControlElements(ExpressDataSet *expressDataSet, const IfcRelFlowControlElements &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24053,9 +20191,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelInteractionRequirements(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelInteractionRequirements *cloneIfcRelInteractionRequirements(ExpressDataSet *expressDataSet, const IfcRelInteractionRequirements &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelNests(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelNests *cloneIfcRelNests(ExpressDataSet *expressDataSet, const IfcRelNests &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24063,9 +20213,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelOccupiesSpaces(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelOccupiesSpaces *cloneIfcRelOccupiesSpaces(ExpressDataSet *expressDataSet, const IfcRelOccupiesSpaces &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelOverridesProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelOverridesProperties *cloneIfcRelOverridesProperties(ExpressDataSet *expressDataSet, const IfcRelOverridesProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24073,9 +20235,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelProjectsElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelProjectsElement *cloneIfcRelProjectsElement(ExpressDataSet *expressDataSet, const IfcRelProjectsElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelReferencedInSpatialStructure(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelReferencedInSpatialStructure *cloneIfcRelReferencedInSpatialStructure(ExpressDataSet *expressDataSet, const IfcRelReferencedInSpatialStructure &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24083,9 +20257,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelSchedulesCostItems(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelSchedulesCostItems *cloneIfcRelSchedulesCostItems(ExpressDataSet *expressDataSet, const IfcRelSchedulesCostItems &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelSequence(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelSequence *cloneIfcRelSequence(ExpressDataSet *expressDataSet, const IfcRelSequence &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24093,9 +20279,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelServicesBuildings(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelServicesBuildings *cloneIfcRelServicesBuildings(ExpressDataSet *expressDataSet, const IfcRelServicesBuildings &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRelSpaceBoundary(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelSpaceBoundary *cloneIfcRelSpaceBoundary(ExpressDataSet *expressDataSet, const IfcRelSpaceBoundary &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24103,9 +20301,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelVoidsElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRelVoidsElement *cloneIfcRelVoidsElement(ExpressDataSet *expressDataSet, const IfcRelVoidsElement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24113,9 +20312,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRelaxation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRelaxation *cloneIfcRelaxation(ExpressDataSet *expressDataSet, const IfcRelaxation &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRepresentation *cloneIfcRepresentation(ExpressDataSet *expressDataSet, const IfcRepresentation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24123,9 +20334,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRepresentationContext(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRepresentationItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRepresentationContext *cloneIfcRepresentationContext(ExpressDataSet *expressDataSet, const IfcRepresentationContext &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24133,9 +20345,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRepresentationMap(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRepresentationMap *cloneIfcRepresentationMap(ExpressDataSet *expressDataSet, const IfcRepresentationMap &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24143,9 +20356,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRevolvedAreaSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRevolvedAreaSolid *cloneIfcRevolvedAreaSolid(ExpressDataSet *expressDataSet, const IfcRevolvedAreaSolid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRibPlateProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRibPlateProfileProperties *cloneIfcRibPlateProfileProperties(ExpressDataSet *expressDataSet, const IfcRibPlateProfileProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24153,9 +20378,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRightCircularCone(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRightCircularCone *cloneIfcRightCircularCone(ExpressDataSet *expressDataSet, const IfcRightCircularCone &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRightCircularCylinder(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRightCircularCylinder *cloneIfcRightCircularCylinder(ExpressDataSet *expressDataSet, const IfcRightCircularCylinder &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24163,9 +20400,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRoof(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcRoot(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcRoof *cloneIfcRoof(ExpressDataSet *expressDataSet, const IfcRoof &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24173,9 +20411,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcRoundedEdgeFeature(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRoundedEdgeFeature *cloneIfcRoundedEdgeFeature(ExpressDataSet *expressDataSet, const IfcRoundedEdgeFeature &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcRoundedRectangleProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcRoundedRectangleProfileDef *cloneIfcRoundedRectangleProfileDef(ExpressDataSet *expressDataSet, const IfcRoundedRectangleProfileDef &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24183,9 +20433,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSIUnit(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSIUnit *cloneIfcSIUnit(ExpressDataSet *expressDataSet, const IfcSIUnit &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSanitaryTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSanitaryTerminalType *cloneIfcSanitaryTerminalType(ExpressDataSet *expressDataSet, const IfcSanitaryTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24193,9 +20455,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcScheduleTimeControl(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcScheduleTimeControl *cloneIfcScheduleTimeControl(ExpressDataSet *expressDataSet, const IfcScheduleTimeControl &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSectionProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSectionProperties *cloneIfcSectionProperties(ExpressDataSet *expressDataSet, const IfcSectionProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24203,9 +20477,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSectionReinforcementProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSectionReinforcementProperties *cloneIfcSectionReinforcementProperties(ExpressDataSet *expressDataSet, const IfcSectionReinforcementProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSectionedSpine(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSectionedSpine *cloneIfcSectionedSpine(ExpressDataSet *expressDataSet, const IfcSectionedSpine &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24213,9 +20499,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSensorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSensorType *cloneIfcSensorType(ExpressDataSet *expressDataSet, const IfcSensorType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcServiceLife(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcServiceLife *cloneIfcServiceLife(ExpressDataSet *expressDataSet, const IfcServiceLife &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24223,14 +20521,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcServiceLifeFactor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcServiceLifeFactor *cloneIfcServiceLifeFactor(ExpressDataSet *expressDataSet, const IfcServiceLifeFactor &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcShapeAspect(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcShapeModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcShapeAspect *cloneIfcShapeAspect(ExpressDataSet *expressDataSet, const IfcShapeAspect &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24238,14 +20543,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcShapeRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcShapeRepresentation *cloneIfcShapeRepresentation(ExpressDataSet *expressDataSet, const IfcShapeRepresentation &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcShellBasedSurfaceModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSimpleProperty(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcShellBasedSurfaceModel *cloneIfcShellBasedSurfaceModel(ExpressDataSet *expressDataSet, const IfcShellBasedSurfaceModel &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24253,9 +20565,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSite(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSite *cloneIfcSite(ExpressDataSet *expressDataSet, const IfcSite &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSlab(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSlab *cloneIfcSlab(ExpressDataSet *expressDataSet, const IfcSlab &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24263,14 +20587,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSlabType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSlabType *cloneIfcSlabType(ExpressDataSet *expressDataSet, const IfcSlabType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSlippageConnectionCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSolidModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcSlippageConnectionCondition *cloneIfcSlippageConnectionCondition(ExpressDataSet *expressDataSet, const IfcSlippageConnectionCondition &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24278,9 +20609,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSoundProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSoundProperties *cloneIfcSoundProperties(ExpressDataSet *expressDataSet, const IfcSoundProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSoundValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSoundValue *cloneIfcSoundValue(ExpressDataSet *expressDataSet, const IfcSoundValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24288,9 +20631,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSpace(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSpace *cloneIfcSpace(ExpressDataSet *expressDataSet, const IfcSpace &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSpaceHeaterType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSpaceHeaterType *cloneIfcSpaceHeaterType(ExpressDataSet *expressDataSet, const IfcSpaceHeaterType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24298,9 +20653,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSpaceProgram(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSpaceProgram *cloneIfcSpaceProgram(ExpressDataSet *expressDataSet, const IfcSpaceProgram &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSpaceThermalLoadProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSpaceThermalLoadProperties *cloneIfcSpaceThermalLoadProperties(ExpressDataSet *expressDataSet, const IfcSpaceThermalLoadProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24308,14 +20675,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSpaceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSpatialStructureElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcSpatialStructureElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcSpaceType *cloneIfcSpaceType(ExpressDataSet *expressDataSet, const IfcSpaceType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24323,9 +20686,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSphere(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSphere *cloneIfcSphere(ExpressDataSet *expressDataSet, const IfcSphere &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStackTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStackTerminalType *cloneIfcStackTerminalType(ExpressDataSet *expressDataSet, const IfcStackTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24333,9 +20708,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStair(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStair *cloneIfcStair(ExpressDataSet *expressDataSet, const IfcStair &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStairFlight(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStairFlight *cloneIfcStairFlight(ExpressDataSet *expressDataSet, const IfcStairFlight &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24343,14 +20730,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStairFlightType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralAction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcStructuralActivity(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStairFlightType *cloneIfcStairFlightType(ExpressDataSet *expressDataSet, const IfcStairFlightType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24358,14 +20741,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralAnalysisModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralConnection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcStructuralConnectionCondition(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralAnalysisModel *cloneIfcStructuralAnalysisModel(ExpressDataSet *expressDataSet, const IfcStructuralAnalysisModel &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24373,9 +20752,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralCurveConnection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralCurveConnection *cloneIfcStructuralCurveConnection(ExpressDataSet *expressDataSet, const IfcStructuralCurveConnection &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralCurveMember(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralCurveMember *cloneIfcStructuralCurveMember(ExpressDataSet *expressDataSet, const IfcStructuralCurveMember &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24383,9 +20774,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralCurveMemberVarying(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralCurveMemberVarying *cloneIfcStructuralCurveMemberVarying(ExpressDataSet *expressDataSet, const IfcStructuralCurveMemberVarying &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24393,14 +20785,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLinearAction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLinearAction *cloneIfcStructuralLinearAction(ExpressDataSet *expressDataSet, const IfcStructuralLinearAction &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralLinearActionVarying(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralLoad(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralLinearActionVarying *cloneIfcStructuralLinearActionVarying(ExpressDataSet *expressDataSet, const IfcStructuralLinearActionVarying &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24408,9 +20807,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLoadGroup(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadGroup *cloneIfcStructuralLoadGroup(ExpressDataSet *expressDataSet, const IfcStructuralLoadGroup &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralLoadLinearForce(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadLinearForce *cloneIfcStructuralLoadLinearForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadLinearForce &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24418,9 +20829,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLoadPlanarForce(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadPlanarForce *cloneIfcStructuralLoadPlanarForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadPlanarForce &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralLoadSingleDisplacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadSingleDisplacement *cloneIfcStructuralLoadSingleDisplacement(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleDisplacement &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24428,9 +20851,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLoadSingleDisplacementDistortion(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadSingleDisplacementDistortion *cloneIfcStructuralLoadSingleDisplacementDistortion(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleDisplacementDistortion &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralLoadSingleForce(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralLoadSingleForce *cloneIfcStructuralLoadSingleForce(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleForce &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24438,9 +20873,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLoadSingleForceWarping(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralLoadStatic(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralLoadSingleForceWarping *cloneIfcStructuralLoadSingleForceWarping(ExpressDataSet *expressDataSet, const IfcStructuralLoadSingleForceWarping &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24448,9 +20884,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralLoadTemperature(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralMember(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralLoadTemperature *cloneIfcStructuralLoadTemperature(ExpressDataSet *expressDataSet, const IfcStructuralLoadTemperature &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24458,9 +20895,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralPlanarAction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralPlanarAction *cloneIfcStructuralPlanarAction(ExpressDataSet *expressDataSet, const IfcStructuralPlanarAction &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralPlanarActionVarying(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralPlanarActionVarying *cloneIfcStructuralPlanarActionVarying(ExpressDataSet *expressDataSet, const IfcStructuralPlanarActionVarying &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24468,9 +20917,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralPointAction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralPointAction *cloneIfcStructuralPointAction(ExpressDataSet *expressDataSet, const IfcStructuralPointAction &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralPointConnection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralPointConnection *cloneIfcStructuralPointConnection(ExpressDataSet *expressDataSet, const IfcStructuralPointConnection &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24478,14 +20939,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralPointReaction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralPointReaction *cloneIfcStructuralPointReaction(ExpressDataSet *expressDataSet, const IfcStructuralPointReaction &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStructuralReaction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuralProfileProperties *cloneIfcStructuralProfileProperties(ExpressDataSet *expressDataSet, const IfcStructuralProfileProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24493,9 +20961,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralResultGroup(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralResultGroup *cloneIfcStructuralResultGroup(ExpressDataSet *expressDataSet, const IfcStructuralResultGroup &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralSteelProfileProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralSteelProfileProperties *cloneIfcStructuralSteelProfileProperties(ExpressDataSet *expressDataSet, const IfcStructuralSteelProfileProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24503,9 +20983,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralSurfaceConnection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralSurfaceConnection *cloneIfcStructuralSurfaceConnection(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceConnection &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuralSurfaceMember(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralSurfaceMember *cloneIfcStructuralSurfaceMember(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceMember &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24513,14 +21005,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStructuralSurfaceMemberVarying(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStructuralSurfaceMemberVarying *cloneIfcStructuralSurfaceMemberVarying(ExpressDataSet *expressDataSet, const IfcStructuralSurfaceMemberVarying &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStructuredDimensionCallout(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcStyleModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcStructuredDimensionCallout *cloneIfcStructuredDimensionCallout(ExpressDataSet *expressDataSet, const IfcStructuredDimensionCallout &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24528,9 +21027,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcStyledItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStyledItem *cloneIfcStyledItem(ExpressDataSet *expressDataSet, const IfcStyledItem &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcStyledRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcStyledRepresentation *cloneIfcStyledRepresentation(ExpressDataSet *expressDataSet, const IfcStyledRepresentation &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24538,14 +21049,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSubContractResource(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSubContractResource *cloneIfcSubContractResource(ExpressDataSet *expressDataSet, const IfcSubContractResource &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSubedge(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcSubedge *cloneIfcSubedge(ExpressDataSet *expressDataSet, const IfcSubedge &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24553,9 +21071,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSurfaceCurveSweptAreaSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceCurveSweptAreaSolid *cloneIfcSurfaceCurveSweptAreaSolid(ExpressDataSet *expressDataSet, const IfcSurfaceCurveSweptAreaSolid &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSurfaceOfLinearExtrusion(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceOfLinearExtrusion *cloneIfcSurfaceOfLinearExtrusion(ExpressDataSet *expressDataSet, const IfcSurfaceOfLinearExtrusion &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24563,9 +21093,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSurfaceOfRevolution(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceOfRevolution *cloneIfcSurfaceOfRevolution(ExpressDataSet *expressDataSet, const IfcSurfaceOfRevolution &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSurfaceStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceStyle *cloneIfcSurfaceStyle(ExpressDataSet *expressDataSet, const IfcSurfaceStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24573,9 +21115,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSurfaceStyleLighting(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceStyleLighting *cloneIfcSurfaceStyleLighting(ExpressDataSet *expressDataSet, const IfcSurfaceStyleLighting &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSurfaceStyleRefraction(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceStyleRefraction *cloneIfcSurfaceStyleRefraction(ExpressDataSet *expressDataSet, const IfcSurfaceStyleRefraction &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24583,9 +21137,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSurfaceStyleRendering(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceStyleRendering *cloneIfcSurfaceStyleRendering(ExpressDataSet *expressDataSet, const IfcSurfaceStyleRendering &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSurfaceStyleShading(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSurfaceStyleShading *cloneIfcSurfaceStyleShading(ExpressDataSet *expressDataSet, const IfcSurfaceStyleShading &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24593,14 +21159,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSurfaceStyleWithTextures(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSurfaceTexture(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcSweptAreaSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcSurfaceStyleWithTextures *cloneIfcSurfaceStyleWithTextures(ExpressDataSet *expressDataSet, const IfcSurfaceStyleWithTextures &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24608,9 +21170,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSweptDiskSolid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcSweptSurface(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcSweptDiskSolid *cloneIfcSweptDiskSolid(ExpressDataSet *expressDataSet, const IfcSweptDiskSolid &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24618,9 +21181,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSwitchingDeviceType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSwitchingDeviceType *cloneIfcSwitchingDeviceType(ExpressDataSet *expressDataSet, const IfcSwitchingDeviceType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSymbolStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSymbolStyle *cloneIfcSymbolStyle(ExpressDataSet *expressDataSet, const IfcSymbolStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24628,9 +21203,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcSystem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSystem *cloneIfcSystem(ExpressDataSet *expressDataSet, const IfcSystem &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcSystemFurnitureElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcSystemFurnitureElementType *cloneIfcSystemFurnitureElementType(ExpressDataSet *expressDataSet, const IfcSystemFurnitureElementType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24638,9 +21225,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTShapeProfileDef *cloneIfcTShapeProfileDef(ExpressDataSet *expressDataSet, const IfcTShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTable(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTable *cloneIfcTable(ExpressDataSet *expressDataSet, const IfcTable &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24648,9 +21247,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTableRow(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTableRow *cloneIfcTableRow(ExpressDataSet *expressDataSet, const IfcTableRow &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTankType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTankType *cloneIfcTankType(ExpressDataSet *expressDataSet, const IfcTankType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24658,9 +21269,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTask(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTask *cloneIfcTask(ExpressDataSet *expressDataSet, const IfcTask &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTelecomAddress(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTelecomAddress *cloneIfcTelecomAddress(ExpressDataSet *expressDataSet, const IfcTelecomAddress &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24668,9 +21291,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTendon(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTendon *cloneIfcTendon(ExpressDataSet *expressDataSet, const IfcTendon &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTendonAnchor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTendonAnchor *cloneIfcTendonAnchor(ExpressDataSet *expressDataSet, const IfcTendonAnchor &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24678,9 +21313,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTerminatorSymbol(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTerminatorSymbol *cloneIfcTerminatorSymbol(ExpressDataSet *expressDataSet, const IfcTerminatorSymbol &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTextLiteral(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextLiteral *cloneIfcTextLiteral(ExpressDataSet *expressDataSet, const IfcTextLiteral &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24688,9 +21335,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTextLiteralWithExtent(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextLiteralWithExtent *cloneIfcTextLiteralWithExtent(ExpressDataSet *expressDataSet, const IfcTextLiteralWithExtent &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTextStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextStyle *cloneIfcTextStyle(ExpressDataSet *expressDataSet, const IfcTextStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24698,9 +21357,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTextStyleFontModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextStyleFontModel *cloneIfcTextStyleFontModel(ExpressDataSet *expressDataSet, const IfcTextStyleFontModel &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTextStyleForDefinedFont(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextStyleForDefinedFont *cloneIfcTextStyleForDefinedFont(ExpressDataSet *expressDataSet, const IfcTextStyleForDefinedFont &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24708,14 +21379,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTextStyleTextModel(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextStyleTextModel *cloneIfcTextStyleTextModel(ExpressDataSet *expressDataSet, const IfcTextStyleTextModel &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTextStyleWithBoxCharacteristics(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcTextureCoordinate(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcTextStyleWithBoxCharacteristics *cloneIfcTextStyleWithBoxCharacteristics(ExpressDataSet *expressDataSet, const IfcTextStyleWithBoxCharacteristics &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24723,9 +21401,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTextureCoordinateGenerator(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextureCoordinateGenerator *cloneIfcTextureCoordinateGenerator(ExpressDataSet *expressDataSet, const IfcTextureCoordinateGenerator &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTextureMap(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextureMap *cloneIfcTextureMap(ExpressDataSet *expressDataSet, const IfcTextureMap &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24733,14 +21423,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTextureVertex(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTextureVertex *cloneIfcTextureVertex(ExpressDataSet *expressDataSet, const IfcTextureVertex &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcThermalMaterialProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcTimeSeries(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcThermalMaterialProperties *cloneIfcThermalMaterialProperties(ExpressDataSet *expressDataSet, const IfcThermalMaterialProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24748,9 +21445,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTimeSeriesReferenceRelationship(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTimeSeriesReferenceRelationship *cloneIfcTimeSeriesReferenceRelationship(ExpressDataSet *expressDataSet, const IfcTimeSeriesReferenceRelationship &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTimeSeriesSchedule(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTimeSeriesSchedule *cloneIfcTimeSeriesSchedule(ExpressDataSet *expressDataSet, const IfcTimeSeriesSchedule &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24758,9 +21467,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTimeSeriesValue(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcTopologicalRepresentationItem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcTimeSeriesValue *cloneIfcTimeSeriesValue(ExpressDataSet *expressDataSet, const IfcTimeSeriesValue &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24768,9 +21478,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTopologyRepresentation(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTopologyRepresentation *cloneIfcTopologyRepresentation(ExpressDataSet *expressDataSet, const IfcTopologyRepresentation &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTransformerType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTransformerType *cloneIfcTransformerType(ExpressDataSet *expressDataSet, const IfcTransformerType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24778,9 +21500,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTransportElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTransportElement *cloneIfcTransportElement(ExpressDataSet *expressDataSet, const IfcTransportElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTransportElementType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTransportElementType *cloneIfcTransportElementType(ExpressDataSet *expressDataSet, const IfcTransportElementType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24788,9 +21522,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTrapeziumProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTrapeziumProfileDef *cloneIfcTrapeziumProfileDef(ExpressDataSet *expressDataSet, const IfcTrapeziumProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTrimmedCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTrimmedCurve *cloneIfcTrimmedCurve(ExpressDataSet *expressDataSet, const IfcTrimmedCurve &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24798,9 +21544,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTubeBundleType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTubeBundleType *cloneIfcTubeBundleType(ExpressDataSet *expressDataSet, const IfcTubeBundleType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTwoDirectionRepeatFactor(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTwoDirectionRepeatFactor *cloneIfcTwoDirectionRepeatFactor(ExpressDataSet *expressDataSet, const IfcTwoDirectionRepeatFactor &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24808,9 +21566,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcTypeObject(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTypeObject *cloneIfcTypeObject(ExpressDataSet *expressDataSet, const IfcTypeObject &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcTypeProduct(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcTypeProduct *cloneIfcTypeProduct(ExpressDataSet *expressDataSet, const IfcTypeProduct &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24818,9 +21588,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcUShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcUShapeProfileDef *cloneIfcUShapeProfileDef(ExpressDataSet *expressDataSet, const IfcUShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcUnitAssignment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcUnitAssignment *cloneIfcUnitAssignment(ExpressDataSet *expressDataSet, const IfcUnitAssignment &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24828,9 +21610,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcUnitaryEquipmentType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcUnitaryEquipmentType *cloneIfcUnitaryEquipmentType(ExpressDataSet *expressDataSet, const IfcUnitaryEquipmentType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcValveType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcValveType *cloneIfcValveType(ExpressDataSet *expressDataSet, const IfcValveType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24838,9 +21632,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcVector(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVector *cloneIfcVector(ExpressDataSet *expressDataSet, const IfcVector &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcVertex(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVertex *cloneIfcVertex(ExpressDataSet *expressDataSet, const IfcVertex &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24848,9 +21654,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcVertexBasedTextureMap(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVertexBasedTextureMap *cloneIfcVertexBasedTextureMap(ExpressDataSet *expressDataSet, const IfcVertexBasedTextureMap &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcVertexLoop(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVertexLoop *cloneIfcVertexLoop(ExpressDataSet *expressDataSet, const IfcVertexLoop &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24858,9 +21676,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcVertexPoint(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVertexPoint *cloneIfcVertexPoint(ExpressDataSet *expressDataSet, const IfcVertexPoint &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcVibrationIsolatorType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVibrationIsolatorType *cloneIfcVibrationIsolatorType(ExpressDataSet *expressDataSet, const IfcVibrationIsolatorType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24868,9 +21698,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcVirtualElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVirtualElement *cloneIfcVirtualElement(ExpressDataSet *expressDataSet, const IfcVirtualElement &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcVirtualGridIntersection(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcVirtualGridIntersection *cloneIfcVirtualGridIntersection(ExpressDataSet *expressDataSet, const IfcVirtualGridIntersection &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24878,9 +21720,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWall(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWall *cloneIfcWall(ExpressDataSet *expressDataSet, const IfcWall &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcWallStandardCase(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWallStandardCase *cloneIfcWallStandardCase(ExpressDataSet *expressDataSet, const IfcWallStandardCase &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24888,9 +21742,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWallType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWallType *cloneIfcWallType(ExpressDataSet *expressDataSet, const IfcWallType &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcWasteTerminalType(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWasteTerminalType *cloneIfcWasteTerminalType(ExpressDataSet *expressDataSet, const IfcWasteTerminalType &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24898,9 +21764,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWaterProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWaterProperties *cloneIfcWaterProperties(ExpressDataSet *expressDataSet, const IfcWaterProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcWindow(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWindow *cloneIfcWindow(ExpressDataSet *expressDataSet, const IfcWindow &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24908,9 +21786,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWindowLiningProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWindowLiningProperties *cloneIfcWindowLiningProperties(ExpressDataSet *expressDataSet, const IfcWindowLiningProperties &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcWindowPanelProperties(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWindowPanelProperties *cloneIfcWindowPanelProperties(ExpressDataSet *expressDataSet, const IfcWindowPanelProperties &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24918,9 +21808,10 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWindowStyle(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcWorkControl(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcWindowStyle *cloneIfcWindowStyle(ExpressDataSet *expressDataSet, const IfcWindowStyle &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24928,9 +21819,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcWorkPlan(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWorkPlan *cloneIfcWorkPlan(ExpressDataSet *expressDataSet, const IfcWorkPlan &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcWorkSchedule(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        /**
+         * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcWorkSchedule *cloneIfcWorkSchedule(ExpressDataSet *expressDataSet, const IfcWorkSchedule &obj, const CopyOp &copyop);
         /**
          * @param expressDataSet
          * @param id
@@ -24938,129 +21841,21 @@ namespace ifc2x3 {
         static Step::BaseEntity *allocateIfcZShapeProfileDef(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
+         * @param obj
+         * @param copyop
+         */
+        static IfcZShapeProfileDef *cloneIfcZShapeProfileDef(ExpressDataSet *expressDataSet, const IfcZShapeProfileDef &obj, const CopyOp &copyop);
+        /**
+         * @param expressDataSet
          * @param id
          */
         static Step::BaseEntity *allocateIfcZone(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
         /**
          * @param expressDataSet
-         * @param id
+         * @param obj
+         * @param copyop
          */
-        static Step::BaseEntity *allocateIfcCivilStructureElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgeStructureElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridge(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgePart(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcCivilElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgeElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgeSegment(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgeSegmentPart(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgeContactElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcBridgePrismaticElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcAlignmentElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceElement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceCurve(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceCurve3D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceCurveAlignment2D(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferencePlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceCurvePlacement(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferenceCurvePlacementSystem(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcElementPart(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcCivilElementPart(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcCivilSheath(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcCivilVoid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcClothoid(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
-        /**
-         * @param expressDataSet
-         * @param id
-         */
-        static Step::BaseEntity *allocateIfcReferencedSectionedSpine(Step::BaseExpressDataSet *expressDataSet, Step::Id id);
+        static IfcZone *cloneIfcZone(ExpressDataSet *expressDataSet, const IfcZone &obj, const CopyOp &copyop);
 
     };
 

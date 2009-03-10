@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,29 +47,28 @@ using namespace ifc2x3;
 
 IfcTimeSeriesReferenceRelationship::IfcTimeSeriesReferenceRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_referencedTimeSeries = NULL;
-    m_timeSeriesReferences.setUnset(true);
 }
 
 IfcTimeSeriesReferenceRelationship::~IfcTimeSeriesReferenceRelationship() {
 }
 
-bool IfcTimeSeriesReferenceRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTimeSeriesReferenceRelationship(this);
+bool IfcTimeSeriesReferenceRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTimeSeriesReferenceRelationship(this);
 }
 
-const std::string &IfcTimeSeriesReferenceRelationship::type() {
+const std::string &IfcTimeSeriesReferenceRelationship::type() const {
     return IfcTimeSeriesReferenceRelationship::s_type.getName();
 }
 
-Step::ClassType IfcTimeSeriesReferenceRelationship::getClassType() {
+const Step::ClassType &IfcTimeSeriesReferenceRelationship::getClassType() {
     return IfcTimeSeriesReferenceRelationship::s_type;
 }
 
-Step::ClassType IfcTimeSeriesReferenceRelationship::getType() const {
+const Step::ClassType &IfcTimeSeriesReferenceRelationship::getType() const {
     return IfcTimeSeriesReferenceRelationship::s_type;
 }
 
-bool IfcTimeSeriesReferenceRelationship::isOfType(Step::ClassType t) {
+bool IfcTimeSeriesReferenceRelationship::isOfType(const Step::ClassType &t) const {
     return IfcTimeSeriesReferenceRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,12 +81,22 @@ IfcTimeSeries *IfcTimeSeriesReferenceRelationship::getReferencedTimeSeries() {
     }
 }
 
-void IfcTimeSeriesReferenceRelationship::setReferencedTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    m_referencedTimeSeries = value;
-    m_referencedTimeSeries->m_documentedBy.insert(this);
+const IfcTimeSeries *IfcTimeSeriesReferenceRelationship::getReferencedTimeSeries() const {
+    IfcTimeSeriesReferenceRelationship * deConstObject = const_cast< IfcTimeSeriesReferenceRelationship * > (this);
+    return deConstObject->getReferencedTimeSeries();
 }
 
-Step::Set< Step::RefPtr< IfcDocumentSelect > > &IfcTimeSeriesReferenceRelationship::getTimeSeriesReferences() {
+void IfcTimeSeriesReferenceRelationship::setReferencedTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
+    if (m_referencedTimeSeries.valid()) {
+        m_referencedTimeSeries->m_documentedBy.erase(this);
+    }
+    if (value.valid()) {
+        value->m_documentedBy.insert(this);
+    }
+    m_referencedTimeSeries = value;
+}
+
+Set_IfcDocumentSelect_1_n &IfcTimeSeriesReferenceRelationship::getTimeSeriesReferences() {
     if (Step::BaseObject::inited()) {
         return m_timeSeriesReferences;
     }
@@ -97,13 +106,13 @@ Step::Set< Step::RefPtr< IfcDocumentSelect > > &IfcTimeSeriesReferenceRelationsh
     }
 }
 
-void IfcTimeSeriesReferenceRelationship::setTimeSeriesReferences(const Step::Set< Step::RefPtr< IfcDocumentSelect > > &value) {
-    m_timeSeriesReferences = value;
+const Set_IfcDocumentSelect_1_n &IfcTimeSeriesReferenceRelationship::getTimeSeriesReferences() const {
+    IfcTimeSeriesReferenceRelationship * deConstObject = const_cast< IfcTimeSeriesReferenceRelationship * > (this);
+    return deConstObject->getTimeSeriesReferences();
 }
 
-void IfcTimeSeriesReferenceRelationship::release() {
-    m_referencedTimeSeries.release();
-    m_timeSeriesReferences.clear();
+void IfcTimeSeriesReferenceRelationship::setTimeSeriesReferences(const Set_IfcDocumentSelect_1_n &value) {
+    m_timeSeriesReferences = value;
 }
 
 bool IfcTimeSeriesReferenceRelationship::init() {
@@ -113,7 +122,7 @@ bool IfcTimeSeriesReferenceRelationship::init() {
         m_referencedTimeSeries = NULL;
     }
     else {
-        m_referencedTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_referencedTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -150,9 +159,9 @@ bool IfcTimeSeriesReferenceRelationship::init() {
 }
 
 void IfcTimeSeriesReferenceRelationship::copy(const IfcTimeSeriesReferenceRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDocumentSelect > >::const_iterator it_m_timeSeriesReferences;
+    Step::Set< Step::RefPtr< IfcDocumentSelect >, 1 >::const_iterator it_m_timeSeriesReferences;
     Step::BaseEntity::copy(obj, copyop);
-    setReferencedTimeSeries(copyop(obj.m_referencedTimeSeries.get()));
+    setReferencedTimeSeries((IfcTimeSeries*)copyop(obj.m_referencedTimeSeries.get()));
     for (it_m_timeSeriesReferences = obj.m_timeSeriesReferences.begin(); it_m_timeSeriesReferences != obj.m_timeSeriesReferences.end(); ++it_m_timeSeriesReferences) {
         Step::RefPtr< IfcDocumentSelect > copyTarget = new IfcDocumentSelect;
         copyTarget->copy(*((*it_m_timeSeriesReferences).get()), copyop);

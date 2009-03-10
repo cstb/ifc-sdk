@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcStructuralActivityAssignmentSelect::~IfcStructuralActivityAssignmentSelect() 
     deleteUnion();
 }
 
-bool IfcStructuralActivityAssignmentSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralActivityAssignmentSelect(this);
+bool IfcStructuralActivityAssignmentSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralActivityAssignmentSelect(this);
 }
 
 bool IfcStructuralActivityAssignmentSelect::init() {
     return false;
 }
 
-const std::string &IfcStructuralActivityAssignmentSelect::type() {
+const std::string &IfcStructuralActivityAssignmentSelect::type() const {
     return IfcStructuralActivityAssignmentSelect::s_type.getName();
 }
 
-Step::ClassType IfcStructuralActivityAssignmentSelect::getClassType() {
+const Step::ClassType &IfcStructuralActivityAssignmentSelect::getClassType() {
     return IfcStructuralActivityAssignmentSelect::s_type;
 }
 
-Step::ClassType IfcStructuralActivityAssignmentSelect::getType() const {
+const Step::ClassType &IfcStructuralActivityAssignmentSelect::getType() const {
     return IfcStructuralActivityAssignmentSelect::s_type;
 }
 
-bool IfcStructuralActivityAssignmentSelect::isOfType(Step::ClassType t) {
+bool IfcStructuralActivityAssignmentSelect::isOfType(const Step::ClassType &t) const {
     return IfcStructuralActivityAssignmentSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcStructuralActivityAssignmentSelect::copy(const IfcStructuralActivityAssignmentSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCSTRUCTURALITEM:
-        setIfcStructuralItem(copyop(obj.m_IfcStructuralActivityAssignmentSelect_union.m_IfcStructuralItem));
+        setIfcStructuralItem((IfcStructuralItem *) (copyop(obj.m_IfcStructuralActivityAssignmentSelect_union.m_IfcStructuralItem)));
         break;
     case IFCELEMENT:
-        setIfcElement(copyop(obj.m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement));
+        setIfcElement((IfcElement *) (copyop(obj.m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement)));
         break;
         }
 }
 
-char *IfcStructuralActivityAssignmentSelect::currentTypeName() {
+std::string IfcStructuralActivityAssignmentSelect::currentTypeName() const {
     switch(m_type) {
     case IFCSTRUCTURALITEM:
         return "IfcStructuralItem";
@@ -97,7 +97,7 @@ char *IfcStructuralActivityAssignmentSelect::currentTypeName() {
     }
 }
 
-IfcStructuralActivityAssignmentSelect::IfcStructuralActivityAssignmentSelect_select IfcStructuralActivityAssignmentSelect::currentType() {
+IfcStructuralActivityAssignmentSelect::IfcStructuralActivityAssignmentSelect_select IfcStructuralActivityAssignmentSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcStructuralActivityAssignmentSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcStructuralItem *IfcStructuralActivityAssignmentSelect::getIfcStructuralItem() {
-    return m_IfcStructuralActivityAssignmentSelect_union.m_IfcStructuralItem;
+IfcStructuralItem *IfcStructuralActivityAssignmentSelect::getIfcStructuralItem() const {
+    if (m_type == IFCSTRUCTURALITEM) {
+        return m_IfcStructuralActivityAssignmentSelect_union.m_IfcStructuralItem;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcStructuralActivityAssignmentSelect::setIfcStructuralItem(IfcStructuralItem *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcStructuralActivityAssignmentSelect::setIfcStructuralItem(IfcStructuralIt
     m_type = IFCSTRUCTURALITEM;
 }
 
-IfcElement *IfcStructuralActivityAssignmentSelect::getIfcElement() {
-    return m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement;
+IfcElement *IfcStructuralActivityAssignmentSelect::getIfcElement() const {
+    if (m_type == IFCELEMENT) {
+        return m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcStructuralActivityAssignmentSelect::setIfcElement(IfcElement *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

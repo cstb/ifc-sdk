@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcTrapeziumProfileDef::IfcTrapeziumProfileDef(Step::Id id, Step::SPFData *args)
 IfcTrapeziumProfileDef::~IfcTrapeziumProfileDef() {
 }
 
-bool IfcTrapeziumProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTrapeziumProfileDef(this);
+bool IfcTrapeziumProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTrapeziumProfileDef(this);
 }
 
-const std::string &IfcTrapeziumProfileDef::type() {
+const std::string &IfcTrapeziumProfileDef::type() const {
     return IfcTrapeziumProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcTrapeziumProfileDef::getClassType() {
+const Step::ClassType &IfcTrapeziumProfileDef::getClassType() {
     return IfcTrapeziumProfileDef::s_type;
 }
 
-Step::ClassType IfcTrapeziumProfileDef::getType() const {
+const Step::ClassType &IfcTrapeziumProfileDef::getType() const {
     return IfcTrapeziumProfileDef::s_type;
 }
 
-bool IfcTrapeziumProfileDef::isOfType(Step::ClassType t) {
+bool IfcTrapeziumProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcTrapeziumProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim() {
     else {
         return Step::getUnset(m_bottomXDim);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getBottomXDim() const {
+    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
+    return deConstObject->getBottomXDim();
 }
 
 void IfcTrapeziumProfileDef::setBottomXDim(IfcPositiveLengthMeasure value) {
@@ -91,6 +96,11 @@ IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() const {
+    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
+    return deConstObject->getTopXDim();
+}
+
 void IfcTrapeziumProfileDef::setTopXDim(IfcPositiveLengthMeasure value) {
     m_topXDim = value;
 }
@@ -102,6 +112,11 @@ IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() {
     else {
         return Step::getUnset(m_yDim);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() const {
+    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
+    return deConstObject->getYDim();
 }
 
 void IfcTrapeziumProfileDef::setYDim(IfcPositiveLengthMeasure value) {
@@ -117,12 +132,13 @@ IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() {
     }
 }
 
-void IfcTrapeziumProfileDef::setTopXOffset(IfcLengthMeasure value) {
-    m_topXOffset = value;
+const IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() const {
+    IfcTrapeziumProfileDef * deConstObject = const_cast< IfcTrapeziumProfileDef * > (this);
+    return deConstObject->getTopXOffset();
 }
 
-void IfcTrapeziumProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcTrapeziumProfileDef::setTopXOffset(IfcLengthMeasure value) {
+    m_topXOffset = value;
 }
 
 bool IfcTrapeziumProfileDef::init() {

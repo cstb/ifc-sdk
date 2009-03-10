@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,39 +48,39 @@ IfcCharacterStyleSelect::~IfcCharacterStyleSelect() {
     deleteUnion();
 }
 
-bool IfcCharacterStyleSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCharacterStyleSelect(this);
+bool IfcCharacterStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCharacterStyleSelect(this);
 }
 
 bool IfcCharacterStyleSelect::init() {
     return false;
 }
 
-const std::string &IfcCharacterStyleSelect::type() {
+const std::string &IfcCharacterStyleSelect::type() const {
     return IfcCharacterStyleSelect::s_type.getName();
 }
 
-Step::ClassType IfcCharacterStyleSelect::getClassType() {
+const Step::ClassType &IfcCharacterStyleSelect::getClassType() {
     return IfcCharacterStyleSelect::s_type;
 }
 
-Step::ClassType IfcCharacterStyleSelect::getType() const {
+const Step::ClassType &IfcCharacterStyleSelect::getType() const {
     return IfcCharacterStyleSelect::s_type;
 }
 
-bool IfcCharacterStyleSelect::isOfType(Step::ClassType t) {
+bool IfcCharacterStyleSelect::isOfType(const Step::ClassType &t) const {
     return IfcCharacterStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcCharacterStyleSelect::copy(const IfcCharacterStyleSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCTEXTSTYLEFORDEFINEDFONT:
-        setIfcTextStyleForDefinedFont(copyop(obj.m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont));
+        setIfcTextStyleForDefinedFont((IfcTextStyleForDefinedFont *) (copyop(obj.m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont)));
         break;
         }
 }
 
-char *IfcCharacterStyleSelect::currentTypeName() {
+std::string IfcCharacterStyleSelect::currentTypeName() const {
     switch(m_type) {
     case IFCTEXTSTYLEFORDEFINEDFONT:
         return "IfcTextStyleForDefinedFont";
@@ -90,7 +90,7 @@ char *IfcCharacterStyleSelect::currentTypeName() {
     }
 }
 
-IfcCharacterStyleSelect::IfcCharacterStyleSelect_select IfcCharacterStyleSelect::currentType() {
+IfcCharacterStyleSelect::IfcCharacterStyleSelect_select IfcCharacterStyleSelect::currentType() const {
     return m_type;
 }
 
@@ -103,12 +103,16 @@ void IfcCharacterStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcTextStyleForDefinedFont *IfcCharacterStyleSelect::getIfcTextStyleForDefinedFont() {
-    return m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont;
+IfcTextStyleForDefinedFont *IfcCharacterStyleSelect::getIfcTextStyleForDefinedFont() const {
+    if (m_type == IFCTEXTSTYLEFORDEFINEDFONT) {
+        return m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCharacterStyleSelect::setIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

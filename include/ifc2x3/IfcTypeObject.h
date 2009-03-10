@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,84 +29,123 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
-#include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcObjectDefinition.h"
 
 namespace ifc2x3 {
 
-    class CopyOp;
     class IfcPropertySetDefinition;
-    class IfcRelDefinesByType;
+    class IfcTypeObject;
+
+    /**
+     */
+    class Inverted_IfcTypeObject_HasPropertySets_type : public Set_IfcPropertySetDefinition_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcPropertySetDefinition_1_n::size_type size_type;
+
+        /**
+         */
+        IfcTypeObject *mOwner;
+        /**
+         */
+        Inverted_IfcTypeObject_HasPropertySets_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcTypeObject *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcPropertySetDefinition > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcPropertySetDefinition > &value);
+
+    };
+
+    class CopyOp;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcTypeObject : public IfcObjectDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ApplicableOccurrence'.
+         * 
          */
-        IfcLabel getApplicableOccurrence();
+        virtual IfcLabel getApplicableOccurrence();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApplicableOccurrence'.
+         * 
+         * @return the value of the explicit attribute 'ApplicableOccurrence'
+         */
+        virtual const IfcLabel getApplicableOccurrence() const;
         /**
          * Sets the value of the explicit attribute 'ApplicableOccurrence'.
          * 
          * @param value
          */
-        void setApplicableOccurrence(const IfcLabel &value);
+        virtual void setApplicableOccurrence(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'HasPropertySets'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcPropertySetDefinition > > &getHasPropertySets();
+        virtual Set_IfcPropertySetDefinition_1_n &getHasPropertySets();
         /**
+         * (const) Returns the value of the explicit attribute 'HasPropertySets'.
+         * 
+         * @return the value of the explicit attribute 'HasPropertySets'
          */
-        Step::Set< Step::ObsPtr< IfcRelDefinesByType > > &getObjectTypeOf();
+        virtual const Set_IfcPropertySetDefinition_1_n &getHasPropertySets() const;
         /**
+         * Gets the value of the inverse attribute 'ObjectTypeOf'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf();
+        /**
+         * (const) Returns the value of the explicit attribute 'ObjectTypeOf'.
+         * 
+         * @return the value of the explicit attribute 'ObjectTypeOf'
+         */
+        virtual const Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf() const;
         friend class IfcRelDefinesByType;
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_HasPropertySets_type : public Step::Set< Step::RefPtr< IfcPropertySetDefinition > > {
-        public:
-            /**
-             */
-            IfcTypeObject *mOwner;
-            /**
-             */
-            Inverted_HasPropertySets_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcTypeObject *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcPropertySetDefinition > &value);
-
-        };
-
 
     protected:
         /**
@@ -130,13 +169,13 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_applicableOccurrence;
+        Step::String m_applicableOccurrence;
         /**
          */
-        Inverted_HasPropertySets_type m_hasPropertySets;
+        Inverted_IfcTypeObject_HasPropertySets_type m_hasPropertySets;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelDefinesByType > > m_objectTypeOf;
+        Inverse_Set_IfcRelDefinesByType_0_1 m_objectTypeOf;
 
     };
 

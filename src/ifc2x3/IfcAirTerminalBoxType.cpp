@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcAirTerminalBoxType::IfcAirTerminalBoxType(Step::Id id, Step::SPFData *args) :
 IfcAirTerminalBoxType::~IfcAirTerminalBoxType() {
 }
 
-bool IfcAirTerminalBoxType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAirTerminalBoxType(this);
+bool IfcAirTerminalBoxType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAirTerminalBoxType(this);
 }
 
-const std::string &IfcAirTerminalBoxType::type() {
+const std::string &IfcAirTerminalBoxType::type() const {
     return IfcAirTerminalBoxType::s_type.getName();
 }
 
-Step::ClassType IfcAirTerminalBoxType::getClassType() {
+const Step::ClassType &IfcAirTerminalBoxType::getClassType() {
     return IfcAirTerminalBoxType::s_type;
 }
 
-Step::ClassType IfcAirTerminalBoxType::getType() const {
+const Step::ClassType &IfcAirTerminalBoxType::getType() const {
     return IfcAirTerminalBoxType::s_type;
 }
 
-bool IfcAirTerminalBoxType::isOfType(Step::ClassType t) {
+bool IfcAirTerminalBoxType::isOfType(const Step::ClassType &t) const {
     return IfcAirTerminalBoxType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcAirTerminalBoxTypeEnum IfcAirTerminalBoxType::getPredefinedType() {
     }
 }
 
-void IfcAirTerminalBoxType::setPredefinedType(IfcAirTerminalBoxTypeEnum value) {
-    m_predefinedType = value;
+const IfcAirTerminalBoxTypeEnum IfcAirTerminalBoxType::getPredefinedType() const {
+    IfcAirTerminalBoxType * deConstObject = const_cast< IfcAirTerminalBoxType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcAirTerminalBoxType::release() {
-    IfcFlowControllerType::release();
+void IfcAirTerminalBoxType::setPredefinedType(IfcAirTerminalBoxTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcAirTerminalBoxType::init() {

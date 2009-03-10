@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricGeneratorType::IfcElectricGeneratorType(Step::Id id, Step::SPFData *a
 IfcElectricGeneratorType::~IfcElectricGeneratorType() {
 }
 
-bool IfcElectricGeneratorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricGeneratorType(this);
+bool IfcElectricGeneratorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricGeneratorType(this);
 }
 
-const std::string &IfcElectricGeneratorType::type() {
+const std::string &IfcElectricGeneratorType::type() const {
     return IfcElectricGeneratorType::s_type.getName();
 }
 
-Step::ClassType IfcElectricGeneratorType::getClassType() {
+const Step::ClassType &IfcElectricGeneratorType::getClassType() {
     return IfcElectricGeneratorType::s_type;
 }
 
-Step::ClassType IfcElectricGeneratorType::getType() const {
+const Step::ClassType &IfcElectricGeneratorType::getType() const {
     return IfcElectricGeneratorType::s_type;
 }
 
-bool IfcElectricGeneratorType::isOfType(Step::ClassType t) {
+bool IfcElectricGeneratorType::isOfType(const Step::ClassType &t) const {
     return IfcElectricGeneratorType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricGeneratorTypeEnum IfcElectricGeneratorType::getPredefinedType() {
     }
 }
 
-void IfcElectricGeneratorType::setPredefinedType(IfcElectricGeneratorTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricGeneratorTypeEnum IfcElectricGeneratorType::getPredefinedType() const {
+    IfcElectricGeneratorType * deConstObject = const_cast< IfcElectricGeneratorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricGeneratorType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcElectricGeneratorType::setPredefinedType(IfcElectricGeneratorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricGeneratorType::init() {

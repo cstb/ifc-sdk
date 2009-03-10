@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ Ifc2DCompositeCurve::Ifc2DCompositeCurve(Step::Id id, Step::SPFData *args) : Ifc
 Ifc2DCompositeCurve::~Ifc2DCompositeCurve() {
 }
 
-bool Ifc2DCompositeCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfc2DCompositeCurve(this);
+bool Ifc2DCompositeCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfc2DCompositeCurve(this);
 }
 
-const std::string &Ifc2DCompositeCurve::type() {
+const std::string &Ifc2DCompositeCurve::type() const {
     return Ifc2DCompositeCurve::s_type.getName();
 }
 
-Step::ClassType Ifc2DCompositeCurve::getClassType() {
+const Step::ClassType &Ifc2DCompositeCurve::getClassType() {
     return Ifc2DCompositeCurve::s_type;
 }
 
-Step::ClassType Ifc2DCompositeCurve::getType() const {
+const Step::ClassType &Ifc2DCompositeCurve::getType() const {
     return Ifc2DCompositeCurve::s_type;
 }
 
-bool Ifc2DCompositeCurve::isOfType(Step::ClassType t) {
+bool Ifc2DCompositeCurve::isOfType(const Step::ClassType &t) const {
     return Ifc2DCompositeCurve::s_type == t ? true : IfcCompositeCurve::isOfType(t);
-}
-
-void Ifc2DCompositeCurve::release() {
-    IfcCompositeCurve::release();
 }
 
 bool Ifc2DCompositeCurve::init() {

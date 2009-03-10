@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDistributionChamberElementType::IfcDistributionChamberElementType(Step::Id id
 IfcDistributionChamberElementType::~IfcDistributionChamberElementType() {
 }
 
-bool IfcDistributionChamberElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDistributionChamberElementType(this);
+bool IfcDistributionChamberElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDistributionChamberElementType(this);
 }
 
-const std::string &IfcDistributionChamberElementType::type() {
+const std::string &IfcDistributionChamberElementType::type() const {
     return IfcDistributionChamberElementType::s_type.getName();
 }
 
-Step::ClassType IfcDistributionChamberElementType::getClassType() {
+const Step::ClassType &IfcDistributionChamberElementType::getClassType() {
     return IfcDistributionChamberElementType::s_type;
 }
 
-Step::ClassType IfcDistributionChamberElementType::getType() const {
+const Step::ClassType &IfcDistributionChamberElementType::getType() const {
     return IfcDistributionChamberElementType::s_type;
 }
 
-bool IfcDistributionChamberElementType::isOfType(Step::ClassType t) {
+bool IfcDistributionChamberElementType::isOfType(const Step::ClassType &t) const {
     return IfcDistributionChamberElementType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcDistributionChamberElementTypeEnum IfcDistributionChamberElementType::getPred
     }
 }
 
-void IfcDistributionChamberElementType::setPredefinedType(IfcDistributionChamberElementTypeEnum value) {
-    m_predefinedType = value;
+const IfcDistributionChamberElementTypeEnum IfcDistributionChamberElementType::getPredefinedType() const {
+    IfcDistributionChamberElementType * deConstObject = const_cast< IfcDistributionChamberElementType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcDistributionChamberElementType::release() {
-    IfcDistributionFlowElementType::release();
+void IfcDistributionChamberElementType::setPredefinedType(IfcDistributionChamberElementTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcDistributionChamberElementType::init() {

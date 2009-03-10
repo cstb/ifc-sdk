@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcStructuralSurfaceMember::IfcStructuralSurfaceMember(Step::Id id, Step::SPFDat
 IfcStructuralSurfaceMember::~IfcStructuralSurfaceMember() {
 }
 
-bool IfcStructuralSurfaceMember::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralSurfaceMember(this);
+bool IfcStructuralSurfaceMember::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralSurfaceMember(this);
 }
 
-const std::string &IfcStructuralSurfaceMember::type() {
+const std::string &IfcStructuralSurfaceMember::type() const {
     return IfcStructuralSurfaceMember::s_type.getName();
 }
 
-Step::ClassType IfcStructuralSurfaceMember::getClassType() {
+const Step::ClassType &IfcStructuralSurfaceMember::getClassType() {
     return IfcStructuralSurfaceMember::s_type;
 }
 
-Step::ClassType IfcStructuralSurfaceMember::getType() const {
+const Step::ClassType &IfcStructuralSurfaceMember::getType() const {
     return IfcStructuralSurfaceMember::s_type;
 }
 
-bool IfcStructuralSurfaceMember::isOfType(Step::ClassType t) {
+bool IfcStructuralSurfaceMember::isOfType(const Step::ClassType &t) const {
     return IfcStructuralSurfaceMember::s_type == t ? true : IfcStructuralMember::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType() {
     else {
         return IfcStructuralSurfaceTypeEnum_UNSET;
     }
+}
+
+const IfcStructuralSurfaceTypeEnum IfcStructuralSurfaceMember::getPredefinedType() const {
+    IfcStructuralSurfaceMember * deConstObject = const_cast< IfcStructuralSurfaceMember * > (this);
+    return deConstObject->getPredefinedType();
 }
 
 void IfcStructuralSurfaceMember::setPredefinedType(IfcStructuralSurfaceTypeEnum value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() {
     }
 }
 
-void IfcStructuralSurfaceMember::setThickness(IfcPositiveLengthMeasure value) {
-    m_thickness = value;
+const IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() const {
+    IfcStructuralSurfaceMember * deConstObject = const_cast< IfcStructuralSurfaceMember * > (this);
+    return deConstObject->getThickness();
 }
 
-void IfcStructuralSurfaceMember::release() {
-    IfcStructuralMember::release();
+void IfcStructuralSurfaceMember::setThickness(IfcPositiveLengthMeasure value) {
+    m_thickness = value;
 }
 
 bool IfcStructuralSurfaceMember::init() {

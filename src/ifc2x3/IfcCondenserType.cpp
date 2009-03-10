@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCondenserType::IfcCondenserType(Step::Id id, Step::SPFData *args) : IfcEnergy
 IfcCondenserType::~IfcCondenserType() {
 }
 
-bool IfcCondenserType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCondenserType(this);
+bool IfcCondenserType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCondenserType(this);
 }
 
-const std::string &IfcCondenserType::type() {
+const std::string &IfcCondenserType::type() const {
     return IfcCondenserType::s_type.getName();
 }
 
-Step::ClassType IfcCondenserType::getClassType() {
+const Step::ClassType &IfcCondenserType::getClassType() {
     return IfcCondenserType::s_type;
 }
 
-Step::ClassType IfcCondenserType::getType() const {
+const Step::ClassType &IfcCondenserType::getType() const {
     return IfcCondenserType::s_type;
 }
 
-bool IfcCondenserType::isOfType(Step::ClassType t) {
+bool IfcCondenserType::isOfType(const Step::ClassType &t) const {
     return IfcCondenserType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCondenserTypeEnum IfcCondenserType::getPredefinedType() {
     }
 }
 
-void IfcCondenserType::setPredefinedType(IfcCondenserTypeEnum value) {
-    m_predefinedType = value;
+const IfcCondenserTypeEnum IfcCondenserType::getPredefinedType() const {
+    IfcCondenserType * deConstObject = const_cast< IfcCondenserType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCondenserType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcCondenserType::setPredefinedType(IfcCondenserTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCondenserType::init() {

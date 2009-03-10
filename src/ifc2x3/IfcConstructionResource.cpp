@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcConstructionResource::IfcConstructionResource(Step::Id id, Step::SPFData *arg
 IfcConstructionResource::~IfcConstructionResource() {
 }
 
-bool IfcConstructionResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConstructionResource(this);
+bool IfcConstructionResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConstructionResource(this);
 }
 
-const std::string &IfcConstructionResource::type() {
+const std::string &IfcConstructionResource::type() const {
     return IfcConstructionResource::s_type.getName();
 }
 
-Step::ClassType IfcConstructionResource::getClassType() {
+const Step::ClassType &IfcConstructionResource::getClassType() {
     return IfcConstructionResource::s_type;
 }
 
-Step::ClassType IfcConstructionResource::getType() const {
+const Step::ClassType &IfcConstructionResource::getType() const {
     return IfcConstructionResource::s_type;
 }
 
-bool IfcConstructionResource::isOfType(Step::ClassType t) {
+bool IfcConstructionResource::isOfType(const Step::ClassType &t) const {
     return IfcConstructionResource::s_type == t ? true : IfcResource::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcIdentifier IfcConstructionResource::getResourceIdentifier() {
     else {
         return Step::getUnset(m_resourceIdentifier);
     }
+}
+
+const IfcIdentifier IfcConstructionResource::getResourceIdentifier() const {
+    IfcConstructionResource * deConstObject = const_cast< IfcConstructionResource * > (this);
+    return deConstObject->getResourceIdentifier();
 }
 
 void IfcConstructionResource::setResourceIdentifier(const IfcIdentifier &value) {
@@ -95,6 +101,11 @@ IfcLabel IfcConstructionResource::getResourceGroup() {
     }
 }
 
+const IfcLabel IfcConstructionResource::getResourceGroup() const {
+    IfcConstructionResource * deConstObject = const_cast< IfcConstructionResource * > (this);
+    return deConstObject->getResourceGroup();
+}
+
 void IfcConstructionResource::setResourceGroup(const IfcLabel &value) {
     m_resourceGroup = value;
 }
@@ -106,6 +117,11 @@ IfcResourceConsumptionEnum IfcConstructionResource::getResourceConsumption() {
     else {
         return IfcResourceConsumptionEnum_UNSET;
     }
+}
+
+const IfcResourceConsumptionEnum IfcConstructionResource::getResourceConsumption() const {
+    IfcConstructionResource * deConstObject = const_cast< IfcConstructionResource * > (this);
+    return deConstObject->getResourceConsumption();
 }
 
 void IfcConstructionResource::setResourceConsumption(IfcResourceConsumptionEnum value) {
@@ -121,13 +137,13 @@ IfcMeasureWithUnit *IfcConstructionResource::getBaseQuantity() {
     }
 }
 
-void IfcConstructionResource::setBaseQuantity(const Step::RefPtr< IfcMeasureWithUnit > &value) {
-    m_baseQuantity = value;
+const IfcMeasureWithUnit *IfcConstructionResource::getBaseQuantity() const {
+    IfcConstructionResource * deConstObject = const_cast< IfcConstructionResource * > (this);
+    return deConstObject->getBaseQuantity();
 }
 
-void IfcConstructionResource::release() {
-    IfcResource::release();
-    m_baseQuantity.release();
+void IfcConstructionResource::setBaseQuantity(const Step::RefPtr< IfcMeasureWithUnit > &value) {
+    m_baseQuantity = value;
 }
 
 bool IfcConstructionResource::init() {
@@ -141,14 +157,14 @@ bool IfcConstructionResource::init() {
         m_resourceIdentifier = Step::getUnset(m_resourceIdentifier);
     }
     else {
-        m_resourceIdentifier = Step::spfToString(arg);
+        m_resourceIdentifier = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_resourceGroup = Step::getUnset(m_resourceGroup);
     }
     else {
-        m_resourceGroup = Step::spfToString(arg);
+        m_resourceGroup = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -185,7 +201,7 @@ bool IfcConstructionResource::init() {
         m_baseQuantity = NULL;
     }
     else {
-        m_baseQuantity = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_baseQuantity = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -195,7 +211,7 @@ void IfcConstructionResource::copy(const IfcConstructionResource &obj, const Cop
     setResourceIdentifier(obj.m_resourceIdentifier);
     setResourceGroup(obj.m_resourceGroup);
     setResourceConsumption(obj.m_resourceConsumption);
-    setBaseQuantity(copyop(obj.m_baseQuantity.get()));
+    setBaseQuantity((IfcMeasureWithUnit*)copyop(obj.m_baseQuantity.get()));
     return;
 }
 

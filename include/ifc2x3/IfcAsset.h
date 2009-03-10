@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,11 +30,12 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/ClassType.h>
-#include "ifc2x3/IfcGroup.h"
 #include <Step/SPFData.h>
-#include <string>
 #include <Step/Referenced.h>
+#include "ifc2x3/IfcGroup.h"
+#include <Step/ClassType.h>
+#include <string>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
@@ -49,108 +50,185 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcAsset : public IfcGroup {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'AssetID'.
+         * 
          */
-        IfcIdentifier getAssetID();
+        virtual IfcIdentifier getAssetID();
+        /**
+         * (const) Returns the value of the explicit attribute 'AssetID'.
+         * 
+         * @return the value of the explicit attribute 'AssetID'
+         */
+        virtual const IfcIdentifier getAssetID() const;
         /**
          * Sets the value of the explicit attribute 'AssetID'.
          * 
          * @param value
          */
-        void setAssetID(const IfcIdentifier &value);
+        virtual void setAssetID(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'OriginalValue'.
+         * 
          */
-        IfcCostValue *getOriginalValue();
+        virtual IfcCostValue *getOriginalValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'OriginalValue'.
+         * 
+         * @return the value of the explicit attribute 'OriginalValue'
+         */
+        virtual const IfcCostValue *getOriginalValue() const;
         /**
          * Sets the value of the explicit attribute 'OriginalValue'.
          * 
          * @param value
          */
-        void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
+        virtual void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * Gets the value of the explicit attribute 'CurrentValue'.
+         * 
          */
-        IfcCostValue *getCurrentValue();
+        virtual IfcCostValue *getCurrentValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'CurrentValue'.
+         * 
+         * @return the value of the explicit attribute 'CurrentValue'
+         */
+        virtual const IfcCostValue *getCurrentValue() const;
         /**
          * Sets the value of the explicit attribute 'CurrentValue'.
          * 
          * @param value
          */
-        void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
+        virtual void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * Gets the value of the explicit attribute 'TotalReplacementCost'.
+         * 
          */
-        IfcCostValue *getTotalReplacementCost();
+        virtual IfcCostValue *getTotalReplacementCost();
+        /**
+         * (const) Returns the value of the explicit attribute 'TotalReplacementCost'.
+         * 
+         * @return the value of the explicit attribute 'TotalReplacementCost'
+         */
+        virtual const IfcCostValue *getTotalReplacementCost() const;
         /**
          * Sets the value of the explicit attribute 'TotalReplacementCost'.
          * 
          * @param value
          */
-        void setTotalReplacementCost(const Step::RefPtr< IfcCostValue > &value);
+        virtual void setTotalReplacementCost(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * Gets the value of the explicit attribute 'Owner'.
+         * 
          */
-        IfcActorSelect *getOwner();
+        virtual IfcActorSelect *getOwner();
+        /**
+         * (const) Returns the value of the explicit attribute 'Owner'.
+         * 
+         * @return the value of the explicit attribute 'Owner'
+         */
+        virtual const IfcActorSelect *getOwner() const;
         /**
          * Sets the value of the explicit attribute 'Owner'.
          * 
          * @param value
          */
-        void setOwner(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setOwner(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'User'.
+         * 
          */
-        IfcActorSelect *getUser();
+        virtual IfcActorSelect *getUser();
+        /**
+         * (const) Returns the value of the explicit attribute 'User'.
+         * 
+         * @return the value of the explicit attribute 'User'
+         */
+        virtual const IfcActorSelect *getUser() const;
         /**
          * Sets the value of the explicit attribute 'User'.
          * 
          * @param value
          */
-        void setUser(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setUser(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'ResponsiblePerson'.
+         * 
          */
-        IfcPerson *getResponsiblePerson();
+        virtual IfcPerson *getResponsiblePerson();
+        /**
+         * (const) Returns the value of the explicit attribute 'ResponsiblePerson'.
+         * 
+         * @return the value of the explicit attribute 'ResponsiblePerson'
+         */
+        virtual const IfcPerson *getResponsiblePerson() const;
         /**
          * Sets the value of the explicit attribute 'ResponsiblePerson'.
          * 
          * @param value
          */
-        void setResponsiblePerson(const Step::RefPtr< IfcPerson > &value);
+        virtual void setResponsiblePerson(const Step::RefPtr< IfcPerson > &value);
         /**
+         * Gets the value of the explicit attribute 'IncorporationDate'.
+         * 
          */
-        IfcCalendarDate *getIncorporationDate();
+        virtual IfcCalendarDate *getIncorporationDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'IncorporationDate'.
+         * 
+         * @return the value of the explicit attribute 'IncorporationDate'
+         */
+        virtual const IfcCalendarDate *getIncorporationDate() const;
         /**
          * Sets the value of the explicit attribute 'IncorporationDate'.
          * 
          * @param value
          */
-        void setIncorporationDate(const Step::RefPtr< IfcCalendarDate > &value);
+        virtual void setIncorporationDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * Gets the value of the explicit attribute 'DepreciatedValue'.
+         * 
          */
-        IfcCostValue *getDepreciatedValue();
+        virtual IfcCostValue *getDepreciatedValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'DepreciatedValue'.
+         * 
+         * @return the value of the explicit attribute 'DepreciatedValue'
+         */
+        virtual const IfcCostValue *getDepreciatedValue() const;
         /**
          * Sets the value of the explicit attribute 'DepreciatedValue'.
          * 
          * @param value
          */
-        void setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -175,7 +253,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_assetID;
+        Step::String m_assetID;
         /**
          */
         Step::RefPtr< IfcCostValue > m_originalValue;

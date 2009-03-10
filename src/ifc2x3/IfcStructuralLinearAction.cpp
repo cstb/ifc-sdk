@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStructuralLinearAction::IfcStructuralLinearAction(Step::Id id, Step::SPFData 
 IfcStructuralLinearAction::~IfcStructuralLinearAction() {
 }
 
-bool IfcStructuralLinearAction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLinearAction(this);
+bool IfcStructuralLinearAction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLinearAction(this);
 }
 
-const std::string &IfcStructuralLinearAction::type() {
+const std::string &IfcStructuralLinearAction::type() const {
     return IfcStructuralLinearAction::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLinearAction::getClassType() {
+const Step::ClassType &IfcStructuralLinearAction::getClassType() {
     return IfcStructuralLinearAction::s_type;
 }
 
-Step::ClassType IfcStructuralLinearAction::getType() const {
+const Step::ClassType &IfcStructuralLinearAction::getType() const {
     return IfcStructuralLinearAction::s_type;
 }
 
-bool IfcStructuralLinearAction::isOfType(Step::ClassType t) {
+bool IfcStructuralLinearAction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLinearAction::s_type == t ? true : IfcStructuralAction::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcProjectedOrTrueLengthEnum IfcStructuralLinearAction::getProjectedOrTrue() {
     }
 }
 
-void IfcStructuralLinearAction::setProjectedOrTrue(IfcProjectedOrTrueLengthEnum value) {
-    m_projectedOrTrue = value;
+const IfcProjectedOrTrueLengthEnum IfcStructuralLinearAction::getProjectedOrTrue() const {
+    IfcStructuralLinearAction * deConstObject = const_cast< IfcStructuralLinearAction * > (this);
+    return deConstObject->getProjectedOrTrue();
 }
 
-void IfcStructuralLinearAction::release() {
-    IfcStructuralAction::release();
+void IfcStructuralLinearAction::setProjectedOrTrue(IfcProjectedOrTrueLengthEnum value) {
+    m_projectedOrTrue = value;
 }
 
 bool IfcStructuralLinearAction::init() {

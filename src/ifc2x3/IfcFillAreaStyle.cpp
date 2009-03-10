@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,33 +45,32 @@
 using namespace ifc2x3;
 
 IfcFillAreaStyle::IfcFillAreaStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
-    m_fillStyles.setUnset(true);
 }
 
 IfcFillAreaStyle::~IfcFillAreaStyle() {
 }
 
-bool IfcFillAreaStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillAreaStyle(this);
+bool IfcFillAreaStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyle(this);
 }
 
-const std::string &IfcFillAreaStyle::type() {
+const std::string &IfcFillAreaStyle::type() const {
     return IfcFillAreaStyle::s_type.getName();
 }
 
-Step::ClassType IfcFillAreaStyle::getClassType() {
+const Step::ClassType &IfcFillAreaStyle::getClassType() {
     return IfcFillAreaStyle::s_type;
 }
 
-Step::ClassType IfcFillAreaStyle::getType() const {
+const Step::ClassType &IfcFillAreaStyle::getType() const {
     return IfcFillAreaStyle::s_type;
 }
 
-bool IfcFillAreaStyle::isOfType(Step::ClassType t) {
+bool IfcFillAreaStyle::isOfType(const Step::ClassType &t) const {
     return IfcFillAreaStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcFillStyleSelect > > &IfcFillAreaStyle::getFillStyles() {
+Set_IfcFillStyleSelect_1_n &IfcFillAreaStyle::getFillStyles() {
     if (Step::BaseObject::inited()) {
         return m_fillStyles;
     }
@@ -81,13 +80,13 @@ Step::Set< Step::RefPtr< IfcFillStyleSelect > > &IfcFillAreaStyle::getFillStyles
     }
 }
 
-void IfcFillAreaStyle::setFillStyles(const Step::Set< Step::RefPtr< IfcFillStyleSelect > > &value) {
-    m_fillStyles = value;
+const Set_IfcFillStyleSelect_1_n &IfcFillAreaStyle::getFillStyles() const {
+    IfcFillAreaStyle * deConstObject = const_cast< IfcFillAreaStyle * > (this);
+    return deConstObject->getFillStyles();
 }
 
-void IfcFillAreaStyle::release() {
-    IfcPresentationStyle::release();
-    m_fillStyles.clear();
+void IfcFillAreaStyle::setFillStyles(const Set_IfcFillStyleSelect_1_n &value) {
+    m_fillStyles = value;
 }
 
 bool IfcFillAreaStyle::init() {
@@ -131,7 +130,7 @@ bool IfcFillAreaStyle::init() {
 }
 
 void IfcFillAreaStyle::copy(const IfcFillAreaStyle &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcFillStyleSelect > >::const_iterator it_m_fillStyles;
+    Step::Set< Step::RefPtr< IfcFillStyleSelect >, 1 >::const_iterator it_m_fillStyles;
     IfcPresentationStyle::copy(obj, copyop);
     for (it_m_fillStyles = obj.m_fillStyles.begin(); it_m_fillStyles != obj.m_fillStyles.end(); ++it_m_fillStyles) {
         Step::RefPtr< IfcFillStyleSelect > copyTarget = new IfcFillStyleSelect;

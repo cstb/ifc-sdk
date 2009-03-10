@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,25 +26,43 @@
 
 #include "ifc2x3/IfcRelCoversBldgElements.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcCovering.h"
 #include "ifc2x3/IfcElement.h"
 #include "ifc2x3/IfcRelConnects.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::Inverted_IfcRelCoversBldgElements_RelatedCoverings_type() {
+}
+
+void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::setOwner(IfcRelCoversBldgElements *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::insert(const Step::RefPtr< IfcCovering > &value) throw(std::out_of_range) {
+    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
+    Set_IfcCovering_1_n::insert(value);
+    inverse->m_covers.insert(mOwner);
+}
+
+Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::size_type Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::erase(const Step::RefPtr< IfcCovering > &value) {
+    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
+    inverse->m_covers.erase(mOwner);
+    return Set_IfcCovering_1_n::erase(value);
+}
 
 IfcRelCoversBldgElements::IfcRelCoversBldgElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatingBuildingElement = NULL;
@@ -55,23 +73,23 @@ IfcRelCoversBldgElements::IfcRelCoversBldgElements(Step::Id id, Step::SPFData *a
 IfcRelCoversBldgElements::~IfcRelCoversBldgElements() {
 }
 
-bool IfcRelCoversBldgElements::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelCoversBldgElements(this);
+bool IfcRelCoversBldgElements::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelCoversBldgElements(this);
 }
 
-const std::string &IfcRelCoversBldgElements::type() {
+const std::string &IfcRelCoversBldgElements::type() const {
     return IfcRelCoversBldgElements::s_type.getName();
 }
 
-Step::ClassType IfcRelCoversBldgElements::getClassType() {
+const Step::ClassType &IfcRelCoversBldgElements::getClassType() {
     return IfcRelCoversBldgElements::s_type;
 }
 
-Step::ClassType IfcRelCoversBldgElements::getType() const {
+const Step::ClassType &IfcRelCoversBldgElements::getType() const {
     return IfcRelCoversBldgElements::s_type;
 }
 
-bool IfcRelCoversBldgElements::isOfType(Step::ClassType t) {
+bool IfcRelCoversBldgElements::isOfType(const Step::ClassType &t) const {
     return IfcRelCoversBldgElements::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -84,12 +102,22 @@ IfcElement *IfcRelCoversBldgElements::getRelatingBuildingElement() {
     }
 }
 
-void IfcRelCoversBldgElements::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    m_relatingBuildingElement = value;
-    m_relatingBuildingElement->m_hasCoverings.insert(this);
+const IfcElement *IfcRelCoversBldgElements::getRelatingBuildingElement() const {
+    IfcRelCoversBldgElements * deConstObject = const_cast< IfcRelCoversBldgElements * > (this);
+    return deConstObject->getRelatingBuildingElement();
 }
 
-Step::Set< Step::RefPtr< IfcCovering > > &IfcRelCoversBldgElements::getRelatedCoverings() {
+void IfcRelCoversBldgElements::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatingBuildingElement.valid()) {
+        m_relatingBuildingElement->m_hasCoverings.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasCoverings.insert(this);
+    }
+    m_relatingBuildingElement = value;
+}
+
+Set_IfcCovering_1_n &IfcRelCoversBldgElements::getRelatedCoverings() {
     if (Step::BaseObject::inited()) {
         return m_relatedCoverings;
     }
@@ -99,10 +127,9 @@ Step::Set< Step::RefPtr< IfcCovering > > &IfcRelCoversBldgElements::getRelatedCo
     }
 }
 
-void IfcRelCoversBldgElements::release() {
-    IfcRelConnects::release();
-    m_relatingBuildingElement.release();
-    m_relatedCoverings.clear();
+const Set_IfcCovering_1_n &IfcRelCoversBldgElements::getRelatedCoverings() const {
+    IfcRelCoversBldgElements * deConstObject = const_cast< IfcRelCoversBldgElements * > (this);
+    return deConstObject->getRelatedCoverings();
 }
 
 bool IfcRelCoversBldgElements::init() {
@@ -116,7 +143,7 @@ bool IfcRelCoversBldgElements::init() {
         m_relatingBuildingElement = NULL;
     }
     else {
-        m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -129,7 +156,7 @@ bool IfcRelCoversBldgElements::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCovering > attr2;
-                attr2 = static_cast< IfcCovering * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCovering * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedCoverings.insert(attr2);
             }
             else {
@@ -141,27 +168,14 @@ bool IfcRelCoversBldgElements::init() {
 }
 
 void IfcRelCoversBldgElements::copy(const IfcRelCoversBldgElements &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcCovering > >::const_iterator it_m_relatedCoverings;
+    Step::Set< Step::RefPtr< IfcCovering >, 1 >::const_iterator it_m_relatedCoverings;
     IfcRelConnects::copy(obj, copyop);
-    setRelatingBuildingElement(copyop(obj.m_relatingBuildingElement.get()));
+    setRelatingBuildingElement((IfcElement*)copyop(obj.m_relatingBuildingElement.get()));
     for (it_m_relatedCoverings = obj.m_relatedCoverings.begin(); it_m_relatedCoverings != obj.m_relatedCoverings.end(); ++it_m_relatedCoverings) {
-        Step::RefPtr< IfcCovering > copyTarget = copyop((*it_m_relatedCoverings).get());
+        Step::RefPtr< IfcCovering > copyTarget = (IfcCovering *) (copyop((*it_m_relatedCoverings).get()));
         m_relatedCoverings.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelCoversBldgElements::s_type("IfcRelCoversBldgElements");
-IfcRelCoversBldgElements::Inverted_RelatedCoverings_type::Inverted_RelatedCoverings_type() {
-}
-
-void IfcRelCoversBldgElements::Inverted_RelatedCoverings_type::setOwner(IfcRelCoversBldgElements *owner) {
-    mOwner = owner;
-}
-
-void IfcRelCoversBldgElements::Inverted_RelatedCoverings_type::insert(const Step::RefPtr< IfcCovering > &value) {
-    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
-    Step::Set< Step::RefPtr< IfcCovering > >::insert(value);
-    inverse->m_covers.insert(mOwner);
-}
-

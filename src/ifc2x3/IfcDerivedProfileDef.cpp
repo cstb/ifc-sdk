@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +53,23 @@ IfcDerivedProfileDef::IfcDerivedProfileDef(Step::Id id, Step::SPFData *args) : I
 IfcDerivedProfileDef::~IfcDerivedProfileDef() {
 }
 
-bool IfcDerivedProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDerivedProfileDef(this);
+bool IfcDerivedProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDerivedProfileDef(this);
 }
 
-const std::string &IfcDerivedProfileDef::type() {
+const std::string &IfcDerivedProfileDef::type() const {
     return IfcDerivedProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcDerivedProfileDef::getClassType() {
+const Step::ClassType &IfcDerivedProfileDef::getClassType() {
     return IfcDerivedProfileDef::s_type;
 }
 
-Step::ClassType IfcDerivedProfileDef::getType() const {
+const Step::ClassType &IfcDerivedProfileDef::getType() const {
     return IfcDerivedProfileDef::s_type;
 }
 
-bool IfcDerivedProfileDef::isOfType(Step::ClassType t) {
+bool IfcDerivedProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcDerivedProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
 }
 
@@ -79,6 +80,11 @@ IfcProfileDef *IfcDerivedProfileDef::getParentProfile() {
     else {
         return NULL;
     }
+}
+
+const IfcProfileDef *IfcDerivedProfileDef::getParentProfile() const {
+    IfcDerivedProfileDef * deConstObject = const_cast< IfcDerivedProfileDef * > (this);
+    return deConstObject->getParentProfile();
 }
 
 void IfcDerivedProfileDef::setParentProfile(const Step::RefPtr< IfcProfileDef > &value) {
@@ -94,6 +100,11 @@ IfcCartesianTransformationOperator2D *IfcDerivedProfileDef::getOperator() {
     }
 }
 
+const IfcCartesianTransformationOperator2D *IfcDerivedProfileDef::getOperator() const {
+    IfcDerivedProfileDef * deConstObject = const_cast< IfcDerivedProfileDef * > (this);
+    return deConstObject->getOperator();
+}
+
 void IfcDerivedProfileDef::setOperator(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
     m_operator = value;
 }
@@ -107,14 +118,13 @@ IfcLabel IfcDerivedProfileDef::getLabel() {
     }
 }
 
-void IfcDerivedProfileDef::setLabel(const IfcLabel &value) {
-    m_label = value;
+const IfcLabel IfcDerivedProfileDef::getLabel() const {
+    IfcDerivedProfileDef * deConstObject = const_cast< IfcDerivedProfileDef * > (this);
+    return deConstObject->getLabel();
 }
 
-void IfcDerivedProfileDef::release() {
-    IfcProfileDef::release();
-    m_parentProfile.release();
-    m_operator.release();
+void IfcDerivedProfileDef::setLabel(const IfcLabel &value) {
+    m_label = value;
 }
 
 bool IfcDerivedProfileDef::init() {
@@ -128,29 +138,29 @@ bool IfcDerivedProfileDef::init() {
         m_parentProfile = NULL;
     }
     else {
-        m_parentProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_parentProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_operator = NULL;
     }
     else {
-        m_operator = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_operator = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_label = Step::getUnset(m_label);
     }
     else {
-        m_label = Step::spfToString(arg);
+        m_label = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcDerivedProfileDef::copy(const IfcDerivedProfileDef &obj, const CopyOp &copyop) {
     IfcProfileDef::copy(obj, copyop);
-    setParentProfile(copyop(obj.m_parentProfile.get()));
-    setOperator(copyop(obj.m_operator.get()));
+    setParentProfile((IfcProfileDef*)copyop(obj.m_parentProfile.get()));
+    setOperator((IfcCartesianTransformationOperator2D*)copyop(obj.m_operator.get()));
     setLabel(obj.m_label);
     return;
 }

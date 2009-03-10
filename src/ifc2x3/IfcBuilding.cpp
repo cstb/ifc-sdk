@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcBuilding::IfcBuilding(Step::Id id, Step::SPFData *args) : IfcSpatialStructure
 IfcBuilding::~IfcBuilding() {
 }
 
-bool IfcBuilding::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBuilding(this);
+bool IfcBuilding::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBuilding(this);
 }
 
-const std::string &IfcBuilding::type() {
+const std::string &IfcBuilding::type() const {
     return IfcBuilding::s_type.getName();
 }
 
-Step::ClassType IfcBuilding::getClassType() {
+const Step::ClassType &IfcBuilding::getClassType() {
     return IfcBuilding::s_type;
 }
 
-Step::ClassType IfcBuilding::getType() const {
+const Step::ClassType &IfcBuilding::getType() const {
     return IfcBuilding::s_type;
 }
 
-bool IfcBuilding::isOfType(Step::ClassType t) {
+bool IfcBuilding::isOfType(const Step::ClassType &t) const {
     return IfcBuilding::s_type == t ? true : IfcSpatialStructureElement::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcLengthMeasure IfcBuilding::getElevationOfRefHeight() {
     else {
         return Step::getUnset(m_elevationOfRefHeight);
     }
+}
+
+const IfcLengthMeasure IfcBuilding::getElevationOfRefHeight() const {
+    IfcBuilding * deConstObject = const_cast< IfcBuilding * > (this);
+    return deConstObject->getElevationOfRefHeight();
 }
 
 void IfcBuilding::setElevationOfRefHeight(IfcLengthMeasure value) {
@@ -94,6 +99,11 @@ IfcLengthMeasure IfcBuilding::getElevationOfTerrain() {
     }
 }
 
+const IfcLengthMeasure IfcBuilding::getElevationOfTerrain() const {
+    IfcBuilding * deConstObject = const_cast< IfcBuilding * > (this);
+    return deConstObject->getElevationOfTerrain();
+}
+
 void IfcBuilding::setElevationOfTerrain(IfcLengthMeasure value) {
     m_elevationOfTerrain = value;
 }
@@ -107,13 +117,13 @@ IfcPostalAddress *IfcBuilding::getBuildingAddress() {
     }
 }
 
-void IfcBuilding::setBuildingAddress(const Step::RefPtr< IfcPostalAddress > &value) {
-    m_buildingAddress = value;
+const IfcPostalAddress *IfcBuilding::getBuildingAddress() const {
+    IfcBuilding * deConstObject = const_cast< IfcBuilding * > (this);
+    return deConstObject->getBuildingAddress();
 }
 
-void IfcBuilding::release() {
-    IfcSpatialStructureElement::release();
-    m_buildingAddress.release();
+void IfcBuilding::setBuildingAddress(const Step::RefPtr< IfcPostalAddress > &value) {
+    m_buildingAddress = value;
 }
 
 bool IfcBuilding::init() {
@@ -141,7 +151,7 @@ bool IfcBuilding::init() {
         m_buildingAddress = NULL;
     }
     else {
-        m_buildingAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_buildingAddress = static_cast< IfcPostalAddress * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -150,7 +160,7 @@ void IfcBuilding::copy(const IfcBuilding &obj, const CopyOp &copyop) {
     IfcSpatialStructureElement::copy(obj, copyop);
     setElevationOfRefHeight(obj.m_elevationOfRefHeight);
     setElevationOfTerrain(obj.m_elevationOfTerrain);
-    setBuildingAddress(copyop(obj.m_buildingAddress.get()));
+    setBuildingAddress((IfcPostalAddress*)copyop(obj.m_buildingAddress.get()));
     return;
 }
 

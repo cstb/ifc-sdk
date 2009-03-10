@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcTextureCoordinate::IfcTextureCoordinate(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_annotatedSurface.setUnset(true);
 }
 
 IfcTextureCoordinate::~IfcTextureCoordinate() {
 }
 
-bool IfcTextureCoordinate::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextureCoordinate(this);
+bool IfcTextureCoordinate::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextureCoordinate(this);
 }
 
-const std::string &IfcTextureCoordinate::type() {
+const std::string &IfcTextureCoordinate::type() const {
     return IfcTextureCoordinate::s_type.getName();
 }
 
-Step::ClassType IfcTextureCoordinate::getClassType() {
+const Step::ClassType &IfcTextureCoordinate::getClassType() {
     return IfcTextureCoordinate::s_type;
 }
 
-Step::ClassType IfcTextureCoordinate::getType() const {
+const Step::ClassType &IfcTextureCoordinate::getType() const {
     return IfcTextureCoordinate::s_type;
 }
 
-bool IfcTextureCoordinate::isOfType(Step::ClassType t) {
+bool IfcTextureCoordinate::isOfType(const Step::ClassType &t) const {
     return IfcTextureCoordinate::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcAnnotationSurface > > &IfcTextureCoordinate::getAnnotatedSurface() {
+Inverse_Set_IfcAnnotationSurface_1_1 &IfcTextureCoordinate::getAnnotatedSurface() {
     if (Step::BaseObject::inited()) {
         return m_annotatedSurface;
     }
@@ -79,7 +78,9 @@ Step::Set< Step::ObsPtr< IfcAnnotationSurface > > &IfcTextureCoordinate::getAnno
     }
 }
 
-void IfcTextureCoordinate::release() {
+const Inverse_Set_IfcAnnotationSurface_1_1 &IfcTextureCoordinate::getAnnotatedSurface() const {
+    IfcTextureCoordinate * deConstObject = const_cast< IfcTextureCoordinate * > (this);
+    return deConstObject->getAnnotatedSurface();
 }
 
 bool IfcTextureCoordinate::init() {

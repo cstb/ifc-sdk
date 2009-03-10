@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,9 +29,10 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
 #include <string>
 #include <Step/SPFData.h>
 #include <Step/Referenced.h>
@@ -39,8 +40,39 @@
 
 namespace ifc2x3 {
 
-    class CopyOp;
     class IfcProduct;
+    class IfcRelContainedInSpatialStructure;
+
+    /**
+     */
+    class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type : public Set_IfcProduct_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcProduct_1_n::size_type size_type;
+
+        /**
+         */
+        IfcRelContainedInSpatialStructure *mOwner;
+        /**
+         */
+        Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcRelContainedInSpatialStructure *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcProduct > &value);
+
+    };
+
+    class CopyOp;
     class IfcSpatialStructureElement;
 
     /**
@@ -48,61 +80,61 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRelContainedInSpatialStructure : public IfcRelConnects {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RelatedElements'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcProduct > > &getRelatedElements();
+        virtual Set_IfcProduct_1_n &getRelatedElements();
         /**
+         * (const) Returns the value of the explicit attribute 'RelatedElements'.
+         * 
+         * @return the value of the explicit attribute 'RelatedElements'
          */
-        IfcSpatialStructureElement *getRelatingStructure();
+        virtual const Set_IfcProduct_1_n &getRelatedElements() const;
+        /**
+         * Gets the value of the explicit attribute 'RelatingStructure'.
+         * 
+         */
+        virtual IfcSpatialStructureElement *getRelatingStructure();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingStructure'.
+         * 
+         * @return the value of the explicit attribute 'RelatingStructure'
+         */
+        virtual const IfcSpatialStructureElement *getRelatingStructure() const;
         /**
          * Sets the value of the explicit attribute 'RelatingStructure'.
          * 
          * @param value
          */
-        void setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value);
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_RelatedElements_type : public Step::Set< Step::RefPtr< IfcProduct > > {
-        public:
-            /**
-             */
-            IfcRelContainedInSpatialStructure *mOwner;
-            /**
-             */
-            Inverted_RelatedElements_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcRelContainedInSpatialStructure *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcProduct > &value);
-
-        };
-
 
     protected:
         /**
@@ -126,7 +158,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverted_RelatedElements_type m_relatedElements;
+        Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type m_relatedElements;
         /**
          */
         Step::RefPtr< IfcSpatialStructureElement > m_relatingStructure;

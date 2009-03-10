@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -49,29 +49,28 @@ IfcStructuralResultGroup::IfcStructuralResultGroup(Step::Id id, Step::SPFData *a
     m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
     m_resultForLoadGroup = NULL;
     m_isLinear = Step::getUnset(m_isLinear);
-    m_resultGroupFor.setUnset(true);
 }
 
 IfcStructuralResultGroup::~IfcStructuralResultGroup() {
 }
 
-bool IfcStructuralResultGroup::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralResultGroup(this);
+bool IfcStructuralResultGroup::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralResultGroup(this);
 }
 
-const std::string &IfcStructuralResultGroup::type() {
+const std::string &IfcStructuralResultGroup::type() const {
     return IfcStructuralResultGroup::s_type.getName();
 }
 
-Step::ClassType IfcStructuralResultGroup::getClassType() {
+const Step::ClassType &IfcStructuralResultGroup::getClassType() {
     return IfcStructuralResultGroup::s_type;
 }
 
-Step::ClassType IfcStructuralResultGroup::getType() const {
+const Step::ClassType &IfcStructuralResultGroup::getType() const {
     return IfcStructuralResultGroup::s_type;
 }
 
-bool IfcStructuralResultGroup::isOfType(Step::ClassType t) {
+bool IfcStructuralResultGroup::isOfType(const Step::ClassType &t) const {
     return IfcStructuralResultGroup::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
@@ -82,6 +81,11 @@ IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType() {
     else {
         return IfcAnalysisTheoryTypeEnum_UNSET;
     }
+}
+
+const IfcAnalysisTheoryTypeEnum IfcStructuralResultGroup::getTheoryType() const {
+    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
+    return deConstObject->getTheoryType();
 }
 
 void IfcStructuralResultGroup::setTheoryType(IfcAnalysisTheoryTypeEnum value) {
@@ -97,12 +101,22 @@ IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() {
     }
 }
 
-void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
-    m_resultForLoadGroup = value;
-    m_resultForLoadGroup->m_sourceOfResultGroup.insert(this);
+const IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() const {
+    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
+    return deConstObject->getResultForLoadGroup();
 }
 
-Step::Bool IfcStructuralResultGroup::getIsLinear() {
+void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
+    if (m_resultForLoadGroup.valid()) {
+        m_resultForLoadGroup->m_sourceOfResultGroup.erase(this);
+    }
+    if (value.valid()) {
+        value->m_sourceOfResultGroup.insert(this);
+    }
+    m_resultForLoadGroup = value;
+}
+
+Step::Boolean IfcStructuralResultGroup::getIsLinear() {
     if (Step::BaseObject::inited()) {
         return m_isLinear;
     }
@@ -111,11 +125,16 @@ Step::Bool IfcStructuralResultGroup::getIsLinear() {
     }
 }
 
-void IfcStructuralResultGroup::setIsLinear(Step::Bool value) {
+const Step::Boolean IfcStructuralResultGroup::getIsLinear() const {
+    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
+    return deConstObject->getIsLinear();
+}
+
+void IfcStructuralResultGroup::setIsLinear(Step::Boolean value) {
     m_isLinear = value;
 }
 
-Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > > &IfcStructuralResultGroup::getResultGroupFor() {
+Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() {
     if (Step::BaseObject::inited()) {
         return m_resultGroupFor;
     }
@@ -125,9 +144,9 @@ Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > > &IfcStructuralResultGrou
     }
 }
 
-void IfcStructuralResultGroup::release() {
-    IfcGroup::release();
-    m_resultForLoadGroup.release();
+const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() const {
+    IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
+    return deConstObject->getResultGroupFor();
 }
 
 bool IfcStructuralResultGroup::init() {
@@ -166,14 +185,14 @@ bool IfcStructuralResultGroup::init() {
         m_resultForLoadGroup = NULL;
     }
     else {
-        m_resultForLoadGroup = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_resultForLoadGroup = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_isLinear = Step::getUnset(m_isLinear);
     }
     else {
-        m_isLinear = Step::spfToBool(arg);
+        m_isLinear = Step::spfToBoolean(arg);
     }
     inverses = m_args->getInverses(IfcStructuralAnalysisModel::getClassType(), 8);
     if (inverses) {
@@ -189,7 +208,7 @@ bool IfcStructuralResultGroup::init() {
 void IfcStructuralResultGroup::copy(const IfcStructuralResultGroup &obj, const CopyOp &copyop) {
     IfcGroup::copy(obj, copyop);
     setTheoryType(obj.m_theoryType);
-    setResultForLoadGroup(copyop(obj.m_resultForLoadGroup.get()));
+    setResultForLoadGroup((IfcStructuralLoadGroup*)copyop(obj.m_resultForLoadGroup.get()));
     setIsLinear(obj.m_isLinear);
     return;
 }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,7 +33,6 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcStructuralPlanarAction.h"
 #include <Step/Referenced.h>
 
@@ -41,52 +40,77 @@ namespace ifc2x3 {
 
     class CopyOp;
     class IfcShapeAspect;
-    class IfcStructuralLoad;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcStructuralPlanarActionVarying : public IfcStructuralPlanarAction {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'VaryingAppliedLoadLocation'.
+         * 
          */
-        IfcShapeAspect *getVaryingAppliedLoadLocation();
+        virtual IfcShapeAspect *getVaryingAppliedLoadLocation();
+        /**
+         * (const) Returns the value of the explicit attribute 'VaryingAppliedLoadLocation'.
+         * 
+         * @return the value of the explicit attribute 'VaryingAppliedLoadLocation'
+         */
+        virtual const IfcShapeAspect *getVaryingAppliedLoadLocation() const;
         /**
          * Sets the value of the explicit attribute 'VaryingAppliedLoadLocation'.
          * 
          * @param value
          */
-        void setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value);
+        virtual void setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value);
         /**
+         * Gets the value of the explicit attribute 'SubsequentAppliedLoads'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcStructuralLoad > > &getSubsequentAppliedLoads();
+        virtual List_IfcStructuralLoad_2_n &getSubsequentAppliedLoads();
+        /**
+         * (const) Returns the value of the explicit attribute 'SubsequentAppliedLoads'.
+         * 
+         * @return the value of the explicit attribute 'SubsequentAppliedLoads'
+         */
+        virtual const List_IfcStructuralLoad_2_n &getSubsequentAppliedLoads() const;
         /**
          * Sets the value of the explicit attribute 'SubsequentAppliedLoads'.
          * 
          * @param value
          */
-        void setSubsequentAppliedLoads(const Step::List< Step::RefPtr< IfcStructuralLoad > > &value);
+        virtual void setSubsequentAppliedLoads(const List_IfcStructuralLoad_2_n &value);
         /**
+         * Gets the value of the derived attribute 'VaryingAppliedLoads'.
+         * 
          */
-        virtual void release();
+        virtual List_IfcStructuralLoad_3_n getVaryingAppliedLoads() const;
         friend class ExpressDataSet;
 
     protected:
@@ -114,7 +138,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcShapeAspect > m_varyingAppliedLoadLocation;
         /**
          */
-        Step::List< Step::RefPtr< IfcStructuralLoad > > m_subsequentAppliedLoads;
+        List_IfcStructuralLoad_2_n m_subsequentAppliedLoads;
 
     };
 

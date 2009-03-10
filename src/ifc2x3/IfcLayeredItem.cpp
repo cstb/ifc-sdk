@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcLayeredItem::~IfcLayeredItem() {
     deleteUnion();
 }
 
-bool IfcLayeredItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLayeredItem(this);
+bool IfcLayeredItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLayeredItem(this);
 }
 
 bool IfcLayeredItem::init() {
     return false;
 }
 
-const std::string &IfcLayeredItem::type() {
+const std::string &IfcLayeredItem::type() const {
     return IfcLayeredItem::s_type.getName();
 }
 
-Step::ClassType IfcLayeredItem::getClassType() {
+const Step::ClassType &IfcLayeredItem::getClassType() {
     return IfcLayeredItem::s_type;
 }
 
-Step::ClassType IfcLayeredItem::getType() const {
+const Step::ClassType &IfcLayeredItem::getType() const {
     return IfcLayeredItem::s_type;
 }
 
-bool IfcLayeredItem::isOfType(Step::ClassType t) {
+bool IfcLayeredItem::isOfType(const Step::ClassType &t) const {
     return IfcLayeredItem::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcLayeredItem::copy(const IfcLayeredItem &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCREPRESENTATIONITEM:
-        setIfcRepresentationItem(copyop(obj.m_IfcLayeredItem_union.m_IfcRepresentationItem));
+        setIfcRepresentationItem((IfcRepresentationItem *) (copyop(obj.m_IfcLayeredItem_union.m_IfcRepresentationItem)));
         break;
     case IFCREPRESENTATION:
-        setIfcRepresentation(copyop(obj.m_IfcLayeredItem_union.m_IfcRepresentation));
+        setIfcRepresentation((IfcRepresentation *) (copyop(obj.m_IfcLayeredItem_union.m_IfcRepresentation)));
         break;
         }
 }
 
-char *IfcLayeredItem::currentTypeName() {
+std::string IfcLayeredItem::currentTypeName() const {
     switch(m_type) {
     case IFCREPRESENTATIONITEM:
         return "IfcRepresentationItem";
@@ -97,7 +97,7 @@ char *IfcLayeredItem::currentTypeName() {
     }
 }
 
-IfcLayeredItem::IfcLayeredItem_select IfcLayeredItem::currentType() {
+IfcLayeredItem::IfcLayeredItem_select IfcLayeredItem::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcLayeredItem::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcRepresentationItem *IfcLayeredItem::getIfcRepresentationItem() {
-    return m_IfcLayeredItem_union.m_IfcRepresentationItem;
+IfcRepresentationItem *IfcLayeredItem::getIfcRepresentationItem() const {
+    if (m_type == IFCREPRESENTATIONITEM) {
+        return m_IfcLayeredItem_union.m_IfcRepresentationItem;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcLayeredItem::setIfcRepresentationItem(IfcRepresentationItem *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcLayeredItem::setIfcRepresentationItem(IfcRepresentationItem *value) {
     m_type = IFCREPRESENTATIONITEM;
 }
 
-IfcRepresentation *IfcLayeredItem::getIfcRepresentation() {
-    return m_IfcLayeredItem_union.m_IfcRepresentation;
+IfcRepresentation *IfcLayeredItem::getIfcRepresentation() const {
+    if (m_type == IFCREPRESENTATION) {
+        return m_IfcLayeredItem_union.m_IfcRepresentation;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcLayeredItem::setIfcRepresentation(IfcRepresentation *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

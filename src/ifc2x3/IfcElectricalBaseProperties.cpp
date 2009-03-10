@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -53,23 +53,23 @@ IfcElectricalBaseProperties::IfcElectricalBaseProperties(Step::Id id, Step::SPFD
 IfcElectricalBaseProperties::~IfcElectricalBaseProperties() {
 }
 
-bool IfcElectricalBaseProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricalBaseProperties(this);
+bool IfcElectricalBaseProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricalBaseProperties(this);
 }
 
-const std::string &IfcElectricalBaseProperties::type() {
+const std::string &IfcElectricalBaseProperties::type() const {
     return IfcElectricalBaseProperties::s_type.getName();
 }
 
-Step::ClassType IfcElectricalBaseProperties::getClassType() {
+const Step::ClassType &IfcElectricalBaseProperties::getClassType() {
     return IfcElectricalBaseProperties::s_type;
 }
 
-Step::ClassType IfcElectricalBaseProperties::getType() const {
+const Step::ClassType &IfcElectricalBaseProperties::getType() const {
     return IfcElectricalBaseProperties::s_type;
 }
 
-bool IfcElectricalBaseProperties::isOfType(Step::ClassType t) {
+bool IfcElectricalBaseProperties::isOfType(const Step::ClassType &t) const {
     return IfcElectricalBaseProperties::s_type == t ? true : IfcEnergyProperties::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType() {
     else {
         return IfcElectricCurrentEnum_UNSET;
     }
+}
+
+const IfcElectricCurrentEnum IfcElectricalBaseProperties::getElectricCurrentType() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getElectricCurrentType();
 }
 
 void IfcElectricalBaseProperties::setElectricCurrentType(IfcElectricCurrentEnum value) {
@@ -95,6 +100,11 @@ IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage() {
     }
 }
 
+const IfcElectricVoltageMeasure IfcElectricalBaseProperties::getInputVoltage() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getInputVoltage();
+}
+
 void IfcElectricalBaseProperties::setInputVoltage(IfcElectricVoltageMeasure value) {
     m_inputVoltage = value;
 }
@@ -106,6 +116,11 @@ IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency() {
     else {
         return Step::getUnset(m_inputFrequency);
     }
+}
+
+const IfcFrequencyMeasure IfcElectricalBaseProperties::getInputFrequency() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getInputFrequency();
 }
 
 void IfcElectricalBaseProperties::setInputFrequency(IfcFrequencyMeasure value) {
@@ -121,6 +136,11 @@ IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent() {
     }
 }
 
+const IfcElectricCurrentMeasure IfcElectricalBaseProperties::getFullLoadCurrent() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getFullLoadCurrent();
+}
+
 void IfcElectricalBaseProperties::setFullLoadCurrent(IfcElectricCurrentMeasure value) {
     m_fullLoadCurrent = value;
 }
@@ -132,6 +152,11 @@ IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent(
     else {
         return Step::getUnset(m_minimumCircuitCurrent);
     }
+}
+
+const IfcElectricCurrentMeasure IfcElectricalBaseProperties::getMinimumCircuitCurrent() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getMinimumCircuitCurrent();
 }
 
 void IfcElectricalBaseProperties::setMinimumCircuitCurrent(IfcElectricCurrentMeasure value) {
@@ -147,6 +172,11 @@ IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput() {
     }
 }
 
+const IfcPowerMeasure IfcElectricalBaseProperties::getMaximumPowerInput() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getMaximumPowerInput();
+}
+
 void IfcElectricalBaseProperties::setMaximumPowerInput(IfcPowerMeasure value) {
     m_maximumPowerInput = value;
 }
@@ -158,6 +188,11 @@ IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput() {
     else {
         return Step::getUnset(m_ratedPowerInput);
     }
+}
+
+const IfcPowerMeasure IfcElectricalBaseProperties::getRatedPowerInput() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getRatedPowerInput();
 }
 
 void IfcElectricalBaseProperties::setRatedPowerInput(IfcPowerMeasure value) {
@@ -173,12 +208,13 @@ Step::Integer IfcElectricalBaseProperties::getInputPhase() {
     }
 }
 
-void IfcElectricalBaseProperties::setInputPhase(Step::Integer value) {
-    m_inputPhase = value;
+const Step::Integer IfcElectricalBaseProperties::getInputPhase() const {
+    IfcElectricalBaseProperties * deConstObject = const_cast< IfcElectricalBaseProperties * > (this);
+    return deConstObject->getInputPhase();
 }
 
-void IfcElectricalBaseProperties::release() {
-    IfcEnergyProperties::release();
+void IfcElectricalBaseProperties::setInputPhase(Step::Integer value) {
+    m_inputPhase = value;
 }
 
 bool IfcElectricalBaseProperties::init() {

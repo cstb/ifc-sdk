@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcDerivedUnitElement::IfcDerivedUnitElement(Step::Id id, Step::SPFData *args) :
 IfcDerivedUnitElement::~IfcDerivedUnitElement() {
 }
 
-bool IfcDerivedUnitElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDerivedUnitElement(this);
+bool IfcDerivedUnitElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDerivedUnitElement(this);
 }
 
-const std::string &IfcDerivedUnitElement::type() {
+const std::string &IfcDerivedUnitElement::type() const {
     return IfcDerivedUnitElement::s_type.getName();
 }
 
-Step::ClassType IfcDerivedUnitElement::getClassType() {
+const Step::ClassType &IfcDerivedUnitElement::getClassType() {
     return IfcDerivedUnitElement::s_type;
 }
 
-Step::ClassType IfcDerivedUnitElement::getType() const {
+const Step::ClassType &IfcDerivedUnitElement::getType() const {
     return IfcDerivedUnitElement::s_type;
 }
 
-bool IfcDerivedUnitElement::isOfType(Step::ClassType t) {
+bool IfcDerivedUnitElement::isOfType(const Step::ClassType &t) const {
     return IfcDerivedUnitElement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcNamedUnit *IfcDerivedUnitElement::getUnit() {
     else {
         return NULL;
     }
+}
+
+const IfcNamedUnit *IfcDerivedUnitElement::getUnit() const {
+    IfcDerivedUnitElement * deConstObject = const_cast< IfcDerivedUnitElement * > (this);
+    return deConstObject->getUnit();
 }
 
 void IfcDerivedUnitElement::setUnit(const Step::RefPtr< IfcNamedUnit > &value) {
@@ -93,12 +98,13 @@ Step::Integer IfcDerivedUnitElement::getExponent() {
     }
 }
 
-void IfcDerivedUnitElement::setExponent(Step::Integer value) {
-    m_exponent = value;
+const Step::Integer IfcDerivedUnitElement::getExponent() const {
+    IfcDerivedUnitElement * deConstObject = const_cast< IfcDerivedUnitElement * > (this);
+    return deConstObject->getExponent();
 }
 
-void IfcDerivedUnitElement::release() {
-    m_unit.release();
+void IfcDerivedUnitElement::setExponent(Step::Integer value) {
+    m_exponent = value;
 }
 
 bool IfcDerivedUnitElement::init() {
@@ -108,7 +114,7 @@ bool IfcDerivedUnitElement::init() {
         m_unit = NULL;
     }
     else {
-        m_unit = static_cast< IfcNamedUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_unit = static_cast< IfcNamedUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -122,7 +128,7 @@ bool IfcDerivedUnitElement::init() {
 
 void IfcDerivedUnitElement::copy(const IfcDerivedUnitElement &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setUnit(copyop(obj.m_unit.get()));
+    setUnit((IfcNamedUnit*)copyop(obj.m_unit.get()));
     setExponent(obj.m_exponent);
     return;
 }

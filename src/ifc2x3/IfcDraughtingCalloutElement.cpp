@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcDraughtingCalloutElement::~IfcDraughtingCalloutElement() {
     deleteUnion();
 }
 
-bool IfcDraughtingCalloutElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingCalloutElement(this);
+bool IfcDraughtingCalloutElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingCalloutElement(this);
 }
 
 bool IfcDraughtingCalloutElement::init() {
     return false;
 }
 
-const std::string &IfcDraughtingCalloutElement::type() {
+const std::string &IfcDraughtingCalloutElement::type() const {
     return IfcDraughtingCalloutElement::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingCalloutElement::getClassType() {
+const Step::ClassType &IfcDraughtingCalloutElement::getClassType() {
     return IfcDraughtingCalloutElement::s_type;
 }
 
-Step::ClassType IfcDraughtingCalloutElement::getType() const {
+const Step::ClassType &IfcDraughtingCalloutElement::getType() const {
     return IfcDraughtingCalloutElement::s_type;
 }
 
-bool IfcDraughtingCalloutElement::isOfType(Step::ClassType t) {
+bool IfcDraughtingCalloutElement::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingCalloutElement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcDraughtingCalloutElement::copy(const IfcDraughtingCalloutElement &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCANNOTATIONCURVEOCCURRENCE:
-        setIfcAnnotationCurveOccurrence(copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationCurveOccurrence));
+        setIfcAnnotationCurveOccurrence((IfcAnnotationCurveOccurrence *) (copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationCurveOccurrence)));
         break;
     case IFCANNOTATIONTEXTOCCURRENCE:
-        setIfcAnnotationTextOccurrence(copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationTextOccurrence));
+        setIfcAnnotationTextOccurrence((IfcAnnotationTextOccurrence *) (copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationTextOccurrence)));
         break;
     case IFCANNOTATIONSYMBOLOCCURRENCE:
-        setIfcAnnotationSymbolOccurrence(copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence));
+        setIfcAnnotationSymbolOccurrence((IfcAnnotationSymbolOccurrence *) (copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence)));
         break;
         }
 }
 
-char *IfcDraughtingCalloutElement::currentTypeName() {
+std::string IfcDraughtingCalloutElement::currentTypeName() const {
     switch(m_type) {
     case IFCANNOTATIONCURVEOCCURRENCE:
         return "IfcAnnotationCurveOccurrence";
@@ -104,7 +104,7 @@ char *IfcDraughtingCalloutElement::currentTypeName() {
     }
 }
 
-IfcDraughtingCalloutElement::IfcDraughtingCalloutElement_select IfcDraughtingCalloutElement::currentType() {
+IfcDraughtingCalloutElement::IfcDraughtingCalloutElement_select IfcDraughtingCalloutElement::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcDraughtingCalloutElement::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcAnnotationCurveOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationCurveOccurrence() {
-    return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationCurveOccurrence;
+IfcAnnotationCurveOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationCurveOccurrence() const {
+    if (m_type == IFCANNOTATIONCURVEOCCURRENCE) {
+        return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationCurveOccurrence;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDraughtingCalloutElement::setIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcDraughtingCalloutElement::setIfcAnnotationCurveOccurrence(IfcAnnotationC
     m_type = IFCANNOTATIONCURVEOCCURRENCE;
 }
 
-IfcAnnotationTextOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationTextOccurrence() {
-    return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationTextOccurrence;
+IfcAnnotationTextOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationTextOccurrence() const {
+    if (m_type == IFCANNOTATIONTEXTOCCURRENCE) {
+        return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationTextOccurrence;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDraughtingCalloutElement::setIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcDraughtingCalloutElement::setIfcAnnotationTextOccurrence(IfcAnnotationTe
     m_type = IFCANNOTATIONTEXTOCCURRENCE;
 }
 
-IfcAnnotationSymbolOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationSymbolOccurrence() {
-    return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence;
+IfcAnnotationSymbolOccurrence *IfcDraughtingCalloutElement::getIfcAnnotationSymbolOccurrence() const {
+    if (m_type == IFCANNOTATIONSYMBOLOCCURRENCE) {
+        return m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDraughtingCalloutElement::setIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcImageTexture::IfcImageTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceT
 IfcImageTexture::~IfcImageTexture() {
 }
 
-bool IfcImageTexture::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcImageTexture(this);
+bool IfcImageTexture::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcImageTexture(this);
 }
 
-const std::string &IfcImageTexture::type() {
+const std::string &IfcImageTexture::type() const {
     return IfcImageTexture::s_type.getName();
 }
 
-Step::ClassType IfcImageTexture::getClassType() {
+const Step::ClassType &IfcImageTexture::getClassType() {
     return IfcImageTexture::s_type;
 }
 
-Step::ClassType IfcImageTexture::getType() const {
+const Step::ClassType &IfcImageTexture::getType() const {
     return IfcImageTexture::s_type;
 }
 
-bool IfcImageTexture::isOfType(Step::ClassType t) {
+bool IfcImageTexture::isOfType(const Step::ClassType &t) const {
     return IfcImageTexture::s_type == t ? true : IfcSurfaceTexture::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcIdentifier IfcImageTexture::getUrlReference() {
     }
 }
 
-void IfcImageTexture::setUrlReference(const IfcIdentifier &value) {
-    m_urlReference = value;
+const IfcIdentifier IfcImageTexture::getUrlReference() const {
+    IfcImageTexture * deConstObject = const_cast< IfcImageTexture * > (this);
+    return deConstObject->getUrlReference();
 }
 
-void IfcImageTexture::release() {
-    IfcSurfaceTexture::release();
+void IfcImageTexture::setUrlReference(const IfcIdentifier &value) {
+    m_urlReference = value;
 }
 
 bool IfcImageTexture::init() {
@@ -94,7 +96,7 @@ bool IfcImageTexture::init() {
         m_urlReference = Step::getUnset(m_urlReference);
     }
     else {
-        m_urlReference = Step::spfToString(arg);
+        m_urlReference = Step::String::fromSPF(arg);
     }
     return true;
 }

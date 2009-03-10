@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDistributionElement::IfcDistributionElement(Step::Id id, Step::SPFData *args)
 IfcDistributionElement::~IfcDistributionElement() {
 }
 
-bool IfcDistributionElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDistributionElement(this);
+bool IfcDistributionElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDistributionElement(this);
 }
 
-const std::string &IfcDistributionElement::type() {
+const std::string &IfcDistributionElement::type() const {
     return IfcDistributionElement::s_type.getName();
 }
 
-Step::ClassType IfcDistributionElement::getClassType() {
+const Step::ClassType &IfcDistributionElement::getClassType() {
     return IfcDistributionElement::s_type;
 }
 
-Step::ClassType IfcDistributionElement::getType() const {
+const Step::ClassType &IfcDistributionElement::getType() const {
     return IfcDistributionElement::s_type;
 }
 
-bool IfcDistributionElement::isOfType(Step::ClassType t) {
+bool IfcDistributionElement::isOfType(const Step::ClassType &t) const {
     return IfcDistributionElement::s_type == t ? true : IfcElement::isOfType(t);
-}
-
-void IfcDistributionElement::release() {
-    IfcElement::release();
 }
 
 bool IfcDistributionElement::init() {

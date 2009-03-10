@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcEllipseProfileDef::IfcEllipseProfileDef(Step::Id id, Step::SPFData *args) : I
 IfcEllipseProfileDef::~IfcEllipseProfileDef() {
 }
 
-bool IfcEllipseProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEllipseProfileDef(this);
+bool IfcEllipseProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEllipseProfileDef(this);
 }
 
-const std::string &IfcEllipseProfileDef::type() {
+const std::string &IfcEllipseProfileDef::type() const {
     return IfcEllipseProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcEllipseProfileDef::getClassType() {
+const Step::ClassType &IfcEllipseProfileDef::getClassType() {
     return IfcEllipseProfileDef::s_type;
 }
 
-Step::ClassType IfcEllipseProfileDef::getType() const {
+const Step::ClassType &IfcEllipseProfileDef::getType() const {
     return IfcEllipseProfileDef::s_type;
 }
 
-bool IfcEllipseProfileDef::isOfType(Step::ClassType t) {
+bool IfcEllipseProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcEllipseProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis1() {
     else {
         return Step::getUnset(m_semiAxis1);
     }
+}
+
+const IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis1() const {
+    IfcEllipseProfileDef * deConstObject = const_cast< IfcEllipseProfileDef * > (this);
+    return deConstObject->getSemiAxis1();
 }
 
 void IfcEllipseProfileDef::setSemiAxis1(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis2() {
     }
 }
 
-void IfcEllipseProfileDef::setSemiAxis2(IfcPositiveLengthMeasure value) {
-    m_semiAxis2 = value;
+const IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis2() const {
+    IfcEllipseProfileDef * deConstObject = const_cast< IfcEllipseProfileDef * > (this);
+    return deConstObject->getSemiAxis2();
 }
 
-void IfcEllipseProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcEllipseProfileDef::setSemiAxis2(IfcPositiveLengthMeasure value) {
+    m_semiAxis2 = value;
 }
 
 bool IfcEllipseProfileDef::init() {

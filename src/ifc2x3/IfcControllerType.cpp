@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcControllerType::IfcControllerType(Step::Id id, Step::SPFData *args) : IfcDist
 IfcControllerType::~IfcControllerType() {
 }
 
-bool IfcControllerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcControllerType(this);
+bool IfcControllerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcControllerType(this);
 }
 
-const std::string &IfcControllerType::type() {
+const std::string &IfcControllerType::type() const {
     return IfcControllerType::s_type.getName();
 }
 
-Step::ClassType IfcControllerType::getClassType() {
+const Step::ClassType &IfcControllerType::getClassType() {
     return IfcControllerType::s_type;
 }
 
-Step::ClassType IfcControllerType::getType() const {
+const Step::ClassType &IfcControllerType::getType() const {
     return IfcControllerType::s_type;
 }
 
-bool IfcControllerType::isOfType(Step::ClassType t) {
+bool IfcControllerType::isOfType(const Step::ClassType &t) const {
     return IfcControllerType::s_type == t ? true : IfcDistributionControlElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcControllerTypeEnum IfcControllerType::getPredefinedType() {
     }
 }
 
-void IfcControllerType::setPredefinedType(IfcControllerTypeEnum value) {
-    m_predefinedType = value;
+const IfcControllerTypeEnum IfcControllerType::getPredefinedType() const {
+    IfcControllerType * deConstObject = const_cast< IfcControllerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcControllerType::release() {
-    IfcDistributionControlElementType::release();
+void IfcControllerType::setPredefinedType(IfcControllerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcControllerType::init() {

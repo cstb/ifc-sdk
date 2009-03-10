@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -46,7 +45,6 @@ using namespace ifc2x3;
 
 IfcBSplineCurve::IfcBSplineCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
     m_degree = Step::getUnset(m_degree);
-    m_controlPointsList.setUnset(true);
     m_curveForm = IfcBSplineCurveForm_UNSET;
     m_closedCurve = Step::getUnset(m_closedCurve);
     m_selfIntersect = Step::getUnset(m_selfIntersect);
@@ -55,23 +53,23 @@ IfcBSplineCurve::IfcBSplineCurve(Step::Id id, Step::SPFData *args) : IfcBoundedC
 IfcBSplineCurve::~IfcBSplineCurve() {
 }
 
-bool IfcBSplineCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBSplineCurve(this);
+bool IfcBSplineCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBSplineCurve(this);
 }
 
-const std::string &IfcBSplineCurve::type() {
+const std::string &IfcBSplineCurve::type() const {
     return IfcBSplineCurve::s_type.getName();
 }
 
-Step::ClassType IfcBSplineCurve::getClassType() {
+const Step::ClassType &IfcBSplineCurve::getClassType() {
     return IfcBSplineCurve::s_type;
 }
 
-Step::ClassType IfcBSplineCurve::getType() const {
+const Step::ClassType &IfcBSplineCurve::getType() const {
     return IfcBSplineCurve::s_type;
 }
 
-bool IfcBSplineCurve::isOfType(Step::ClassType t) {
+bool IfcBSplineCurve::isOfType(const Step::ClassType &t) const {
     return IfcBSplineCurve::s_type == t ? true : IfcBoundedCurve::isOfType(t);
 }
 
@@ -84,11 +82,16 @@ Step::Integer IfcBSplineCurve::getDegree() {
     }
 }
 
+const Step::Integer IfcBSplineCurve::getDegree() const {
+    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
+    return deConstObject->getDegree();
+}
+
 void IfcBSplineCurve::setDegree(Step::Integer value) {
     m_degree = value;
 }
 
-Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcBSplineCurve::getControlPointsList() {
+List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() {
     if (Step::BaseObject::inited()) {
         return m_controlPointsList;
     }
@@ -98,7 +101,12 @@ Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcBSplineCurve::getControlPoin
     }
 }
 
-void IfcBSplineCurve::setControlPointsList(const Step::List< Step::RefPtr< IfcCartesianPoint > > &value) {
+const List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() const {
+    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
+    return deConstObject->getControlPointsList();
+}
+
+void IfcBSplineCurve::setControlPointsList(const List_IfcCartesianPoint_2_n &value) {
     m_controlPointsList = value;
 }
 
@@ -109,6 +117,11 @@ IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() {
     else {
         return IfcBSplineCurveForm_UNSET;
     }
+}
+
+const IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() const {
+    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
+    return deConstObject->getCurveForm();
 }
 
 void IfcBSplineCurve::setCurveForm(IfcBSplineCurveForm value) {
@@ -124,6 +137,11 @@ Step::Logical IfcBSplineCurve::getClosedCurve() {
     }
 }
 
+const Step::Logical IfcBSplineCurve::getClosedCurve() const {
+    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
+    return deConstObject->getClosedCurve();
+}
+
 void IfcBSplineCurve::setClosedCurve(Step::Logical value) {
     m_closedCurve = value;
 }
@@ -137,13 +155,13 @@ Step::Logical IfcBSplineCurve::getSelfIntersect() {
     }
 }
 
-void IfcBSplineCurve::setSelfIntersect(Step::Logical value) {
-    m_selfIntersect = value;
+const Step::Logical IfcBSplineCurve::getSelfIntersect() const {
+    IfcBSplineCurve * deConstObject = const_cast< IfcBSplineCurve * > (this);
+    return deConstObject->getSelfIntersect();
 }
 
-void IfcBSplineCurve::release() {
-    IfcBoundedCurve::release();
-    m_controlPointsList.clear();
+void IfcBSplineCurve::setSelfIntersect(Step::Logical value) {
+    m_selfIntersect = value;
 }
 
 bool IfcBSplineCurve::init() {
@@ -170,7 +188,7 @@ bool IfcBSplineCurve::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCartesianPoint > attr2;
-                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_controlPointsList.push_back(attr2);
             }
             else {
@@ -220,11 +238,11 @@ bool IfcBSplineCurve::init() {
 }
 
 void IfcBSplineCurve::copy(const IfcBSplineCurve &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcCartesianPoint > >::const_iterator it_m_controlPointsList;
+    Step::List< Step::RefPtr< IfcCartesianPoint >, 2 >::const_iterator it_m_controlPointsList;
     IfcBoundedCurve::copy(obj, copyop);
     setDegree(obj.m_degree);
     for (it_m_controlPointsList = obj.m_controlPointsList.begin(); it_m_controlPointsList != obj.m_controlPointsList.end(); ++it_m_controlPointsList) {
-        Step::RefPtr< IfcCartesianPoint > copyTarget = copyop((*it_m_controlPointsList).get());
+        Step::RefPtr< IfcCartesianPoint > copyTarget = (IfcCartesianPoint *) (copyop((*it_m_controlPointsList).get()));
         m_controlPointsList.push_back(copyTarget.get());
     }
     setCurveForm(obj.m_curveForm);

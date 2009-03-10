@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcBoundaryNodeCondition::IfcBoundaryNodeCondition(Step::Id id, Step::SPFData *a
 IfcBoundaryNodeCondition::~IfcBoundaryNodeCondition() {
 }
 
-bool IfcBoundaryNodeCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundaryNodeCondition(this);
+bool IfcBoundaryNodeCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundaryNodeCondition(this);
 }
 
-const std::string &IfcBoundaryNodeCondition::type() {
+const std::string &IfcBoundaryNodeCondition::type() const {
     return IfcBoundaryNodeCondition::s_type.getName();
 }
 
-Step::ClassType IfcBoundaryNodeCondition::getClassType() {
+const Step::ClassType &IfcBoundaryNodeCondition::getClassType() {
     return IfcBoundaryNodeCondition::s_type;
 }
 
-Step::ClassType IfcBoundaryNodeCondition::getType() const {
+const Step::ClassType &IfcBoundaryNodeCondition::getType() const {
     return IfcBoundaryNodeCondition::s_type;
 }
 
-bool IfcBoundaryNodeCondition::isOfType(Step::ClassType t) {
+bool IfcBoundaryNodeCondition::isOfType(const Step::ClassType &t) const {
     return IfcBoundaryNodeCondition::s_type == t ? true : IfcBoundaryCondition::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessX() {
     else {
         return Step::getUnset(m_linearStiffnessX);
     }
+}
+
+const IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessX() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getLinearStiffnessX();
 }
 
 void IfcBoundaryNodeCondition::setLinearStiffnessX(IfcLinearStiffnessMeasure value) {
@@ -93,6 +98,11 @@ IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessY() {
     }
 }
 
+const IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessY() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getLinearStiffnessY();
+}
+
 void IfcBoundaryNodeCondition::setLinearStiffnessY(IfcLinearStiffnessMeasure value) {
     m_linearStiffnessY = value;
 }
@@ -104,6 +114,11 @@ IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessZ() {
     else {
         return Step::getUnset(m_linearStiffnessZ);
     }
+}
+
+const IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessZ() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getLinearStiffnessZ();
 }
 
 void IfcBoundaryNodeCondition::setLinearStiffnessZ(IfcLinearStiffnessMeasure value) {
@@ -119,6 +134,11 @@ IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessX(
     }
 }
 
+const IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessX() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getRotationalStiffnessX();
+}
+
 void IfcBoundaryNodeCondition::setRotationalStiffnessX(IfcRotationalStiffnessMeasure value) {
     m_rotationalStiffnessX = value;
 }
@@ -130,6 +150,11 @@ IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessY(
     else {
         return Step::getUnset(m_rotationalStiffnessY);
     }
+}
+
+const IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessY() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getRotationalStiffnessY();
 }
 
 void IfcBoundaryNodeCondition::setRotationalStiffnessY(IfcRotationalStiffnessMeasure value) {
@@ -145,12 +170,13 @@ IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessZ(
     }
 }
 
-void IfcBoundaryNodeCondition::setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value) {
-    m_rotationalStiffnessZ = value;
+const IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessZ() const {
+    IfcBoundaryNodeCondition * deConstObject = const_cast< IfcBoundaryNodeCondition * > (this);
+    return deConstObject->getRotationalStiffnessZ();
 }
 
-void IfcBoundaryNodeCondition::release() {
-    IfcBoundaryCondition::release();
+void IfcBoundaryNodeCondition::setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value) {
+    m_rotationalStiffnessZ = value;
 }
 
 bool IfcBoundaryNodeCondition::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcAnnotationSurface::IfcAnnotationSurface(Step::Id id, Step::SPFData *args) : I
 IfcAnnotationSurface::~IfcAnnotationSurface() {
 }
 
-bool IfcAnnotationSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationSurface(this);
+bool IfcAnnotationSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationSurface(this);
 }
 
-const std::string &IfcAnnotationSurface::type() {
+const std::string &IfcAnnotationSurface::type() const {
     return IfcAnnotationSurface::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationSurface::getClassType() {
+const Step::ClassType &IfcAnnotationSurface::getClassType() {
     return IfcAnnotationSurface::s_type;
 }
 
-Step::ClassType IfcAnnotationSurface::getType() const {
+const Step::ClassType &IfcAnnotationSurface::getType() const {
     return IfcAnnotationSurface::s_type;
 }
 
-bool IfcAnnotationSurface::isOfType(Step::ClassType t) {
+bool IfcAnnotationSurface::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationSurface::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() {
     else {
         return NULL;
     }
+}
+
+const IfcGeometricRepresentationItem *IfcAnnotationSurface::getItem() const {
+    IfcAnnotationSurface * deConstObject = const_cast< IfcAnnotationSurface * > (this);
+    return deConstObject->getItem();
 }
 
 void IfcAnnotationSurface::setItem(const Step::RefPtr< IfcGeometricRepresentationItem > &value) {
@@ -93,15 +98,19 @@ IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() {
     }
 }
 
-void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value) {
-    m_textureCoordinates = value;
-    m_textureCoordinates->m_annotatedSurface.insert(this);
+const IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() const {
+    IfcAnnotationSurface * deConstObject = const_cast< IfcAnnotationSurface * > (this);
+    return deConstObject->getTextureCoordinates();
 }
 
-void IfcAnnotationSurface::release() {
-    IfcGeometricRepresentationItem::release();
-    m_item.release();
-    m_textureCoordinates.release();
+void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value) {
+    if (m_textureCoordinates.valid()) {
+        m_textureCoordinates->m_annotatedSurface.erase(this);
+    }
+    if (value.valid()) {
+        value->m_annotatedSurface.insert(this);
+    }
+    m_textureCoordinates = value;
 }
 
 bool IfcAnnotationSurface::init() {
@@ -115,22 +124,22 @@ bool IfcAnnotationSurface::init() {
         m_item = NULL;
     }
     else {
-        m_item = static_cast< IfcGeometricRepresentationItem * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_item = static_cast< IfcGeometricRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_textureCoordinates = NULL;
     }
     else {
-        m_textureCoordinates = static_cast< IfcTextureCoordinate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_textureCoordinates = static_cast< IfcTextureCoordinate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcAnnotationSurface::copy(const IfcAnnotationSurface &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setItem(copyop(obj.m_item.get()));
-    setTextureCoordinates(copyop(obj.m_textureCoordinates.get()));
+    setItem((IfcGeometricRepresentationItem*)copyop(obj.m_item.get()));
+    setTextureCoordinates((IfcTextureCoordinate*)copyop(obj.m_textureCoordinates.get()));
     return;
 }
 

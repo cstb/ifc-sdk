@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFireSuppressionTerminalType::IfcFireSuppressionTerminalType(Step::Id id, Step
 IfcFireSuppressionTerminalType::~IfcFireSuppressionTerminalType() {
 }
 
-bool IfcFireSuppressionTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFireSuppressionTerminalType(this);
+bool IfcFireSuppressionTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFireSuppressionTerminalType(this);
 }
 
-const std::string &IfcFireSuppressionTerminalType::type() {
+const std::string &IfcFireSuppressionTerminalType::type() const {
     return IfcFireSuppressionTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcFireSuppressionTerminalType::getClassType() {
+const Step::ClassType &IfcFireSuppressionTerminalType::getClassType() {
     return IfcFireSuppressionTerminalType::s_type;
 }
 
-Step::ClassType IfcFireSuppressionTerminalType::getType() const {
+const Step::ClassType &IfcFireSuppressionTerminalType::getType() const {
     return IfcFireSuppressionTerminalType::s_type;
 }
 
-bool IfcFireSuppressionTerminalType::isOfType(Step::ClassType t) {
+bool IfcFireSuppressionTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcFireSuppressionTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFireSuppressionTerminalTypeEnum IfcFireSuppressionTerminalType::getPredefined
     }
 }
 
-void IfcFireSuppressionTerminalType::setPredefinedType(IfcFireSuppressionTerminalTypeEnum value) {
-    m_predefinedType = value;
+const IfcFireSuppressionTerminalTypeEnum IfcFireSuppressionTerminalType::getPredefinedType() const {
+    IfcFireSuppressionTerminalType * deConstObject = const_cast< IfcFireSuppressionTerminalType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFireSuppressionTerminalType::release() {
-    IfcFlowTerminalType::release();
+void IfcFireSuppressionTerminalType::setPredefinedType(IfcFireSuppressionTerminalTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFireSuppressionTerminalType::init() {

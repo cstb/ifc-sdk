@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcRelOverridesProperties::IfcRelOverridesProperties(Step::Id id, Step::SPFData *args) : IfcRelDefinesByProperties(id, args) {
-    m_overridingProperties.setUnset(true);
 }
 
 IfcRelOverridesProperties::~IfcRelOverridesProperties() {
 }
 
-bool IfcRelOverridesProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelOverridesProperties(this);
+bool IfcRelOverridesProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelOverridesProperties(this);
 }
 
-const std::string &IfcRelOverridesProperties::type() {
+const std::string &IfcRelOverridesProperties::type() const {
     return IfcRelOverridesProperties::s_type.getName();
 }
 
-Step::ClassType IfcRelOverridesProperties::getClassType() {
+const Step::ClassType &IfcRelOverridesProperties::getClassType() {
     return IfcRelOverridesProperties::s_type;
 }
 
-Step::ClassType IfcRelOverridesProperties::getType() const {
+const Step::ClassType &IfcRelOverridesProperties::getType() const {
     return IfcRelOverridesProperties::s_type;
 }
 
-bool IfcRelOverridesProperties::isOfType(Step::ClassType t) {
+bool IfcRelOverridesProperties::isOfType(const Step::ClassType &t) const {
     return IfcRelOverridesProperties::s_type == t ? true : IfcRelDefinesByProperties::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcRelOverridesProperties::getOverridingProperties() {
+Set_IfcProperty_1_n &IfcRelOverridesProperties::getOverridingProperties() {
     if (Step::BaseObject::inited()) {
         return m_overridingProperties;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcRelOverridesProperties::getOverridi
     }
 }
 
-void IfcRelOverridesProperties::setOverridingProperties(const Step::Set< Step::RefPtr< IfcProperty > > &value) {
-    m_overridingProperties = value;
+const Set_IfcProperty_1_n &IfcRelOverridesProperties::getOverridingProperties() const {
+    IfcRelOverridesProperties * deConstObject = const_cast< IfcRelOverridesProperties * > (this);
+    return deConstObject->getOverridingProperties();
 }
 
-void IfcRelOverridesProperties::release() {
-    IfcRelDefinesByProperties::release();
-    m_overridingProperties.clear();
+void IfcRelOverridesProperties::setOverridingProperties(const Set_IfcProperty_1_n &value) {
+    m_overridingProperties = value;
 }
 
 bool IfcRelOverridesProperties::init() {
@@ -107,7 +105,7 @@ bool IfcRelOverridesProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_overridingProperties.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcRelOverridesProperties::init() {
 }
 
 void IfcRelOverridesProperties::copy(const IfcRelOverridesProperties &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_overridingProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_overridingProperties;
     IfcRelDefinesByProperties::copy(obj, copyop);
     for (it_m_overridingProperties = obj.m_overridingProperties.begin(); it_m_overridingProperties != obj.m_overridingProperties.end(); ++it_m_overridingProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_overridingProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_overridingProperties).get()));
         m_overridingProperties.insert(copyTarget.get());
     }
     return;

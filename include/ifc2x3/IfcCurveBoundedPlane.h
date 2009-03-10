@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,7 +33,6 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcBoundedSurface.h"
 #include <Step/Referenced.h>
 
@@ -48,54 +47,88 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCurveBoundedPlane : public IfcBoundedSurface {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'BasisSurface'.
+         * 
          */
-        IfcPlane *getBasisSurface();
+        virtual IfcPlane *getBasisSurface();
+        /**
+         * (const) Returns the value of the explicit attribute 'BasisSurface'.
+         * 
+         * @return the value of the explicit attribute 'BasisSurface'
+         */
+        virtual const IfcPlane *getBasisSurface() const;
         /**
          * Sets the value of the explicit attribute 'BasisSurface'.
          * 
          * @param value
          */
-        void setBasisSurface(const Step::RefPtr< IfcPlane > &value);
+        virtual void setBasisSurface(const Step::RefPtr< IfcPlane > &value);
         /**
+         * Gets the value of the explicit attribute 'OuterBoundary'.
+         * 
          */
-        IfcCurve *getOuterBoundary();
+        virtual IfcCurve *getOuterBoundary();
+        /**
+         * (const) Returns the value of the explicit attribute 'OuterBoundary'.
+         * 
+         * @return the value of the explicit attribute 'OuterBoundary'
+         */
+        virtual const IfcCurve *getOuterBoundary() const;
         /**
          * Sets the value of the explicit attribute 'OuterBoundary'.
          * 
          * @param value
          */
-        void setOuterBoundary(const Step::RefPtr< IfcCurve > &value);
+        virtual void setOuterBoundary(const Step::RefPtr< IfcCurve > &value);
         /**
+         * Gets the value of the explicit attribute 'InnerBoundaries'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcCurve > > &getInnerBoundaries();
+        virtual Set_IfcCurve_0_n &getInnerBoundaries();
+        /**
+         * (const) Returns the value of the explicit attribute 'InnerBoundaries'.
+         * 
+         * @return the value of the explicit attribute 'InnerBoundaries'
+         */
+        virtual const Set_IfcCurve_0_n &getInnerBoundaries() const;
         /**
          * Sets the value of the explicit attribute 'InnerBoundaries'.
          * 
          * @param value
          */
-        void setInnerBoundaries(const Step::Set< Step::RefPtr< IfcCurve > > &value);
+        virtual void setInnerBoundaries(const Set_IfcCurve_0_n &value);
         /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
          */
-        virtual void release();
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:
@@ -126,7 +159,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcCurve > m_outerBoundary;
         /**
          */
-        Step::Set< Step::RefPtr< IfcCurve > > m_innerBoundaries;
+        Set_IfcCurve_0_n m_innerBoundaries;
 
     };
 

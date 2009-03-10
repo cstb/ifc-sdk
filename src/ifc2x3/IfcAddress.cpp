@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -47,30 +48,28 @@ IfcAddress::IfcAddress(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, 
     m_purpose = IfcAddressTypeEnum_UNSET;
     m_description = Step::getUnset(m_description);
     m_userDefinedPurpose = Step::getUnset(m_userDefinedPurpose);
-    m_ofPerson.setUnset(true);
-    m_ofOrganization.setUnset(true);
 }
 
 IfcAddress::~IfcAddress() {
 }
 
-bool IfcAddress::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAddress(this);
+bool IfcAddress::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAddress(this);
 }
 
-const std::string &IfcAddress::type() {
+const std::string &IfcAddress::type() const {
     return IfcAddress::s_type.getName();
 }
 
-Step::ClassType IfcAddress::getClassType() {
+const Step::ClassType &IfcAddress::getClassType() {
     return IfcAddress::s_type;
 }
 
-Step::ClassType IfcAddress::getType() const {
+const Step::ClassType &IfcAddress::getType() const {
     return IfcAddress::s_type;
 }
 
-bool IfcAddress::isOfType(Step::ClassType t) {
+bool IfcAddress::isOfType(const Step::ClassType &t) const {
     return IfcAddress::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,6 +80,11 @@ IfcAddressTypeEnum IfcAddress::getPurpose() {
     else {
         return IfcAddressTypeEnum_UNSET;
     }
+}
+
+const IfcAddressTypeEnum IfcAddress::getPurpose() const {
+    IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
+    return deConstObject->getPurpose();
 }
 
 void IfcAddress::setPurpose(IfcAddressTypeEnum value) {
@@ -96,6 +100,11 @@ IfcText IfcAddress::getDescription() {
     }
 }
 
+const IfcText IfcAddress::getDescription() const {
+    IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcAddress::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -109,11 +118,16 @@ IfcLabel IfcAddress::getUserDefinedPurpose() {
     }
 }
 
+const IfcLabel IfcAddress::getUserDefinedPurpose() const {
+    IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
+    return deConstObject->getUserDefinedPurpose();
+}
+
 void IfcAddress::setUserDefinedPurpose(const IfcLabel &value) {
     m_userDefinedPurpose = value;
 }
 
-Step::Set< Step::ObsPtr< IfcPerson > > &IfcAddress::getOfPerson() {
+Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() {
     if (Step::BaseObject::inited()) {
         return m_ofPerson;
     }
@@ -123,7 +137,12 @@ Step::Set< Step::ObsPtr< IfcPerson > > &IfcAddress::getOfPerson() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcOrganization > > &IfcAddress::getOfOrganization() {
+const Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() const {
+    IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
+    return deConstObject->getOfPerson();
+}
+
+Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
     if (Step::BaseObject::inited()) {
         return m_ofOrganization;
     }
@@ -133,7 +152,9 @@ Step::Set< Step::ObsPtr< IfcOrganization > > &IfcAddress::getOfOrganization() {
     }
 }
 
-void IfcAddress::release() {
+const Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() const {
+    IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
+    return deConstObject->getOfOrganization();
 }
 
 bool IfcAddress::init() {
@@ -165,14 +186,14 @@ bool IfcAddress::init() {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_userDefinedPurpose = Step::getUnset(m_userDefinedPurpose);
     }
     else {
-        m_userDefinedPurpose = Step::spfToString(arg);
+        m_userDefinedPurpose = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcPerson::getClassType(), 7);
     if (inverses) {

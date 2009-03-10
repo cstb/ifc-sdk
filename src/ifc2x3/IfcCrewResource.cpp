@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCrewResource::IfcCrewResource(Step::Id id, Step::SPFData *args) : IfcConstruc
 IfcCrewResource::~IfcCrewResource() {
 }
 
-bool IfcCrewResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCrewResource(this);
+bool IfcCrewResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCrewResource(this);
 }
 
-const std::string &IfcCrewResource::type() {
+const std::string &IfcCrewResource::type() const {
     return IfcCrewResource::s_type.getName();
 }
 
-Step::ClassType IfcCrewResource::getClassType() {
+const Step::ClassType &IfcCrewResource::getClassType() {
     return IfcCrewResource::s_type;
 }
 
-Step::ClassType IfcCrewResource::getType() const {
+const Step::ClassType &IfcCrewResource::getType() const {
     return IfcCrewResource::s_type;
 }
 
-bool IfcCrewResource::isOfType(Step::ClassType t) {
+bool IfcCrewResource::isOfType(const Step::ClassType &t) const {
     return IfcCrewResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
-}
-
-void IfcCrewResource::release() {
-    IfcConstructionResource::release();
 }
 
 bool IfcCrewResource::init() {

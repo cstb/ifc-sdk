@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcOpenShell::IfcOpenShell(Step::Id id, Step::SPFData *args) : IfcConnectedFaceS
 IfcOpenShell::~IfcOpenShell() {
 }
 
-bool IfcOpenShell::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOpenShell(this);
+bool IfcOpenShell::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOpenShell(this);
 }
 
-const std::string &IfcOpenShell::type() {
+const std::string &IfcOpenShell::type() const {
     return IfcOpenShell::s_type.getName();
 }
 
-Step::ClassType IfcOpenShell::getClassType() {
+const Step::ClassType &IfcOpenShell::getClassType() {
     return IfcOpenShell::s_type;
 }
 
-Step::ClassType IfcOpenShell::getType() const {
+const Step::ClassType &IfcOpenShell::getType() const {
     return IfcOpenShell::s_type;
 }
 
-bool IfcOpenShell::isOfType(Step::ClassType t) {
+bool IfcOpenShell::isOfType(const Step::ClassType &t) const {
     return IfcOpenShell::s_type == t ? true : IfcConnectedFaceSet::isOfType(t);
-}
-
-void IfcOpenShell::release() {
-    IfcConnectedFaceSet::release();
 }
 
 bool IfcOpenShell::init() {

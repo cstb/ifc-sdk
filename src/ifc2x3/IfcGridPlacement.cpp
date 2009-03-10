@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcGridPlacement::IfcGridPlacement(Step::Id id, Step::SPFData *args) : IfcObject
 IfcGridPlacement::~IfcGridPlacement() {
 }
 
-bool IfcGridPlacement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGridPlacement(this);
+bool IfcGridPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGridPlacement(this);
 }
 
-const std::string &IfcGridPlacement::type() {
+const std::string &IfcGridPlacement::type() const {
     return IfcGridPlacement::s_type.getName();
 }
 
-Step::ClassType IfcGridPlacement::getClassType() {
+const Step::ClassType &IfcGridPlacement::getClassType() {
     return IfcGridPlacement::s_type;
 }
 
-Step::ClassType IfcGridPlacement::getType() const {
+const Step::ClassType &IfcGridPlacement::getType() const {
     return IfcGridPlacement::s_type;
 }
 
-bool IfcGridPlacement::isOfType(Step::ClassType t) {
+bool IfcGridPlacement::isOfType(const Step::ClassType &t) const {
     return IfcGridPlacement::s_type == t ? true : IfcObjectPlacement::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcVirtualGridIntersection *IfcGridPlacement::getPlacementLocation() {
     else {
         return NULL;
     }
+}
+
+const IfcVirtualGridIntersection *IfcGridPlacement::getPlacementLocation() const {
+    IfcGridPlacement * deConstObject = const_cast< IfcGridPlacement * > (this);
+    return deConstObject->getPlacementLocation();
 }
 
 void IfcGridPlacement::setPlacementLocation(const Step::RefPtr< IfcVirtualGridIntersection > &value) {
@@ -93,14 +98,13 @@ IfcVirtualGridIntersection *IfcGridPlacement::getPlacementRefDirection() {
     }
 }
 
-void IfcGridPlacement::setPlacementRefDirection(const Step::RefPtr< IfcVirtualGridIntersection > &value) {
-    m_placementRefDirection = value;
+const IfcVirtualGridIntersection *IfcGridPlacement::getPlacementRefDirection() const {
+    IfcGridPlacement * deConstObject = const_cast< IfcGridPlacement * > (this);
+    return deConstObject->getPlacementRefDirection();
 }
 
-void IfcGridPlacement::release() {
-    IfcObjectPlacement::release();
-    m_placementLocation.release();
-    m_placementRefDirection.release();
+void IfcGridPlacement::setPlacementRefDirection(const Step::RefPtr< IfcVirtualGridIntersection > &value) {
+    m_placementRefDirection = value;
 }
 
 bool IfcGridPlacement::init() {
@@ -114,22 +118,22 @@ bool IfcGridPlacement::init() {
         m_placementLocation = NULL;
     }
     else {
-        m_placementLocation = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_placementLocation = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_placementRefDirection = NULL;
     }
     else {
-        m_placementRefDirection = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_placementRefDirection = static_cast< IfcVirtualGridIntersection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcGridPlacement::copy(const IfcGridPlacement &obj, const CopyOp &copyop) {
     IfcObjectPlacement::copy(obj, copyop);
-    setPlacementLocation(copyop(obj.m_placementLocation.get()));
-    setPlacementRefDirection(copyop(obj.m_placementRefDirection.get()));
+    setPlacementLocation((IfcVirtualGridIntersection*)copyop(obj.m_placementLocation.get()));
+    setPlacementRefDirection((IfcVirtualGridIntersection*)copyop(obj.m_placementRefDirection.get()));
     return;
 }
 

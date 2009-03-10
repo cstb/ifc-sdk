@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcAnnotation::IfcAnnotation(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
-    m_containedInStructure.setUnset(true);
 }
 
 IfcAnnotation::~IfcAnnotation() {
 }
 
-bool IfcAnnotation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotation(this);
+bool IfcAnnotation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotation(this);
 }
 
-const std::string &IfcAnnotation::type() {
+const std::string &IfcAnnotation::type() const {
     return IfcAnnotation::s_type.getName();
 }
 
-Step::ClassType IfcAnnotation::getClassType() {
+const Step::ClassType &IfcAnnotation::getClassType() {
     return IfcAnnotation::s_type;
 }
 
-Step::ClassType IfcAnnotation::getType() const {
+const Step::ClassType &IfcAnnotation::getType() const {
     return IfcAnnotation::s_type;
 }
 
-bool IfcAnnotation::isOfType(Step::ClassType t) {
+bool IfcAnnotation::isOfType(const Step::ClassType &t) const {
     return IfcAnnotation::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcAnnotation::getContainedInStructure() {
+Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcAnnotation::g
     }
 }
 
-void IfcAnnotation::release() {
-    IfcProduct::release();
+const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedInStructure() const {
+    IfcAnnotation * deConstObject = const_cast< IfcAnnotation * > (this);
+    return deConstObject->getContainedInStructure();
 }
 
 bool IfcAnnotation::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcRelAssociatesMaterial::IfcRelAssociatesMaterial(Step::Id id, Step::SPFData *a
 IfcRelAssociatesMaterial::~IfcRelAssociatesMaterial() {
 }
 
-bool IfcRelAssociatesMaterial::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesMaterial(this);
+bool IfcRelAssociatesMaterial::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesMaterial(this);
 }
 
-const std::string &IfcRelAssociatesMaterial::type() {
+const std::string &IfcRelAssociatesMaterial::type() const {
     return IfcRelAssociatesMaterial::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesMaterial::getClassType() {
+const Step::ClassType &IfcRelAssociatesMaterial::getClassType() {
     return IfcRelAssociatesMaterial::s_type;
 }
 
-Step::ClassType IfcRelAssociatesMaterial::getType() const {
+const Step::ClassType &IfcRelAssociatesMaterial::getType() const {
     return IfcRelAssociatesMaterial::s_type;
 }
 
-bool IfcRelAssociatesMaterial::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesMaterial::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesMaterial::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() {
     }
 }
 
-void IfcRelAssociatesMaterial::setRelatingMaterial(const Step::RefPtr< IfcMaterialSelect > &value) {
-    m_relatingMaterial = value;
+const IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() const {
+    IfcRelAssociatesMaterial * deConstObject = const_cast< IfcRelAssociatesMaterial * > (this);
+    return deConstObject->getRelatingMaterial();
 }
 
-void IfcRelAssociatesMaterial::release() {
-    IfcRelAssociates::release();
+void IfcRelAssociatesMaterial::setRelatingMaterial(const Step::RefPtr< IfcMaterialSelect > &value) {
+    m_relatingMaterial = value;
 }
 
 bool IfcRelAssociatesMaterial::init() {

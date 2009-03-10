@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,97 +30,156 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include <Step/Referenced.h>
 #include <Step/ClassType.h>
-#include <Step/BaseEntity.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/SPFData.h>
+#include <Step/BaseEntity.h>
+#include <Step/String.h>
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcPresentationLayerAssignment;
-    class IfcProductRepresentation;
     class IfcRepresentationContext;
-    class IfcRepresentationItem;
-    class IfcRepresentationMap;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcRepresentation : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ContextOfItems'.
+         * 
          */
-        IfcRepresentationContext *getContextOfItems();
+        virtual IfcRepresentationContext *getContextOfItems();
+        /**
+         * (const) Returns the value of the explicit attribute 'ContextOfItems'.
+         * 
+         * @return the value of the explicit attribute 'ContextOfItems'
+         */
+        virtual const IfcRepresentationContext *getContextOfItems() const;
         /**
          * Sets the value of the explicit attribute 'ContextOfItems'.
          * 
          * @param value
          */
-        void setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value);
+        virtual void setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value);
         /**
+         * Gets the value of the explicit attribute 'RepresentationIdentifier'.
+         * 
          */
-        IfcLabel getRepresentationIdentifier();
+        virtual IfcLabel getRepresentationIdentifier();
+        /**
+         * (const) Returns the value of the explicit attribute 'RepresentationIdentifier'.
+         * 
+         * @return the value of the explicit attribute 'RepresentationIdentifier'
+         */
+        virtual const IfcLabel getRepresentationIdentifier() const;
         /**
          * Sets the value of the explicit attribute 'RepresentationIdentifier'.
          * 
          * @param value
          */
-        void setRepresentationIdentifier(const IfcLabel &value);
+        virtual void setRepresentationIdentifier(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'RepresentationType'.
+         * 
          */
-        IfcLabel getRepresentationType();
+        virtual IfcLabel getRepresentationType();
+        /**
+         * (const) Returns the value of the explicit attribute 'RepresentationType'.
+         * 
+         * @return the value of the explicit attribute 'RepresentationType'
+         */
+        virtual const IfcLabel getRepresentationType() const;
         /**
          * Sets the value of the explicit attribute 'RepresentationType'.
          * 
          * @param value
          */
-        void setRepresentationType(const IfcLabel &value);
+        virtual void setRepresentationType(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Items'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcRepresentationItem > > &getItems();
+        virtual Set_IfcRepresentationItem_1_n &getItems();
+        /**
+         * (const) Returns the value of the explicit attribute 'Items'.
+         * 
+         * @return the value of the explicit attribute 'Items'
+         */
+        virtual const Set_IfcRepresentationItem_1_n &getItems() const;
         /**
          * Sets the value of the explicit attribute 'Items'.
          * 
          * @param value
          */
-        void setItems(const Step::Set< Step::RefPtr< IfcRepresentationItem > > &value);
+        virtual void setItems(const Set_IfcRepresentationItem_1_n &value);
         /**
+         * Gets the value of the inverse attribute 'RepresentationMap'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRepresentationMap > > &getRepresentationMap();
+        Inverse_Set_IfcRepresentationMap_0_1 &getRepresentationMap();
         /**
+         * (const) Returns the value of the explicit attribute 'RepresentationMap'.
+         * 
+         * @return the value of the explicit attribute 'RepresentationMap'
          */
-        Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > &getLayerAssignments();
+        virtual const Inverse_Set_IfcRepresentationMap_0_1 &getRepresentationMap() const;
         /**
+         * Gets the value of the inverse attribute 'LayerAssignments'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcProductRepresentation > > &getOfProductRepresentation();
+        Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
         /**
+         * (const) Returns the value of the explicit attribute 'LayerAssignments'.
+         * 
+         * @return the value of the explicit attribute 'LayerAssignments'
          */
-        virtual void release();
-        friend class IfcRepresentationMap;
-        friend class ExpressDataSet;
+        virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
+        /**
+         * Gets the value of the inverse attribute 'OfProductRepresentation'.
+         * 
+         */
+        Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation();
+        /**
+         * (const) Returns the value of the explicit attribute 'OfProductRepresentation'.
+         * 
+         * @return the value of the explicit attribute 'OfProductRepresentation'
+         */
+        virtual const Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation() const;
         friend class IfcProductRepresentation;
         friend class IfcPresentationLayerAssignment;
+        friend class Inverted_IfcProductRepresentation_Representations_type;
+        friend class IfcRepresentationMap;
+        friend class ExpressDataSet;
+        friend class Inverted_IfcPresentationLayerAssignment_AssignedItems_type;
 
     protected:
         /**
@@ -147,22 +206,22 @@ namespace ifc2x3 {
         Step::RefPtr< IfcRepresentationContext > m_contextOfItems;
         /**
          */
-        std::string m_representationIdentifier;
+        Step::String m_representationIdentifier;
         /**
          */
-        std::string m_representationType;
+        Step::String m_representationType;
         /**
          */
-        Step::Set< Step::RefPtr< IfcRepresentationItem > > m_items;
+        Set_IfcRepresentationItem_1_n m_items;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRepresentationMap > > m_representationMap;
+        Inverse_Set_IfcRepresentationMap_0_1 m_representationMap;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > m_layerAssignments;
+        Inverse_Set_IfcPresentationLayerAssignment_0_n m_layerAssignments;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcProductRepresentation > > m_ofProductRepresentation;
+        Inverse_Set_IfcProductRepresentation_0_1 m_ofProductRepresentation;
 
     };
 

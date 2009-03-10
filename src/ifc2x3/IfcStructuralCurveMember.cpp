@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStructuralCurveMember::IfcStructuralCurveMember(Step::Id id, Step::SPFData *a
 IfcStructuralCurveMember::~IfcStructuralCurveMember() {
 }
 
-bool IfcStructuralCurveMember::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralCurveMember(this);
+bool IfcStructuralCurveMember::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralCurveMember(this);
 }
 
-const std::string &IfcStructuralCurveMember::type() {
+const std::string &IfcStructuralCurveMember::type() const {
     return IfcStructuralCurveMember::s_type.getName();
 }
 
-Step::ClassType IfcStructuralCurveMember::getClassType() {
+const Step::ClassType &IfcStructuralCurveMember::getClassType() {
     return IfcStructuralCurveMember::s_type;
 }
 
-Step::ClassType IfcStructuralCurveMember::getType() const {
+const Step::ClassType &IfcStructuralCurveMember::getType() const {
     return IfcStructuralCurveMember::s_type;
 }
 
-bool IfcStructuralCurveMember::isOfType(Step::ClassType t) {
+bool IfcStructuralCurveMember::isOfType(const Step::ClassType &t) const {
     return IfcStructuralCurveMember::s_type == t ? true : IfcStructuralMember::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType() {
     }
 }
 
-void IfcStructuralCurveMember::setPredefinedType(IfcStructuralCurveTypeEnum value) {
-    m_predefinedType = value;
+const IfcStructuralCurveTypeEnum IfcStructuralCurveMember::getPredefinedType() const {
+    IfcStructuralCurveMember * deConstObject = const_cast< IfcStructuralCurveMember * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcStructuralCurveMember::release() {
-    IfcStructuralMember::release();
+void IfcStructuralCurveMember::setPredefinedType(IfcStructuralCurveTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcStructuralCurveMember::init() {

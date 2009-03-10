@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedTextFont::IfcPreDefinedTextFont(Step::Id id, Step::SPFData *args) :
 IfcPreDefinedTextFont::~IfcPreDefinedTextFont() {
 }
 
-bool IfcPreDefinedTextFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedTextFont(this);
+bool IfcPreDefinedTextFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedTextFont(this);
 }
 
-const std::string &IfcPreDefinedTextFont::type() {
+const std::string &IfcPreDefinedTextFont::type() const {
     return IfcPreDefinedTextFont::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedTextFont::getClassType() {
+const Step::ClassType &IfcPreDefinedTextFont::getClassType() {
     return IfcPreDefinedTextFont::s_type;
 }
 
-Step::ClassType IfcPreDefinedTextFont::getType() const {
+const Step::ClassType &IfcPreDefinedTextFont::getType() const {
     return IfcPreDefinedTextFont::s_type;
 }
 
-bool IfcPreDefinedTextFont::isOfType(Step::ClassType t) {
+bool IfcPreDefinedTextFont::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedTextFont::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
-}
-
-void IfcPreDefinedTextFont::release() {
-    IfcPreDefinedItem::release();
 }
 
 bool IfcPreDefinedTextFont::init() {

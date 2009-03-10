@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,99 +44,168 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcElectricalBaseProperties : public IfcEnergyProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ElectricCurrentType'.
+         * 
          */
-        IfcElectricCurrentEnum getElectricCurrentType();
+        virtual IfcElectricCurrentEnum getElectricCurrentType();
+        /**
+         * (const) Returns the value of the explicit attribute 'ElectricCurrentType'.
+         * 
+         * @return the value of the explicit attribute 'ElectricCurrentType'
+         */
+        virtual const IfcElectricCurrentEnum getElectricCurrentType() const;
         /**
          * Sets the value of the explicit attribute 'ElectricCurrentType'.
          * 
          * @param value
          */
-        void setElectricCurrentType(IfcElectricCurrentEnum value);
+        virtual void setElectricCurrentType(IfcElectricCurrentEnum value);
         /**
+         * Gets the value of the explicit attribute 'InputVoltage'.
+         * 
          */
-        IfcElectricVoltageMeasure getInputVoltage();
+        virtual IfcElectricVoltageMeasure getInputVoltage();
+        /**
+         * (const) Returns the value of the explicit attribute 'InputVoltage'.
+         * 
+         * @return the value of the explicit attribute 'InputVoltage'
+         */
+        virtual const IfcElectricVoltageMeasure getInputVoltage() const;
         /**
          * Sets the value of the explicit attribute 'InputVoltage'.
          * 
          * @param value
          */
-        void setInputVoltage(IfcElectricVoltageMeasure value);
+        virtual void setInputVoltage(IfcElectricVoltageMeasure value);
         /**
+         * Gets the value of the explicit attribute 'InputFrequency'.
+         * 
          */
-        IfcFrequencyMeasure getInputFrequency();
+        virtual IfcFrequencyMeasure getInputFrequency();
+        /**
+         * (const) Returns the value of the explicit attribute 'InputFrequency'.
+         * 
+         * @return the value of the explicit attribute 'InputFrequency'
+         */
+        virtual const IfcFrequencyMeasure getInputFrequency() const;
         /**
          * Sets the value of the explicit attribute 'InputFrequency'.
          * 
          * @param value
          */
-        void setInputFrequency(IfcFrequencyMeasure value);
+        virtual void setInputFrequency(IfcFrequencyMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FullLoadCurrent'.
+         * 
          */
-        IfcElectricCurrentMeasure getFullLoadCurrent();
+        virtual IfcElectricCurrentMeasure getFullLoadCurrent();
+        /**
+         * (const) Returns the value of the explicit attribute 'FullLoadCurrent'.
+         * 
+         * @return the value of the explicit attribute 'FullLoadCurrent'
+         */
+        virtual const IfcElectricCurrentMeasure getFullLoadCurrent() const;
         /**
          * Sets the value of the explicit attribute 'FullLoadCurrent'.
          * 
          * @param value
          */
-        void setFullLoadCurrent(IfcElectricCurrentMeasure value);
+        virtual void setFullLoadCurrent(IfcElectricCurrentMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinimumCircuitCurrent'.
+         * 
          */
-        IfcElectricCurrentMeasure getMinimumCircuitCurrent();
+        virtual IfcElectricCurrentMeasure getMinimumCircuitCurrent();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinimumCircuitCurrent'.
+         * 
+         * @return the value of the explicit attribute 'MinimumCircuitCurrent'
+         */
+        virtual const IfcElectricCurrentMeasure getMinimumCircuitCurrent() const;
         /**
          * Sets the value of the explicit attribute 'MinimumCircuitCurrent'.
          * 
          * @param value
          */
-        void setMinimumCircuitCurrent(IfcElectricCurrentMeasure value);
+        virtual void setMinimumCircuitCurrent(IfcElectricCurrentMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MaximumPowerInput'.
+         * 
          */
-        IfcPowerMeasure getMaximumPowerInput();
+        virtual IfcPowerMeasure getMaximumPowerInput();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaximumPowerInput'.
+         * 
+         * @return the value of the explicit attribute 'MaximumPowerInput'
+         */
+        virtual const IfcPowerMeasure getMaximumPowerInput() const;
         /**
          * Sets the value of the explicit attribute 'MaximumPowerInput'.
          * 
          * @param value
          */
-        void setMaximumPowerInput(IfcPowerMeasure value);
+        virtual void setMaximumPowerInput(IfcPowerMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RatedPowerInput'.
+         * 
          */
-        IfcPowerMeasure getRatedPowerInput();
+        virtual IfcPowerMeasure getRatedPowerInput();
+        /**
+         * (const) Returns the value of the explicit attribute 'RatedPowerInput'.
+         * 
+         * @return the value of the explicit attribute 'RatedPowerInput'
+         */
+        virtual const IfcPowerMeasure getRatedPowerInput() const;
         /**
          * Sets the value of the explicit attribute 'RatedPowerInput'.
          * 
          * @param value
          */
-        void setRatedPowerInput(IfcPowerMeasure value);
+        virtual void setRatedPowerInput(IfcPowerMeasure value);
         /**
+         * Gets the value of the explicit attribute 'InputPhase'.
+         * 
          */
-        Step::Integer getInputPhase();
+        virtual Step::Integer getInputPhase();
+        /**
+         * (const) Returns the value of the explicit attribute 'InputPhase'.
+         * 
+         * @return the value of the explicit attribute 'InputPhase'
+         */
+        virtual const Step::Integer getInputPhase() const;
         /**
          * Sets the value of the explicit attribute 'InputPhase'.
          * 
          * @param value
          */
-        void setInputPhase(Step::Integer value);
-        /**
-         */
-        virtual void release();
+        virtual void setInputPhase(Step::Integer value);
         friend class ExpressDataSet;
 
     protected:

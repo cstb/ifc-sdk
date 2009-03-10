@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -53,23 +53,23 @@ IfcStructuralActivity::IfcStructuralActivity(Step::Id id, Step::SPFData *args) :
 IfcStructuralActivity::~IfcStructuralActivity() {
 }
 
-bool IfcStructuralActivity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralActivity(this);
+bool IfcStructuralActivity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralActivity(this);
 }
 
-const std::string &IfcStructuralActivity::type() {
+const std::string &IfcStructuralActivity::type() const {
     return IfcStructuralActivity::s_type.getName();
 }
 
-Step::ClassType IfcStructuralActivity::getClassType() {
+const Step::ClassType &IfcStructuralActivity::getClassType() {
     return IfcStructuralActivity::s_type;
 }
 
-Step::ClassType IfcStructuralActivity::getType() const {
+const Step::ClassType &IfcStructuralActivity::getType() const {
     return IfcStructuralActivity::s_type;
 }
 
-bool IfcStructuralActivity::isOfType(Step::ClassType t) {
+bool IfcStructuralActivity::isOfType(const Step::ClassType &t) const {
     return IfcStructuralActivity::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcStructuralLoad *IfcStructuralActivity::getAppliedLoad() {
     else {
         return NULL;
     }
+}
+
+const IfcStructuralLoad *IfcStructuralActivity::getAppliedLoad() const {
+    IfcStructuralActivity * deConstObject = const_cast< IfcStructuralActivity * > (this);
+    return deConstObject->getAppliedLoad();
 }
 
 void IfcStructuralActivity::setAppliedLoad(const Step::RefPtr< IfcStructuralLoad > &value) {
@@ -95,6 +100,11 @@ IfcGlobalOrLocalEnum IfcStructuralActivity::getGlobalOrLocal() {
     }
 }
 
+const IfcGlobalOrLocalEnum IfcStructuralActivity::getGlobalOrLocal() const {
+    IfcStructuralActivity * deConstObject = const_cast< IfcStructuralActivity * > (this);
+    return deConstObject->getGlobalOrLocal();
+}
+
 void IfcStructuralActivity::setGlobalOrLocal(IfcGlobalOrLocalEnum value) {
     m_globalOrLocal = value;
 }
@@ -108,9 +118,9 @@ IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructural
     }
 }
 
-void IfcStructuralActivity::release() {
-    IfcProduct::release();
-    m_appliedLoad.release();
+const IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructuralItem() const {
+    IfcStructuralActivity * deConstObject = const_cast< IfcStructuralActivity * > (this);
+    return deConstObject->getAssignedToStructuralItem();
 }
 
 bool IfcStructuralActivity::init() {
@@ -125,7 +135,7 @@ bool IfcStructuralActivity::init() {
         m_appliedLoad = NULL;
     }
     else {
-        m_appliedLoad = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_appliedLoad = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -148,7 +158,7 @@ bool IfcStructuralActivity::init() {
 
 void IfcStructuralActivity::copy(const IfcStructuralActivity &obj, const CopyOp &copyop) {
     IfcProduct::copy(obj, copyop);
-    setAppliedLoad(copyop(obj.m_appliedLoad.get()));
+    setAppliedLoad((IfcStructuralLoad*)copyop(obj.m_appliedLoad.get()));
     setGlobalOrLocal(obj.m_globalOrLocal);
     return;
 }

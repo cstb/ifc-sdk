@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRoundedEdgeFeature::IfcRoundedEdgeFeature(Step::Id id, Step::SPFData *args) :
 IfcRoundedEdgeFeature::~IfcRoundedEdgeFeature() {
 }
 
-bool IfcRoundedEdgeFeature::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRoundedEdgeFeature(this);
+bool IfcRoundedEdgeFeature::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRoundedEdgeFeature(this);
 }
 
-const std::string &IfcRoundedEdgeFeature::type() {
+const std::string &IfcRoundedEdgeFeature::type() const {
     return IfcRoundedEdgeFeature::s_type.getName();
 }
 
-Step::ClassType IfcRoundedEdgeFeature::getClassType() {
+const Step::ClassType &IfcRoundedEdgeFeature::getClassType() {
     return IfcRoundedEdgeFeature::s_type;
 }
 
-Step::ClassType IfcRoundedEdgeFeature::getType() const {
+const Step::ClassType &IfcRoundedEdgeFeature::getType() const {
     return IfcRoundedEdgeFeature::s_type;
 }
 
-bool IfcRoundedEdgeFeature::isOfType(Step::ClassType t) {
+bool IfcRoundedEdgeFeature::isOfType(const Step::ClassType &t) const {
     return IfcRoundedEdgeFeature::s_type == t ? true : IfcEdgeFeature::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius() {
     }
 }
 
-void IfcRoundedEdgeFeature::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+const IfcPositiveLengthMeasure IfcRoundedEdgeFeature::getRadius() const {
+    IfcRoundedEdgeFeature * deConstObject = const_cast< IfcRoundedEdgeFeature * > (this);
+    return deConstObject->getRadius();
 }
 
-void IfcRoundedEdgeFeature::release() {
-    IfcEdgeFeature::release();
+void IfcRoundedEdgeFeature::setRadius(IfcPositiveLengthMeasure value) {
+    m_radius = value;
 }
 
 bool IfcRoundedEdgeFeature::init() {

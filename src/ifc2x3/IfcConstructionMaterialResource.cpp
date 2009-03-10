@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,27 +52,27 @@ IfcConstructionMaterialResource::IfcConstructionMaterialResource(Step::Id id, St
 IfcConstructionMaterialResource::~IfcConstructionMaterialResource() {
 }
 
-bool IfcConstructionMaterialResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConstructionMaterialResource(this);
+bool IfcConstructionMaterialResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConstructionMaterialResource(this);
 }
 
-const std::string &IfcConstructionMaterialResource::type() {
+const std::string &IfcConstructionMaterialResource::type() const {
     return IfcConstructionMaterialResource::s_type.getName();
 }
 
-Step::ClassType IfcConstructionMaterialResource::getClassType() {
+const Step::ClassType &IfcConstructionMaterialResource::getClassType() {
     return IfcConstructionMaterialResource::s_type;
 }
 
-Step::ClassType IfcConstructionMaterialResource::getType() const {
+const Step::ClassType &IfcConstructionMaterialResource::getType() const {
     return IfcConstructionMaterialResource::s_type;
 }
 
-bool IfcConstructionMaterialResource::isOfType(Step::ClassType t) {
+bool IfcConstructionMaterialResource::isOfType(const Step::ClassType &t) const {
     return IfcConstructionMaterialResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcActorSelect > > &IfcConstructionMaterialResource::getSuppliers() {
+Set_IfcActorSelect_1_n &IfcConstructionMaterialResource::getSuppliers() {
     if (Step::BaseObject::inited()) {
         return m_suppliers;
     }
@@ -82,7 +82,12 @@ Step::Set< Step::RefPtr< IfcActorSelect > > &IfcConstructionMaterialResource::ge
     }
 }
 
-void IfcConstructionMaterialResource::setSuppliers(const Step::Set< Step::RefPtr< IfcActorSelect > > &value) {
+const Set_IfcActorSelect_1_n &IfcConstructionMaterialResource::getSuppliers() const {
+    IfcConstructionMaterialResource * deConstObject = const_cast< IfcConstructionMaterialResource * > (this);
+    return deConstObject->getSuppliers();
+}
+
+void IfcConstructionMaterialResource::setSuppliers(const Set_IfcActorSelect_1_n &value) {
     m_suppliers = value;
 }
 
@@ -95,13 +100,13 @@ IfcRatioMeasure IfcConstructionMaterialResource::getUsageRatio() {
     }
 }
 
-void IfcConstructionMaterialResource::setUsageRatio(IfcRatioMeasure value) {
-    m_usageRatio = value;
+const IfcRatioMeasure IfcConstructionMaterialResource::getUsageRatio() const {
+    IfcConstructionMaterialResource * deConstObject = const_cast< IfcConstructionMaterialResource * > (this);
+    return deConstObject->getUsageRatio();
 }
 
-void IfcConstructionMaterialResource::release() {
-    IfcConstructionResource::release();
-    m_suppliers.clear();
+void IfcConstructionMaterialResource::setUsageRatio(IfcRatioMeasure value) {
+    m_usageRatio = value;
 }
 
 bool IfcConstructionMaterialResource::init() {
@@ -152,7 +157,7 @@ bool IfcConstructionMaterialResource::init() {
 }
 
 void IfcConstructionMaterialResource::copy(const IfcConstructionMaterialResource &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcActorSelect > >::const_iterator it_m_suppliers;
+    Step::Set< Step::RefPtr< IfcActorSelect >, 1 >::const_iterator it_m_suppliers;
     IfcConstructionResource::copy(obj, copyop);
     for (it_m_suppliers = obj.m_suppliers.begin(); it_m_suppliers != obj.m_suppliers.end(); ++it_m_suppliers) {
         Step::RefPtr< IfcActorSelect > copyTarget = new IfcActorSelect;

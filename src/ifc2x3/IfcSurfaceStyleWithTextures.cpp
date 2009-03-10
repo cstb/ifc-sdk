@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcSurfaceStyleWithTextures::IfcSurfaceStyleWithTextures(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_textures.setUnset(true);
 }
 
 IfcSurfaceStyleWithTextures::~IfcSurfaceStyleWithTextures() {
 }
 
-bool IfcSurfaceStyleWithTextures::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleWithTextures(this);
+bool IfcSurfaceStyleWithTextures::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleWithTextures(this);
 }
 
-const std::string &IfcSurfaceStyleWithTextures::type() {
+const std::string &IfcSurfaceStyleWithTextures::type() const {
     return IfcSurfaceStyleWithTextures::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleWithTextures::getClassType() {
+const Step::ClassType &IfcSurfaceStyleWithTextures::getClassType() {
     return IfcSurfaceStyleWithTextures::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleWithTextures::getType() const {
+const Step::ClassType &IfcSurfaceStyleWithTextures::getType() const {
     return IfcSurfaceStyleWithTextures::s_type;
 }
 
-bool IfcSurfaceStyleWithTextures::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleWithTextures::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleWithTextures::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcSurfaceTexture > > &IfcSurfaceStyleWithTextures::getTextures() {
+List_IfcSurfaceTexture_1_n &IfcSurfaceStyleWithTextures::getTextures() {
     if (Step::BaseObject::inited()) {
         return m_textures;
     }
@@ -81,12 +79,13 @@ Step::List< Step::RefPtr< IfcSurfaceTexture > > &IfcSurfaceStyleWithTextures::ge
     }
 }
 
-void IfcSurfaceStyleWithTextures::setTextures(const Step::List< Step::RefPtr< IfcSurfaceTexture > > &value) {
-    m_textures = value;
+const List_IfcSurfaceTexture_1_n &IfcSurfaceStyleWithTextures::getTextures() const {
+    IfcSurfaceStyleWithTextures * deConstObject = const_cast< IfcSurfaceStyleWithTextures * > (this);
+    return deConstObject->getTextures();
 }
 
-void IfcSurfaceStyleWithTextures::release() {
-    m_textures.clear();
+void IfcSurfaceStyleWithTextures::setTextures(const List_IfcSurfaceTexture_1_n &value) {
+    m_textures = value;
 }
 
 bool IfcSurfaceStyleWithTextures::init() {
@@ -102,7 +101,7 @@ bool IfcSurfaceStyleWithTextures::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcSurfaceTexture > attr2;
-                attr2 = static_cast< IfcSurfaceTexture * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcSurfaceTexture * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_textures.push_back(attr2);
             }
             else {
@@ -114,10 +113,10 @@ bool IfcSurfaceStyleWithTextures::init() {
 }
 
 void IfcSurfaceStyleWithTextures::copy(const IfcSurfaceStyleWithTextures &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcSurfaceTexture > >::const_iterator it_m_textures;
+    Step::List< Step::RefPtr< IfcSurfaceTexture >, 1 >::const_iterator it_m_textures;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_textures = obj.m_textures.begin(); it_m_textures != obj.m_textures.end(); ++it_m_textures) {
-        Step::RefPtr< IfcSurfaceTexture > copyTarget = copyop((*it_m_textures).get());
+        Step::RefPtr< IfcSurfaceTexture > copyTarget = (IfcSurfaceTexture *) (copyop((*it_m_textures).get()));
         m_textures.push_back(copyTarget.get());
     }
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,49 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
+
+    class IfcAppliedValue;
+    class IfcAppliedValueRelationship;
+
+    /**
+     */
+    class Inverted_IfcAppliedValueRelationship_Components_type : public Set_IfcAppliedValue_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcAppliedValue_1_n::size_type size_type;
+
+        /**
+         */
+        IfcAppliedValueRelationship *mOwner;
+        /**
+         */
+        Inverted_IfcAppliedValueRelationship_Components_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcAppliedValueRelationship *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcAppliedValue > &value);
+
+    };
 
     class CopyOp;
     class IfcAppliedValue;
@@ -47,88 +81,112 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcAppliedValueRelationship : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ComponentOfTotal'.
+         * 
          */
-        IfcAppliedValue *getComponentOfTotal();
+        virtual IfcAppliedValue *getComponentOfTotal();
+        /**
+         * (const) Returns the value of the explicit attribute 'ComponentOfTotal'.
+         * 
+         * @return the value of the explicit attribute 'ComponentOfTotal'
+         */
+        virtual const IfcAppliedValue *getComponentOfTotal() const;
         /**
          * Sets the value of the explicit attribute 'ComponentOfTotal'.
          * 
          * @param value
          */
-        void setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value);
+        virtual void setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value);
         /**
+         * Gets the value of the explicit attribute 'Components'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcAppliedValue > > &getComponents();
+        virtual Set_IfcAppliedValue_1_n &getComponents();
         /**
+         * (const) Returns the value of the explicit attribute 'Components'.
+         * 
+         * @return the value of the explicit attribute 'Components'
          */
-        IfcArithmeticOperatorEnum getArithmeticOperator();
+        virtual const Set_IfcAppliedValue_1_n &getComponents() const;
+        /**
+         * Gets the value of the explicit attribute 'ArithmeticOperator'.
+         * 
+         */
+        virtual IfcArithmeticOperatorEnum getArithmeticOperator();
+        /**
+         * (const) Returns the value of the explicit attribute 'ArithmeticOperator'.
+         * 
+         * @return the value of the explicit attribute 'ArithmeticOperator'
+         */
+        virtual const IfcArithmeticOperatorEnum getArithmeticOperator() const;
         /**
          * Sets the value of the explicit attribute 'ArithmeticOperator'.
          * 
          * @param value
          */
-        void setArithmeticOperator(IfcArithmeticOperatorEnum value);
+        virtual void setArithmeticOperator(IfcArithmeticOperatorEnum value);
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Description'.
+         * 
          */
-        IfcText getDescription();
+        virtual IfcText getDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'Description'.
+         * 
+         * @return the value of the explicit attribute 'Description'
+         */
+        virtual const IfcText getDescription() const;
         /**
          * Sets the value of the explicit attribute 'Description'.
          * 
          * @param value
          */
-        void setDescription(const IfcText &value);
-        /**
-         */
-        virtual void release();
+        virtual void setDescription(const IfcText &value);
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_Components_type : public Step::Set< Step::RefPtr< IfcAppliedValue > > {
-        public:
-            /**
-             */
-            IfcAppliedValueRelationship *mOwner;
-            /**
-             */
-            Inverted_Components_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcAppliedValueRelationship *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcAppliedValue > &value);
-
-        };
-
 
     protected:
         /**
@@ -155,16 +213,16 @@ namespace ifc2x3 {
         Step::RefPtr< IfcAppliedValue > m_componentOfTotal;
         /**
          */
-        Inverted_Components_type m_components;
+        Inverted_IfcAppliedValueRelationship_Components_type m_components;
         /**
          */
         IfcArithmeticOperatorEnum m_arithmeticOperator;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        std::string m_description;
+        Step::String m_description;
 
     };
 

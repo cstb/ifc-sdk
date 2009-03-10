@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,12 +31,11 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcSimpleProperty.h"
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcValue.h"
 
 namespace ifc2x3 {
 
@@ -48,72 +47,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPropertyTableValue : public IfcSimpleProperty {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'DefiningValues'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcValue > > &getDefiningValues();
+        virtual List_IfcValue_1_n &getDefiningValues();
+        /**
+         * (const) Returns the value of the explicit attribute 'DefiningValues'.
+         * 
+         * @return the value of the explicit attribute 'DefiningValues'
+         */
+        virtual const List_IfcValue_1_n &getDefiningValues() const;
         /**
          * Sets the value of the explicit attribute 'DefiningValues'.
          * 
          * @param value
          */
-        void setDefiningValues(const Step::List< Step::RefPtr< IfcValue > > &value);
+        virtual void setDefiningValues(const List_IfcValue_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'DefinedValues'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcValue > > &getDefinedValues();
+        virtual List_IfcValue_1_n &getDefinedValues();
+        /**
+         * (const) Returns the value of the explicit attribute 'DefinedValues'.
+         * 
+         * @return the value of the explicit attribute 'DefinedValues'
+         */
+        virtual const List_IfcValue_1_n &getDefinedValues() const;
         /**
          * Sets the value of the explicit attribute 'DefinedValues'.
          * 
          * @param value
          */
-        void setDefinedValues(const Step::List< Step::RefPtr< IfcValue > > &value);
+        virtual void setDefinedValues(const List_IfcValue_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'Expression'.
+         * 
          */
-        IfcText getExpression();
+        virtual IfcText getExpression();
+        /**
+         * (const) Returns the value of the explicit attribute 'Expression'.
+         * 
+         * @return the value of the explicit attribute 'Expression'
+         */
+        virtual const IfcText getExpression() const;
         /**
          * Sets the value of the explicit attribute 'Expression'.
          * 
          * @param value
          */
-        void setExpression(const IfcText &value);
+        virtual void setExpression(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'DefiningUnit'.
+         * 
          */
-        IfcUnit *getDefiningUnit();
+        virtual IfcUnit *getDefiningUnit();
+        /**
+         * (const) Returns the value of the explicit attribute 'DefiningUnit'.
+         * 
+         * @return the value of the explicit attribute 'DefiningUnit'
+         */
+        virtual const IfcUnit *getDefiningUnit() const;
         /**
          * Sets the value of the explicit attribute 'DefiningUnit'.
          * 
          * @param value
          */
-        void setDefiningUnit(const Step::RefPtr< IfcUnit > &value);
+        virtual void setDefiningUnit(const Step::RefPtr< IfcUnit > &value);
         /**
+         * Gets the value of the explicit attribute 'DefinedUnit'.
+         * 
          */
-        IfcUnit *getDefinedUnit();
+        virtual IfcUnit *getDefinedUnit();
+        /**
+         * (const) Returns the value of the explicit attribute 'DefinedUnit'.
+         * 
+         * @return the value of the explicit attribute 'DefinedUnit'
+         */
+        virtual const IfcUnit *getDefinedUnit() const;
         /**
          * Sets the value of the explicit attribute 'DefinedUnit'.
          * 
          * @param value
          */
-        void setDefinedUnit(const Step::RefPtr< IfcUnit > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setDefinedUnit(const Step::RefPtr< IfcUnit > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -138,13 +182,13 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::List< Step::RefPtr< IfcValue > > m_definingValues;
+        List_IfcValue_1_n m_definingValues;
         /**
          */
-        Step::List< Step::RefPtr< IfcValue > > m_definedValues;
+        List_IfcValue_1_n m_definedValues;
         /**
          */
-        std::string m_expression;
+        Step::String m_expression;
         /**
          */
         Step::RefPtr< IfcUnit > m_definingUnit;

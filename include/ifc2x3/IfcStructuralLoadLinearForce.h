@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,81 +44,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcStructuralLoadLinearForce : public IfcStructuralLoadStatic {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LinearForceX'.
+         * 
          */
-        IfcLinearForceMeasure getLinearForceX();
+        virtual IfcLinearForceMeasure getLinearForceX();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearForceX'.
+         * 
+         * @return the value of the explicit attribute 'LinearForceX'
+         */
+        virtual const IfcLinearForceMeasure getLinearForceX() const;
         /**
          * Sets the value of the explicit attribute 'LinearForceX'.
          * 
          * @param value
          */
-        void setLinearForceX(IfcLinearForceMeasure value);
+        virtual void setLinearForceX(IfcLinearForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearForceY'.
+         * 
          */
-        IfcLinearForceMeasure getLinearForceY();
+        virtual IfcLinearForceMeasure getLinearForceY();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearForceY'.
+         * 
+         * @return the value of the explicit attribute 'LinearForceY'
+         */
+        virtual const IfcLinearForceMeasure getLinearForceY() const;
         /**
          * Sets the value of the explicit attribute 'LinearForceY'.
          * 
          * @param value
          */
-        void setLinearForceY(IfcLinearForceMeasure value);
+        virtual void setLinearForceY(IfcLinearForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearForceZ'.
+         * 
          */
-        IfcLinearForceMeasure getLinearForceZ();
+        virtual IfcLinearForceMeasure getLinearForceZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearForceZ'.
+         * 
+         * @return the value of the explicit attribute 'LinearForceZ'
+         */
+        virtual const IfcLinearForceMeasure getLinearForceZ() const;
         /**
          * Sets the value of the explicit attribute 'LinearForceZ'.
          * 
          * @param value
          */
-        void setLinearForceZ(IfcLinearForceMeasure value);
+        virtual void setLinearForceZ(IfcLinearForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearMomentX'.
+         * 
          */
-        IfcLinearMomentMeasure getLinearMomentX();
+        virtual IfcLinearMomentMeasure getLinearMomentX();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearMomentX'.
+         * 
+         * @return the value of the explicit attribute 'LinearMomentX'
+         */
+        virtual const IfcLinearMomentMeasure getLinearMomentX() const;
         /**
          * Sets the value of the explicit attribute 'LinearMomentX'.
          * 
          * @param value
          */
-        void setLinearMomentX(IfcLinearMomentMeasure value);
+        virtual void setLinearMomentX(IfcLinearMomentMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearMomentY'.
+         * 
          */
-        IfcLinearMomentMeasure getLinearMomentY();
+        virtual IfcLinearMomentMeasure getLinearMomentY();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearMomentY'.
+         * 
+         * @return the value of the explicit attribute 'LinearMomentY'
+         */
+        virtual const IfcLinearMomentMeasure getLinearMomentY() const;
         /**
          * Sets the value of the explicit attribute 'LinearMomentY'.
          * 
          * @param value
          */
-        void setLinearMomentY(IfcLinearMomentMeasure value);
+        virtual void setLinearMomentY(IfcLinearMomentMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearMomentZ'.
+         * 
          */
-        IfcLinearMomentMeasure getLinearMomentZ();
+        virtual IfcLinearMomentMeasure getLinearMomentZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearMomentZ'.
+         * 
+         * @return the value of the explicit attribute 'LinearMomentZ'
+         */
+        virtual const IfcLinearMomentMeasure getLinearMomentZ() const;
         /**
          * Sets the value of the explicit attribute 'LinearMomentZ'.
          * 
          * @param value
          */
-        void setLinearMomentZ(IfcLinearMomentMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setLinearMomentZ(IfcLinearMomentMeasure value);
         friend class ExpressDataSet;
 
     protected:

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcProxy::IfcProxy(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
 IfcProxy::~IfcProxy() {
 }
 
-bool IfcProxy::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProxy(this);
+bool IfcProxy::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProxy(this);
 }
 
-const std::string &IfcProxy::type() {
+const std::string &IfcProxy::type() const {
     return IfcProxy::s_type.getName();
 }
 
-Step::ClassType IfcProxy::getClassType() {
+const Step::ClassType &IfcProxy::getClassType() {
     return IfcProxy::s_type;
 }
 
-Step::ClassType IfcProxy::getType() const {
+const Step::ClassType &IfcProxy::getType() const {
     return IfcProxy::s_type;
 }
 
-bool IfcProxy::isOfType(Step::ClassType t) {
+bool IfcProxy::isOfType(const Step::ClassType &t) const {
     return IfcProxy::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
@@ -74,6 +75,11 @@ IfcObjectTypeEnum IfcProxy::getProxyType() {
     else {
         return IfcObjectTypeEnum_UNSET;
     }
+}
+
+const IfcObjectTypeEnum IfcProxy::getProxyType() const {
+    IfcProxy * deConstObject = const_cast< IfcProxy * > (this);
+    return deConstObject->getProxyType();
 }
 
 void IfcProxy::setProxyType(IfcObjectTypeEnum value) {
@@ -89,12 +95,13 @@ IfcLabel IfcProxy::getTag() {
     }
 }
 
-void IfcProxy::setTag(const IfcLabel &value) {
-    m_tag = value;
+const IfcLabel IfcProxy::getTag() const {
+    IfcProxy * deConstObject = const_cast< IfcProxy * > (this);
+    return deConstObject->getTag();
 }
 
-void IfcProxy::release() {
-    IfcProduct::release();
+void IfcProxy::setTag(const IfcLabel &value) {
+    m_tag = value;
 }
 
 bool IfcProxy::init() {
@@ -138,7 +145,7 @@ bool IfcProxy::init() {
         m_tag = Step::getUnset(m_tag);
     }
     else {
-        m_tag = Step::spfToString(arg);
+        m_tag = Step::String::fromSPF(arg);
     }
     return true;
 }

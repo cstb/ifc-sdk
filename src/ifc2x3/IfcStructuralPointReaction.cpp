@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuralPointReaction::IfcStructuralPointReaction(Step::Id id, Step::SPFDat
 IfcStructuralPointReaction::~IfcStructuralPointReaction() {
 }
 
-bool IfcStructuralPointReaction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralPointReaction(this);
+bool IfcStructuralPointReaction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralPointReaction(this);
 }
 
-const std::string &IfcStructuralPointReaction::type() {
+const std::string &IfcStructuralPointReaction::type() const {
     return IfcStructuralPointReaction::s_type.getName();
 }
 
-Step::ClassType IfcStructuralPointReaction::getClassType() {
+const Step::ClassType &IfcStructuralPointReaction::getClassType() {
     return IfcStructuralPointReaction::s_type;
 }
 
-Step::ClassType IfcStructuralPointReaction::getType() const {
+const Step::ClassType &IfcStructuralPointReaction::getType() const {
     return IfcStructuralPointReaction::s_type;
 }
 
-bool IfcStructuralPointReaction::isOfType(Step::ClassType t) {
+bool IfcStructuralPointReaction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralPointReaction::s_type == t ? true : IfcStructuralReaction::isOfType(t);
-}
-
-void IfcStructuralPointReaction::release() {
-    IfcStructuralReaction::release();
 }
 
 bool IfcStructuralPointReaction::init() {

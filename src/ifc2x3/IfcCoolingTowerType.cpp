@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCoolingTowerType::IfcCoolingTowerType(Step::Id id, Step::SPFData *args) : Ifc
 IfcCoolingTowerType::~IfcCoolingTowerType() {
 }
 
-bool IfcCoolingTowerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCoolingTowerType(this);
+bool IfcCoolingTowerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCoolingTowerType(this);
 }
 
-const std::string &IfcCoolingTowerType::type() {
+const std::string &IfcCoolingTowerType::type() const {
     return IfcCoolingTowerType::s_type.getName();
 }
 
-Step::ClassType IfcCoolingTowerType::getClassType() {
+const Step::ClassType &IfcCoolingTowerType::getClassType() {
     return IfcCoolingTowerType::s_type;
 }
 
-Step::ClassType IfcCoolingTowerType::getType() const {
+const Step::ClassType &IfcCoolingTowerType::getType() const {
     return IfcCoolingTowerType::s_type;
 }
 
-bool IfcCoolingTowerType::isOfType(Step::ClassType t) {
+bool IfcCoolingTowerType::isOfType(const Step::ClassType &t) const {
     return IfcCoolingTowerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCoolingTowerTypeEnum IfcCoolingTowerType::getPredefinedType() {
     }
 }
 
-void IfcCoolingTowerType::setPredefinedType(IfcCoolingTowerTypeEnum value) {
-    m_predefinedType = value;
+const IfcCoolingTowerTypeEnum IfcCoolingTowerType::getPredefinedType() const {
+    IfcCoolingTowerType * deConstObject = const_cast< IfcCoolingTowerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCoolingTowerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcCoolingTowerType::setPredefinedType(IfcCoolingTowerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCoolingTowerType::init() {

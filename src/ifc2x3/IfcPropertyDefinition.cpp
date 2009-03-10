@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcPropertyDefinition::IfcPropertyDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
-    m_hasAssociations.setUnset(true);
 }
 
 IfcPropertyDefinition::~IfcPropertyDefinition() {
 }
 
-bool IfcPropertyDefinition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyDefinition(this);
+bool IfcPropertyDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyDefinition(this);
 }
 
-const std::string &IfcPropertyDefinition::type() {
+const std::string &IfcPropertyDefinition::type() const {
     return IfcPropertyDefinition::s_type.getName();
 }
 
-Step::ClassType IfcPropertyDefinition::getClassType() {
+const Step::ClassType &IfcPropertyDefinition::getClassType() {
     return IfcPropertyDefinition::s_type;
 }
 
-Step::ClassType IfcPropertyDefinition::getType() const {
+const Step::ClassType &IfcPropertyDefinition::getType() const {
     return IfcPropertyDefinition::s_type;
 }
 
-bool IfcPropertyDefinition::isOfType(Step::ClassType t) {
+bool IfcPropertyDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertyDefinition::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssociates > > &IfcPropertyDefinition::getHasAssociations() {
+Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() {
     if (Step::BaseObject::inited()) {
         return m_hasAssociations;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelAssociates > > &IfcPropertyDefinition::getHasAsso
     }
 }
 
-void IfcPropertyDefinition::release() {
-    IfcRoot::release();
+const Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() const {
+    IfcPropertyDefinition * deConstObject = const_cast< IfcPropertyDefinition * > (this);
+    return deConstObject->getHasAssociations();
 }
 
 bool IfcPropertyDefinition::init() {

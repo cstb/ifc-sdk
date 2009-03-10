@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,8 +33,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +53,23 @@ IfcGeometricRepresentationSubContext::IfcGeometricRepresentationSubContext(Step:
 IfcGeometricRepresentationSubContext::~IfcGeometricRepresentationSubContext() {
 }
 
-bool IfcGeometricRepresentationSubContext::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeometricRepresentationSubContext(this);
+bool IfcGeometricRepresentationSubContext::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeometricRepresentationSubContext(this);
 }
 
-const std::string &IfcGeometricRepresentationSubContext::type() {
+const std::string &IfcGeometricRepresentationSubContext::type() const {
     return IfcGeometricRepresentationSubContext::s_type.getName();
 }
 
-Step::ClassType IfcGeometricRepresentationSubContext::getClassType() {
+const Step::ClassType &IfcGeometricRepresentationSubContext::getClassType() {
     return IfcGeometricRepresentationSubContext::s_type;
 }
 
-Step::ClassType IfcGeometricRepresentationSubContext::getType() const {
+const Step::ClassType &IfcGeometricRepresentationSubContext::getType() const {
     return IfcGeometricRepresentationSubContext::s_type;
 }
 
-bool IfcGeometricRepresentationSubContext::isOfType(Step::ClassType t) {
+bool IfcGeometricRepresentationSubContext::isOfType(const Step::ClassType &t) const {
     return IfcGeometricRepresentationSubContext::s_type == t ? true : IfcGeometricRepresentationContext::isOfType(t);
 }
 
@@ -81,9 +82,19 @@ IfcGeometricRepresentationContext *IfcGeometricRepresentationSubContext::getPare
     }
 }
 
+const IfcGeometricRepresentationContext *IfcGeometricRepresentationSubContext::getParentContext() const {
+    IfcGeometricRepresentationSubContext * deConstObject = const_cast< IfcGeometricRepresentationSubContext * > (this);
+    return deConstObject->getParentContext();
+}
+
 void IfcGeometricRepresentationSubContext::setParentContext(const Step::RefPtr< IfcGeometricRepresentationContext > &value) {
+    if (m_parentContext.valid()) {
+        m_parentContext->m_hasSubContexts.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasSubContexts.insert(this);
+    }
     m_parentContext = value;
-    m_parentContext->m_hasSubContexts.insert(this);
 }
 
 IfcPositiveRatioMeasure IfcGeometricRepresentationSubContext::getTargetScale() {
@@ -93,6 +104,11 @@ IfcPositiveRatioMeasure IfcGeometricRepresentationSubContext::getTargetScale() {
     else {
         return Step::getUnset(m_targetScale);
     }
+}
+
+const IfcPositiveRatioMeasure IfcGeometricRepresentationSubContext::getTargetScale() const {
+    IfcGeometricRepresentationSubContext * deConstObject = const_cast< IfcGeometricRepresentationSubContext * > (this);
+    return deConstObject->getTargetScale();
 }
 
 void IfcGeometricRepresentationSubContext::setTargetScale(IfcPositiveRatioMeasure value) {
@@ -108,6 +124,11 @@ IfcGeometricProjectionEnum IfcGeometricRepresentationSubContext::getTargetView()
     }
 }
 
+const IfcGeometricProjectionEnum IfcGeometricRepresentationSubContext::getTargetView() const {
+    IfcGeometricRepresentationSubContext * deConstObject = const_cast< IfcGeometricRepresentationSubContext * > (this);
+    return deConstObject->getTargetView();
+}
+
 void IfcGeometricRepresentationSubContext::setTargetView(IfcGeometricProjectionEnum value) {
     m_targetView = value;
 }
@@ -121,13 +142,13 @@ IfcLabel IfcGeometricRepresentationSubContext::getUserDefinedTargetView() {
     }
 }
 
-void IfcGeometricRepresentationSubContext::setUserDefinedTargetView(const IfcLabel &value) {
-    m_userDefinedTargetView = value;
+const IfcLabel IfcGeometricRepresentationSubContext::getUserDefinedTargetView() const {
+    IfcGeometricRepresentationSubContext * deConstObject = const_cast< IfcGeometricRepresentationSubContext * > (this);
+    return deConstObject->getUserDefinedTargetView();
 }
 
-void IfcGeometricRepresentationSubContext::release() {
-    IfcGeometricRepresentationContext::release();
-    m_parentContext.release();
+void IfcGeometricRepresentationSubContext::setUserDefinedTargetView(const IfcLabel &value) {
+    m_userDefinedTargetView = value;
 }
 
 bool IfcGeometricRepresentationSubContext::init() {
@@ -141,7 +162,7 @@ bool IfcGeometricRepresentationSubContext::init() {
         m_parentContext = NULL;
     }
     else {
-        m_parentContext = static_cast< IfcGeometricRepresentationContext * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_parentContext = static_cast< IfcGeometricRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -188,14 +209,14 @@ bool IfcGeometricRepresentationSubContext::init() {
         m_userDefinedTargetView = Step::getUnset(m_userDefinedTargetView);
     }
     else {
-        m_userDefinedTargetView = Step::spfToString(arg);
+        m_userDefinedTargetView = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcGeometricRepresentationSubContext::copy(const IfcGeometricRepresentationSubContext &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationContext::copy(obj, copyop);
-    setParentContext(copyop(obj.m_parentContext.get()));
+    setParentContext((IfcGeometricRepresentationContext*)copyop(obj.m_parentContext.get()));
     setTargetScale(obj.m_targetScale);
     setTargetView(obj.m_targetView);
     setUserDefinedTargetView(obj.m_userDefinedTargetView);

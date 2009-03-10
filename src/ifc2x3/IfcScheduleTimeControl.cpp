@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -68,23 +68,23 @@ IfcScheduleTimeControl::IfcScheduleTimeControl(Step::Id id, Step::SPFData *args)
 IfcScheduleTimeControl::~IfcScheduleTimeControl() {
 }
 
-bool IfcScheduleTimeControl::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcScheduleTimeControl(this);
+bool IfcScheduleTimeControl::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcScheduleTimeControl(this);
 }
 
-const std::string &IfcScheduleTimeControl::type() {
+const std::string &IfcScheduleTimeControl::type() const {
     return IfcScheduleTimeControl::s_type.getName();
 }
 
-Step::ClassType IfcScheduleTimeControl::getClassType() {
+const Step::ClassType &IfcScheduleTimeControl::getClassType() {
     return IfcScheduleTimeControl::s_type;
 }
 
-Step::ClassType IfcScheduleTimeControl::getType() const {
+const Step::ClassType &IfcScheduleTimeControl::getType() const {
     return IfcScheduleTimeControl::s_type;
 }
 
-bool IfcScheduleTimeControl::isOfType(Step::ClassType t) {
+bool IfcScheduleTimeControl::isOfType(const Step::ClassType &t) const {
     return IfcScheduleTimeControl::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -95,6 +95,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getActualStart() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcScheduleTimeControl::getActualStart() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getActualStart();
 }
 
 void IfcScheduleTimeControl::setActualStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -110,6 +115,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyStart() {
     }
 }
 
+const IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyStart() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getEarlyStart();
+}
+
 void IfcScheduleTimeControl::setEarlyStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_earlyStart = value;
 }
@@ -121,6 +131,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getLateStart();
 }
 
 void IfcScheduleTimeControl::setLateStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -136,6 +151,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleStart() {
     }
 }
 
+const IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleStart() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getScheduleStart();
+}
+
 void IfcScheduleTimeControl::setScheduleStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_scheduleStart = value;
 }
@@ -147,6 +167,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getActualFinish() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcScheduleTimeControl::getActualFinish() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getActualFinish();
 }
 
 void IfcScheduleTimeControl::setActualFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -162,6 +187,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyFinish() {
     }
 }
 
+const IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyFinish() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getEarlyFinish();
+}
+
 void IfcScheduleTimeControl::setEarlyFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_earlyFinish = value;
 }
@@ -173,6 +203,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getLateFinish() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcScheduleTimeControl::getLateFinish() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getLateFinish();
 }
 
 void IfcScheduleTimeControl::setLateFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -188,6 +223,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleFinish() {
     }
 }
 
+const IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleFinish() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getScheduleFinish();
+}
+
 void IfcScheduleTimeControl::setScheduleFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_scheduleFinish = value;
 }
@@ -199,6 +239,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getScheduleDuration() {
     else {
         return Step::getUnset(m_scheduleDuration);
     }
+}
+
+const IfcTimeMeasure IfcScheduleTimeControl::getScheduleDuration() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getScheduleDuration();
 }
 
 void IfcScheduleTimeControl::setScheduleDuration(IfcTimeMeasure value) {
@@ -214,6 +259,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getActualDuration() {
     }
 }
 
+const IfcTimeMeasure IfcScheduleTimeControl::getActualDuration() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getActualDuration();
+}
+
 void IfcScheduleTimeControl::setActualDuration(IfcTimeMeasure value) {
     m_actualDuration = value;
 }
@@ -225,6 +275,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getRemainingTime() {
     else {
         return Step::getUnset(m_remainingTime);
     }
+}
+
+const IfcTimeMeasure IfcScheduleTimeControl::getRemainingTime() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getRemainingTime();
 }
 
 void IfcScheduleTimeControl::setRemainingTime(IfcTimeMeasure value) {
@@ -240,6 +295,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getFreeFloat() {
     }
 }
 
+const IfcTimeMeasure IfcScheduleTimeControl::getFreeFloat() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getFreeFloat();
+}
+
 void IfcScheduleTimeControl::setFreeFloat(IfcTimeMeasure value) {
     m_freeFloat = value;
 }
@@ -253,11 +313,16 @@ IfcTimeMeasure IfcScheduleTimeControl::getTotalFloat() {
     }
 }
 
+const IfcTimeMeasure IfcScheduleTimeControl::getTotalFloat() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getTotalFloat();
+}
+
 void IfcScheduleTimeControl::setTotalFloat(IfcTimeMeasure value) {
     m_totalFloat = value;
 }
 
-Step::Bool IfcScheduleTimeControl::getIsCritical() {
+Step::Boolean IfcScheduleTimeControl::getIsCritical() {
     if (Step::BaseObject::inited()) {
         return m_isCritical;
     }
@@ -266,7 +331,12 @@ Step::Bool IfcScheduleTimeControl::getIsCritical() {
     }
 }
 
-void IfcScheduleTimeControl::setIsCritical(Step::Bool value) {
+const Step::Boolean IfcScheduleTimeControl::getIsCritical() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getIsCritical();
+}
+
+void IfcScheduleTimeControl::setIsCritical(Step::Boolean value) {
     m_isCritical = value;
 }
 
@@ -277,6 +347,11 @@ IfcDateTimeSelect *IfcScheduleTimeControl::getStatusTime() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcScheduleTimeControl::getStatusTime() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getStatusTime();
 }
 
 void IfcScheduleTimeControl::setStatusTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -292,6 +367,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getStartFloat() {
     }
 }
 
+const IfcTimeMeasure IfcScheduleTimeControl::getStartFloat() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getStartFloat();
+}
+
 void IfcScheduleTimeControl::setStartFloat(IfcTimeMeasure value) {
     m_startFloat = value;
 }
@@ -303,6 +383,11 @@ IfcTimeMeasure IfcScheduleTimeControl::getFinishFloat() {
     else {
         return Step::getUnset(m_finishFloat);
     }
+}
+
+const IfcTimeMeasure IfcScheduleTimeControl::getFinishFloat() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getFinishFloat();
 }
 
 void IfcScheduleTimeControl::setFinishFloat(IfcTimeMeasure value) {
@@ -318,6 +403,11 @@ IfcPositiveRatioMeasure IfcScheduleTimeControl::getCompletion() {
     }
 }
 
+const IfcPositiveRatioMeasure IfcScheduleTimeControl::getCompletion() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getCompletion();
+}
+
 void IfcScheduleTimeControl::setCompletion(IfcPositiveRatioMeasure value) {
     m_completion = value;
 }
@@ -331,8 +421,9 @@ IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() {
     }
 }
 
-void IfcScheduleTimeControl::release() {
-    IfcControl::release();
+const IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() const {
+    IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
+    return deConstObject->getScheduleTimeControlAssigned();
 }
 
 bool IfcScheduleTimeControl::init() {
@@ -534,7 +625,7 @@ bool IfcScheduleTimeControl::init() {
         m_isCritical = Step::getUnset(m_isCritical);
     }
     else {
-        m_isCritical = Step::spfToBool(arg);
+        m_isCritical = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

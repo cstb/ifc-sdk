@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcMaterialList::IfcMaterialList(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_materials.setUnset(true);
 }
 
 IfcMaterialList::~IfcMaterialList() {
 }
 
-bool IfcMaterialList::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialList(this);
+bool IfcMaterialList::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialList(this);
 }
 
-const std::string &IfcMaterialList::type() {
+const std::string &IfcMaterialList::type() const {
     return IfcMaterialList::s_type.getName();
 }
 
-Step::ClassType IfcMaterialList::getClassType() {
+const Step::ClassType &IfcMaterialList::getClassType() {
     return IfcMaterialList::s_type;
 }
 
-Step::ClassType IfcMaterialList::getType() const {
+const Step::ClassType &IfcMaterialList::getType() const {
     return IfcMaterialList::s_type;
 }
 
-bool IfcMaterialList::isOfType(Step::ClassType t) {
+bool IfcMaterialList::isOfType(const Step::ClassType &t) const {
     return IfcMaterialList::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcMaterial > > &IfcMaterialList::getMaterials() {
+List_IfcMaterial_1_n &IfcMaterialList::getMaterials() {
     if (Step::BaseObject::inited()) {
         return m_materials;
     }
@@ -81,12 +79,13 @@ Step::List< Step::RefPtr< IfcMaterial > > &IfcMaterialList::getMaterials() {
     }
 }
 
-void IfcMaterialList::setMaterials(const Step::List< Step::RefPtr< IfcMaterial > > &value) {
-    m_materials = value;
+const List_IfcMaterial_1_n &IfcMaterialList::getMaterials() const {
+    IfcMaterialList * deConstObject = const_cast< IfcMaterialList * > (this);
+    return deConstObject->getMaterials();
 }
 
-void IfcMaterialList::release() {
-    m_materials.clear();
+void IfcMaterialList::setMaterials(const List_IfcMaterial_1_n &value) {
+    m_materials = value;
 }
 
 bool IfcMaterialList::init() {
@@ -102,7 +101,7 @@ bool IfcMaterialList::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcMaterial > attr2;
-                attr2 = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_materials.push_back(attr2);
             }
             else {
@@ -114,10 +113,10 @@ bool IfcMaterialList::init() {
 }
 
 void IfcMaterialList::copy(const IfcMaterialList &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcMaterial > >::const_iterator it_m_materials;
+    Step::List< Step::RefPtr< IfcMaterial >, 1 >::const_iterator it_m_materials;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_materials = obj.m_materials.begin(); it_m_materials != obj.m_materials.end(); ++it_m_materials) {
-        Step::RefPtr< IfcMaterial > copyTarget = copyop((*it_m_materials).get());
+        Step::RefPtr< IfcMaterial > copyTarget = (IfcMaterial *) (copyop((*it_m_materials).get()));
         m_materials.push_back(copyTarget.get());
     }
     return;

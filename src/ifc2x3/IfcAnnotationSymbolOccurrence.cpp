@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcAnnotationSymbolOccurrence::IfcAnnotationSymbolOccurrence(Step::Id id, Step::
 IfcAnnotationSymbolOccurrence::~IfcAnnotationSymbolOccurrence() {
 }
 
-bool IfcAnnotationSymbolOccurrence::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationSymbolOccurrence(this);
+bool IfcAnnotationSymbolOccurrence::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationSymbolOccurrence(this);
 }
 
-const std::string &IfcAnnotationSymbolOccurrence::type() {
+const std::string &IfcAnnotationSymbolOccurrence::type() const {
     return IfcAnnotationSymbolOccurrence::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationSymbolOccurrence::getClassType() {
+const Step::ClassType &IfcAnnotationSymbolOccurrence::getClassType() {
     return IfcAnnotationSymbolOccurrence::s_type;
 }
 
-Step::ClassType IfcAnnotationSymbolOccurrence::getType() const {
+const Step::ClassType &IfcAnnotationSymbolOccurrence::getType() const {
     return IfcAnnotationSymbolOccurrence::s_type;
 }
 
-bool IfcAnnotationSymbolOccurrence::isOfType(Step::ClassType t) {
+bool IfcAnnotationSymbolOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationSymbolOccurrence::s_type == t ? true : IfcAnnotationOccurrence::isOfType(t);
-}
-
-void IfcAnnotationSymbolOccurrence::release() {
-    IfcAnnotationOccurrence::release();
 }
 
 bool IfcAnnotationSymbolOccurrence::init() {

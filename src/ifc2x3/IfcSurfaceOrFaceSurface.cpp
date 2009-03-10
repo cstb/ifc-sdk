@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcSurfaceOrFaceSurface::~IfcSurfaceOrFaceSurface() {
     deleteUnion();
 }
 
-bool IfcSurfaceOrFaceSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceOrFaceSurface(this);
+bool IfcSurfaceOrFaceSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceOrFaceSurface(this);
 }
 
 bool IfcSurfaceOrFaceSurface::init() {
     return false;
 }
 
-const std::string &IfcSurfaceOrFaceSurface::type() {
+const std::string &IfcSurfaceOrFaceSurface::type() const {
     return IfcSurfaceOrFaceSurface::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceOrFaceSurface::getClassType() {
+const Step::ClassType &IfcSurfaceOrFaceSurface::getClassType() {
     return IfcSurfaceOrFaceSurface::s_type;
 }
 
-Step::ClassType IfcSurfaceOrFaceSurface::getType() const {
+const Step::ClassType &IfcSurfaceOrFaceSurface::getType() const {
     return IfcSurfaceOrFaceSurface::s_type;
 }
 
-bool IfcSurfaceOrFaceSurface::isOfType(Step::ClassType t) {
+bool IfcSurfaceOrFaceSurface::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceOrFaceSurface::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcSurfaceOrFaceSurface::copy(const IfcSurfaceOrFaceSurface &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCSURFACE:
-        setIfcSurface(copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcSurface));
+        setIfcSurface((IfcSurface *) (copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcSurface)));
         break;
     case IFCFACESURFACE:
-        setIfcFaceSurface(copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcFaceSurface));
+        setIfcFaceSurface((IfcFaceSurface *) (copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcFaceSurface)));
         break;
     case IFCFACEBASEDSURFACEMODEL:
-        setIfcFaceBasedSurfaceModel(copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel));
+        setIfcFaceBasedSurfaceModel((IfcFaceBasedSurfaceModel *) (copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel)));
         break;
         }
 }
 
-char *IfcSurfaceOrFaceSurface::currentTypeName() {
+std::string IfcSurfaceOrFaceSurface::currentTypeName() const {
     switch(m_type) {
     case IFCSURFACE:
         return "IfcSurface";
@@ -104,7 +104,7 @@ char *IfcSurfaceOrFaceSurface::currentTypeName() {
     }
 }
 
-IfcSurfaceOrFaceSurface::IfcSurfaceOrFaceSurface_select IfcSurfaceOrFaceSurface::currentType() {
+IfcSurfaceOrFaceSurface::IfcSurfaceOrFaceSurface_select IfcSurfaceOrFaceSurface::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcSurfaceOrFaceSurface::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcSurface *IfcSurfaceOrFaceSurface::getIfcSurface() {
-    return m_IfcSurfaceOrFaceSurface_union.m_IfcSurface;
+IfcSurface *IfcSurfaceOrFaceSurface::getIfcSurface() const {
+    if (m_type == IFCSURFACE) {
+        return m_IfcSurfaceOrFaceSurface_union.m_IfcSurface;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceOrFaceSurface::setIfcSurface(IfcSurface *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcSurfaceOrFaceSurface::setIfcSurface(IfcSurface *value) {
     m_type = IFCSURFACE;
 }
 
-IfcFaceSurface *IfcSurfaceOrFaceSurface::getIfcFaceSurface() {
-    return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceSurface;
+IfcFaceSurface *IfcSurfaceOrFaceSurface::getIfcFaceSurface() const {
+    if (m_type == IFCFACESURFACE) {
+        return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceSurface;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceOrFaceSurface::setIfcFaceSurface(IfcFaceSurface *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcSurfaceOrFaceSurface::setIfcFaceSurface(IfcFaceSurface *value) {
     m_type = IFCFACESURFACE;
 }
 
-IfcFaceBasedSurfaceModel *IfcSurfaceOrFaceSurface::getIfcFaceBasedSurfaceModel() {
-    return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel;
+IfcFaceBasedSurfaceModel *IfcSurfaceOrFaceSurface::getIfcFaceBasedSurfaceModel() const {
+    if (m_type == IFCFACEBASEDSURFACEMODEL) {
+        return m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcSurfaceOrFaceSurface::setIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

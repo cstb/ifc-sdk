@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedDimensionSymbol::IfcPreDefinedDimensionSymbol(Step::Id id, Step::SP
 IfcPreDefinedDimensionSymbol::~IfcPreDefinedDimensionSymbol() {
 }
 
-bool IfcPreDefinedDimensionSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedDimensionSymbol(this);
+bool IfcPreDefinedDimensionSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedDimensionSymbol(this);
 }
 
-const std::string &IfcPreDefinedDimensionSymbol::type() {
+const std::string &IfcPreDefinedDimensionSymbol::type() const {
     return IfcPreDefinedDimensionSymbol::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedDimensionSymbol::getClassType() {
+const Step::ClassType &IfcPreDefinedDimensionSymbol::getClassType() {
     return IfcPreDefinedDimensionSymbol::s_type;
 }
 
-Step::ClassType IfcPreDefinedDimensionSymbol::getType() const {
+const Step::ClassType &IfcPreDefinedDimensionSymbol::getType() const {
     return IfcPreDefinedDimensionSymbol::s_type;
 }
 
-bool IfcPreDefinedDimensionSymbol::isOfType(Step::ClassType t) {
+bool IfcPreDefinedDimensionSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedDimensionSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
-}
-
-void IfcPreDefinedDimensionSymbol::release() {
-    IfcPreDefinedSymbol::release();
 }
 
 bool IfcPreDefinedDimensionSymbol::init() {

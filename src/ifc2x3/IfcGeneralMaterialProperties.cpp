@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcGeneralMaterialProperties::IfcGeneralMaterialProperties(Step::Id id, Step::SP
 IfcGeneralMaterialProperties::~IfcGeneralMaterialProperties() {
 }
 
-bool IfcGeneralMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeneralMaterialProperties(this);
+bool IfcGeneralMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeneralMaterialProperties(this);
 }
 
-const std::string &IfcGeneralMaterialProperties::type() {
+const std::string &IfcGeneralMaterialProperties::type() const {
     return IfcGeneralMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcGeneralMaterialProperties::getClassType() {
+const Step::ClassType &IfcGeneralMaterialProperties::getClassType() {
     return IfcGeneralMaterialProperties::s_type;
 }
 
-Step::ClassType IfcGeneralMaterialProperties::getType() const {
+const Step::ClassType &IfcGeneralMaterialProperties::getType() const {
     return IfcGeneralMaterialProperties::s_type;
 }
 
-bool IfcGeneralMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcGeneralMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcGeneralMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcMolecularWeightMeasure IfcGeneralMaterialProperties::getMolecularWeight() {
     else {
         return Step::getUnset(m_molecularWeight);
     }
+}
+
+const IfcMolecularWeightMeasure IfcGeneralMaterialProperties::getMolecularWeight() const {
+    IfcGeneralMaterialProperties * deConstObject = const_cast< IfcGeneralMaterialProperties * > (this);
+    return deConstObject->getMolecularWeight();
 }
 
 void IfcGeneralMaterialProperties::setMolecularWeight(IfcMolecularWeightMeasure value) {
@@ -90,6 +95,11 @@ IfcNormalisedRatioMeasure IfcGeneralMaterialProperties::getPorosity() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcGeneralMaterialProperties::getPorosity() const {
+    IfcGeneralMaterialProperties * deConstObject = const_cast< IfcGeneralMaterialProperties * > (this);
+    return deConstObject->getPorosity();
+}
+
 void IfcGeneralMaterialProperties::setPorosity(IfcNormalisedRatioMeasure value) {
     m_porosity = value;
 }
@@ -103,12 +113,13 @@ IfcMassDensityMeasure IfcGeneralMaterialProperties::getMassDensity() {
     }
 }
 
-void IfcGeneralMaterialProperties::setMassDensity(IfcMassDensityMeasure value) {
-    m_massDensity = value;
+const IfcMassDensityMeasure IfcGeneralMaterialProperties::getMassDensity() const {
+    IfcGeneralMaterialProperties * deConstObject = const_cast< IfcGeneralMaterialProperties * > (this);
+    return deConstObject->getMassDensity();
 }
 
-void IfcGeneralMaterialProperties::release() {
-    IfcMaterialProperties::release();
+void IfcGeneralMaterialProperties::setMassDensity(IfcMassDensityMeasure value) {
+    m_massDensity = value;
 }
 
 bool IfcGeneralMaterialProperties::init() {

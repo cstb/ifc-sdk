@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,6 +37,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -61,23 +63,23 @@ IfcAsset::IfcAsset(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
 IfcAsset::~IfcAsset() {
 }
 
-bool IfcAsset::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAsset(this);
+bool IfcAsset::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAsset(this);
 }
 
-const std::string &IfcAsset::type() {
+const std::string &IfcAsset::type() const {
     return IfcAsset::s_type.getName();
 }
 
-Step::ClassType IfcAsset::getClassType() {
+const Step::ClassType &IfcAsset::getClassType() {
     return IfcAsset::s_type;
 }
 
-Step::ClassType IfcAsset::getType() const {
+const Step::ClassType &IfcAsset::getType() const {
     return IfcAsset::s_type;
 }
 
-bool IfcAsset::isOfType(Step::ClassType t) {
+bool IfcAsset::isOfType(const Step::ClassType &t) const {
     return IfcAsset::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
@@ -88,6 +90,11 @@ IfcIdentifier IfcAsset::getAssetID() {
     else {
         return Step::getUnset(m_assetID);
     }
+}
+
+const IfcIdentifier IfcAsset::getAssetID() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getAssetID();
 }
 
 void IfcAsset::setAssetID(const IfcIdentifier &value) {
@@ -103,6 +110,11 @@ IfcCostValue *IfcAsset::getOriginalValue() {
     }
 }
 
+const IfcCostValue *IfcAsset::getOriginalValue() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getOriginalValue();
+}
+
 void IfcAsset::setOriginalValue(const Step::RefPtr< IfcCostValue > &value) {
     m_originalValue = value;
 }
@@ -114,6 +126,11 @@ IfcCostValue *IfcAsset::getCurrentValue() {
     else {
         return NULL;
     }
+}
+
+const IfcCostValue *IfcAsset::getCurrentValue() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getCurrentValue();
 }
 
 void IfcAsset::setCurrentValue(const Step::RefPtr< IfcCostValue > &value) {
@@ -129,6 +146,11 @@ IfcCostValue *IfcAsset::getTotalReplacementCost() {
     }
 }
 
+const IfcCostValue *IfcAsset::getTotalReplacementCost() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getTotalReplacementCost();
+}
+
 void IfcAsset::setTotalReplacementCost(const Step::RefPtr< IfcCostValue > &value) {
     m_totalReplacementCost = value;
 }
@@ -140,6 +162,11 @@ IfcActorSelect *IfcAsset::getOwner() {
     else {
         return NULL;
     }
+}
+
+const IfcActorSelect *IfcAsset::getOwner() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getOwner();
 }
 
 void IfcAsset::setOwner(const Step::RefPtr< IfcActorSelect > &value) {
@@ -155,6 +182,11 @@ IfcActorSelect *IfcAsset::getUser() {
     }
 }
 
+const IfcActorSelect *IfcAsset::getUser() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getUser();
+}
+
 void IfcAsset::setUser(const Step::RefPtr< IfcActorSelect > &value) {
     m_user = value;
 }
@@ -166,6 +198,11 @@ IfcPerson *IfcAsset::getResponsiblePerson() {
     else {
         return NULL;
     }
+}
+
+const IfcPerson *IfcAsset::getResponsiblePerson() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getResponsiblePerson();
 }
 
 void IfcAsset::setResponsiblePerson(const Step::RefPtr< IfcPerson > &value) {
@@ -181,6 +218,11 @@ IfcCalendarDate *IfcAsset::getIncorporationDate() {
     }
 }
 
+const IfcCalendarDate *IfcAsset::getIncorporationDate() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getIncorporationDate();
+}
+
 void IfcAsset::setIncorporationDate(const Step::RefPtr< IfcCalendarDate > &value) {
     m_incorporationDate = value;
 }
@@ -194,18 +236,13 @@ IfcCostValue *IfcAsset::getDepreciatedValue() {
     }
 }
 
-void IfcAsset::setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value) {
-    m_depreciatedValue = value;
+const IfcCostValue *IfcAsset::getDepreciatedValue() const {
+    IfcAsset * deConstObject = const_cast< IfcAsset * > (this);
+    return deConstObject->getDepreciatedValue();
 }
 
-void IfcAsset::release() {
-    IfcGroup::release();
-    m_originalValue.release();
-    m_currentValue.release();
-    m_totalReplacementCost.release();
-    m_responsiblePerson.release();
-    m_incorporationDate.release();
-    m_depreciatedValue.release();
+void IfcAsset::setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value) {
+    m_depreciatedValue = value;
 }
 
 bool IfcAsset::init() {
@@ -219,28 +256,28 @@ bool IfcAsset::init() {
         m_assetID = Step::getUnset(m_assetID);
     }
     else {
-        m_assetID = Step::spfToString(arg);
+        m_assetID = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_originalValue = NULL;
     }
     else {
-        m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_currentValue = NULL;
     }
     else {
-        m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_totalReplacementCost = NULL;
     }
     else {
-        m_totalReplacementCost = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_totalReplacementCost = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -285,21 +322,21 @@ bool IfcAsset::init() {
         m_responsiblePerson = NULL;
     }
     else {
-        m_responsiblePerson = static_cast< IfcPerson * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_responsiblePerson = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_incorporationDate = NULL;
     }
     else {
-        m_incorporationDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_incorporationDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_depreciatedValue = NULL;
     }
     else {
-        m_depreciatedValue = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_depreciatedValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -307,16 +344,16 @@ bool IfcAsset::init() {
 void IfcAsset::copy(const IfcAsset &obj, const CopyOp &copyop) {
     IfcGroup::copy(obj, copyop);
     setAssetID(obj.m_assetID);
-    setOriginalValue(copyop(obj.m_originalValue.get()));
-    setCurrentValue(copyop(obj.m_currentValue.get()));
-    setTotalReplacementCost(copyop(obj.m_totalReplacementCost.get()));
+    setOriginalValue((IfcCostValue*)copyop(obj.m_originalValue.get()));
+    setCurrentValue((IfcCostValue*)copyop(obj.m_currentValue.get()));
+    setTotalReplacementCost((IfcCostValue*)copyop(obj.m_totalReplacementCost.get()));
     m_owner = new IfcActorSelect;
     m_owner->copy(*(obj.m_owner.get()), copyop);
     m_user = new IfcActorSelect;
     m_user->copy(*(obj.m_user.get()), copyop);
-    setResponsiblePerson(copyop(obj.m_responsiblePerson.get()));
-    setIncorporationDate(copyop(obj.m_incorporationDate.get()));
-    setDepreciatedValue(copyop(obj.m_depreciatedValue.get()));
+    setResponsiblePerson((IfcPerson*)copyop(obj.m_responsiblePerson.get()));
+    setIncorporationDate((IfcCalendarDate*)copyop(obj.m_incorporationDate.get()));
+    setDepreciatedValue((IfcCostValue*)copyop(obj.m_depreciatedValue.get()));
     return;
 }
 

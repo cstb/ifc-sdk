@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcBoundaryCondition::IfcBoundaryCondition(Step::Id id, Step::SPFData *args) : S
 IfcBoundaryCondition::~IfcBoundaryCondition() {
 }
 
-bool IfcBoundaryCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundaryCondition(this);
+bool IfcBoundaryCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundaryCondition(this);
 }
 
-const std::string &IfcBoundaryCondition::type() {
+const std::string &IfcBoundaryCondition::type() const {
     return IfcBoundaryCondition::s_type.getName();
 }
 
-Step::ClassType IfcBoundaryCondition::getClassType() {
+const Step::ClassType &IfcBoundaryCondition::getClassType() {
     return IfcBoundaryCondition::s_type;
 }
 
-Step::ClassType IfcBoundaryCondition::getType() const {
+const Step::ClassType &IfcBoundaryCondition::getType() const {
     return IfcBoundaryCondition::s_type;
 }
 
-bool IfcBoundaryCondition::isOfType(Step::ClassType t) {
+bool IfcBoundaryCondition::isOfType(const Step::ClassType &t) const {
     return IfcBoundaryCondition::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcBoundaryCondition::getName() {
     }
 }
 
-void IfcBoundaryCondition::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcBoundaryCondition::getName() const {
+    IfcBoundaryCondition * deConstObject = const_cast< IfcBoundaryCondition * > (this);
+    return deConstObject->getName();
 }
 
-void IfcBoundaryCondition::release() {
+void IfcBoundaryCondition::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcBoundaryCondition::init() {
@@ -89,7 +92,7 @@ bool IfcBoundaryCondition::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

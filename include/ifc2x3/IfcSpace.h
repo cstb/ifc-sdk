@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,68 +33,101 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcSpatialStructureElement.h"
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelCoversSpaces;
-    class IfcRelSpaceBoundary;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcSpace : public IfcSpatialStructureElement {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'InteriorOrExteriorSpace'.
+         * 
          */
-        IfcInternalOrExternalEnum getInteriorOrExteriorSpace();
+        virtual IfcInternalOrExternalEnum getInteriorOrExteriorSpace();
+        /**
+         * (const) Returns the value of the explicit attribute 'InteriorOrExteriorSpace'.
+         * 
+         * @return the value of the explicit attribute 'InteriorOrExteriorSpace'
+         */
+        virtual const IfcInternalOrExternalEnum getInteriorOrExteriorSpace() const;
         /**
          * Sets the value of the explicit attribute 'InteriorOrExteriorSpace'.
          * 
          * @param value
          */
-        void setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value);
+        virtual void setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value);
         /**
+         * Gets the value of the explicit attribute 'ElevationWithFlooring'.
+         * 
          */
-        IfcLengthMeasure getElevationWithFlooring();
+        virtual IfcLengthMeasure getElevationWithFlooring();
+        /**
+         * (const) Returns the value of the explicit attribute 'ElevationWithFlooring'.
+         * 
+         * @return the value of the explicit attribute 'ElevationWithFlooring'
+         */
+        virtual const IfcLengthMeasure getElevationWithFlooring() const;
         /**
          * Sets the value of the explicit attribute 'ElevationWithFlooring'.
          * 
          * @param value
          */
-        void setElevationWithFlooring(IfcLengthMeasure value);
+        virtual void setElevationWithFlooring(IfcLengthMeasure value);
         /**
+         * Gets the value of the inverse attribute 'HasCoverings'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > &getHasCoverings();
+        Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings();
         /**
+         * (const) Returns the value of the explicit attribute 'HasCoverings'.
+         * 
+         * @return the value of the explicit attribute 'HasCoverings'
          */
-        Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &getBoundedBy();
+        virtual const Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings() const;
         /**
+         * Gets the value of the inverse attribute 'BoundedBy'.
+         * 
          */
-        virtual void release();
-        friend class IfcRelCoversSpaces;
+        Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy();
+        /**
+         * (const) Returns the value of the explicit attribute 'BoundedBy'.
+         * 
+         * @return the value of the explicit attribute 'BoundedBy'
+         */
+        virtual const Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy() const;
         friend class ExpressDataSet;
+        friend class IfcRelCoversSpaces;
         friend class IfcRelSpaceBoundary;
 
     protected:
@@ -125,10 +158,10 @@ namespace ifc2x3 {
         Step::Real m_elevationWithFlooring;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > m_hasCoverings;
+        Inverse_Set_IfcRelCoversSpaces_0_n m_hasCoverings;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > m_boundedBy;
+        Inverse_Set_IfcRelSpaceBoundary_0_n m_boundedBy;
 
     };
 

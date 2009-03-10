@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,33 +45,32 @@
 using namespace ifc2x3;
 
 IfcGeometricSet::IfcGeometricSet(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_elements.setUnset(true);
 }
 
 IfcGeometricSet::~IfcGeometricSet() {
 }
 
-bool IfcGeometricSet::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeometricSet(this);
+bool IfcGeometricSet::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeometricSet(this);
 }
 
-const std::string &IfcGeometricSet::type() {
+const std::string &IfcGeometricSet::type() const {
     return IfcGeometricSet::s_type.getName();
 }
 
-Step::ClassType IfcGeometricSet::getClassType() {
+const Step::ClassType &IfcGeometricSet::getClassType() {
     return IfcGeometricSet::s_type;
 }
 
-Step::ClassType IfcGeometricSet::getType() const {
+const Step::ClassType &IfcGeometricSet::getType() const {
     return IfcGeometricSet::s_type;
 }
 
-bool IfcGeometricSet::isOfType(Step::ClassType t) {
+bool IfcGeometricSet::isOfType(const Step::ClassType &t) const {
     return IfcGeometricSet::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcGeometricSetSelect > > &IfcGeometricSet::getElements() {
+Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() {
     if (Step::BaseObject::inited()) {
         return m_elements;
     }
@@ -81,13 +80,13 @@ Step::Set< Step::RefPtr< IfcGeometricSetSelect > > &IfcGeometricSet::getElements
     }
 }
 
-void IfcGeometricSet::setElements(const Step::Set< Step::RefPtr< IfcGeometricSetSelect > > &value) {
-    m_elements = value;
+const Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() const {
+    IfcGeometricSet * deConstObject = const_cast< IfcGeometricSet * > (this);
+    return deConstObject->getElements();
 }
 
-void IfcGeometricSet::release() {
-    IfcGeometricRepresentationItem::release();
-    m_elements.clear();
+void IfcGeometricSet::setElements(const Set_IfcGeometricSetSelect_1_n &value) {
+    m_elements = value;
 }
 
 bool IfcGeometricSet::init() {
@@ -131,7 +130,7 @@ bool IfcGeometricSet::init() {
 }
 
 void IfcGeometricSet::copy(const IfcGeometricSet &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcGeometricSetSelect > >::const_iterator it_m_elements;
+    Step::Set< Step::RefPtr< IfcGeometricSetSelect >, 1 >::const_iterator it_m_elements;
     IfcGeometricRepresentationItem::copy(obj, copyop);
     for (it_m_elements = obj.m_elements.begin(); it_m_elements != obj.m_elements.end(); ++it_m_elements) {
         Step::RefPtr< IfcGeometricSetSelect > copyTarget = new IfcGeometricSetSelect;

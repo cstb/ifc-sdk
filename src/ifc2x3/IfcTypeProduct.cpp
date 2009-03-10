@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,27 +52,27 @@ IfcTypeProduct::IfcTypeProduct(Step::Id id, Step::SPFData *args) : IfcTypeObject
 IfcTypeProduct::~IfcTypeProduct() {
 }
 
-bool IfcTypeProduct::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTypeProduct(this);
+bool IfcTypeProduct::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTypeProduct(this);
 }
 
-const std::string &IfcTypeProduct::type() {
+const std::string &IfcTypeProduct::type() const {
     return IfcTypeProduct::s_type.getName();
 }
 
-Step::ClassType IfcTypeProduct::getClassType() {
+const Step::ClassType &IfcTypeProduct::getClassType() {
     return IfcTypeProduct::s_type;
 }
 
-Step::ClassType IfcTypeProduct::getType() const {
+const Step::ClassType &IfcTypeProduct::getType() const {
     return IfcTypeProduct::s_type;
 }
 
-bool IfcTypeProduct::isOfType(Step::ClassType t) {
+bool IfcTypeProduct::isOfType(const Step::ClassType &t) const {
     return IfcTypeProduct::s_type == t ? true : IfcTypeObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcRepresentationMap > > &IfcTypeProduct::getRepresentationMaps() {
+List_IfcRepresentationMap_1_n &IfcTypeProduct::getRepresentationMaps() {
     if (Step::BaseObject::inited()) {
         return m_representationMaps;
     }
@@ -82,7 +82,12 @@ Step::List< Step::RefPtr< IfcRepresentationMap > > &IfcTypeProduct::getRepresent
     }
 }
 
-void IfcTypeProduct::setRepresentationMaps(const Step::List< Step::RefPtr< IfcRepresentationMap > > &value) {
+const List_IfcRepresentationMap_1_n &IfcTypeProduct::getRepresentationMaps() const {
+    IfcTypeProduct * deConstObject = const_cast< IfcTypeProduct * > (this);
+    return deConstObject->getRepresentationMaps();
+}
+
+void IfcTypeProduct::setRepresentationMaps(const List_IfcRepresentationMap_1_n &value) {
     m_representationMaps = value;
 }
 
@@ -95,13 +100,13 @@ IfcLabel IfcTypeProduct::getTag() {
     }
 }
 
-void IfcTypeProduct::setTag(const IfcLabel &value) {
-    m_tag = value;
+const IfcLabel IfcTypeProduct::getTag() const {
+    IfcTypeProduct * deConstObject = const_cast< IfcTypeProduct * > (this);
+    return deConstObject->getTag();
 }
 
-void IfcTypeProduct::release() {
-    IfcTypeObject::release();
-    m_representationMaps.clear();
+void IfcTypeProduct::setTag(const IfcLabel &value) {
+    m_tag = value;
 }
 
 bool IfcTypeProduct::init() {
@@ -121,7 +126,7 @@ bool IfcTypeProduct::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRepresentationMap > attr2;
-                attr2 = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRepresentationMap * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_representationMaps.push_back(attr2);
             }
             else {
@@ -134,16 +139,16 @@ bool IfcTypeProduct::init() {
         m_tag = Step::getUnset(m_tag);
     }
     else {
-        m_tag = Step::spfToString(arg);
+        m_tag = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcTypeProduct::copy(const IfcTypeProduct &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcRepresentationMap > >::const_iterator it_m_representationMaps;
+    Step::List< Step::RefPtr< IfcRepresentationMap >, 1 >::const_iterator it_m_representationMaps;
     IfcTypeObject::copy(obj, copyop);
     for (it_m_representationMaps = obj.m_representationMaps.begin(); it_m_representationMaps != obj.m_representationMaps.end(); ++it_m_representationMaps) {
-        Step::RefPtr< IfcRepresentationMap > copyTarget = copyop((*it_m_representationMaps).get());
+        Step::RefPtr< IfcRepresentationMap > copyTarget = (IfcRepresentationMap *) (copyop((*it_m_representationMaps).get()));
         m_representationMaps.push_back(copyTarget.get());
     }
     setTag(obj.m_tag);

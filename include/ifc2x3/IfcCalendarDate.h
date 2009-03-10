@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,54 +44,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCalendarDate : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'DayComponent'.
+         * 
          */
-        IfcDayInMonthNumber getDayComponent();
+        virtual IfcDayInMonthNumber getDayComponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'DayComponent'.
+         * 
+         * @return the value of the explicit attribute 'DayComponent'
+         */
+        virtual const IfcDayInMonthNumber getDayComponent() const;
         /**
          * Sets the value of the explicit attribute 'DayComponent'.
          * 
          * @param value
          */
-        void setDayComponent(IfcDayInMonthNumber value);
+        virtual void setDayComponent(IfcDayInMonthNumber value);
         /**
+         * Gets the value of the explicit attribute 'MonthComponent'.
+         * 
          */
-        IfcMonthInYearNumber getMonthComponent();
+        virtual IfcMonthInYearNumber getMonthComponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'MonthComponent'.
+         * 
+         * @return the value of the explicit attribute 'MonthComponent'
+         */
+        virtual const IfcMonthInYearNumber getMonthComponent() const;
         /**
          * Sets the value of the explicit attribute 'MonthComponent'.
          * 
          * @param value
          */
-        void setMonthComponent(IfcMonthInYearNumber value);
+        virtual void setMonthComponent(IfcMonthInYearNumber value);
         /**
+         * Gets the value of the explicit attribute 'YearComponent'.
+         * 
          */
-        IfcYearNumber getYearComponent();
+        virtual IfcYearNumber getYearComponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'YearComponent'.
+         * 
+         * @return the value of the explicit attribute 'YearComponent'
+         */
+        virtual const IfcYearNumber getYearComponent() const;
         /**
          * Sets the value of the explicit attribute 'YearComponent'.
          * 
          * @param value
          */
-        void setYearComponent(IfcYearNumber value);
-        /**
-         */
-        virtual void release();
+        virtual void setYearComponent(IfcYearNumber value);
         friend class ExpressDataSet;
 
     protected:

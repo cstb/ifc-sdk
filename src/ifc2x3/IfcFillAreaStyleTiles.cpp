@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,30 +47,29 @@ using namespace ifc2x3;
 
 IfcFillAreaStyleTiles::IfcFillAreaStyleTiles(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_tilingPattern = NULL;
-    m_tiles.setUnset(true);
     m_tilingScale = Step::getUnset(m_tilingScale);
 }
 
 IfcFillAreaStyleTiles::~IfcFillAreaStyleTiles() {
 }
 
-bool IfcFillAreaStyleTiles::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillAreaStyleTiles(this);
+bool IfcFillAreaStyleTiles::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyleTiles(this);
 }
 
-const std::string &IfcFillAreaStyleTiles::type() {
+const std::string &IfcFillAreaStyleTiles::type() const {
     return IfcFillAreaStyleTiles::s_type.getName();
 }
 
-Step::ClassType IfcFillAreaStyleTiles::getClassType() {
+const Step::ClassType &IfcFillAreaStyleTiles::getClassType() {
     return IfcFillAreaStyleTiles::s_type;
 }
 
-Step::ClassType IfcFillAreaStyleTiles::getType() const {
+const Step::ClassType &IfcFillAreaStyleTiles::getType() const {
     return IfcFillAreaStyleTiles::s_type;
 }
 
-bool IfcFillAreaStyleTiles::isOfType(Step::ClassType t) {
+bool IfcFillAreaStyleTiles::isOfType(const Step::ClassType &t) const {
     return IfcFillAreaStyleTiles::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -83,11 +82,16 @@ IfcOneDirectionRepeatFactor *IfcFillAreaStyleTiles::getTilingPattern() {
     }
 }
 
+const IfcOneDirectionRepeatFactor *IfcFillAreaStyleTiles::getTilingPattern() const {
+    IfcFillAreaStyleTiles * deConstObject = const_cast< IfcFillAreaStyleTiles * > (this);
+    return deConstObject->getTilingPattern();
+}
+
 void IfcFillAreaStyleTiles::setTilingPattern(const Step::RefPtr< IfcOneDirectionRepeatFactor > &value) {
     m_tilingPattern = value;
 }
 
-Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > > &IfcFillAreaStyleTiles::getTiles() {
+Set_IfcFillAreaStyleTileShapeSelect_1_n &IfcFillAreaStyleTiles::getTiles() {
     if (Step::BaseObject::inited()) {
         return m_tiles;
     }
@@ -97,7 +101,12 @@ Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > > &IfcFillAreaStyleTi
     }
 }
 
-void IfcFillAreaStyleTiles::setTiles(const Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > > &value) {
+const Set_IfcFillAreaStyleTileShapeSelect_1_n &IfcFillAreaStyleTiles::getTiles() const {
+    IfcFillAreaStyleTiles * deConstObject = const_cast< IfcFillAreaStyleTiles * > (this);
+    return deConstObject->getTiles();
+}
+
+void IfcFillAreaStyleTiles::setTiles(const Set_IfcFillAreaStyleTileShapeSelect_1_n &value) {
     m_tiles = value;
 }
 
@@ -110,14 +119,13 @@ IfcPositiveRatioMeasure IfcFillAreaStyleTiles::getTilingScale() {
     }
 }
 
-void IfcFillAreaStyleTiles::setTilingScale(IfcPositiveRatioMeasure value) {
-    m_tilingScale = value;
+const IfcPositiveRatioMeasure IfcFillAreaStyleTiles::getTilingScale() const {
+    IfcFillAreaStyleTiles * deConstObject = const_cast< IfcFillAreaStyleTiles * > (this);
+    return deConstObject->getTilingScale();
 }
 
-void IfcFillAreaStyleTiles::release() {
-    IfcGeometricRepresentationItem::release();
-    m_tilingPattern.release();
-    m_tiles.clear();
+void IfcFillAreaStyleTiles::setTilingScale(IfcPositiveRatioMeasure value) {
+    m_tilingScale = value;
 }
 
 bool IfcFillAreaStyleTiles::init() {
@@ -131,7 +139,7 @@ bool IfcFillAreaStyleTiles::init() {
         m_tilingPattern = NULL;
     }
     else {
-        m_tilingPattern = static_cast< IfcOneDirectionRepeatFactor * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_tilingPattern = static_cast< IfcOneDirectionRepeatFactor * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -175,9 +183,9 @@ bool IfcFillAreaStyleTiles::init() {
 }
 
 void IfcFillAreaStyleTiles::copy(const IfcFillAreaStyleTiles &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect > >::const_iterator it_m_tiles;
+    Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect >, 1 >::const_iterator it_m_tiles;
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setTilingPattern(copyop(obj.m_tilingPattern.get()));
+    setTilingPattern((IfcOneDirectionRepeatFactor*)copyop(obj.m_tilingPattern.get()));
     for (it_m_tiles = obj.m_tiles.begin(); it_m_tiles != obj.m_tiles.end(); ++it_m_tiles) {
         Step::RefPtr< IfcFillAreaStyleTileShapeSelect > copyTarget = new IfcFillAreaStyleTileShapeSelect;
         copyTarget->copy(*((*it_m_tiles).get()), copyop);

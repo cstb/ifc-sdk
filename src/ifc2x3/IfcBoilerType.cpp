@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcBoilerType::IfcBoilerType(Step::Id id, Step::SPFData *args) : IfcEnergyConver
 IfcBoilerType::~IfcBoilerType() {
 }
 
-bool IfcBoilerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoilerType(this);
+bool IfcBoilerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoilerType(this);
 }
 
-const std::string &IfcBoilerType::type() {
+const std::string &IfcBoilerType::type() const {
     return IfcBoilerType::s_type.getName();
 }
 
-Step::ClassType IfcBoilerType::getClassType() {
+const Step::ClassType &IfcBoilerType::getClassType() {
     return IfcBoilerType::s_type;
 }
 
-Step::ClassType IfcBoilerType::getType() const {
+const Step::ClassType &IfcBoilerType::getType() const {
     return IfcBoilerType::s_type;
 }
 
-bool IfcBoilerType::isOfType(Step::ClassType t) {
+bool IfcBoilerType::isOfType(const Step::ClassType &t) const {
     return IfcBoilerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcBoilerTypeEnum IfcBoilerType::getPredefinedType() {
     }
 }
 
-void IfcBoilerType::setPredefinedType(IfcBoilerTypeEnum value) {
-    m_predefinedType = value;
+const IfcBoilerTypeEnum IfcBoilerType::getPredefinedType() const {
+    IfcBoilerType * deConstObject = const_cast< IfcBoilerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcBoilerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcBoilerType::setPredefinedType(IfcBoilerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcBoilerType::init() {

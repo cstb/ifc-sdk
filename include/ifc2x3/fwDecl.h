@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -83,6 +83,7 @@ class IfcBoundingBox;
 class IfcBoxedHalfSpace;
 class IfcBuilding;
 class IfcBuildingElement;
+class IfcBuildingElementComponent;
 class IfcBuildingElementPart;
 class IfcBuildingElementProxy;
 class IfcBuildingElementProxyType;
@@ -680,30 +681,6 @@ class IfcWorkPlan;
 class IfcWorkSchedule;
 class IfcZShapeProfileDef;
 class IfcZone;
-class IfcCivilStructureElement;
-class IfcBridgeStructureElement;
-class IfcBridge;
-class IfcBridgePart;
-class IfcCivilElement;
-class IfcBridgeElement;
-class IfcBridgeSegment;
-class IfcBridgeSegmentPart;
-class IfcBridgeContactElement;
-class IfcBridgePrismaticElement;
-class IfcAlignmentElement;
-class IfcReferenceElement;
-class IfcReferenceCurve;
-class IfcReferenceCurve3D;
-class IfcReferenceCurveAlignment2D;
-class IfcReferencePlacement;
-class IfcReferenceCurvePlacement;
-class IfcReferenceCurvePlacementSystem;
-class IfcElementPart;
-class IfcCivilElementPart;
-class IfcCivilSheath;
-class IfcCivilVoid;
-class IfcClothoid;
-class IfcReferencedSectionedSpine;
 class IfcActorSelect;
 class IfcAppliedValueSelect;
 class IfcAxis2Placement;

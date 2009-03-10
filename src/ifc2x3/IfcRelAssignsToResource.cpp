@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssignsToResource::IfcRelAssignsToResource(Step::Id id, Step::SPFData *arg
 IfcRelAssignsToResource::~IfcRelAssignsToResource() {
 }
 
-bool IfcRelAssignsToResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToResource(this);
+bool IfcRelAssignsToResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToResource(this);
 }
 
-const std::string &IfcRelAssignsToResource::type() {
+const std::string &IfcRelAssignsToResource::type() const {
     return IfcRelAssignsToResource::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToResource::getClassType() {
+const Step::ClassType &IfcRelAssignsToResource::getClassType() {
     return IfcRelAssignsToResource::s_type;
 }
 
-Step::ClassType IfcRelAssignsToResource::getType() const {
+const Step::ClassType &IfcRelAssignsToResource::getType() const {
     return IfcRelAssignsToResource::s_type;
 }
 
-bool IfcRelAssignsToResource::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToResource::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToResource::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcResource *IfcRelAssignsToResource::getRelatingResource() {
     }
 }
 
-void IfcRelAssignsToResource::setRelatingResource(const Step::RefPtr< IfcResource > &value) {
-    m_relatingResource = value;
-    m_relatingResource->m_resourceOf.insert(this);
+const IfcResource *IfcRelAssignsToResource::getRelatingResource() const {
+    IfcRelAssignsToResource * deConstObject = const_cast< IfcRelAssignsToResource * > (this);
+    return deConstObject->getRelatingResource();
 }
 
-void IfcRelAssignsToResource::release() {
-    IfcRelAssigns::release();
-    m_relatingResource.release();
+void IfcRelAssignsToResource::setRelatingResource(const Step::RefPtr< IfcResource > &value) {
+    if (m_relatingResource.valid()) {
+        m_relatingResource->m_resourceOf.erase(this);
+    }
+    if (value.valid()) {
+        value->m_resourceOf.insert(this);
+    }
+    m_relatingResource = value;
 }
 
 bool IfcRelAssignsToResource::init() {
@@ -100,14 +105,14 @@ bool IfcRelAssignsToResource::init() {
         m_relatingResource = NULL;
     }
     else {
-        m_relatingResource = static_cast< IfcResource * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingResource = static_cast< IfcResource * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToResource::copy(const IfcRelAssignsToResource &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingResource(copyop(obj.m_relatingResource.get()));
+    setRelatingResource((IfcResource*)copyop(obj.m_relatingResource.get()));
     return;
 }
 

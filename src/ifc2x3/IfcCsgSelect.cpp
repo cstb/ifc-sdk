@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcCsgSelect::~IfcCsgSelect() {
     deleteUnion();
 }
 
-bool IfcCsgSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCsgSelect(this);
+bool IfcCsgSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCsgSelect(this);
 }
 
 bool IfcCsgSelect::init() {
     return false;
 }
 
-const std::string &IfcCsgSelect::type() {
+const std::string &IfcCsgSelect::type() const {
     return IfcCsgSelect::s_type.getName();
 }
 
-Step::ClassType IfcCsgSelect::getClassType() {
+const Step::ClassType &IfcCsgSelect::getClassType() {
     return IfcCsgSelect::s_type;
 }
 
-Step::ClassType IfcCsgSelect::getType() const {
+const Step::ClassType &IfcCsgSelect::getType() const {
     return IfcCsgSelect::s_type;
 }
 
-bool IfcCsgSelect::isOfType(Step::ClassType t) {
+bool IfcCsgSelect::isOfType(const Step::ClassType &t) const {
     return IfcCsgSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcCsgSelect::copy(const IfcCsgSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCBOOLEANRESULT:
-        setIfcBooleanResult(copyop(obj.m_IfcCsgSelect_union.m_IfcBooleanResult));
+        setIfcBooleanResult((IfcBooleanResult *) (copyop(obj.m_IfcCsgSelect_union.m_IfcBooleanResult)));
         break;
     case IFCCSGPRIMITIVE3D:
-        setIfcCsgPrimitive3D(copyop(obj.m_IfcCsgSelect_union.m_IfcCsgPrimitive3D));
+        setIfcCsgPrimitive3D((IfcCsgPrimitive3D *) (copyop(obj.m_IfcCsgSelect_union.m_IfcCsgPrimitive3D)));
         break;
         }
 }
 
-char *IfcCsgSelect::currentTypeName() {
+std::string IfcCsgSelect::currentTypeName() const {
     switch(m_type) {
     case IFCBOOLEANRESULT:
         return "IfcBooleanResult";
@@ -97,7 +97,7 @@ char *IfcCsgSelect::currentTypeName() {
     }
 }
 
-IfcCsgSelect::IfcCsgSelect_select IfcCsgSelect::currentType() {
+IfcCsgSelect::IfcCsgSelect_select IfcCsgSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcCsgSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcBooleanResult *IfcCsgSelect::getIfcBooleanResult() {
-    return m_IfcCsgSelect_union.m_IfcBooleanResult;
+IfcBooleanResult *IfcCsgSelect::getIfcBooleanResult() const {
+    if (m_type == IFCBOOLEANRESULT) {
+        return m_IfcCsgSelect_union.m_IfcBooleanResult;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCsgSelect::setIfcBooleanResult(IfcBooleanResult *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcCsgSelect::setIfcBooleanResult(IfcBooleanResult *value) {
     m_type = IFCBOOLEANRESULT;
 }
 
-IfcCsgPrimitive3D *IfcCsgSelect::getIfcCsgPrimitive3D() {
-    return m_IfcCsgSelect_union.m_IfcCsgPrimitive3D;
+IfcCsgPrimitive3D *IfcCsgSelect::getIfcCsgPrimitive3D() const {
+    if (m_type == IFCCSGPRIMITIVE3D) {
+        return m_IfcCsgSelect_union.m_IfcCsgPrimitive3D;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCsgSelect::setIfcCsgPrimitive3D(IfcCsgPrimitive3D *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

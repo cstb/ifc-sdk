@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,103 +34,161 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelaxation;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcMechanicalSteelMaterialProperties : public IfcMechanicalMaterialProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'YieldStress'.
+         * 
          */
-        IfcPressureMeasure getYieldStress();
+        virtual IfcPressureMeasure getYieldStress();
+        /**
+         * (const) Returns the value of the explicit attribute 'YieldStress'.
+         * 
+         * @return the value of the explicit attribute 'YieldStress'
+         */
+        virtual const IfcPressureMeasure getYieldStress() const;
         /**
          * Sets the value of the explicit attribute 'YieldStress'.
          * 
          * @param value
          */
-        void setYieldStress(IfcPressureMeasure value);
+        virtual void setYieldStress(IfcPressureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'UltimateStress'.
+         * 
          */
-        IfcPressureMeasure getUltimateStress();
+        virtual IfcPressureMeasure getUltimateStress();
+        /**
+         * (const) Returns the value of the explicit attribute 'UltimateStress'.
+         * 
+         * @return the value of the explicit attribute 'UltimateStress'
+         */
+        virtual const IfcPressureMeasure getUltimateStress() const;
         /**
          * Sets the value of the explicit attribute 'UltimateStress'.
          * 
          * @param value
          */
-        void setUltimateStress(IfcPressureMeasure value);
+        virtual void setUltimateStress(IfcPressureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'UltimateStrain'.
+         * 
          */
-        IfcPositiveRatioMeasure getUltimateStrain();
+        virtual IfcPositiveRatioMeasure getUltimateStrain();
+        /**
+         * (const) Returns the value of the explicit attribute 'UltimateStrain'.
+         * 
+         * @return the value of the explicit attribute 'UltimateStrain'
+         */
+        virtual const IfcPositiveRatioMeasure getUltimateStrain() const;
         /**
          * Sets the value of the explicit attribute 'UltimateStrain'.
          * 
          * @param value
          */
-        void setUltimateStrain(IfcPositiveRatioMeasure value);
+        virtual void setUltimateStrain(IfcPositiveRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'HardeningModule'.
+         * 
          */
-        IfcModulusOfElasticityMeasure getHardeningModule();
+        virtual IfcModulusOfElasticityMeasure getHardeningModule();
+        /**
+         * (const) Returns the value of the explicit attribute 'HardeningModule'.
+         * 
+         * @return the value of the explicit attribute 'HardeningModule'
+         */
+        virtual const IfcModulusOfElasticityMeasure getHardeningModule() const;
         /**
          * Sets the value of the explicit attribute 'HardeningModule'.
          * 
          * @param value
          */
-        void setHardeningModule(IfcModulusOfElasticityMeasure value);
+        virtual void setHardeningModule(IfcModulusOfElasticityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ProportionalStress'.
+         * 
          */
-        IfcPressureMeasure getProportionalStress();
+        virtual IfcPressureMeasure getProportionalStress();
+        /**
+         * (const) Returns the value of the explicit attribute 'ProportionalStress'.
+         * 
+         * @return the value of the explicit attribute 'ProportionalStress'
+         */
+        virtual const IfcPressureMeasure getProportionalStress() const;
         /**
          * Sets the value of the explicit attribute 'ProportionalStress'.
          * 
          * @param value
          */
-        void setProportionalStress(IfcPressureMeasure value);
+        virtual void setProportionalStress(IfcPressureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'PlasticStrain'.
+         * 
          */
-        IfcPositiveRatioMeasure getPlasticStrain();
+        virtual IfcPositiveRatioMeasure getPlasticStrain();
+        /**
+         * (const) Returns the value of the explicit attribute 'PlasticStrain'.
+         * 
+         * @return the value of the explicit attribute 'PlasticStrain'
+         */
+        virtual const IfcPositiveRatioMeasure getPlasticStrain() const;
         /**
          * Sets the value of the explicit attribute 'PlasticStrain'.
          * 
          * @param value
          */
-        void setPlasticStrain(IfcPositiveRatioMeasure value);
+        virtual void setPlasticStrain(IfcPositiveRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Relaxations'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcRelaxation > > &getRelaxations();
+        virtual Set_IfcRelaxation_1_n &getRelaxations();
+        /**
+         * (const) Returns the value of the explicit attribute 'Relaxations'.
+         * 
+         * @return the value of the explicit attribute 'Relaxations'
+         */
+        virtual const Set_IfcRelaxation_1_n &getRelaxations() const;
         /**
          * Sets the value of the explicit attribute 'Relaxations'.
          * 
          * @param value
          */
-        void setRelaxations(const Step::Set< Step::RefPtr< IfcRelaxation > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setRelaxations(const Set_IfcRelaxation_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -173,7 +231,7 @@ namespace ifc2x3 {
         Step::Real m_plasticStrain;
         /**
          */
-        Step::Set< Step::RefPtr< IfcRelaxation > > m_relaxations;
+        Set_IfcRelaxation_1_n m_relaxations;
 
     };
 

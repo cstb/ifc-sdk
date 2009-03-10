@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,33 +45,32 @@
 using namespace ifc2x3;
 
 IfcShellBasedSurfaceModel::IfcShellBasedSurfaceModel(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_sbsmBoundary.setUnset(true);
 }
 
 IfcShellBasedSurfaceModel::~IfcShellBasedSurfaceModel() {
 }
 
-bool IfcShellBasedSurfaceModel::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcShellBasedSurfaceModel(this);
+bool IfcShellBasedSurfaceModel::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcShellBasedSurfaceModel(this);
 }
 
-const std::string &IfcShellBasedSurfaceModel::type() {
+const std::string &IfcShellBasedSurfaceModel::type() const {
     return IfcShellBasedSurfaceModel::s_type.getName();
 }
 
-Step::ClassType IfcShellBasedSurfaceModel::getClassType() {
+const Step::ClassType &IfcShellBasedSurfaceModel::getClassType() {
     return IfcShellBasedSurfaceModel::s_type;
 }
 
-Step::ClassType IfcShellBasedSurfaceModel::getType() const {
+const Step::ClassType &IfcShellBasedSurfaceModel::getType() const {
     return IfcShellBasedSurfaceModel::s_type;
 }
 
-bool IfcShellBasedSurfaceModel::isOfType(Step::ClassType t) {
+bool IfcShellBasedSurfaceModel::isOfType(const Step::ClassType &t) const {
     return IfcShellBasedSurfaceModel::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcShell > > &IfcShellBasedSurfaceModel::getSbsmBoundary() {
+Set_IfcShell_1_n &IfcShellBasedSurfaceModel::getSbsmBoundary() {
     if (Step::BaseObject::inited()) {
         return m_sbsmBoundary;
     }
@@ -81,13 +80,13 @@ Step::Set< Step::RefPtr< IfcShell > > &IfcShellBasedSurfaceModel::getSbsmBoundar
     }
 }
 
-void IfcShellBasedSurfaceModel::setSbsmBoundary(const Step::Set< Step::RefPtr< IfcShell > > &value) {
-    m_sbsmBoundary = value;
+const Set_IfcShell_1_n &IfcShellBasedSurfaceModel::getSbsmBoundary() const {
+    IfcShellBasedSurfaceModel * deConstObject = const_cast< IfcShellBasedSurfaceModel * > (this);
+    return deConstObject->getSbsmBoundary();
 }
 
-void IfcShellBasedSurfaceModel::release() {
-    IfcGeometricRepresentationItem::release();
-    m_sbsmBoundary.clear();
+void IfcShellBasedSurfaceModel::setSbsmBoundary(const Set_IfcShell_1_n &value) {
+    m_sbsmBoundary = value;
 }
 
 bool IfcShellBasedSurfaceModel::init() {
@@ -131,7 +130,7 @@ bool IfcShellBasedSurfaceModel::init() {
 }
 
 void IfcShellBasedSurfaceModel::copy(const IfcShellBasedSurfaceModel &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcShell > >::const_iterator it_m_sbsmBoundary;
+    Step::Set< Step::RefPtr< IfcShell >, 1 >::const_iterator it_m_sbsmBoundary;
     IfcGeometricRepresentationItem::copy(obj, copyop);
     for (it_m_sbsmBoundary = obj.m_sbsmBoundary.begin(); it_m_sbsmBoundary != obj.m_sbsmBoundary.end(); ++it_m_sbsmBoundary) {
         Step::RefPtr< IfcShell > copyTarget = new IfcShell;

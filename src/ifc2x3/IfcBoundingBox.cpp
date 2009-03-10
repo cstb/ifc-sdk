@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcBoundingBox::IfcBoundingBox(Step::Id id, Step::SPFData *args) : IfcGeometricR
 IfcBoundingBox::~IfcBoundingBox() {
 }
 
-bool IfcBoundingBox::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundingBox(this);
+bool IfcBoundingBox::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundingBox(this);
 }
 
-const std::string &IfcBoundingBox::type() {
+const std::string &IfcBoundingBox::type() const {
     return IfcBoundingBox::s_type.getName();
 }
 
-Step::ClassType IfcBoundingBox::getClassType() {
+const Step::ClassType &IfcBoundingBox::getClassType() {
     return IfcBoundingBox::s_type;
 }
 
-Step::ClassType IfcBoundingBox::getType() const {
+const Step::ClassType &IfcBoundingBox::getType() const {
     return IfcBoundingBox::s_type;
 }
 
-bool IfcBoundingBox::isOfType(Step::ClassType t) {
+bool IfcBoundingBox::isOfType(const Step::ClassType &t) const {
     return IfcBoundingBox::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcCartesianPoint *IfcBoundingBox::getCorner() {
     else {
         return NULL;
     }
+}
+
+const IfcCartesianPoint *IfcBoundingBox::getCorner() const {
+    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
+    return deConstObject->getCorner();
 }
 
 void IfcBoundingBox::setCorner(const Step::RefPtr< IfcCartesianPoint > &value) {
@@ -95,6 +100,11 @@ IfcPositiveLengthMeasure IfcBoundingBox::getXDim() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcBoundingBox::getXDim() const {
+    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
+    return deConstObject->getXDim();
+}
+
 void IfcBoundingBox::setXDim(IfcPositiveLengthMeasure value) {
     m_xDim = value;
 }
@@ -106,6 +116,11 @@ IfcPositiveLengthMeasure IfcBoundingBox::getYDim() {
     else {
         return Step::getUnset(m_yDim);
     }
+}
+
+const IfcPositiveLengthMeasure IfcBoundingBox::getYDim() const {
+    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
+    return deConstObject->getYDim();
 }
 
 void IfcBoundingBox::setYDim(IfcPositiveLengthMeasure value) {
@@ -121,13 +136,13 @@ IfcPositiveLengthMeasure IfcBoundingBox::getZDim() {
     }
 }
 
-void IfcBoundingBox::setZDim(IfcPositiveLengthMeasure value) {
-    m_zDim = value;
+const IfcPositiveLengthMeasure IfcBoundingBox::getZDim() const {
+    IfcBoundingBox * deConstObject = const_cast< IfcBoundingBox * > (this);
+    return deConstObject->getZDim();
 }
 
-void IfcBoundingBox::release() {
-    IfcGeometricRepresentationItem::release();
-    m_corner.release();
+void IfcBoundingBox::setZDim(IfcPositiveLengthMeasure value) {
+    m_zDim = value;
 }
 
 bool IfcBoundingBox::init() {
@@ -141,7 +156,7 @@ bool IfcBoundingBox::init() {
         m_corner = NULL;
     }
     else {
-        m_corner = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_corner = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -169,7 +184,7 @@ bool IfcBoundingBox::init() {
 
 void IfcBoundingBox::copy(const IfcBoundingBox &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setCorner(copyop(obj.m_corner.get()));
+    setCorner((IfcCartesianPoint*)copyop(obj.m_corner.get()));
     setXDim(obj.m_xDim);
     setYDim(obj.m_yDim);
     setZDim(obj.m_zDim);

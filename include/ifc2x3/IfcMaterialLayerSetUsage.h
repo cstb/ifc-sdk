@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,63 +46,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcMaterialLayerSetUsage : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ForLayerSet'.
+         * 
          */
-        IfcMaterialLayerSet *getForLayerSet();
+        virtual IfcMaterialLayerSet *getForLayerSet();
+        /**
+         * (const) Returns the value of the explicit attribute 'ForLayerSet'.
+         * 
+         * @return the value of the explicit attribute 'ForLayerSet'
+         */
+        virtual const IfcMaterialLayerSet *getForLayerSet() const;
         /**
          * Sets the value of the explicit attribute 'ForLayerSet'.
          * 
          * @param value
          */
-        void setForLayerSet(const Step::RefPtr< IfcMaterialLayerSet > &value);
+        virtual void setForLayerSet(const Step::RefPtr< IfcMaterialLayerSet > &value);
         /**
+         * Gets the value of the explicit attribute 'LayerSetDirection'.
+         * 
          */
-        IfcLayerSetDirectionEnum getLayerSetDirection();
+        virtual IfcLayerSetDirectionEnum getLayerSetDirection();
+        /**
+         * (const) Returns the value of the explicit attribute 'LayerSetDirection'.
+         * 
+         * @return the value of the explicit attribute 'LayerSetDirection'
+         */
+        virtual const IfcLayerSetDirectionEnum getLayerSetDirection() const;
         /**
          * Sets the value of the explicit attribute 'LayerSetDirection'.
          * 
          * @param value
          */
-        void setLayerSetDirection(IfcLayerSetDirectionEnum value);
+        virtual void setLayerSetDirection(IfcLayerSetDirectionEnum value);
         /**
+         * Gets the value of the explicit attribute 'DirectionSense'.
+         * 
          */
-        IfcDirectionSenseEnum getDirectionSense();
+        virtual IfcDirectionSenseEnum getDirectionSense();
+        /**
+         * (const) Returns the value of the explicit attribute 'DirectionSense'.
+         * 
+         * @return the value of the explicit attribute 'DirectionSense'
+         */
+        virtual const IfcDirectionSenseEnum getDirectionSense() const;
         /**
          * Sets the value of the explicit attribute 'DirectionSense'.
          * 
          * @param value
          */
-        void setDirectionSense(IfcDirectionSenseEnum value);
+        virtual void setDirectionSense(IfcDirectionSenseEnum value);
         /**
+         * Gets the value of the explicit attribute 'OffsetFromReferenceLine'.
+         * 
          */
-        IfcLengthMeasure getOffsetFromReferenceLine();
+        virtual IfcLengthMeasure getOffsetFromReferenceLine();
+        /**
+         * (const) Returns the value of the explicit attribute 'OffsetFromReferenceLine'.
+         * 
+         * @return the value of the explicit attribute 'OffsetFromReferenceLine'
+         */
+        virtual const IfcLengthMeasure getOffsetFromReferenceLine() const;
         /**
          * Sets the value of the explicit attribute 'OffsetFromReferenceLine'.
          * 
          * @param value
          */
-        void setOffsetFromReferenceLine(IfcLengthMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setOffsetFromReferenceLine(IfcLengthMeasure value);
         friend class ExpressDataSet;
 
     protected:

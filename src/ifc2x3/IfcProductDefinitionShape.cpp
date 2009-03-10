@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,34 +44,32 @@
 using namespace ifc2x3;
 
 IfcProductDefinitionShape::IfcProductDefinitionShape(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
-    m_shapeOfProduct.setUnset(true);
-    m_hasShapeAspects.setUnset(true);
 }
 
 IfcProductDefinitionShape::~IfcProductDefinitionShape() {
 }
 
-bool IfcProductDefinitionShape::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProductDefinitionShape(this);
+bool IfcProductDefinitionShape::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProductDefinitionShape(this);
 }
 
-const std::string &IfcProductDefinitionShape::type() {
+const std::string &IfcProductDefinitionShape::type() const {
     return IfcProductDefinitionShape::s_type.getName();
 }
 
-Step::ClassType IfcProductDefinitionShape::getClassType() {
+const Step::ClassType &IfcProductDefinitionShape::getClassType() {
     return IfcProductDefinitionShape::s_type;
 }
 
-Step::ClassType IfcProductDefinitionShape::getType() const {
+const Step::ClassType &IfcProductDefinitionShape::getType() const {
     return IfcProductDefinitionShape::s_type;
 }
 
-bool IfcProductDefinitionShape::isOfType(Step::ClassType t) {
+bool IfcProductDefinitionShape::isOfType(const Step::ClassType &t) const {
     return IfcProductDefinitionShape::s_type == t ? true : IfcProductRepresentation::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcProduct > > &IfcProductDefinitionShape::getShapeOfProduct() {
+Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct() {
     if (Step::BaseObject::inited()) {
         return m_shapeOfProduct;
     }
@@ -81,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcProduct > > &IfcProductDefinitionShape::getShapeOfPr
     }
 }
 
-Step::Set< Step::ObsPtr< IfcShapeAspect > > &IfcProductDefinitionShape::getHasShapeAspects() {
+const Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct() const {
+    IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
+    return deConstObject->getShapeOfProduct();
+}
+
+Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() {
     if (Step::BaseObject::inited()) {
         return m_hasShapeAspects;
     }
@@ -91,8 +94,9 @@ Step::Set< Step::ObsPtr< IfcShapeAspect > > &IfcProductDefinitionShape::getHasSh
     }
 }
 
-void IfcProductDefinitionShape::release() {
-    IfcProductRepresentation::release();
+const Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() const {
+    IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
+    return deConstObject->getHasShapeAspects();
 }
 
 bool IfcProductDefinitionShape::init() {

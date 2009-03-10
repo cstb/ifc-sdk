@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcTextureMap::IfcTextureMap(Step::Id id, Step::SPFData *args) : IfcTextureCoordinate(id, args) {
-    m_textureMaps.setUnset(true);
 }
 
 IfcTextureMap::~IfcTextureMap() {
 }
 
-bool IfcTextureMap::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextureMap(this);
+bool IfcTextureMap::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextureMap(this);
 }
 
-const std::string &IfcTextureMap::type() {
+const std::string &IfcTextureMap::type() const {
     return IfcTextureMap::s_type.getName();
 }
 
-Step::ClassType IfcTextureMap::getClassType() {
+const Step::ClassType &IfcTextureMap::getClassType() {
     return IfcTextureMap::s_type;
 }
 
-Step::ClassType IfcTextureMap::getType() const {
+const Step::ClassType &IfcTextureMap::getType() const {
     return IfcTextureMap::s_type;
 }
 
-bool IfcTextureMap::isOfType(Step::ClassType t) {
+bool IfcTextureMap::isOfType(const Step::ClassType &t) const {
     return IfcTextureMap::s_type == t ? true : IfcTextureCoordinate::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > > &IfcTextureMap::getTextureMaps() {
+Set_IfcVertexBasedTextureMap_1_n &IfcTextureMap::getTextureMaps() {
     if (Step::BaseObject::inited()) {
         return m_textureMaps;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > > &IfcTextureMap::getTexture
     }
 }
 
-void IfcTextureMap::setTextureMaps(const Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > > &value) {
-    m_textureMaps = value;
+const Set_IfcVertexBasedTextureMap_1_n &IfcTextureMap::getTextureMaps() const {
+    IfcTextureMap * deConstObject = const_cast< IfcTextureMap * > (this);
+    return deConstObject->getTextureMaps();
 }
 
-void IfcTextureMap::release() {
-    IfcTextureCoordinate::release();
-    m_textureMaps.clear();
+void IfcTextureMap::setTextureMaps(const Set_IfcVertexBasedTextureMap_1_n &value) {
+    m_textureMaps = value;
 }
 
 bool IfcTextureMap::init() {
@@ -107,7 +105,7 @@ bool IfcTextureMap::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcVertexBasedTextureMap > attr2;
-                attr2 = static_cast< IfcVertexBasedTextureMap * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcVertexBasedTextureMap * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_textureMaps.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcTextureMap::init() {
 }
 
 void IfcTextureMap::copy(const IfcTextureMap &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcVertexBasedTextureMap > >::const_iterator it_m_textureMaps;
+    Step::Set< Step::RefPtr< IfcVertexBasedTextureMap >, 1 >::const_iterator it_m_textureMaps;
     IfcTextureCoordinate::copy(obj, copyop);
     for (it_m_textureMaps = obj.m_textureMaps.begin(); it_m_textureMaps != obj.m_textureMaps.end(); ++it_m_textureMaps) {
-        Step::RefPtr< IfcVertexBasedTextureMap > copyTarget = copyop((*it_m_textureMaps).get());
+        Step::RefPtr< IfcVertexBasedTextureMap > copyTarget = (IfcVertexBasedTextureMap *) (copyop((*it_m_textureMaps).get()));
         m_textureMaps.insert(copyTarget.get());
     }
     return;

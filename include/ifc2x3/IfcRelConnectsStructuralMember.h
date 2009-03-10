@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,81 +50,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRelConnectsStructuralMember : public IfcRelConnects {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RelatingStructuralMember'.
+         * 
          */
-        IfcStructuralMember *getRelatingStructuralMember();
+        virtual IfcStructuralMember *getRelatingStructuralMember();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingStructuralMember'.
+         * 
+         * @return the value of the explicit attribute 'RelatingStructuralMember'
+         */
+        virtual const IfcStructuralMember *getRelatingStructuralMember() const;
         /**
          * Sets the value of the explicit attribute 'RelatingStructuralMember'.
          * 
          * @param value
          */
-        void setRelatingStructuralMember(const Step::RefPtr< IfcStructuralMember > &value);
+        virtual void setRelatingStructuralMember(const Step::RefPtr< IfcStructuralMember > &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedStructuralConnection'.
+         * 
          */
-        IfcStructuralConnection *getRelatedStructuralConnection();
+        virtual IfcStructuralConnection *getRelatedStructuralConnection();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatedStructuralConnection'.
+         * 
+         * @return the value of the explicit attribute 'RelatedStructuralConnection'
+         */
+        virtual const IfcStructuralConnection *getRelatedStructuralConnection() const;
         /**
          * Sets the value of the explicit attribute 'RelatedStructuralConnection'.
          * 
          * @param value
          */
-        void setRelatedStructuralConnection(const Step::RefPtr< IfcStructuralConnection > &value);
+        virtual void setRelatedStructuralConnection(const Step::RefPtr< IfcStructuralConnection > &value);
         /**
+         * Gets the value of the explicit attribute 'AppliedCondition'.
+         * 
          */
-        IfcBoundaryCondition *getAppliedCondition();
+        virtual IfcBoundaryCondition *getAppliedCondition();
+        /**
+         * (const) Returns the value of the explicit attribute 'AppliedCondition'.
+         * 
+         * @return the value of the explicit attribute 'AppliedCondition'
+         */
+        virtual const IfcBoundaryCondition *getAppliedCondition() const;
         /**
          * Sets the value of the explicit attribute 'AppliedCondition'.
          * 
          * @param value
          */
-        void setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value);
+        virtual void setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value);
         /**
+         * Gets the value of the explicit attribute 'AdditionalConditions'.
+         * 
          */
-        IfcStructuralConnectionCondition *getAdditionalConditions();
+        virtual IfcStructuralConnectionCondition *getAdditionalConditions();
+        /**
+         * (const) Returns the value of the explicit attribute 'AdditionalConditions'.
+         * 
+         * @return the value of the explicit attribute 'AdditionalConditions'
+         */
+        virtual const IfcStructuralConnectionCondition *getAdditionalConditions() const;
         /**
          * Sets the value of the explicit attribute 'AdditionalConditions'.
          * 
          * @param value
          */
-        void setAdditionalConditions(const Step::RefPtr< IfcStructuralConnectionCondition > &value);
+        virtual void setAdditionalConditions(const Step::RefPtr< IfcStructuralConnectionCondition > &value);
         /**
+         * Gets the value of the explicit attribute 'SupportedLength'.
+         * 
          */
-        IfcLengthMeasure getSupportedLength();
+        virtual IfcLengthMeasure getSupportedLength();
+        /**
+         * (const) Returns the value of the explicit attribute 'SupportedLength'.
+         * 
+         * @return the value of the explicit attribute 'SupportedLength'
+         */
+        virtual const IfcLengthMeasure getSupportedLength() const;
         /**
          * Sets the value of the explicit attribute 'SupportedLength'.
          * 
          * @param value
          */
-        void setSupportedLength(IfcLengthMeasure value);
+        virtual void setSupportedLength(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ConditionCoordinateSystem'.
+         * 
          */
-        IfcAxis2Placement3D *getConditionCoordinateSystem();
+        virtual IfcAxis2Placement3D *getConditionCoordinateSystem();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConditionCoordinateSystem'.
+         * 
+         * @return the value of the explicit attribute 'ConditionCoordinateSystem'
+         */
+        virtual const IfcAxis2Placement3D *getConditionCoordinateSystem() const;
         /**
          * Sets the value of the explicit attribute 'ConditionCoordinateSystem'.
          * 
          * @param value
          */
-        void setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value);
         friend class ExpressDataSet;
 
     protected:

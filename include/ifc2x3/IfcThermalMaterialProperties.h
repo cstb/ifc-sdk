@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,63 +44,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcThermalMaterialProperties : public IfcMaterialProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SpecificHeatCapacity'.
+         * 
          */
-        IfcSpecificHeatCapacityMeasure getSpecificHeatCapacity();
+        virtual IfcSpecificHeatCapacityMeasure getSpecificHeatCapacity();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpecificHeatCapacity'.
+         * 
+         * @return the value of the explicit attribute 'SpecificHeatCapacity'
+         */
+        virtual const IfcSpecificHeatCapacityMeasure getSpecificHeatCapacity() const;
         /**
          * Sets the value of the explicit attribute 'SpecificHeatCapacity'.
          * 
          * @param value
          */
-        void setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value);
+        virtual void setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'BoilingPoint'.
+         * 
          */
-        IfcThermodynamicTemperatureMeasure getBoilingPoint();
+        virtual IfcThermodynamicTemperatureMeasure getBoilingPoint();
+        /**
+         * (const) Returns the value of the explicit attribute 'BoilingPoint'.
+         * 
+         * @return the value of the explicit attribute 'BoilingPoint'
+         */
+        virtual const IfcThermodynamicTemperatureMeasure getBoilingPoint() const;
         /**
          * Sets the value of the explicit attribute 'BoilingPoint'.
          * 
          * @param value
          */
-        void setBoilingPoint(IfcThermodynamicTemperatureMeasure value);
+        virtual void setBoilingPoint(IfcThermodynamicTemperatureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FreezingPoint'.
+         * 
          */
-        IfcThermodynamicTemperatureMeasure getFreezingPoint();
+        virtual IfcThermodynamicTemperatureMeasure getFreezingPoint();
+        /**
+         * (const) Returns the value of the explicit attribute 'FreezingPoint'.
+         * 
+         * @return the value of the explicit attribute 'FreezingPoint'
+         */
+        virtual const IfcThermodynamicTemperatureMeasure getFreezingPoint() const;
         /**
          * Sets the value of the explicit attribute 'FreezingPoint'.
          * 
          * @param value
          */
-        void setFreezingPoint(IfcThermodynamicTemperatureMeasure value);
+        virtual void setFreezingPoint(IfcThermodynamicTemperatureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThermalConductivity'.
+         * 
          */
-        IfcThermalConductivityMeasure getThermalConductivity();
+        virtual IfcThermalConductivityMeasure getThermalConductivity();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermalConductivity'.
+         * 
+         * @return the value of the explicit attribute 'ThermalConductivity'
+         */
+        virtual const IfcThermalConductivityMeasure getThermalConductivity() const;
         /**
          * Sets the value of the explicit attribute 'ThermalConductivity'.
          * 
          * @param value
          */
-        void setThermalConductivity(IfcThermalConductivityMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setThermalConductivity(IfcThermalConductivityMeasure value);
         friend class ExpressDataSet;
 
     protected:

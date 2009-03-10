@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcBoundaryNodeConditionWarping::IfcBoundaryNodeConditionWarping(Step::Id id, St
 IfcBoundaryNodeConditionWarping::~IfcBoundaryNodeConditionWarping() {
 }
 
-bool IfcBoundaryNodeConditionWarping::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundaryNodeConditionWarping(this);
+bool IfcBoundaryNodeConditionWarping::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundaryNodeConditionWarping(this);
 }
 
-const std::string &IfcBoundaryNodeConditionWarping::type() {
+const std::string &IfcBoundaryNodeConditionWarping::type() const {
     return IfcBoundaryNodeConditionWarping::s_type.getName();
 }
 
-Step::ClassType IfcBoundaryNodeConditionWarping::getClassType() {
+const Step::ClassType &IfcBoundaryNodeConditionWarping::getClassType() {
     return IfcBoundaryNodeConditionWarping::s_type;
 }
 
-Step::ClassType IfcBoundaryNodeConditionWarping::getType() const {
+const Step::ClassType &IfcBoundaryNodeConditionWarping::getType() const {
     return IfcBoundaryNodeConditionWarping::s_type;
 }
 
-bool IfcBoundaryNodeConditionWarping::isOfType(Step::ClassType t) {
+bool IfcBoundaryNodeConditionWarping::isOfType(const Step::ClassType &t) const {
     return IfcBoundaryNodeConditionWarping::s_type == t ? true : IfcBoundaryNodeCondition::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcWarpingMomentMeasure IfcBoundaryNodeConditionWarping::getWarpingStiffness() {
     }
 }
 
-void IfcBoundaryNodeConditionWarping::setWarpingStiffness(IfcWarpingMomentMeasure value) {
-    m_warpingStiffness = value;
+const IfcWarpingMomentMeasure IfcBoundaryNodeConditionWarping::getWarpingStiffness() const {
+    IfcBoundaryNodeConditionWarping * deConstObject = const_cast< IfcBoundaryNodeConditionWarping * > (this);
+    return deConstObject->getWarpingStiffness();
 }
 
-void IfcBoundaryNodeConditionWarping::release() {
-    IfcBoundaryNodeCondition::release();
+void IfcBoundaryNodeConditionWarping::setWarpingStiffness(IfcWarpingMomentMeasure value) {
+    m_warpingStiffness = value;
 }
 
 bool IfcBoundaryNodeConditionWarping::init() {

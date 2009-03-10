@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,8 +31,9 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/Referenced.h>
 
@@ -48,162 +49,287 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcFluidFlowProperties : public IfcPropertySetDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'PropertySource'.
+         * 
          */
-        IfcPropertySourceEnum getPropertySource();
+        virtual IfcPropertySourceEnum getPropertySource();
+        /**
+         * (const) Returns the value of the explicit attribute 'PropertySource'.
+         * 
+         * @return the value of the explicit attribute 'PropertySource'
+         */
+        virtual const IfcPropertySourceEnum getPropertySource() const;
         /**
          * Sets the value of the explicit attribute 'PropertySource'.
          * 
          * @param value
          */
-        void setPropertySource(IfcPropertySourceEnum value);
+        virtual void setPropertySource(IfcPropertySourceEnum value);
         /**
+         * Gets the value of the explicit attribute 'FlowConditionTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getFlowConditionTimeSeries();
+        virtual IfcTimeSeries *getFlowConditionTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'FlowConditionTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'FlowConditionTimeSeries'
+         */
+        virtual const IfcTimeSeries *getFlowConditionTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'FlowConditionTimeSeries'.
          * 
          * @param value
          */
-        void setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'VelocityTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getVelocityTimeSeries();
+        virtual IfcTimeSeries *getVelocityTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'VelocityTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'VelocityTimeSeries'
+         */
+        virtual const IfcTimeSeries *getVelocityTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'VelocityTimeSeries'.
          * 
          * @param value
          */
-        void setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'FlowrateTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getFlowrateTimeSeries();
+        virtual IfcTimeSeries *getFlowrateTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'FlowrateTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'FlowrateTimeSeries'
+         */
+        virtual const IfcTimeSeries *getFlowrateTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'FlowrateTimeSeries'.
          * 
          * @param value
          */
-        void setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'Fluid'.
+         * 
          */
-        IfcMaterial *getFluid();
+        virtual IfcMaterial *getFluid();
+        /**
+         * (const) Returns the value of the explicit attribute 'Fluid'.
+         * 
+         * @return the value of the explicit attribute 'Fluid'
+         */
+        virtual const IfcMaterial *getFluid() const;
         /**
          * Sets the value of the explicit attribute 'Fluid'.
          * 
          * @param value
          */
-        void setFluid(const Step::RefPtr< IfcMaterial > &value);
+        virtual void setFluid(const Step::RefPtr< IfcMaterial > &value);
         /**
+         * Gets the value of the explicit attribute 'PressureTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getPressureTimeSeries();
+        virtual IfcTimeSeries *getPressureTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'PressureTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'PressureTimeSeries'
+         */
+        virtual const IfcTimeSeries *getPressureTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'PressureTimeSeries'.
          * 
          * @param value
          */
-        void setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'UserDefinedPropertySource'.
+         * 
          */
-        IfcLabel getUserDefinedPropertySource();
+        virtual IfcLabel getUserDefinedPropertySource();
+        /**
+         * (const) Returns the value of the explicit attribute 'UserDefinedPropertySource'.
+         * 
+         * @return the value of the explicit attribute 'UserDefinedPropertySource'
+         */
+        virtual const IfcLabel getUserDefinedPropertySource() const;
         /**
          * Sets the value of the explicit attribute 'UserDefinedPropertySource'.
          * 
          * @param value
          */
-        void setUserDefinedPropertySource(const IfcLabel &value);
+        virtual void setUserDefinedPropertySource(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'TemperatureSingleValue'.
+         * 
          */
-        IfcThermodynamicTemperatureMeasure getTemperatureSingleValue();
+        virtual IfcThermodynamicTemperatureMeasure getTemperatureSingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'TemperatureSingleValue'.
+         * 
+         * @return the value of the explicit attribute 'TemperatureSingleValue'
+         */
+        virtual const IfcThermodynamicTemperatureMeasure getTemperatureSingleValue() const;
         /**
          * Sets the value of the explicit attribute 'TemperatureSingleValue'.
          * 
          * @param value
          */
-        void setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
+        virtual void setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'WetBulbTemperatureSingleValue'.
+         * 
          */
-        IfcThermodynamicTemperatureMeasure getWetBulbTemperatureSingleValue();
+        virtual IfcThermodynamicTemperatureMeasure getWetBulbTemperatureSingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'WetBulbTemperatureSingleValue'.
+         * 
+         * @return the value of the explicit attribute 'WetBulbTemperatureSingleValue'
+         */
+        virtual const IfcThermodynamicTemperatureMeasure getWetBulbTemperatureSingleValue() const;
         /**
          * Sets the value of the explicit attribute 'WetBulbTemperatureSingleValue'.
          * 
          * @param value
          */
-        void setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
+        virtual void setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'WetBulbTemperatureTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getWetBulbTemperatureTimeSeries();
+        virtual IfcTimeSeries *getWetBulbTemperatureTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'WetBulbTemperatureTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'WetBulbTemperatureTimeSeries'
+         */
+        virtual const IfcTimeSeries *getWetBulbTemperatureTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'WetBulbTemperatureTimeSeries'.
          * 
          * @param value
          */
-        void setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'TemperatureTimeSeries'.
+         * 
          */
-        IfcTimeSeries *getTemperatureTimeSeries();
+        virtual IfcTimeSeries *getTemperatureTimeSeries();
+        /**
+         * (const) Returns the value of the explicit attribute 'TemperatureTimeSeries'.
+         * 
+         * @return the value of the explicit attribute 'TemperatureTimeSeries'
+         */
+        virtual const IfcTimeSeries *getTemperatureTimeSeries() const;
         /**
          * Sets the value of the explicit attribute 'TemperatureTimeSeries'.
          * 
          * @param value
          */
-        void setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'FlowrateSingleValue'.
+         * 
          */
-        IfcDerivedMeasureValue *getFlowrateSingleValue();
+        virtual IfcDerivedMeasureValue *getFlowrateSingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'FlowrateSingleValue'.
+         * 
+         * @return the value of the explicit attribute 'FlowrateSingleValue'
+         */
+        virtual const IfcDerivedMeasureValue *getFlowrateSingleValue() const;
         /**
          * Sets the value of the explicit attribute 'FlowrateSingleValue'.
          * 
          * @param value
          */
-        void setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value);
+        virtual void setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value);
         /**
+         * Gets the value of the explicit attribute 'FlowConditionSingleValue'.
+         * 
          */
-        IfcPositiveRatioMeasure getFlowConditionSingleValue();
+        virtual IfcPositiveRatioMeasure getFlowConditionSingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'FlowConditionSingleValue'.
+         * 
+         * @return the value of the explicit attribute 'FlowConditionSingleValue'
+         */
+        virtual const IfcPositiveRatioMeasure getFlowConditionSingleValue() const;
         /**
          * Sets the value of the explicit attribute 'FlowConditionSingleValue'.
          * 
          * @param value
          */
-        void setFlowConditionSingleValue(IfcPositiveRatioMeasure value);
+        virtual void setFlowConditionSingleValue(IfcPositiveRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'VelocitySingleValue'.
+         * 
          */
-        IfcLinearVelocityMeasure getVelocitySingleValue();
+        virtual IfcLinearVelocityMeasure getVelocitySingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'VelocitySingleValue'.
+         * 
+         * @return the value of the explicit attribute 'VelocitySingleValue'
+         */
+        virtual const IfcLinearVelocityMeasure getVelocitySingleValue() const;
         /**
          * Sets the value of the explicit attribute 'VelocitySingleValue'.
          * 
          * @param value
          */
-        void setVelocitySingleValue(IfcLinearVelocityMeasure value);
+        virtual void setVelocitySingleValue(IfcLinearVelocityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'PressureSingleValue'.
+         * 
          */
-        IfcPressureMeasure getPressureSingleValue();
+        virtual IfcPressureMeasure getPressureSingleValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'PressureSingleValue'.
+         * 
+         * @return the value of the explicit attribute 'PressureSingleValue'
+         */
+        virtual const IfcPressureMeasure getPressureSingleValue() const;
         /**
          * Sets the value of the explicit attribute 'PressureSingleValue'.
          * 
          * @param value
          */
-        void setPressureSingleValue(IfcPressureMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setPressureSingleValue(IfcPressureMeasure value);
         friend class ExpressDataSet;
 
     protected:
@@ -246,7 +372,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcTimeSeries > m_pressureTimeSeries;
         /**
          */
-        std::string m_userDefinedPropertySource;
+        Step::String m_userDefinedPropertySource;
         /**
          */
         Step::Real m_temperatureSingleValue;

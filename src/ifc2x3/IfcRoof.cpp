@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRoof::IfcRoof(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcRoof::~IfcRoof() {
 }
 
-bool IfcRoof::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRoof(this);
+bool IfcRoof::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRoof(this);
 }
 
-const std::string &IfcRoof::type() {
+const std::string &IfcRoof::type() const {
     return IfcRoof::s_type.getName();
 }
 
-Step::ClassType IfcRoof::getClassType() {
+const Step::ClassType &IfcRoof::getClassType() {
     return IfcRoof::s_type;
 }
 
-Step::ClassType IfcRoof::getType() const {
+const Step::ClassType &IfcRoof::getType() const {
     return IfcRoof::s_type;
 }
 
-bool IfcRoof::isOfType(Step::ClassType t) {
+bool IfcRoof::isOfType(const Step::ClassType &t) const {
     return IfcRoof::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcRoofTypeEnum IfcRoof::getShapeType() {
     }
 }
 
-void IfcRoof::setShapeType(IfcRoofTypeEnum value) {
-    m_shapeType = value;
+const IfcRoofTypeEnum IfcRoof::getShapeType() const {
+    IfcRoof * deConstObject = const_cast< IfcRoof * > (this);
+    return deConstObject->getShapeType();
 }
 
-void IfcRoof::release() {
-    IfcBuildingElement::release();
+void IfcRoof::setShapeType(IfcRoofTypeEnum value) {
+    m_shapeType = value;
 }
 
 bool IfcRoof::init() {

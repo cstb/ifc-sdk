@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,7 +50,6 @@ using namespace ifc2x3;
 IfcInventory::IfcInventory(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
     m_inventoryType = IfcInventoryTypeEnum_UNSET;
     m_jurisdiction = NULL;
-    m_responsiblePersons.setUnset(true);
     m_lastUpdateDate = NULL;
     m_currentValue = NULL;
     m_originalValue = NULL;
@@ -59,23 +58,23 @@ IfcInventory::IfcInventory(Step::Id id, Step::SPFData *args) : IfcGroup(id, args
 IfcInventory::~IfcInventory() {
 }
 
-bool IfcInventory::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcInventory(this);
+bool IfcInventory::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcInventory(this);
 }
 
-const std::string &IfcInventory::type() {
+const std::string &IfcInventory::type() const {
     return IfcInventory::s_type.getName();
 }
 
-Step::ClassType IfcInventory::getClassType() {
+const Step::ClassType &IfcInventory::getClassType() {
     return IfcInventory::s_type;
 }
 
-Step::ClassType IfcInventory::getType() const {
+const Step::ClassType &IfcInventory::getType() const {
     return IfcInventory::s_type;
 }
 
-bool IfcInventory::isOfType(Step::ClassType t) {
+bool IfcInventory::isOfType(const Step::ClassType &t) const {
     return IfcInventory::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
@@ -86,6 +85,11 @@ IfcInventoryTypeEnum IfcInventory::getInventoryType() {
     else {
         return IfcInventoryTypeEnum_UNSET;
     }
+}
+
+const IfcInventoryTypeEnum IfcInventory::getInventoryType() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getInventoryType();
 }
 
 void IfcInventory::setInventoryType(IfcInventoryTypeEnum value) {
@@ -101,11 +105,16 @@ IfcActorSelect *IfcInventory::getJurisdiction() {
     }
 }
 
+const IfcActorSelect *IfcInventory::getJurisdiction() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getJurisdiction();
+}
+
 void IfcInventory::setJurisdiction(const Step::RefPtr< IfcActorSelect > &value) {
     m_jurisdiction = value;
 }
 
-Step::Set< Step::RefPtr< IfcPerson > > &IfcInventory::getResponsiblePersons() {
+Set_IfcPerson_1_n &IfcInventory::getResponsiblePersons() {
     if (Step::BaseObject::inited()) {
         return m_responsiblePersons;
     }
@@ -115,7 +124,12 @@ Step::Set< Step::RefPtr< IfcPerson > > &IfcInventory::getResponsiblePersons() {
     }
 }
 
-void IfcInventory::setResponsiblePersons(const Step::Set< Step::RefPtr< IfcPerson > > &value) {
+const Set_IfcPerson_1_n &IfcInventory::getResponsiblePersons() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getResponsiblePersons();
+}
+
+void IfcInventory::setResponsiblePersons(const Set_IfcPerson_1_n &value) {
     m_responsiblePersons = value;
 }
 
@@ -126,6 +140,11 @@ IfcCalendarDate *IfcInventory::getLastUpdateDate() {
     else {
         return NULL;
     }
+}
+
+const IfcCalendarDate *IfcInventory::getLastUpdateDate() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getLastUpdateDate();
 }
 
 void IfcInventory::setLastUpdateDate(const Step::RefPtr< IfcCalendarDate > &value) {
@@ -141,6 +160,11 @@ IfcCostValue *IfcInventory::getCurrentValue() {
     }
 }
 
+const IfcCostValue *IfcInventory::getCurrentValue() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getCurrentValue();
+}
+
 void IfcInventory::setCurrentValue(const Step::RefPtr< IfcCostValue > &value) {
     m_currentValue = value;
 }
@@ -154,16 +178,13 @@ IfcCostValue *IfcInventory::getOriginalValue() {
     }
 }
 
-void IfcInventory::setOriginalValue(const Step::RefPtr< IfcCostValue > &value) {
-    m_originalValue = value;
+const IfcCostValue *IfcInventory::getOriginalValue() const {
+    IfcInventory * deConstObject = const_cast< IfcInventory * > (this);
+    return deConstObject->getOriginalValue();
 }
 
-void IfcInventory::release() {
-    IfcGroup::release();
-    m_responsiblePersons.clear();
-    m_lastUpdateDate.release();
-    m_currentValue.release();
-    m_originalValue.release();
+void IfcInventory::setOriginalValue(const Step::RefPtr< IfcCostValue > &value) {
+    m_originalValue = value;
 }
 
 bool IfcInventory::init() {
@@ -223,7 +244,7 @@ bool IfcInventory::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcPerson > attr2;
-                attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_responsiblePersons.insert(attr2);
             }
             else {
@@ -236,38 +257,38 @@ bool IfcInventory::init() {
         m_lastUpdateDate = NULL;
     }
     else {
-        m_lastUpdateDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_lastUpdateDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_currentValue = NULL;
     }
     else {
-        m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_currentValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_originalValue = NULL;
     }
     else {
-        m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_originalValue = static_cast< IfcCostValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcInventory::copy(const IfcInventory &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPerson > >::const_iterator it_m_responsiblePersons;
+    Step::Set< Step::RefPtr< IfcPerson >, 1 >::const_iterator it_m_responsiblePersons;
     IfcGroup::copy(obj, copyop);
     setInventoryType(obj.m_inventoryType);
     m_jurisdiction = new IfcActorSelect;
     m_jurisdiction->copy(*(obj.m_jurisdiction.get()), copyop);
     for (it_m_responsiblePersons = obj.m_responsiblePersons.begin(); it_m_responsiblePersons != obj.m_responsiblePersons.end(); ++it_m_responsiblePersons) {
-        Step::RefPtr< IfcPerson > copyTarget = copyop((*it_m_responsiblePersons).get());
+        Step::RefPtr< IfcPerson > copyTarget = (IfcPerson *) (copyop((*it_m_responsiblePersons).get()));
         m_responsiblePersons.insert(copyTarget.get());
     }
-    setLastUpdateDate(copyop(obj.m_lastUpdateDate.get()));
-    setCurrentValue(copyop(obj.m_currentValue.get()));
-    setOriginalValue(copyop(obj.m_originalValue.get()));
+    setLastUpdateDate((IfcCalendarDate*)copyop(obj.m_lastUpdateDate.get()));
+    setCurrentValue((IfcCostValue*)copyop(obj.m_currentValue.get()));
+    setOriginalValue((IfcCostValue*)copyop(obj.m_originalValue.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcExternallyDefinedTextFont::IfcExternallyDefinedTextFont(Step::Id id, Step::SP
 IfcExternallyDefinedTextFont::~IfcExternallyDefinedTextFont() {
 }
 
-bool IfcExternallyDefinedTextFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExternallyDefinedTextFont(this);
+bool IfcExternallyDefinedTextFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExternallyDefinedTextFont(this);
 }
 
-const std::string &IfcExternallyDefinedTextFont::type() {
+const std::string &IfcExternallyDefinedTextFont::type() const {
     return IfcExternallyDefinedTextFont::s_type.getName();
 }
 
-Step::ClassType IfcExternallyDefinedTextFont::getClassType() {
+const Step::ClassType &IfcExternallyDefinedTextFont::getClassType() {
     return IfcExternallyDefinedTextFont::s_type;
 }
 
-Step::ClassType IfcExternallyDefinedTextFont::getType() const {
+const Step::ClassType &IfcExternallyDefinedTextFont::getType() const {
     return IfcExternallyDefinedTextFont::s_type;
 }
 
-bool IfcExternallyDefinedTextFont::isOfType(Step::ClassType t) {
+bool IfcExternallyDefinedTextFont::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedTextFont::s_type == t ? true : IfcExternalReference::isOfType(t);
-}
-
-void IfcExternallyDefinedTextFont::release() {
-    IfcExternalReference::release();
 }
 
 bool IfcExternallyDefinedTextFont::init() {

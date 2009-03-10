@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,23 +55,23 @@ IfcApprovalActorRelationship::IfcApprovalActorRelationship(Step::Id id, Step::SP
 IfcApprovalActorRelationship::~IfcApprovalActorRelationship() {
 }
 
-bool IfcApprovalActorRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcApprovalActorRelationship(this);
+bool IfcApprovalActorRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcApprovalActorRelationship(this);
 }
 
-const std::string &IfcApprovalActorRelationship::type() {
+const std::string &IfcApprovalActorRelationship::type() const {
     return IfcApprovalActorRelationship::s_type.getName();
 }
 
-Step::ClassType IfcApprovalActorRelationship::getClassType() {
+const Step::ClassType &IfcApprovalActorRelationship::getClassType() {
     return IfcApprovalActorRelationship::s_type;
 }
 
-Step::ClassType IfcApprovalActorRelationship::getType() const {
+const Step::ClassType &IfcApprovalActorRelationship::getType() const {
     return IfcApprovalActorRelationship::s_type;
 }
 
-bool IfcApprovalActorRelationship::isOfType(Step::ClassType t) {
+bool IfcApprovalActorRelationship::isOfType(const Step::ClassType &t) const {
     return IfcApprovalActorRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,6 +82,11 @@ IfcActorSelect *IfcApprovalActorRelationship::getActor() {
     else {
         return NULL;
     }
+}
+
+const IfcActorSelect *IfcApprovalActorRelationship::getActor() const {
+    IfcApprovalActorRelationship * deConstObject = const_cast< IfcApprovalActorRelationship * > (this);
+    return deConstObject->getActor();
 }
 
 void IfcApprovalActorRelationship::setActor(const Step::RefPtr< IfcActorSelect > &value) {
@@ -96,9 +102,19 @@ IfcApproval *IfcApprovalActorRelationship::getApproval() {
     }
 }
 
+const IfcApproval *IfcApprovalActorRelationship::getApproval() const {
+    IfcApprovalActorRelationship * deConstObject = const_cast< IfcApprovalActorRelationship * > (this);
+    return deConstObject->getApproval();
+}
+
 void IfcApprovalActorRelationship::setApproval(const Step::RefPtr< IfcApproval > &value) {
+    if (m_approval.valid()) {
+        m_approval->m_actors.erase(this);
+    }
+    if (value.valid()) {
+        value->m_actors.insert(this);
+    }
     m_approval = value;
-    m_approval->m_actors.insert(this);
 }
 
 IfcActorRole *IfcApprovalActorRelationship::getRole() {
@@ -110,13 +126,13 @@ IfcActorRole *IfcApprovalActorRelationship::getRole() {
     }
 }
 
-void IfcApprovalActorRelationship::setRole(const Step::RefPtr< IfcActorRole > &value) {
-    m_role = value;
+const IfcActorRole *IfcApprovalActorRelationship::getRole() const {
+    IfcApprovalActorRelationship * deConstObject = const_cast< IfcApprovalActorRelationship * > (this);
+    return deConstObject->getRole();
 }
 
-void IfcApprovalActorRelationship::release() {
-    m_approval.release();
-    m_role.release();
+void IfcApprovalActorRelationship::setRole(const Step::RefPtr< IfcActorRole > &value) {
+    m_role = value;
 }
 
 bool IfcApprovalActorRelationship::init() {
@@ -145,14 +161,14 @@ bool IfcApprovalActorRelationship::init() {
         m_approval = NULL;
     }
     else {
-        m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_role = NULL;
     }
     else {
-        m_role = static_cast< IfcActorRole * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_role = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -161,8 +177,8 @@ void IfcApprovalActorRelationship::copy(const IfcApprovalActorRelationship &obj,
     Step::BaseEntity::copy(obj, copyop);
     m_actor = new IfcActorSelect;
     m_actor->copy(*(obj.m_actor.get()), copyop);
-    setApproval(copyop(obj.m_approval.get()));
-    setRole(copyop(obj.m_role.get()));
+    setApproval((IfcApproval*)copyop(obj.m_approval.get()));
+    setRole((IfcActorRole*)copyop(obj.m_role.get()));
     return;
 }
 

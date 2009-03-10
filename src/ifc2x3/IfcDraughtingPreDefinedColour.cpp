@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDraughtingPreDefinedColour::IfcDraughtingPreDefinedColour(Step::Id id, Step::
 IfcDraughtingPreDefinedColour::~IfcDraughtingPreDefinedColour() {
 }
 
-bool IfcDraughtingPreDefinedColour::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingPreDefinedColour(this);
+bool IfcDraughtingPreDefinedColour::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingPreDefinedColour(this);
 }
 
-const std::string &IfcDraughtingPreDefinedColour::type() {
+const std::string &IfcDraughtingPreDefinedColour::type() const {
     return IfcDraughtingPreDefinedColour::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingPreDefinedColour::getClassType() {
+const Step::ClassType &IfcDraughtingPreDefinedColour::getClassType() {
     return IfcDraughtingPreDefinedColour::s_type;
 }
 
-Step::ClassType IfcDraughtingPreDefinedColour::getType() const {
+const Step::ClassType &IfcDraughtingPreDefinedColour::getType() const {
     return IfcDraughtingPreDefinedColour::s_type;
 }
 
-bool IfcDraughtingPreDefinedColour::isOfType(Step::ClassType t) {
+bool IfcDraughtingPreDefinedColour::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingPreDefinedColour::s_type == t ? true : IfcPreDefinedColour::isOfType(t);
-}
-
-void IfcDraughtingPreDefinedColour::release() {
-    IfcPreDefinedColour::release();
 }
 
 bool IfcDraughtingPreDefinedColour::init() {

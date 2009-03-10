@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcStructuralLoadSingleDisplacement::IfcStructuralLoadSingleDisplacement(Step::I
 IfcStructuralLoadSingleDisplacement::~IfcStructuralLoadSingleDisplacement() {
 }
 
-bool IfcStructuralLoadSingleDisplacement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadSingleDisplacement(this);
+bool IfcStructuralLoadSingleDisplacement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadSingleDisplacement(this);
 }
 
-const std::string &IfcStructuralLoadSingleDisplacement::type() {
+const std::string &IfcStructuralLoadSingleDisplacement::type() const {
     return IfcStructuralLoadSingleDisplacement::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadSingleDisplacement::getClassType() {
+const Step::ClassType &IfcStructuralLoadSingleDisplacement::getClassType() {
     return IfcStructuralLoadSingleDisplacement::s_type;
 }
 
-Step::ClassType IfcStructuralLoadSingleDisplacement::getType() const {
+const Step::ClassType &IfcStructuralLoadSingleDisplacement::getType() const {
     return IfcStructuralLoadSingleDisplacement::s_type;
 }
 
-bool IfcStructuralLoadSingleDisplacement::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadSingleDisplacement::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadSingleDisplacement::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX() {
     else {
         return Step::getUnset(m_displacementX);
     }
+}
+
+const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementX() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getDisplacementX();
 }
 
 void IfcStructuralLoadSingleDisplacement::setDisplacementX(IfcLengthMeasure value) {
@@ -93,6 +98,11 @@ IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() {
     }
 }
 
+const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getDisplacementY();
+}
+
 void IfcStructuralLoadSingleDisplacement::setDisplacementY(IfcLengthMeasure value) {
     m_displacementY = value;
 }
@@ -104,6 +114,11 @@ IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() {
     else {
         return Step::getUnset(m_displacementZ);
     }
+}
+
+const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getDisplacementZ();
 }
 
 void IfcStructuralLoadSingleDisplacement::setDisplacementZ(IfcLengthMeasure value) {
@@ -119,6 +134,11 @@ IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacem
     }
 }
 
+const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getRotationalDisplacementRX();
+}
+
 void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRX(IfcPlaneAngleMeasure value) {
     m_rotationalDisplacementRX = value;
 }
@@ -130,6 +150,11 @@ IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacem
     else {
         return Step::getUnset(m_rotationalDisplacementRY);
     }
+}
+
+const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getRotationalDisplacementRY();
 }
 
 void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRY(IfcPlaneAngleMeasure value) {
@@ -145,12 +170,13 @@ IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacem
     }
 }
 
-void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRZ(IfcPlaneAngleMeasure value) {
-    m_rotationalDisplacementRZ = value;
+const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ() const {
+    IfcStructuralLoadSingleDisplacement * deConstObject = const_cast< IfcStructuralLoadSingleDisplacement * > (this);
+    return deConstObject->getRotationalDisplacementRZ();
 }
 
-void IfcStructuralLoadSingleDisplacement::release() {
-    IfcStructuralLoadStatic::release();
+void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRZ(IfcPlaneAngleMeasure value) {
+    m_rotationalDisplacementRZ = value;
 }
 
 bool IfcStructuralLoadSingleDisplacement::init() {

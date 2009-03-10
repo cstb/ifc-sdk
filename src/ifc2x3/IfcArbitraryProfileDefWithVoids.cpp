@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcArbitraryProfileDefWithVoids::IfcArbitraryProfileDefWithVoids(Step::Id id, Step::SPFData *args) : IfcArbitraryClosedProfileDef(id, args) {
-    m_innerCurves.setUnset(true);
 }
 
 IfcArbitraryProfileDefWithVoids::~IfcArbitraryProfileDefWithVoids() {
 }
 
-bool IfcArbitraryProfileDefWithVoids::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcArbitraryProfileDefWithVoids(this);
+bool IfcArbitraryProfileDefWithVoids::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcArbitraryProfileDefWithVoids(this);
 }
 
-const std::string &IfcArbitraryProfileDefWithVoids::type() {
+const std::string &IfcArbitraryProfileDefWithVoids::type() const {
     return IfcArbitraryProfileDefWithVoids::s_type.getName();
 }
 
-Step::ClassType IfcArbitraryProfileDefWithVoids::getClassType() {
+const Step::ClassType &IfcArbitraryProfileDefWithVoids::getClassType() {
     return IfcArbitraryProfileDefWithVoids::s_type;
 }
 
-Step::ClassType IfcArbitraryProfileDefWithVoids::getType() const {
+const Step::ClassType &IfcArbitraryProfileDefWithVoids::getType() const {
     return IfcArbitraryProfileDefWithVoids::s_type;
 }
 
-bool IfcArbitraryProfileDefWithVoids::isOfType(Step::ClassType t) {
+bool IfcArbitraryProfileDefWithVoids::isOfType(const Step::ClassType &t) const {
     return IfcArbitraryProfileDefWithVoids::s_type == t ? true : IfcArbitraryClosedProfileDef::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcCurve > > &IfcArbitraryProfileDefWithVoids::getInnerCurves() {
+Set_IfcCurve_1_n &IfcArbitraryProfileDefWithVoids::getInnerCurves() {
     if (Step::BaseObject::inited()) {
         return m_innerCurves;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcCurve > > &IfcArbitraryProfileDefWithVoids::getInner
     }
 }
 
-void IfcArbitraryProfileDefWithVoids::setInnerCurves(const Step::Set< Step::RefPtr< IfcCurve > > &value) {
-    m_innerCurves = value;
+const Set_IfcCurve_1_n &IfcArbitraryProfileDefWithVoids::getInnerCurves() const {
+    IfcArbitraryProfileDefWithVoids * deConstObject = const_cast< IfcArbitraryProfileDefWithVoids * > (this);
+    return deConstObject->getInnerCurves();
 }
 
-void IfcArbitraryProfileDefWithVoids::release() {
-    IfcArbitraryClosedProfileDef::release();
-    m_innerCurves.clear();
+void IfcArbitraryProfileDefWithVoids::setInnerCurves(const Set_IfcCurve_1_n &value) {
+    m_innerCurves = value;
 }
 
 bool IfcArbitraryProfileDefWithVoids::init() {
@@ -107,7 +105,7 @@ bool IfcArbitraryProfileDefWithVoids::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCurve > attr2;
-                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_innerCurves.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcArbitraryProfileDefWithVoids::init() {
 }
 
 void IfcArbitraryProfileDefWithVoids::copy(const IfcArbitraryProfileDefWithVoids &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcCurve > >::const_iterator it_m_innerCurves;
+    Step::Set< Step::RefPtr< IfcCurve >, 1 >::const_iterator it_m_innerCurves;
     IfcArbitraryClosedProfileDef::copy(obj, copyop);
     for (it_m_innerCurves = obj.m_innerCurves.begin(); it_m_innerCurves != obj.m_innerCurves.end(); ++it_m_innerCurves) {
-        Step::RefPtr< IfcCurve > copyTarget = copyop((*it_m_innerCurves).get());
+        Step::RefPtr< IfcCurve > copyTarget = (IfcCurve *) (copyop((*it_m_innerCurves).get()));
         m_innerCurves.insert(copyTarget.get());
     }
     return;

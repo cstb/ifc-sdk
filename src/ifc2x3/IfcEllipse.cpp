@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcEllipse::IfcEllipse(Step::Id id, Step::SPFData *args) : IfcConic(id, args) {
 IfcEllipse::~IfcEllipse() {
 }
 
-bool IfcEllipse::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEllipse(this);
+bool IfcEllipse::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEllipse(this);
 }
 
-const std::string &IfcEllipse::type() {
+const std::string &IfcEllipse::type() const {
     return IfcEllipse::s_type.getName();
 }
 
-Step::ClassType IfcEllipse::getClassType() {
+const Step::ClassType &IfcEllipse::getClassType() {
     return IfcEllipse::s_type;
 }
 
-Step::ClassType IfcEllipse::getType() const {
+const Step::ClassType &IfcEllipse::getType() const {
     return IfcEllipse::s_type;
 }
 
-bool IfcEllipse::isOfType(Step::ClassType t) {
+bool IfcEllipse::isOfType(const Step::ClassType &t) const {
     return IfcEllipse::s_type == t ? true : IfcConic::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcEllipse::getSemiAxis1() {
     else {
         return Step::getUnset(m_semiAxis1);
     }
+}
+
+const IfcPositiveLengthMeasure IfcEllipse::getSemiAxis1() const {
+    IfcEllipse * deConstObject = const_cast< IfcEllipse * > (this);
+    return deConstObject->getSemiAxis1();
 }
 
 void IfcEllipse::setSemiAxis1(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcEllipse::getSemiAxis2() {
     }
 }
 
-void IfcEllipse::setSemiAxis2(IfcPositiveLengthMeasure value) {
-    m_semiAxis2 = value;
+const IfcPositiveLengthMeasure IfcEllipse::getSemiAxis2() const {
+    IfcEllipse * deConstObject = const_cast< IfcEllipse * > (this);
+    return deConstObject->getSemiAxis2();
 }
 
-void IfcEllipse::release() {
-    IfcConic::release();
+void IfcEllipse::setSemiAxis2(IfcPositiveLengthMeasure value) {
+    m_semiAxis2 = value;
 }
 
 bool IfcEllipse::init() {

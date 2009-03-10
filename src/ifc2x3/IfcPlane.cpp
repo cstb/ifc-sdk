@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPlane::IfcPlane(Step::Id id, Step::SPFData *args) : IfcElementarySurface(id, 
 IfcPlane::~IfcPlane() {
 }
 
-bool IfcPlane::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlane(this);
+bool IfcPlane::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlane(this);
 }
 
-const std::string &IfcPlane::type() {
+const std::string &IfcPlane::type() const {
     return IfcPlane::s_type.getName();
 }
 
-Step::ClassType IfcPlane::getClassType() {
+const Step::ClassType &IfcPlane::getClassType() {
     return IfcPlane::s_type;
 }
 
-Step::ClassType IfcPlane::getType() const {
+const Step::ClassType &IfcPlane::getType() const {
     return IfcPlane::s_type;
 }
 
-bool IfcPlane::isOfType(Step::ClassType t) {
+bool IfcPlane::isOfType(const Step::ClassType &t) const {
     return IfcPlane::s_type == t ? true : IfcElementarySurface::isOfType(t);
-}
-
-void IfcPlane::release() {
-    IfcElementarySurface::release();
 }
 
 bool IfcPlane::init() {

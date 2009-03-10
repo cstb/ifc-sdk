@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcVectorOrDirection::~IfcVectorOrDirection() {
     deleteUnion();
 }
 
-bool IfcVectorOrDirection::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVectorOrDirection(this);
+bool IfcVectorOrDirection::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVectorOrDirection(this);
 }
 
 bool IfcVectorOrDirection::init() {
     return false;
 }
 
-const std::string &IfcVectorOrDirection::type() {
+const std::string &IfcVectorOrDirection::type() const {
     return IfcVectorOrDirection::s_type.getName();
 }
 
-Step::ClassType IfcVectorOrDirection::getClassType() {
+const Step::ClassType &IfcVectorOrDirection::getClassType() {
     return IfcVectorOrDirection::s_type;
 }
 
-Step::ClassType IfcVectorOrDirection::getType() const {
+const Step::ClassType &IfcVectorOrDirection::getType() const {
     return IfcVectorOrDirection::s_type;
 }
 
-bool IfcVectorOrDirection::isOfType(Step::ClassType t) {
+bool IfcVectorOrDirection::isOfType(const Step::ClassType &t) const {
     return IfcVectorOrDirection::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcVectorOrDirection::copy(const IfcVectorOrDirection &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCDIRECTION:
-        setIfcDirection(copyop(obj.m_IfcVectorOrDirection_union.m_IfcDirection));
+        setIfcDirection((IfcDirection *) (copyop(obj.m_IfcVectorOrDirection_union.m_IfcDirection)));
         break;
     case IFCVECTOR:
-        setIfcVector(copyop(obj.m_IfcVectorOrDirection_union.m_IfcVector));
+        setIfcVector((IfcVector *) (copyop(obj.m_IfcVectorOrDirection_union.m_IfcVector)));
         break;
         }
 }
 
-char *IfcVectorOrDirection::currentTypeName() {
+std::string IfcVectorOrDirection::currentTypeName() const {
     switch(m_type) {
     case IFCDIRECTION:
         return "IfcDirection";
@@ -97,7 +97,7 @@ char *IfcVectorOrDirection::currentTypeName() {
     }
 }
 
-IfcVectorOrDirection::IfcVectorOrDirection_select IfcVectorOrDirection::currentType() {
+IfcVectorOrDirection::IfcVectorOrDirection_select IfcVectorOrDirection::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcVectorOrDirection::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcDirection *IfcVectorOrDirection::getIfcDirection() {
-    return m_IfcVectorOrDirection_union.m_IfcDirection;
+IfcDirection *IfcVectorOrDirection::getIfcDirection() const {
+    if (m_type == IFCDIRECTION) {
+        return m_IfcVectorOrDirection_union.m_IfcDirection;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcVectorOrDirection::setIfcDirection(IfcDirection *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcVectorOrDirection::setIfcDirection(IfcDirection *value) {
     m_type = IFCDIRECTION;
 }
 
-IfcVector *IfcVectorOrDirection::getIfcVector() {
-    return m_IfcVectorOrDirection_union.m_IfcVector;
+IfcVector *IfcVectorOrDirection::getIfcVector() const {
+    if (m_type == IFCVECTOR) {
+        return m_IfcVectorOrDirection_union.m_IfcVector;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcVectorOrDirection::setIfcVector(IfcVector *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

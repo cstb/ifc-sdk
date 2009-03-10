@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelVoidsElement::IfcRelVoidsElement(Step::Id id, Step::SPFData *args) : IfcRe
 IfcRelVoidsElement::~IfcRelVoidsElement() {
 }
 
-bool IfcRelVoidsElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelVoidsElement(this);
+bool IfcRelVoidsElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelVoidsElement(this);
 }
 
-const std::string &IfcRelVoidsElement::type() {
+const std::string &IfcRelVoidsElement::type() const {
     return IfcRelVoidsElement::s_type.getName();
 }
 
-Step::ClassType IfcRelVoidsElement::getClassType() {
+const Step::ClassType &IfcRelVoidsElement::getClassType() {
     return IfcRelVoidsElement::s_type;
 }
 
-Step::ClassType IfcRelVoidsElement::getType() const {
+const Step::ClassType &IfcRelVoidsElement::getType() const {
     return IfcRelVoidsElement::s_type;
 }
 
-bool IfcRelVoidsElement::isOfType(Step::ClassType t) {
+bool IfcRelVoidsElement::isOfType(const Step::ClassType &t) const {
     return IfcRelVoidsElement::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() {
     }
 }
 
+const IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() const {
+    IfcRelVoidsElement * deConstObject = const_cast< IfcRelVoidsElement * > (this);
+    return deConstObject->getRelatingBuildingElement();
+}
+
 void IfcRelVoidsElement::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatingBuildingElement.valid()) {
+        m_relatingBuildingElement->m_hasOpenings.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasOpenings.insert(this);
+    }
     m_relatingBuildingElement = value;
-    m_relatingBuildingElement->m_hasOpenings.insert(this);
 }
 
 IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() {
@@ -95,15 +105,19 @@ IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() {
     }
 }
 
-void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value) {
-    m_relatedOpeningElement = value;
-    m_relatedOpeningElement->m_voidsElements = this;
+const IfcFeatureElementSubtraction *IfcRelVoidsElement::getRelatedOpeningElement() const {
+    IfcRelVoidsElement * deConstObject = const_cast< IfcRelVoidsElement * > (this);
+    return deConstObject->getRelatedOpeningElement();
 }
 
-void IfcRelVoidsElement::release() {
-    IfcRelConnects::release();
-    m_relatingBuildingElement.release();
-    m_relatedOpeningElement.release();
+void IfcRelVoidsElement::setRelatedOpeningElement(const Step::RefPtr< IfcFeatureElementSubtraction > &value) {
+    if (m_relatedOpeningElement.valid()) {
+        m_relatedOpeningElement->m_voidsElements = NULL;
+    }
+    if (value.valid()) {
+        value->m_voidsElements = this;
+    }
+    m_relatedOpeningElement = value;
 }
 
 bool IfcRelVoidsElement::init() {
@@ -117,22 +131,22 @@ bool IfcRelVoidsElement::init() {
         m_relatingBuildingElement = NULL;
     }
     else {
-        m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedOpeningElement = NULL;
     }
     else {
-        m_relatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedOpeningElement = static_cast< IfcFeatureElementSubtraction * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelVoidsElement::copy(const IfcRelVoidsElement &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingBuildingElement(copyop(obj.m_relatingBuildingElement.get()));
-    setRelatedOpeningElement(copyop(obj.m_relatedOpeningElement.get()));
+    setRelatingBuildingElement((IfcElement*)copyop(obj.m_relatingBuildingElement.get()));
+    setRelatedOpeningElement((IfcFeatureElementSubtraction*)copyop(obj.m_relatedOpeningElement.get()));
     return;
 }
 

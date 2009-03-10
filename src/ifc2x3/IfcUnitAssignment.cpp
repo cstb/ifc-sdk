@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,33 +45,32 @@
 using namespace ifc2x3;
 
 IfcUnitAssignment::IfcUnitAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_units.setUnset(true);
 }
 
 IfcUnitAssignment::~IfcUnitAssignment() {
 }
 
-bool IfcUnitAssignment::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcUnitAssignment(this);
+bool IfcUnitAssignment::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcUnitAssignment(this);
 }
 
-const std::string &IfcUnitAssignment::type() {
+const std::string &IfcUnitAssignment::type() const {
     return IfcUnitAssignment::s_type.getName();
 }
 
-Step::ClassType IfcUnitAssignment::getClassType() {
+const Step::ClassType &IfcUnitAssignment::getClassType() {
     return IfcUnitAssignment::s_type;
 }
 
-Step::ClassType IfcUnitAssignment::getType() const {
+const Step::ClassType &IfcUnitAssignment::getType() const {
     return IfcUnitAssignment::s_type;
 }
 
-bool IfcUnitAssignment::isOfType(Step::ClassType t) {
+bool IfcUnitAssignment::isOfType(const Step::ClassType &t) const {
     return IfcUnitAssignment::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcUnit > > &IfcUnitAssignment::getUnits() {
+Set_IfcUnit_1_n &IfcUnitAssignment::getUnits() {
     if (Step::BaseObject::inited()) {
         return m_units;
     }
@@ -81,12 +80,13 @@ Step::Set< Step::RefPtr< IfcUnit > > &IfcUnitAssignment::getUnits() {
     }
 }
 
-void IfcUnitAssignment::setUnits(const Step::Set< Step::RefPtr< IfcUnit > > &value) {
-    m_units = value;
+const Set_IfcUnit_1_n &IfcUnitAssignment::getUnits() const {
+    IfcUnitAssignment * deConstObject = const_cast< IfcUnitAssignment * > (this);
+    return deConstObject->getUnits();
 }
 
-void IfcUnitAssignment::release() {
-    m_units.clear();
+void IfcUnitAssignment::setUnits(const Set_IfcUnit_1_n &value) {
+    m_units = value;
 }
 
 bool IfcUnitAssignment::init() {
@@ -126,7 +126,7 @@ bool IfcUnitAssignment::init() {
 }
 
 void IfcUnitAssignment::copy(const IfcUnitAssignment &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcUnit > >::const_iterator it_m_units;
+    Step::Set< Step::RefPtr< IfcUnit >, 1 >::const_iterator it_m_units;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_units = obj.m_units.begin(); it_m_units != obj.m_units.end(); ++it_m_units) {
         Step::RefPtr< IfcUnit > copyTarget = new IfcUnit;

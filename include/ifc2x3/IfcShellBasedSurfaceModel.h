@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
-#include "ifc2x3/IfcShell.h"
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
@@ -47,36 +44,54 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcShellBasedSurfaceModel : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SbsmBoundary'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcShell > > &getSbsmBoundary();
+        virtual Set_IfcShell_1_n &getSbsmBoundary();
+        /**
+         * (const) Returns the value of the explicit attribute 'SbsmBoundary'.
+         * 
+         * @return the value of the explicit attribute 'SbsmBoundary'
+         */
+        virtual const Set_IfcShell_1_n &getSbsmBoundary() const;
         /**
          * Sets the value of the explicit attribute 'SbsmBoundary'.
          * 
          * @param value
          */
-        void setSbsmBoundary(const Step::Set< Step::RefPtr< IfcShell > > &value);
+        virtual void setSbsmBoundary(const Set_IfcShell_1_n &value);
         /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
          */
-        virtual void release();
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:
@@ -101,7 +116,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::Set< Step::RefPtr< IfcShell > > m_sbsmBoundary;
+        Set_IfcShell_1_n m_sbsmBoundary;
 
     };
 

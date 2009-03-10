@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcGroup::IfcGroup(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
 IfcGroup::~IfcGroup() {
 }
 
-bool IfcGroup::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGroup(this);
+bool IfcGroup::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGroup(this);
 }
 
-const std::string &IfcGroup::type() {
+const std::string &IfcGroup::type() const {
     return IfcGroup::s_type.getName();
 }
 
-Step::ClassType IfcGroup::getClassType() {
+const Step::ClassType &IfcGroup::getClassType() {
     return IfcGroup::s_type;
 }
 
-Step::ClassType IfcGroup::getType() const {
+const Step::ClassType &IfcGroup::getType() const {
     return IfcGroup::s_type;
 }
 
-bool IfcGroup::isOfType(Step::ClassType t) {
+bool IfcGroup::isOfType(const Step::ClassType &t) const {
     return IfcGroup::s_type == t ? true : IfcObject::isOfType(t);
 }
 
@@ -77,8 +77,9 @@ IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() {
     }
 }
 
-void IfcGroup::release() {
-    IfcObject::release();
+const IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() const {
+    IfcGroup * deConstObject = const_cast< IfcGroup * > (this);
+    return deConstObject->getIsGroupedBy();
 }
 
 bool IfcGroup::init() {

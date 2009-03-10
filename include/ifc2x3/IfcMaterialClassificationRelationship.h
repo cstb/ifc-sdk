@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,11 +30,9 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include "ifc2x3/IfcClassificationNotationSelect.h"
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
 
@@ -48,45 +46,66 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcMaterialClassificationRelationship : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'MaterialClassifications'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > &getMaterialClassifications();
+        virtual Set_IfcClassificationNotationSelect_1_n &getMaterialClassifications();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaterialClassifications'.
+         * 
+         * @return the value of the explicit attribute 'MaterialClassifications'
+         */
+        virtual const Set_IfcClassificationNotationSelect_1_n &getMaterialClassifications() const;
         /**
          * Sets the value of the explicit attribute 'MaterialClassifications'.
          * 
          * @param value
          */
-        void setMaterialClassifications(const Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > &value);
+        virtual void setMaterialClassifications(const Set_IfcClassificationNotationSelect_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'ClassifiedMaterial'.
+         * 
          */
-        IfcMaterial *getClassifiedMaterial();
+        virtual IfcMaterial *getClassifiedMaterial();
+        /**
+         * (const) Returns the value of the explicit attribute 'ClassifiedMaterial'.
+         * 
+         * @return the value of the explicit attribute 'ClassifiedMaterial'
+         */
+        virtual const IfcMaterial *getClassifiedMaterial() const;
         /**
          * Sets the value of the explicit attribute 'ClassifiedMaterial'.
          * 
          * @param value
          */
-        void setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -111,7 +130,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::Set< Step::RefPtr< IfcClassificationNotationSelect > > m_materialClassifications;
+        Set_IfcClassificationNotationSelect_1_n m_materialClassifications;
         /**
          */
         Step::RefPtr< IfcMaterial > m_classifiedMaterial;

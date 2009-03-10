@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,27 +48,27 @@ IfcAppliedValueSelect::~IfcAppliedValueSelect() {
     deleteUnion();
 }
 
-bool IfcAppliedValueSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAppliedValueSelect(this);
+bool IfcAppliedValueSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAppliedValueSelect(this);
 }
 
 bool IfcAppliedValueSelect::init() {
     return false;
 }
 
-const std::string &IfcAppliedValueSelect::type() {
+const std::string &IfcAppliedValueSelect::type() const {
     return IfcAppliedValueSelect::s_type.getName();
 }
 
-Step::ClassType IfcAppliedValueSelect::getClassType() {
+const Step::ClassType &IfcAppliedValueSelect::getClassType() {
     return IfcAppliedValueSelect::s_type;
 }
 
-Step::ClassType IfcAppliedValueSelect::getType() const {
+const Step::ClassType &IfcAppliedValueSelect::getType() const {
     return IfcAppliedValueSelect::s_type;
 }
 
-bool IfcAppliedValueSelect::isOfType(Step::ClassType t) {
+bool IfcAppliedValueSelect::isOfType(const Step::ClassType &t) const {
     return IfcAppliedValueSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,7 +78,7 @@ void IfcAppliedValueSelect::copy(const IfcAppliedValueSelect &obj, const CopyOp 
         setIfcRatioMeasure(obj.m_IfcAppliedValueSelect_union.m_IfcRatioMeasure);
         break;
     case IFCMEASUREWITHUNIT:
-        setIfcMeasureWithUnit(copyop(obj.m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit));
+        setIfcMeasureWithUnit((IfcMeasureWithUnit *) (copyop(obj.m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit)));
         break;
     case IFCMONETARYMEASURE:
         setIfcMonetaryMeasure(obj.m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure);
@@ -86,7 +86,7 @@ void IfcAppliedValueSelect::copy(const IfcAppliedValueSelect &obj, const CopyOp 
         }
 }
 
-char *IfcAppliedValueSelect::currentTypeName() {
+std::string IfcAppliedValueSelect::currentTypeName() const {
     switch(m_type) {
     case IFCRATIOMEASURE:
         return "IfcRatioMeasure";
@@ -102,7 +102,7 @@ char *IfcAppliedValueSelect::currentTypeName() {
     }
 }
 
-IfcAppliedValueSelect::IfcAppliedValueSelect_select IfcAppliedValueSelect::currentType() {
+IfcAppliedValueSelect::IfcAppliedValueSelect_select IfcAppliedValueSelect::currentType() const {
     return m_type;
 }
 
@@ -115,22 +115,30 @@ void IfcAppliedValueSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcRatioMeasure IfcAppliedValueSelect::getIfcRatioMeasure() {
-    return m_IfcAppliedValueSelect_union.m_IfcRatioMeasure;
+IfcRatioMeasure IfcAppliedValueSelect::getIfcRatioMeasure() const {
+    if (m_type == IFCRATIOMEASURE) {
+        return m_IfcAppliedValueSelect_union.m_IfcRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcAppliedValueSelect_union.m_IfcRatioMeasure);
+    }
 }
 
 void IfcAppliedValueSelect::setIfcRatioMeasure(IfcRatioMeasure value) {
-    deleteUnion();
     m_IfcAppliedValueSelect_union.m_IfcRatioMeasure = value;
     m_type = IFCRATIOMEASURE;
 }
 
-IfcMeasureWithUnit *IfcAppliedValueSelect::getIfcMeasureWithUnit() {
-    return m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit;
+IfcMeasureWithUnit *IfcAppliedValueSelect::getIfcMeasureWithUnit() const {
+    if (m_type == IFCMEASUREWITHUNIT) {
+        return m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcAppliedValueSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -145,12 +153,16 @@ void IfcAppliedValueSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
     m_type = IFCMEASUREWITHUNIT;
 }
 
-IfcMonetaryMeasure IfcAppliedValueSelect::getIfcMonetaryMeasure() {
-    return m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure;
+IfcMonetaryMeasure IfcAppliedValueSelect::getIfcMonetaryMeasure() const {
+    if (m_type == IFCMONETARYMEASURE) {
+        return m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure);
+    }
 }
 
 void IfcAppliedValueSelect::setIfcMonetaryMeasure(IfcMonetaryMeasure value) {
-    deleteUnion();
     m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure = value;
     m_type = IFCMONETARYMEASURE;
 }

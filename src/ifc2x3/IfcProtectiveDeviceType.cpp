@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcProtectiveDeviceType::IfcProtectiveDeviceType(Step::Id id, Step::SPFData *arg
 IfcProtectiveDeviceType::~IfcProtectiveDeviceType() {
 }
 
-bool IfcProtectiveDeviceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProtectiveDeviceType(this);
+bool IfcProtectiveDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProtectiveDeviceType(this);
 }
 
-const std::string &IfcProtectiveDeviceType::type() {
+const std::string &IfcProtectiveDeviceType::type() const {
     return IfcProtectiveDeviceType::s_type.getName();
 }
 
-Step::ClassType IfcProtectiveDeviceType::getClassType() {
+const Step::ClassType &IfcProtectiveDeviceType::getClassType() {
     return IfcProtectiveDeviceType::s_type;
 }
 
-Step::ClassType IfcProtectiveDeviceType::getType() const {
+const Step::ClassType &IfcProtectiveDeviceType::getType() const {
     return IfcProtectiveDeviceType::s_type;
 }
 
-bool IfcProtectiveDeviceType::isOfType(Step::ClassType t) {
+bool IfcProtectiveDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcProtectiveDeviceType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcProtectiveDeviceTypeEnum IfcProtectiveDeviceType::getPredefinedType() {
     }
 }
 
-void IfcProtectiveDeviceType::setPredefinedType(IfcProtectiveDeviceTypeEnum value) {
-    m_predefinedType = value;
+const IfcProtectiveDeviceTypeEnum IfcProtectiveDeviceType::getPredefinedType() const {
+    IfcProtectiveDeviceType * deConstObject = const_cast< IfcProtectiveDeviceType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcProtectiveDeviceType::release() {
-    IfcFlowControllerType::release();
+void IfcProtectiveDeviceType::setPredefinedType(IfcProtectiveDeviceTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcProtectiveDeviceType::init() {

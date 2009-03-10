@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,39 +48,39 @@ IfcFillAreaStyleTileShapeSelect::~IfcFillAreaStyleTileShapeSelect() {
     deleteUnion();
 }
 
-bool IfcFillAreaStyleTileShapeSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillAreaStyleTileShapeSelect(this);
+bool IfcFillAreaStyleTileShapeSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyleTileShapeSelect(this);
 }
 
 bool IfcFillAreaStyleTileShapeSelect::init() {
     return false;
 }
 
-const std::string &IfcFillAreaStyleTileShapeSelect::type() {
+const std::string &IfcFillAreaStyleTileShapeSelect::type() const {
     return IfcFillAreaStyleTileShapeSelect::s_type.getName();
 }
 
-Step::ClassType IfcFillAreaStyleTileShapeSelect::getClassType() {
+const Step::ClassType &IfcFillAreaStyleTileShapeSelect::getClassType() {
     return IfcFillAreaStyleTileShapeSelect::s_type;
 }
 
-Step::ClassType IfcFillAreaStyleTileShapeSelect::getType() const {
+const Step::ClassType &IfcFillAreaStyleTileShapeSelect::getType() const {
     return IfcFillAreaStyleTileShapeSelect::s_type;
 }
 
-bool IfcFillAreaStyleTileShapeSelect::isOfType(Step::ClassType t) {
+bool IfcFillAreaStyleTileShapeSelect::isOfType(const Step::ClassType &t) const {
     return IfcFillAreaStyleTileShapeSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcFillAreaStyleTileShapeSelect::copy(const IfcFillAreaStyleTileShapeSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCFILLAREASTYLETILESYMBOLWITHSTYLE:
-        setIfcFillAreaStyleTileSymbolWithStyle(copyop(obj.m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle));
+        setIfcFillAreaStyleTileSymbolWithStyle((IfcFillAreaStyleTileSymbolWithStyle *) (copyop(obj.m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle)));
         break;
         }
 }
 
-char *IfcFillAreaStyleTileShapeSelect::currentTypeName() {
+std::string IfcFillAreaStyleTileShapeSelect::currentTypeName() const {
     switch(m_type) {
     case IFCFILLAREASTYLETILESYMBOLWITHSTYLE:
         return "IfcFillAreaStyleTileSymbolWithStyle";
@@ -90,7 +90,7 @@ char *IfcFillAreaStyleTileShapeSelect::currentTypeName() {
     }
 }
 
-IfcFillAreaStyleTileShapeSelect::IfcFillAreaStyleTileShapeSelect_select IfcFillAreaStyleTileShapeSelect::currentType() {
+IfcFillAreaStyleTileShapeSelect::IfcFillAreaStyleTileShapeSelect_select IfcFillAreaStyleTileShapeSelect::currentType() const {
     return m_type;
 }
 
@@ -103,12 +103,16 @@ void IfcFillAreaStyleTileShapeSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcFillAreaStyleTileSymbolWithStyle *IfcFillAreaStyleTileShapeSelect::getIfcFillAreaStyleTileSymbolWithStyle() {
-    return m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle;
+IfcFillAreaStyleTileSymbolWithStyle *IfcFillAreaStyleTileShapeSelect::getIfcFillAreaStyleTileSymbolWithStyle() const {
+    if (m_type == IFCFILLAREASTYLETILESYMBOLWITHSTYLE) {
+        return m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcFillAreaStyleTileShapeSelect::setIfcFillAreaStyleTileSymbolWithStyle(IfcFillAreaStyleTileSymbolWithStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

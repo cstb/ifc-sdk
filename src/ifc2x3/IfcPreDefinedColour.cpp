@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedColour::IfcPreDefinedColour(Step::Id id, Step::SPFData *args) : Ifc
 IfcPreDefinedColour::~IfcPreDefinedColour() {
 }
 
-bool IfcPreDefinedColour::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedColour(this);
+bool IfcPreDefinedColour::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedColour(this);
 }
 
-const std::string &IfcPreDefinedColour::type() {
+const std::string &IfcPreDefinedColour::type() const {
     return IfcPreDefinedColour::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedColour::getClassType() {
+const Step::ClassType &IfcPreDefinedColour::getClassType() {
     return IfcPreDefinedColour::s_type;
 }
 
-Step::ClassType IfcPreDefinedColour::getType() const {
+const Step::ClassType &IfcPreDefinedColour::getType() const {
     return IfcPreDefinedColour::s_type;
 }
 
-bool IfcPreDefinedColour::isOfType(Step::ClassType t) {
+bool IfcPreDefinedColour::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedColour::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
-}
-
-void IfcPreDefinedColour::release() {
-    IfcPreDefinedItem::release();
 }
 
 bool IfcPreDefinedColour::init() {

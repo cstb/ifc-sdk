@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcGeometricCurveSet::IfcGeometricCurveSet(Step::Id id, Step::SPFData *args) : I
 IfcGeometricCurveSet::~IfcGeometricCurveSet() {
 }
 
-bool IfcGeometricCurveSet::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeometricCurveSet(this);
+bool IfcGeometricCurveSet::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeometricCurveSet(this);
 }
 
-const std::string &IfcGeometricCurveSet::type() {
+const std::string &IfcGeometricCurveSet::type() const {
     return IfcGeometricCurveSet::s_type.getName();
 }
 
-Step::ClassType IfcGeometricCurveSet::getClassType() {
+const Step::ClassType &IfcGeometricCurveSet::getClassType() {
     return IfcGeometricCurveSet::s_type;
 }
 
-Step::ClassType IfcGeometricCurveSet::getType() const {
+const Step::ClassType &IfcGeometricCurveSet::getType() const {
     return IfcGeometricCurveSet::s_type;
 }
 
-bool IfcGeometricCurveSet::isOfType(Step::ClassType t) {
+bool IfcGeometricCurveSet::isOfType(const Step::ClassType &t) const {
     return IfcGeometricCurveSet::s_type == t ? true : IfcGeometricSet::isOfType(t);
-}
-
-void IfcGeometricCurveSet::release() {
-    IfcGeometricSet::release();
 }
 
 bool IfcGeometricCurveSet::init() {

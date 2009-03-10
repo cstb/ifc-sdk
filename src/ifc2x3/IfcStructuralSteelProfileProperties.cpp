@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcStructuralSteelProfileProperties::IfcStructuralSteelProfileProperties(Step::I
 IfcStructuralSteelProfileProperties::~IfcStructuralSteelProfileProperties() {
 }
 
-bool IfcStructuralSteelProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralSteelProfileProperties(this);
+bool IfcStructuralSteelProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralSteelProfileProperties(this);
 }
 
-const std::string &IfcStructuralSteelProfileProperties::type() {
+const std::string &IfcStructuralSteelProfileProperties::type() const {
     return IfcStructuralSteelProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcStructuralSteelProfileProperties::getClassType() {
+const Step::ClassType &IfcStructuralSteelProfileProperties::getClassType() {
     return IfcStructuralSteelProfileProperties::s_type;
 }
 
-Step::ClassType IfcStructuralSteelProfileProperties::getType() const {
+const Step::ClassType &IfcStructuralSteelProfileProperties::getType() const {
     return IfcStructuralSteelProfileProperties::s_type;
 }
 
-bool IfcStructuralSteelProfileProperties::isOfType(Step::ClassType t) {
+bool IfcStructuralSteelProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcStructuralSteelProfileProperties::s_type == t ? true : IfcStructuralProfileProperties::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ() {
     else {
         return Step::getUnset(m_shearAreaZ);
     }
+}
+
+const IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaZ() const {
+    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
+    return deConstObject->getShearAreaZ();
 }
 
 void IfcStructuralSteelProfileProperties::setShearAreaZ(IfcAreaMeasure value) {
@@ -91,6 +96,11 @@ IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() {
     }
 }
 
+const IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() const {
+    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
+    return deConstObject->getShearAreaY();
+}
+
 void IfcStructuralSteelProfileProperties::setShearAreaY(IfcAreaMeasure value) {
     m_shearAreaY = value;
 }
@@ -102,6 +112,11 @@ IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFact
     else {
         return Step::getUnset(m_plasticShapeFactorY);
     }
+}
+
+const IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY() const {
+    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
+    return deConstObject->getPlasticShapeFactorY();
 }
 
 void IfcStructuralSteelProfileProperties::setPlasticShapeFactorY(IfcPositiveRatioMeasure value) {
@@ -117,12 +132,13 @@ IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFact
     }
 }
 
-void IfcStructuralSteelProfileProperties::setPlasticShapeFactorZ(IfcPositiveRatioMeasure value) {
-    m_plasticShapeFactorZ = value;
+const IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ() const {
+    IfcStructuralSteelProfileProperties * deConstObject = const_cast< IfcStructuralSteelProfileProperties * > (this);
+    return deConstObject->getPlasticShapeFactorZ();
 }
 
-void IfcStructuralSteelProfileProperties::release() {
-    IfcStructuralProfileProperties::release();
+void IfcStructuralSteelProfileProperties::setPlasticShapeFactorZ(IfcPositiveRatioMeasure value) {
+    m_plasticShapeFactorZ = value;
 }
 
 bool IfcStructuralSteelProfileProperties::init() {

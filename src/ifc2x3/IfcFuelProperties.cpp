@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcFuelProperties::IfcFuelProperties(Step::Id id, Step::SPFData *args) : IfcMate
 IfcFuelProperties::~IfcFuelProperties() {
 }
 
-bool IfcFuelProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFuelProperties(this);
+bool IfcFuelProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFuelProperties(this);
 }
 
-const std::string &IfcFuelProperties::type() {
+const std::string &IfcFuelProperties::type() const {
     return IfcFuelProperties::s_type.getName();
 }
 
-Step::ClassType IfcFuelProperties::getClassType() {
+const Step::ClassType &IfcFuelProperties::getClassType() {
     return IfcFuelProperties::s_type;
 }
 
-Step::ClassType IfcFuelProperties::getType() const {
+const Step::ClassType &IfcFuelProperties::getType() const {
     return IfcFuelProperties::s_type;
 }
 
-bool IfcFuelProperties::isOfType(Step::ClassType t) {
+bool IfcFuelProperties::isOfType(const Step::ClassType &t) const {
     return IfcFuelProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcThermodynamicTemperatureMeasure IfcFuelProperties::getCombustionTemperature()
     else {
         return Step::getUnset(m_combustionTemperature);
     }
+}
+
+const IfcThermodynamicTemperatureMeasure IfcFuelProperties::getCombustionTemperature() const {
+    IfcFuelProperties * deConstObject = const_cast< IfcFuelProperties * > (this);
+    return deConstObject->getCombustionTemperature();
 }
 
 void IfcFuelProperties::setCombustionTemperature(IfcThermodynamicTemperatureMeasure value) {
@@ -91,6 +96,11 @@ IfcPositiveRatioMeasure IfcFuelProperties::getCarbonContent() {
     }
 }
 
+const IfcPositiveRatioMeasure IfcFuelProperties::getCarbonContent() const {
+    IfcFuelProperties * deConstObject = const_cast< IfcFuelProperties * > (this);
+    return deConstObject->getCarbonContent();
+}
+
 void IfcFuelProperties::setCarbonContent(IfcPositiveRatioMeasure value) {
     m_carbonContent = value;
 }
@@ -102,6 +112,11 @@ IfcHeatingValueMeasure IfcFuelProperties::getLowerHeatingValue() {
     else {
         return Step::getUnset(m_lowerHeatingValue);
     }
+}
+
+const IfcHeatingValueMeasure IfcFuelProperties::getLowerHeatingValue() const {
+    IfcFuelProperties * deConstObject = const_cast< IfcFuelProperties * > (this);
+    return deConstObject->getLowerHeatingValue();
 }
 
 void IfcFuelProperties::setLowerHeatingValue(IfcHeatingValueMeasure value) {
@@ -117,12 +132,13 @@ IfcHeatingValueMeasure IfcFuelProperties::getHigherHeatingValue() {
     }
 }
 
-void IfcFuelProperties::setHigherHeatingValue(IfcHeatingValueMeasure value) {
-    m_higherHeatingValue = value;
+const IfcHeatingValueMeasure IfcFuelProperties::getHigherHeatingValue() const {
+    IfcFuelProperties * deConstObject = const_cast< IfcFuelProperties * > (this);
+    return deConstObject->getHigherHeatingValue();
 }
 
-void IfcFuelProperties::release() {
-    IfcMaterialProperties::release();
+void IfcFuelProperties::setHigherHeatingValue(IfcHeatingValueMeasure value) {
+    m_higherHeatingValue = value;
 }
 
 bool IfcFuelProperties::init() {

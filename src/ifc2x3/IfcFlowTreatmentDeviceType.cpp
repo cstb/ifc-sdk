@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowTreatmentDeviceType::IfcFlowTreatmentDeviceType(Step::Id id, Step::SPFDat
 IfcFlowTreatmentDeviceType::~IfcFlowTreatmentDeviceType() {
 }
 
-bool IfcFlowTreatmentDeviceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowTreatmentDeviceType(this);
+bool IfcFlowTreatmentDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowTreatmentDeviceType(this);
 }
 
-const std::string &IfcFlowTreatmentDeviceType::type() {
+const std::string &IfcFlowTreatmentDeviceType::type() const {
     return IfcFlowTreatmentDeviceType::s_type.getName();
 }
 
-Step::ClassType IfcFlowTreatmentDeviceType::getClassType() {
+const Step::ClassType &IfcFlowTreatmentDeviceType::getClassType() {
     return IfcFlowTreatmentDeviceType::s_type;
 }
 
-Step::ClassType IfcFlowTreatmentDeviceType::getType() const {
+const Step::ClassType &IfcFlowTreatmentDeviceType::getType() const {
     return IfcFlowTreatmentDeviceType::s_type;
 }
 
-bool IfcFlowTreatmentDeviceType::isOfType(Step::ClassType t) {
+bool IfcFlowTreatmentDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcFlowTreatmentDeviceType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
-}
-
-void IfcFlowTreatmentDeviceType::release() {
-    IfcDistributionFlowElementType::release();
 }
 
 bool IfcFlowTreatmentDeviceType::init() {

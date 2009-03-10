@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcCsgPrimitive3D::IfcCsgPrimitive3D(Step::Id id, Step::SPFData *args) : IfcGeom
 IfcCsgPrimitive3D::~IfcCsgPrimitive3D() {
 }
 
-bool IfcCsgPrimitive3D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCsgPrimitive3D(this);
+bool IfcCsgPrimitive3D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCsgPrimitive3D(this);
 }
 
-const std::string &IfcCsgPrimitive3D::type() {
+const std::string &IfcCsgPrimitive3D::type() const {
     return IfcCsgPrimitive3D::s_type.getName();
 }
 
-Step::ClassType IfcCsgPrimitive3D::getClassType() {
+const Step::ClassType &IfcCsgPrimitive3D::getClassType() {
     return IfcCsgPrimitive3D::s_type;
 }
 
-Step::ClassType IfcCsgPrimitive3D::getType() const {
+const Step::ClassType &IfcCsgPrimitive3D::getType() const {
     return IfcCsgPrimitive3D::s_type;
 }
 
-bool IfcCsgPrimitive3D::isOfType(Step::ClassType t) {
+bool IfcCsgPrimitive3D::isOfType(const Step::ClassType &t) const {
     return IfcCsgPrimitive3D::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAxis2Placement3D *IfcCsgPrimitive3D::getPosition() {
     }
 }
 
-void IfcCsgPrimitive3D::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_position = value;
+const IfcAxis2Placement3D *IfcCsgPrimitive3D::getPosition() const {
+    IfcCsgPrimitive3D * deConstObject = const_cast< IfcCsgPrimitive3D * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcCsgPrimitive3D::release() {
-    IfcGeometricRepresentationItem::release();
-    m_position.release();
+void IfcCsgPrimitive3D::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
+    m_position = value;
 }
 
 bool IfcCsgPrimitive3D::init() {
@@ -99,14 +99,14 @@ bool IfcCsgPrimitive3D::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcCsgPrimitive3D::copy(const IfcCsgPrimitive3D &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
     return;
 }
 

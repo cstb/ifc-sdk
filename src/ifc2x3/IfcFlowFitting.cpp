@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowFitting::IfcFlowFitting(Step::Id id, Step::SPFData *args) : IfcDistributi
 IfcFlowFitting::~IfcFlowFitting() {
 }
 
-bool IfcFlowFitting::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowFitting(this);
+bool IfcFlowFitting::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowFitting(this);
 }
 
-const std::string &IfcFlowFitting::type() {
+const std::string &IfcFlowFitting::type() const {
     return IfcFlowFitting::s_type.getName();
 }
 
-Step::ClassType IfcFlowFitting::getClassType() {
+const Step::ClassType &IfcFlowFitting::getClassType() {
     return IfcFlowFitting::s_type;
 }
 
-Step::ClassType IfcFlowFitting::getType() const {
+const Step::ClassType &IfcFlowFitting::getType() const {
     return IfcFlowFitting::s_type;
 }
 
-bool IfcFlowFitting::isOfType(Step::ClassType t) {
+bool IfcFlowFitting::isOfType(const Step::ClassType &t) const {
     return IfcFlowFitting::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcFlowFitting::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcFlowFitting::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcFeatureElementSubtraction::IfcFeatureElementSubtraction(Step::Id id, Step::SP
 IfcFeatureElementSubtraction::~IfcFeatureElementSubtraction() {
 }
 
-bool IfcFeatureElementSubtraction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFeatureElementSubtraction(this);
+bool IfcFeatureElementSubtraction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFeatureElementSubtraction(this);
 }
 
-const std::string &IfcFeatureElementSubtraction::type() {
+const std::string &IfcFeatureElementSubtraction::type() const {
     return IfcFeatureElementSubtraction::s_type.getName();
 }
 
-Step::ClassType IfcFeatureElementSubtraction::getClassType() {
+const Step::ClassType &IfcFeatureElementSubtraction::getClassType() {
     return IfcFeatureElementSubtraction::s_type;
 }
 
-Step::ClassType IfcFeatureElementSubtraction::getType() const {
+const Step::ClassType &IfcFeatureElementSubtraction::getType() const {
     return IfcFeatureElementSubtraction::s_type;
 }
 
-bool IfcFeatureElementSubtraction::isOfType(Step::ClassType t) {
+bool IfcFeatureElementSubtraction::isOfType(const Step::ClassType &t) const {
     return IfcFeatureElementSubtraction::s_type == t ? true : IfcFeatureElement::isOfType(t);
 }
 
@@ -77,8 +77,9 @@ IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() {
     }
 }
 
-void IfcFeatureElementSubtraction::release() {
-    IfcFeatureElement::release();
+const IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() const {
+    IfcFeatureElementSubtraction * deConstObject = const_cast< IfcFeatureElementSubtraction * > (this);
+    return deConstObject->getVoidsElements();
 }
 
 bool IfcFeatureElementSubtraction::init() {

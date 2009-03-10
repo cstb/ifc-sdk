@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFlowMeterType::IfcFlowMeterType(Step::Id id, Step::SPFData *args) : IfcFlowCo
 IfcFlowMeterType::~IfcFlowMeterType() {
 }
 
-bool IfcFlowMeterType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowMeterType(this);
+bool IfcFlowMeterType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowMeterType(this);
 }
 
-const std::string &IfcFlowMeterType::type() {
+const std::string &IfcFlowMeterType::type() const {
     return IfcFlowMeterType::s_type.getName();
 }
 
-Step::ClassType IfcFlowMeterType::getClassType() {
+const Step::ClassType &IfcFlowMeterType::getClassType() {
     return IfcFlowMeterType::s_type;
 }
 
-Step::ClassType IfcFlowMeterType::getType() const {
+const Step::ClassType &IfcFlowMeterType::getType() const {
     return IfcFlowMeterType::s_type;
 }
 
-bool IfcFlowMeterType::isOfType(Step::ClassType t) {
+bool IfcFlowMeterType::isOfType(const Step::ClassType &t) const {
     return IfcFlowMeterType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFlowMeterTypeEnum IfcFlowMeterType::getPredefinedType() {
     }
 }
 
-void IfcFlowMeterType::setPredefinedType(IfcFlowMeterTypeEnum value) {
-    m_predefinedType = value;
+const IfcFlowMeterTypeEnum IfcFlowMeterType::getPredefinedType() const {
+    IfcFlowMeterType * deConstObject = const_cast< IfcFlowMeterType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFlowMeterType::release() {
-    IfcFlowControllerType::release();
+void IfcFlowMeterType::setPredefinedType(IfcFlowMeterTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFlowMeterType::init() {

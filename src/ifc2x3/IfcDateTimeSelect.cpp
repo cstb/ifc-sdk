@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcDateTimeSelect::~IfcDateTimeSelect() {
     deleteUnion();
 }
 
-bool IfcDateTimeSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDateTimeSelect(this);
+bool IfcDateTimeSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDateTimeSelect(this);
 }
 
 bool IfcDateTimeSelect::init() {
     return false;
 }
 
-const std::string &IfcDateTimeSelect::type() {
+const std::string &IfcDateTimeSelect::type() const {
     return IfcDateTimeSelect::s_type.getName();
 }
 
-Step::ClassType IfcDateTimeSelect::getClassType() {
+const Step::ClassType &IfcDateTimeSelect::getClassType() {
     return IfcDateTimeSelect::s_type;
 }
 
-Step::ClassType IfcDateTimeSelect::getType() const {
+const Step::ClassType &IfcDateTimeSelect::getType() const {
     return IfcDateTimeSelect::s_type;
 }
 
-bool IfcDateTimeSelect::isOfType(Step::ClassType t) {
+bool IfcDateTimeSelect::isOfType(const Step::ClassType &t) const {
     return IfcDateTimeSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcDateTimeSelect::copy(const IfcDateTimeSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCALENDARDATE:
-        setIfcCalendarDate(copyop(obj.m_IfcDateTimeSelect_union.m_IfcCalendarDate));
+        setIfcCalendarDate((IfcCalendarDate *) (copyop(obj.m_IfcDateTimeSelect_union.m_IfcCalendarDate)));
         break;
     case IFCLOCALTIME:
-        setIfcLocalTime(copyop(obj.m_IfcDateTimeSelect_union.m_IfcLocalTime));
+        setIfcLocalTime((IfcLocalTime *) (copyop(obj.m_IfcDateTimeSelect_union.m_IfcLocalTime)));
         break;
     case IFCDATEANDTIME:
-        setIfcDateAndTime(copyop(obj.m_IfcDateTimeSelect_union.m_IfcDateAndTime));
+        setIfcDateAndTime((IfcDateAndTime *) (copyop(obj.m_IfcDateTimeSelect_union.m_IfcDateAndTime)));
         break;
         }
 }
 
-char *IfcDateTimeSelect::currentTypeName() {
+std::string IfcDateTimeSelect::currentTypeName() const {
     switch(m_type) {
     case IFCCALENDARDATE:
         return "IfcCalendarDate";
@@ -104,7 +104,7 @@ char *IfcDateTimeSelect::currentTypeName() {
     }
 }
 
-IfcDateTimeSelect::IfcDateTimeSelect_select IfcDateTimeSelect::currentType() {
+IfcDateTimeSelect::IfcDateTimeSelect_select IfcDateTimeSelect::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcDateTimeSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcCalendarDate *IfcDateTimeSelect::getIfcCalendarDate() {
-    return m_IfcDateTimeSelect_union.m_IfcCalendarDate;
+IfcCalendarDate *IfcDateTimeSelect::getIfcCalendarDate() const {
+    if (m_type == IFCCALENDARDATE) {
+        return m_IfcDateTimeSelect_union.m_IfcCalendarDate;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDateTimeSelect::setIfcCalendarDate(IfcCalendarDate *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcDateTimeSelect::setIfcCalendarDate(IfcCalendarDate *value) {
     m_type = IFCCALENDARDATE;
 }
 
-IfcLocalTime *IfcDateTimeSelect::getIfcLocalTime() {
-    return m_IfcDateTimeSelect_union.m_IfcLocalTime;
+IfcLocalTime *IfcDateTimeSelect::getIfcLocalTime() const {
+    if (m_type == IFCLOCALTIME) {
+        return m_IfcDateTimeSelect_union.m_IfcLocalTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDateTimeSelect::setIfcLocalTime(IfcLocalTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcDateTimeSelect::setIfcLocalTime(IfcLocalTime *value) {
     m_type = IFCLOCALTIME;
 }
 
-IfcDateAndTime *IfcDateTimeSelect::getIfcDateAndTime() {
-    return m_IfcDateTimeSelect_union.m_IfcDateAndTime;
+IfcDateAndTime *IfcDateTimeSelect::getIfcDateAndTime() const {
+    if (m_type == IFCDATEANDTIME) {
+        return m_IfcDateTimeSelect_union.m_IfcDateAndTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDateTimeSelect::setIfcDateAndTime(IfcDateAndTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

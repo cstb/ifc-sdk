@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityLength::IfcQuantityLength(Step::Id id, Step::SPFData *args) : IfcPhys
 IfcQuantityLength::~IfcQuantityLength() {
 }
 
-bool IfcQuantityLength::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityLength(this);
+bool IfcQuantityLength::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityLength(this);
 }
 
-const std::string &IfcQuantityLength::type() {
+const std::string &IfcQuantityLength::type() const {
     return IfcQuantityLength::s_type.getName();
 }
 
-Step::ClassType IfcQuantityLength::getClassType() {
+const Step::ClassType &IfcQuantityLength::getClassType() {
     return IfcQuantityLength::s_type;
 }
 
-Step::ClassType IfcQuantityLength::getType() const {
+const Step::ClassType &IfcQuantityLength::getType() const {
     return IfcQuantityLength::s_type;
 }
 
-bool IfcQuantityLength::isOfType(Step::ClassType t) {
+bool IfcQuantityLength::isOfType(const Step::ClassType &t) const {
     return IfcQuantityLength::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcLengthMeasure IfcQuantityLength::getLengthValue() {
     }
 }
 
-void IfcQuantityLength::setLengthValue(IfcLengthMeasure value) {
-    m_lengthValue = value;
+const IfcLengthMeasure IfcQuantityLength::getLengthValue() const {
+    IfcQuantityLength * deConstObject = const_cast< IfcQuantityLength * > (this);
+    return deConstObject->getLengthValue();
 }
 
-void IfcQuantityLength::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityLength::setLengthValue(IfcLengthMeasure value) {
+    m_lengthValue = value;
 }
 
 bool IfcQuantityLength::init() {

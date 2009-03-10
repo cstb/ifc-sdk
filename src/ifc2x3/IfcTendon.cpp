@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -53,23 +53,23 @@ IfcTendon::IfcTendon(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(i
 IfcTendon::~IfcTendon() {
 }
 
-bool IfcTendon::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTendon(this);
+bool IfcTendon::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTendon(this);
 }
 
-const std::string &IfcTendon::type() {
+const std::string &IfcTendon::type() const {
     return IfcTendon::s_type.getName();
 }
 
-Step::ClassType IfcTendon::getClassType() {
+const Step::ClassType &IfcTendon::getClassType() {
     return IfcTendon::s_type;
 }
 
-Step::ClassType IfcTendon::getType() const {
+const Step::ClassType &IfcTendon::getType() const {
     return IfcTendon::s_type;
 }
 
-bool IfcTendon::isOfType(Step::ClassType t) {
+bool IfcTendon::isOfType(const Step::ClassType &t) const {
     return IfcTendon::s_type == t ? true : IfcReinforcingElement::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcTendonTypeEnum IfcTendon::getPredefinedType() {
     else {
         return IfcTendonTypeEnum_UNSET;
     }
+}
+
+const IfcTendonTypeEnum IfcTendon::getPredefinedType() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getPredefinedType();
 }
 
 void IfcTendon::setPredefinedType(IfcTendonTypeEnum value) {
@@ -95,6 +100,11 @@ IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getNominalDiameter();
+}
+
 void IfcTendon::setNominalDiameter(IfcPositiveLengthMeasure value) {
     m_nominalDiameter = value;
 }
@@ -106,6 +116,11 @@ IfcAreaMeasure IfcTendon::getCrossSectionArea() {
     else {
         return Step::getUnset(m_crossSectionArea);
     }
+}
+
+const IfcAreaMeasure IfcTendon::getCrossSectionArea() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getCrossSectionArea();
 }
 
 void IfcTendon::setCrossSectionArea(IfcAreaMeasure value) {
@@ -121,6 +136,11 @@ IfcForceMeasure IfcTendon::getTensionForce() {
     }
 }
 
+const IfcForceMeasure IfcTendon::getTensionForce() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getTensionForce();
+}
+
 void IfcTendon::setTensionForce(IfcForceMeasure value) {
     m_tensionForce = value;
 }
@@ -132,6 +152,11 @@ IfcPressureMeasure IfcTendon::getPreStress() {
     else {
         return Step::getUnset(m_preStress);
     }
+}
+
+const IfcPressureMeasure IfcTendon::getPreStress() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getPreStress();
 }
 
 void IfcTendon::setPreStress(IfcPressureMeasure value) {
@@ -147,6 +172,11 @@ IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getFrictionCoefficient();
+}
+
 void IfcTendon::setFrictionCoefficient(IfcNormalisedRatioMeasure value) {
     m_frictionCoefficient = value;
 }
@@ -158,6 +188,11 @@ IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() {
     else {
         return Step::getUnset(m_anchorageSlip);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getAnchorageSlip();
 }
 
 void IfcTendon::setAnchorageSlip(IfcPositiveLengthMeasure value) {
@@ -173,12 +208,13 @@ IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() {
     }
 }
 
-void IfcTendon::setMinCurvatureRadius(IfcPositiveLengthMeasure value) {
-    m_minCurvatureRadius = value;
+const IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() const {
+    IfcTendon * deConstObject = const_cast< IfcTendon * > (this);
+    return deConstObject->getMinCurvatureRadius();
 }
 
-void IfcTendon::release() {
-    IfcReinforcingElement::release();
+void IfcTendon::setMinCurvatureRadius(IfcPositiveLengthMeasure value) {
+    m_minCurvatureRadius = value;
 }
 
 bool IfcTendon::init() {

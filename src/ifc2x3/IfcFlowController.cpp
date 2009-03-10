@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowController::IfcFlowController(Step::Id id, Step::SPFData *args) : IfcDist
 IfcFlowController::~IfcFlowController() {
 }
 
-bool IfcFlowController::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowController(this);
+bool IfcFlowController::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowController(this);
 }
 
-const std::string &IfcFlowController::type() {
+const std::string &IfcFlowController::type() const {
     return IfcFlowController::s_type.getName();
 }
 
-Step::ClassType IfcFlowController::getClassType() {
+const Step::ClassType &IfcFlowController::getClassType() {
     return IfcFlowController::s_type;
 }
 
-Step::ClassType IfcFlowController::getType() const {
+const Step::ClassType &IfcFlowController::getType() const {
     return IfcFlowController::s_type;
 }
 
-bool IfcFlowController::isOfType(Step::ClassType t) {
+bool IfcFlowController::isOfType(const Step::ClassType &t) const {
     return IfcFlowController::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcFlowController::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcFlowController::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,15 +32,14 @@
 #include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelInteractionRequirements;
     class IfcSpatialStructureElement;
 
     /**
@@ -48,78 +47,139 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSpaceProgram : public IfcControl {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SpaceProgramIdentifier'.
+         * 
          */
-        IfcIdentifier getSpaceProgramIdentifier();
+        virtual IfcIdentifier getSpaceProgramIdentifier();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpaceProgramIdentifier'.
+         * 
+         * @return the value of the explicit attribute 'SpaceProgramIdentifier'
+         */
+        virtual const IfcIdentifier getSpaceProgramIdentifier() const;
         /**
          * Sets the value of the explicit attribute 'SpaceProgramIdentifier'.
          * 
          * @param value
          */
-        void setSpaceProgramIdentifier(const IfcIdentifier &value);
+        virtual void setSpaceProgramIdentifier(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'MaxRequiredArea'.
+         * 
          */
-        IfcAreaMeasure getMaxRequiredArea();
+        virtual IfcAreaMeasure getMaxRequiredArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaxRequiredArea'.
+         * 
+         * @return the value of the explicit attribute 'MaxRequiredArea'
+         */
+        virtual const IfcAreaMeasure getMaxRequiredArea() const;
         /**
          * Sets the value of the explicit attribute 'MaxRequiredArea'.
          * 
          * @param value
          */
-        void setMaxRequiredArea(IfcAreaMeasure value);
+        virtual void setMaxRequiredArea(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinRequiredArea'.
+         * 
          */
-        IfcAreaMeasure getMinRequiredArea();
+        virtual IfcAreaMeasure getMinRequiredArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinRequiredArea'.
+         * 
+         * @return the value of the explicit attribute 'MinRequiredArea'
+         */
+        virtual const IfcAreaMeasure getMinRequiredArea() const;
         /**
          * Sets the value of the explicit attribute 'MinRequiredArea'.
          * 
          * @param value
          */
-        void setMinRequiredArea(IfcAreaMeasure value);
+        virtual void setMinRequiredArea(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RequestedLocation'.
+         * 
          */
-        IfcSpatialStructureElement *getRequestedLocation();
+        virtual IfcSpatialStructureElement *getRequestedLocation();
+        /**
+         * (const) Returns the value of the explicit attribute 'RequestedLocation'.
+         * 
+         * @return the value of the explicit attribute 'RequestedLocation'
+         */
+        virtual const IfcSpatialStructureElement *getRequestedLocation() const;
         /**
          * Sets the value of the explicit attribute 'RequestedLocation'.
          * 
          * @param value
          */
-        void setRequestedLocation(const Step::RefPtr< IfcSpatialStructureElement > &value);
+        virtual void setRequestedLocation(const Step::RefPtr< IfcSpatialStructureElement > &value);
         /**
+         * Gets the value of the explicit attribute 'StandardRequiredArea'.
+         * 
          */
-        IfcAreaMeasure getStandardRequiredArea();
+        virtual IfcAreaMeasure getStandardRequiredArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'StandardRequiredArea'.
+         * 
+         * @return the value of the explicit attribute 'StandardRequiredArea'
+         */
+        virtual const IfcAreaMeasure getStandardRequiredArea() const;
         /**
          * Sets the value of the explicit attribute 'StandardRequiredArea'.
          * 
          * @param value
          */
-        void setStandardRequiredArea(IfcAreaMeasure value);
+        virtual void setStandardRequiredArea(IfcAreaMeasure value);
         /**
+         * Gets the value of the inverse attribute 'HasInteractionReqsFrom'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &getHasInteractionReqsFrom();
+        Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom();
         /**
+         * (const) Returns the value of the explicit attribute 'HasInteractionReqsFrom'.
+         * 
+         * @return the value of the explicit attribute 'HasInteractionReqsFrom'
          */
-        Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &getHasInteractionReqsTo();
+        virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom() const;
         /**
+         * Gets the value of the inverse attribute 'HasInteractionReqsTo'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo();
+        /**
+         * (const) Returns the value of the explicit attribute 'HasInteractionReqsTo'.
+         * 
+         * @return the value of the explicit attribute 'HasInteractionReqsTo'
+         */
+        virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo() const;
         friend class IfcRelInteractionRequirements;
         friend class ExpressDataSet;
 
@@ -145,7 +205,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_spaceProgramIdentifier;
+        Step::String m_spaceProgramIdentifier;
         /**
          */
         Step::Real m_maxRequiredArea;
@@ -160,10 +220,10 @@ namespace ifc2x3 {
         Step::Real m_standardRequiredArea;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > m_hasInteractionReqsFrom;
+        Inverse_Set_IfcRelInteractionRequirements_0_n m_hasInteractionReqsFrom;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > m_hasInteractionReqsTo;
+        Inverse_Set_IfcRelInteractionRequirements_0_n m_hasInteractionReqsTo;
 
     };
 

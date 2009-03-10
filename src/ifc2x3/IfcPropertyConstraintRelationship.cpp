@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,8 @@
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -47,7 +47,6 @@ using namespace ifc2x3;
 
 IfcPropertyConstraintRelationship::IfcPropertyConstraintRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_relatingConstraint = NULL;
-    m_relatedProperties.setUnset(true);
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
 }
@@ -55,23 +54,23 @@ IfcPropertyConstraintRelationship::IfcPropertyConstraintRelationship(Step::Id id
 IfcPropertyConstraintRelationship::~IfcPropertyConstraintRelationship() {
 }
 
-bool IfcPropertyConstraintRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyConstraintRelationship(this);
+bool IfcPropertyConstraintRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyConstraintRelationship(this);
 }
 
-const std::string &IfcPropertyConstraintRelationship::type() {
+const std::string &IfcPropertyConstraintRelationship::type() const {
     return IfcPropertyConstraintRelationship::s_type.getName();
 }
 
-Step::ClassType IfcPropertyConstraintRelationship::getClassType() {
+const Step::ClassType &IfcPropertyConstraintRelationship::getClassType() {
     return IfcPropertyConstraintRelationship::s_type;
 }
 
-Step::ClassType IfcPropertyConstraintRelationship::getType() const {
+const Step::ClassType &IfcPropertyConstraintRelationship::getType() const {
     return IfcPropertyConstraintRelationship::s_type;
 }
 
-bool IfcPropertyConstraintRelationship::isOfType(Step::ClassType t) {
+bool IfcPropertyConstraintRelationship::isOfType(const Step::ClassType &t) const {
     return IfcPropertyConstraintRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,12 +83,22 @@ IfcConstraint *IfcPropertyConstraintRelationship::getRelatingConstraint() {
     }
 }
 
-void IfcPropertyConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    m_relatingConstraint = value;
-    m_relatingConstraint->m_propertiesForConstraint.insert(this);
+const IfcConstraint *IfcPropertyConstraintRelationship::getRelatingConstraint() const {
+    IfcPropertyConstraintRelationship * deConstObject = const_cast< IfcPropertyConstraintRelationship * > (this);
+    return deConstObject->getRelatingConstraint();
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcPropertyConstraintRelationship::getRelatedProperties() {
+void IfcPropertyConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
+    if (m_relatingConstraint.valid()) {
+        m_relatingConstraint->m_propertiesForConstraint.erase(this);
+    }
+    if (value.valid()) {
+        value->m_propertiesForConstraint.insert(this);
+    }
+    m_relatingConstraint = value;
+}
+
+Set_IfcProperty_1_n &IfcPropertyConstraintRelationship::getRelatedProperties() {
     if (Step::BaseObject::inited()) {
         return m_relatedProperties;
     }
@@ -99,7 +108,12 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcPropertyConstraintRelationship::get
     }
 }
 
-void IfcPropertyConstraintRelationship::setRelatedProperties(const Step::Set< Step::RefPtr< IfcProperty > > &value) {
+const Set_IfcProperty_1_n &IfcPropertyConstraintRelationship::getRelatedProperties() const {
+    IfcPropertyConstraintRelationship * deConstObject = const_cast< IfcPropertyConstraintRelationship * > (this);
+    return deConstObject->getRelatedProperties();
+}
+
+void IfcPropertyConstraintRelationship::setRelatedProperties(const Set_IfcProperty_1_n &value) {
     m_relatedProperties = value;
 }
 
@@ -110,6 +124,11 @@ IfcLabel IfcPropertyConstraintRelationship::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcPropertyConstraintRelationship::getName() const {
+    IfcPropertyConstraintRelationship * deConstObject = const_cast< IfcPropertyConstraintRelationship * > (this);
+    return deConstObject->getName();
 }
 
 void IfcPropertyConstraintRelationship::setName(const IfcLabel &value) {
@@ -125,13 +144,13 @@ IfcText IfcPropertyConstraintRelationship::getDescription() {
     }
 }
 
-void IfcPropertyConstraintRelationship::setDescription(const IfcText &value) {
-    m_description = value;
+const IfcText IfcPropertyConstraintRelationship::getDescription() const {
+    IfcPropertyConstraintRelationship * deConstObject = const_cast< IfcPropertyConstraintRelationship * > (this);
+    return deConstObject->getDescription();
 }
 
-void IfcPropertyConstraintRelationship::release() {
-    m_relatingConstraint.release();
-    m_relatedProperties.clear();
+void IfcPropertyConstraintRelationship::setDescription(const IfcText &value) {
+    m_description = value;
 }
 
 bool IfcPropertyConstraintRelationship::init() {
@@ -141,7 +160,7 @@ bool IfcPropertyConstraintRelationship::init() {
         m_relatingConstraint = NULL;
     }
     else {
-        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -154,7 +173,7 @@ bool IfcPropertyConstraintRelationship::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedProperties.insert(attr2);
             }
             else {
@@ -167,24 +186,24 @@ bool IfcPropertyConstraintRelationship::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcPropertyConstraintRelationship::copy(const IfcPropertyConstraintRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_relatedProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_relatedProperties;
     Step::BaseEntity::copy(obj, copyop);
-    setRelatingConstraint(copyop(obj.m_relatingConstraint.get()));
+    setRelatingConstraint((IfcConstraint*)copyop(obj.m_relatingConstraint.get()));
     for (it_m_relatedProperties = obj.m_relatedProperties.begin(); it_m_relatedProperties != obj.m_relatedProperties.end(); ++it_m_relatedProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_relatedProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_relatedProperties).get()));
         m_relatedProperties.insert(copyTarget.get());
     }
     setName(obj.m_name);

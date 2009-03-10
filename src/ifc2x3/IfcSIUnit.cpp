@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcSIUnit::IfcSIUnit(Step::Id id, Step::SPFData *args) : IfcNamedUnit(id, args) 
 IfcSIUnit::~IfcSIUnit() {
 }
 
-bool IfcSIUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSIUnit(this);
+bool IfcSIUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSIUnit(this);
 }
 
-const std::string &IfcSIUnit::type() {
+const std::string &IfcSIUnit::type() const {
     return IfcSIUnit::s_type.getName();
 }
 
-Step::ClassType IfcSIUnit::getClassType() {
+const Step::ClassType &IfcSIUnit::getClassType() {
     return IfcSIUnit::s_type;
 }
 
-Step::ClassType IfcSIUnit::getType() const {
+const Step::ClassType &IfcSIUnit::getType() const {
     return IfcSIUnit::s_type;
 }
 
-bool IfcSIUnit::isOfType(Step::ClassType t) {
+bool IfcSIUnit::isOfType(const Step::ClassType &t) const {
     return IfcSIUnit::s_type == t ? true : IfcNamedUnit::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcSIPrefix IfcSIUnit::getPrefix() {
     else {
         return IfcSIPrefix_UNSET;
     }
+}
+
+const IfcSIPrefix IfcSIUnit::getPrefix() const {
+    IfcSIUnit * deConstObject = const_cast< IfcSIUnit * > (this);
+    return deConstObject->getPrefix();
 }
 
 void IfcSIUnit::setPrefix(IfcSIPrefix value) {
@@ -89,12 +94,13 @@ IfcSIUnitName IfcSIUnit::getName() {
     }
 }
 
-void IfcSIUnit::setName(IfcSIUnitName value) {
-    m_name = value;
+const IfcSIUnitName IfcSIUnit::getName() const {
+    IfcSIUnit * deConstObject = const_cast< IfcSIUnit * > (this);
+    return deConstObject->getName();
 }
 
-void IfcSIUnit::release() {
-    IfcNamedUnit::release();
+void IfcSIUnit::setName(IfcSIUnitName value) {
+    m_name = value;
 }
 
 bool IfcSIUnit::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcSectionProperties::IfcSectionProperties(Step::Id id, Step::SPFData *args) : S
 IfcSectionProperties::~IfcSectionProperties() {
 }
 
-bool IfcSectionProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSectionProperties(this);
+bool IfcSectionProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSectionProperties(this);
 }
 
-const std::string &IfcSectionProperties::type() {
+const std::string &IfcSectionProperties::type() const {
     return IfcSectionProperties::s_type.getName();
 }
 
-Step::ClassType IfcSectionProperties::getClassType() {
+const Step::ClassType &IfcSectionProperties::getClassType() {
     return IfcSectionProperties::s_type;
 }
 
-Step::ClassType IfcSectionProperties::getType() const {
+const Step::ClassType &IfcSectionProperties::getType() const {
     return IfcSectionProperties::s_type;
 }
 
-bool IfcSectionProperties::isOfType(Step::ClassType t) {
+bool IfcSectionProperties::isOfType(const Step::ClassType &t) const {
     return IfcSectionProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcSectionTypeEnum IfcSectionProperties::getSectionType() {
     else {
         return IfcSectionTypeEnum_UNSET;
     }
+}
+
+const IfcSectionTypeEnum IfcSectionProperties::getSectionType() const {
+    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
+    return deConstObject->getSectionType();
 }
 
 void IfcSectionProperties::setSectionType(IfcSectionTypeEnum value) {
@@ -94,6 +99,11 @@ IfcProfileDef *IfcSectionProperties::getStartProfile() {
     }
 }
 
+const IfcProfileDef *IfcSectionProperties::getStartProfile() const {
+    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
+    return deConstObject->getStartProfile();
+}
+
 void IfcSectionProperties::setStartProfile(const Step::RefPtr< IfcProfileDef > &value) {
     m_startProfile = value;
 }
@@ -107,13 +117,13 @@ IfcProfileDef *IfcSectionProperties::getEndProfile() {
     }
 }
 
-void IfcSectionProperties::setEndProfile(const Step::RefPtr< IfcProfileDef > &value) {
-    m_endProfile = value;
+const IfcProfileDef *IfcSectionProperties::getEndProfile() const {
+    IfcSectionProperties * deConstObject = const_cast< IfcSectionProperties * > (this);
+    return deConstObject->getEndProfile();
 }
 
-void IfcSectionProperties::release() {
-    m_startProfile.release();
-    m_endProfile.release();
+void IfcSectionProperties::setEndProfile(const Step::RefPtr< IfcProfileDef > &value) {
+    m_endProfile = value;
 }
 
 bool IfcSectionProperties::init() {
@@ -135,14 +145,14 @@ bool IfcSectionProperties::init() {
         m_startProfile = NULL;
     }
     else {
-        m_startProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_startProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_endProfile = NULL;
     }
     else {
-        m_endProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_endProfile = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -150,8 +160,8 @@ bool IfcSectionProperties::init() {
 void IfcSectionProperties::copy(const IfcSectionProperties &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
     setSectionType(obj.m_sectionType);
-    setStartProfile(copyop(obj.m_startProfile.get()));
-    setEndProfile(copyop(obj.m_endProfile.get()));
+    setStartProfile((IfcProfileDef*)copyop(obj.m_startProfile.get()));
+    setEndProfile((IfcProfileDef*)copyop(obj.m_endProfile.get()));
     return;
 }
 

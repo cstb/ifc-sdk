@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcLibraryReference::IfcLibraryReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
-    m_referenceIntoLibrary.setUnset(true);
 }
 
 IfcLibraryReference::~IfcLibraryReference() {
 }
 
-bool IfcLibraryReference::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLibraryReference(this);
+bool IfcLibraryReference::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLibraryReference(this);
 }
 
-const std::string &IfcLibraryReference::type() {
+const std::string &IfcLibraryReference::type() const {
     return IfcLibraryReference::s_type.getName();
 }
 
-Step::ClassType IfcLibraryReference::getClassType() {
+const Step::ClassType &IfcLibraryReference::getClassType() {
     return IfcLibraryReference::s_type;
 }
 
-Step::ClassType IfcLibraryReference::getType() const {
+const Step::ClassType &IfcLibraryReference::getType() const {
     return IfcLibraryReference::s_type;
 }
 
-bool IfcLibraryReference::isOfType(Step::ClassType t) {
+bool IfcLibraryReference::isOfType(const Step::ClassType &t) const {
     return IfcLibraryReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcLibraryInformation > > &IfcLibraryReference::getReferenceIntoLibrary() {
+Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibrary() {
     if (Step::BaseObject::inited()) {
         return m_referenceIntoLibrary;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcLibraryInformation > > &IfcLibraryReference::getRefe
     }
 }
 
-void IfcLibraryReference::release() {
-    IfcExternalReference::release();
+const Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibrary() const {
+    IfcLibraryReference * deConstObject = const_cast< IfcLibraryReference * > (this);
+    return deConstObject->getReferenceIntoLibrary();
 }
 
 bool IfcLibraryReference::init() {

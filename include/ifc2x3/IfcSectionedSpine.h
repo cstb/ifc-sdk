@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,69 +34,100 @@
 #include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcAxis2Placement3D;
     class IfcCompositeCurve;
-    class IfcProfileDef;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcSectionedSpine : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SpineCurve'.
+         * 
          */
-        IfcCompositeCurve *getSpineCurve();
+        virtual IfcCompositeCurve *getSpineCurve();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpineCurve'.
+         * 
+         * @return the value of the explicit attribute 'SpineCurve'
+         */
+        virtual const IfcCompositeCurve *getSpineCurve() const;
         /**
          * Sets the value of the explicit attribute 'SpineCurve'.
          * 
          * @param value
          */
-        void setSpineCurve(const Step::RefPtr< IfcCompositeCurve > &value);
+        virtual void setSpineCurve(const Step::RefPtr< IfcCompositeCurve > &value);
         /**
+         * Gets the value of the explicit attribute 'CrossSections'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcProfileDef > > &getCrossSections();
+        virtual List_IfcProfileDef_2_n &getCrossSections();
+        /**
+         * (const) Returns the value of the explicit attribute 'CrossSections'.
+         * 
+         * @return the value of the explicit attribute 'CrossSections'
+         */
+        virtual const List_IfcProfileDef_2_n &getCrossSections() const;
         /**
          * Sets the value of the explicit attribute 'CrossSections'.
          * 
          * @param value
          */
-        void setCrossSections(const Step::List< Step::RefPtr< IfcProfileDef > > &value);
+        virtual void setCrossSections(const List_IfcProfileDef_2_n &value);
         /**
+         * Gets the value of the explicit attribute 'CrossSectionPositions'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcAxis2Placement3D > > &getCrossSectionPositions();
+        virtual List_IfcAxis2Placement3D_2_n &getCrossSectionPositions();
+        /**
+         * (const) Returns the value of the explicit attribute 'CrossSectionPositions'.
+         * 
+         * @return the value of the explicit attribute 'CrossSectionPositions'
+         */
+        virtual const List_IfcAxis2Placement3D_2_n &getCrossSectionPositions() const;
         /**
          * Sets the value of the explicit attribute 'CrossSectionPositions'.
          * 
          * @param value
          */
-        void setCrossSectionPositions(const Step::List< Step::RefPtr< IfcAxis2Placement3D > > &value);
+        virtual void setCrossSectionPositions(const List_IfcAxis2Placement3D_2_n &value);
         /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
          */
-        virtual void release();
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:
@@ -124,10 +155,10 @@ namespace ifc2x3 {
         Step::RefPtr< IfcCompositeCurve > m_spineCurve;
         /**
          */
-        Step::List< Step::RefPtr< IfcProfileDef > > m_crossSections;
+        List_IfcProfileDef_2_n m_crossSections;
         /**
          */
-        Step::List< Step::RefPtr< IfcAxis2Placement3D > > m_crossSectionPositions;
+        List_IfcAxis2Placement3D_2_n m_crossSectionPositions;
 
     };
 

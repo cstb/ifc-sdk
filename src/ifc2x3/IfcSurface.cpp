@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcSurface::IfcSurface(Step::Id id, Step::SPFData *args) : IfcGeometricRepresent
 IfcSurface::~IfcSurface() {
 }
 
-bool IfcSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurface(this);
+bool IfcSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurface(this);
 }
 
-const std::string &IfcSurface::type() {
+const std::string &IfcSurface::type() const {
     return IfcSurface::s_type.getName();
 }
 
-Step::ClassType IfcSurface::getClassType() {
+const Step::ClassType &IfcSurface::getClassType() {
     return IfcSurface::s_type;
 }
 
-Step::ClassType IfcSurface::getType() const {
+const Step::ClassType &IfcSurface::getType() const {
     return IfcSurface::s_type;
 }
 
-bool IfcSurface::isOfType(Step::ClassType t) {
+bool IfcSurface::isOfType(const Step::ClassType &t) const {
     return IfcSurface::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-void IfcSurface::release() {
-    IfcGeometricRepresentationItem::release();
 }
 
 bool IfcSurface::init() {

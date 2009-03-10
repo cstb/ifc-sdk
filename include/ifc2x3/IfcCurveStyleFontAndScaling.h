@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,9 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
@@ -46,54 +47,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCurveStyleFontAndScaling : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'CurveFont'.
+         * 
          */
-        IfcCurveStyleFontSelect *getCurveFont();
+        virtual IfcCurveStyleFontSelect *getCurveFont();
+        /**
+         * (const) Returns the value of the explicit attribute 'CurveFont'.
+         * 
+         * @return the value of the explicit attribute 'CurveFont'
+         */
+        virtual const IfcCurveStyleFontSelect *getCurveFont() const;
         /**
          * Sets the value of the explicit attribute 'CurveFont'.
          * 
          * @param value
          */
-        void setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value);
+        virtual void setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'CurveFontScaling'.
+         * 
          */
-        IfcPositiveRatioMeasure getCurveFontScaling();
+        virtual IfcPositiveRatioMeasure getCurveFontScaling();
+        /**
+         * (const) Returns the value of the explicit attribute 'CurveFontScaling'.
+         * 
+         * @return the value of the explicit attribute 'CurveFontScaling'
+         */
+        virtual const IfcPositiveRatioMeasure getCurveFontScaling() const;
         /**
          * Sets the value of the explicit attribute 'CurveFontScaling'.
          * 
          * @param value
          */
-        void setCurveFontScaling(IfcPositiveRatioMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setCurveFontScaling(IfcPositiveRatioMeasure value);
         friend class ExpressDataSet;
 
     protected:
@@ -118,7 +148,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
         Step::RefPtr< IfcCurveStyleFontSelect > m_curveFont;

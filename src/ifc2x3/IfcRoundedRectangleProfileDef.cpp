@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRoundedRectangleProfileDef::IfcRoundedRectangleProfileDef(Step::Id id, Step::
 IfcRoundedRectangleProfileDef::~IfcRoundedRectangleProfileDef() {
 }
 
-bool IfcRoundedRectangleProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRoundedRectangleProfileDef(this);
+bool IfcRoundedRectangleProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRoundedRectangleProfileDef(this);
 }
 
-const std::string &IfcRoundedRectangleProfileDef::type() {
+const std::string &IfcRoundedRectangleProfileDef::type() const {
     return IfcRoundedRectangleProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcRoundedRectangleProfileDef::getClassType() {
+const Step::ClassType &IfcRoundedRectangleProfileDef::getClassType() {
     return IfcRoundedRectangleProfileDef::s_type;
 }
 
-Step::ClassType IfcRoundedRectangleProfileDef::getType() const {
+const Step::ClassType &IfcRoundedRectangleProfileDef::getType() const {
     return IfcRoundedRectangleProfileDef::s_type;
 }
 
-bool IfcRoundedRectangleProfileDef::isOfType(Step::ClassType t) {
+bool IfcRoundedRectangleProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcRoundedRectangleProfileDef::s_type == t ? true : IfcRectangleProfileDef::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcRoundedRectangleProfileDef::getRoundingRadius() {
     }
 }
 
-void IfcRoundedRectangleProfileDef::setRoundingRadius(IfcPositiveLengthMeasure value) {
-    m_roundingRadius = value;
+const IfcPositiveLengthMeasure IfcRoundedRectangleProfileDef::getRoundingRadius() const {
+    IfcRoundedRectangleProfileDef * deConstObject = const_cast< IfcRoundedRectangleProfileDef * > (this);
+    return deConstObject->getRoundingRadius();
 }
 
-void IfcRoundedRectangleProfileDef::release() {
-    IfcRectangleProfileDef::release();
+void IfcRoundedRectangleProfileDef::setRoundingRadius(IfcPositiveLengthMeasure value) {
+    m_roundingRadius = value;
 }
 
 bool IfcRoundedRectangleProfileDef::init() {

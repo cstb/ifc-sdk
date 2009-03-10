@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,43 @@
 
 #include "ifc2x3/IfcAppliedValueRelationship.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcAppliedValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcAppliedValueRelationship_Components_type::Inverted_IfcAppliedValueRelationship_Components_type() {
+}
+
+void Inverted_IfcAppliedValueRelationship_Components_type::setOwner(IfcAppliedValueRelationship *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcAppliedValueRelationship_Components_type::insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range) {
+    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
+    Set_IfcAppliedValue_1_n::insert(value);
+    inverse->m_isComponentIn.insert(mOwner);
+}
+
+Inverted_IfcAppliedValueRelationship_Components_type::size_type Inverted_IfcAppliedValueRelationship_Components_type::erase(const Step::RefPtr< IfcAppliedValue > &value) {
+    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
+    inverse->m_isComponentIn.erase(mOwner);
+    return Set_IfcAppliedValue_1_n::erase(value);
+}
 
 IfcAppliedValueRelationship::IfcAppliedValueRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_componentOfTotal = NULL;
@@ -57,23 +76,23 @@ IfcAppliedValueRelationship::IfcAppliedValueRelationship(Step::Id id, Step::SPFD
 IfcAppliedValueRelationship::~IfcAppliedValueRelationship() {
 }
 
-bool IfcAppliedValueRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAppliedValueRelationship(this);
+bool IfcAppliedValueRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAppliedValueRelationship(this);
 }
 
-const std::string &IfcAppliedValueRelationship::type() {
+const std::string &IfcAppliedValueRelationship::type() const {
     return IfcAppliedValueRelationship::s_type.getName();
 }
 
-Step::ClassType IfcAppliedValueRelationship::getClassType() {
+const Step::ClassType &IfcAppliedValueRelationship::getClassType() {
     return IfcAppliedValueRelationship::s_type;
 }
 
-Step::ClassType IfcAppliedValueRelationship::getType() const {
+const Step::ClassType &IfcAppliedValueRelationship::getType() const {
     return IfcAppliedValueRelationship::s_type;
 }
 
-bool IfcAppliedValueRelationship::isOfType(Step::ClassType t) {
+bool IfcAppliedValueRelationship::isOfType(const Step::ClassType &t) const {
     return IfcAppliedValueRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -86,12 +105,22 @@ IfcAppliedValue *IfcAppliedValueRelationship::getComponentOfTotal() {
     }
 }
 
-void IfcAppliedValueRelationship::setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value) {
-    m_componentOfTotal = value;
-    m_componentOfTotal->m_valueOfComponents.insert(this);
+const IfcAppliedValue *IfcAppliedValueRelationship::getComponentOfTotal() const {
+    IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
+    return deConstObject->getComponentOfTotal();
 }
 
-Step::Set< Step::RefPtr< IfcAppliedValue > > &IfcAppliedValueRelationship::getComponents() {
+void IfcAppliedValueRelationship::setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value) {
+    if (m_componentOfTotal.valid()) {
+        m_componentOfTotal->m_valueOfComponents.erase(this);
+    }
+    if (value.valid()) {
+        value->m_valueOfComponents.insert(this);
+    }
+    m_componentOfTotal = value;
+}
+
+Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() {
     if (Step::BaseObject::inited()) {
         return m_components;
     }
@@ -101,6 +130,11 @@ Step::Set< Step::RefPtr< IfcAppliedValue > > &IfcAppliedValueRelationship::getCo
     }
 }
 
+const Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() const {
+    IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
+    return deConstObject->getComponents();
+}
+
 IfcArithmeticOperatorEnum IfcAppliedValueRelationship::getArithmeticOperator() {
     if (Step::BaseObject::inited()) {
         return m_arithmeticOperator;
@@ -108,6 +142,11 @@ IfcArithmeticOperatorEnum IfcAppliedValueRelationship::getArithmeticOperator() {
     else {
         return IfcArithmeticOperatorEnum_UNSET;
     }
+}
+
+const IfcArithmeticOperatorEnum IfcAppliedValueRelationship::getArithmeticOperator() const {
+    IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
+    return deConstObject->getArithmeticOperator();
 }
 
 void IfcAppliedValueRelationship::setArithmeticOperator(IfcArithmeticOperatorEnum value) {
@@ -123,6 +162,11 @@ IfcLabel IfcAppliedValueRelationship::getName() {
     }
 }
 
+const IfcLabel IfcAppliedValueRelationship::getName() const {
+    IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
+    return deConstObject->getName();
+}
+
 void IfcAppliedValueRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
@@ -136,13 +180,13 @@ IfcText IfcAppliedValueRelationship::getDescription() {
     }
 }
 
-void IfcAppliedValueRelationship::setDescription(const IfcText &value) {
-    m_description = value;
+const IfcText IfcAppliedValueRelationship::getDescription() const {
+    IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
+    return deConstObject->getDescription();
 }
 
-void IfcAppliedValueRelationship::release() {
-    m_componentOfTotal.release();
-    m_components.clear();
+void IfcAppliedValueRelationship::setDescription(const IfcText &value) {
+    m_description = value;
 }
 
 bool IfcAppliedValueRelationship::init() {
@@ -152,7 +196,7 @@ bool IfcAppliedValueRelationship::init() {
         m_componentOfTotal = NULL;
     }
     else {
-        m_componentOfTotal = static_cast< IfcAppliedValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_componentOfTotal = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -165,7 +209,7 @@ bool IfcAppliedValueRelationship::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcAppliedValue > attr2;
-                attr2 = static_cast< IfcAppliedValue * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_components.insert(attr2);
             }
             else {
@@ -196,24 +240,24 @@ bool IfcAppliedValueRelationship::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcAppliedValueRelationship::copy(const IfcAppliedValueRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcAppliedValue > >::const_iterator it_m_components;
+    Step::Set< Step::RefPtr< IfcAppliedValue >, 1 >::const_iterator it_m_components;
     Step::BaseEntity::copy(obj, copyop);
-    setComponentOfTotal(copyop(obj.m_componentOfTotal.get()));
+    setComponentOfTotal((IfcAppliedValue*)copyop(obj.m_componentOfTotal.get()));
     for (it_m_components = obj.m_components.begin(); it_m_components != obj.m_components.end(); ++it_m_components) {
-        Step::RefPtr< IfcAppliedValue > copyTarget = copyop((*it_m_components).get());
+        Step::RefPtr< IfcAppliedValue > copyTarget = (IfcAppliedValue *) (copyop((*it_m_components).get()));
         m_components.insert(copyTarget.get());
     }
     setArithmeticOperator(obj.m_arithmeticOperator);
@@ -223,16 +267,3 @@ void IfcAppliedValueRelationship::copy(const IfcAppliedValueRelationship &obj, c
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcAppliedValueRelationship::s_type("IfcAppliedValueRelationship");
-IfcAppliedValueRelationship::Inverted_Components_type::Inverted_Components_type() {
-}
-
-void IfcAppliedValueRelationship::Inverted_Components_type::setOwner(IfcAppliedValueRelationship *owner) {
-    mOwner = owner;
-}
-
-void IfcAppliedValueRelationship::Inverted_Components_type::insert(const Step::RefPtr< IfcAppliedValue > &value) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
-    Step::Set< Step::RefPtr< IfcAppliedValue > >::insert(value);
-    inverse->m_isComponentIn.insert(mOwner);
-}
-

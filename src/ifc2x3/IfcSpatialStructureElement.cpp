@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -47,31 +48,28 @@ using namespace ifc2x3;
 IfcSpatialStructureElement::IfcSpatialStructureElement(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
     m_longName = Step::getUnset(m_longName);
     m_compositionType = IfcElementCompositionEnum_UNSET;
-    m_referencesElements.setUnset(true);
-    m_servicedBySystems.setUnset(true);
-    m_containsElements.setUnset(true);
 }
 
 IfcSpatialStructureElement::~IfcSpatialStructureElement() {
 }
 
-bool IfcSpatialStructureElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpatialStructureElement(this);
+bool IfcSpatialStructureElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpatialStructureElement(this);
 }
 
-const std::string &IfcSpatialStructureElement::type() {
+const std::string &IfcSpatialStructureElement::type() const {
     return IfcSpatialStructureElement::s_type.getName();
 }
 
-Step::ClassType IfcSpatialStructureElement::getClassType() {
+const Step::ClassType &IfcSpatialStructureElement::getClassType() {
     return IfcSpatialStructureElement::s_type;
 }
 
-Step::ClassType IfcSpatialStructureElement::getType() const {
+const Step::ClassType &IfcSpatialStructureElement::getType() const {
     return IfcSpatialStructureElement::s_type;
 }
 
-bool IfcSpatialStructureElement::isOfType(Step::ClassType t) {
+bool IfcSpatialStructureElement::isOfType(const Step::ClassType &t) const {
     return IfcSpatialStructureElement::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
@@ -82,6 +80,11 @@ IfcLabel IfcSpatialStructureElement::getLongName() {
     else {
         return Step::getUnset(m_longName);
     }
+}
+
+const IfcLabel IfcSpatialStructureElement::getLongName() const {
+    IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
+    return deConstObject->getLongName();
 }
 
 void IfcSpatialStructureElement::setLongName(const IfcLabel &value) {
@@ -97,11 +100,16 @@ IfcElementCompositionEnum IfcSpatialStructureElement::getCompositionType() {
     }
 }
 
+const IfcElementCompositionEnum IfcSpatialStructureElement::getCompositionType() const {
+    IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
+    return deConstObject->getCompositionType();
+}
+
 void IfcSpatialStructureElement::setCompositionType(IfcElementCompositionEnum value) {
     m_compositionType = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > &IfcSpatialStructureElement::getReferencesElements() {
+Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() {
     if (Step::BaseObject::inited()) {
         return m_referencesElements;
     }
@@ -111,7 +119,12 @@ Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > &IfcSpatialStruc
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > &IfcSpatialStructureElement::getServicedBySystems() {
+const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() const {
+    IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
+    return deConstObject->getReferencesElements();
+}
+
+Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() {
     if (Step::BaseObject::inited()) {
         return m_servicedBySystems;
     }
@@ -121,7 +134,12 @@ Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > &IfcSpatialStructureElement
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcSpatialStructureElement::getContainsElements() {
+const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() const {
+    IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
+    return deConstObject->getServicedBySystems();
+}
+
+Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() {
     if (Step::BaseObject::inited()) {
         return m_containsElements;
     }
@@ -131,8 +149,9 @@ Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcSpatialStruct
     }
 }
 
-void IfcSpatialStructureElement::release() {
-    IfcProduct::release();
+const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() const {
+    IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
+    return deConstObject->getContainsElements();
 }
 
 bool IfcSpatialStructureElement::init() {
@@ -147,7 +166,7 @@ bool IfcSpatialStructureElement::init() {
         m_longName = Step::getUnset(m_longName);
     }
     else {
-        m_longName = Step::spfToString(arg);
+        m_longName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

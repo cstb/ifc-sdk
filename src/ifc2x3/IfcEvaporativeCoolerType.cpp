@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcEvaporativeCoolerType::IfcEvaporativeCoolerType(Step::Id id, Step::SPFData *a
 IfcEvaporativeCoolerType::~IfcEvaporativeCoolerType() {
 }
 
-bool IfcEvaporativeCoolerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEvaporativeCoolerType(this);
+bool IfcEvaporativeCoolerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEvaporativeCoolerType(this);
 }
 
-const std::string &IfcEvaporativeCoolerType::type() {
+const std::string &IfcEvaporativeCoolerType::type() const {
     return IfcEvaporativeCoolerType::s_type.getName();
 }
 
-Step::ClassType IfcEvaporativeCoolerType::getClassType() {
+const Step::ClassType &IfcEvaporativeCoolerType::getClassType() {
     return IfcEvaporativeCoolerType::s_type;
 }
 
-Step::ClassType IfcEvaporativeCoolerType::getType() const {
+const Step::ClassType &IfcEvaporativeCoolerType::getType() const {
     return IfcEvaporativeCoolerType::s_type;
 }
 
-bool IfcEvaporativeCoolerType::isOfType(Step::ClassType t) {
+bool IfcEvaporativeCoolerType::isOfType(const Step::ClassType &t) const {
     return IfcEvaporativeCoolerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcEvaporativeCoolerTypeEnum IfcEvaporativeCoolerType::getPredefinedType() {
     }
 }
 
-void IfcEvaporativeCoolerType::setPredefinedType(IfcEvaporativeCoolerTypeEnum value) {
-    m_predefinedType = value;
+const IfcEvaporativeCoolerTypeEnum IfcEvaporativeCoolerType::getPredefinedType() const {
+    IfcEvaporativeCoolerType * deConstObject = const_cast< IfcEvaporativeCoolerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcEvaporativeCoolerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcEvaporativeCoolerType::setPredefinedType(IfcEvaporativeCoolerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcEvaporativeCoolerType::init() {

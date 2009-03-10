@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,11 +30,11 @@
 #include "ifc2x3/IfcMeasureValue.h"
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,23 +54,23 @@ IfcServiceLifeFactor::IfcServiceLifeFactor(Step::Id id, Step::SPFData *args) : I
 IfcServiceLifeFactor::~IfcServiceLifeFactor() {
 }
 
-bool IfcServiceLifeFactor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcServiceLifeFactor(this);
+bool IfcServiceLifeFactor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcServiceLifeFactor(this);
 }
 
-const std::string &IfcServiceLifeFactor::type() {
+const std::string &IfcServiceLifeFactor::type() const {
     return IfcServiceLifeFactor::s_type.getName();
 }
 
-Step::ClassType IfcServiceLifeFactor::getClassType() {
+const Step::ClassType &IfcServiceLifeFactor::getClassType() {
     return IfcServiceLifeFactor::s_type;
 }
 
-Step::ClassType IfcServiceLifeFactor::getType() const {
+const Step::ClassType &IfcServiceLifeFactor::getType() const {
     return IfcServiceLifeFactor::s_type;
 }
 
-bool IfcServiceLifeFactor::isOfType(Step::ClassType t) {
+bool IfcServiceLifeFactor::isOfType(const Step::ClassType &t) const {
     return IfcServiceLifeFactor::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType() {
     else {
         return IfcServiceLifeFactorTypeEnum_UNSET;
     }
+}
+
+const IfcServiceLifeFactorTypeEnum IfcServiceLifeFactor::getPredefinedType() const {
+    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
+    return deConstObject->getPredefinedType();
 }
 
 void IfcServiceLifeFactor::setPredefinedType(IfcServiceLifeFactorTypeEnum value) {
@@ -96,6 +101,11 @@ IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() {
     }
 }
 
+const IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() const {
+    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
+    return deConstObject->getUpperValue();
+}
+
 void IfcServiceLifeFactor::setUpperValue(const Step::RefPtr< IfcMeasureValue > &value) {
     m_upperValue = value;
 }
@@ -107,6 +117,11 @@ IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() {
     else {
         return NULL;
     }
+}
+
+const IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() const {
+    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
+    return deConstObject->getMostUsedValue();
 }
 
 void IfcServiceLifeFactor::setMostUsedValue(const Step::RefPtr< IfcMeasureValue > &value) {
@@ -122,12 +137,13 @@ IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() {
     }
 }
 
-void IfcServiceLifeFactor::setLowerValue(const Step::RefPtr< IfcMeasureValue > &value) {
-    m_lowerValue = value;
+const IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() const {
+    IfcServiceLifeFactor * deConstObject = const_cast< IfcServiceLifeFactor * > (this);
+    return deConstObject->getLowerValue();
 }
 
-void IfcServiceLifeFactor::release() {
-    IfcPropertySetDefinition::release();
+void IfcServiceLifeFactor::setLowerValue(const Step::RefPtr< IfcMeasureValue > &value) {
+    m_lowerValue = value;
 }
 
 bool IfcServiceLifeFactor::init() {
@@ -231,7 +247,7 @@ bool IfcServiceLifeFactor::init() {
                     m_upperValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_upperValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -256,12 +272,12 @@ bool IfcServiceLifeFactor::init() {
                     m_upperValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_upperValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_upperValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -291,7 +307,8 @@ bool IfcServiceLifeFactor::init() {
                     m_upperValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -299,7 +316,7 @@ bool IfcServiceLifeFactor::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -372,7 +389,7 @@ bool IfcServiceLifeFactor::init() {
                     m_mostUsedValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_mostUsedValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -397,12 +414,12 @@ bool IfcServiceLifeFactor::init() {
                     m_mostUsedValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_mostUsedValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_mostUsedValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -432,7 +449,8 @@ bool IfcServiceLifeFactor::init() {
                     m_mostUsedValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -440,7 +458,7 @@ bool IfcServiceLifeFactor::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -513,7 +531,7 @@ bool IfcServiceLifeFactor::init() {
                     m_lowerValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_lowerValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -538,12 +556,12 @@ bool IfcServiceLifeFactor::init() {
                     m_lowerValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lowerValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_lowerValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -573,7 +591,8 @@ bool IfcServiceLifeFactor::init() {
                     m_lowerValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -581,7 +600,7 @@ bool IfcServiceLifeFactor::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;

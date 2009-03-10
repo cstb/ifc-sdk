@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDuctSilencerType::IfcDuctSilencerType(Step::Id id, Step::SPFData *args) : Ifc
 IfcDuctSilencerType::~IfcDuctSilencerType() {
 }
 
-bool IfcDuctSilencerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDuctSilencerType(this);
+bool IfcDuctSilencerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDuctSilencerType(this);
 }
 
-const std::string &IfcDuctSilencerType::type() {
+const std::string &IfcDuctSilencerType::type() const {
     return IfcDuctSilencerType::s_type.getName();
 }
 
-Step::ClassType IfcDuctSilencerType::getClassType() {
+const Step::ClassType &IfcDuctSilencerType::getClassType() {
     return IfcDuctSilencerType::s_type;
 }
 
-Step::ClassType IfcDuctSilencerType::getType() const {
+const Step::ClassType &IfcDuctSilencerType::getType() const {
     return IfcDuctSilencerType::s_type;
 }
 
-bool IfcDuctSilencerType::isOfType(Step::ClassType t) {
+bool IfcDuctSilencerType::isOfType(const Step::ClassType &t) const {
     return IfcDuctSilencerType::s_type == t ? true : IfcFlowTreatmentDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcDuctSilencerTypeEnum IfcDuctSilencerType::getPredefinedType() {
     }
 }
 
-void IfcDuctSilencerType::setPredefinedType(IfcDuctSilencerTypeEnum value) {
-    m_predefinedType = value;
+const IfcDuctSilencerTypeEnum IfcDuctSilencerType::getPredefinedType() const {
+    IfcDuctSilencerType * deConstObject = const_cast< IfcDuctSilencerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcDuctSilencerType::release() {
-    IfcFlowTreatmentDeviceType::release();
+void IfcDuctSilencerType::setPredefinedType(IfcDuctSilencerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcDuctSilencerType::init() {

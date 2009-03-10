@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBuildingElementType::IfcBuildingElementType(Step::Id id, Step::SPFData *args)
 IfcBuildingElementType::~IfcBuildingElementType() {
 }
 
-bool IfcBuildingElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBuildingElementType(this);
+bool IfcBuildingElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBuildingElementType(this);
 }
 
-const std::string &IfcBuildingElementType::type() {
+const std::string &IfcBuildingElementType::type() const {
     return IfcBuildingElementType::s_type.getName();
 }
 
-Step::ClassType IfcBuildingElementType::getClassType() {
+const Step::ClassType &IfcBuildingElementType::getClassType() {
     return IfcBuildingElementType::s_type;
 }
 
-Step::ClassType IfcBuildingElementType::getType() const {
+const Step::ClassType &IfcBuildingElementType::getType() const {
     return IfcBuildingElementType::s_type;
 }
 
-bool IfcBuildingElementType::isOfType(Step::ClassType t) {
+bool IfcBuildingElementType::isOfType(const Step::ClassType &t) const {
     return IfcBuildingElementType::s_type == t ? true : IfcElementType::isOfType(t);
-}
-
-void IfcBuildingElementType::release() {
-    IfcElementType::release();
 }
 
 bool IfcBuildingElementType::init() {

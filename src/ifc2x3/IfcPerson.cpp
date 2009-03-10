@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,20 +26,20 @@
 
 #include "ifc2x3/IfcPerson.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcActorRole.h"
 #include "ifc2x3/IfcAddress.h"
 #include "ifc2x3/IfcPersonAndOrganization.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -47,6 +47,25 @@
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcPerson_Addresses_type::Inverted_IfcPerson_Addresses_type() {
+}
+
+void Inverted_IfcPerson_Addresses_type::setOwner(IfcPerson *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcPerson_Addresses_type::push_back(const Step::RefPtr< IfcAddress > &value) throw(std::out_of_range) {
+    IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
+    List_IfcAddress_1_n::push_back(value);
+    inverse->m_ofPerson.insert(mOwner);
+}
+
+Inverted_IfcPerson_Addresses_type::iterator Inverted_IfcPerson_Addresses_type::erase(const Step::RefPtr< IfcAddress > &value) {
+    IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
+    inverse->m_ofPerson.erase(mOwner);
+    return List_IfcAddress_1_n::erase(value);
+}
 
 IfcPerson::IfcPerson(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_id = Step::getUnset(m_id);
@@ -58,29 +77,28 @@ IfcPerson::IfcPerson(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, ar
     m_roles.setUnset(true);
     m_addresses.setUnset(true);
     m_addresses.setOwner(this);
-    m_engagedIn.setUnset(true);
 }
 
 IfcPerson::~IfcPerson() {
 }
 
-bool IfcPerson::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPerson(this);
+bool IfcPerson::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPerson(this);
 }
 
-const std::string &IfcPerson::type() {
+const std::string &IfcPerson::type() const {
     return IfcPerson::s_type.getName();
 }
 
-Step::ClassType IfcPerson::getClassType() {
+const Step::ClassType &IfcPerson::getClassType() {
     return IfcPerson::s_type;
 }
 
-Step::ClassType IfcPerson::getType() const {
+const Step::ClassType &IfcPerson::getType() const {
     return IfcPerson::s_type;
 }
 
-bool IfcPerson::isOfType(Step::ClassType t) {
+bool IfcPerson::isOfType(const Step::ClassType &t) const {
     return IfcPerson::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -91,6 +109,11 @@ IfcIdentifier IfcPerson::getId() {
     else {
         return Step::getUnset(m_id);
     }
+}
+
+const IfcIdentifier IfcPerson::getId() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getId();
 }
 
 void IfcPerson::setId(const IfcIdentifier &value) {
@@ -106,6 +129,11 @@ IfcLabel IfcPerson::getFamilyName() {
     }
 }
 
+const IfcLabel IfcPerson::getFamilyName() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getFamilyName();
+}
+
 void IfcPerson::setFamilyName(const IfcLabel &value) {
     m_familyName = value;
 }
@@ -119,11 +147,16 @@ IfcLabel IfcPerson::getGivenName() {
     }
 }
 
+const IfcLabel IfcPerson::getGivenName() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getGivenName();
+}
+
 void IfcPerson::setGivenName(const IfcLabel &value) {
     m_givenName = value;
 }
 
-Step::List< IfcLabel > &IfcPerson::getMiddleNames() {
+List_IfcLabel_1_n &IfcPerson::getMiddleNames() {
     if (Step::BaseObject::inited()) {
         return m_middleNames;
     }
@@ -133,11 +166,16 @@ Step::List< IfcLabel > &IfcPerson::getMiddleNames() {
     }
 }
 
-void IfcPerson::setMiddleNames(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcPerson::getMiddleNames() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getMiddleNames();
+}
+
+void IfcPerson::setMiddleNames(const List_IfcLabel_1_n &value) {
     m_middleNames = value;
 }
 
-Step::List< IfcLabel > &IfcPerson::getPrefixTitles() {
+List_IfcLabel_1_n &IfcPerson::getPrefixTitles() {
     if (Step::BaseObject::inited()) {
         return m_prefixTitles;
     }
@@ -147,11 +185,16 @@ Step::List< IfcLabel > &IfcPerson::getPrefixTitles() {
     }
 }
 
-void IfcPerson::setPrefixTitles(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcPerson::getPrefixTitles() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getPrefixTitles();
+}
+
+void IfcPerson::setPrefixTitles(const List_IfcLabel_1_n &value) {
     m_prefixTitles = value;
 }
 
-Step::List< IfcLabel > &IfcPerson::getSuffixTitles() {
+List_IfcLabel_1_n &IfcPerson::getSuffixTitles() {
     if (Step::BaseObject::inited()) {
         return m_suffixTitles;
     }
@@ -161,11 +204,16 @@ Step::List< IfcLabel > &IfcPerson::getSuffixTitles() {
     }
 }
 
-void IfcPerson::setSuffixTitles(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcPerson::getSuffixTitles() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getSuffixTitles();
+}
+
+void IfcPerson::setSuffixTitles(const List_IfcLabel_1_n &value) {
     m_suffixTitles = value;
 }
 
-Step::List< Step::RefPtr< IfcActorRole > > &IfcPerson::getRoles() {
+List_IfcActorRole_1_n &IfcPerson::getRoles() {
     if (Step::BaseObject::inited()) {
         return m_roles;
     }
@@ -175,11 +223,16 @@ Step::List< Step::RefPtr< IfcActorRole > > &IfcPerson::getRoles() {
     }
 }
 
-void IfcPerson::setRoles(const Step::List< Step::RefPtr< IfcActorRole > > &value) {
+const List_IfcActorRole_1_n &IfcPerson::getRoles() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getRoles();
+}
+
+void IfcPerson::setRoles(const List_IfcActorRole_1_n &value) {
     m_roles = value;
 }
 
-Step::List< Step::RefPtr< IfcAddress > > &IfcPerson::getAddresses() {
+List_IfcAddress_1_n &IfcPerson::getAddresses() {
     if (Step::BaseObject::inited()) {
         return m_addresses;
     }
@@ -189,7 +242,12 @@ Step::List< Step::RefPtr< IfcAddress > > &IfcPerson::getAddresses() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > &IfcPerson::getEngagedIn() {
+const List_IfcAddress_1_n &IfcPerson::getAddresses() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getAddresses();
+}
+
+Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
     if (Step::BaseObject::inited()) {
         return m_engagedIn;
     }
@@ -199,12 +257,9 @@ Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > &IfcPerson::getEngagedIn()
     }
 }
 
-void IfcPerson::release() {
-    m_middleNames.clear();
-    m_prefixTitles.clear();
-    m_suffixTitles.clear();
-    m_roles.clear();
-    m_addresses.clear();
+const Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() const {
+    IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
+    return deConstObject->getEngagedIn();
 }
 
 bool IfcPerson::init() {
@@ -215,21 +270,21 @@ bool IfcPerson::init() {
         m_id = Step::getUnset(m_id);
     }
     else {
-        m_id = Step::spfToString(arg);
+        m_id = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_familyName = Step::getUnset(m_familyName);
     }
     else {
-        m_familyName = Step::spfToString(arg);
+        m_familyName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_givenName = Step::getUnset(m_givenName);
     }
     else {
-        m_givenName = Step::spfToString(arg);
+        m_givenName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -242,7 +297,7 @@ bool IfcPerson::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_middleNames.push_back(attr2);
             }
             else {
@@ -261,7 +316,7 @@ bool IfcPerson::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_prefixTitles.push_back(attr2);
             }
             else {
@@ -280,7 +335,7 @@ bool IfcPerson::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_suffixTitles.push_back(attr2);
             }
             else {
@@ -299,7 +354,7 @@ bool IfcPerson::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcActorRole > attr2;
-                attr2 = static_cast< IfcActorRole * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_roles.push_back(attr2);
             }
             else {
@@ -318,7 +373,7 @@ bool IfcPerson::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcAddress > attr2;
-                attr2 = static_cast< IfcAddress * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcAddress * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_addresses.push_back(attr2);
             }
             else {
@@ -338,11 +393,11 @@ bool IfcPerson::init() {
 }
 
 void IfcPerson::copy(const IfcPerson &obj, const CopyOp &copyop) {
-    Step::List< IfcLabel >::const_iterator it_m_middleNames;
-    Step::List< IfcLabel >::const_iterator it_m_prefixTitles;
-    Step::List< IfcLabel >::const_iterator it_m_suffixTitles;
-    Step::List< Step::RefPtr< IfcActorRole > >::const_iterator it_m_roles;
-    Step::List< Step::RefPtr< IfcAddress > >::const_iterator it_m_addresses;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_middleNames;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_prefixTitles;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_suffixTitles;
+    Step::List< Step::RefPtr< IfcActorRole >, 1 >::const_iterator it_m_roles;
+    Step::List< Step::RefPtr< IfcAddress >, 1 >::const_iterator it_m_addresses;
     Step::BaseEntity::copy(obj, copyop);
     setId(obj.m_id);
     setFamilyName(obj.m_familyName);
@@ -360,27 +415,14 @@ void IfcPerson::copy(const IfcPerson &obj, const CopyOp &copyop) {
         m_suffixTitles.push_back(copyTarget);
     }
     for (it_m_roles = obj.m_roles.begin(); it_m_roles != obj.m_roles.end(); ++it_m_roles) {
-        Step::RefPtr< IfcActorRole > copyTarget = copyop((*it_m_roles).get());
+        Step::RefPtr< IfcActorRole > copyTarget = (IfcActorRole *) (copyop((*it_m_roles).get()));
         m_roles.push_back(copyTarget.get());
     }
     for (it_m_addresses = obj.m_addresses.begin(); it_m_addresses != obj.m_addresses.end(); ++it_m_addresses) {
-        Step::RefPtr< IfcAddress > copyTarget = copyop((*it_m_addresses).get());
+        Step::RefPtr< IfcAddress > copyTarget = (IfcAddress *) (copyop((*it_m_addresses).get()));
         m_addresses.push_back(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcPerson::s_type("IfcPerson");
-IfcPerson::Inverted_Addresses_type::Inverted_Addresses_type() {
-}
-
-void IfcPerson::Inverted_Addresses_type::setOwner(IfcPerson *owner) {
-    mOwner = owner;
-}
-
-void IfcPerson::Inverted_Addresses_type::push_back(const Step::RefPtr< IfcAddress > &value) {
-    IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
-    Step::List< Step::RefPtr< IfcAddress > >::push_back(value);
-    inverse->m_ofPerson.insert(mOwner);
-}
-

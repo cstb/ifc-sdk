@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStackTerminalType::IfcStackTerminalType(Step::Id id, Step::SPFData *args) : I
 IfcStackTerminalType::~IfcStackTerminalType() {
 }
 
-bool IfcStackTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStackTerminalType(this);
+bool IfcStackTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStackTerminalType(this);
 }
 
-const std::string &IfcStackTerminalType::type() {
+const std::string &IfcStackTerminalType::type() const {
     return IfcStackTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcStackTerminalType::getClassType() {
+const Step::ClassType &IfcStackTerminalType::getClassType() {
     return IfcStackTerminalType::s_type;
 }
 
-Step::ClassType IfcStackTerminalType::getType() const {
+const Step::ClassType &IfcStackTerminalType::getType() const {
     return IfcStackTerminalType::s_type;
 }
 
-bool IfcStackTerminalType::isOfType(Step::ClassType t) {
+bool IfcStackTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcStackTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcStackTerminalTypeEnum IfcStackTerminalType::getPredefinedType() {
     }
 }
 
-void IfcStackTerminalType::setPredefinedType(IfcStackTerminalTypeEnum value) {
-    m_predefinedType = value;
+const IfcStackTerminalTypeEnum IfcStackTerminalType::getPredefinedType() const {
+    IfcStackTerminalType * deConstObject = const_cast< IfcStackTerminalType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcStackTerminalType::release() {
-    IfcFlowTerminalType::release();
+void IfcStackTerminalType::setPredefinedType(IfcStackTerminalTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcStackTerminalType::init() {

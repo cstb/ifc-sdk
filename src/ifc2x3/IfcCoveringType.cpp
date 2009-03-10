@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCoveringType::IfcCoveringType(Step::Id id, Step::SPFData *args) : IfcBuilding
 IfcCoveringType::~IfcCoveringType() {
 }
 
-bool IfcCoveringType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCoveringType(this);
+bool IfcCoveringType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCoveringType(this);
 }
 
-const std::string &IfcCoveringType::type() {
+const std::string &IfcCoveringType::type() const {
     return IfcCoveringType::s_type.getName();
 }
 
-Step::ClassType IfcCoveringType::getClassType() {
+const Step::ClassType &IfcCoveringType::getClassType() {
     return IfcCoveringType::s_type;
 }
 
-Step::ClassType IfcCoveringType::getType() const {
+const Step::ClassType &IfcCoveringType::getType() const {
     return IfcCoveringType::s_type;
 }
 
-bool IfcCoveringType::isOfType(Step::ClassType t) {
+bool IfcCoveringType::isOfType(const Step::ClassType &t) const {
     return IfcCoveringType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCoveringTypeEnum IfcCoveringType::getPredefinedType() {
     }
 }
 
-void IfcCoveringType::setPredefinedType(IfcCoveringTypeEnum value) {
-    m_predefinedType = value;
+const IfcCoveringTypeEnum IfcCoveringType::getPredefinedType() const {
+    IfcCoveringType * deConstObject = const_cast< IfcCoveringType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCoveringType::release() {
-    IfcBuildingElementType::release();
+void IfcCoveringType::setPredefinedType(IfcCoveringTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCoveringType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -56,23 +56,23 @@ IfcRelSpaceBoundary::IfcRelSpaceBoundary(Step::Id id, Step::SPFData *args) : Ifc
 IfcRelSpaceBoundary::~IfcRelSpaceBoundary() {
 }
 
-bool IfcRelSpaceBoundary::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelSpaceBoundary(this);
+bool IfcRelSpaceBoundary::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelSpaceBoundary(this);
 }
 
-const std::string &IfcRelSpaceBoundary::type() {
+const std::string &IfcRelSpaceBoundary::type() const {
     return IfcRelSpaceBoundary::s_type.getName();
 }
 
-Step::ClassType IfcRelSpaceBoundary::getClassType() {
+const Step::ClassType &IfcRelSpaceBoundary::getClassType() {
     return IfcRelSpaceBoundary::s_type;
 }
 
-Step::ClassType IfcRelSpaceBoundary::getType() const {
+const Step::ClassType &IfcRelSpaceBoundary::getType() const {
     return IfcRelSpaceBoundary::s_type;
 }
 
-bool IfcRelSpaceBoundary::isOfType(Step::ClassType t) {
+bool IfcRelSpaceBoundary::isOfType(const Step::ClassType &t) const {
     return IfcRelSpaceBoundary::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -85,9 +85,19 @@ IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() {
     }
 }
 
+const IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() const {
+    IfcRelSpaceBoundary * deConstObject = const_cast< IfcRelSpaceBoundary * > (this);
+    return deConstObject->getRelatingSpace();
+}
+
 void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value) {
+    if (m_relatingSpace.valid()) {
+        m_relatingSpace->m_boundedBy.erase(this);
+    }
+    if (value.valid()) {
+        value->m_boundedBy.insert(this);
+    }
     m_relatingSpace = value;
-    m_relatingSpace->m_boundedBy.insert(this);
 }
 
 IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() {
@@ -99,9 +109,19 @@ IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() {
     }
 }
 
+const IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() const {
+    IfcRelSpaceBoundary * deConstObject = const_cast< IfcRelSpaceBoundary * > (this);
+    return deConstObject->getRelatedBuildingElement();
+}
+
 void IfcRelSpaceBoundary::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatedBuildingElement.valid()) {
+        m_relatedBuildingElement->m_providesBoundaries.erase(this);
+    }
+    if (value.valid()) {
+        value->m_providesBoundaries.insert(this);
+    }
     m_relatedBuildingElement = value;
-    m_relatedBuildingElement->m_providesBoundaries.insert(this);
 }
 
 IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() {
@@ -111,6 +131,11 @@ IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() {
     else {
         return NULL;
     }
+}
+
+const IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() const {
+    IfcRelSpaceBoundary * deConstObject = const_cast< IfcRelSpaceBoundary * > (this);
+    return deConstObject->getConnectionGeometry();
 }
 
 void IfcRelSpaceBoundary::setConnectionGeometry(const Step::RefPtr< IfcConnectionGeometry > &value) {
@@ -126,6 +151,11 @@ IfcPhysicalOrVirtualEnum IfcRelSpaceBoundary::getPhysicalOrVirtualBoundary() {
     }
 }
 
+const IfcPhysicalOrVirtualEnum IfcRelSpaceBoundary::getPhysicalOrVirtualBoundary() const {
+    IfcRelSpaceBoundary * deConstObject = const_cast< IfcRelSpaceBoundary * > (this);
+    return deConstObject->getPhysicalOrVirtualBoundary();
+}
+
 void IfcRelSpaceBoundary::setPhysicalOrVirtualBoundary(IfcPhysicalOrVirtualEnum value) {
     m_physicalOrVirtualBoundary = value;
 }
@@ -139,15 +169,13 @@ IfcInternalOrExternalEnum IfcRelSpaceBoundary::getInternalOrExternalBoundary() {
     }
 }
 
-void IfcRelSpaceBoundary::setInternalOrExternalBoundary(IfcInternalOrExternalEnum value) {
-    m_internalOrExternalBoundary = value;
+const IfcInternalOrExternalEnum IfcRelSpaceBoundary::getInternalOrExternalBoundary() const {
+    IfcRelSpaceBoundary * deConstObject = const_cast< IfcRelSpaceBoundary * > (this);
+    return deConstObject->getInternalOrExternalBoundary();
 }
 
-void IfcRelSpaceBoundary::release() {
-    IfcRelConnects::release();
-    m_relatingSpace.release();
-    m_relatedBuildingElement.release();
-    m_connectionGeometry.release();
+void IfcRelSpaceBoundary::setInternalOrExternalBoundary(IfcInternalOrExternalEnum value) {
+    m_internalOrExternalBoundary = value;
 }
 
 bool IfcRelSpaceBoundary::init() {
@@ -161,21 +189,21 @@ bool IfcRelSpaceBoundary::init() {
         m_relatingSpace = NULL;
     }
     else {
-        m_relatingSpace = static_cast< IfcSpace * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingSpace = static_cast< IfcSpace * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedBuildingElement = NULL;
     }
     else {
-        m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_connectionGeometry = NULL;
     }
     else {
-        m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -212,9 +240,9 @@ bool IfcRelSpaceBoundary::init() {
 
 void IfcRelSpaceBoundary::copy(const IfcRelSpaceBoundary &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingSpace(copyop(obj.m_relatingSpace.get()));
-    setRelatedBuildingElement(copyop(obj.m_relatedBuildingElement.get()));
-    setConnectionGeometry(copyop(obj.m_connectionGeometry.get()));
+    setRelatingSpace((IfcSpace*)copyop(obj.m_relatingSpace.get()));
+    setRelatedBuildingElement((IfcElement*)copyop(obj.m_relatedBuildingElement.get()));
+    setConnectionGeometry((IfcConnectionGeometry*)copyop(obj.m_connectionGeometry.get()));
     setPhysicalOrVirtualBoundary(obj.m_physicalOrVirtualBoundary);
     setInternalOrExternalBoundary(obj.m_internalOrExternalBoundary);
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,11 +31,11 @@
 #include "ifc2x3/IfcUnit.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,23 +54,23 @@ IfcPropertyBoundedValue::IfcPropertyBoundedValue(Step::Id id, Step::SPFData *arg
 IfcPropertyBoundedValue::~IfcPropertyBoundedValue() {
 }
 
-bool IfcPropertyBoundedValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyBoundedValue(this);
+bool IfcPropertyBoundedValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyBoundedValue(this);
 }
 
-const std::string &IfcPropertyBoundedValue::type() {
+const std::string &IfcPropertyBoundedValue::type() const {
     return IfcPropertyBoundedValue::s_type.getName();
 }
 
-Step::ClassType IfcPropertyBoundedValue::getClassType() {
+const Step::ClassType &IfcPropertyBoundedValue::getClassType() {
     return IfcPropertyBoundedValue::s_type;
 }
 
-Step::ClassType IfcPropertyBoundedValue::getType() const {
+const Step::ClassType &IfcPropertyBoundedValue::getType() const {
     return IfcPropertyBoundedValue::s_type;
 }
 
-bool IfcPropertyBoundedValue::isOfType(Step::ClassType t) {
+bool IfcPropertyBoundedValue::isOfType(const Step::ClassType &t) const {
     return IfcPropertyBoundedValue::s_type == t ? true : IfcSimpleProperty::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcValue *IfcPropertyBoundedValue::getUpperBoundValue() {
     else {
         return NULL;
     }
+}
+
+const IfcValue *IfcPropertyBoundedValue::getUpperBoundValue() const {
+    IfcPropertyBoundedValue * deConstObject = const_cast< IfcPropertyBoundedValue * > (this);
+    return deConstObject->getUpperBoundValue();
 }
 
 void IfcPropertyBoundedValue::setUpperBoundValue(const Step::RefPtr< IfcValue > &value) {
@@ -96,6 +101,11 @@ IfcValue *IfcPropertyBoundedValue::getLowerBoundValue() {
     }
 }
 
+const IfcValue *IfcPropertyBoundedValue::getLowerBoundValue() const {
+    IfcPropertyBoundedValue * deConstObject = const_cast< IfcPropertyBoundedValue * > (this);
+    return deConstObject->getLowerBoundValue();
+}
+
 void IfcPropertyBoundedValue::setLowerBoundValue(const Step::RefPtr< IfcValue > &value) {
     m_lowerBoundValue = value;
 }
@@ -109,12 +119,13 @@ IfcUnit *IfcPropertyBoundedValue::getUnit() {
     }
 }
 
-void IfcPropertyBoundedValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
-    m_unit = value;
+const IfcUnit *IfcPropertyBoundedValue::getUnit() const {
+    IfcPropertyBoundedValue * deConstObject = const_cast< IfcPropertyBoundedValue * > (this);
+    return deConstObject->getUnit();
 }
 
-void IfcPropertyBoundedValue::release() {
-    IfcSimpleProperty::release();
+void IfcPropertyBoundedValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
+    m_unit = value;
 }
 
 bool IfcPropertyBoundedValue::init() {
@@ -185,7 +196,7 @@ bool IfcPropertyBoundedValue::init() {
                     m_upperBoundValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_upperBoundValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -210,12 +221,12 @@ bool IfcPropertyBoundedValue::init() {
                     m_upperBoundValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_upperBoundValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_upperBoundValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -245,7 +256,8 @@ bool IfcPropertyBoundedValue::init() {
                     m_upperBoundValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -253,7 +265,7 @@ bool IfcPropertyBoundedValue::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -272,23 +284,23 @@ bool IfcPropertyBoundedValue::init() {
                     m_upperBoundValue->setIfcReal(tmp_attr1);
                 }
                 if (type1 == "IFCBOOLEAN") {
-                    Step::Bool tmp_attr1;
-                    tmp_attr1 = Step::spfToBool(arg);
+                    Step::Boolean tmp_attr1;
+                    tmp_attr1 = Step::spfToBoolean(arg);
                     m_upperBoundValue->setIfcBoolean(tmp_attr1);
                 }
                 if (type1 == "IFCIDENTIFIER") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_upperBoundValue->setIfcIdentifier(tmp_attr1);
                 }
                 if (type1 == "IFCTEXT") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_upperBoundValue->setIfcText(tmp_attr1);
                 }
                 if (type1 == "IFCLABEL") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_upperBoundValue->setIfcLabel(tmp_attr1);
                 }
                 if (type1 == "IFCLOGICAL") {
@@ -382,7 +394,7 @@ bool IfcPropertyBoundedValue::init() {
                     m_upperBoundValue->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -713,7 +725,7 @@ bool IfcPropertyBoundedValue::init() {
                     m_lowerBoundValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_lowerBoundValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -738,12 +750,12 @@ bool IfcPropertyBoundedValue::init() {
                     m_lowerBoundValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lowerBoundValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_lowerBoundValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -773,7 +785,8 @@ bool IfcPropertyBoundedValue::init() {
                     m_lowerBoundValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -781,7 +794,7 @@ bool IfcPropertyBoundedValue::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -800,23 +813,23 @@ bool IfcPropertyBoundedValue::init() {
                     m_lowerBoundValue->setIfcReal(tmp_attr1);
                 }
                 if (type1 == "IFCBOOLEAN") {
-                    Step::Bool tmp_attr1;
-                    tmp_attr1 = Step::spfToBool(arg);
+                    Step::Boolean tmp_attr1;
+                    tmp_attr1 = Step::spfToBoolean(arg);
                     m_lowerBoundValue->setIfcBoolean(tmp_attr1);
                 }
                 if (type1 == "IFCIDENTIFIER") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lowerBoundValue->setIfcIdentifier(tmp_attr1);
                 }
                 if (type1 == "IFCTEXT") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lowerBoundValue->setIfcText(tmp_attr1);
                 }
                 if (type1 == "IFCLABEL") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lowerBoundValue->setIfcLabel(tmp_attr1);
                 }
                 if (type1 == "IFCLOGICAL") {
@@ -910,7 +923,7 @@ bool IfcPropertyBoundedValue::init() {
                     m_lowerBoundValue->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;

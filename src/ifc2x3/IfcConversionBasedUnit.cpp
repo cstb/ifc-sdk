@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +52,23 @@ IfcConversionBasedUnit::IfcConversionBasedUnit(Step::Id id, Step::SPFData *args)
 IfcConversionBasedUnit::~IfcConversionBasedUnit() {
 }
 
-bool IfcConversionBasedUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConversionBasedUnit(this);
+bool IfcConversionBasedUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConversionBasedUnit(this);
 }
 
-const std::string &IfcConversionBasedUnit::type() {
+const std::string &IfcConversionBasedUnit::type() const {
     return IfcConversionBasedUnit::s_type.getName();
 }
 
-Step::ClassType IfcConversionBasedUnit::getClassType() {
+const Step::ClassType &IfcConversionBasedUnit::getClassType() {
     return IfcConversionBasedUnit::s_type;
 }
 
-Step::ClassType IfcConversionBasedUnit::getType() const {
+const Step::ClassType &IfcConversionBasedUnit::getType() const {
     return IfcConversionBasedUnit::s_type;
 }
 
-bool IfcConversionBasedUnit::isOfType(Step::ClassType t) {
+bool IfcConversionBasedUnit::isOfType(const Step::ClassType &t) const {
     return IfcConversionBasedUnit::s_type == t ? true : IfcNamedUnit::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcLabel IfcConversionBasedUnit::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcConversionBasedUnit::getName() const {
+    IfcConversionBasedUnit * deConstObject = const_cast< IfcConversionBasedUnit * > (this);
+    return deConstObject->getName();
 }
 
 void IfcConversionBasedUnit::setName(const IfcLabel &value) {
@@ -93,13 +99,13 @@ IfcMeasureWithUnit *IfcConversionBasedUnit::getConversionFactor() {
     }
 }
 
-void IfcConversionBasedUnit::setConversionFactor(const Step::RefPtr< IfcMeasureWithUnit > &value) {
-    m_conversionFactor = value;
+const IfcMeasureWithUnit *IfcConversionBasedUnit::getConversionFactor() const {
+    IfcConversionBasedUnit * deConstObject = const_cast< IfcConversionBasedUnit * > (this);
+    return deConstObject->getConversionFactor();
 }
 
-void IfcConversionBasedUnit::release() {
-    IfcNamedUnit::release();
-    m_conversionFactor.release();
+void IfcConversionBasedUnit::setConversionFactor(const Step::RefPtr< IfcMeasureWithUnit > &value) {
+    m_conversionFactor = value;
 }
 
 bool IfcConversionBasedUnit::init() {
@@ -113,14 +119,14 @@ bool IfcConversionBasedUnit::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_conversionFactor = NULL;
     }
     else {
-        m_conversionFactor = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_conversionFactor = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -128,7 +134,7 @@ bool IfcConversionBasedUnit::init() {
 void IfcConversionBasedUnit::copy(const IfcConversionBasedUnit &obj, const CopyOp &copyop) {
     IfcNamedUnit::copy(obj, copyop);
     setName(obj.m_name);
-    setConversionFactor(copyop(obj.m_conversionFactor.get()));
+    setConversionFactor((IfcMeasureWithUnit*)copyop(obj.m_conversionFactor.get()));
     return;
 }
 

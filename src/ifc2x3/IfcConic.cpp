@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcConic::IfcConic(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
 IfcConic::~IfcConic() {
 }
 
-bool IfcConic::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConic(this);
+bool IfcConic::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConic(this);
 }
 
-const std::string &IfcConic::type() {
+const std::string &IfcConic::type() const {
     return IfcConic::s_type.getName();
 }
 
-Step::ClassType IfcConic::getClassType() {
+const Step::ClassType &IfcConic::getClassType() {
     return IfcConic::s_type;
 }
 
-Step::ClassType IfcConic::getType() const {
+const Step::ClassType &IfcConic::getType() const {
     return IfcConic::s_type;
 }
 
-bool IfcConic::isOfType(Step::ClassType t) {
+bool IfcConic::isOfType(const Step::ClassType &t) const {
     return IfcConic::s_type == t ? true : IfcCurve::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcAxis2Placement *IfcConic::getPosition() {
     }
 }
 
-void IfcConic::setPosition(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_position = value;
+const IfcAxis2Placement *IfcConic::getPosition() const {
+    IfcConic * deConstObject = const_cast< IfcConic * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcConic::release() {
-    IfcCurve::release();
+void IfcConic::setPosition(const Step::RefPtr< IfcAxis2Placement > &value) {
+    m_position = value;
 }
 
 bool IfcConic::init() {

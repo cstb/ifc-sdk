@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFurnitureStandard::IfcFurnitureStandard(Step::Id id, Step::SPFData *args) : I
 IfcFurnitureStandard::~IfcFurnitureStandard() {
 }
 
-bool IfcFurnitureStandard::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFurnitureStandard(this);
+bool IfcFurnitureStandard::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFurnitureStandard(this);
 }
 
-const std::string &IfcFurnitureStandard::type() {
+const std::string &IfcFurnitureStandard::type() const {
     return IfcFurnitureStandard::s_type.getName();
 }
 
-Step::ClassType IfcFurnitureStandard::getClassType() {
+const Step::ClassType &IfcFurnitureStandard::getClassType() {
     return IfcFurnitureStandard::s_type;
 }
 
-Step::ClassType IfcFurnitureStandard::getType() const {
+const Step::ClassType &IfcFurnitureStandard::getType() const {
     return IfcFurnitureStandard::s_type;
 }
 
-bool IfcFurnitureStandard::isOfType(Step::ClassType t) {
+bool IfcFurnitureStandard::isOfType(const Step::ClassType &t) const {
     return IfcFurnitureStandard::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-void IfcFurnitureStandard::release() {
-    IfcControl::release();
 }
 
 bool IfcFurnitureStandard::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,54 +44,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSlippageConnectionCondition : public IfcStructuralConnectionCondition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'SlippageX'.
+         * 
          */
-        IfcLengthMeasure getSlippageX();
+        virtual IfcLengthMeasure getSlippageX();
+        /**
+         * (const) Returns the value of the explicit attribute 'SlippageX'.
+         * 
+         * @return the value of the explicit attribute 'SlippageX'
+         */
+        virtual const IfcLengthMeasure getSlippageX() const;
         /**
          * Sets the value of the explicit attribute 'SlippageX'.
          * 
          * @param value
          */
-        void setSlippageX(IfcLengthMeasure value);
+        virtual void setSlippageX(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SlippageY'.
+         * 
          */
-        IfcLengthMeasure getSlippageY();
+        virtual IfcLengthMeasure getSlippageY();
+        /**
+         * (const) Returns the value of the explicit attribute 'SlippageY'.
+         * 
+         * @return the value of the explicit attribute 'SlippageY'
+         */
+        virtual const IfcLengthMeasure getSlippageY() const;
         /**
          * Sets the value of the explicit attribute 'SlippageY'.
          * 
          * @param value
          */
-        void setSlippageY(IfcLengthMeasure value);
+        virtual void setSlippageY(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SlippageZ'.
+         * 
          */
-        IfcLengthMeasure getSlippageZ();
+        virtual IfcLengthMeasure getSlippageZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'SlippageZ'.
+         * 
+         * @return the value of the explicit attribute 'SlippageZ'
+         */
+        virtual const IfcLengthMeasure getSlippageZ() const;
         /**
          * Sets the value of the explicit attribute 'SlippageZ'.
          * 
          * @param value
          */
-        void setSlippageZ(IfcLengthMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setSlippageZ(IfcLengthMeasure value);
         friend class ExpressDataSet;
 
     protected:

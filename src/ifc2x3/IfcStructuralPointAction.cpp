@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuralPointAction::IfcStructuralPointAction(Step::Id id, Step::SPFData *a
 IfcStructuralPointAction::~IfcStructuralPointAction() {
 }
 
-bool IfcStructuralPointAction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralPointAction(this);
+bool IfcStructuralPointAction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralPointAction(this);
 }
 
-const std::string &IfcStructuralPointAction::type() {
+const std::string &IfcStructuralPointAction::type() const {
     return IfcStructuralPointAction::s_type.getName();
 }
 
-Step::ClassType IfcStructuralPointAction::getClassType() {
+const Step::ClassType &IfcStructuralPointAction::getClassType() {
     return IfcStructuralPointAction::s_type;
 }
 
-Step::ClassType IfcStructuralPointAction::getType() const {
+const Step::ClassType &IfcStructuralPointAction::getType() const {
     return IfcStructuralPointAction::s_type;
 }
 
-bool IfcStructuralPointAction::isOfType(Step::ClassType t) {
+bool IfcStructuralPointAction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralPointAction::s_type == t ? true : IfcStructuralAction::isOfType(t);
-}
-
-void IfcStructuralPointAction::release() {
-    IfcStructuralAction::release();
 }
 
 bool IfcStructuralPointAction::init() {

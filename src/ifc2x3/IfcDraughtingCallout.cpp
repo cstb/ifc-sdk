@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,35 +47,32 @@
 using namespace ifc2x3;
 
 IfcDraughtingCallout::IfcDraughtingCallout(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
-    m_contents.setUnset(true);
-    m_isRelatedFromCallout.setUnset(true);
-    m_isRelatedToCallout.setUnset(true);
 }
 
 IfcDraughtingCallout::~IfcDraughtingCallout() {
 }
 
-bool IfcDraughtingCallout::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingCallout(this);
+bool IfcDraughtingCallout::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingCallout(this);
 }
 
-const std::string &IfcDraughtingCallout::type() {
+const std::string &IfcDraughtingCallout::type() const {
     return IfcDraughtingCallout::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingCallout::getClassType() {
+const Step::ClassType &IfcDraughtingCallout::getClassType() {
     return IfcDraughtingCallout::s_type;
 }
 
-Step::ClassType IfcDraughtingCallout::getType() const {
+const Step::ClassType &IfcDraughtingCallout::getType() const {
     return IfcDraughtingCallout::s_type;
 }
 
-bool IfcDraughtingCallout::isOfType(Step::ClassType t) {
+bool IfcDraughtingCallout::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingCallout::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > > &IfcDraughtingCallout::getContents() {
+Set_IfcDraughtingCalloutElement_1_n &IfcDraughtingCallout::getContents() {
     if (Step::BaseObject::inited()) {
         return m_contents;
     }
@@ -85,11 +82,16 @@ Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > > &IfcDraughtingCallout::
     }
 }
 
-void IfcDraughtingCallout::setContents(const Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > > &value) {
+const Set_IfcDraughtingCalloutElement_1_n &IfcDraughtingCallout::getContents() const {
+    IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
+    return deConstObject->getContents();
+}
+
+void IfcDraughtingCallout::setContents(const Set_IfcDraughtingCalloutElement_1_n &value) {
     m_contents = value;
 }
 
-Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > &IfcDraughtingCallout::getIsRelatedFromCallout() {
+Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedFromCallout;
     }
@@ -99,7 +101,12 @@ Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > &IfcDraughtingCall
     }
 }
 
-Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > &IfcDraughtingCallout::getIsRelatedToCallout() {
+const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() const {
+    IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
+    return deConstObject->getIsRelatedFromCallout();
+}
+
+Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedToCallout;
     }
@@ -109,9 +116,9 @@ Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > &IfcDraughtingCall
     }
 }
 
-void IfcDraughtingCallout::release() {
-    IfcGeometricRepresentationItem::release();
-    m_contents.clear();
+const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() const {
+    IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
+    return deConstObject->getIsRelatedToCallout();
 }
 
 bool IfcDraughtingCallout::init() {
@@ -172,7 +179,7 @@ bool IfcDraughtingCallout::init() {
 }
 
 void IfcDraughtingCallout::copy(const IfcDraughtingCallout &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDraughtingCalloutElement > >::const_iterator it_m_contents;
+    Step::Set< Step::RefPtr< IfcDraughtingCalloutElement >, 1 >::const_iterator it_m_contents;
     IfcGeometricRepresentationItem::copy(obj, copyop);
     for (it_m_contents = obj.m_contents.begin(); it_m_contents != obj.m_contents.end(); ++it_m_contents) {
         Step::RefPtr< IfcDraughtingCalloutElement > copyTarget = new IfcDraughtingCalloutElement;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedTerminatorSymbol::IfcPreDefinedTerminatorSymbol(Step::Id id, Step::
 IfcPreDefinedTerminatorSymbol::~IfcPreDefinedTerminatorSymbol() {
 }
 
-bool IfcPreDefinedTerminatorSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedTerminatorSymbol(this);
+bool IfcPreDefinedTerminatorSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedTerminatorSymbol(this);
 }
 
-const std::string &IfcPreDefinedTerminatorSymbol::type() {
+const std::string &IfcPreDefinedTerminatorSymbol::type() const {
     return IfcPreDefinedTerminatorSymbol::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedTerminatorSymbol::getClassType() {
+const Step::ClassType &IfcPreDefinedTerminatorSymbol::getClassType() {
     return IfcPreDefinedTerminatorSymbol::s_type;
 }
 
-Step::ClassType IfcPreDefinedTerminatorSymbol::getType() const {
+const Step::ClassType &IfcPreDefinedTerminatorSymbol::getType() const {
     return IfcPreDefinedTerminatorSymbol::s_type;
 }
 
-bool IfcPreDefinedTerminatorSymbol::isOfType(Step::ClassType t) {
+bool IfcPreDefinedTerminatorSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedTerminatorSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
-}
-
-void IfcPreDefinedTerminatorSymbol::release() {
-    IfcPreDefinedSymbol::release();
 }
 
 bool IfcPreDefinedTerminatorSymbol::init() {

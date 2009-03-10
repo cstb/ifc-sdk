@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,27 +52,27 @@ IfcPresentationStyleSelect::~IfcPresentationStyleSelect() {
     deleteUnion();
 }
 
-bool IfcPresentationStyleSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPresentationStyleSelect(this);
+bool IfcPresentationStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPresentationStyleSelect(this);
 }
 
 bool IfcPresentationStyleSelect::init() {
     return false;
 }
 
-const std::string &IfcPresentationStyleSelect::type() {
+const std::string &IfcPresentationStyleSelect::type() const {
     return IfcPresentationStyleSelect::s_type.getName();
 }
 
-Step::ClassType IfcPresentationStyleSelect::getClassType() {
+const Step::ClassType &IfcPresentationStyleSelect::getClassType() {
     return IfcPresentationStyleSelect::s_type;
 }
 
-Step::ClassType IfcPresentationStyleSelect::getType() const {
+const Step::ClassType &IfcPresentationStyleSelect::getType() const {
     return IfcPresentationStyleSelect::s_type;
 }
 
-bool IfcPresentationStyleSelect::isOfType(Step::ClassType t) {
+bool IfcPresentationStyleSelect::isOfType(const Step::ClassType &t) const {
     return IfcPresentationStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,24 +82,24 @@ void IfcPresentationStyleSelect::copy(const IfcPresentationStyleSelect &obj, con
         setIfcNullStyle(obj.m_IfcPresentationStyleSelect_union.m_IfcNullStyle);
         break;
     case IFCCURVESTYLE:
-        setIfcCurveStyle(copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcCurveStyle));
+        setIfcCurveStyle((IfcCurveStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcCurveStyle)));
         break;
     case IFCSYMBOLSTYLE:
-        setIfcSymbolStyle(copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcSymbolStyle));
+        setIfcSymbolStyle((IfcSymbolStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcSymbolStyle)));
         break;
     case IFCFILLAREASTYLE:
-        setIfcFillAreaStyle(copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcFillAreaStyle));
+        setIfcFillAreaStyle((IfcFillAreaStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcFillAreaStyle)));
         break;
     case IFCTEXTSTYLE:
-        setIfcTextStyle(copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcTextStyle));
+        setIfcTextStyle((IfcTextStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcTextStyle)));
         break;
     case IFCSURFACESTYLE:
-        setIfcSurfaceStyle(copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle));
+        setIfcSurfaceStyle((IfcSurfaceStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle)));
         break;
         }
 }
 
-char *IfcPresentationStyleSelect::currentTypeName() {
+std::string IfcPresentationStyleSelect::currentTypeName() const {
     switch(m_type) {
     case IFCNULLSTYLE:
         return "IfcNullStyle";
@@ -124,7 +124,7 @@ char *IfcPresentationStyleSelect::currentTypeName() {
     }
 }
 
-IfcPresentationStyleSelect::IfcPresentationStyleSelect_select IfcPresentationStyleSelect::currentType() {
+IfcPresentationStyleSelect::IfcPresentationStyleSelect_select IfcPresentationStyleSelect::currentType() const {
     return m_type;
 }
 
@@ -149,22 +149,30 @@ void IfcPresentationStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcNullStyle IfcPresentationStyleSelect::getIfcNullStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcNullStyle;
+IfcNullStyle IfcPresentationStyleSelect::getIfcNullStyle() const {
+    if (m_type == IFCNULLSTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcNullStyle;
+    }
+    else {
+        return IfcNullStyle_UNSET;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcNullStyle(IfcNullStyle value) {
-    deleteUnion();
     m_IfcPresentationStyleSelect_union.m_IfcNullStyle = value;
     m_type = IFCNULLSTYLE;
 }
 
-IfcCurveStyle *IfcPresentationStyleSelect::getIfcCurveStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcCurveStyle;
+IfcCurveStyle *IfcPresentationStyleSelect::getIfcCurveStyle() const {
+    if (m_type == IFCCURVESTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcCurveStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcCurveStyle(IfcCurveStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -179,12 +187,16 @@ void IfcPresentationStyleSelect::setIfcCurveStyle(IfcCurveStyle *value) {
     m_type = IFCCURVESTYLE;
 }
 
-IfcSymbolStyle *IfcPresentationStyleSelect::getIfcSymbolStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcSymbolStyle;
+IfcSymbolStyle *IfcPresentationStyleSelect::getIfcSymbolStyle() const {
+    if (m_type == IFCSYMBOLSTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcSymbolStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcSymbolStyle(IfcSymbolStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -199,12 +211,16 @@ void IfcPresentationStyleSelect::setIfcSymbolStyle(IfcSymbolStyle *value) {
     m_type = IFCSYMBOLSTYLE;
 }
 
-IfcFillAreaStyle *IfcPresentationStyleSelect::getIfcFillAreaStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcFillAreaStyle;
+IfcFillAreaStyle *IfcPresentationStyleSelect::getIfcFillAreaStyle() const {
+    if (m_type == IFCFILLAREASTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcFillAreaStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcFillAreaStyle(IfcFillAreaStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -219,12 +235,16 @@ void IfcPresentationStyleSelect::setIfcFillAreaStyle(IfcFillAreaStyle *value) {
     m_type = IFCFILLAREASTYLE;
 }
 
-IfcTextStyle *IfcPresentationStyleSelect::getIfcTextStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcTextStyle;
+IfcTextStyle *IfcPresentationStyleSelect::getIfcTextStyle() const {
+    if (m_type == IFCTEXTSTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcTextStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcTextStyle(IfcTextStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -239,12 +259,16 @@ void IfcPresentationStyleSelect::setIfcTextStyle(IfcTextStyle *value) {
     m_type = IFCTEXTSTYLE;
 }
 
-IfcSurfaceStyle *IfcPresentationStyleSelect::getIfcSurfaceStyle() {
-    return m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle;
+IfcSurfaceStyle *IfcPresentationStyleSelect::getIfcSurfaceStyle() const {
+    if (m_type == IFCSURFACESTYLE) {
+        return m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPresentationStyleSelect::setIfcSurfaceStyle(IfcSurfaceStyle *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

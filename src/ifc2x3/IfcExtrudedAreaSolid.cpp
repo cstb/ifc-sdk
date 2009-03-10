@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcExtrudedAreaSolid::IfcExtrudedAreaSolid(Step::Id id, Step::SPFData *args) : I
 IfcExtrudedAreaSolid::~IfcExtrudedAreaSolid() {
 }
 
-bool IfcExtrudedAreaSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExtrudedAreaSolid(this);
+bool IfcExtrudedAreaSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExtrudedAreaSolid(this);
 }
 
-const std::string &IfcExtrudedAreaSolid::type() {
+const std::string &IfcExtrudedAreaSolid::type() const {
     return IfcExtrudedAreaSolid::s_type.getName();
 }
 
-Step::ClassType IfcExtrudedAreaSolid::getClassType() {
+const Step::ClassType &IfcExtrudedAreaSolid::getClassType() {
     return IfcExtrudedAreaSolid::s_type;
 }
 
-Step::ClassType IfcExtrudedAreaSolid::getType() const {
+const Step::ClassType &IfcExtrudedAreaSolid::getType() const {
     return IfcExtrudedAreaSolid::s_type;
 }
 
-bool IfcExtrudedAreaSolid::isOfType(Step::ClassType t) {
+bool IfcExtrudedAreaSolid::isOfType(const Step::ClassType &t) const {
     return IfcExtrudedAreaSolid::s_type == t ? true : IfcSweptAreaSolid::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcDirection *IfcExtrudedAreaSolid::getExtrudedDirection() {
     else {
         return NULL;
     }
+}
+
+const IfcDirection *IfcExtrudedAreaSolid::getExtrudedDirection() const {
+    IfcExtrudedAreaSolid * deConstObject = const_cast< IfcExtrudedAreaSolid * > (this);
+    return deConstObject->getExtrudedDirection();
 }
 
 void IfcExtrudedAreaSolid::setExtrudedDirection(const Step::RefPtr< IfcDirection > &value) {
@@ -93,13 +98,13 @@ IfcPositiveLengthMeasure IfcExtrudedAreaSolid::getDepth() {
     }
 }
 
-void IfcExtrudedAreaSolid::setDepth(IfcPositiveLengthMeasure value) {
-    m_depth = value;
+const IfcPositiveLengthMeasure IfcExtrudedAreaSolid::getDepth() const {
+    IfcExtrudedAreaSolid * deConstObject = const_cast< IfcExtrudedAreaSolid * > (this);
+    return deConstObject->getDepth();
 }
 
-void IfcExtrudedAreaSolid::release() {
-    IfcSweptAreaSolid::release();
-    m_extrudedDirection.release();
+void IfcExtrudedAreaSolid::setDepth(IfcPositiveLengthMeasure value) {
+    m_depth = value;
 }
 
 bool IfcExtrudedAreaSolid::init() {
@@ -113,7 +118,7 @@ bool IfcExtrudedAreaSolid::init() {
         m_extrudedDirection = NULL;
     }
     else {
-        m_extrudedDirection = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_extrudedDirection = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -127,7 +132,7 @@ bool IfcExtrudedAreaSolid::init() {
 
 void IfcExtrudedAreaSolid::copy(const IfcExtrudedAreaSolid &obj, const CopyOp &copyop) {
     IfcSweptAreaSolid::copy(obj, copyop);
-    setExtrudedDirection(copyop(obj.m_extrudedDirection.get()));
+    setExtrudedDirection((IfcDirection*)copyop(obj.m_extrudedDirection.get()));
     setDepth(obj.m_depth);
     return;
 }

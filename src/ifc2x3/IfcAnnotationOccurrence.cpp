@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcAnnotationOccurrence::IfcAnnotationOccurrence(Step::Id id, Step::SPFData *arg
 IfcAnnotationOccurrence::~IfcAnnotationOccurrence() {
 }
 
-bool IfcAnnotationOccurrence::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationOccurrence(this);
+bool IfcAnnotationOccurrence::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationOccurrence(this);
 }
 
-const std::string &IfcAnnotationOccurrence::type() {
+const std::string &IfcAnnotationOccurrence::type() const {
     return IfcAnnotationOccurrence::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationOccurrence::getClassType() {
+const Step::ClassType &IfcAnnotationOccurrence::getClassType() {
     return IfcAnnotationOccurrence::s_type;
 }
 
-Step::ClassType IfcAnnotationOccurrence::getType() const {
+const Step::ClassType &IfcAnnotationOccurrence::getType() const {
     return IfcAnnotationOccurrence::s_type;
 }
 
-bool IfcAnnotationOccurrence::isOfType(Step::ClassType t) {
+bool IfcAnnotationOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationOccurrence::s_type == t ? true : IfcStyledItem::isOfType(t);
-}
-
-void IfcAnnotationOccurrence::release() {
-    IfcStyledItem::release();
 }
 
 bool IfcAnnotationOccurrence::init() {

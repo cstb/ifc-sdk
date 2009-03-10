@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,29 +48,28 @@ IfcPresentationLayerWithStyle::IfcPresentationLayerWithStyle(Step::Id id, Step::
     m_layerOn = Step::getUnset(m_layerOn);
     m_layerFrozen = Step::getUnset(m_layerFrozen);
     m_layerBlocked = Step::getUnset(m_layerBlocked);
-    m_layerStyles.setUnset(true);
 }
 
 IfcPresentationLayerWithStyle::~IfcPresentationLayerWithStyle() {
 }
 
-bool IfcPresentationLayerWithStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPresentationLayerWithStyle(this);
+bool IfcPresentationLayerWithStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPresentationLayerWithStyle(this);
 }
 
-const std::string &IfcPresentationLayerWithStyle::type() {
+const std::string &IfcPresentationLayerWithStyle::type() const {
     return IfcPresentationLayerWithStyle::s_type.getName();
 }
 
-Step::ClassType IfcPresentationLayerWithStyle::getClassType() {
+const Step::ClassType &IfcPresentationLayerWithStyle::getClassType() {
     return IfcPresentationLayerWithStyle::s_type;
 }
 
-Step::ClassType IfcPresentationLayerWithStyle::getType() const {
+const Step::ClassType &IfcPresentationLayerWithStyle::getType() const {
     return IfcPresentationLayerWithStyle::s_type;
 }
 
-bool IfcPresentationLayerWithStyle::isOfType(Step::ClassType t) {
+bool IfcPresentationLayerWithStyle::isOfType(const Step::ClassType &t) const {
     return IfcPresentationLayerWithStyle::s_type == t ? true : IfcPresentationLayerAssignment::isOfType(t);
 }
 
@@ -81,6 +80,11 @@ Step::Logical IfcPresentationLayerWithStyle::getLayerOn() {
     else {
         return Step::getUnset(m_layerOn);
     }
+}
+
+const Step::Logical IfcPresentationLayerWithStyle::getLayerOn() const {
+    IfcPresentationLayerWithStyle * deConstObject = const_cast< IfcPresentationLayerWithStyle * > (this);
+    return deConstObject->getLayerOn();
 }
 
 void IfcPresentationLayerWithStyle::setLayerOn(Step::Logical value) {
@@ -96,6 +100,11 @@ Step::Logical IfcPresentationLayerWithStyle::getLayerFrozen() {
     }
 }
 
+const Step::Logical IfcPresentationLayerWithStyle::getLayerFrozen() const {
+    IfcPresentationLayerWithStyle * deConstObject = const_cast< IfcPresentationLayerWithStyle * > (this);
+    return deConstObject->getLayerFrozen();
+}
+
 void IfcPresentationLayerWithStyle::setLayerFrozen(Step::Logical value) {
     m_layerFrozen = value;
 }
@@ -109,11 +118,16 @@ Step::Logical IfcPresentationLayerWithStyle::getLayerBlocked() {
     }
 }
 
+const Step::Logical IfcPresentationLayerWithStyle::getLayerBlocked() const {
+    IfcPresentationLayerWithStyle * deConstObject = const_cast< IfcPresentationLayerWithStyle * > (this);
+    return deConstObject->getLayerBlocked();
+}
+
 void IfcPresentationLayerWithStyle::setLayerBlocked(Step::Logical value) {
     m_layerBlocked = value;
 }
 
-Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &IfcPresentationLayerWithStyle::getLayerStyles() {
+Set_IfcPresentationStyleSelect_0_n &IfcPresentationLayerWithStyle::getLayerStyles() {
     if (Step::BaseObject::inited()) {
         return m_layerStyles;
     }
@@ -123,13 +137,13 @@ Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &IfcPresentationLayerWit
     }
 }
 
-void IfcPresentationLayerWithStyle::setLayerStyles(const Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &value) {
-    m_layerStyles = value;
+const Set_IfcPresentationStyleSelect_0_n &IfcPresentationLayerWithStyle::getLayerStyles() const {
+    IfcPresentationLayerWithStyle * deConstObject = const_cast< IfcPresentationLayerWithStyle * > (this);
+    return deConstObject->getLayerStyles();
 }
 
-void IfcPresentationLayerWithStyle::release() {
-    IfcPresentationLayerAssignment::release();
-    m_layerStyles.clear();
+void IfcPresentationLayerWithStyle::setLayerStyles(const Set_IfcPresentationStyleSelect_0_n &value) {
+    m_layerStyles = value;
 }
 
 bool IfcPresentationLayerWithStyle::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowTerminalType::IfcFlowTerminalType(Step::Id id, Step::SPFData *args) : Ifc
 IfcFlowTerminalType::~IfcFlowTerminalType() {
 }
 
-bool IfcFlowTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowTerminalType(this);
+bool IfcFlowTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowTerminalType(this);
 }
 
-const std::string &IfcFlowTerminalType::type() {
+const std::string &IfcFlowTerminalType::type() const {
     return IfcFlowTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcFlowTerminalType::getClassType() {
+const Step::ClassType &IfcFlowTerminalType::getClassType() {
     return IfcFlowTerminalType::s_type;
 }
 
-Step::ClassType IfcFlowTerminalType::getType() const {
+const Step::ClassType &IfcFlowTerminalType::getType() const {
     return IfcFlowTerminalType::s_type;
 }
 
-bool IfcFlowTerminalType::isOfType(Step::ClassType t) {
+bool IfcFlowTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcFlowTerminalType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
-}
-
-void IfcFlowTerminalType::release() {
-    IfcDistributionFlowElementType::release();
 }
 
 bool IfcFlowTerminalType::init() {

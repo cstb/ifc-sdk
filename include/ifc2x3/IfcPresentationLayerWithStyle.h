@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,10 +33,7 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcPresentationLayerAssignment.h"
-#include "ifc2x3/IfcPresentationStyleSelect.h"
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
@@ -47,63 +44,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPresentationLayerWithStyle : public IfcPresentationLayerAssignment {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LayerOn'.
+         * 
          */
-        Step::Logical getLayerOn();
+        virtual Step::Logical getLayerOn();
+        /**
+         * (const) Returns the value of the explicit attribute 'LayerOn'.
+         * 
+         * @return the value of the explicit attribute 'LayerOn'
+         */
+        virtual const Step::Logical getLayerOn() const;
         /**
          * Sets the value of the explicit attribute 'LayerOn'.
          * 
          * @param value
          */
-        void setLayerOn(Step::Logical value);
+        virtual void setLayerOn(Step::Logical value);
         /**
+         * Gets the value of the explicit attribute 'LayerFrozen'.
+         * 
          */
-        Step::Logical getLayerFrozen();
+        virtual Step::Logical getLayerFrozen();
+        /**
+         * (const) Returns the value of the explicit attribute 'LayerFrozen'.
+         * 
+         * @return the value of the explicit attribute 'LayerFrozen'
+         */
+        virtual const Step::Logical getLayerFrozen() const;
         /**
          * Sets the value of the explicit attribute 'LayerFrozen'.
          * 
          * @param value
          */
-        void setLayerFrozen(Step::Logical value);
+        virtual void setLayerFrozen(Step::Logical value);
         /**
+         * Gets the value of the explicit attribute 'LayerBlocked'.
+         * 
          */
-        Step::Logical getLayerBlocked();
+        virtual Step::Logical getLayerBlocked();
+        /**
+         * (const) Returns the value of the explicit attribute 'LayerBlocked'.
+         * 
+         * @return the value of the explicit attribute 'LayerBlocked'
+         */
+        virtual const Step::Logical getLayerBlocked() const;
         /**
          * Sets the value of the explicit attribute 'LayerBlocked'.
          * 
          * @param value
          */
-        void setLayerBlocked(Step::Logical value);
+        virtual void setLayerBlocked(Step::Logical value);
         /**
+         * Gets the value of the explicit attribute 'LayerStyles'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &getLayerStyles();
+        virtual Set_IfcPresentationStyleSelect_0_n &getLayerStyles();
+        /**
+         * (const) Returns the value of the explicit attribute 'LayerStyles'.
+         * 
+         * @return the value of the explicit attribute 'LayerStyles'
+         */
+        virtual const Set_IfcPresentationStyleSelect_0_n &getLayerStyles() const;
         /**
          * Sets the value of the explicit attribute 'LayerStyles'.
          * 
          * @param value
          */
-        void setLayerStyles(const Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setLayerStyles(const Set_IfcPresentationStyleSelect_0_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -137,7 +171,7 @@ namespace ifc2x3 {
         Step::Logical m_layerBlocked;
         /**
          */
-        Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > m_layerStyles;
+        Set_IfcPresentationStyleSelect_0_n m_layerStyles;
 
     };
 

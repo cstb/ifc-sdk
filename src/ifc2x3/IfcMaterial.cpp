@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -45,30 +46,28 @@ using namespace ifc2x3;
 
 IfcMaterial::IfcMaterial(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_hasRepresentation.setUnset(true);
-    m_classifiedAs.setUnset(true);
 }
 
 IfcMaterial::~IfcMaterial() {
 }
 
-bool IfcMaterial::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterial(this);
+bool IfcMaterial::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterial(this);
 }
 
-const std::string &IfcMaterial::type() {
+const std::string &IfcMaterial::type() const {
     return IfcMaterial::s_type.getName();
 }
 
-Step::ClassType IfcMaterial::getClassType() {
+const Step::ClassType &IfcMaterial::getClassType() {
     return IfcMaterial::s_type;
 }
 
-Step::ClassType IfcMaterial::getType() const {
+const Step::ClassType &IfcMaterial::getType() const {
     return IfcMaterial::s_type;
 }
 
-bool IfcMaterial::isOfType(Step::ClassType t) {
+bool IfcMaterial::isOfType(const Step::ClassType &t) const {
     return IfcMaterial::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcLabel IfcMaterial::getName() {
     }
 }
 
+const IfcLabel IfcMaterial::getName() const {
+    IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
+    return deConstObject->getName();
+}
+
 void IfcMaterial::setName(const IfcLabel &value) {
     m_name = value;
 }
 
-Step::Set< Step::ObsPtr< IfcMaterialDefinitionRepresentation > > &IfcMaterial::getHasRepresentation() {
+Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_hasRepresentation;
     }
@@ -95,7 +99,12 @@ Step::Set< Step::ObsPtr< IfcMaterialDefinitionRepresentation > > &IfcMaterial::g
     }
 }
 
-Step::Set< Step::ObsPtr< IfcMaterialClassificationRelationship > > &IfcMaterial::getClassifiedAs() {
+const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation() const {
+    IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
+    return deConstObject->getHasRepresentation();
+}
+
+Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() {
     if (Step::BaseObject::inited()) {
         return m_classifiedAs;
     }
@@ -105,7 +114,9 @@ Step::Set< Step::ObsPtr< IfcMaterialClassificationRelationship > > &IfcMaterial:
     }
 }
 
-void IfcMaterial::release() {
+const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() const {
+    IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
+    return deConstObject->getClassifiedAs();
 }
 
 bool IfcMaterial::init() {
@@ -116,7 +127,7 @@ bool IfcMaterial::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcMaterialDefinitionRepresentation::getClassType(), 3);
     if (inverses) {

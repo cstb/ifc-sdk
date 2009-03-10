@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,42 @@
 
 #include "ifc2x3/IfcRelDecomposes.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcObjectDefinition.h"
 #include "ifc2x3/IfcRelationship.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelDecomposes_RelatedObjects_type::Inverted_IfcRelDecomposes_RelatedObjects_type() {
+}
+
+void Inverted_IfcRelDecomposes_RelatedObjects_type::setOwner(IfcRelDecomposes *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelDecomposes_RelatedObjects_type::insert(const Step::RefPtr< IfcObjectDefinition > &value) throw(std::out_of_range) {
+    IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
+    Set_IfcObjectDefinition_1_n::insert(value);
+    inverse->m_decomposes.insert(mOwner);
+}
+
+Inverted_IfcRelDecomposes_RelatedObjects_type::size_type Inverted_IfcRelDecomposes_RelatedObjects_type::erase(const Step::RefPtr< IfcObjectDefinition > &value) {
+    IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
+    inverse->m_decomposes.erase(mOwner);
+    return Set_IfcObjectDefinition_1_n::erase(value);
+}
 
 IfcRelDecomposes::IfcRelDecomposes(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
     m_relatingObject = NULL;
@@ -54,23 +72,23 @@ IfcRelDecomposes::IfcRelDecomposes(Step::Id id, Step::SPFData *args) : IfcRelati
 IfcRelDecomposes::~IfcRelDecomposes() {
 }
 
-bool IfcRelDecomposes::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelDecomposes(this);
+bool IfcRelDecomposes::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelDecomposes(this);
 }
 
-const std::string &IfcRelDecomposes::type() {
+const std::string &IfcRelDecomposes::type() const {
     return IfcRelDecomposes::s_type.getName();
 }
 
-Step::ClassType IfcRelDecomposes::getClassType() {
+const Step::ClassType &IfcRelDecomposes::getClassType() {
     return IfcRelDecomposes::s_type;
 }
 
-Step::ClassType IfcRelDecomposes::getType() const {
+const Step::ClassType &IfcRelDecomposes::getType() const {
     return IfcRelDecomposes::s_type;
 }
 
-bool IfcRelDecomposes::isOfType(Step::ClassType t) {
+bool IfcRelDecomposes::isOfType(const Step::ClassType &t) const {
     return IfcRelDecomposes::s_type == t ? true : IfcRelationship::isOfType(t);
 }
 
@@ -83,12 +101,22 @@ IfcObjectDefinition *IfcRelDecomposes::getRelatingObject() {
     }
 }
 
-void IfcRelDecomposes::setRelatingObject(const Step::RefPtr< IfcObjectDefinition > &value) {
-    m_relatingObject = value;
-    m_relatingObject->m_isDecomposedBy.insert(this);
+const IfcObjectDefinition *IfcRelDecomposes::getRelatingObject() const {
+    IfcRelDecomposes * deConstObject = const_cast< IfcRelDecomposes * > (this);
+    return deConstObject->getRelatingObject();
 }
 
-Step::Set< Step::RefPtr< IfcObjectDefinition > > &IfcRelDecomposes::getRelatedObjects() {
+void IfcRelDecomposes::setRelatingObject(const Step::RefPtr< IfcObjectDefinition > &value) {
+    if (m_relatingObject.valid()) {
+        m_relatingObject->m_isDecomposedBy.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isDecomposedBy.insert(this);
+    }
+    m_relatingObject = value;
+}
+
+Set_IfcObjectDefinition_1_n &IfcRelDecomposes::getRelatedObjects() {
     if (Step::BaseObject::inited()) {
         return m_relatedObjects;
     }
@@ -98,10 +126,9 @@ Step::Set< Step::RefPtr< IfcObjectDefinition > > &IfcRelDecomposes::getRelatedOb
     }
 }
 
-void IfcRelDecomposes::release() {
-    IfcRelationship::release();
-    m_relatingObject.release();
-    m_relatedObjects.clear();
+const Set_IfcObjectDefinition_1_n &IfcRelDecomposes::getRelatedObjects() const {
+    IfcRelDecomposes * deConstObject = const_cast< IfcRelDecomposes * > (this);
+    return deConstObject->getRelatedObjects();
 }
 
 bool IfcRelDecomposes::init() {
@@ -115,7 +142,7 @@ bool IfcRelDecomposes::init() {
         m_relatingObject = NULL;
     }
     else {
-        m_relatingObject = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingObject = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -128,7 +155,7 @@ bool IfcRelDecomposes::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcObjectDefinition > attr2;
-                attr2 = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcObjectDefinition * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedObjects.insert(attr2);
             }
             else {
@@ -140,27 +167,14 @@ bool IfcRelDecomposes::init() {
 }
 
 void IfcRelDecomposes::copy(const IfcRelDecomposes &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcObjectDefinition > >::const_iterator it_m_relatedObjects;
+    Step::Set< Step::RefPtr< IfcObjectDefinition >, 1 >::const_iterator it_m_relatedObjects;
     IfcRelationship::copy(obj, copyop);
-    setRelatingObject(copyop(obj.m_relatingObject.get()));
+    setRelatingObject((IfcObjectDefinition*)copyop(obj.m_relatingObject.get()));
     for (it_m_relatedObjects = obj.m_relatedObjects.begin(); it_m_relatedObjects != obj.m_relatedObjects.end(); ++it_m_relatedObjects) {
-        Step::RefPtr< IfcObjectDefinition > copyTarget = copyop((*it_m_relatedObjects).get());
+        Step::RefPtr< IfcObjectDefinition > copyTarget = (IfcObjectDefinition *) (copyop((*it_m_relatedObjects).get()));
         m_relatedObjects.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelDecomposes::s_type("IfcRelDecomposes");
-IfcRelDecomposes::Inverted_RelatedObjects_type::Inverted_RelatedObjects_type() {
-}
-
-void IfcRelDecomposes::Inverted_RelatedObjects_type::setOwner(IfcRelDecomposes *owner) {
-    mOwner = owner;
-}
-
-void IfcRelDecomposes::Inverted_RelatedObjects_type::insert(const Step::RefPtr< IfcObjectDefinition > &value) {
-    IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
-    Step::Set< Step::RefPtr< IfcObjectDefinition > >::insert(value);
-    inverse->m_decomposes.insert(mOwner);
-}
-

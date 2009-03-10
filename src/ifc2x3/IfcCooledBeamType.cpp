@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCooledBeamType::IfcCooledBeamType(Step::Id id, Step::SPFData *args) : IfcEner
 IfcCooledBeamType::~IfcCooledBeamType() {
 }
 
-bool IfcCooledBeamType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCooledBeamType(this);
+bool IfcCooledBeamType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCooledBeamType(this);
 }
 
-const std::string &IfcCooledBeamType::type() {
+const std::string &IfcCooledBeamType::type() const {
     return IfcCooledBeamType::s_type.getName();
 }
 
-Step::ClassType IfcCooledBeamType::getClassType() {
+const Step::ClassType &IfcCooledBeamType::getClassType() {
     return IfcCooledBeamType::s_type;
 }
 
-Step::ClassType IfcCooledBeamType::getType() const {
+const Step::ClassType &IfcCooledBeamType::getType() const {
     return IfcCooledBeamType::s_type;
 }
 
-bool IfcCooledBeamType::isOfType(Step::ClassType t) {
+bool IfcCooledBeamType::isOfType(const Step::ClassType &t) const {
     return IfcCooledBeamType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType() {
     }
 }
 
-void IfcCooledBeamType::setPredefinedType(IfcCooledBeamTypeEnum value) {
-    m_predefinedType = value;
+const IfcCooledBeamTypeEnum IfcCooledBeamType::getPredefinedType() const {
+    IfcCooledBeamType * deConstObject = const_cast< IfcCooledBeamType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCooledBeamType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcCooledBeamType::setPredefinedType(IfcCooledBeamTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCooledBeamType::init() {

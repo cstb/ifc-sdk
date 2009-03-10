@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,34 +48,34 @@ IfcColourOrFactor::~IfcColourOrFactor() {
     deleteUnion();
 }
 
-bool IfcColourOrFactor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColourOrFactor(this);
+bool IfcColourOrFactor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColourOrFactor(this);
 }
 
 bool IfcColourOrFactor::init() {
     return false;
 }
 
-const std::string &IfcColourOrFactor::type() {
+const std::string &IfcColourOrFactor::type() const {
     return IfcColourOrFactor::s_type.getName();
 }
 
-Step::ClassType IfcColourOrFactor::getClassType() {
+const Step::ClassType &IfcColourOrFactor::getClassType() {
     return IfcColourOrFactor::s_type;
 }
 
-Step::ClassType IfcColourOrFactor::getType() const {
+const Step::ClassType &IfcColourOrFactor::getType() const {
     return IfcColourOrFactor::s_type;
 }
 
-bool IfcColourOrFactor::isOfType(Step::ClassType t) {
+bool IfcColourOrFactor::isOfType(const Step::ClassType &t) const {
     return IfcColourOrFactor::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcColourOrFactor::copy(const IfcColourOrFactor &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCOLOURRGB:
-        setIfcColourRgb(copyop(obj.m_IfcColourOrFactor_union.m_IfcColourRgb));
+        setIfcColourRgb((IfcColourRgb *) (copyop(obj.m_IfcColourOrFactor_union.m_IfcColourRgb)));
         break;
     case IFCNORMALISEDRATIOMEASURE:
         setIfcNormalisedRatioMeasure(obj.m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure);
@@ -83,7 +83,7 @@ void IfcColourOrFactor::copy(const IfcColourOrFactor &obj, const CopyOp &copyop)
         }
 }
 
-char *IfcColourOrFactor::currentTypeName() {
+std::string IfcColourOrFactor::currentTypeName() const {
     switch(m_type) {
     case IFCCOLOURRGB:
         return "IfcColourRgb";
@@ -96,7 +96,7 @@ char *IfcColourOrFactor::currentTypeName() {
     }
 }
 
-IfcColourOrFactor::IfcColourOrFactor_select IfcColourOrFactor::currentType() {
+IfcColourOrFactor::IfcColourOrFactor_select IfcColourOrFactor::currentType() const {
     return m_type;
 }
 
@@ -109,12 +109,16 @@ void IfcColourOrFactor::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcColourRgb *IfcColourOrFactor::getIfcColourRgb() {
-    return m_IfcColourOrFactor_union.m_IfcColourRgb;
+IfcColourRgb *IfcColourOrFactor::getIfcColourRgb() const {
+    if (m_type == IFCCOLOURRGB) {
+        return m_IfcColourOrFactor_union.m_IfcColourRgb;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcColourOrFactor::setIfcColourRgb(IfcColourRgb *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -129,12 +133,16 @@ void IfcColourOrFactor::setIfcColourRgb(IfcColourRgb *value) {
     m_type = IFCCOLOURRGB;
 }
 
-IfcNormalisedRatioMeasure IfcColourOrFactor::getIfcNormalisedRatioMeasure() {
-    return m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure;
+IfcNormalisedRatioMeasure IfcColourOrFactor::getIfcNormalisedRatioMeasure() const {
+    if (m_type == IFCNORMALISEDRATIOMEASURE) {
+        return m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure);
+    }
 }
 
 void IfcColourOrFactor::setIfcNormalisedRatioMeasure(IfcNormalisedRatioMeasure value) {
-    deleteUnion();
     m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure = value;
     m_type = IFCNORMALISEDRATIOMEASURE;
 }

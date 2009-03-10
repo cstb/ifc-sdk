@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcFeatureElementAddition::IfcFeatureElementAddition(Step::Id id, Step::SPFData 
 IfcFeatureElementAddition::~IfcFeatureElementAddition() {
 }
 
-bool IfcFeatureElementAddition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFeatureElementAddition(this);
+bool IfcFeatureElementAddition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFeatureElementAddition(this);
 }
 
-const std::string &IfcFeatureElementAddition::type() {
+const std::string &IfcFeatureElementAddition::type() const {
     return IfcFeatureElementAddition::s_type.getName();
 }
 
-Step::ClassType IfcFeatureElementAddition::getClassType() {
+const Step::ClassType &IfcFeatureElementAddition::getClassType() {
     return IfcFeatureElementAddition::s_type;
 }
 
-Step::ClassType IfcFeatureElementAddition::getType() const {
+const Step::ClassType &IfcFeatureElementAddition::getType() const {
     return IfcFeatureElementAddition::s_type;
 }
 
-bool IfcFeatureElementAddition::isOfType(Step::ClassType t) {
+bool IfcFeatureElementAddition::isOfType(const Step::ClassType &t) const {
     return IfcFeatureElementAddition::s_type == t ? true : IfcFeatureElement::isOfType(t);
 }
 
@@ -77,8 +77,9 @@ IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() {
     }
 }
 
-void IfcFeatureElementAddition::release() {
-    IfcFeatureElement::release();
+const IfcRelProjectsElement *IfcFeatureElementAddition::getProjectsElements() const {
+    IfcFeatureElementAddition * deConstObject = const_cast< IfcFeatureElementAddition * > (this);
+    return deConstObject->getProjectsElements();
 }
 
 bool IfcFeatureElementAddition::init() {

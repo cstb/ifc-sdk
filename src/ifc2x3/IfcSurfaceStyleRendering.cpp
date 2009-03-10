@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -57,23 +57,23 @@ IfcSurfaceStyleRendering::IfcSurfaceStyleRendering(Step::Id id, Step::SPFData *a
 IfcSurfaceStyleRendering::~IfcSurfaceStyleRendering() {
 }
 
-bool IfcSurfaceStyleRendering::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleRendering(this);
+bool IfcSurfaceStyleRendering::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleRendering(this);
 }
 
-const std::string &IfcSurfaceStyleRendering::type() {
+const std::string &IfcSurfaceStyleRendering::type() const {
     return IfcSurfaceStyleRendering::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleRendering::getClassType() {
+const Step::ClassType &IfcSurfaceStyleRendering::getClassType() {
     return IfcSurfaceStyleRendering::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleRendering::getType() const {
+const Step::ClassType &IfcSurfaceStyleRendering::getType() const {
     return IfcSurfaceStyleRendering::s_type;
 }
 
-bool IfcSurfaceStyleRendering::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleRendering::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleRendering::s_type == t ? true : IfcSurfaceStyleShading::isOfType(t);
 }
 
@@ -84,6 +84,11 @@ IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency() {
     else {
         return Step::getUnset(m_transparency);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcSurfaceStyleRendering::getTransparency() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getTransparency();
 }
 
 void IfcSurfaceStyleRendering::setTransparency(IfcNormalisedRatioMeasure value) {
@@ -99,6 +104,11 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() {
     }
 }
 
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getDiffuseColour();
+}
+
 void IfcSurfaceStyleRendering::setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_diffuseColour = value;
 }
@@ -110,6 +120,11 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() {
     else {
         return NULL;
     }
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getTransmissionColour();
 }
 
 void IfcSurfaceStyleRendering::setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
@@ -125,6 +140,11 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() {
     }
 }
 
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getDiffuseTransmissionColour();
+}
+
 void IfcSurfaceStyleRendering::setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_diffuseTransmissionColour = value;
 }
@@ -136,6 +156,11 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() {
     else {
         return NULL;
     }
+}
+
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getReflectionColour();
 }
 
 void IfcSurfaceStyleRendering::setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
@@ -151,6 +176,11 @@ IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() {
     }
 }
 
+const IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getSpecularColour();
+}
+
 void IfcSurfaceStyleRendering::setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_specularColour = value;
 }
@@ -162,6 +192,11 @@ IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() {
     else {
         return NULL;
     }
+}
+
+const IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getSpecularHighlight();
 }
 
 void IfcSurfaceStyleRendering::setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value) {
@@ -177,12 +212,13 @@ IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() {
     }
 }
 
-void IfcSurfaceStyleRendering::setReflectanceMethod(IfcReflectanceMethodEnum value) {
-    m_reflectanceMethod = value;
+const IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() const {
+    IfcSurfaceStyleRendering * deConstObject = const_cast< IfcSurfaceStyleRendering * > (this);
+    return deConstObject->getReflectanceMethod();
 }
 
-void IfcSurfaceStyleRendering::release() {
-    IfcSurfaceStyleShading::release();
+void IfcSurfaceStyleRendering::setReflectanceMethod(IfcReflectanceMethodEnum value) {
+    m_reflectanceMethod = value;
 }
 
 bool IfcSurfaceStyleRendering::init() {

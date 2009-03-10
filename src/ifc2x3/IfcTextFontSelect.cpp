@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcTextFontSelect::~IfcTextFontSelect() {
     deleteUnion();
 }
 
-bool IfcTextFontSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextFontSelect(this);
+bool IfcTextFontSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextFontSelect(this);
 }
 
 bool IfcTextFontSelect::init() {
     return false;
 }
 
-const std::string &IfcTextFontSelect::type() {
+const std::string &IfcTextFontSelect::type() const {
     return IfcTextFontSelect::s_type.getName();
 }
 
-Step::ClassType IfcTextFontSelect::getClassType() {
+const Step::ClassType &IfcTextFontSelect::getClassType() {
     return IfcTextFontSelect::s_type;
 }
 
-Step::ClassType IfcTextFontSelect::getType() const {
+const Step::ClassType &IfcTextFontSelect::getType() const {
     return IfcTextFontSelect::s_type;
 }
 
-bool IfcTextFontSelect::isOfType(Step::ClassType t) {
+bool IfcTextFontSelect::isOfType(const Step::ClassType &t) const {
     return IfcTextFontSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcTextFontSelect::copy(const IfcTextFontSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCPREDEFINEDTEXTFONT:
-        setIfcPreDefinedTextFont(copyop(obj.m_IfcTextFontSelect_union.m_IfcPreDefinedTextFont));
+        setIfcPreDefinedTextFont((IfcPreDefinedTextFont *) (copyop(obj.m_IfcTextFontSelect_union.m_IfcPreDefinedTextFont)));
         break;
     case IFCEXTERNALLYDEFINEDTEXTFONT:
-        setIfcExternallyDefinedTextFont(copyop(obj.m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont));
+        setIfcExternallyDefinedTextFont((IfcExternallyDefinedTextFont *) (copyop(obj.m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont)));
         break;
         }
 }
 
-char *IfcTextFontSelect::currentTypeName() {
+std::string IfcTextFontSelect::currentTypeName() const {
     switch(m_type) {
     case IFCPREDEFINEDTEXTFONT:
         return "IfcPreDefinedTextFont";
@@ -97,7 +97,7 @@ char *IfcTextFontSelect::currentTypeName() {
     }
 }
 
-IfcTextFontSelect::IfcTextFontSelect_select IfcTextFontSelect::currentType() {
+IfcTextFontSelect::IfcTextFontSelect_select IfcTextFontSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcTextFontSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPreDefinedTextFont *IfcTextFontSelect::getIfcPreDefinedTextFont() {
-    return m_IfcTextFontSelect_union.m_IfcPreDefinedTextFont;
+IfcPreDefinedTextFont *IfcTextFontSelect::getIfcPreDefinedTextFont() const {
+    if (m_type == IFCPREDEFINEDTEXTFONT) {
+        return m_IfcTextFontSelect_union.m_IfcPreDefinedTextFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcTextFontSelect::setIfcPreDefinedTextFont(IfcPreDefinedTextFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcTextFontSelect::setIfcPreDefinedTextFont(IfcPreDefinedTextFont *value) {
     m_type = IFCPREDEFINEDTEXTFONT;
 }
 
-IfcExternallyDefinedTextFont *IfcTextFontSelect::getIfcExternallyDefinedTextFont() {
-    return m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont;
+IfcExternallyDefinedTextFont *IfcTextFontSelect::getIfcExternallyDefinedTextFont() const {
+    if (m_type == IFCEXTERNALLYDEFINEDTEXTFONT) {
+        return m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcTextFontSelect::setIfcExternallyDefinedTextFont(IfcExternallyDefinedTextFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

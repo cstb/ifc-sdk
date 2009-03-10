@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -49,29 +49,28 @@ IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *a
     m_transition = IfcTransitionCode_UNSET;
     m_sameSense = Step::getUnset(m_sameSense);
     m_parentCurve = NULL;
-    m_usingCurves.setUnset(true);
 }
 
 IfcCompositeCurveSegment::~IfcCompositeCurveSegment() {
 }
 
-bool IfcCompositeCurveSegment::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCompositeCurveSegment(this);
+bool IfcCompositeCurveSegment::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCompositeCurveSegment(this);
 }
 
-const std::string &IfcCompositeCurveSegment::type() {
+const std::string &IfcCompositeCurveSegment::type() const {
     return IfcCompositeCurveSegment::s_type.getName();
 }
 
-Step::ClassType IfcCompositeCurveSegment::getClassType() {
+const Step::ClassType &IfcCompositeCurveSegment::getClassType() {
     return IfcCompositeCurveSegment::s_type;
 }
 
-Step::ClassType IfcCompositeCurveSegment::getType() const {
+const Step::ClassType &IfcCompositeCurveSegment::getType() const {
     return IfcCompositeCurveSegment::s_type;
 }
 
-bool IfcCompositeCurveSegment::isOfType(Step::ClassType t) {
+bool IfcCompositeCurveSegment::isOfType(const Step::ClassType &t) const {
     return IfcCompositeCurveSegment::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -84,11 +83,16 @@ IfcTransitionCode IfcCompositeCurveSegment::getTransition() {
     }
 }
 
+const IfcTransitionCode IfcCompositeCurveSegment::getTransition() const {
+    IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
+    return deConstObject->getTransition();
+}
+
 void IfcCompositeCurveSegment::setTransition(IfcTransitionCode value) {
     m_transition = value;
 }
 
-Step::Bool IfcCompositeCurveSegment::getSameSense() {
+Step::Boolean IfcCompositeCurveSegment::getSameSense() {
     if (Step::BaseObject::inited()) {
         return m_sameSense;
     }
@@ -97,7 +101,12 @@ Step::Bool IfcCompositeCurveSegment::getSameSense() {
     }
 }
 
-void IfcCompositeCurveSegment::setSameSense(Step::Bool value) {
+const Step::Boolean IfcCompositeCurveSegment::getSameSense() const {
+    IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
+    return deConstObject->getSameSense();
+}
+
+void IfcCompositeCurveSegment::setSameSense(Step::Boolean value) {
     m_sameSense = value;
 }
 
@@ -110,11 +119,16 @@ IfcCurve *IfcCompositeCurveSegment::getParentCurve() {
     }
 }
 
+const IfcCurve *IfcCompositeCurveSegment::getParentCurve() const {
+    IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
+    return deConstObject->getParentCurve();
+}
+
 void IfcCompositeCurveSegment::setParentCurve(const Step::RefPtr< IfcCurve > &value) {
     m_parentCurve = value;
 }
 
-Step::Set< Step::ObsPtr< IfcCompositeCurve > > &IfcCompositeCurveSegment::getUsingCurves() {
+Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
     if (Step::BaseObject::inited()) {
         return m_usingCurves;
     }
@@ -124,9 +138,9 @@ Step::Set< Step::ObsPtr< IfcCompositeCurve > > &IfcCompositeCurveSegment::getUsi
     }
 }
 
-void IfcCompositeCurveSegment::release() {
-    IfcGeometricRepresentationItem::release();
-    m_parentCurve.release();
+const Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() const {
+    IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
+    return deConstObject->getUsingCurves();
 }
 
 bool IfcCompositeCurveSegment::init() {
@@ -159,14 +173,14 @@ bool IfcCompositeCurveSegment::init() {
         m_sameSense = Step::getUnset(m_sameSense);
     }
     else {
-        m_sameSense = Step::spfToBool(arg);
+        m_sameSense = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_parentCurve = NULL;
     }
     else {
-        m_parentCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_parentCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     inverses = m_args->getInverses(IfcCompositeCurve::getClassType(), 0);
     if (inverses) {
@@ -183,7 +197,7 @@ void IfcCompositeCurveSegment::copy(const IfcCompositeCurveSegment &obj, const C
     IfcGeometricRepresentationItem::copy(obj, copyop);
     setTransition(obj.m_transition);
     setSameSense(obj.m_sameSense);
-    setParentCurve(copyop(obj.m_parentCurve.get()));
+    setParentCurve((IfcCurve*)copyop(obj.m_parentCurve.get()));
     return;
 }
 

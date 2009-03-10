@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssociatesApproval::IfcRelAssociatesApproval(Step::Id id, Step::SPFData *a
 IfcRelAssociatesApproval::~IfcRelAssociatesApproval() {
 }
 
-bool IfcRelAssociatesApproval::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesApproval(this);
+bool IfcRelAssociatesApproval::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesApproval(this);
 }
 
-const std::string &IfcRelAssociatesApproval::type() {
+const std::string &IfcRelAssociatesApproval::type() const {
     return IfcRelAssociatesApproval::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesApproval::getClassType() {
+const Step::ClassType &IfcRelAssociatesApproval::getClassType() {
     return IfcRelAssociatesApproval::s_type;
 }
 
-Step::ClassType IfcRelAssociatesApproval::getType() const {
+const Step::ClassType &IfcRelAssociatesApproval::getType() const {
     return IfcRelAssociatesApproval::s_type;
 }
 
-bool IfcRelAssociatesApproval::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesApproval::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesApproval::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() {
     }
 }
 
-void IfcRelAssociatesApproval::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
-    m_relatingApproval = value;
+const IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() const {
+    IfcRelAssociatesApproval * deConstObject = const_cast< IfcRelAssociatesApproval * > (this);
+    return deConstObject->getRelatingApproval();
 }
 
-void IfcRelAssociatesApproval::release() {
-    IfcRelAssociates::release();
-    m_relatingApproval.release();
+void IfcRelAssociatesApproval::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
+    m_relatingApproval = value;
 }
 
 bool IfcRelAssociatesApproval::init() {
@@ -99,14 +99,14 @@ bool IfcRelAssociatesApproval::init() {
         m_relatingApproval = NULL;
     }
     else {
-        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssociatesApproval::copy(const IfcRelAssociatesApproval &obj, const CopyOp &copyop) {
     IfcRelAssociates::copy(obj, copyop);
-    setRelatingApproval(copyop(obj.m_relatingApproval.get()));
+    setRelatingApproval((IfcApproval*)copyop(obj.m_relatingApproval.get()));
     return;
 }
 

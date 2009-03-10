@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcDefinedSymbolSelect::~IfcDefinedSymbolSelect() {
     deleteUnion();
 }
 
-bool IfcDefinedSymbolSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDefinedSymbolSelect(this);
+bool IfcDefinedSymbolSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDefinedSymbolSelect(this);
 }
 
 bool IfcDefinedSymbolSelect::init() {
     return false;
 }
 
-const std::string &IfcDefinedSymbolSelect::type() {
+const std::string &IfcDefinedSymbolSelect::type() const {
     return IfcDefinedSymbolSelect::s_type.getName();
 }
 
-Step::ClassType IfcDefinedSymbolSelect::getClassType() {
+const Step::ClassType &IfcDefinedSymbolSelect::getClassType() {
     return IfcDefinedSymbolSelect::s_type;
 }
 
-Step::ClassType IfcDefinedSymbolSelect::getType() const {
+const Step::ClassType &IfcDefinedSymbolSelect::getType() const {
     return IfcDefinedSymbolSelect::s_type;
 }
 
-bool IfcDefinedSymbolSelect::isOfType(Step::ClassType t) {
+bool IfcDefinedSymbolSelect::isOfType(const Step::ClassType &t) const {
     return IfcDefinedSymbolSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcDefinedSymbolSelect::copy(const IfcDefinedSymbolSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCPREDEFINEDSYMBOL:
-        setIfcPreDefinedSymbol(copyop(obj.m_IfcDefinedSymbolSelect_union.m_IfcPreDefinedSymbol));
+        setIfcPreDefinedSymbol((IfcPreDefinedSymbol *) (copyop(obj.m_IfcDefinedSymbolSelect_union.m_IfcPreDefinedSymbol)));
         break;
     case IFCEXTERNALLYDEFINEDSYMBOL:
-        setIfcExternallyDefinedSymbol(copyop(obj.m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol));
+        setIfcExternallyDefinedSymbol((IfcExternallyDefinedSymbol *) (copyop(obj.m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol)));
         break;
         }
 }
 
-char *IfcDefinedSymbolSelect::currentTypeName() {
+std::string IfcDefinedSymbolSelect::currentTypeName() const {
     switch(m_type) {
     case IFCPREDEFINEDSYMBOL:
         return "IfcPreDefinedSymbol";
@@ -97,7 +97,7 @@ char *IfcDefinedSymbolSelect::currentTypeName() {
     }
 }
 
-IfcDefinedSymbolSelect::IfcDefinedSymbolSelect_select IfcDefinedSymbolSelect::currentType() {
+IfcDefinedSymbolSelect::IfcDefinedSymbolSelect_select IfcDefinedSymbolSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcDefinedSymbolSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPreDefinedSymbol *IfcDefinedSymbolSelect::getIfcPreDefinedSymbol() {
-    return m_IfcDefinedSymbolSelect_union.m_IfcPreDefinedSymbol;
+IfcPreDefinedSymbol *IfcDefinedSymbolSelect::getIfcPreDefinedSymbol() const {
+    if (m_type == IFCPREDEFINEDSYMBOL) {
+        return m_IfcDefinedSymbolSelect_union.m_IfcPreDefinedSymbol;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDefinedSymbolSelect::setIfcPreDefinedSymbol(IfcPreDefinedSymbol *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcDefinedSymbolSelect::setIfcPreDefinedSymbol(IfcPreDefinedSymbol *value) 
     m_type = IFCPREDEFINEDSYMBOL;
 }
 
-IfcExternallyDefinedSymbol *IfcDefinedSymbolSelect::getIfcExternallyDefinedSymbol() {
-    return m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol;
+IfcExternallyDefinedSymbol *IfcDefinedSymbolSelect::getIfcExternallyDefinedSymbol() const {
+    if (m_type == IFCEXTERNALLYDEFINEDSYMBOL) {
+        return m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcDefinedSymbolSelect::setIfcExternallyDefinedSymbol(IfcExternallyDefinedSymbol *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcHeatExchangerType::IfcHeatExchangerType(Step::Id id, Step::SPFData *args) : I
 IfcHeatExchangerType::~IfcHeatExchangerType() {
 }
 
-bool IfcHeatExchangerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcHeatExchangerType(this);
+bool IfcHeatExchangerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcHeatExchangerType(this);
 }
 
-const std::string &IfcHeatExchangerType::type() {
+const std::string &IfcHeatExchangerType::type() const {
     return IfcHeatExchangerType::s_type.getName();
 }
 
-Step::ClassType IfcHeatExchangerType::getClassType() {
+const Step::ClassType &IfcHeatExchangerType::getClassType() {
     return IfcHeatExchangerType::s_type;
 }
 
-Step::ClassType IfcHeatExchangerType::getType() const {
+const Step::ClassType &IfcHeatExchangerType::getType() const {
     return IfcHeatExchangerType::s_type;
 }
 
-bool IfcHeatExchangerType::isOfType(Step::ClassType t) {
+bool IfcHeatExchangerType::isOfType(const Step::ClassType &t) const {
     return IfcHeatExchangerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcHeatExchangerTypeEnum IfcHeatExchangerType::getPredefinedType() {
     }
 }
 
-void IfcHeatExchangerType::setPredefinedType(IfcHeatExchangerTypeEnum value) {
-    m_predefinedType = value;
+const IfcHeatExchangerTypeEnum IfcHeatExchangerType::getPredefinedType() const {
+    IfcHeatExchangerType * deConstObject = const_cast< IfcHeatExchangerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcHeatExchangerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcHeatExchangerType::setPredefinedType(IfcHeatExchangerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcHeatExchangerType::init() {

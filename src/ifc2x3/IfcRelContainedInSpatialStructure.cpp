@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,6 +26,7 @@
 
 #include "ifc2x3/IfcRelContainedInSpatialStructure.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcAnnotation.h"
 #include "ifc2x3/IfcElement.h"
@@ -34,20 +35,44 @@
 #include "ifc2x3/IfcRelConnects.h"
 #include "ifc2x3/IfcSpatialStructureElement.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type() {
+}
+
+void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::setOwner(IfcRelContainedInSpatialStructure *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range) {
+    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
+    Set_IfcProduct_1_n::insert(value);
+    if (dynamic_cast< IfcAnnotation * > (inverse) != NULL) {
+        ((IfcAnnotation *) (inverse))->m_containedInStructure.insert(mOwner);
+    }
+    if (dynamic_cast< IfcElement * > (inverse) != NULL) {
+        ((IfcElement *) (inverse))->m_containedInStructure.insert(mOwner);
+    }
+    if (dynamic_cast< IfcGrid * > (inverse) != NULL) {
+        ((IfcGrid *) (inverse))->m_containedInStructure.insert(mOwner);
+    }
+}
+
+Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::size_type Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::erase(const Step::RefPtr< IfcProduct > &value) {
+    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
+    return Set_IfcProduct_1_n::erase(value);
+}
 
 IfcRelContainedInSpatialStructure::IfcRelContainedInSpatialStructure(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatedElements.setUnset(true);
@@ -58,27 +83,27 @@ IfcRelContainedInSpatialStructure::IfcRelContainedInSpatialStructure(Step::Id id
 IfcRelContainedInSpatialStructure::~IfcRelContainedInSpatialStructure() {
 }
 
-bool IfcRelContainedInSpatialStructure::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelContainedInSpatialStructure(this);
+bool IfcRelContainedInSpatialStructure::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelContainedInSpatialStructure(this);
 }
 
-const std::string &IfcRelContainedInSpatialStructure::type() {
+const std::string &IfcRelContainedInSpatialStructure::type() const {
     return IfcRelContainedInSpatialStructure::s_type.getName();
 }
 
-Step::ClassType IfcRelContainedInSpatialStructure::getClassType() {
+const Step::ClassType &IfcRelContainedInSpatialStructure::getClassType() {
     return IfcRelContainedInSpatialStructure::s_type;
 }
 
-Step::ClassType IfcRelContainedInSpatialStructure::getType() const {
+const Step::ClassType &IfcRelContainedInSpatialStructure::getType() const {
     return IfcRelContainedInSpatialStructure::s_type;
 }
 
-bool IfcRelContainedInSpatialStructure::isOfType(Step::ClassType t) {
+bool IfcRelContainedInSpatialStructure::isOfType(const Step::ClassType &t) const {
     return IfcRelContainedInSpatialStructure::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcProduct > > &IfcRelContainedInSpatialStructure::getRelatedElements() {
+Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements() {
     if (Step::BaseObject::inited()) {
         return m_relatedElements;
     }
@@ -86,6 +111,11 @@ Step::Set< Step::RefPtr< IfcProduct > > &IfcRelContainedInSpatialStructure::getR
         m_relatedElements.setUnset(true);
         return m_relatedElements;
     }
+}
+
+const Set_IfcProduct_1_n &IfcRelContainedInSpatialStructure::getRelatedElements() const {
+    IfcRelContainedInSpatialStructure * deConstObject = const_cast< IfcRelContainedInSpatialStructure * > (this);
+    return deConstObject->getRelatedElements();
 }
 
 IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelatingStructure() {
@@ -97,15 +127,19 @@ IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelatingStruct
     }
 }
 
-void IfcRelContainedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
-    m_relatingStructure = value;
-    m_relatingStructure->m_containsElements.insert(this);
+const IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelatingStructure() const {
+    IfcRelContainedInSpatialStructure * deConstObject = const_cast< IfcRelContainedInSpatialStructure * > (this);
+    return deConstObject->getRelatingStructure();
 }
 
-void IfcRelContainedInSpatialStructure::release() {
-    IfcRelConnects::release();
-    m_relatedElements.clear();
-    m_relatingStructure.release();
+void IfcRelContainedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
+    if (m_relatingStructure.valid()) {
+        m_relatingStructure->m_containsElements.erase(this);
+    }
+    if (value.valid()) {
+        value->m_containsElements.insert(this);
+    }
+    m_relatingStructure = value;
 }
 
 bool IfcRelContainedInSpatialStructure::init() {
@@ -125,7 +159,7 @@ bool IfcRelContainedInSpatialStructure::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProduct > attr2;
-                attr2 = static_cast< IfcProduct * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProduct * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedElements.insert(attr2);
             }
             else {
@@ -138,41 +172,20 @@ bool IfcRelContainedInSpatialStructure::init() {
         m_relatingStructure = NULL;
     }
     else {
-        m_relatingStructure = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingStructure = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelContainedInSpatialStructure::copy(const IfcRelContainedInSpatialStructure &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProduct > >::const_iterator it_m_relatedElements;
+    Step::Set< Step::RefPtr< IfcProduct >, 1 >::const_iterator it_m_relatedElements;
     IfcRelConnects::copy(obj, copyop);
     for (it_m_relatedElements = obj.m_relatedElements.begin(); it_m_relatedElements != obj.m_relatedElements.end(); ++it_m_relatedElements) {
-        Step::RefPtr< IfcProduct > copyTarget = copyop((*it_m_relatedElements).get());
+        Step::RefPtr< IfcProduct > copyTarget = (IfcProduct *) (copyop((*it_m_relatedElements).get()));
         m_relatedElements.insert(copyTarget.get());
     }
-    setRelatingStructure(copyop(obj.m_relatingStructure.get()));
+    setRelatingStructure((IfcSpatialStructureElement*)copyop(obj.m_relatingStructure.get()));
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelContainedInSpatialStructure::s_type("IfcRelContainedInSpatialStructure");
-IfcRelContainedInSpatialStructure::Inverted_RelatedElements_type::Inverted_RelatedElements_type() {
-}
-
-void IfcRelContainedInSpatialStructure::Inverted_RelatedElements_type::setOwner(IfcRelContainedInSpatialStructure *owner) {
-    mOwner = owner;
-}
-
-void IfcRelContainedInSpatialStructure::Inverted_RelatedElements_type::insert(const Step::RefPtr< IfcProduct > &value) {
-    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
-    Step::Set< Step::RefPtr< IfcProduct > >::insert(value);
-    if (dynamic_cast< IfcAnnotation * > (inverse) != NULL) {
-        ((IfcAnnotation *) (inverse))->m_containedInStructure.insert(mOwner);
-    }
-    else if (dynamic_cast< IfcElement * > (inverse) != NULL) {
-        ((IfcElement *) (inverse))->m_containedInStructure.insert(mOwner);
-    }
-    else if (dynamic_cast< IfcGrid * > (inverse) != NULL) {
-        ((IfcGrid *) (inverse))->m_containedInStructure.insert(mOwner);
-    }
-}
-

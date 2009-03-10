@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,72 +48,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcFillAreaStyleHatching : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'HatchLineAppearance'.
+         * 
          */
-        IfcCurveStyle *getHatchLineAppearance();
+        virtual IfcCurveStyle *getHatchLineAppearance();
+        /**
+         * (const) Returns the value of the explicit attribute 'HatchLineAppearance'.
+         * 
+         * @return the value of the explicit attribute 'HatchLineAppearance'
+         */
+        virtual const IfcCurveStyle *getHatchLineAppearance() const;
         /**
          * Sets the value of the explicit attribute 'HatchLineAppearance'.
          * 
          * @param value
          */
-        void setHatchLineAppearance(const Step::RefPtr< IfcCurveStyle > &value);
+        virtual void setHatchLineAppearance(const Step::RefPtr< IfcCurveStyle > &value);
         /**
+         * Gets the value of the explicit attribute 'StartOfNextHatchLine'.
+         * 
          */
-        IfcHatchLineDistanceSelect *getStartOfNextHatchLine();
+        virtual IfcHatchLineDistanceSelect *getStartOfNextHatchLine();
+        /**
+         * (const) Returns the value of the explicit attribute 'StartOfNextHatchLine'.
+         * 
+         * @return the value of the explicit attribute 'StartOfNextHatchLine'
+         */
+        virtual const IfcHatchLineDistanceSelect *getStartOfNextHatchLine() const;
         /**
          * Sets the value of the explicit attribute 'StartOfNextHatchLine'.
          * 
          * @param value
          */
-        void setStartOfNextHatchLine(const Step::RefPtr< IfcHatchLineDistanceSelect > &value);
+        virtual void setStartOfNextHatchLine(const Step::RefPtr< IfcHatchLineDistanceSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'PointOfReferenceHatchLine'.
+         * 
          */
-        IfcCartesianPoint *getPointOfReferenceHatchLine();
+        virtual IfcCartesianPoint *getPointOfReferenceHatchLine();
+        /**
+         * (const) Returns the value of the explicit attribute 'PointOfReferenceHatchLine'.
+         * 
+         * @return the value of the explicit attribute 'PointOfReferenceHatchLine'
+         */
+        virtual const IfcCartesianPoint *getPointOfReferenceHatchLine() const;
         /**
          * Sets the value of the explicit attribute 'PointOfReferenceHatchLine'.
          * 
          * @param value
          */
-        void setPointOfReferenceHatchLine(const Step::RefPtr< IfcCartesianPoint > &value);
+        virtual void setPointOfReferenceHatchLine(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * Gets the value of the explicit attribute 'PatternStart'.
+         * 
          */
-        IfcCartesianPoint *getPatternStart();
+        virtual IfcCartesianPoint *getPatternStart();
+        /**
+         * (const) Returns the value of the explicit attribute 'PatternStart'.
+         * 
+         * @return the value of the explicit attribute 'PatternStart'
+         */
+        virtual const IfcCartesianPoint *getPatternStart() const;
         /**
          * Sets the value of the explicit attribute 'PatternStart'.
          * 
          * @param value
          */
-        void setPatternStart(const Step::RefPtr< IfcCartesianPoint > &value);
+        virtual void setPatternStart(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * Gets the value of the explicit attribute 'HatchLineAngle'.
+         * 
          */
-        IfcPlaneAngleMeasure getHatchLineAngle();
+        virtual IfcPlaneAngleMeasure getHatchLineAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'HatchLineAngle'.
+         * 
+         * @return the value of the explicit attribute 'HatchLineAngle'
+         */
+        virtual const IfcPlaneAngleMeasure getHatchLineAngle() const;
         /**
          * Sets the value of the explicit attribute 'HatchLineAngle'.
          * 
          * @param value
          */
-        void setHatchLineAngle(IfcPlaneAngleMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setHatchLineAngle(IfcPlaneAngleMeasure value);
         friend class ExpressDataSet;
 
     protected:

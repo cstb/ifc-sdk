@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcShapeRepresentation::IfcShapeRepresentation(Step::Id id, Step::SPFData *args)
 IfcShapeRepresentation::~IfcShapeRepresentation() {
 }
 
-bool IfcShapeRepresentation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcShapeRepresentation(this);
+bool IfcShapeRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcShapeRepresentation(this);
 }
 
-const std::string &IfcShapeRepresentation::type() {
+const std::string &IfcShapeRepresentation::type() const {
     return IfcShapeRepresentation::s_type.getName();
 }
 
-Step::ClassType IfcShapeRepresentation::getClassType() {
+const Step::ClassType &IfcShapeRepresentation::getClassType() {
     return IfcShapeRepresentation::s_type;
 }
 
-Step::ClassType IfcShapeRepresentation::getType() const {
+const Step::ClassType &IfcShapeRepresentation::getType() const {
     return IfcShapeRepresentation::s_type;
 }
 
-bool IfcShapeRepresentation::isOfType(Step::ClassType t) {
+bool IfcShapeRepresentation::isOfType(const Step::ClassType &t) const {
     return IfcShapeRepresentation::s_type == t ? true : IfcShapeModel::isOfType(t);
-}
-
-void IfcShapeRepresentation::release() {
-    IfcShapeModel::release();
 }
 
 bool IfcShapeRepresentation::init() {

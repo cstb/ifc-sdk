@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -53,23 +53,23 @@ IfcTextStyle::IfcTextStyle(Step::Id id, Step::SPFData *args) : IfcPresentationSt
 IfcTextStyle::~IfcTextStyle() {
 }
 
-bool IfcTextStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyle(this);
+bool IfcTextStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyle(this);
 }
 
-const std::string &IfcTextStyle::type() {
+const std::string &IfcTextStyle::type() const {
     return IfcTextStyle::s_type.getName();
 }
 
-Step::ClassType IfcTextStyle::getClassType() {
+const Step::ClassType &IfcTextStyle::getClassType() {
     return IfcTextStyle::s_type;
 }
 
-Step::ClassType IfcTextStyle::getType() const {
+const Step::ClassType &IfcTextStyle::getType() const {
     return IfcTextStyle::s_type;
 }
 
-bool IfcTextStyle::isOfType(Step::ClassType t) {
+bool IfcTextStyle::isOfType(const Step::ClassType &t) const {
     return IfcTextStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() {
     else {
         return NULL;
     }
+}
+
+const IfcCharacterStyleSelect *IfcTextStyle::getTextCharacterAppearance() const {
+    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
+    return deConstObject->getTextCharacterAppearance();
 }
 
 void IfcTextStyle::setTextCharacterAppearance(const Step::RefPtr< IfcCharacterStyleSelect > &value) {
@@ -95,6 +100,11 @@ IfcTextStyleSelect *IfcTextStyle::getTextStyle() {
     }
 }
 
+const IfcTextStyleSelect *IfcTextStyle::getTextStyle() const {
+    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
+    return deConstObject->getTextStyle();
+}
+
 void IfcTextStyle::setTextStyle(const Step::RefPtr< IfcTextStyleSelect > &value) {
     m_textStyle = value;
 }
@@ -108,12 +118,13 @@ IfcTextFontSelect *IfcTextStyle::getTextFontStyle() {
     }
 }
 
-void IfcTextStyle::setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value) {
-    m_textFontStyle = value;
+const IfcTextFontSelect *IfcTextStyle::getTextFontStyle() const {
+    IfcTextStyle * deConstObject = const_cast< IfcTextStyle * > (this);
+    return deConstObject->getTextFontStyle();
 }
 
-void IfcTextStyle::release() {
-    IfcPresentationStyle::release();
+void IfcTextStyle::setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value) {
+    m_textFontStyle = value;
 }
 
 bool IfcTextStyle::init() {

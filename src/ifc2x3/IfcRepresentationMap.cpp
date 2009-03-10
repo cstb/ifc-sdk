@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -49,29 +50,28 @@ using namespace ifc2x3;
 IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_mappingOrigin = NULL;
     m_mappedRepresentation = NULL;
-    m_mapUsage.setUnset(true);
 }
 
 IfcRepresentationMap::~IfcRepresentationMap() {
 }
 
-bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRepresentationMap(this);
+bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRepresentationMap(this);
 }
 
-const std::string &IfcRepresentationMap::type() {
+const std::string &IfcRepresentationMap::type() const {
     return IfcRepresentationMap::s_type.getName();
 }
 
-Step::ClassType IfcRepresentationMap::getClassType() {
+const Step::ClassType &IfcRepresentationMap::getClassType() {
     return IfcRepresentationMap::s_type;
 }
 
-Step::ClassType IfcRepresentationMap::getType() const {
+const Step::ClassType &IfcRepresentationMap::getType() const {
     return IfcRepresentationMap::s_type;
 }
 
-bool IfcRepresentationMap::isOfType(Step::ClassType t) {
+bool IfcRepresentationMap::isOfType(const Step::ClassType &t) const {
     return IfcRepresentationMap::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,6 +82,11 @@ IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() {
     else {
         return NULL;
     }
+}
+
+const IfcAxis2Placement *IfcRepresentationMap::getMappingOrigin() const {
+    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
+    return deConstObject->getMappingOrigin();
 }
 
 void IfcRepresentationMap::setMappingOrigin(const Step::RefPtr< IfcAxis2Placement > &value) {
@@ -97,12 +102,22 @@ IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() {
     }
 }
 
-void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value) {
-    m_mappedRepresentation = value;
-    m_mappedRepresentation->m_representationMap.insert(this);
+const IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() const {
+    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
+    return deConstObject->getMappedRepresentation();
 }
 
-Step::Set< Step::ObsPtr< IfcMappedItem > > &IfcRepresentationMap::getMapUsage() {
+void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value) {
+    if (m_mappedRepresentation.valid()) {
+        m_mappedRepresentation->m_representationMap.erase(this);
+    }
+    if (value.valid()) {
+        value->m_representationMap.insert(this);
+    }
+    m_mappedRepresentation = value;
+}
+
+Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
     if (Step::BaseObject::inited()) {
         return m_mapUsage;
     }
@@ -112,8 +127,9 @@ Step::Set< Step::ObsPtr< IfcMappedItem > > &IfcRepresentationMap::getMapUsage() 
     }
 }
 
-void IfcRepresentationMap::release() {
-    m_mappedRepresentation.release();
+const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const {
+    IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
+    return deConstObject->getMapUsage();
 }
 
 bool IfcRepresentationMap::init() {
@@ -143,7 +159,7 @@ bool IfcRepresentationMap::init() {
         m_mappedRepresentation = NULL;
     }
     else {
-        m_mappedRepresentation = static_cast< IfcRepresentation * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_mappedRepresentation = static_cast< IfcRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     inverses = m_args->getInverses(IfcMappedItem::getClassType(), 0);
     if (inverses) {
@@ -160,7 +176,7 @@ void IfcRepresentationMap::copy(const IfcRepresentationMap &obj, const CopyOp &c
     Step::BaseEntity::copy(obj, copyop);
     m_mappingOrigin = new IfcAxis2Placement;
     m_mappingOrigin->copy(*(obj.m_mappingOrigin.get()), copyop);
-    setMappedRepresentation(copyop(obj.m_mappedRepresentation.get()));
+    setMappedRepresentation((IfcRepresentation*)copyop(obj.m_mappedRepresentation.get()));
     return;
 }
 

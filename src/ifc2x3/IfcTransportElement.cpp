@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcTransportElement::IfcTransportElement(Step::Id id, Step::SPFData *args) : Ifc
 IfcTransportElement::~IfcTransportElement() {
 }
 
-bool IfcTransportElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTransportElement(this);
+bool IfcTransportElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTransportElement(this);
 }
 
-const std::string &IfcTransportElement::type() {
+const std::string &IfcTransportElement::type() const {
     return IfcTransportElement::s_type.getName();
 }
 
-Step::ClassType IfcTransportElement::getClassType() {
+const Step::ClassType &IfcTransportElement::getClassType() {
     return IfcTransportElement::s_type;
 }
 
-Step::ClassType IfcTransportElement::getType() const {
+const Step::ClassType &IfcTransportElement::getType() const {
     return IfcTransportElement::s_type;
 }
 
-bool IfcTransportElement::isOfType(Step::ClassType t) {
+bool IfcTransportElement::isOfType(const Step::ClassType &t) const {
     return IfcTransportElement::s_type == t ? true : IfcElement::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcTransportElementTypeEnum IfcTransportElement::getOperationType() {
     else {
         return IfcTransportElementTypeEnum_UNSET;
     }
+}
+
+const IfcTransportElementTypeEnum IfcTransportElement::getOperationType() const {
+    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
+    return deConstObject->getOperationType();
 }
 
 void IfcTransportElement::setOperationType(IfcTransportElementTypeEnum value) {
@@ -90,6 +95,11 @@ IfcMassMeasure IfcTransportElement::getCapacityByWeight() {
     }
 }
 
+const IfcMassMeasure IfcTransportElement::getCapacityByWeight() const {
+    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
+    return deConstObject->getCapacityByWeight();
+}
+
 void IfcTransportElement::setCapacityByWeight(IfcMassMeasure value) {
     m_capacityByWeight = value;
 }
@@ -103,12 +113,13 @@ IfcCountMeasure IfcTransportElement::getCapacityByNumber() {
     }
 }
 
-void IfcTransportElement::setCapacityByNumber(IfcCountMeasure value) {
-    m_capacityByNumber = value;
+const IfcCountMeasure IfcTransportElement::getCapacityByNumber() const {
+    IfcTransportElement * deConstObject = const_cast< IfcTransportElement * > (this);
+    return deConstObject->getCapacityByNumber();
 }
 
-void IfcTransportElement::release() {
-    IfcElement::release();
+void IfcTransportElement::setCapacityByNumber(IfcCountMeasure value) {
+    m_capacityByNumber = value;
 }
 
 bool IfcTransportElement::init() {

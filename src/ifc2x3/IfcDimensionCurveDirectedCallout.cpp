@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDimensionCurveDirectedCallout::IfcDimensionCurveDirectedCallout(Step::Id id, 
 IfcDimensionCurveDirectedCallout::~IfcDimensionCurveDirectedCallout() {
 }
 
-bool IfcDimensionCurveDirectedCallout::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionCurveDirectedCallout(this);
+bool IfcDimensionCurveDirectedCallout::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionCurveDirectedCallout(this);
 }
 
-const std::string &IfcDimensionCurveDirectedCallout::type() {
+const std::string &IfcDimensionCurveDirectedCallout::type() const {
     return IfcDimensionCurveDirectedCallout::s_type.getName();
 }
 
-Step::ClassType IfcDimensionCurveDirectedCallout::getClassType() {
+const Step::ClassType &IfcDimensionCurveDirectedCallout::getClassType() {
     return IfcDimensionCurveDirectedCallout::s_type;
 }
 
-Step::ClassType IfcDimensionCurveDirectedCallout::getType() const {
+const Step::ClassType &IfcDimensionCurveDirectedCallout::getType() const {
     return IfcDimensionCurveDirectedCallout::s_type;
 }
 
-bool IfcDimensionCurveDirectedCallout::isOfType(Step::ClassType t) {
+bool IfcDimensionCurveDirectedCallout::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCurveDirectedCallout::s_type == t ? true : IfcDraughtingCallout::isOfType(t);
-}
-
-void IfcDimensionCurveDirectedCallout::release() {
-    IfcDraughtingCallout::release();
 }
 
 bool IfcDimensionCurveDirectedCallout::init() {

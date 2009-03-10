@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcAxis1Placement::IfcAxis1Placement(Step::Id id, Step::SPFData *args) : IfcPlac
 IfcAxis1Placement::~IfcAxis1Placement() {
 }
 
-bool IfcAxis1Placement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAxis1Placement(this);
+bool IfcAxis1Placement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAxis1Placement(this);
 }
 
-const std::string &IfcAxis1Placement::type() {
+const std::string &IfcAxis1Placement::type() const {
     return IfcAxis1Placement::s_type.getName();
 }
 
-Step::ClassType IfcAxis1Placement::getClassType() {
+const Step::ClassType &IfcAxis1Placement::getClassType() {
     return IfcAxis1Placement::s_type;
 }
 
-Step::ClassType IfcAxis1Placement::getType() const {
+const Step::ClassType &IfcAxis1Placement::getType() const {
     return IfcAxis1Placement::s_type;
 }
 
-bool IfcAxis1Placement::isOfType(Step::ClassType t) {
+bool IfcAxis1Placement::isOfType(const Step::ClassType &t) const {
     return IfcAxis1Placement::s_type == t ? true : IfcPlacement::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcDirection *IfcAxis1Placement::getAxis() {
     }
 }
 
-void IfcAxis1Placement::setAxis(const Step::RefPtr< IfcDirection > &value) {
-    m_axis = value;
+const IfcDirection *IfcAxis1Placement::getAxis() const {
+    IfcAxis1Placement * deConstObject = const_cast< IfcAxis1Placement * > (this);
+    return deConstObject->getAxis();
 }
 
-void IfcAxis1Placement::release() {
-    IfcPlacement::release();
-    m_axis.release();
+void IfcAxis1Placement::setAxis(const Step::RefPtr< IfcDirection > &value) {
+    m_axis = value;
 }
 
 bool IfcAxis1Placement::init() {
@@ -99,14 +99,14 @@ bool IfcAxis1Placement::init() {
         m_axis = NULL;
     }
     else {
-        m_axis = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_axis = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcAxis1Placement::copy(const IfcAxis1Placement &obj, const CopyOp &copyop) {
     IfcPlacement::copy(obj, copyop);
-    setAxis(copyop(obj.m_axis.get()));
+    setAxis((IfcDirection*)copyop(obj.m_axis.get()));
     return;
 }
 

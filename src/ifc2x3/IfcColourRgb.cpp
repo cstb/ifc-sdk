@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcColourRgb::IfcColourRgb(Step::Id id, Step::SPFData *args) : IfcColourSpecific
 IfcColourRgb::~IfcColourRgb() {
 }
 
-bool IfcColourRgb::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColourRgb(this);
+bool IfcColourRgb::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColourRgb(this);
 }
 
-const std::string &IfcColourRgb::type() {
+const std::string &IfcColourRgb::type() const {
     return IfcColourRgb::s_type.getName();
 }
 
-Step::ClassType IfcColourRgb::getClassType() {
+const Step::ClassType &IfcColourRgb::getClassType() {
     return IfcColourRgb::s_type;
 }
 
-Step::ClassType IfcColourRgb::getType() const {
+const Step::ClassType &IfcColourRgb::getType() const {
     return IfcColourRgb::s_type;
 }
 
-bool IfcColourRgb::isOfType(Step::ClassType t) {
+bool IfcColourRgb::isOfType(const Step::ClassType &t) const {
     return IfcColourRgb::s_type == t ? true : IfcColourSpecification::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcNormalisedRatioMeasure IfcColourRgb::getRed() {
     else {
         return Step::getUnset(m_red);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcColourRgb::getRed() const {
+    IfcColourRgb * deConstObject = const_cast< IfcColourRgb * > (this);
+    return deConstObject->getRed();
 }
 
 void IfcColourRgb::setRed(IfcNormalisedRatioMeasure value) {
@@ -90,6 +95,11 @@ IfcNormalisedRatioMeasure IfcColourRgb::getGreen() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcColourRgb::getGreen() const {
+    IfcColourRgb * deConstObject = const_cast< IfcColourRgb * > (this);
+    return deConstObject->getGreen();
+}
+
 void IfcColourRgb::setGreen(IfcNormalisedRatioMeasure value) {
     m_green = value;
 }
@@ -103,12 +113,13 @@ IfcNormalisedRatioMeasure IfcColourRgb::getBlue() {
     }
 }
 
-void IfcColourRgb::setBlue(IfcNormalisedRatioMeasure value) {
-    m_blue = value;
+const IfcNormalisedRatioMeasure IfcColourRgb::getBlue() const {
+    IfcColourRgb * deConstObject = const_cast< IfcColourRgb * > (this);
+    return deConstObject->getBlue();
 }
 
-void IfcColourRgb::release() {
-    IfcColourSpecification::release();
+void IfcColourRgb::setBlue(IfcNormalisedRatioMeasure value) {
+    m_blue = value;
 }
 
 bool IfcColourRgb::init() {

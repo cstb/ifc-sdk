@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -47,29 +46,28 @@ using namespace ifc2x3;
 IfcSoundProperties::IfcSoundProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
     m_isAttenuating = Step::getUnset(m_isAttenuating);
     m_soundScale = IfcSoundScaleEnum_UNSET;
-    m_soundValues.setUnset(true);
 }
 
 IfcSoundProperties::~IfcSoundProperties() {
 }
 
-bool IfcSoundProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSoundProperties(this);
+bool IfcSoundProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSoundProperties(this);
 }
 
-const std::string &IfcSoundProperties::type() {
+const std::string &IfcSoundProperties::type() const {
     return IfcSoundProperties::s_type.getName();
 }
 
-Step::ClassType IfcSoundProperties::getClassType() {
+const Step::ClassType &IfcSoundProperties::getClassType() {
     return IfcSoundProperties::s_type;
 }
 
-Step::ClassType IfcSoundProperties::getType() const {
+const Step::ClassType &IfcSoundProperties::getType() const {
     return IfcSoundProperties::s_type;
 }
 
-bool IfcSoundProperties::isOfType(Step::ClassType t) {
+bool IfcSoundProperties::isOfType(const Step::ClassType &t) const {
     return IfcSoundProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -80,6 +78,11 @@ IfcBoolean IfcSoundProperties::getIsAttenuating() {
     else {
         return Step::getUnset(m_isAttenuating);
     }
+}
+
+const IfcBoolean IfcSoundProperties::getIsAttenuating() const {
+    IfcSoundProperties * deConstObject = const_cast< IfcSoundProperties * > (this);
+    return deConstObject->getIsAttenuating();
 }
 
 void IfcSoundProperties::setIsAttenuating(IfcBoolean value) {
@@ -95,11 +98,16 @@ IfcSoundScaleEnum IfcSoundProperties::getSoundScale() {
     }
 }
 
+const IfcSoundScaleEnum IfcSoundProperties::getSoundScale() const {
+    IfcSoundProperties * deConstObject = const_cast< IfcSoundProperties * > (this);
+    return deConstObject->getSoundScale();
+}
+
 void IfcSoundProperties::setSoundScale(IfcSoundScaleEnum value) {
     m_soundScale = value;
 }
 
-Step::List< Step::RefPtr< IfcSoundValue > > &IfcSoundProperties::getSoundValues() {
+List_IfcSoundValue_1_8 &IfcSoundProperties::getSoundValues() {
     if (Step::BaseObject::inited()) {
         return m_soundValues;
     }
@@ -109,13 +117,13 @@ Step::List< Step::RefPtr< IfcSoundValue > > &IfcSoundProperties::getSoundValues(
     }
 }
 
-void IfcSoundProperties::setSoundValues(const Step::List< Step::RefPtr< IfcSoundValue > > &value) {
-    m_soundValues = value;
+const List_IfcSoundValue_1_8 &IfcSoundProperties::getSoundValues() const {
+    IfcSoundProperties * deConstObject = const_cast< IfcSoundProperties * > (this);
+    return deConstObject->getSoundValues();
 }
 
-void IfcSoundProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_soundValues.clear();
+void IfcSoundProperties::setSoundValues(const List_IfcSoundValue_1_8 &value) {
+    m_soundValues = value;
 }
 
 bool IfcSoundProperties::init() {
@@ -129,7 +137,7 @@ bool IfcSoundProperties::init() {
         m_isAttenuating = Step::getUnset(m_isAttenuating);
     }
     else {
-        m_isAttenuating = Step::spfToBool(arg);
+        m_isAttenuating = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -169,7 +177,7 @@ bool IfcSoundProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcSoundValue > attr2;
-                attr2 = static_cast< IfcSoundValue * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcSoundValue * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_soundValues.push_back(attr2);
             }
             else {
@@ -181,12 +189,12 @@ bool IfcSoundProperties::init() {
 }
 
 void IfcSoundProperties::copy(const IfcSoundProperties &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcSoundValue > >::const_iterator it_m_soundValues;
+    Step::List< Step::RefPtr< IfcSoundValue >, 1, 8 >::const_iterator it_m_soundValues;
     IfcPropertySetDefinition::copy(obj, copyop);
     setIsAttenuating(obj.m_isAttenuating);
     setSoundScale(obj.m_soundScale);
     for (it_m_soundValues = obj.m_soundValues.begin(); it_m_soundValues != obj.m_soundValues.end(); ++it_m_soundValues) {
-        Step::RefPtr< IfcSoundValue > copyTarget = copyop((*it_m_soundValues).get());
+        Step::RefPtr< IfcSoundValue > copyTarget = (IfcSoundValue *) (copyop((*it_m_soundValues).get()));
         m_soundValues.push_back(copyTarget.get());
     }
     return;

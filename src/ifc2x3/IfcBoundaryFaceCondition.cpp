@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcBoundaryFaceCondition::IfcBoundaryFaceCondition(Step::Id id, Step::SPFData *a
 IfcBoundaryFaceCondition::~IfcBoundaryFaceCondition() {
 }
 
-bool IfcBoundaryFaceCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundaryFaceCondition(this);
+bool IfcBoundaryFaceCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundaryFaceCondition(this);
 }
 
-const std::string &IfcBoundaryFaceCondition::type() {
+const std::string &IfcBoundaryFaceCondition::type() const {
     return IfcBoundaryFaceCondition::s_type.getName();
 }
 
-Step::ClassType IfcBoundaryFaceCondition::getClassType() {
+const Step::ClassType &IfcBoundaryFaceCondition::getClassType() {
     return IfcBoundaryFaceCondition::s_type;
 }
 
-Step::ClassType IfcBoundaryFaceCondition::getType() const {
+const Step::ClassType &IfcBoundaryFaceCondition::getType() const {
     return IfcBoundaryFaceCondition::s_type;
 }
 
-bool IfcBoundaryFaceCondition::isOfType(Step::ClassType t) {
+bool IfcBoundaryFaceCondition::isOfType(const Step::ClassType &t) const {
     return IfcBoundaryFaceCondition::s_type == t ? true : IfcBoundaryCondition::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffness
     else {
         return Step::getUnset(m_linearStiffnessByAreaX);
     }
+}
+
+const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaX() const {
+    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
+    return deConstObject->getLinearStiffnessByAreaX();
 }
 
 void IfcBoundaryFaceCondition::setLinearStiffnessByAreaX(IfcModulusOfSubgradeReactionMeasure value) {
@@ -90,6 +95,11 @@ IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffness
     }
 }
 
+const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY() const {
+    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
+    return deConstObject->getLinearStiffnessByAreaY();
+}
+
 void IfcBoundaryFaceCondition::setLinearStiffnessByAreaY(IfcModulusOfSubgradeReactionMeasure value) {
     m_linearStiffnessByAreaY = value;
 }
@@ -103,12 +113,13 @@ IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffness
     }
 }
 
-void IfcBoundaryFaceCondition::setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value) {
-    m_linearStiffnessByAreaZ = value;
+const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ() const {
+    IfcBoundaryFaceCondition * deConstObject = const_cast< IfcBoundaryFaceCondition * > (this);
+    return deConstObject->getLinearStiffnessByAreaZ();
 }
 
-void IfcBoundaryFaceCondition::release() {
-    IfcBoundaryCondition::release();
+void IfcBoundaryFaceCondition::setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value) {
+    m_linearStiffnessByAreaZ = value;
 }
 
 bool IfcBoundaryFaceCondition::init() {

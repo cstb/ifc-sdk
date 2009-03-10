@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,72 +44,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcMechanicalMaterialProperties : public IfcMaterialProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'DynamicViscosity'.
+         * 
          */
-        IfcDynamicViscosityMeasure getDynamicViscosity();
+        virtual IfcDynamicViscosityMeasure getDynamicViscosity();
+        /**
+         * (const) Returns the value of the explicit attribute 'DynamicViscosity'.
+         * 
+         * @return the value of the explicit attribute 'DynamicViscosity'
+         */
+        virtual const IfcDynamicViscosityMeasure getDynamicViscosity() const;
         /**
          * Sets the value of the explicit attribute 'DynamicViscosity'.
          * 
          * @param value
          */
-        void setDynamicViscosity(IfcDynamicViscosityMeasure value);
+        virtual void setDynamicViscosity(IfcDynamicViscosityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'YoungModulus'.
+         * 
          */
-        IfcModulusOfElasticityMeasure getYoungModulus();
+        virtual IfcModulusOfElasticityMeasure getYoungModulus();
+        /**
+         * (const) Returns the value of the explicit attribute 'YoungModulus'.
+         * 
+         * @return the value of the explicit attribute 'YoungModulus'
+         */
+        virtual const IfcModulusOfElasticityMeasure getYoungModulus() const;
         /**
          * Sets the value of the explicit attribute 'YoungModulus'.
          * 
          * @param value
          */
-        void setYoungModulus(IfcModulusOfElasticityMeasure value);
+        virtual void setYoungModulus(IfcModulusOfElasticityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShearModulus'.
+         * 
          */
-        IfcModulusOfElasticityMeasure getShearModulus();
+        virtual IfcModulusOfElasticityMeasure getShearModulus();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShearModulus'.
+         * 
+         * @return the value of the explicit attribute 'ShearModulus'
+         */
+        virtual const IfcModulusOfElasticityMeasure getShearModulus() const;
         /**
          * Sets the value of the explicit attribute 'ShearModulus'.
          * 
          * @param value
          */
-        void setShearModulus(IfcModulusOfElasticityMeasure value);
+        virtual void setShearModulus(IfcModulusOfElasticityMeasure value);
         /**
+         * Gets the value of the explicit attribute 'PoissonRatio'.
+         * 
          */
-        IfcPositiveRatioMeasure getPoissonRatio();
+        virtual IfcPositiveRatioMeasure getPoissonRatio();
+        /**
+         * (const) Returns the value of the explicit attribute 'PoissonRatio'.
+         * 
+         * @return the value of the explicit attribute 'PoissonRatio'
+         */
+        virtual const IfcPositiveRatioMeasure getPoissonRatio() const;
         /**
          * Sets the value of the explicit attribute 'PoissonRatio'.
          * 
          * @param value
          */
-        void setPoissonRatio(IfcPositiveRatioMeasure value);
+        virtual void setPoissonRatio(IfcPositiveRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThermalExpansionCoefficient'.
+         * 
          */
-        IfcThermalExpansionCoefficientMeasure getThermalExpansionCoefficient();
+        virtual IfcThermalExpansionCoefficientMeasure getThermalExpansionCoefficient();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermalExpansionCoefficient'.
+         * 
+         * @return the value of the explicit attribute 'ThermalExpansionCoefficient'
+         */
+        virtual const IfcThermalExpansionCoefficientMeasure getThermalExpansionCoefficient() const;
         /**
          * Sets the value of the explicit attribute 'ThermalExpansionCoefficient'.
          * 
          * @param value
          */
-        void setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value);
         friend class ExpressDataSet;
 
     protected:

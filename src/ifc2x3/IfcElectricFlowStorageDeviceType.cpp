@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricFlowStorageDeviceType::IfcElectricFlowStorageDeviceType(Step::Id id, 
 IfcElectricFlowStorageDeviceType::~IfcElectricFlowStorageDeviceType() {
 }
 
-bool IfcElectricFlowStorageDeviceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricFlowStorageDeviceType(this);
+bool IfcElectricFlowStorageDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricFlowStorageDeviceType(this);
 }
 
-const std::string &IfcElectricFlowStorageDeviceType::type() {
+const std::string &IfcElectricFlowStorageDeviceType::type() const {
     return IfcElectricFlowStorageDeviceType::s_type.getName();
 }
 
-Step::ClassType IfcElectricFlowStorageDeviceType::getClassType() {
+const Step::ClassType &IfcElectricFlowStorageDeviceType::getClassType() {
     return IfcElectricFlowStorageDeviceType::s_type;
 }
 
-Step::ClassType IfcElectricFlowStorageDeviceType::getType() const {
+const Step::ClassType &IfcElectricFlowStorageDeviceType::getType() const {
     return IfcElectricFlowStorageDeviceType::s_type;
 }
 
-bool IfcElectricFlowStorageDeviceType::isOfType(Step::ClassType t) {
+bool IfcElectricFlowStorageDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcElectricFlowStorageDeviceType::s_type == t ? true : IfcFlowStorageDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricFlowStorageDeviceTypeEnum IfcElectricFlowStorageDeviceType::getPredef
     }
 }
 
-void IfcElectricFlowStorageDeviceType::setPredefinedType(IfcElectricFlowStorageDeviceTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricFlowStorageDeviceTypeEnum IfcElectricFlowStorageDeviceType::getPredefinedType() const {
+    IfcElectricFlowStorageDeviceType * deConstObject = const_cast< IfcElectricFlowStorageDeviceType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricFlowStorageDeviceType::release() {
-    IfcFlowStorageDeviceType::release();
+void IfcElectricFlowStorageDeviceType::setPredefinedType(IfcElectricFlowStorageDeviceTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricFlowStorageDeviceType::init() {

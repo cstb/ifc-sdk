@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,63 +47,110 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCartesianTransformationOperator : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Axis1'.
+         * 
          */
-        IfcDirection *getAxis1();
+        virtual IfcDirection *getAxis1();
+        /**
+         * (const) Returns the value of the explicit attribute 'Axis1'.
+         * 
+         * @return the value of the explicit attribute 'Axis1'
+         */
+        virtual const IfcDirection *getAxis1() const;
         /**
          * Sets the value of the explicit attribute 'Axis1'.
          * 
          * @param value
          */
-        void setAxis1(const Step::RefPtr< IfcDirection > &value);
+        virtual void setAxis1(const Step::RefPtr< IfcDirection > &value);
         /**
+         * Gets the value of the explicit attribute 'Axis2'.
+         * 
          */
-        IfcDirection *getAxis2();
+        virtual IfcDirection *getAxis2();
+        /**
+         * (const) Returns the value of the explicit attribute 'Axis2'.
+         * 
+         * @return the value of the explicit attribute 'Axis2'
+         */
+        virtual const IfcDirection *getAxis2() const;
         /**
          * Sets the value of the explicit attribute 'Axis2'.
          * 
          * @param value
          */
-        void setAxis2(const Step::RefPtr< IfcDirection > &value);
+        virtual void setAxis2(const Step::RefPtr< IfcDirection > &value);
         /**
+         * Gets the value of the explicit attribute 'LocalOrigin'.
+         * 
          */
-        IfcCartesianPoint *getLocalOrigin();
+        virtual IfcCartesianPoint *getLocalOrigin();
+        /**
+         * (const) Returns the value of the explicit attribute 'LocalOrigin'.
+         * 
+         * @return the value of the explicit attribute 'LocalOrigin'
+         */
+        virtual const IfcCartesianPoint *getLocalOrigin() const;
         /**
          * Sets the value of the explicit attribute 'LocalOrigin'.
          * 
          * @param value
          */
-        void setLocalOrigin(const Step::RefPtr< IfcCartesianPoint > &value);
+        virtual void setLocalOrigin(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * Gets the value of the explicit attribute 'Scale'.
+         * 
          */
-        Step::Real getScale();
+        virtual Step::Real getScale();
+        /**
+         * (const) Returns the value of the explicit attribute 'Scale'.
+         * 
+         * @return the value of the explicit attribute 'Scale'
+         */
+        virtual const Step::Real getScale() const;
         /**
          * Sets the value of the explicit attribute 'Scale'.
          * 
          * @param value
          */
-        void setScale(Step::Real value);
+        virtual void setScale(Step::Real value);
         /**
+         * Gets the value of the derived attribute 'Scl'.
+         * 
          */
-        virtual void release();
+        virtual Step::Real getScl() const;
+        /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
+         */
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:

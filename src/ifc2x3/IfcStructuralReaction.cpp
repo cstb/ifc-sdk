@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcStructuralReaction::IfcStructuralReaction(Step::Id id, Step::SPFData *args) : IfcStructuralActivity(id, args) {
-    m_causes.setUnset(true);
 }
 
 IfcStructuralReaction::~IfcStructuralReaction() {
 }
 
-bool IfcStructuralReaction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralReaction(this);
+bool IfcStructuralReaction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralReaction(this);
 }
 
-const std::string &IfcStructuralReaction::type() {
+const std::string &IfcStructuralReaction::type() const {
     return IfcStructuralReaction::s_type.getName();
 }
 
-Step::ClassType IfcStructuralReaction::getClassType() {
+const Step::ClassType &IfcStructuralReaction::getClassType() {
     return IfcStructuralReaction::s_type;
 }
 
-Step::ClassType IfcStructuralReaction::getType() const {
+const Step::ClassType &IfcStructuralReaction::getType() const {
     return IfcStructuralReaction::s_type;
 }
 
-bool IfcStructuralReaction::isOfType(Step::ClassType t) {
+bool IfcStructuralReaction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralReaction::s_type == t ? true : IfcStructuralActivity::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcStructuralAction > > &IfcStructuralReaction::getCauses() {
+Inverse_Set_IfcStructuralAction_0_n &IfcStructuralReaction::getCauses() {
     if (Step::BaseObject::inited()) {
         return m_causes;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcStructuralAction > > &IfcStructuralReaction::getCaus
     }
 }
 
-void IfcStructuralReaction::release() {
-    IfcStructuralActivity::release();
+const Inverse_Set_IfcStructuralAction_0_n &IfcStructuralReaction::getCauses() const {
+    IfcStructuralReaction * deConstObject = const_cast< IfcStructuralReaction * > (this);
+    return deConstObject->getCauses();
 }
 
 bool IfcStructuralReaction::init() {

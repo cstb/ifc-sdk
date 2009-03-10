@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcProfileDef::IfcProfileDef(Step::Id id, Step::SPFData *args) : Step::BaseEntit
 IfcProfileDef::~IfcProfileDef() {
 }
 
-bool IfcProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProfileDef(this);
+bool IfcProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProfileDef(this);
 }
 
-const std::string &IfcProfileDef::type() {
+const std::string &IfcProfileDef::type() const {
     return IfcProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcProfileDef::getClassType() {
+const Step::ClassType &IfcProfileDef::getClassType() {
     return IfcProfileDef::s_type;
 }
 
-Step::ClassType IfcProfileDef::getType() const {
+const Step::ClassType &IfcProfileDef::getType() const {
     return IfcProfileDef::s_type;
 }
 
-bool IfcProfileDef::isOfType(Step::ClassType t) {
+bool IfcProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcProfileDef::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -74,6 +75,11 @@ IfcProfileTypeEnum IfcProfileDef::getProfileType() {
     else {
         return IfcProfileTypeEnum_UNSET;
     }
+}
+
+const IfcProfileTypeEnum IfcProfileDef::getProfileType() const {
+    IfcProfileDef * deConstObject = const_cast< IfcProfileDef * > (this);
+    return deConstObject->getProfileType();
 }
 
 void IfcProfileDef::setProfileType(IfcProfileTypeEnum value) {
@@ -89,11 +95,13 @@ IfcLabel IfcProfileDef::getProfileName() {
     }
 }
 
-void IfcProfileDef::setProfileName(const IfcLabel &value) {
-    m_profileName = value;
+const IfcLabel IfcProfileDef::getProfileName() const {
+    IfcProfileDef * deConstObject = const_cast< IfcProfileDef * > (this);
+    return deConstObject->getProfileName();
 }
 
-void IfcProfileDef::release() {
+void IfcProfileDef::setProfileName(const IfcLabel &value) {
+    m_profileName = value;
 }
 
 bool IfcProfileDef::init() {
@@ -115,7 +123,7 @@ bool IfcProfileDef::init() {
         m_profileName = Step::getUnset(m_profileName);
     }
     else {
-        m_profileName = Step::spfToString(arg);
+        m_profileName = Step::String::fromSPF(arg);
     }
     return true;
 }

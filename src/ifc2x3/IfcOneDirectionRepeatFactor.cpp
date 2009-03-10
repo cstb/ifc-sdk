@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcOneDirectionRepeatFactor::IfcOneDirectionRepeatFactor(Step::Id id, Step::SPFD
 IfcOneDirectionRepeatFactor::~IfcOneDirectionRepeatFactor() {
 }
 
-bool IfcOneDirectionRepeatFactor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOneDirectionRepeatFactor(this);
+bool IfcOneDirectionRepeatFactor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOneDirectionRepeatFactor(this);
 }
 
-const std::string &IfcOneDirectionRepeatFactor::type() {
+const std::string &IfcOneDirectionRepeatFactor::type() const {
     return IfcOneDirectionRepeatFactor::s_type.getName();
 }
 
-Step::ClassType IfcOneDirectionRepeatFactor::getClassType() {
+const Step::ClassType &IfcOneDirectionRepeatFactor::getClassType() {
     return IfcOneDirectionRepeatFactor::s_type;
 }
 
-Step::ClassType IfcOneDirectionRepeatFactor::getType() const {
+const Step::ClassType &IfcOneDirectionRepeatFactor::getType() const {
     return IfcOneDirectionRepeatFactor::s_type;
 }
 
-bool IfcOneDirectionRepeatFactor::isOfType(Step::ClassType t) {
+bool IfcOneDirectionRepeatFactor::isOfType(const Step::ClassType &t) const {
     return IfcOneDirectionRepeatFactor::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcVector *IfcOneDirectionRepeatFactor::getRepeatFactor() {
     }
 }
 
-void IfcOneDirectionRepeatFactor::setRepeatFactor(const Step::RefPtr< IfcVector > &value) {
-    m_repeatFactor = value;
+const IfcVector *IfcOneDirectionRepeatFactor::getRepeatFactor() const {
+    IfcOneDirectionRepeatFactor * deConstObject = const_cast< IfcOneDirectionRepeatFactor * > (this);
+    return deConstObject->getRepeatFactor();
 }
 
-void IfcOneDirectionRepeatFactor::release() {
-    IfcGeometricRepresentationItem::release();
-    m_repeatFactor.release();
+void IfcOneDirectionRepeatFactor::setRepeatFactor(const Step::RefPtr< IfcVector > &value) {
+    m_repeatFactor = value;
 }
 
 bool IfcOneDirectionRepeatFactor::init() {
@@ -99,14 +99,14 @@ bool IfcOneDirectionRepeatFactor::init() {
         m_repeatFactor = NULL;
     }
     else {
-        m_repeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_repeatFactor = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcOneDirectionRepeatFactor::copy(const IfcOneDirectionRepeatFactor &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setRepeatFactor(copyop(obj.m_repeatFactor.get()));
+    setRepeatFactor((IfcVector*)copyop(obj.m_repeatFactor.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcMemberType::IfcMemberType(Step::Id id, Step::SPFData *args) : IfcBuildingElem
 IfcMemberType::~IfcMemberType() {
 }
 
-bool IfcMemberType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMemberType(this);
+bool IfcMemberType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMemberType(this);
 }
 
-const std::string &IfcMemberType::type() {
+const std::string &IfcMemberType::type() const {
     return IfcMemberType::s_type.getName();
 }
 
-Step::ClassType IfcMemberType::getClassType() {
+const Step::ClassType &IfcMemberType::getClassType() {
     return IfcMemberType::s_type;
 }
 
-Step::ClassType IfcMemberType::getType() const {
+const Step::ClassType &IfcMemberType::getType() const {
     return IfcMemberType::s_type;
 }
 
-bool IfcMemberType::isOfType(Step::ClassType t) {
+bool IfcMemberType::isOfType(const Step::ClassType &t) const {
     return IfcMemberType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcMemberTypeEnum IfcMemberType::getPredefinedType() {
     }
 }
 
-void IfcMemberType::setPredefinedType(IfcMemberTypeEnum value) {
-    m_predefinedType = value;
+const IfcMemberTypeEnum IfcMemberType::getPredefinedType() const {
+    IfcMemberType * deConstObject = const_cast< IfcMemberType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcMemberType::release() {
-    IfcBuildingElementType::release();
+void IfcMemberType::setPredefinedType(IfcMemberTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcMemberType::init() {

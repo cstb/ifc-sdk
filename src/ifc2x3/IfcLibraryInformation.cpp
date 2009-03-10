@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,26 +26,45 @@
 
 #include "ifc2x3/IfcLibraryInformation.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcCalendarDate.h"
 #include "ifc2x3/IfcLibraryReference.h"
 #include "ifc2x3/IfcOrganization.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcLibraryInformation_LibraryReference_type::Inverted_IfcLibraryInformation_LibraryReference_type() {
+}
+
+void Inverted_IfcLibraryInformation_LibraryReference_type::setOwner(IfcLibraryInformation *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcLibraryInformation_LibraryReference_type::insert(const Step::RefPtr< IfcLibraryReference > &value) throw(std::out_of_range) {
+    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
+    Set_IfcLibraryReference_1_n::insert(value);
+    inverse->m_referenceIntoLibrary.insert(mOwner);
+}
+
+Inverted_IfcLibraryInformation_LibraryReference_type::size_type Inverted_IfcLibraryInformation_LibraryReference_type::erase(const Step::RefPtr< IfcLibraryReference > &value) {
+    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
+    inverse->m_referenceIntoLibrary.erase(mOwner);
+    return Set_IfcLibraryReference_1_n::erase(value);
+}
 
 IfcLibraryInformation::IfcLibraryInformation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
@@ -59,23 +78,23 @@ IfcLibraryInformation::IfcLibraryInformation(Step::Id id, Step::SPFData *args) :
 IfcLibraryInformation::~IfcLibraryInformation() {
 }
 
-bool IfcLibraryInformation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLibraryInformation(this);
+bool IfcLibraryInformation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLibraryInformation(this);
 }
 
-const std::string &IfcLibraryInformation::type() {
+const std::string &IfcLibraryInformation::type() const {
     return IfcLibraryInformation::s_type.getName();
 }
 
-Step::ClassType IfcLibraryInformation::getClassType() {
+const Step::ClassType &IfcLibraryInformation::getClassType() {
     return IfcLibraryInformation::s_type;
 }
 
-Step::ClassType IfcLibraryInformation::getType() const {
+const Step::ClassType &IfcLibraryInformation::getType() const {
     return IfcLibraryInformation::s_type;
 }
 
-bool IfcLibraryInformation::isOfType(Step::ClassType t) {
+bool IfcLibraryInformation::isOfType(const Step::ClassType &t) const {
     return IfcLibraryInformation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -86,6 +105,11 @@ IfcLabel IfcLibraryInformation::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcLibraryInformation::getName() const {
+    IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
+    return deConstObject->getName();
 }
 
 void IfcLibraryInformation::setName(const IfcLabel &value) {
@@ -101,6 +125,11 @@ IfcLabel IfcLibraryInformation::getVersion() {
     }
 }
 
+const IfcLabel IfcLibraryInformation::getVersion() const {
+    IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
+    return deConstObject->getVersion();
+}
+
 void IfcLibraryInformation::setVersion(const IfcLabel &value) {
     m_version = value;
 }
@@ -112,6 +141,11 @@ IfcOrganization *IfcLibraryInformation::getPublisher() {
     else {
         return NULL;
     }
+}
+
+const IfcOrganization *IfcLibraryInformation::getPublisher() const {
+    IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
+    return deConstObject->getPublisher();
 }
 
 void IfcLibraryInformation::setPublisher(const Step::RefPtr< IfcOrganization > &value) {
@@ -127,11 +161,16 @@ IfcCalendarDate *IfcLibraryInformation::getVersionDate() {
     }
 }
 
+const IfcCalendarDate *IfcLibraryInformation::getVersionDate() const {
+    IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
+    return deConstObject->getVersionDate();
+}
+
 void IfcLibraryInformation::setVersionDate(const Step::RefPtr< IfcCalendarDate > &value) {
     m_versionDate = value;
 }
 
-Step::Set< Step::RefPtr< IfcLibraryReference > > &IfcLibraryInformation::getLibraryReference() {
+Set_IfcLibraryReference_1_n &IfcLibraryInformation::getLibraryReference() {
     if (Step::BaseObject::inited()) {
         return m_libraryReference;
     }
@@ -141,10 +180,9 @@ Step::Set< Step::RefPtr< IfcLibraryReference > > &IfcLibraryInformation::getLibr
     }
 }
 
-void IfcLibraryInformation::release() {
-    m_publisher.release();
-    m_versionDate.release();
-    m_libraryReference.clear();
+const Set_IfcLibraryReference_1_n &IfcLibraryInformation::getLibraryReference() const {
+    IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
+    return deConstObject->getLibraryReference();
 }
 
 bool IfcLibraryInformation::init() {
@@ -154,28 +192,28 @@ bool IfcLibraryInformation::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_version = Step::getUnset(m_version);
     }
     else {
-        m_version = Step::spfToString(arg);
+        m_version = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_publisher = NULL;
     }
     else {
-        m_publisher = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_publisher = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_versionDate = NULL;
     }
     else {
-        m_versionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_versionDate = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -188,7 +226,7 @@ bool IfcLibraryInformation::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcLibraryReference > attr2;
-                attr2 = static_cast< IfcLibraryReference * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcLibraryReference * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_libraryReference.insert(attr2);
             }
             else {
@@ -200,30 +238,17 @@ bool IfcLibraryInformation::init() {
 }
 
 void IfcLibraryInformation::copy(const IfcLibraryInformation &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcLibraryReference > >::const_iterator it_m_libraryReference;
+    Step::Set< Step::RefPtr< IfcLibraryReference >, 1 >::const_iterator it_m_libraryReference;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     setVersion(obj.m_version);
-    setPublisher(copyop(obj.m_publisher.get()));
-    setVersionDate(copyop(obj.m_versionDate.get()));
+    setPublisher((IfcOrganization*)copyop(obj.m_publisher.get()));
+    setVersionDate((IfcCalendarDate*)copyop(obj.m_versionDate.get()));
     for (it_m_libraryReference = obj.m_libraryReference.begin(); it_m_libraryReference != obj.m_libraryReference.end(); ++it_m_libraryReference) {
-        Step::RefPtr< IfcLibraryReference > copyTarget = copyop((*it_m_libraryReference).get());
+        Step::RefPtr< IfcLibraryReference > copyTarget = (IfcLibraryReference *) (copyop((*it_m_libraryReference).get()));
         m_libraryReference.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation");
-IfcLibraryInformation::Inverted_LibraryReference_type::Inverted_LibraryReference_type() {
-}
-
-void IfcLibraryInformation::Inverted_LibraryReference_type::setOwner(IfcLibraryInformation *owner) {
-    mOwner = owner;
-}
-
-void IfcLibraryInformation::Inverted_LibraryReference_type::insert(const Step::RefPtr< IfcLibraryReference > &value) {
-    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
-    Step::Set< Step::RefPtr< IfcLibraryReference > >::insert(value);
-    inverse->m_referenceIntoLibrary.insert(mOwner);
-}
-

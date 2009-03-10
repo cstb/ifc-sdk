@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcChamferEdgeFeature::IfcChamferEdgeFeature(Step::Id id, Step::SPFData *args) :
 IfcChamferEdgeFeature::~IfcChamferEdgeFeature() {
 }
 
-bool IfcChamferEdgeFeature::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcChamferEdgeFeature(this);
+bool IfcChamferEdgeFeature::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcChamferEdgeFeature(this);
 }
 
-const std::string &IfcChamferEdgeFeature::type() {
+const std::string &IfcChamferEdgeFeature::type() const {
     return IfcChamferEdgeFeature::s_type.getName();
 }
 
-Step::ClassType IfcChamferEdgeFeature::getClassType() {
+const Step::ClassType &IfcChamferEdgeFeature::getClassType() {
     return IfcChamferEdgeFeature::s_type;
 }
 
-Step::ClassType IfcChamferEdgeFeature::getType() const {
+const Step::ClassType &IfcChamferEdgeFeature::getType() const {
     return IfcChamferEdgeFeature::s_type;
 }
 
-bool IfcChamferEdgeFeature::isOfType(Step::ClassType t) {
+bool IfcChamferEdgeFeature::isOfType(const Step::ClassType &t) const {
     return IfcChamferEdgeFeature::s_type == t ? true : IfcEdgeFeature::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcChamferEdgeFeature::getWidth() {
     else {
         return Step::getUnset(m_width);
     }
+}
+
+const IfcPositiveLengthMeasure IfcChamferEdgeFeature::getWidth() const {
+    IfcChamferEdgeFeature * deConstObject = const_cast< IfcChamferEdgeFeature * > (this);
+    return deConstObject->getWidth();
 }
 
 void IfcChamferEdgeFeature::setWidth(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcChamferEdgeFeature::getHeight() {
     }
 }
 
-void IfcChamferEdgeFeature::setHeight(IfcPositiveLengthMeasure value) {
-    m_height = value;
+const IfcPositiveLengthMeasure IfcChamferEdgeFeature::getHeight() const {
+    IfcChamferEdgeFeature * deConstObject = const_cast< IfcChamferEdgeFeature * > (this);
+    return deConstObject->getHeight();
 }
 
-void IfcChamferEdgeFeature::release() {
-    IfcEdgeFeature::release();
+void IfcChamferEdgeFeature::setHeight(IfcPositiveLengthMeasure value) {
+    m_height = value;
 }
 
 bool IfcChamferEdgeFeature::init() {

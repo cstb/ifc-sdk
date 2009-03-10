@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcPhysicalSimpleQuantity::IfcPhysicalSimpleQuantity(Step::Id id, Step::SPFData 
 IfcPhysicalSimpleQuantity::~IfcPhysicalSimpleQuantity() {
 }
 
-bool IfcPhysicalSimpleQuantity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPhysicalSimpleQuantity(this);
+bool IfcPhysicalSimpleQuantity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPhysicalSimpleQuantity(this);
 }
 
-const std::string &IfcPhysicalSimpleQuantity::type() {
+const std::string &IfcPhysicalSimpleQuantity::type() const {
     return IfcPhysicalSimpleQuantity::s_type.getName();
 }
 
-Step::ClassType IfcPhysicalSimpleQuantity::getClassType() {
+const Step::ClassType &IfcPhysicalSimpleQuantity::getClassType() {
     return IfcPhysicalSimpleQuantity::s_type;
 }
 
-Step::ClassType IfcPhysicalSimpleQuantity::getType() const {
+const Step::ClassType &IfcPhysicalSimpleQuantity::getType() const {
     return IfcPhysicalSimpleQuantity::s_type;
 }
 
-bool IfcPhysicalSimpleQuantity::isOfType(Step::ClassType t) {
+bool IfcPhysicalSimpleQuantity::isOfType(const Step::ClassType &t) const {
     return IfcPhysicalSimpleQuantity::s_type == t ? true : IfcPhysicalQuantity::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcNamedUnit *IfcPhysicalSimpleQuantity::getUnit() {
     }
 }
 
-void IfcPhysicalSimpleQuantity::setUnit(const Step::RefPtr< IfcNamedUnit > &value) {
-    m_unit = value;
+const IfcNamedUnit *IfcPhysicalSimpleQuantity::getUnit() const {
+    IfcPhysicalSimpleQuantity * deConstObject = const_cast< IfcPhysicalSimpleQuantity * > (this);
+    return deConstObject->getUnit();
 }
 
-void IfcPhysicalSimpleQuantity::release() {
-    IfcPhysicalQuantity::release();
-    m_unit.release();
+void IfcPhysicalSimpleQuantity::setUnit(const Step::RefPtr< IfcNamedUnit > &value) {
+    m_unit = value;
 }
 
 bool IfcPhysicalSimpleQuantity::init() {
@@ -99,14 +99,14 @@ bool IfcPhysicalSimpleQuantity::init() {
         m_unit = NULL;
     }
     else {
-        m_unit = static_cast< IfcNamedUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_unit = static_cast< IfcNamedUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcPhysicalSimpleQuantity::copy(const IfcPhysicalSimpleQuantity &obj, const CopyOp &copyop) {
     IfcPhysicalQuantity::copy(obj, copyop);
-    setUnit(copyop(obj.m_unit.get()));
+    setUnit((IfcNamedUnit*)copyop(obj.m_unit.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcMaterialLayerSetUsage::IfcMaterialLayerSetUsage(Step::Id id, Step::SPFData *a
 IfcMaterialLayerSetUsage::~IfcMaterialLayerSetUsage() {
 }
 
-bool IfcMaterialLayerSetUsage::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialLayerSetUsage(this);
+bool IfcMaterialLayerSetUsage::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialLayerSetUsage(this);
 }
 
-const std::string &IfcMaterialLayerSetUsage::type() {
+const std::string &IfcMaterialLayerSetUsage::type() const {
     return IfcMaterialLayerSetUsage::s_type.getName();
 }
 
-Step::ClassType IfcMaterialLayerSetUsage::getClassType() {
+const Step::ClassType &IfcMaterialLayerSetUsage::getClassType() {
     return IfcMaterialLayerSetUsage::s_type;
 }
 
-Step::ClassType IfcMaterialLayerSetUsage::getType() const {
+const Step::ClassType &IfcMaterialLayerSetUsage::getType() const {
     return IfcMaterialLayerSetUsage::s_type;
 }
 
-bool IfcMaterialLayerSetUsage::isOfType(Step::ClassType t) {
+bool IfcMaterialLayerSetUsage::isOfType(const Step::ClassType &t) const {
     return IfcMaterialLayerSetUsage::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcMaterialLayerSet *IfcMaterialLayerSetUsage::getForLayerSet() {
     else {
         return NULL;
     }
+}
+
+const IfcMaterialLayerSet *IfcMaterialLayerSetUsage::getForLayerSet() const {
+    IfcMaterialLayerSetUsage * deConstObject = const_cast< IfcMaterialLayerSetUsage * > (this);
+    return deConstObject->getForLayerSet();
 }
 
 void IfcMaterialLayerSetUsage::setForLayerSet(const Step::RefPtr< IfcMaterialLayerSet > &value) {
@@ -95,6 +100,11 @@ IfcLayerSetDirectionEnum IfcMaterialLayerSetUsage::getLayerSetDirection() {
     }
 }
 
+const IfcLayerSetDirectionEnum IfcMaterialLayerSetUsage::getLayerSetDirection() const {
+    IfcMaterialLayerSetUsage * deConstObject = const_cast< IfcMaterialLayerSetUsage * > (this);
+    return deConstObject->getLayerSetDirection();
+}
+
 void IfcMaterialLayerSetUsage::setLayerSetDirection(IfcLayerSetDirectionEnum value) {
     m_layerSetDirection = value;
 }
@@ -106,6 +116,11 @@ IfcDirectionSenseEnum IfcMaterialLayerSetUsage::getDirectionSense() {
     else {
         return IfcDirectionSenseEnum_UNSET;
     }
+}
+
+const IfcDirectionSenseEnum IfcMaterialLayerSetUsage::getDirectionSense() const {
+    IfcMaterialLayerSetUsage * deConstObject = const_cast< IfcMaterialLayerSetUsage * > (this);
+    return deConstObject->getDirectionSense();
 }
 
 void IfcMaterialLayerSetUsage::setDirectionSense(IfcDirectionSenseEnum value) {
@@ -121,12 +136,13 @@ IfcLengthMeasure IfcMaterialLayerSetUsage::getOffsetFromReferenceLine() {
     }
 }
 
-void IfcMaterialLayerSetUsage::setOffsetFromReferenceLine(IfcLengthMeasure value) {
-    m_offsetFromReferenceLine = value;
+const IfcLengthMeasure IfcMaterialLayerSetUsage::getOffsetFromReferenceLine() const {
+    IfcMaterialLayerSetUsage * deConstObject = const_cast< IfcMaterialLayerSetUsage * > (this);
+    return deConstObject->getOffsetFromReferenceLine();
 }
 
-void IfcMaterialLayerSetUsage::release() {
-    m_forLayerSet.release();
+void IfcMaterialLayerSetUsage::setOffsetFromReferenceLine(IfcLengthMeasure value) {
+    m_offsetFromReferenceLine = value;
 }
 
 bool IfcMaterialLayerSetUsage::init() {
@@ -136,7 +152,7 @@ bool IfcMaterialLayerSetUsage::init() {
         m_forLayerSet = NULL;
     }
     else {
-        m_forLayerSet = static_cast< IfcMaterialLayerSet * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_forLayerSet = static_cast< IfcMaterialLayerSet * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -177,7 +193,7 @@ bool IfcMaterialLayerSetUsage::init() {
 
 void IfcMaterialLayerSetUsage::copy(const IfcMaterialLayerSetUsage &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setForLayerSet(copyop(obj.m_forLayerSet.get()));
+    setForLayerSet((IfcMaterialLayerSet*)copyop(obj.m_forLayerSet.get()));
     setLayerSetDirection(obj.m_layerSetDirection);
     setDirectionSense(obj.m_directionSense);
     setOffsetFromReferenceLine(obj.m_offsetFromReferenceLine);

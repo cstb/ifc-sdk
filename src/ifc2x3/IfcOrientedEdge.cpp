@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,8 +33,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcOrientedEdge::IfcOrientedEdge(Step::Id id, Step::SPFData *args) : IfcEdge(id,
 IfcOrientedEdge::~IfcOrientedEdge() {
 }
 
-bool IfcOrientedEdge::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOrientedEdge(this);
+bool IfcOrientedEdge::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOrientedEdge(this);
 }
 
-const std::string &IfcOrientedEdge::type() {
+const std::string &IfcOrientedEdge::type() const {
     return IfcOrientedEdge::s_type.getName();
 }
 
-Step::ClassType IfcOrientedEdge::getClassType() {
+const Step::ClassType &IfcOrientedEdge::getClassType() {
     return IfcOrientedEdge::s_type;
 }
 
-Step::ClassType IfcOrientedEdge::getType() const {
+const Step::ClassType &IfcOrientedEdge::getType() const {
     return IfcOrientedEdge::s_type;
 }
 
-bool IfcOrientedEdge::isOfType(Step::ClassType t) {
+bool IfcOrientedEdge::isOfType(const Step::ClassType &t) const {
     return IfcOrientedEdge::s_type == t ? true : IfcEdge::isOfType(t);
 }
 
@@ -79,11 +79,16 @@ IfcEdge *IfcOrientedEdge::getEdgeElement() {
     }
 }
 
+const IfcEdge *IfcOrientedEdge::getEdgeElement() const {
+    IfcOrientedEdge * deConstObject = const_cast< IfcOrientedEdge * > (this);
+    return deConstObject->getEdgeElement();
+}
+
 void IfcOrientedEdge::setEdgeElement(const Step::RefPtr< IfcEdge > &value) {
     m_edgeElement = value;
 }
 
-Step::Bool IfcOrientedEdge::getOrientation() {
+Step::Boolean IfcOrientedEdge::getOrientation() {
     if (Step::BaseObject::inited()) {
         return m_orientation;
     }
@@ -92,13 +97,13 @@ Step::Bool IfcOrientedEdge::getOrientation() {
     }
 }
 
-void IfcOrientedEdge::setOrientation(Step::Bool value) {
-    m_orientation = value;
+const Step::Boolean IfcOrientedEdge::getOrientation() const {
+    IfcOrientedEdge * deConstObject = const_cast< IfcOrientedEdge * > (this);
+    return deConstObject->getOrientation();
 }
 
-void IfcOrientedEdge::release() {
-    IfcEdge::release();
-    m_edgeElement.release();
+void IfcOrientedEdge::setOrientation(Step::Boolean value) {
+    m_orientation = value;
 }
 
 bool IfcOrientedEdge::init() {
@@ -112,21 +117,21 @@ bool IfcOrientedEdge::init() {
         m_edgeElement = NULL;
     }
     else {
-        m_edgeElement = static_cast< IfcEdge * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_edgeElement = static_cast< IfcEdge * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_orientation = Step::getUnset(m_orientation);
     }
     else {
-        m_orientation = Step::spfToBool(arg);
+        m_orientation = Step::spfToBoolean(arg);
     }
     return true;
 }
 
 void IfcOrientedEdge::copy(const IfcOrientedEdge &obj, const CopyOp &copyop) {
     IfcEdge::copy(obj, copyop);
-    setEdgeElement(copyop(obj.m_edgeElement.get()));
+    setEdgeElement((IfcEdge*)copyop(obj.m_edgeElement.get()));
     setOrientation(obj.m_orientation);
     return;
 }

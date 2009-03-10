@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,27 +55,27 @@ IfcTextStyleFontModel::IfcTextStyleFontModel(Step::Id id, Step::SPFData *args) :
 IfcTextStyleFontModel::~IfcTextStyleFontModel() {
 }
 
-bool IfcTextStyleFontModel::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyleFontModel(this);
+bool IfcTextStyleFontModel::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyleFontModel(this);
 }
 
-const std::string &IfcTextStyleFontModel::type() {
+const std::string &IfcTextStyleFontModel::type() const {
     return IfcTextStyleFontModel::s_type.getName();
 }
 
-Step::ClassType IfcTextStyleFontModel::getClassType() {
+const Step::ClassType &IfcTextStyleFontModel::getClassType() {
     return IfcTextStyleFontModel::s_type;
 }
 
-Step::ClassType IfcTextStyleFontModel::getType() const {
+const Step::ClassType &IfcTextStyleFontModel::getType() const {
     return IfcTextStyleFontModel::s_type;
 }
 
-bool IfcTextStyleFontModel::isOfType(Step::ClassType t) {
+bool IfcTextStyleFontModel::isOfType(const Step::ClassType &t) const {
     return IfcTextStyleFontModel::s_type == t ? true : IfcPreDefinedTextFont::isOfType(t);
 }
 
-Step::List< IfcTextFontName > &IfcTextStyleFontModel::getFontFamily() {
+List_IfcTextFontName_1_n &IfcTextStyleFontModel::getFontFamily() {
     if (Step::BaseObject::inited()) {
         return m_fontFamily;
     }
@@ -84,7 +85,12 @@ Step::List< IfcTextFontName > &IfcTextStyleFontModel::getFontFamily() {
     }
 }
 
-void IfcTextStyleFontModel::setFontFamily(const Step::List< IfcTextFontName > &value) {
+const List_IfcTextFontName_1_n &IfcTextStyleFontModel::getFontFamily() const {
+    IfcTextStyleFontModel * deConstObject = const_cast< IfcTextStyleFontModel * > (this);
+    return deConstObject->getFontFamily();
+}
+
+void IfcTextStyleFontModel::setFontFamily(const List_IfcTextFontName_1_n &value) {
     m_fontFamily = value;
 }
 
@@ -95,6 +101,11 @@ IfcFontStyle IfcTextStyleFontModel::getFontStyle() {
     else {
         return Step::getUnset(m_fontStyle);
     }
+}
+
+const IfcFontStyle IfcTextStyleFontModel::getFontStyle() const {
+    IfcTextStyleFontModel * deConstObject = const_cast< IfcTextStyleFontModel * > (this);
+    return deConstObject->getFontStyle();
 }
 
 void IfcTextStyleFontModel::setFontStyle(const IfcFontStyle &value) {
@@ -110,6 +121,11 @@ IfcFontVariant IfcTextStyleFontModel::getFontVariant() {
     }
 }
 
+const IfcFontVariant IfcTextStyleFontModel::getFontVariant() const {
+    IfcTextStyleFontModel * deConstObject = const_cast< IfcTextStyleFontModel * > (this);
+    return deConstObject->getFontVariant();
+}
+
 void IfcTextStyleFontModel::setFontVariant(const IfcFontVariant &value) {
     m_fontVariant = value;
 }
@@ -121,6 +137,11 @@ IfcFontWeight IfcTextStyleFontModel::getFontWeight() {
     else {
         return Step::getUnset(m_fontWeight);
     }
+}
+
+const IfcFontWeight IfcTextStyleFontModel::getFontWeight() const {
+    IfcTextStyleFontModel * deConstObject = const_cast< IfcTextStyleFontModel * > (this);
+    return deConstObject->getFontWeight();
 }
 
 void IfcTextStyleFontModel::setFontWeight(const IfcFontWeight &value) {
@@ -136,13 +157,13 @@ IfcSizeSelect *IfcTextStyleFontModel::getFontSize() {
     }
 }
 
-void IfcTextStyleFontModel::setFontSize(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_fontSize = value;
+const IfcSizeSelect *IfcTextStyleFontModel::getFontSize() const {
+    IfcTextStyleFontModel * deConstObject = const_cast< IfcTextStyleFontModel * > (this);
+    return deConstObject->getFontSize();
 }
 
-void IfcTextStyleFontModel::release() {
-    IfcPreDefinedTextFont::release();
-    m_fontFamily.clear();
+void IfcTextStyleFontModel::setFontSize(const Step::RefPtr< IfcSizeSelect > &value) {
+    m_fontSize = value;
 }
 
 bool IfcTextStyleFontModel::init() {
@@ -162,7 +183,7 @@ bool IfcTextStyleFontModel::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcTextFontName attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_fontFamily.push_back(attr2);
             }
             else {
@@ -175,21 +196,21 @@ bool IfcTextStyleFontModel::init() {
         m_fontStyle = Step::getUnset(m_fontStyle);
     }
     else {
-        m_fontStyle = Step::spfToString(arg);
+        m_fontStyle = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_fontVariant = Step::getUnset(m_fontVariant);
     }
     else {
-        m_fontVariant = Step::spfToString(arg);
+        m_fontVariant = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_fontWeight = Step::getUnset(m_fontWeight);
     }
     else {
-        m_fontWeight = Step::spfToString(arg);
+        m_fontWeight = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -218,8 +239,8 @@ bool IfcTextStyleFontModel::init() {
                     m_fontSize->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_fontSize->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {
@@ -244,7 +265,7 @@ bool IfcTextStyleFontModel::init() {
 }
 
 void IfcTextStyleFontModel::copy(const IfcTextStyleFontModel &obj, const CopyOp &copyop) {
-    Step::List< IfcTextFontName >::const_iterator it_m_fontFamily;
+    Step::List< IfcTextFontName, 1 >::const_iterator it_m_fontFamily;
     IfcPreDefinedTextFont::copy(obj, copyop);
     for (it_m_fontFamily = obj.m_fontFamily.begin(); it_m_fontFamily != obj.m_fontFamily.end(); ++it_m_fontFamily) {
         IfcTextFontName copyTarget = (*it_m_fontFamily);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCostItem::IfcCostItem(Step::Id id, Step::SPFData *args) : IfcControl(id, args
 IfcCostItem::~IfcCostItem() {
 }
 
-bool IfcCostItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCostItem(this);
+bool IfcCostItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCostItem(this);
 }
 
-const std::string &IfcCostItem::type() {
+const std::string &IfcCostItem::type() const {
     return IfcCostItem::s_type.getName();
 }
 
-Step::ClassType IfcCostItem::getClassType() {
+const Step::ClassType &IfcCostItem::getClassType() {
     return IfcCostItem::s_type;
 }
 
-Step::ClassType IfcCostItem::getType() const {
+const Step::ClassType &IfcCostItem::getType() const {
     return IfcCostItem::s_type;
 }
 
-bool IfcCostItem::isOfType(Step::ClassType t) {
+bool IfcCostItem::isOfType(const Step::ClassType &t) const {
     return IfcCostItem::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-void IfcCostItem::release() {
-    IfcControl::release();
 }
 
 bool IfcCostItem::init() {

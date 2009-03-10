@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcPile::IfcPile(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcPile::~IfcPile() {
 }
 
-bool IfcPile::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPile(this);
+bool IfcPile::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPile(this);
 }
 
-const std::string &IfcPile::type() {
+const std::string &IfcPile::type() const {
     return IfcPile::s_type.getName();
 }
 
-Step::ClassType IfcPile::getClassType() {
+const Step::ClassType &IfcPile::getClassType() {
     return IfcPile::s_type;
 }
 
-Step::ClassType IfcPile::getType() const {
+const Step::ClassType &IfcPile::getType() const {
     return IfcPile::s_type;
 }
 
-bool IfcPile::isOfType(Step::ClassType t) {
+bool IfcPile::isOfType(const Step::ClassType &t) const {
     return IfcPile::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPileTypeEnum IfcPile::getPredefinedType() {
     else {
         return IfcPileTypeEnum_UNSET;
     }
+}
+
+const IfcPileTypeEnum IfcPile::getPredefinedType() const {
+    IfcPile * deConstObject = const_cast< IfcPile * > (this);
+    return deConstObject->getPredefinedType();
 }
 
 void IfcPile::setPredefinedType(IfcPileTypeEnum value) {
@@ -89,12 +94,13 @@ IfcPileConstructionEnum IfcPile::getConstructionType() {
     }
 }
 
-void IfcPile::setConstructionType(IfcPileConstructionEnum value) {
-    m_constructionType = value;
+const IfcPileConstructionEnum IfcPile::getConstructionType() const {
+    IfcPile * deConstObject = const_cast< IfcPile * > (this);
+    return deConstObject->getConstructionType();
 }
 
-void IfcPile::release() {
-    IfcBuildingElement::release();
+void IfcPile::setConstructionType(IfcPileConstructionEnum value) {
+    m_constructionType = value;
 }
 
 bool IfcPile::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcElementType::IfcElementType(Step::Id id, Step::SPFData *args) : IfcTypeProduc
 IfcElementType::~IfcElementType() {
 }
 
-bool IfcElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElementType(this);
+bool IfcElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElementType(this);
 }
 
-const std::string &IfcElementType::type() {
+const std::string &IfcElementType::type() const {
     return IfcElementType::s_type.getName();
 }
 
-Step::ClassType IfcElementType::getClassType() {
+const Step::ClassType &IfcElementType::getClassType() {
     return IfcElementType::s_type;
 }
 
-Step::ClassType IfcElementType::getType() const {
+const Step::ClassType &IfcElementType::getType() const {
     return IfcElementType::s_type;
 }
 
-bool IfcElementType::isOfType(Step::ClassType t) {
+bool IfcElementType::isOfType(const Step::ClassType &t) const {
     return IfcElementType::s_type == t ? true : IfcTypeProduct::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcLabel IfcElementType::getElementType() {
     }
 }
 
-void IfcElementType::setElementType(const IfcLabel &value) {
-    m_elementType = value;
+const IfcLabel IfcElementType::getElementType() const {
+    IfcElementType * deConstObject = const_cast< IfcElementType * > (this);
+    return deConstObject->getElementType();
 }
 
-void IfcElementType::release() {
-    IfcTypeProduct::release();
+void IfcElementType::setElementType(const IfcLabel &value) {
+    m_elementType = value;
 }
 
 bool IfcElementType::init() {
@@ -94,7 +96,7 @@ bool IfcElementType::init() {
         m_elementType = Step::getUnset(m_elementType);
     }
     else {
-        m_elementType = Step::spfToString(arg);
+        m_elementType = Step::String::fromSPF(arg);
     }
     return true;
 }

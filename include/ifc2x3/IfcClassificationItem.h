@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,17 +31,16 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
     class IfcClassification;
-    class IfcClassificationItemRelationship;
     class IfcClassificationNotationFacet;
 
     /**
@@ -49,61 +48,107 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcClassificationItem : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Notation'.
+         * 
          */
-        IfcClassificationNotationFacet *getNotation();
+        virtual IfcClassificationNotationFacet *getNotation();
+        /**
+         * (const) Returns the value of the explicit attribute 'Notation'.
+         * 
+         * @return the value of the explicit attribute 'Notation'
+         */
+        virtual const IfcClassificationNotationFacet *getNotation() const;
         /**
          * Sets the value of the explicit attribute 'Notation'.
          * 
          * @param value
          */
-        void setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value);
+        virtual void setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value);
         /**
+         * Gets the value of the explicit attribute 'ItemOf'.
+         * 
          */
-        IfcClassification *getItemOf();
+        virtual IfcClassification *getItemOf();
+        /**
+         * (const) Returns the value of the explicit attribute 'ItemOf'.
+         * 
+         * @return the value of the explicit attribute 'ItemOf'
+         */
+        virtual const IfcClassification *getItemOf() const;
         /**
          * Sets the value of the explicit attribute 'ItemOf'.
          * 
          * @param value
          */
-        void setItemOf(const Step::RefPtr< IfcClassification > &value);
+        virtual void setItemOf(const Step::RefPtr< IfcClassification > &value);
         /**
+         * Gets the value of the explicit attribute 'Title'.
+         * 
          */
-        IfcLabel getTitle();
+        virtual IfcLabel getTitle();
+        /**
+         * (const) Returns the value of the explicit attribute 'Title'.
+         * 
+         * @return the value of the explicit attribute 'Title'
+         */
+        virtual const IfcLabel getTitle() const;
         /**
          * Sets the value of the explicit attribute 'Title'.
          * 
          * @param value
          */
-        void setTitle(const IfcLabel &value);
+        virtual void setTitle(const IfcLabel &value);
         /**
+         * Gets the value of the inverse attribute 'IsClassifiedItemIn'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &getIsClassifiedItemIn();
+        Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn();
         /**
+         * (const) Returns the value of the explicit attribute 'IsClassifiedItemIn'.
+         * 
+         * @return the value of the explicit attribute 'IsClassifiedItemIn'
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > &getIsClassifyingItemIn();
+        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
         /**
+         * Gets the value of the inverse attribute 'IsClassifyingItemIn'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
+        /**
+         * (const) Returns the value of the explicit attribute 'IsClassifyingItemIn'.
+         * 
+         * @return the value of the explicit attribute 'IsClassifyingItemIn'
+         */
+        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
         friend class ExpressDataSet;
+        friend class Inverted_IfcClassificationItemRelationship_RelatedItems_type;
         friend class IfcClassificationItemRelationship;
 
     protected:
@@ -134,13 +179,13 @@ namespace ifc2x3 {
         Step::RefPtr< IfcClassification > m_itemOf;
         /**
          */
-        std::string m_title;
+        Step::String m_title;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > m_isClassifiedItemIn;
+        Inverse_Set_IfcClassificationItemRelationship_0_1 m_isClassifiedItemIn;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItemRelationship > > m_isClassifyingItemIn;
+        Inverse_Set_IfcClassificationItemRelationship_0_1 m_isClassifyingItemIn;
 
     };
 

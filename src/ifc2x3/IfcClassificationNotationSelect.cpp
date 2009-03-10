@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcClassificationNotationSelect::~IfcClassificationNotationSelect() {
     deleteUnion();
 }
 
-bool IfcClassificationNotationSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassificationNotationSelect(this);
+bool IfcClassificationNotationSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassificationNotationSelect(this);
 }
 
 bool IfcClassificationNotationSelect::init() {
     return false;
 }
 
-const std::string &IfcClassificationNotationSelect::type() {
+const std::string &IfcClassificationNotationSelect::type() const {
     return IfcClassificationNotationSelect::s_type.getName();
 }
 
-Step::ClassType IfcClassificationNotationSelect::getClassType() {
+const Step::ClassType &IfcClassificationNotationSelect::getClassType() {
     return IfcClassificationNotationSelect::s_type;
 }
 
-Step::ClassType IfcClassificationNotationSelect::getType() const {
+const Step::ClassType &IfcClassificationNotationSelect::getType() const {
     return IfcClassificationNotationSelect::s_type;
 }
 
-bool IfcClassificationNotationSelect::isOfType(Step::ClassType t) {
+bool IfcClassificationNotationSelect::isOfType(const Step::ClassType &t) const {
     return IfcClassificationNotationSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcClassificationNotationSelect::copy(const IfcClassificationNotationSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCLASSIFICATIONNOTATION:
-        setIfcClassificationNotation(copyop(obj.m_IfcClassificationNotationSelect_union.m_IfcClassificationNotation));
+        setIfcClassificationNotation((IfcClassificationNotation *) (copyop(obj.m_IfcClassificationNotationSelect_union.m_IfcClassificationNotation)));
         break;
     case IFCCLASSIFICATIONREFERENCE:
-        setIfcClassificationReference(copyop(obj.m_IfcClassificationNotationSelect_union.m_IfcClassificationReference));
+        setIfcClassificationReference((IfcClassificationReference *) (copyop(obj.m_IfcClassificationNotationSelect_union.m_IfcClassificationReference)));
         break;
         }
 }
 
-char *IfcClassificationNotationSelect::currentTypeName() {
+std::string IfcClassificationNotationSelect::currentTypeName() const {
     switch(m_type) {
     case IFCCLASSIFICATIONNOTATION:
         return "IfcClassificationNotation";
@@ -97,7 +97,7 @@ char *IfcClassificationNotationSelect::currentTypeName() {
     }
 }
 
-IfcClassificationNotationSelect::IfcClassificationNotationSelect_select IfcClassificationNotationSelect::currentType() {
+IfcClassificationNotationSelect::IfcClassificationNotationSelect_select IfcClassificationNotationSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcClassificationNotationSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcClassificationNotation *IfcClassificationNotationSelect::getIfcClassificationNotation() {
-    return m_IfcClassificationNotationSelect_union.m_IfcClassificationNotation;
+IfcClassificationNotation *IfcClassificationNotationSelect::getIfcClassificationNotation() const {
+    if (m_type == IFCCLASSIFICATIONNOTATION) {
+        return m_IfcClassificationNotationSelect_union.m_IfcClassificationNotation;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcClassificationNotationSelect::setIfcClassificationNotation(IfcClassificationNotation *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcClassificationNotationSelect::setIfcClassificationNotation(IfcClassifica
     m_type = IFCCLASSIFICATIONNOTATION;
 }
 
-IfcClassificationReference *IfcClassificationNotationSelect::getIfcClassificationReference() {
-    return m_IfcClassificationNotationSelect_union.m_IfcClassificationReference;
+IfcClassificationReference *IfcClassificationNotationSelect::getIfcClassificationReference() const {
+    if (m_type == IFCCLASSIFICATIONREFERENCE) {
+        return m_IfcClassificationNotationSelect_union.m_IfcClassificationReference;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcClassificationNotationSelect::setIfcClassificationReference(IfcClassificationReference *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

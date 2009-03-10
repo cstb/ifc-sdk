@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,6 +32,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -53,23 +54,23 @@ IfcPostalAddress::IfcPostalAddress(Step::Id id, Step::SPFData *args) : IfcAddres
 IfcPostalAddress::~IfcPostalAddress() {
 }
 
-bool IfcPostalAddress::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPostalAddress(this);
+bool IfcPostalAddress::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPostalAddress(this);
 }
 
-const std::string &IfcPostalAddress::type() {
+const std::string &IfcPostalAddress::type() const {
     return IfcPostalAddress::s_type.getName();
 }
 
-Step::ClassType IfcPostalAddress::getClassType() {
+const Step::ClassType &IfcPostalAddress::getClassType() {
     return IfcPostalAddress::s_type;
 }
 
-Step::ClassType IfcPostalAddress::getType() const {
+const Step::ClassType &IfcPostalAddress::getType() const {
     return IfcPostalAddress::s_type;
 }
 
-bool IfcPostalAddress::isOfType(Step::ClassType t) {
+bool IfcPostalAddress::isOfType(const Step::ClassType &t) const {
     return IfcPostalAddress::s_type == t ? true : IfcAddress::isOfType(t);
 }
 
@@ -82,11 +83,16 @@ IfcLabel IfcPostalAddress::getInternalLocation() {
     }
 }
 
+const IfcLabel IfcPostalAddress::getInternalLocation() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getInternalLocation();
+}
+
 void IfcPostalAddress::setInternalLocation(const IfcLabel &value) {
     m_internalLocation = value;
 }
 
-Step::List< IfcLabel > &IfcPostalAddress::getAddressLines() {
+List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() {
     if (Step::BaseObject::inited()) {
         return m_addressLines;
     }
@@ -96,7 +102,12 @@ Step::List< IfcLabel > &IfcPostalAddress::getAddressLines() {
     }
 }
 
-void IfcPostalAddress::setAddressLines(const Step::List< IfcLabel > &value) {
+const List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getAddressLines();
+}
+
+void IfcPostalAddress::setAddressLines(const List_IfcLabel_1_n &value) {
     m_addressLines = value;
 }
 
@@ -107,6 +118,11 @@ IfcLabel IfcPostalAddress::getPostalBox() {
     else {
         return Step::getUnset(m_postalBox);
     }
+}
+
+const IfcLabel IfcPostalAddress::getPostalBox() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getPostalBox();
 }
 
 void IfcPostalAddress::setPostalBox(const IfcLabel &value) {
@@ -122,6 +138,11 @@ IfcLabel IfcPostalAddress::getTown() {
     }
 }
 
+const IfcLabel IfcPostalAddress::getTown() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getTown();
+}
+
 void IfcPostalAddress::setTown(const IfcLabel &value) {
     m_town = value;
 }
@@ -133,6 +154,11 @@ IfcLabel IfcPostalAddress::getRegion() {
     else {
         return Step::getUnset(m_region);
     }
+}
+
+const IfcLabel IfcPostalAddress::getRegion() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getRegion();
 }
 
 void IfcPostalAddress::setRegion(const IfcLabel &value) {
@@ -148,6 +174,11 @@ IfcLabel IfcPostalAddress::getPostalCode() {
     }
 }
 
+const IfcLabel IfcPostalAddress::getPostalCode() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getPostalCode();
+}
+
 void IfcPostalAddress::setPostalCode(const IfcLabel &value) {
     m_postalCode = value;
 }
@@ -161,13 +192,13 @@ IfcLabel IfcPostalAddress::getCountry() {
     }
 }
 
-void IfcPostalAddress::setCountry(const IfcLabel &value) {
-    m_country = value;
+const IfcLabel IfcPostalAddress::getCountry() const {
+    IfcPostalAddress * deConstObject = const_cast< IfcPostalAddress * > (this);
+    return deConstObject->getCountry();
 }
 
-void IfcPostalAddress::release() {
-    IfcAddress::release();
-    m_addressLines.clear();
+void IfcPostalAddress::setCountry(const IfcLabel &value) {
+    m_country = value;
 }
 
 bool IfcPostalAddress::init() {
@@ -181,7 +212,7 @@ bool IfcPostalAddress::init() {
         m_internalLocation = Step::getUnset(m_internalLocation);
     }
     else {
-        m_internalLocation = Step::spfToString(arg);
+        m_internalLocation = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -194,7 +225,7 @@ bool IfcPostalAddress::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcLabel attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_addressLines.push_back(attr2);
             }
             else {
@@ -207,41 +238,41 @@ bool IfcPostalAddress::init() {
         m_postalBox = Step::getUnset(m_postalBox);
     }
     else {
-        m_postalBox = Step::spfToString(arg);
+        m_postalBox = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_town = Step::getUnset(m_town);
     }
     else {
-        m_town = Step::spfToString(arg);
+        m_town = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_region = Step::getUnset(m_region);
     }
     else {
-        m_region = Step::spfToString(arg);
+        m_region = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_postalCode = Step::getUnset(m_postalCode);
     }
     else {
-        m_postalCode = Step::spfToString(arg);
+        m_postalCode = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_country = Step::getUnset(m_country);
     }
     else {
-        m_country = Step::spfToString(arg);
+        m_country = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcPostalAddress::copy(const IfcPostalAddress &obj, const CopyOp &copyop) {
-    Step::List< IfcLabel >::const_iterator it_m_addressLines;
+    Step::List< IfcLabel, 1 >::const_iterator it_m_addressLines;
     IfcAddress::copy(obj, copyop);
     setInternalLocation(obj.m_internalLocation);
     for (it_m_addressLines = obj.m_addressLines.begin(); it_m_addressLines != obj.m_addressLines.end(); ++it_m_addressLines) {

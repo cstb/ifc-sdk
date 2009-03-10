@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcActionRequest::IfcActionRequest(Step::Id id, Step::SPFData *args) : IfcContro
 IfcActionRequest::~IfcActionRequest() {
 }
 
-bool IfcActionRequest::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcActionRequest(this);
+bool IfcActionRequest::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcActionRequest(this);
 }
 
-const std::string &IfcActionRequest::type() {
+const std::string &IfcActionRequest::type() const {
     return IfcActionRequest::s_type.getName();
 }
 
-Step::ClassType IfcActionRequest::getClassType() {
+const Step::ClassType &IfcActionRequest::getClassType() {
     return IfcActionRequest::s_type;
 }
 
-Step::ClassType IfcActionRequest::getType() const {
+const Step::ClassType &IfcActionRequest::getType() const {
     return IfcActionRequest::s_type;
 }
 
-bool IfcActionRequest::isOfType(Step::ClassType t) {
+bool IfcActionRequest::isOfType(const Step::ClassType &t) const {
     return IfcActionRequest::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcIdentifier IfcActionRequest::getRequestID() {
     }
 }
 
-void IfcActionRequest::setRequestID(const IfcIdentifier &value) {
-    m_requestID = value;
+const IfcIdentifier IfcActionRequest::getRequestID() const {
+    IfcActionRequest * deConstObject = const_cast< IfcActionRequest * > (this);
+    return deConstObject->getRequestID();
 }
 
-void IfcActionRequest::release() {
-    IfcControl::release();
+void IfcActionRequest::setRequestID(const IfcIdentifier &value) {
+    m_requestID = value;
 }
 
 bool IfcActionRequest::init() {
@@ -94,7 +96,7 @@ bool IfcActionRequest::init() {
         m_requestID = Step::getUnset(m_requestID);
     }
     else {
-        m_requestID = Step::spfToString(arg);
+        m_requestID = Step::String::fromSPF(arg);
     }
     return true;
 }

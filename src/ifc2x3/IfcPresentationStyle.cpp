@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcPresentationStyle::IfcPresentationStyle(Step::Id id, Step::SPFData *args) : S
 IfcPresentationStyle::~IfcPresentationStyle() {
 }
 
-bool IfcPresentationStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPresentationStyle(this);
+bool IfcPresentationStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPresentationStyle(this);
 }
 
-const std::string &IfcPresentationStyle::type() {
+const std::string &IfcPresentationStyle::type() const {
     return IfcPresentationStyle::s_type.getName();
 }
 
-Step::ClassType IfcPresentationStyle::getClassType() {
+const Step::ClassType &IfcPresentationStyle::getClassType() {
     return IfcPresentationStyle::s_type;
 }
 
-Step::ClassType IfcPresentationStyle::getType() const {
+const Step::ClassType &IfcPresentationStyle::getType() const {
     return IfcPresentationStyle::s_type;
 }
 
-bool IfcPresentationStyle::isOfType(Step::ClassType t) {
+bool IfcPresentationStyle::isOfType(const Step::ClassType &t) const {
     return IfcPresentationStyle::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcPresentationStyle::getName() {
     }
 }
 
-void IfcPresentationStyle::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcPresentationStyle::getName() const {
+    IfcPresentationStyle * deConstObject = const_cast< IfcPresentationStyle * > (this);
+    return deConstObject->getName();
 }
 
-void IfcPresentationStyle::release() {
+void IfcPresentationStyle::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcPresentationStyle::init() {
@@ -89,7 +92,7 @@ bool IfcPresentationStyle::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

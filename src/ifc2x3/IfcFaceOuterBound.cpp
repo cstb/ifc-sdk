@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFaceOuterBound::IfcFaceOuterBound(Step::Id id, Step::SPFData *args) : IfcFace
 IfcFaceOuterBound::~IfcFaceOuterBound() {
 }
 
-bool IfcFaceOuterBound::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFaceOuterBound(this);
+bool IfcFaceOuterBound::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFaceOuterBound(this);
 }
 
-const std::string &IfcFaceOuterBound::type() {
+const std::string &IfcFaceOuterBound::type() const {
     return IfcFaceOuterBound::s_type.getName();
 }
 
-Step::ClassType IfcFaceOuterBound::getClassType() {
+const Step::ClassType &IfcFaceOuterBound::getClassType() {
     return IfcFaceOuterBound::s_type;
 }
 
-Step::ClassType IfcFaceOuterBound::getType() const {
+const Step::ClassType &IfcFaceOuterBound::getType() const {
     return IfcFaceOuterBound::s_type;
 }
 
-bool IfcFaceOuterBound::isOfType(Step::ClassType t) {
+bool IfcFaceOuterBound::isOfType(const Step::ClassType &t) const {
     return IfcFaceOuterBound::s_type == t ? true : IfcFaceBound::isOfType(t);
-}
-
-void IfcFaceOuterBound::release() {
-    IfcFaceBound::release();
 }
 
 bool IfcFaceOuterBound::init() {

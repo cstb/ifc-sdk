@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcElementarySurface::IfcElementarySurface(Step::Id id, Step::SPFData *args) : I
 IfcElementarySurface::~IfcElementarySurface() {
 }
 
-bool IfcElementarySurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElementarySurface(this);
+bool IfcElementarySurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElementarySurface(this);
 }
 
-const std::string &IfcElementarySurface::type() {
+const std::string &IfcElementarySurface::type() const {
     return IfcElementarySurface::s_type.getName();
 }
 
-Step::ClassType IfcElementarySurface::getClassType() {
+const Step::ClassType &IfcElementarySurface::getClassType() {
     return IfcElementarySurface::s_type;
 }
 
-Step::ClassType IfcElementarySurface::getType() const {
+const Step::ClassType &IfcElementarySurface::getType() const {
     return IfcElementarySurface::s_type;
 }
 
-bool IfcElementarySurface::isOfType(Step::ClassType t) {
+bool IfcElementarySurface::isOfType(const Step::ClassType &t) const {
     return IfcElementarySurface::s_type == t ? true : IfcSurface::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAxis2Placement3D *IfcElementarySurface::getPosition() {
     }
 }
 
-void IfcElementarySurface::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_position = value;
+const IfcAxis2Placement3D *IfcElementarySurface::getPosition() const {
+    IfcElementarySurface * deConstObject = const_cast< IfcElementarySurface * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcElementarySurface::release() {
-    IfcSurface::release();
-    m_position.release();
+void IfcElementarySurface::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
+    m_position = value;
 }
 
 bool IfcElementarySurface::init() {
@@ -99,14 +99,14 @@ bool IfcElementarySurface::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcElementarySurface::copy(const IfcElementarySurface &obj, const CopyOp &copyop) {
     IfcSurface::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
     return;
 }
 

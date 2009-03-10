@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcJunctionBoxType::IfcJunctionBoxType(Step::Id id, Step::SPFData *args) : IfcFl
 IfcJunctionBoxType::~IfcJunctionBoxType() {
 }
 
-bool IfcJunctionBoxType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcJunctionBoxType(this);
+bool IfcJunctionBoxType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcJunctionBoxType(this);
 }
 
-const std::string &IfcJunctionBoxType::type() {
+const std::string &IfcJunctionBoxType::type() const {
     return IfcJunctionBoxType::s_type.getName();
 }
 
-Step::ClassType IfcJunctionBoxType::getClassType() {
+const Step::ClassType &IfcJunctionBoxType::getClassType() {
     return IfcJunctionBoxType::s_type;
 }
 
-Step::ClassType IfcJunctionBoxType::getType() const {
+const Step::ClassType &IfcJunctionBoxType::getType() const {
     return IfcJunctionBoxType::s_type;
 }
 
-bool IfcJunctionBoxType::isOfType(Step::ClassType t) {
+bool IfcJunctionBoxType::isOfType(const Step::ClassType &t) const {
     return IfcJunctionBoxType::s_type == t ? true : IfcFlowFittingType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcJunctionBoxTypeEnum IfcJunctionBoxType::getPredefinedType() {
     }
 }
 
-void IfcJunctionBoxType::setPredefinedType(IfcJunctionBoxTypeEnum value) {
-    m_predefinedType = value;
+const IfcJunctionBoxTypeEnum IfcJunctionBoxType::getPredefinedType() const {
+    IfcJunctionBoxType * deConstObject = const_cast< IfcJunctionBoxType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcJunctionBoxType::release() {
-    IfcFlowFittingType::release();
+void IfcJunctionBoxType::setPredefinedType(IfcJunctionBoxTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcJunctionBoxType::init() {

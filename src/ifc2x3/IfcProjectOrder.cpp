@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcProjectOrder::IfcProjectOrder(Step::Id id, Step::SPFData *args) : IfcControl(
 IfcProjectOrder::~IfcProjectOrder() {
 }
 
-bool IfcProjectOrder::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProjectOrder(this);
+bool IfcProjectOrder::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProjectOrder(this);
 }
 
-const std::string &IfcProjectOrder::type() {
+const std::string &IfcProjectOrder::type() const {
     return IfcProjectOrder::s_type.getName();
 }
 
-Step::ClassType IfcProjectOrder::getClassType() {
+const Step::ClassType &IfcProjectOrder::getClassType() {
     return IfcProjectOrder::s_type;
 }
 
-Step::ClassType IfcProjectOrder::getType() const {
+const Step::ClassType &IfcProjectOrder::getType() const {
     return IfcProjectOrder::s_type;
 }
 
-bool IfcProjectOrder::isOfType(Step::ClassType t) {
+bool IfcProjectOrder::isOfType(const Step::ClassType &t) const {
     return IfcProjectOrder::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcIdentifier IfcProjectOrder::getID() {
     else {
         return Step::getUnset(m_iD);
     }
+}
+
+const IfcIdentifier IfcProjectOrder::getID() const {
+    IfcProjectOrder * deConstObject = const_cast< IfcProjectOrder * > (this);
+    return deConstObject->getID();
 }
 
 void IfcProjectOrder::setID(const IfcIdentifier &value) {
@@ -90,6 +96,11 @@ IfcProjectOrderTypeEnum IfcProjectOrder::getPredefinedType() {
     }
 }
 
+const IfcProjectOrderTypeEnum IfcProjectOrder::getPredefinedType() const {
+    IfcProjectOrder * deConstObject = const_cast< IfcProjectOrder * > (this);
+    return deConstObject->getPredefinedType();
+}
+
 void IfcProjectOrder::setPredefinedType(IfcProjectOrderTypeEnum value) {
     m_predefinedType = value;
 }
@@ -103,12 +114,13 @@ IfcLabel IfcProjectOrder::getStatus() {
     }
 }
 
-void IfcProjectOrder::setStatus(const IfcLabel &value) {
-    m_status = value;
+const IfcLabel IfcProjectOrder::getStatus() const {
+    IfcProjectOrder * deConstObject = const_cast< IfcProjectOrder * > (this);
+    return deConstObject->getStatus();
 }
 
-void IfcProjectOrder::release() {
-    IfcControl::release();
+void IfcProjectOrder::setStatus(const IfcLabel &value) {
+    m_status = value;
 }
 
 bool IfcProjectOrder::init() {
@@ -122,7 +134,7 @@ bool IfcProjectOrder::init() {
         m_iD = Step::getUnset(m_iD);
     }
     else {
-        m_iD = Step::spfToString(arg);
+        m_iD = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -156,7 +168,7 @@ bool IfcProjectOrder::init() {
         m_status = Step::getUnset(m_status);
     }
     else {
-        m_status = Step::spfToString(arg);
+        m_status = Step::String::fromSPF(arg);
     }
     return true;
 }

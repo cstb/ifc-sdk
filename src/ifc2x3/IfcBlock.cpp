@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcBlock::IfcBlock(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, arg
 IfcBlock::~IfcBlock() {
 }
 
-bool IfcBlock::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBlock(this);
+bool IfcBlock::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBlock(this);
 }
 
-const std::string &IfcBlock::type() {
+const std::string &IfcBlock::type() const {
     return IfcBlock::s_type.getName();
 }
 
-Step::ClassType IfcBlock::getClassType() {
+const Step::ClassType &IfcBlock::getClassType() {
     return IfcBlock::s_type;
 }
 
-Step::ClassType IfcBlock::getType() const {
+const Step::ClassType &IfcBlock::getType() const {
     return IfcBlock::s_type;
 }
 
-bool IfcBlock::isOfType(Step::ClassType t) {
+bool IfcBlock::isOfType(const Step::ClassType &t) const {
     return IfcBlock::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcPositiveLengthMeasure IfcBlock::getXLength() {
     else {
         return Step::getUnset(m_xLength);
     }
+}
+
+const IfcPositiveLengthMeasure IfcBlock::getXLength() const {
+    IfcBlock * deConstObject = const_cast< IfcBlock * > (this);
+    return deConstObject->getXLength();
 }
 
 void IfcBlock::setXLength(IfcPositiveLengthMeasure value) {
@@ -90,6 +95,11 @@ IfcPositiveLengthMeasure IfcBlock::getYLength() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcBlock::getYLength() const {
+    IfcBlock * deConstObject = const_cast< IfcBlock * > (this);
+    return deConstObject->getYLength();
+}
+
 void IfcBlock::setYLength(IfcPositiveLengthMeasure value) {
     m_yLength = value;
 }
@@ -103,12 +113,13 @@ IfcPositiveLengthMeasure IfcBlock::getZLength() {
     }
 }
 
-void IfcBlock::setZLength(IfcPositiveLengthMeasure value) {
-    m_zLength = value;
+const IfcPositiveLengthMeasure IfcBlock::getZLength() const {
+    IfcBlock * deConstObject = const_cast< IfcBlock * > (this);
+    return deConstObject->getZLength();
 }
 
-void IfcBlock::release() {
-    IfcCsgPrimitive3D::release();
+void IfcBlock::setZLength(IfcPositiveLengthMeasure value) {
+    m_zLength = value;
 }
 
 bool IfcBlock::init() {

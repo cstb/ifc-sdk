@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcGeometricRepresentationItem::IfcGeometricRepresentationItem(Step::Id id, Step
 IfcGeometricRepresentationItem::~IfcGeometricRepresentationItem() {
 }
 
-bool IfcGeometricRepresentationItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeometricRepresentationItem(this);
+bool IfcGeometricRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeometricRepresentationItem(this);
 }
 
-const std::string &IfcGeometricRepresentationItem::type() {
+const std::string &IfcGeometricRepresentationItem::type() const {
     return IfcGeometricRepresentationItem::s_type.getName();
 }
 
-Step::ClassType IfcGeometricRepresentationItem::getClassType() {
+const Step::ClassType &IfcGeometricRepresentationItem::getClassType() {
     return IfcGeometricRepresentationItem::s_type;
 }
 
-Step::ClassType IfcGeometricRepresentationItem::getType() const {
+const Step::ClassType &IfcGeometricRepresentationItem::getType() const {
     return IfcGeometricRepresentationItem::s_type;
 }
 
-bool IfcGeometricRepresentationItem::isOfType(Step::ClassType t) {
+bool IfcGeometricRepresentationItem::isOfType(const Step::ClassType &t) const {
     return IfcGeometricRepresentationItem::s_type == t ? true : IfcRepresentationItem::isOfType(t);
-}
-
-void IfcGeometricRepresentationItem::release() {
-    IfcRepresentationItem::release();
 }
 
 bool IfcGeometricRepresentationItem::init() {

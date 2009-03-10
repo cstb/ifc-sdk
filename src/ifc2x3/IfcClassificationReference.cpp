@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcClassificationReference::IfcClassificationReference(Step::Id id, Step::SPFDat
 IfcClassificationReference::~IfcClassificationReference() {
 }
 
-bool IfcClassificationReference::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassificationReference(this);
+bool IfcClassificationReference::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassificationReference(this);
 }
 
-const std::string &IfcClassificationReference::type() {
+const std::string &IfcClassificationReference::type() const {
     return IfcClassificationReference::s_type.getName();
 }
 
-Step::ClassType IfcClassificationReference::getClassType() {
+const Step::ClassType &IfcClassificationReference::getClassType() {
     return IfcClassificationReference::s_type;
 }
 
-Step::ClassType IfcClassificationReference::getType() const {
+const Step::ClassType &IfcClassificationReference::getType() const {
     return IfcClassificationReference::s_type;
 }
 
-bool IfcClassificationReference::isOfType(Step::ClassType t) {
+bool IfcClassificationReference::isOfType(const Step::ClassType &t) const {
     return IfcClassificationReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcClassification *IfcClassificationReference::getReferencedSource() {
     }
 }
 
-void IfcClassificationReference::setReferencedSource(const Step::RefPtr< IfcClassification > &value) {
-    m_referencedSource = value;
+const IfcClassification *IfcClassificationReference::getReferencedSource() const {
+    IfcClassificationReference * deConstObject = const_cast< IfcClassificationReference * > (this);
+    return deConstObject->getReferencedSource();
 }
 
-void IfcClassificationReference::release() {
-    IfcExternalReference::release();
-    m_referencedSource.release();
+void IfcClassificationReference::setReferencedSource(const Step::RefPtr< IfcClassification > &value) {
+    m_referencedSource = value;
 }
 
 bool IfcClassificationReference::init() {
@@ -99,14 +99,14 @@ bool IfcClassificationReference::init() {
         m_referencedSource = NULL;
     }
     else {
-        m_referencedSource = static_cast< IfcClassification * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_referencedSource = static_cast< IfcClassification * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcClassificationReference::copy(const IfcClassificationReference &obj, const CopyOp &copyop) {
     IfcExternalReference::copy(obj, copyop);
-    setReferencedSource(copyop(obj.m_referencedSource.get()));
+    setReferencedSource((IfcClassification*)copyop(obj.m_referencedSource.get()));
     return;
 }
 

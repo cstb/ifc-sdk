@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -45,29 +46,28 @@ using namespace ifc2x3;
 IfcRepresentationContext::IfcRepresentationContext(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_contextIdentifier = Step::getUnset(m_contextIdentifier);
     m_contextType = Step::getUnset(m_contextType);
-    m_representationsInContext.setUnset(true);
 }
 
 IfcRepresentationContext::~IfcRepresentationContext() {
 }
 
-bool IfcRepresentationContext::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRepresentationContext(this);
+bool IfcRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRepresentationContext(this);
 }
 
-const std::string &IfcRepresentationContext::type() {
+const std::string &IfcRepresentationContext::type() const {
     return IfcRepresentationContext::s_type.getName();
 }
 
-Step::ClassType IfcRepresentationContext::getClassType() {
+const Step::ClassType &IfcRepresentationContext::getClassType() {
     return IfcRepresentationContext::s_type;
 }
 
-Step::ClassType IfcRepresentationContext::getType() const {
+const Step::ClassType &IfcRepresentationContext::getType() const {
     return IfcRepresentationContext::s_type;
 }
 
-bool IfcRepresentationContext::isOfType(Step::ClassType t) {
+bool IfcRepresentationContext::isOfType(const Step::ClassType &t) const {
     return IfcRepresentationContext::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcLabel IfcRepresentationContext::getContextIdentifier() {
     else {
         return Step::getUnset(m_contextIdentifier);
     }
+}
+
+const IfcLabel IfcRepresentationContext::getContextIdentifier() const {
+    IfcRepresentationContext * deConstObject = const_cast< IfcRepresentationContext * > (this);
+    return deConstObject->getContextIdentifier();
 }
 
 void IfcRepresentationContext::setContextIdentifier(const IfcLabel &value) {
@@ -93,11 +98,16 @@ IfcLabel IfcRepresentationContext::getContextType() {
     }
 }
 
+const IfcLabel IfcRepresentationContext::getContextType() const {
+    IfcRepresentationContext * deConstObject = const_cast< IfcRepresentationContext * > (this);
+    return deConstObject->getContextType();
+}
+
 void IfcRepresentationContext::setContextType(const IfcLabel &value) {
     m_contextType = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRepresentation > > &IfcRepresentationContext::getRepresentationsInContext() {
+Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() {
     if (Step::BaseObject::inited()) {
         return m_representationsInContext;
     }
@@ -107,7 +117,9 @@ Step::Set< Step::ObsPtr< IfcRepresentation > > &IfcRepresentationContext::getRep
     }
 }
 
-void IfcRepresentationContext::release() {
+const Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() const {
+    IfcRepresentationContext * deConstObject = const_cast< IfcRepresentationContext * > (this);
+    return deConstObject->getRepresentationsInContext();
 }
 
 bool IfcRepresentationContext::init() {
@@ -118,14 +130,14 @@ bool IfcRepresentationContext::init() {
         m_contextIdentifier = Step::getUnset(m_contextIdentifier);
     }
     else {
-        m_contextIdentifier = Step::spfToString(arg);
+        m_contextIdentifier = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_contextType = Step::getUnset(m_contextType);
     }
     else {
-        m_contextType = Step::spfToString(arg);
+        m_contextType = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcRepresentation::getClassType(), 0);
     if (inverses) {

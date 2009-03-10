@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcLightSource::IfcLightSource(Step::Id id, Step::SPFData *args) : IfcGeometricR
 IfcLightSource::~IfcLightSource() {
 }
 
-bool IfcLightSource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSource(this);
+bool IfcLightSource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSource(this);
 }
 
-const std::string &IfcLightSource::type() {
+const std::string &IfcLightSource::type() const {
     return IfcLightSource::s_type.getName();
 }
 
-Step::ClassType IfcLightSource::getClassType() {
+const Step::ClassType &IfcLightSource::getClassType() {
     return IfcLightSource::s_type;
 }
 
-Step::ClassType IfcLightSource::getType() const {
+const Step::ClassType &IfcLightSource::getType() const {
     return IfcLightSource::s_type;
 }
 
-bool IfcLightSource::isOfType(Step::ClassType t) {
+bool IfcLightSource::isOfType(const Step::ClassType &t) const {
     return IfcLightSource::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcLabel IfcLightSource::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcLightSource::getName() const {
+    IfcLightSource * deConstObject = const_cast< IfcLightSource * > (this);
+    return deConstObject->getName();
 }
 
 void IfcLightSource::setName(const IfcLabel &value) {
@@ -95,6 +101,11 @@ IfcColourRgb *IfcLightSource::getLightColour() {
     }
 }
 
+const IfcColourRgb *IfcLightSource::getLightColour() const {
+    IfcLightSource * deConstObject = const_cast< IfcLightSource * > (this);
+    return deConstObject->getLightColour();
+}
+
 void IfcLightSource::setLightColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_lightColour = value;
 }
@@ -106,6 +117,11 @@ IfcNormalisedRatioMeasure IfcLightSource::getAmbientIntensity() {
     else {
         return Step::getUnset(m_ambientIntensity);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcLightSource::getAmbientIntensity() const {
+    IfcLightSource * deConstObject = const_cast< IfcLightSource * > (this);
+    return deConstObject->getAmbientIntensity();
 }
 
 void IfcLightSource::setAmbientIntensity(IfcNormalisedRatioMeasure value) {
@@ -121,13 +137,13 @@ IfcNormalisedRatioMeasure IfcLightSource::getIntensity() {
     }
 }
 
-void IfcLightSource::setIntensity(IfcNormalisedRatioMeasure value) {
-    m_intensity = value;
+const IfcNormalisedRatioMeasure IfcLightSource::getIntensity() const {
+    IfcLightSource * deConstObject = const_cast< IfcLightSource * > (this);
+    return deConstObject->getIntensity();
 }
 
-void IfcLightSource::release() {
-    IfcGeometricRepresentationItem::release();
-    m_lightColour.release();
+void IfcLightSource::setIntensity(IfcNormalisedRatioMeasure value) {
+    m_intensity = value;
 }
 
 bool IfcLightSource::init() {
@@ -141,14 +157,14 @@ bool IfcLightSource::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_lightColour = NULL;
     }
     else {
-        m_lightColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_lightColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -170,7 +186,7 @@ bool IfcLightSource::init() {
 void IfcLightSource::copy(const IfcLightSource &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
     setName(obj.m_name);
-    setLightColour(copyop(obj.m_lightColour.get()));
+    setLightColour((IfcColourRgb*)copyop(obj.m_lightColour.get()));
     setAmbientIntensity(obj.m_ambientIntensity);
     setIntensity(obj.m_intensity);
     return;

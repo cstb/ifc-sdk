@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,27 +47,27 @@ IfcSimpleValue::~IfcSimpleValue() {
     deleteUnion();
 }
 
-bool IfcSimpleValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSimpleValue(this);
+bool IfcSimpleValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSimpleValue(this);
 }
 
 bool IfcSimpleValue::init() {
     return false;
 }
 
-const std::string &IfcSimpleValue::type() {
+const std::string &IfcSimpleValue::type() const {
     return IfcSimpleValue::s_type.getName();
 }
 
-Step::ClassType IfcSimpleValue::getClassType() {
+const Step::ClassType &IfcSimpleValue::getClassType() {
     return IfcSimpleValue::s_type;
 }
 
-Step::ClassType IfcSimpleValue::getType() const {
+const Step::ClassType &IfcSimpleValue::getType() const {
     return IfcSimpleValue::s_type;
 }
 
-bool IfcSimpleValue::isOfType(Step::ClassType t) {
+bool IfcSimpleValue::isOfType(const Step::ClassType &t) const {
     return IfcSimpleValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -97,7 +97,7 @@ void IfcSimpleValue::copy(const IfcSimpleValue &obj, const CopyOp &copyop) {
         }
 }
 
-char *IfcSimpleValue::currentTypeName() {
+std::string IfcSimpleValue::currentTypeName() const {
     switch(m_type) {
     case IFCINTEGER:
         return "IfcInteger";
@@ -125,7 +125,7 @@ char *IfcSimpleValue::currentTypeName() {
     }
 }
 
-IfcSimpleValue::IfcSimpleValue_select IfcSimpleValue::currentType() {
+IfcSimpleValue::IfcSimpleValue_select IfcSimpleValue::currentType() const {
     return m_type;
 }
 
@@ -144,72 +144,100 @@ void IfcSimpleValue::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcInteger IfcSimpleValue::getIfcInteger() {
-    return m_IfcSimpleValue_union.m_IfcInteger;
+IfcInteger IfcSimpleValue::getIfcInteger() const {
+    if (m_type == IFCINTEGER) {
+        return m_IfcSimpleValue_union.m_IfcInteger;
+    }
+    else {
+        return Step::getUnset(m_IfcSimpleValue_union.m_IfcInteger);
+    }
 }
 
 void IfcSimpleValue::setIfcInteger(IfcInteger value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcInteger = value;
     m_type = IFCINTEGER;
 }
 
-IfcReal IfcSimpleValue::getIfcReal() {
-    return m_IfcSimpleValue_union.m_IfcReal;
+IfcReal IfcSimpleValue::getIfcReal() const {
+    if (m_type == IFCREAL) {
+        return m_IfcSimpleValue_union.m_IfcReal;
+    }
+    else {
+        return Step::getUnset(m_IfcSimpleValue_union.m_IfcReal);
+    }
 }
 
 void IfcSimpleValue::setIfcReal(IfcReal value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcReal = value;
     m_type = IFCREAL;
 }
 
-IfcBoolean IfcSimpleValue::getIfcBoolean() {
-    return m_IfcSimpleValue_union.m_IfcBoolean;
+IfcBoolean IfcSimpleValue::getIfcBoolean() const {
+    if (m_type == IFCBOOLEAN) {
+        return m_IfcSimpleValue_union.m_IfcBoolean;
+    }
+    else {
+        return Step::getUnset(m_IfcSimpleValue_union.m_IfcBoolean);
+    }
 }
 
 void IfcSimpleValue::setIfcBoolean(IfcBoolean value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcBoolean = value;
     m_type = IFCBOOLEAN;
 }
 
-IfcIdentifier IfcSimpleValue::getIfcIdentifier() {
-    return *m_IfcSimpleValue_union.m_IfcIdentifier;
+IfcIdentifier IfcSimpleValue::getIfcIdentifier() const {
+    if (m_type == IFCIDENTIFIER) {
+        return *m_IfcSimpleValue_union.m_IfcIdentifier;
+    }
+    else {
+        return Step::getUnset(*m_IfcSimpleValue_union.m_IfcIdentifier);
+    }
 }
 
 void IfcSimpleValue::setIfcIdentifier(const IfcIdentifier &value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcIdentifier = new IfcIdentifier(value);
     m_type = IFCIDENTIFIER;
 }
 
-IfcText IfcSimpleValue::getIfcText() {
-    return *m_IfcSimpleValue_union.m_IfcText;
+IfcText IfcSimpleValue::getIfcText() const {
+    if (m_type == IFCTEXT) {
+        return *m_IfcSimpleValue_union.m_IfcText;
+    }
+    else {
+        return Step::getUnset(*m_IfcSimpleValue_union.m_IfcText);
+    }
 }
 
 void IfcSimpleValue::setIfcText(const IfcText &value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcText = new IfcText(value);
     m_type = IFCTEXT;
 }
 
-IfcLabel IfcSimpleValue::getIfcLabel() {
-    return *m_IfcSimpleValue_union.m_IfcLabel;
+IfcLabel IfcSimpleValue::getIfcLabel() const {
+    if (m_type == IFCLABEL) {
+        return *m_IfcSimpleValue_union.m_IfcLabel;
+    }
+    else {
+        return Step::getUnset(*m_IfcSimpleValue_union.m_IfcLabel);
+    }
 }
 
 void IfcSimpleValue::setIfcLabel(const IfcLabel &value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcLabel = new IfcLabel(value);
     m_type = IFCLABEL;
 }
 
-IfcLogical IfcSimpleValue::getIfcLogical() {
-    return m_IfcSimpleValue_union.m_IfcLogical;
+IfcLogical IfcSimpleValue::getIfcLogical() const {
+    if (m_type == IFCLOGICAL) {
+        return m_IfcSimpleValue_union.m_IfcLogical;
+    }
+    else {
+        return Step::getUnset(m_IfcSimpleValue_union.m_IfcLogical);
+    }
 }
 
 void IfcSimpleValue::setIfcLogical(IfcLogical value) {
-    deleteUnion();
     m_IfcSimpleValue_union.m_IfcLogical = value;
     m_type = IFCLOGICAL;
 }

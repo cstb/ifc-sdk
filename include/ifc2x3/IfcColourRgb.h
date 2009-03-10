@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,54 +44,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcColourRgb : public IfcColourSpecification {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Red'.
+         * 
          */
-        IfcNormalisedRatioMeasure getRed();
+        virtual IfcNormalisedRatioMeasure getRed();
+        /**
+         * (const) Returns the value of the explicit attribute 'Red'.
+         * 
+         * @return the value of the explicit attribute 'Red'
+         */
+        virtual const IfcNormalisedRatioMeasure getRed() const;
         /**
          * Sets the value of the explicit attribute 'Red'.
          * 
          * @param value
          */
-        void setRed(IfcNormalisedRatioMeasure value);
+        virtual void setRed(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Green'.
+         * 
          */
-        IfcNormalisedRatioMeasure getGreen();
+        virtual IfcNormalisedRatioMeasure getGreen();
+        /**
+         * (const) Returns the value of the explicit attribute 'Green'.
+         * 
+         * @return the value of the explicit attribute 'Green'
+         */
+        virtual const IfcNormalisedRatioMeasure getGreen() const;
         /**
          * Sets the value of the explicit attribute 'Green'.
          * 
          * @param value
          */
-        void setGreen(IfcNormalisedRatioMeasure value);
+        virtual void setGreen(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Blue'.
+         * 
          */
-        IfcNormalisedRatioMeasure getBlue();
+        virtual IfcNormalisedRatioMeasure getBlue();
+        /**
+         * (const) Returns the value of the explicit attribute 'Blue'.
+         * 
+         * @return the value of the explicit attribute 'Blue'
+         */
+        virtual const IfcNormalisedRatioMeasure getBlue() const;
         /**
          * Sets the value of the explicit attribute 'Blue'.
          * 
          * @param value
          */
-        void setBlue(IfcNormalisedRatioMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setBlue(IfcNormalisedRatioMeasure value);
         friend class ExpressDataSet;
 
     protected:

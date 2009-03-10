@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcMove::IfcMove(Step::Id id, Step::SPFData *args) : IfcTask(id, args) {
 IfcMove::~IfcMove() {
 }
 
-bool IfcMove::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMove(this);
+bool IfcMove::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMove(this);
 }
 
-const std::string &IfcMove::type() {
+const std::string &IfcMove::type() const {
     return IfcMove::s_type.getName();
 }
 
-Step::ClassType IfcMove::getClassType() {
+const Step::ClassType &IfcMove::getClassType() {
     return IfcMove::s_type;
 }
 
-Step::ClassType IfcMove::getType() const {
+const Step::ClassType &IfcMove::getType() const {
     return IfcMove::s_type;
 }
 
-bool IfcMove::isOfType(Step::ClassType t) {
+bool IfcMove::isOfType(const Step::ClassType &t) const {
     return IfcMove::s_type == t ? true : IfcTask::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcSpatialStructureElement *IfcMove::getMoveFrom() {
     else {
         return NULL;
     }
+}
+
+const IfcSpatialStructureElement *IfcMove::getMoveFrom() const {
+    IfcMove * deConstObject = const_cast< IfcMove * > (this);
+    return deConstObject->getMoveFrom();
 }
 
 void IfcMove::setMoveFrom(const Step::RefPtr< IfcSpatialStructureElement > &value) {
@@ -95,11 +100,16 @@ IfcSpatialStructureElement *IfcMove::getMoveTo() {
     }
 }
 
+const IfcSpatialStructureElement *IfcMove::getMoveTo() const {
+    IfcMove * deConstObject = const_cast< IfcMove * > (this);
+    return deConstObject->getMoveTo();
+}
+
 void IfcMove::setMoveTo(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     m_moveTo = value;
 }
 
-Step::List< IfcText > &IfcMove::getPunchList() {
+List_IfcText_1_n &IfcMove::getPunchList() {
     if (Step::BaseObject::inited()) {
         return m_punchList;
     }
@@ -109,15 +119,13 @@ Step::List< IfcText > &IfcMove::getPunchList() {
     }
 }
 
-void IfcMove::setPunchList(const Step::List< IfcText > &value) {
-    m_punchList = value;
+const List_IfcText_1_n &IfcMove::getPunchList() const {
+    IfcMove * deConstObject = const_cast< IfcMove * > (this);
+    return deConstObject->getPunchList();
 }
 
-void IfcMove::release() {
-    IfcTask::release();
-    m_moveFrom.release();
-    m_moveTo.release();
-    m_punchList.clear();
+void IfcMove::setPunchList(const List_IfcText_1_n &value) {
+    m_punchList = value;
 }
 
 bool IfcMove::init() {
@@ -131,14 +139,14 @@ bool IfcMove::init() {
         m_moveFrom = NULL;
     }
     else {
-        m_moveFrom = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_moveFrom = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_moveTo = NULL;
     }
     else {
-        m_moveTo = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_moveTo = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -151,7 +159,7 @@ bool IfcMove::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 IfcText attr2;
-                attr2 = Step::spfToString(str1);
+                attr2 = Step::String::fromSPF(str1);
                 m_punchList.push_back(attr2);
             }
             else {
@@ -163,10 +171,10 @@ bool IfcMove::init() {
 }
 
 void IfcMove::copy(const IfcMove &obj, const CopyOp &copyop) {
-    Step::List< IfcText >::const_iterator it_m_punchList;
+    Step::List< IfcText, 1 >::const_iterator it_m_punchList;
     IfcTask::copy(obj, copyop);
-    setMoveFrom(copyop(obj.m_moveFrom.get()));
-    setMoveTo(copyop(obj.m_moveTo.get()));
+    setMoveFrom((IfcSpatialStructureElement*)copyop(obj.m_moveFrom.get()));
+    setMoveTo((IfcSpatialStructureElement*)copyop(obj.m_moveTo.get()));
     for (it_m_punchList = obj.m_punchList.begin(); it_m_punchList != obj.m_punchList.end(); ++it_m_punchList) {
         IfcText copyTarget = (*it_m_punchList);
         m_punchList.push_back(copyTarget);

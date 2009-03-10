@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRampFlightType::IfcRampFlightType(Step::Id id, Step::SPFData *args) : IfcBuil
 IfcRampFlightType::~IfcRampFlightType() {
 }
 
-bool IfcRampFlightType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRampFlightType(this);
+bool IfcRampFlightType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRampFlightType(this);
 }
 
-const std::string &IfcRampFlightType::type() {
+const std::string &IfcRampFlightType::type() const {
     return IfcRampFlightType::s_type.getName();
 }
 
-Step::ClassType IfcRampFlightType::getClassType() {
+const Step::ClassType &IfcRampFlightType::getClassType() {
     return IfcRampFlightType::s_type;
 }
 
-Step::ClassType IfcRampFlightType::getType() const {
+const Step::ClassType &IfcRampFlightType::getType() const {
     return IfcRampFlightType::s_type;
 }
 
-bool IfcRampFlightType::isOfType(Step::ClassType t) {
+bool IfcRampFlightType::isOfType(const Step::ClassType &t) const {
     return IfcRampFlightType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcRampFlightTypeEnum IfcRampFlightType::getPredefinedType() {
     }
 }
 
-void IfcRampFlightType::setPredefinedType(IfcRampFlightTypeEnum value) {
-    m_predefinedType = value;
+const IfcRampFlightTypeEnum IfcRampFlightType::getPredefinedType() const {
+    IfcRampFlightType * deConstObject = const_cast< IfcRampFlightType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcRampFlightType::release() {
-    IfcBuildingElementType::release();
+void IfcRampFlightType::setPredefinedType(IfcRampFlightTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcRampFlightType::init() {

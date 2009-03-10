@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,54 +47,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcConnectionPortGeometry : public IfcConnectionGeometry {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LocationAtRelatingElement'.
+         * 
          */
-        IfcAxis2Placement *getLocationAtRelatingElement();
+        virtual IfcAxis2Placement *getLocationAtRelatingElement();
+        /**
+         * (const) Returns the value of the explicit attribute 'LocationAtRelatingElement'.
+         * 
+         * @return the value of the explicit attribute 'LocationAtRelatingElement'
+         */
+        virtual const IfcAxis2Placement *getLocationAtRelatingElement() const;
         /**
          * Sets the value of the explicit attribute 'LocationAtRelatingElement'.
          * 
          * @param value
          */
-        void setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value);
+        virtual void setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * Gets the value of the explicit attribute 'LocationAtRelatedElement'.
+         * 
          */
-        IfcAxis2Placement *getLocationAtRelatedElement();
+        virtual IfcAxis2Placement *getLocationAtRelatedElement();
+        /**
+         * (const) Returns the value of the explicit attribute 'LocationAtRelatedElement'.
+         * 
+         * @return the value of the explicit attribute 'LocationAtRelatedElement'
+         */
+        virtual const IfcAxis2Placement *getLocationAtRelatedElement() const;
         /**
          * Sets the value of the explicit attribute 'LocationAtRelatedElement'.
          * 
          * @param value
          */
-        void setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value);
+        virtual void setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * Gets the value of the explicit attribute 'ProfileOfPort'.
+         * 
          */
-        IfcProfileDef *getProfileOfPort();
+        virtual IfcProfileDef *getProfileOfPort();
+        /**
+         * (const) Returns the value of the explicit attribute 'ProfileOfPort'.
+         * 
+         * @return the value of the explicit attribute 'ProfileOfPort'
+         */
+        virtual const IfcProfileDef *getProfileOfPort() const;
         /**
          * Sets the value of the explicit attribute 'ProfileOfPort'.
          * 
          * @param value
          */
-        void setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value);
         friend class ExpressDataSet;
 
     protected:

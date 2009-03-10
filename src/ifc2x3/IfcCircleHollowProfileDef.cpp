@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCircleHollowProfileDef::IfcCircleHollowProfileDef(Step::Id id, Step::SPFData 
 IfcCircleHollowProfileDef::~IfcCircleHollowProfileDef() {
 }
 
-bool IfcCircleHollowProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCircleHollowProfileDef(this);
+bool IfcCircleHollowProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCircleHollowProfileDef(this);
 }
 
-const std::string &IfcCircleHollowProfileDef::type() {
+const std::string &IfcCircleHollowProfileDef::type() const {
     return IfcCircleHollowProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcCircleHollowProfileDef::getClassType() {
+const Step::ClassType &IfcCircleHollowProfileDef::getClassType() {
     return IfcCircleHollowProfileDef::s_type;
 }
 
-Step::ClassType IfcCircleHollowProfileDef::getType() const {
+const Step::ClassType &IfcCircleHollowProfileDef::getType() const {
     return IfcCircleHollowProfileDef::s_type;
 }
 
-bool IfcCircleHollowProfileDef::isOfType(Step::ClassType t) {
+bool IfcCircleHollowProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcCircleHollowProfileDef::s_type == t ? true : IfcCircleProfileDef::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcCircleHollowProfileDef::getWallThickness() {
     }
 }
 
-void IfcCircleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value) {
-    m_wallThickness = value;
+const IfcPositiveLengthMeasure IfcCircleHollowProfileDef::getWallThickness() const {
+    IfcCircleHollowProfileDef * deConstObject = const_cast< IfcCircleHollowProfileDef * > (this);
+    return deConstObject->getWallThickness();
 }
 
-void IfcCircleHollowProfileDef::release() {
-    IfcCircleProfileDef::release();
+void IfcCircleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value) {
+    m_wallThickness = value;
 }
 
 bool IfcCircleHollowProfileDef::init() {

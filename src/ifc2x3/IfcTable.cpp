@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,43 @@
 
 #include "ifc2x3/IfcTable.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcTableRow.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcTable_Rows_type::Inverted_IfcTable_Rows_type() {
+}
+
+void Inverted_IfcTable_Rows_type::setOwner(IfcTable *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcTable_Rows_type::push_back(const Step::RefPtr< IfcTableRow > &value) throw(std::out_of_range) {
+    IfcTableRow *inverse = const_cast< IfcTableRow * > (value.get());
+    List_IfcTableRow_1_n::push_back(value);
+    inverse->m_ofTable = mOwner;
+}
+
+Inverted_IfcTable_Rows_type::iterator Inverted_IfcTable_Rows_type::erase(const Step::RefPtr< IfcTableRow > &value) {
+    IfcTableRow *inverse = const_cast< IfcTableRow * > (value.get());
+    inverse->m_ofTable = NULL;
+    return List_IfcTableRow_1_n::erase(value);
+}
 
 IfcTable::IfcTable(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
@@ -54,27 +73,27 @@ IfcTable::IfcTable(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args
 IfcTable::~IfcTable() {
 }
 
-bool IfcTable::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTable(this);
+bool IfcTable::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTable(this);
 }
 
-const std::string &IfcTable::type() {
+const std::string &IfcTable::type() const {
     return IfcTable::s_type.getName();
 }
 
-Step::ClassType IfcTable::getClassType() {
+const Step::ClassType &IfcTable::getClassType() {
     return IfcTable::s_type;
 }
 
-Step::ClassType IfcTable::getType() const {
+const Step::ClassType &IfcTable::getType() const {
     return IfcTable::s_type;
 }
 
-bool IfcTable::isOfType(Step::ClassType t) {
+bool IfcTable::isOfType(const Step::ClassType &t) const {
     return IfcTable::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-std::string IfcTable::getName() {
+Step::String IfcTable::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
     }
@@ -83,11 +102,16 @@ std::string IfcTable::getName() {
     }
 }
 
-void IfcTable::setName(const std::string &value) {
+const Step::String IfcTable::getName() const {
+    IfcTable * deConstObject = const_cast< IfcTable * > (this);
+    return deConstObject->getName();
+}
+
+void IfcTable::setName(const Step::String &value) {
     m_name = value;
 }
 
-Step::List< Step::RefPtr< IfcTableRow > > &IfcTable::getRows() {
+List_IfcTableRow_1_n &IfcTable::getRows() {
     if (Step::BaseObject::inited()) {
         return m_rows;
     }
@@ -97,8 +121,9 @@ Step::List< Step::RefPtr< IfcTableRow > > &IfcTable::getRows() {
     }
 }
 
-void IfcTable::release() {
-    m_rows.clear();
+const List_IfcTableRow_1_n &IfcTable::getRows() const {
+    IfcTable * deConstObject = const_cast< IfcTable * > (this);
+    return deConstObject->getRows();
 }
 
 bool IfcTable::init() {
@@ -108,7 +133,7 @@ bool IfcTable::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -121,7 +146,7 @@ bool IfcTable::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcTableRow > attr2;
-                attr2 = static_cast< IfcTableRow * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcTableRow * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_rows.push_back(attr2);
             }
             else {
@@ -133,27 +158,14 @@ bool IfcTable::init() {
 }
 
 void IfcTable::copy(const IfcTable &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcTableRow > >::const_iterator it_m_rows;
+    Step::List< Step::RefPtr< IfcTableRow >, 1 >::const_iterator it_m_rows;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     for (it_m_rows = obj.m_rows.begin(); it_m_rows != obj.m_rows.end(); ++it_m_rows) {
-        Step::RefPtr< IfcTableRow > copyTarget = copyop((*it_m_rows).get());
+        Step::RefPtr< IfcTableRow > copyTarget = (IfcTableRow *) (copyop((*it_m_rows).get()));
         m_rows.push_back(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcTable::s_type("IfcTable");
-IfcTable::Inverted_Rows_type::Inverted_Rows_type() {
-}
-
-void IfcTable::Inverted_Rows_type::setOwner(IfcTable *owner) {
-    mOwner = owner;
-}
-
-void IfcTable::Inverted_Rows_type::push_back(const Step::RefPtr< IfcTableRow > &value) {
-    IfcTableRow *inverse = const_cast< IfcTableRow * > (value.get());
-    Step::List< Step::RefPtr< IfcTableRow > >::push_back(value);
-    inverse->m_ofTable = mOwner;
-}
-

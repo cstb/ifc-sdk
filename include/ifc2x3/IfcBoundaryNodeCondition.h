@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,81 +44,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcBoundaryNodeCondition : public IfcBoundaryCondition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessX'.
+         * 
          */
-        IfcLinearStiffnessMeasure getLinearStiffnessX();
+        virtual IfcLinearStiffnessMeasure getLinearStiffnessX();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessX'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessX'
+         */
+        virtual const IfcLinearStiffnessMeasure getLinearStiffnessX() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessX'.
          * 
          * @param value
          */
-        void setLinearStiffnessX(IfcLinearStiffnessMeasure value);
+        virtual void setLinearStiffnessX(IfcLinearStiffnessMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessY'.
+         * 
          */
-        IfcLinearStiffnessMeasure getLinearStiffnessY();
+        virtual IfcLinearStiffnessMeasure getLinearStiffnessY();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessY'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessY'
+         */
+        virtual const IfcLinearStiffnessMeasure getLinearStiffnessY() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessY'.
          * 
          * @param value
          */
-        void setLinearStiffnessY(IfcLinearStiffnessMeasure value);
+        virtual void setLinearStiffnessY(IfcLinearStiffnessMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessZ'.
+         * 
          */
-        IfcLinearStiffnessMeasure getLinearStiffnessZ();
+        virtual IfcLinearStiffnessMeasure getLinearStiffnessZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessZ'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessZ'
+         */
+        virtual const IfcLinearStiffnessMeasure getLinearStiffnessZ() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessZ'.
          * 
          * @param value
          */
-        void setLinearStiffnessZ(IfcLinearStiffnessMeasure value);
+        virtual void setLinearStiffnessZ(IfcLinearStiffnessMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessX'.
+         * 
          */
-        IfcRotationalStiffnessMeasure getRotationalStiffnessX();
+        virtual IfcRotationalStiffnessMeasure getRotationalStiffnessX();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessX'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessX'
+         */
+        virtual const IfcRotationalStiffnessMeasure getRotationalStiffnessX() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessX'.
          * 
          * @param value
          */
-        void setRotationalStiffnessX(IfcRotationalStiffnessMeasure value);
+        virtual void setRotationalStiffnessX(IfcRotationalStiffnessMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessY'.
+         * 
          */
-        IfcRotationalStiffnessMeasure getRotationalStiffnessY();
+        virtual IfcRotationalStiffnessMeasure getRotationalStiffnessY();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessY'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessY'
+         */
+        virtual const IfcRotationalStiffnessMeasure getRotationalStiffnessY() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessY'.
          * 
          * @param value
          */
-        void setRotationalStiffnessY(IfcRotationalStiffnessMeasure value);
+        virtual void setRotationalStiffnessY(IfcRotationalStiffnessMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessZ'.
+         * 
          */
-        IfcRotationalStiffnessMeasure getRotationalStiffnessZ();
+        virtual IfcRotationalStiffnessMeasure getRotationalStiffnessZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessZ'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessZ'
+         */
+        virtual const IfcRotationalStiffnessMeasure getRotationalStiffnessZ() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessZ'.
          * 
          * @param value
          */
-        void setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value);
         friend class ExpressDataSet;
 
     protected:

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcParameterizedProfileDef::IfcParameterizedProfileDef(Step::Id id, Step::SPFDat
 IfcParameterizedProfileDef::~IfcParameterizedProfileDef() {
 }
 
-bool IfcParameterizedProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcParameterizedProfileDef(this);
+bool IfcParameterizedProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcParameterizedProfileDef(this);
 }
 
-const std::string &IfcParameterizedProfileDef::type() {
+const std::string &IfcParameterizedProfileDef::type() const {
     return IfcParameterizedProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcParameterizedProfileDef::getClassType() {
+const Step::ClassType &IfcParameterizedProfileDef::getClassType() {
     return IfcParameterizedProfileDef::s_type;
 }
 
-Step::ClassType IfcParameterizedProfileDef::getType() const {
+const Step::ClassType &IfcParameterizedProfileDef::getType() const {
     return IfcParameterizedProfileDef::s_type;
 }
 
-bool IfcParameterizedProfileDef::isOfType(Step::ClassType t) {
+bool IfcParameterizedProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcParameterizedProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() {
     }
 }
 
-void IfcParameterizedProfileDef::setPosition(const Step::RefPtr< IfcAxis2Placement2D > &value) {
-    m_position = value;
+const IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() const {
+    IfcParameterizedProfileDef * deConstObject = const_cast< IfcParameterizedProfileDef * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcParameterizedProfileDef::release() {
-    IfcProfileDef::release();
-    m_position.release();
+void IfcParameterizedProfileDef::setPosition(const Step::RefPtr< IfcAxis2Placement2D > &value) {
+    m_position = value;
 }
 
 bool IfcParameterizedProfileDef::init() {
@@ -99,14 +99,14 @@ bool IfcParameterizedProfileDef::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement2D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcParameterizedProfileDef::copy(const IfcParameterizedProfileDef &obj, const CopyOp &copyop) {
     IfcProfileDef::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
+    setPosition((IfcAxis2Placement2D*)copyop(obj.m_position.get()));
     return;
 }
 

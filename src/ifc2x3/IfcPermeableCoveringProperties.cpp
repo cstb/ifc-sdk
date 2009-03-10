@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcPermeableCoveringProperties::IfcPermeableCoveringProperties(Step::Id id, Step
 IfcPermeableCoveringProperties::~IfcPermeableCoveringProperties() {
 }
 
-bool IfcPermeableCoveringProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPermeableCoveringProperties(this);
+bool IfcPermeableCoveringProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPermeableCoveringProperties(this);
 }
 
-const std::string &IfcPermeableCoveringProperties::type() {
+const std::string &IfcPermeableCoveringProperties::type() const {
     return IfcPermeableCoveringProperties::s_type.getName();
 }
 
-Step::ClassType IfcPermeableCoveringProperties::getClassType() {
+const Step::ClassType &IfcPermeableCoveringProperties::getClassType() {
     return IfcPermeableCoveringProperties::s_type;
 }
 
-Step::ClassType IfcPermeableCoveringProperties::getType() const {
+const Step::ClassType &IfcPermeableCoveringProperties::getType() const {
     return IfcPermeableCoveringProperties::s_type;
 }
 
-bool IfcPermeableCoveringProperties::isOfType(Step::ClassType t) {
+bool IfcPermeableCoveringProperties::isOfType(const Step::ClassType &t) const {
     return IfcPermeableCoveringProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationTy
     else {
         return IfcPermeableCoveringOperationEnum_UNSET;
     }
+}
+
+const IfcPermeableCoveringOperationEnum IfcPermeableCoveringProperties::getOperationType() const {
+    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
+    return deConstObject->getOperationType();
 }
 
 void IfcPermeableCoveringProperties::setOperationType(IfcPermeableCoveringOperationEnum value) {
@@ -96,6 +101,11 @@ IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition() {
     }
 }
 
+const IfcWindowPanelPositionEnum IfcPermeableCoveringProperties::getPanelPosition() const {
+    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
+    return deConstObject->getPanelPosition();
+}
+
 void IfcPermeableCoveringProperties::setPanelPosition(IfcWindowPanelPositionEnum value) {
     m_panelPosition = value;
 }
@@ -107,6 +117,11 @@ IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth() {
     else {
         return Step::getUnset(m_frameDepth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameDepth() const {
+    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
+    return deConstObject->getFrameDepth();
 }
 
 void IfcPermeableCoveringProperties::setFrameDepth(IfcPositiveLengthMeasure value) {
@@ -122,6 +137,11 @@ IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcPermeableCoveringProperties::getFrameThickness() const {
+    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
+    return deConstObject->getFrameThickness();
+}
+
 void IfcPermeableCoveringProperties::setFrameThickness(IfcPositiveLengthMeasure value) {
     m_frameThickness = value;
 }
@@ -135,13 +155,13 @@ IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle() {
     }
 }
 
-void IfcPermeableCoveringProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+const IfcShapeAspect *IfcPermeableCoveringProperties::getShapeAspectStyle() const {
+    IfcPermeableCoveringProperties * deConstObject = const_cast< IfcPermeableCoveringProperties * > (this);
+    return deConstObject->getShapeAspectStyle();
 }
 
-void IfcPermeableCoveringProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_shapeAspectStyle.release();
+void IfcPermeableCoveringProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
+    m_shapeAspectStyle = value;
 }
 
 bool IfcPermeableCoveringProperties::init() {
@@ -214,7 +234,7 @@ bool IfcPermeableCoveringProperties::init() {
         m_shapeAspectStyle = NULL;
     }
     else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -225,7 +245,7 @@ void IfcPermeableCoveringProperties::copy(const IfcPermeableCoveringProperties &
     setPanelPosition(obj.m_panelPosition);
     setFrameDepth(obj.m_frameDepth);
     setFrameThickness(obj.m_frameThickness);
-    setShapeAspectStyle(copyop(obj.m_shapeAspectStyle.get()));
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
     return;
 }
 

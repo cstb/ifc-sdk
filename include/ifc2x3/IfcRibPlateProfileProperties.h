@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,72 +44,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRibPlateProfileProperties : public IfcProfileProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Thickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getThickness();
+        virtual IfcPositiveLengthMeasure getThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'Thickness'.
+         * 
+         * @return the value of the explicit attribute 'Thickness'
+         */
+        virtual const IfcPositiveLengthMeasure getThickness() const;
         /**
          * Sets the value of the explicit attribute 'Thickness'.
          * 
          * @param value
          */
-        void setThickness(IfcPositiveLengthMeasure value);
+        virtual void setThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RibHeight'.
+         * 
          */
-        IfcPositiveLengthMeasure getRibHeight();
+        virtual IfcPositiveLengthMeasure getRibHeight();
+        /**
+         * (const) Returns the value of the explicit attribute 'RibHeight'.
+         * 
+         * @return the value of the explicit attribute 'RibHeight'
+         */
+        virtual const IfcPositiveLengthMeasure getRibHeight() const;
         /**
          * Sets the value of the explicit attribute 'RibHeight'.
          * 
          * @param value
          */
-        void setRibHeight(IfcPositiveLengthMeasure value);
+        virtual void setRibHeight(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RibWidth'.
+         * 
          */
-        IfcPositiveLengthMeasure getRibWidth();
+        virtual IfcPositiveLengthMeasure getRibWidth();
+        /**
+         * (const) Returns the value of the explicit attribute 'RibWidth'.
+         * 
+         * @return the value of the explicit attribute 'RibWidth'
+         */
+        virtual const IfcPositiveLengthMeasure getRibWidth() const;
         /**
          * Sets the value of the explicit attribute 'RibWidth'.
          * 
          * @param value
          */
-        void setRibWidth(IfcPositiveLengthMeasure value);
+        virtual void setRibWidth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RibSpacing'.
+         * 
          */
-        IfcPositiveLengthMeasure getRibSpacing();
+        virtual IfcPositiveLengthMeasure getRibSpacing();
+        /**
+         * (const) Returns the value of the explicit attribute 'RibSpacing'.
+         * 
+         * @return the value of the explicit attribute 'RibSpacing'
+         */
+        virtual const IfcPositiveLengthMeasure getRibSpacing() const;
         /**
          * Sets the value of the explicit attribute 'RibSpacing'.
          * 
          * @param value
          */
-        void setRibSpacing(IfcPositiveLengthMeasure value);
+        virtual void setRibSpacing(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Direction'.
+         * 
          */
-        IfcRibPlateDirectionEnum getDirection();
+        virtual IfcRibPlateDirectionEnum getDirection();
+        /**
+         * (const) Returns the value of the explicit attribute 'Direction'.
+         * 
+         * @return the value of the explicit attribute 'Direction'
+         */
+        virtual const IfcRibPlateDirectionEnum getDirection() const;
         /**
          * Sets the value of the explicit attribute 'Direction'.
          * 
          * @param value
          */
-        void setDirection(IfcRibPlateDirectionEnum value);
-        /**
-         */
-        virtual void release();
+        virtual void setDirection(IfcRibPlateDirectionEnum value);
         friend class ExpressDataSet;
 
     protected:

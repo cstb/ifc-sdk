@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,27 +53,27 @@ IfcSurfaceTexture::IfcSurfaceTexture(Step::Id id, Step::SPFData *args) : Step::B
 IfcSurfaceTexture::~IfcSurfaceTexture() {
 }
 
-bool IfcSurfaceTexture::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceTexture(this);
+bool IfcSurfaceTexture::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceTexture(this);
 }
 
-const std::string &IfcSurfaceTexture::type() {
+const std::string &IfcSurfaceTexture::type() const {
     return IfcSurfaceTexture::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceTexture::getClassType() {
+const Step::ClassType &IfcSurfaceTexture::getClassType() {
     return IfcSurfaceTexture::s_type;
 }
 
-Step::ClassType IfcSurfaceTexture::getType() const {
+const Step::ClassType &IfcSurfaceTexture::getType() const {
     return IfcSurfaceTexture::s_type;
 }
 
-bool IfcSurfaceTexture::isOfType(Step::ClassType t) {
+bool IfcSurfaceTexture::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceTexture::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Bool IfcSurfaceTexture::getRepeatS() {
+Step::Boolean IfcSurfaceTexture::getRepeatS() {
     if (Step::BaseObject::inited()) {
         return m_repeatS;
     }
@@ -82,11 +82,16 @@ Step::Bool IfcSurfaceTexture::getRepeatS() {
     }
 }
 
-void IfcSurfaceTexture::setRepeatS(Step::Bool value) {
+const Step::Boolean IfcSurfaceTexture::getRepeatS() const {
+    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
+    return deConstObject->getRepeatS();
+}
+
+void IfcSurfaceTexture::setRepeatS(Step::Boolean value) {
     m_repeatS = value;
 }
 
-Step::Bool IfcSurfaceTexture::getRepeatT() {
+Step::Boolean IfcSurfaceTexture::getRepeatT() {
     if (Step::BaseObject::inited()) {
         return m_repeatT;
     }
@@ -95,7 +100,12 @@ Step::Bool IfcSurfaceTexture::getRepeatT() {
     }
 }
 
-void IfcSurfaceTexture::setRepeatT(Step::Bool value) {
+const Step::Boolean IfcSurfaceTexture::getRepeatT() const {
+    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
+    return deConstObject->getRepeatT();
+}
+
+void IfcSurfaceTexture::setRepeatT(Step::Boolean value) {
     m_repeatT = value;
 }
 
@@ -106,6 +116,11 @@ IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() {
     else {
         return IfcSurfaceTextureEnum_UNSET;
     }
+}
+
+const IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() const {
+    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
+    return deConstObject->getTextureType();
 }
 
 void IfcSurfaceTexture::setTextureType(IfcSurfaceTextureEnum value) {
@@ -121,12 +136,13 @@ IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() {
     }
 }
 
-void IfcSurfaceTexture::setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
-    m_textureTransform = value;
+const IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() const {
+    IfcSurfaceTexture * deConstObject = const_cast< IfcSurfaceTexture * > (this);
+    return deConstObject->getTextureTransform();
 }
 
-void IfcSurfaceTexture::release() {
-    m_textureTransform.release();
+void IfcSurfaceTexture::setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
+    m_textureTransform = value;
 }
 
 bool IfcSurfaceTexture::init() {
@@ -136,14 +152,14 @@ bool IfcSurfaceTexture::init() {
         m_repeatS = Step::getUnset(m_repeatS);
     }
     else {
-        m_repeatS = Step::spfToBool(arg);
+        m_repeatS = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_repeatT = Step::getUnset(m_repeatT);
     }
     else {
-        m_repeatT = Step::spfToBool(arg);
+        m_repeatT = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -183,7 +199,7 @@ bool IfcSurfaceTexture::init() {
         m_textureTransform = NULL;
     }
     else {
-        m_textureTransform = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_textureTransform = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -193,7 +209,7 @@ void IfcSurfaceTexture::copy(const IfcSurfaceTexture &obj, const CopyOp &copyop)
     setRepeatS(obj.m_repeatS);
     setRepeatT(obj.m_repeatT);
     setTextureType(obj.m_textureType);
-    setTextureTransform(copyop(obj.m_textureTransform.get()));
+    setTextureTransform((IfcCartesianTransformationOperator2D*)copyop(obj.m_textureTransform.get()));
     return;
 }
 

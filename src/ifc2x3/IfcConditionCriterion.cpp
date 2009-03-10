@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,23 +52,23 @@ IfcConditionCriterion::IfcConditionCriterion(Step::Id id, Step::SPFData *args) :
 IfcConditionCriterion::~IfcConditionCriterion() {
 }
 
-bool IfcConditionCriterion::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConditionCriterion(this);
+bool IfcConditionCriterion::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConditionCriterion(this);
 }
 
-const std::string &IfcConditionCriterion::type() {
+const std::string &IfcConditionCriterion::type() const {
     return IfcConditionCriterion::s_type.getName();
 }
 
-Step::ClassType IfcConditionCriterion::getClassType() {
+const Step::ClassType &IfcConditionCriterion::getClassType() {
     return IfcConditionCriterion::s_type;
 }
 
-Step::ClassType IfcConditionCriterion::getType() const {
+const Step::ClassType &IfcConditionCriterion::getType() const {
     return IfcConditionCriterion::s_type;
 }
 
-bool IfcConditionCriterion::isOfType(Step::ClassType t) {
+bool IfcConditionCriterion::isOfType(const Step::ClassType &t) const {
     return IfcConditionCriterion::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcConditionCriterionSelect *IfcConditionCriterion::getCriterion() {
     else {
         return NULL;
     }
+}
+
+const IfcConditionCriterionSelect *IfcConditionCriterion::getCriterion() const {
+    IfcConditionCriterion * deConstObject = const_cast< IfcConditionCriterion * > (this);
+    return deConstObject->getCriterion();
 }
 
 void IfcConditionCriterion::setCriterion(const Step::RefPtr< IfcConditionCriterionSelect > &value) {
@@ -93,12 +99,13 @@ IfcDateTimeSelect *IfcConditionCriterion::getCriterionDateTime() {
     }
 }
 
-void IfcConditionCriterion::setCriterionDateTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
-    m_criterionDateTime = value;
+const IfcDateTimeSelect *IfcConditionCriterion::getCriterionDateTime() const {
+    IfcConditionCriterion * deConstObject = const_cast< IfcConditionCriterion * > (this);
+    return deConstObject->getCriterionDateTime();
 }
 
-void IfcConditionCriterion::release() {
-    IfcControl::release();
+void IfcConditionCriterion::setCriterionDateTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
+    m_criterionDateTime = value;
 }
 
 bool IfcConditionCriterion::init() {
@@ -124,8 +131,8 @@ bool IfcConditionCriterion::init() {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
                 if (type1 == "IFCLABEL") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_criterion->setIfcLabel(tmp_attr1);
                 }
             }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcEnergyConversionDevice::IfcEnergyConversionDevice(Step::Id id, Step::SPFData 
 IfcEnergyConversionDevice::~IfcEnergyConversionDevice() {
 }
 
-bool IfcEnergyConversionDevice::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEnergyConversionDevice(this);
+bool IfcEnergyConversionDevice::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEnergyConversionDevice(this);
 }
 
-const std::string &IfcEnergyConversionDevice::type() {
+const std::string &IfcEnergyConversionDevice::type() const {
     return IfcEnergyConversionDevice::s_type.getName();
 }
 
-Step::ClassType IfcEnergyConversionDevice::getClassType() {
+const Step::ClassType &IfcEnergyConversionDevice::getClassType() {
     return IfcEnergyConversionDevice::s_type;
 }
 
-Step::ClassType IfcEnergyConversionDevice::getType() const {
+const Step::ClassType &IfcEnergyConversionDevice::getType() const {
     return IfcEnergyConversionDevice::s_type;
 }
 
-bool IfcEnergyConversionDevice::isOfType(Step::ClassType t) {
+bool IfcEnergyConversionDevice::isOfType(const Step::ClassType &t) const {
     return IfcEnergyConversionDevice::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcEnergyConversionDevice::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcEnergyConversionDevice::init() {

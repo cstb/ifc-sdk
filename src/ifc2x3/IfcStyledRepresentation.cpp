@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStyledRepresentation::IfcStyledRepresentation(Step::Id id, Step::SPFData *arg
 IfcStyledRepresentation::~IfcStyledRepresentation() {
 }
 
-bool IfcStyledRepresentation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStyledRepresentation(this);
+bool IfcStyledRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStyledRepresentation(this);
 }
 
-const std::string &IfcStyledRepresentation::type() {
+const std::string &IfcStyledRepresentation::type() const {
     return IfcStyledRepresentation::s_type.getName();
 }
 
-Step::ClassType IfcStyledRepresentation::getClassType() {
+const Step::ClassType &IfcStyledRepresentation::getClassType() {
     return IfcStyledRepresentation::s_type;
 }
 
-Step::ClassType IfcStyledRepresentation::getType() const {
+const Step::ClassType &IfcStyledRepresentation::getType() const {
     return IfcStyledRepresentation::s_type;
 }
 
-bool IfcStyledRepresentation::isOfType(Step::ClassType t) {
+bool IfcStyledRepresentation::isOfType(const Step::ClassType &t) const {
     return IfcStyledRepresentation::s_type == t ? true : IfcStyleModel::isOfType(t);
-}
-
-void IfcStyledRepresentation::release() {
-    IfcStyleModel::release();
 }
 
 bool IfcStyledRepresentation::init() {

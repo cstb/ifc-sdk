@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -59,23 +60,23 @@ IfcSpaceThermalLoadProperties::IfcSpaceThermalLoadProperties(Step::Id id, Step::
 IfcSpaceThermalLoadProperties::~IfcSpaceThermalLoadProperties() {
 }
 
-bool IfcSpaceThermalLoadProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpaceThermalLoadProperties(this);
+bool IfcSpaceThermalLoadProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpaceThermalLoadProperties(this);
 }
 
-const std::string &IfcSpaceThermalLoadProperties::type() {
+const std::string &IfcSpaceThermalLoadProperties::type() const {
     return IfcSpaceThermalLoadProperties::s_type.getName();
 }
 
-Step::ClassType IfcSpaceThermalLoadProperties::getClassType() {
+const Step::ClassType &IfcSpaceThermalLoadProperties::getClassType() {
     return IfcSpaceThermalLoadProperties::s_type;
 }
 
-Step::ClassType IfcSpaceThermalLoadProperties::getType() const {
+const Step::ClassType &IfcSpaceThermalLoadProperties::getType() const {
     return IfcSpaceThermalLoadProperties::s_type;
 }
 
-bool IfcSpaceThermalLoadProperties::isOfType(Step::ClassType t) {
+bool IfcSpaceThermalLoadProperties::isOfType(const Step::ClassType &t) const {
     return IfcSpaceThermalLoadProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -86,6 +87,11 @@ IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio()
     else {
         return Step::getUnset(m_applicableValueRatio);
     }
+}
+
+const IfcPositiveRatioMeasure IfcSpaceThermalLoadProperties::getApplicableValueRatio() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getApplicableValueRatio();
 }
 
 void IfcSpaceThermalLoadProperties::setApplicableValueRatio(IfcPositiveRatioMeasure value) {
@@ -101,6 +107,11 @@ IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource() {
     }
 }
 
+const IfcThermalLoadSourceEnum IfcSpaceThermalLoadProperties::getThermalLoadSource() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getThermalLoadSource();
+}
+
 void IfcSpaceThermalLoadProperties::setThermalLoadSource(IfcThermalLoadSourceEnum value) {
     m_thermalLoadSource = value;
 }
@@ -112,6 +123,11 @@ IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource() {
     else {
         return IfcPropertySourceEnum_UNSET;
     }
+}
+
+const IfcPropertySourceEnum IfcSpaceThermalLoadProperties::getPropertySource() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getPropertySource();
 }
 
 void IfcSpaceThermalLoadProperties::setPropertySource(IfcPropertySourceEnum value) {
@@ -127,6 +143,11 @@ IfcText IfcSpaceThermalLoadProperties::getSourceDescription() {
     }
 }
 
+const IfcText IfcSpaceThermalLoadProperties::getSourceDescription() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getSourceDescription();
+}
+
 void IfcSpaceThermalLoadProperties::setSourceDescription(const IfcText &value) {
     m_sourceDescription = value;
 }
@@ -138,6 +159,11 @@ IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue() {
     else {
         return Step::getUnset(m_maximumValue);
     }
+}
+
+const IfcPowerMeasure IfcSpaceThermalLoadProperties::getMaximumValue() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getMaximumValue();
 }
 
 void IfcSpaceThermalLoadProperties::setMaximumValue(IfcPowerMeasure value) {
@@ -153,6 +179,11 @@ IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue() {
     }
 }
 
+const IfcPowerMeasure IfcSpaceThermalLoadProperties::getMinimumValue() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getMinimumValue();
+}
+
 void IfcSpaceThermalLoadProperties::setMinimumValue(IfcPowerMeasure value) {
     m_minimumValue = value;
 }
@@ -164,6 +195,11 @@ IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() {
     else {
         return NULL;
     }
+}
+
+const IfcTimeSeries *IfcSpaceThermalLoadProperties::getThermalLoadTimeSeriesValues() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getThermalLoadTimeSeriesValues();
 }
 
 void IfcSpaceThermalLoadProperties::setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value) {
@@ -179,6 +215,11 @@ IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource() {
     }
 }
 
+const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedThermalLoadSource() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getUserDefinedThermalLoadSource();
+}
+
 void IfcSpaceThermalLoadProperties::setUserDefinedThermalLoadSource(const IfcLabel &value) {
     m_userDefinedThermalLoadSource = value;
 }
@@ -190,6 +231,11 @@ IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource() {
     else {
         return Step::getUnset(m_userDefinedPropertySource);
     }
+}
+
+const IfcLabel IfcSpaceThermalLoadProperties::getUserDefinedPropertySource() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getUserDefinedPropertySource();
 }
 
 void IfcSpaceThermalLoadProperties::setUserDefinedPropertySource(const IfcLabel &value) {
@@ -205,13 +251,13 @@ IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType() {
     }
 }
 
-void IfcSpaceThermalLoadProperties::setThermalLoadType(IfcThermalLoadTypeEnum value) {
-    m_thermalLoadType = value;
+const IfcThermalLoadTypeEnum IfcSpaceThermalLoadProperties::getThermalLoadType() const {
+    IfcSpaceThermalLoadProperties * deConstObject = const_cast< IfcSpaceThermalLoadProperties * > (this);
+    return deConstObject->getThermalLoadType();
 }
 
-void IfcSpaceThermalLoadProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_thermalLoadTimeSeriesValues.release();
+void IfcSpaceThermalLoadProperties::setThermalLoadType(IfcThermalLoadTypeEnum value) {
+    m_thermalLoadType = value;
 }
 
 bool IfcSpaceThermalLoadProperties::init() {
@@ -310,7 +356,7 @@ bool IfcSpaceThermalLoadProperties::init() {
         m_sourceDescription = Step::getUnset(m_sourceDescription);
     }
     else {
-        m_sourceDescription = Step::spfToString(arg);
+        m_sourceDescription = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -331,21 +377,21 @@ bool IfcSpaceThermalLoadProperties::init() {
         m_thermalLoadTimeSeriesValues = NULL;
     }
     else {
-        m_thermalLoadTimeSeriesValues = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_thermalLoadTimeSeriesValues = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_userDefinedThermalLoadSource = Step::getUnset(m_userDefinedThermalLoadSource);
     }
     else {
-        m_userDefinedThermalLoadSource = Step::spfToString(arg);
+        m_userDefinedThermalLoadSource = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
     }
     else {
-        m_userDefinedPropertySource = Step::spfToString(arg);
+        m_userDefinedPropertySource = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -376,7 +422,7 @@ void IfcSpaceThermalLoadProperties::copy(const IfcSpaceThermalLoadProperties &ob
     setSourceDescription(obj.m_sourceDescription);
     setMaximumValue(obj.m_maximumValue);
     setMinimumValue(obj.m_minimumValue);
-    setThermalLoadTimeSeriesValues(copyop(obj.m_thermalLoadTimeSeriesValues.get()));
+    setThermalLoadTimeSeriesValues((IfcTimeSeries*)copyop(obj.m_thermalLoadTimeSeriesValues.get()));
     setUserDefinedThermalLoadSource(obj.m_userDefinedThermalLoadSource);
     setUserDefinedPropertySource(obj.m_userDefinedPropertySource);
     setThermalLoadType(obj.m_thermalLoadType);

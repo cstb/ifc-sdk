@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,90 +46,156 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRectangularTrimmedSurface : public IfcBoundedSurface {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'BasisSurface'.
+         * 
          */
-        IfcSurface *getBasisSurface();
+        virtual IfcSurface *getBasisSurface();
+        /**
+         * (const) Returns the value of the explicit attribute 'BasisSurface'.
+         * 
+         * @return the value of the explicit attribute 'BasisSurface'
+         */
+        virtual const IfcSurface *getBasisSurface() const;
         /**
          * Sets the value of the explicit attribute 'BasisSurface'.
          * 
          * @param value
          */
-        void setBasisSurface(const Step::RefPtr< IfcSurface > &value);
+        virtual void setBasisSurface(const Step::RefPtr< IfcSurface > &value);
         /**
+         * Gets the value of the explicit attribute 'U1'.
+         * 
          */
-        IfcParameterValue getU1();
+        virtual IfcParameterValue getU1();
+        /**
+         * (const) Returns the value of the explicit attribute 'U1'.
+         * 
+         * @return the value of the explicit attribute 'U1'
+         */
+        virtual const IfcParameterValue getU1() const;
         /**
          * Sets the value of the explicit attribute 'U1'.
          * 
          * @param value
          */
-        void setU1(IfcParameterValue value);
+        virtual void setU1(IfcParameterValue value);
         /**
+         * Gets the value of the explicit attribute 'V1'.
+         * 
          */
-        IfcParameterValue getV1();
+        virtual IfcParameterValue getV1();
+        /**
+         * (const) Returns the value of the explicit attribute 'V1'.
+         * 
+         * @return the value of the explicit attribute 'V1'
+         */
+        virtual const IfcParameterValue getV1() const;
         /**
          * Sets the value of the explicit attribute 'V1'.
          * 
          * @param value
          */
-        void setV1(IfcParameterValue value);
+        virtual void setV1(IfcParameterValue value);
         /**
+         * Gets the value of the explicit attribute 'U2'.
+         * 
          */
-        IfcParameterValue getU2();
+        virtual IfcParameterValue getU2();
+        /**
+         * (const) Returns the value of the explicit attribute 'U2'.
+         * 
+         * @return the value of the explicit attribute 'U2'
+         */
+        virtual const IfcParameterValue getU2() const;
         /**
          * Sets the value of the explicit attribute 'U2'.
          * 
          * @param value
          */
-        void setU2(IfcParameterValue value);
+        virtual void setU2(IfcParameterValue value);
         /**
+         * Gets the value of the explicit attribute 'V2'.
+         * 
          */
-        IfcParameterValue getV2();
+        virtual IfcParameterValue getV2();
+        /**
+         * (const) Returns the value of the explicit attribute 'V2'.
+         * 
+         * @return the value of the explicit attribute 'V2'
+         */
+        virtual const IfcParameterValue getV2() const;
         /**
          * Sets the value of the explicit attribute 'V2'.
          * 
          * @param value
          */
-        void setV2(IfcParameterValue value);
+        virtual void setV2(IfcParameterValue value);
         /**
+         * Gets the value of the explicit attribute 'Usense'.
+         * 
          */
-        Step::Bool getUsense();
+        virtual Step::Boolean getUsense();
+        /**
+         * (const) Returns the value of the explicit attribute 'Usense'.
+         * 
+         * @return the value of the explicit attribute 'Usense'
+         */
+        virtual const Step::Boolean getUsense() const;
         /**
          * Sets the value of the explicit attribute 'Usense'.
          * 
          * @param value
          */
-        void setUsense(Step::Bool value);
+        virtual void setUsense(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'Vsense'.
+         * 
          */
-        Step::Bool getVsense();
+        virtual Step::Boolean getVsense();
+        /**
+         * (const) Returns the value of the explicit attribute 'Vsense'.
+         * 
+         * @return the value of the explicit attribute 'Vsense'
+         */
+        virtual const Step::Boolean getVsense() const;
         /**
          * Sets the value of the explicit attribute 'Vsense'.
          * 
          * @param value
          */
-        void setVsense(Step::Bool value);
+        virtual void setVsense(Step::Boolean value);
         /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
          */
-        virtual void release();
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:
@@ -169,10 +235,10 @@ namespace ifc2x3 {
         Step::Real m_v2;
         /**
          */
-        Step::Bool m_usense;
+        Step::Boolean m_usense;
         /**
          */
-        Step::Bool m_vsense;
+        Step::Boolean m_vsense;
 
     };
 

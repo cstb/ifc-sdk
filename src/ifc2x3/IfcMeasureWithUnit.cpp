@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,12 +30,12 @@
 #include "ifc2x3/IfcUnit.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +53,23 @@ IfcMeasureWithUnit::IfcMeasureWithUnit(Step::Id id, Step::SPFData *args) : Step:
 IfcMeasureWithUnit::~IfcMeasureWithUnit() {
 }
 
-bool IfcMeasureWithUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMeasureWithUnit(this);
+bool IfcMeasureWithUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMeasureWithUnit(this);
 }
 
-const std::string &IfcMeasureWithUnit::type() {
+const std::string &IfcMeasureWithUnit::type() const {
     return IfcMeasureWithUnit::s_type.getName();
 }
 
-Step::ClassType IfcMeasureWithUnit::getClassType() {
+const Step::ClassType &IfcMeasureWithUnit::getClassType() {
     return IfcMeasureWithUnit::s_type;
 }
 
-Step::ClassType IfcMeasureWithUnit::getType() const {
+const Step::ClassType &IfcMeasureWithUnit::getType() const {
     return IfcMeasureWithUnit::s_type;
 }
 
-bool IfcMeasureWithUnit::isOfType(Step::ClassType t) {
+bool IfcMeasureWithUnit::isOfType(const Step::ClassType &t) const {
     return IfcMeasureWithUnit::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcValue *IfcMeasureWithUnit::getValueComponent() {
     else {
         return NULL;
     }
+}
+
+const IfcValue *IfcMeasureWithUnit::getValueComponent() const {
+    IfcMeasureWithUnit * deConstObject = const_cast< IfcMeasureWithUnit * > (this);
+    return deConstObject->getValueComponent();
 }
 
 void IfcMeasureWithUnit::setValueComponent(const Step::RefPtr< IfcValue > &value) {
@@ -95,11 +100,13 @@ IfcUnit *IfcMeasureWithUnit::getUnitComponent() {
     }
 }
 
-void IfcMeasureWithUnit::setUnitComponent(const Step::RefPtr< IfcUnit > &value) {
-    m_unitComponent = value;
+const IfcUnit *IfcMeasureWithUnit::getUnitComponent() const {
+    IfcMeasureWithUnit * deConstObject = const_cast< IfcMeasureWithUnit * > (this);
+    return deConstObject->getUnitComponent();
 }
 
-void IfcMeasureWithUnit::release() {
+void IfcMeasureWithUnit::setUnitComponent(const Step::RefPtr< IfcUnit > &value) {
+    m_unitComponent = value;
 }
 
 bool IfcMeasureWithUnit::init() {
@@ -166,7 +173,7 @@ bool IfcMeasureWithUnit::init() {
                     m_valueComponent->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_valueComponent->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -191,12 +198,12 @@ bool IfcMeasureWithUnit::init() {
                     m_valueComponent->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_valueComponent->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_valueComponent->setIfcCountMeasure(tmp_attr1);
                 }
@@ -226,7 +233,8 @@ bool IfcMeasureWithUnit::init() {
                     m_valueComponent->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -234,7 +242,7 @@ bool IfcMeasureWithUnit::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -253,23 +261,23 @@ bool IfcMeasureWithUnit::init() {
                     m_valueComponent->setIfcReal(tmp_attr1);
                 }
                 if (type1 == "IFCBOOLEAN") {
-                    Step::Bool tmp_attr1;
-                    tmp_attr1 = Step::spfToBool(arg);
+                    Step::Boolean tmp_attr1;
+                    tmp_attr1 = Step::spfToBoolean(arg);
                     m_valueComponent->setIfcBoolean(tmp_attr1);
                 }
                 if (type1 == "IFCIDENTIFIER") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_valueComponent->setIfcIdentifier(tmp_attr1);
                 }
                 if (type1 == "IFCTEXT") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_valueComponent->setIfcText(tmp_attr1);
                 }
                 if (type1 == "IFCLABEL") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_valueComponent->setIfcLabel(tmp_attr1);
                 }
                 if (type1 == "IFCLOGICAL") {
@@ -363,7 +371,7 @@ bool IfcMeasureWithUnit::init() {
                     m_valueComponent->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;

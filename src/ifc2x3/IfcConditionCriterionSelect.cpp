@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,27 +48,27 @@ IfcConditionCriterionSelect::~IfcConditionCriterionSelect() {
     deleteUnion();
 }
 
-bool IfcConditionCriterionSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConditionCriterionSelect(this);
+bool IfcConditionCriterionSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConditionCriterionSelect(this);
 }
 
 bool IfcConditionCriterionSelect::init() {
     return false;
 }
 
-const std::string &IfcConditionCriterionSelect::type() {
+const std::string &IfcConditionCriterionSelect::type() const {
     return IfcConditionCriterionSelect::s_type.getName();
 }
 
-Step::ClassType IfcConditionCriterionSelect::getClassType() {
+const Step::ClassType &IfcConditionCriterionSelect::getClassType() {
     return IfcConditionCriterionSelect::s_type;
 }
 
-Step::ClassType IfcConditionCriterionSelect::getType() const {
+const Step::ClassType &IfcConditionCriterionSelect::getType() const {
     return IfcConditionCriterionSelect::s_type;
 }
 
-bool IfcConditionCriterionSelect::isOfType(Step::ClassType t) {
+bool IfcConditionCriterionSelect::isOfType(const Step::ClassType &t) const {
     return IfcConditionCriterionSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,12 +78,12 @@ void IfcConditionCriterionSelect::copy(const IfcConditionCriterionSelect &obj, c
         setIfcLabel(*obj.m_IfcConditionCriterionSelect_union.m_IfcLabel);
         break;
     case IFCMEASUREWITHUNIT:
-        setIfcMeasureWithUnit(copyop(obj.m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit));
+        setIfcMeasureWithUnit((IfcMeasureWithUnit *) (copyop(obj.m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit)));
         break;
         }
 }
 
-char *IfcConditionCriterionSelect::currentTypeName() {
+std::string IfcConditionCriterionSelect::currentTypeName() const {
     switch(m_type) {
     case IFCLABEL:
         return "IfcLabel";
@@ -96,7 +96,7 @@ char *IfcConditionCriterionSelect::currentTypeName() {
     }
 }
 
-IfcConditionCriterionSelect::IfcConditionCriterionSelect_select IfcConditionCriterionSelect::currentType() {
+IfcConditionCriterionSelect::IfcConditionCriterionSelect_select IfcConditionCriterionSelect::currentType() const {
     return m_type;
 }
 
@@ -112,22 +112,30 @@ void IfcConditionCriterionSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcLabel IfcConditionCriterionSelect::getIfcLabel() {
-    return *m_IfcConditionCriterionSelect_union.m_IfcLabel;
+IfcLabel IfcConditionCriterionSelect::getIfcLabel() const {
+    if (m_type == IFCLABEL) {
+        return *m_IfcConditionCriterionSelect_union.m_IfcLabel;
+    }
+    else {
+        return Step::getUnset(*m_IfcConditionCriterionSelect_union.m_IfcLabel);
+    }
 }
 
 void IfcConditionCriterionSelect::setIfcLabel(const IfcLabel &value) {
-    deleteUnion();
     m_IfcConditionCriterionSelect_union.m_IfcLabel = new IfcLabel(value);
     m_type = IFCLABEL;
 }
 
-IfcMeasureWithUnit *IfcConditionCriterionSelect::getIfcMeasureWithUnit() {
-    return m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit;
+IfcMeasureWithUnit *IfcConditionCriterionSelect::getIfcMeasureWithUnit() const {
+    if (m_type == IFCMEASUREWITHUNIT) {
+        return m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcConditionCriterionSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

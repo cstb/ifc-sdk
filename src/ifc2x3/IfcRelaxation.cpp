@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcRelaxation::IfcRelaxation(Step::Id id, Step::SPFData *args) : Step::BaseEntit
 IfcRelaxation::~IfcRelaxation() {
 }
 
-bool IfcRelaxation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelaxation(this);
+bool IfcRelaxation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelaxation(this);
 }
 
-const std::string &IfcRelaxation::type() {
+const std::string &IfcRelaxation::type() const {
     return IfcRelaxation::s_type.getName();
 }
 
-Step::ClassType IfcRelaxation::getClassType() {
+const Step::ClassType &IfcRelaxation::getClassType() {
     return IfcRelaxation::s_type;
 }
 
-Step::ClassType IfcRelaxation::getType() const {
+const Step::ClassType &IfcRelaxation::getType() const {
     return IfcRelaxation::s_type;
 }
 
-bool IfcRelaxation::isOfType(Step::ClassType t) {
+bool IfcRelaxation::isOfType(const Step::ClassType &t) const {
     return IfcRelaxation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue() {
     else {
         return Step::getUnset(m_relaxationValue);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcRelaxation::getRelaxationValue() const {
+    IfcRelaxation * deConstObject = const_cast< IfcRelaxation * > (this);
+    return deConstObject->getRelaxationValue();
 }
 
 void IfcRelaxation::setRelaxationValue(IfcNormalisedRatioMeasure value) {
@@ -89,11 +94,13 @@ IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() {
     }
 }
 
-void IfcRelaxation::setInitialStress(IfcNormalisedRatioMeasure value) {
-    m_initialStress = value;
+const IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() const {
+    IfcRelaxation * deConstObject = const_cast< IfcRelaxation * > (this);
+    return deConstObject->getInitialStress();
 }
 
-void IfcRelaxation::release() {
+void IfcRelaxation::setInitialStress(IfcNormalisedRatioMeasure value) {
+    m_initialStress = value;
 }
 
 bool IfcRelaxation::init() {

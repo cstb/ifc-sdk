@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcSystem::IfcSystem(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
-    m_servicesBuildings.setUnset(true);
 }
 
 IfcSystem::~IfcSystem() {
 }
 
-bool IfcSystem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSystem(this);
+bool IfcSystem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSystem(this);
 }
 
-const std::string &IfcSystem::type() {
+const std::string &IfcSystem::type() const {
     return IfcSystem::s_type.getName();
 }
 
-Step::ClassType IfcSystem::getClassType() {
+const Step::ClassType &IfcSystem::getClassType() {
     return IfcSystem::s_type;
 }
 
-Step::ClassType IfcSystem::getType() const {
+const Step::ClassType &IfcSystem::getType() const {
     return IfcSystem::s_type;
 }
 
-bool IfcSystem::isOfType(Step::ClassType t) {
+bool IfcSystem::isOfType(const Step::ClassType &t) const {
     return IfcSystem::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > &IfcSystem::getServicesBuildings() {
+Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() {
     if (Step::BaseObject::inited()) {
         return m_servicesBuildings;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > &IfcSystem::getServicesBuil
     }
 }
 
-void IfcSystem::release() {
-    IfcGroup::release();
+const Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() const {
+    IfcSystem * deConstObject = const_cast< IfcSystem * > (this);
+    return deConstObject->getServicesBuildings();
 }
 
 bool IfcSystem::init() {

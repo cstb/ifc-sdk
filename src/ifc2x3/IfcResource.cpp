@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcResource::IfcResource(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
-    m_resourceOf.setUnset(true);
 }
 
 IfcResource::~IfcResource() {
 }
 
-bool IfcResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcResource(this);
+bool IfcResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcResource(this);
 }
 
-const std::string &IfcResource::type() {
+const std::string &IfcResource::type() const {
     return IfcResource::s_type.getName();
 }
 
-Step::ClassType IfcResource::getClassType() {
+const Step::ClassType &IfcResource::getClassType() {
     return IfcResource::s_type;
 }
 
-Step::ClassType IfcResource::getType() const {
+const Step::ClassType &IfcResource::getType() const {
     return IfcResource::s_type;
 }
 
-bool IfcResource::isOfType(Step::ClassType t) {
+bool IfcResource::isOfType(const Step::ClassType &t) const {
     return IfcResource::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssignsToResource > > &IfcResource::getResourceOf() {
+Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() {
     if (Step::BaseObject::inited()) {
         return m_resourceOf;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelAssignsToResource > > &IfcResource::getResourceOf
     }
 }
 
-void IfcResource::release() {
-    IfcObject::release();
+const Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() const {
+    IfcResource * deConstObject = const_cast< IfcResource * > (this);
+    return deConstObject->getResourceOf();
 }
 
 bool IfcResource::init() {

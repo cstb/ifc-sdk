@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcIrregularTimeSeries::IfcIrregularTimeSeries(Step::Id id, Step::SPFData *args) : IfcTimeSeries(id, args) {
-    m_values.setUnset(true);
 }
 
 IfcIrregularTimeSeries::~IfcIrregularTimeSeries() {
 }
 
-bool IfcIrregularTimeSeries::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcIrregularTimeSeries(this);
+bool IfcIrregularTimeSeries::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcIrregularTimeSeries(this);
 }
 
-const std::string &IfcIrregularTimeSeries::type() {
+const std::string &IfcIrregularTimeSeries::type() const {
     return IfcIrregularTimeSeries::s_type.getName();
 }
 
-Step::ClassType IfcIrregularTimeSeries::getClassType() {
+const Step::ClassType &IfcIrregularTimeSeries::getClassType() {
     return IfcIrregularTimeSeries::s_type;
 }
 
-Step::ClassType IfcIrregularTimeSeries::getType() const {
+const Step::ClassType &IfcIrregularTimeSeries::getType() const {
     return IfcIrregularTimeSeries::s_type;
 }
 
-bool IfcIrregularTimeSeries::isOfType(Step::ClassType t) {
+bool IfcIrregularTimeSeries::isOfType(const Step::ClassType &t) const {
     return IfcIrregularTimeSeries::s_type == t ? true : IfcTimeSeries::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > &IfcIrregularTimeSeries::getValues() {
+List_IfcIrregularTimeSeriesValue_1_n &IfcIrregularTimeSeries::getValues() {
     if (Step::BaseObject::inited()) {
         return m_values;
     }
@@ -81,13 +79,13 @@ Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > &IfcIrregularTimeSerie
     }
 }
 
-void IfcIrregularTimeSeries::setValues(const Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > &value) {
-    m_values = value;
+const List_IfcIrregularTimeSeriesValue_1_n &IfcIrregularTimeSeries::getValues() const {
+    IfcIrregularTimeSeries * deConstObject = const_cast< IfcIrregularTimeSeries * > (this);
+    return deConstObject->getValues();
 }
 
-void IfcIrregularTimeSeries::release() {
-    IfcTimeSeries::release();
-    m_values.clear();
+void IfcIrregularTimeSeries::setValues(const List_IfcIrregularTimeSeriesValue_1_n &value) {
+    m_values = value;
 }
 
 bool IfcIrregularTimeSeries::init() {
@@ -107,7 +105,7 @@ bool IfcIrregularTimeSeries::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcIrregularTimeSeriesValue > attr2;
-                attr2 = static_cast< IfcIrregularTimeSeriesValue * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcIrregularTimeSeriesValue * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_values.push_back(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcIrregularTimeSeries::init() {
 }
 
 void IfcIrregularTimeSeries::copy(const IfcIrregularTimeSeries &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > >::const_iterator it_m_values;
+    Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue >, 1 >::const_iterator it_m_values;
     IfcTimeSeries::copy(obj, copyop);
     for (it_m_values = obj.m_values.begin(); it_m_values != obj.m_values.end(); ++it_m_values) {
-        Step::RefPtr< IfcIrregularTimeSeriesValue > copyTarget = copyop((*it_m_values).get());
+        Step::RefPtr< IfcIrregularTimeSeriesValue > copyTarget = (IfcIrregularTimeSeriesValue *) (copyop((*it_m_values).get()));
         m_values.push_back(copyTarget.get());
     }
     return;

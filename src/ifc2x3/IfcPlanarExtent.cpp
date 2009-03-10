@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcPlanarExtent::IfcPlanarExtent(Step::Id id, Step::SPFData *args) : IfcGeometri
 IfcPlanarExtent::~IfcPlanarExtent() {
 }
 
-bool IfcPlanarExtent::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlanarExtent(this);
+bool IfcPlanarExtent::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlanarExtent(this);
 }
 
-const std::string &IfcPlanarExtent::type() {
+const std::string &IfcPlanarExtent::type() const {
     return IfcPlanarExtent::s_type.getName();
 }
 
-Step::ClassType IfcPlanarExtent::getClassType() {
+const Step::ClassType &IfcPlanarExtent::getClassType() {
     return IfcPlanarExtent::s_type;
 }
 
-Step::ClassType IfcPlanarExtent::getType() const {
+const Step::ClassType &IfcPlanarExtent::getType() const {
     return IfcPlanarExtent::s_type;
 }
 
-bool IfcPlanarExtent::isOfType(Step::ClassType t) {
+bool IfcPlanarExtent::isOfType(const Step::ClassType &t) const {
     return IfcPlanarExtent::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcLengthMeasure IfcPlanarExtent::getSizeInX() {
     else {
         return Step::getUnset(m_sizeInX);
     }
+}
+
+const IfcLengthMeasure IfcPlanarExtent::getSizeInX() const {
+    IfcPlanarExtent * deConstObject = const_cast< IfcPlanarExtent * > (this);
+    return deConstObject->getSizeInX();
 }
 
 void IfcPlanarExtent::setSizeInX(IfcLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcLengthMeasure IfcPlanarExtent::getSizeInY() {
     }
 }
 
-void IfcPlanarExtent::setSizeInY(IfcLengthMeasure value) {
-    m_sizeInY = value;
+const IfcLengthMeasure IfcPlanarExtent::getSizeInY() const {
+    IfcPlanarExtent * deConstObject = const_cast< IfcPlanarExtent * > (this);
+    return deConstObject->getSizeInY();
 }
 
-void IfcPlanarExtent::release() {
-    IfcGeometricRepresentationItem::release();
+void IfcPlanarExtent::setSizeInY(IfcLengthMeasure value) {
+    m_sizeInY = value;
 }
 
 bool IfcPlanarExtent::init() {

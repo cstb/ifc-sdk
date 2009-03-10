@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,139 +29,225 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
-#include <Step/Referenced.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
-    class CopyOp;
-    class IfcActorRole;
     class IfcAddress;
-    class IfcPersonAndOrganization;
+    class IfcPerson;
+
+    /**
+     */
+    class Inverted_IfcPerson_Addresses_type : public List_IfcAddress_1_n {
+    public:
+        /**
+         */
+        typedef List_IfcAddress_1_n::iterator iterator;
+
+        /**
+         */
+        IfcPerson *mOwner;
+        /**
+         */
+        Inverted_IfcPerson_Addresses_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcPerson *owner);
+        /**
+         * @param value
+         */
+        virtual void push_back(const Step::RefPtr< IfcAddress > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual iterator erase(const Step::RefPtr< IfcAddress > &value);
+
+    };
+
+    class CopyOp;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcPerson : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Id'.
+         * 
          */
-        IfcIdentifier getId();
+        virtual IfcIdentifier getId();
+        /**
+         * (const) Returns the value of the explicit attribute 'Id'.
+         * 
+         * @return the value of the explicit attribute 'Id'
+         */
+        virtual const IfcIdentifier getId() const;
         /**
          * Sets the value of the explicit attribute 'Id'.
          * 
          * @param value
          */
-        void setId(const IfcIdentifier &value);
+        virtual void setId(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'FamilyName'.
+         * 
          */
-        IfcLabel getFamilyName();
+        virtual IfcLabel getFamilyName();
+        /**
+         * (const) Returns the value of the explicit attribute 'FamilyName'.
+         * 
+         * @return the value of the explicit attribute 'FamilyName'
+         */
+        virtual const IfcLabel getFamilyName() const;
         /**
          * Sets the value of the explicit attribute 'FamilyName'.
          * 
          * @param value
          */
-        void setFamilyName(const IfcLabel &value);
+        virtual void setFamilyName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'GivenName'.
+         * 
          */
-        IfcLabel getGivenName();
+        virtual IfcLabel getGivenName();
+        /**
+         * (const) Returns the value of the explicit attribute 'GivenName'.
+         * 
+         * @return the value of the explicit attribute 'GivenName'
+         */
+        virtual const IfcLabel getGivenName() const;
         /**
          * Sets the value of the explicit attribute 'GivenName'.
          * 
          * @param value
          */
-        void setGivenName(const IfcLabel &value);
+        virtual void setGivenName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'MiddleNames'.
+         * 
          */
-        Step::List< IfcLabel > &getMiddleNames();
+        virtual List_IfcLabel_1_n &getMiddleNames();
+        /**
+         * (const) Returns the value of the explicit attribute 'MiddleNames'.
+         * 
+         * @return the value of the explicit attribute 'MiddleNames'
+         */
+        virtual const List_IfcLabel_1_n &getMiddleNames() const;
         /**
          * Sets the value of the explicit attribute 'MiddleNames'.
          * 
          * @param value
          */
-        void setMiddleNames(const Step::List< IfcLabel > &value);
+        virtual void setMiddleNames(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'PrefixTitles'.
+         * 
          */
-        Step::List< IfcLabel > &getPrefixTitles();
+        virtual List_IfcLabel_1_n &getPrefixTitles();
+        /**
+         * (const) Returns the value of the explicit attribute 'PrefixTitles'.
+         * 
+         * @return the value of the explicit attribute 'PrefixTitles'
+         */
+        virtual const List_IfcLabel_1_n &getPrefixTitles() const;
         /**
          * Sets the value of the explicit attribute 'PrefixTitles'.
          * 
          * @param value
          */
-        void setPrefixTitles(const Step::List< IfcLabel > &value);
+        virtual void setPrefixTitles(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'SuffixTitles'.
+         * 
          */
-        Step::List< IfcLabel > &getSuffixTitles();
+        virtual List_IfcLabel_1_n &getSuffixTitles();
+        /**
+         * (const) Returns the value of the explicit attribute 'SuffixTitles'.
+         * 
+         * @return the value of the explicit attribute 'SuffixTitles'
+         */
+        virtual const List_IfcLabel_1_n &getSuffixTitles() const;
         /**
          * Sets the value of the explicit attribute 'SuffixTitles'.
          * 
          * @param value
          */
-        void setSuffixTitles(const Step::List< IfcLabel > &value);
+        virtual void setSuffixTitles(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'Roles'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcActorRole > > &getRoles();
+        virtual List_IfcActorRole_1_n &getRoles();
+        /**
+         * (const) Returns the value of the explicit attribute 'Roles'.
+         * 
+         * @return the value of the explicit attribute 'Roles'
+         */
+        virtual const List_IfcActorRole_1_n &getRoles() const;
         /**
          * Sets the value of the explicit attribute 'Roles'.
          * 
          * @param value
          */
-        void setRoles(const Step::List< Step::RefPtr< IfcActorRole > > &value);
+        virtual void setRoles(const List_IfcActorRole_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'Addresses'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcAddress > > &getAddresses();
+        virtual List_IfcAddress_1_n &getAddresses();
         /**
+         * (const) Returns the value of the explicit attribute 'Addresses'.
+         * 
+         * @return the value of the explicit attribute 'Addresses'
          */
-        Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > &getEngagedIn();
+        virtual const List_IfcAddress_1_n &getAddresses() const;
         /**
+         * Gets the value of the inverse attribute 'EngagedIn'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcPersonAndOrganization_0_n &getEngagedIn();
+        /**
+         * (const) Returns the value of the explicit attribute 'EngagedIn'.
+         * 
+         * @return the value of the explicit attribute 'EngagedIn'
+         */
+        virtual const Inverse_Set_IfcPersonAndOrganization_0_n &getEngagedIn() const;
         friend class ExpressDataSet;
         friend class IfcPersonAndOrganization;
-        /**
-         */
-        class Inverted_Addresses_type : public Step::List< Step::RefPtr< IfcAddress > > {
-        public:
-            /**
-             */
-            IfcPerson *mOwner;
-            /**
-             */
-            Inverted_Addresses_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcPerson *owner);
-            /**
-             * @param value
-             */
-            virtual void push_back(const Step::RefPtr< IfcAddress > &value);
-
-        };
-
 
     protected:
         /**
@@ -185,31 +271,31 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_id;
+        Step::String m_id;
         /**
          */
-        std::string m_familyName;
+        Step::String m_familyName;
         /**
          */
-        std::string m_givenName;
+        Step::String m_givenName;
         /**
          */
-        Step::List< IfcLabel > m_middleNames;
+        List_IfcLabel_1_n m_middleNames;
         /**
          */
-        Step::List< IfcLabel > m_prefixTitles;
+        List_IfcLabel_1_n m_prefixTitles;
         /**
          */
-        Step::List< IfcLabel > m_suffixTitles;
+        List_IfcLabel_1_n m_suffixTitles;
         /**
          */
-        Step::List< Step::RefPtr< IfcActorRole > > m_roles;
+        List_IfcActorRole_1_n m_roles;
         /**
          */
-        Inverted_Addresses_type m_addresses;
+        Inverted_IfcPerson_Addresses_type m_addresses;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > m_engagedIn;
+        Inverse_Set_IfcPersonAndOrganization_0_n m_engagedIn;
 
     };
 

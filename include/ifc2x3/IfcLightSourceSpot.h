@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,63 +46,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcLightSourceSpot : public IfcLightSourcePositional {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Orientation'.
+         * 
          */
-        IfcDirection *getOrientation();
+        virtual IfcDirection *getOrientation();
+        /**
+         * (const) Returns the value of the explicit attribute 'Orientation'.
+         * 
+         * @return the value of the explicit attribute 'Orientation'
+         */
+        virtual const IfcDirection *getOrientation() const;
         /**
          * Sets the value of the explicit attribute 'Orientation'.
          * 
          * @param value
          */
-        void setOrientation(const Step::RefPtr< IfcDirection > &value);
+        virtual void setOrientation(const Step::RefPtr< IfcDirection > &value);
         /**
+         * Gets the value of the explicit attribute 'ConcentrationExponent'.
+         * 
          */
-        IfcReal getConcentrationExponent();
+        virtual IfcReal getConcentrationExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConcentrationExponent'.
+         * 
+         * @return the value of the explicit attribute 'ConcentrationExponent'
+         */
+        virtual const IfcReal getConcentrationExponent() const;
         /**
          * Sets the value of the explicit attribute 'ConcentrationExponent'.
          * 
          * @param value
          */
-        void setConcentrationExponent(IfcReal value);
+        virtual void setConcentrationExponent(IfcReal value);
         /**
+         * Gets the value of the explicit attribute 'SpreadAngle'.
+         * 
          */
-        IfcPositivePlaneAngleMeasure getSpreadAngle();
+        virtual IfcPositivePlaneAngleMeasure getSpreadAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpreadAngle'.
+         * 
+         * @return the value of the explicit attribute 'SpreadAngle'
+         */
+        virtual const IfcPositivePlaneAngleMeasure getSpreadAngle() const;
         /**
          * Sets the value of the explicit attribute 'SpreadAngle'.
          * 
          * @param value
          */
-        void setSpreadAngle(IfcPositivePlaneAngleMeasure value);
+        virtual void setSpreadAngle(IfcPositivePlaneAngleMeasure value);
         /**
+         * Gets the value of the explicit attribute 'BeamWidthAngle'.
+         * 
          */
-        IfcPositivePlaneAngleMeasure getBeamWidthAngle();
+        virtual IfcPositivePlaneAngleMeasure getBeamWidthAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'BeamWidthAngle'.
+         * 
+         * @return the value of the explicit attribute 'BeamWidthAngle'
+         */
+        virtual const IfcPositivePlaneAngleMeasure getBeamWidthAngle() const;
         /**
          * Sets the value of the explicit attribute 'BeamWidthAngle'.
          * 
          * @param value
          */
-        void setBeamWidthAngle(IfcPositivePlaneAngleMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setBeamWidthAngle(IfcPositivePlaneAngleMeasure value);
         friend class ExpressDataSet;
 
     protected:

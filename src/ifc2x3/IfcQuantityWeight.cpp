@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityWeight::IfcQuantityWeight(Step::Id id, Step::SPFData *args) : IfcPhys
 IfcQuantityWeight::~IfcQuantityWeight() {
 }
 
-bool IfcQuantityWeight::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityWeight(this);
+bool IfcQuantityWeight::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityWeight(this);
 }
 
-const std::string &IfcQuantityWeight::type() {
+const std::string &IfcQuantityWeight::type() const {
     return IfcQuantityWeight::s_type.getName();
 }
 
-Step::ClassType IfcQuantityWeight::getClassType() {
+const Step::ClassType &IfcQuantityWeight::getClassType() {
     return IfcQuantityWeight::s_type;
 }
 
-Step::ClassType IfcQuantityWeight::getType() const {
+const Step::ClassType &IfcQuantityWeight::getType() const {
     return IfcQuantityWeight::s_type;
 }
 
-bool IfcQuantityWeight::isOfType(Step::ClassType t) {
+bool IfcQuantityWeight::isOfType(const Step::ClassType &t) const {
     return IfcQuantityWeight::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcMassMeasure IfcQuantityWeight::getWeightValue() {
     }
 }
 
-void IfcQuantityWeight::setWeightValue(IfcMassMeasure value) {
-    m_weightValue = value;
+const IfcMassMeasure IfcQuantityWeight::getWeightValue() const {
+    IfcQuantityWeight * deConstObject = const_cast< IfcQuantityWeight * > (this);
+    return deConstObject->getWeightValue();
 }
 
-void IfcQuantityWeight::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityWeight::setWeightValue(IfcMassMeasure value) {
+    m_weightValue = value;
 }
 
 bool IfcQuantityWeight::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcPointOnCurve::IfcPointOnCurve(Step::Id id, Step::SPFData *args) : IfcPoint(id
 IfcPointOnCurve::~IfcPointOnCurve() {
 }
 
-bool IfcPointOnCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPointOnCurve(this);
+bool IfcPointOnCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPointOnCurve(this);
 }
 
-const std::string &IfcPointOnCurve::type() {
+const std::string &IfcPointOnCurve::type() const {
     return IfcPointOnCurve::s_type.getName();
 }
 
-Step::ClassType IfcPointOnCurve::getClassType() {
+const Step::ClassType &IfcPointOnCurve::getClassType() {
     return IfcPointOnCurve::s_type;
 }
 
-Step::ClassType IfcPointOnCurve::getType() const {
+const Step::ClassType &IfcPointOnCurve::getType() const {
     return IfcPointOnCurve::s_type;
 }
 
-bool IfcPointOnCurve::isOfType(Step::ClassType t) {
+bool IfcPointOnCurve::isOfType(const Step::ClassType &t) const {
     return IfcPointOnCurve::s_type == t ? true : IfcPoint::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcCurve *IfcPointOnCurve::getBasisCurve() {
     else {
         return NULL;
     }
+}
+
+const IfcCurve *IfcPointOnCurve::getBasisCurve() const {
+    IfcPointOnCurve * deConstObject = const_cast< IfcPointOnCurve * > (this);
+    return deConstObject->getBasisCurve();
 }
 
 void IfcPointOnCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
@@ -93,13 +98,13 @@ IfcParameterValue IfcPointOnCurve::getPointParameter() {
     }
 }
 
-void IfcPointOnCurve::setPointParameter(IfcParameterValue value) {
-    m_pointParameter = value;
+const IfcParameterValue IfcPointOnCurve::getPointParameter() const {
+    IfcPointOnCurve * deConstObject = const_cast< IfcPointOnCurve * > (this);
+    return deConstObject->getPointParameter();
 }
 
-void IfcPointOnCurve::release() {
-    IfcPoint::release();
-    m_basisCurve.release();
+void IfcPointOnCurve::setPointParameter(IfcParameterValue value) {
+    m_pointParameter = value;
 }
 
 bool IfcPointOnCurve::init() {
@@ -113,7 +118,7 @@ bool IfcPointOnCurve::init() {
         m_basisCurve = NULL;
     }
     else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -127,7 +132,7 @@ bool IfcPointOnCurve::init() {
 
 void IfcPointOnCurve::copy(const IfcPointOnCurve &obj, const CopyOp &copyop) {
     IfcPoint::copy(obj, copyop);
-    setBasisCurve(copyop(obj.m_basisCurve.get()));
+    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
     setPointParameter(obj.m_pointParameter);
     return;
 }

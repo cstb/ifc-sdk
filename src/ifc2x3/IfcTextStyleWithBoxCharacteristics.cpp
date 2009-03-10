@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +54,23 @@ IfcTextStyleWithBoxCharacteristics::IfcTextStyleWithBoxCharacteristics(Step::Id 
 IfcTextStyleWithBoxCharacteristics::~IfcTextStyleWithBoxCharacteristics() {
 }
 
-bool IfcTextStyleWithBoxCharacteristics::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyleWithBoxCharacteristics(this);
+bool IfcTextStyleWithBoxCharacteristics::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyleWithBoxCharacteristics(this);
 }
 
-const std::string &IfcTextStyleWithBoxCharacteristics::type() {
+const std::string &IfcTextStyleWithBoxCharacteristics::type() const {
     return IfcTextStyleWithBoxCharacteristics::s_type.getName();
 }
 
-Step::ClassType IfcTextStyleWithBoxCharacteristics::getClassType() {
+const Step::ClassType &IfcTextStyleWithBoxCharacteristics::getClassType() {
     return IfcTextStyleWithBoxCharacteristics::s_type;
 }
 
-Step::ClassType IfcTextStyleWithBoxCharacteristics::getType() const {
+const Step::ClassType &IfcTextStyleWithBoxCharacteristics::getType() const {
     return IfcTextStyleWithBoxCharacteristics::s_type;
 }
 
-bool IfcTextStyleWithBoxCharacteristics::isOfType(Step::ClassType t) {
+bool IfcTextStyleWithBoxCharacteristics::isOfType(const Step::ClassType &t) const {
     return IfcTextStyleWithBoxCharacteristics::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight() {
     else {
         return Step::getUnset(m_boxHeight);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxHeight() const {
+    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
+    return deConstObject->getBoxHeight();
 }
 
 void IfcTextStyleWithBoxCharacteristics::setBoxHeight(IfcPositiveLengthMeasure value) {
@@ -95,6 +101,11 @@ IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTextStyleWithBoxCharacteristics::getBoxWidth() const {
+    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
+    return deConstObject->getBoxWidth();
+}
+
 void IfcTextStyleWithBoxCharacteristics::setBoxWidth(IfcPositiveLengthMeasure value) {
     m_boxWidth = value;
 }
@@ -106,6 +117,11 @@ IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle() {
     else {
         return Step::getUnset(m_boxSlantAngle);
     }
+}
+
+const IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxSlantAngle() const {
+    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
+    return deConstObject->getBoxSlantAngle();
 }
 
 void IfcTextStyleWithBoxCharacteristics::setBoxSlantAngle(IfcPlaneAngleMeasure value) {
@@ -121,6 +137,11 @@ IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle() {
     }
 }
 
+const IfcPlaneAngleMeasure IfcTextStyleWithBoxCharacteristics::getBoxRotateAngle() const {
+    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
+    return deConstObject->getBoxRotateAngle();
+}
+
 void IfcTextStyleWithBoxCharacteristics::setBoxRotateAngle(IfcPlaneAngleMeasure value) {
     m_boxRotateAngle = value;
 }
@@ -134,11 +155,13 @@ IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() {
     }
 }
 
-void IfcTextStyleWithBoxCharacteristics::setCharacterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_characterSpacing = value;
+const IfcSizeSelect *IfcTextStyleWithBoxCharacteristics::getCharacterSpacing() const {
+    IfcTextStyleWithBoxCharacteristics * deConstObject = const_cast< IfcTextStyleWithBoxCharacteristics * > (this);
+    return deConstObject->getCharacterSpacing();
 }
 
-void IfcTextStyleWithBoxCharacteristics::release() {
+void IfcTextStyleWithBoxCharacteristics::setCharacterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
+    m_characterSpacing = value;
 }
 
 bool IfcTextStyleWithBoxCharacteristics::init() {
@@ -198,8 +221,8 @@ bool IfcTextStyleWithBoxCharacteristics::init() {
                     m_characterSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_characterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {

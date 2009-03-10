@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcConstructionProductResource::IfcConstructionProductResource(Step::Id id, Step
 IfcConstructionProductResource::~IfcConstructionProductResource() {
 }
 
-bool IfcConstructionProductResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConstructionProductResource(this);
+bool IfcConstructionProductResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConstructionProductResource(this);
 }
 
-const std::string &IfcConstructionProductResource::type() {
+const std::string &IfcConstructionProductResource::type() const {
     return IfcConstructionProductResource::s_type.getName();
 }
 
-Step::ClassType IfcConstructionProductResource::getClassType() {
+const Step::ClassType &IfcConstructionProductResource::getClassType() {
     return IfcConstructionProductResource::s_type;
 }
 
-Step::ClassType IfcConstructionProductResource::getType() const {
+const Step::ClassType &IfcConstructionProductResource::getType() const {
     return IfcConstructionProductResource::s_type;
 }
 
-bool IfcConstructionProductResource::isOfType(Step::ClassType t) {
+bool IfcConstructionProductResource::isOfType(const Step::ClassType &t) const {
     return IfcConstructionProductResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
-}
-
-void IfcConstructionProductResource::release() {
-    IfcConstructionResource::release();
 }
 
 bool IfcConstructionProductResource::init() {

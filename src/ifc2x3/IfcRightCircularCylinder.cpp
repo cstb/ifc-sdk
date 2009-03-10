@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcRightCircularCylinder::IfcRightCircularCylinder(Step::Id id, Step::SPFData *a
 IfcRightCircularCylinder::~IfcRightCircularCylinder() {
 }
 
-bool IfcRightCircularCylinder::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRightCircularCylinder(this);
+bool IfcRightCircularCylinder::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRightCircularCylinder(this);
 }
 
-const std::string &IfcRightCircularCylinder::type() {
+const std::string &IfcRightCircularCylinder::type() const {
     return IfcRightCircularCylinder::s_type.getName();
 }
 
-Step::ClassType IfcRightCircularCylinder::getClassType() {
+const Step::ClassType &IfcRightCircularCylinder::getClassType() {
     return IfcRightCircularCylinder::s_type;
 }
 
-Step::ClassType IfcRightCircularCylinder::getType() const {
+const Step::ClassType &IfcRightCircularCylinder::getType() const {
     return IfcRightCircularCylinder::s_type;
 }
 
-bool IfcRightCircularCylinder::isOfType(Step::ClassType t) {
+bool IfcRightCircularCylinder::isOfType(const Step::ClassType &t) const {
     return IfcRightCircularCylinder::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight() {
     else {
         return Step::getUnset(m_height);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRightCircularCylinder::getHeight() const {
+    IfcRightCircularCylinder * deConstObject = const_cast< IfcRightCircularCylinder * > (this);
+    return deConstObject->getHeight();
 }
 
 void IfcRightCircularCylinder::setHeight(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() {
     }
 }
 
-void IfcRightCircularCylinder::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+const IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() const {
+    IfcRightCircularCylinder * deConstObject = const_cast< IfcRightCircularCylinder * > (this);
+    return deConstObject->getRadius();
 }
 
-void IfcRightCircularCylinder::release() {
-    IfcCsgPrimitive3D::release();
+void IfcRightCircularCylinder::setRadius(IfcPositiveLengthMeasure value) {
+    m_radius = value;
 }
 
 bool IfcRightCircularCylinder::init() {

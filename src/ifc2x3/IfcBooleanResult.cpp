@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcBooleanResult::IfcBooleanResult(Step::Id id, Step::SPFData *args) : IfcGeomet
 IfcBooleanResult::~IfcBooleanResult() {
 }
 
-bool IfcBooleanResult::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBooleanResult(this);
+bool IfcBooleanResult::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBooleanResult(this);
 }
 
-const std::string &IfcBooleanResult::type() {
+const std::string &IfcBooleanResult::type() const {
     return IfcBooleanResult::s_type.getName();
 }
 
-Step::ClassType IfcBooleanResult::getClassType() {
+const Step::ClassType &IfcBooleanResult::getClassType() {
     return IfcBooleanResult::s_type;
 }
 
-Step::ClassType IfcBooleanResult::getType() const {
+const Step::ClassType &IfcBooleanResult::getType() const {
     return IfcBooleanResult::s_type;
 }
 
-bool IfcBooleanResult::isOfType(Step::ClassType t) {
+bool IfcBooleanResult::isOfType(const Step::ClassType &t) const {
     return IfcBooleanResult::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcBooleanOperator IfcBooleanResult::getOperator() {
     else {
         return IfcBooleanOperator_UNSET;
     }
+}
+
+const IfcBooleanOperator IfcBooleanResult::getOperator() const {
+    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
+    return deConstObject->getOperator();
 }
 
 void IfcBooleanResult::setOperator(IfcBooleanOperator value) {
@@ -93,6 +98,11 @@ IfcBooleanOperand *IfcBooleanResult::getFirstOperand() {
     }
 }
 
+const IfcBooleanOperand *IfcBooleanResult::getFirstOperand() const {
+    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
+    return deConstObject->getFirstOperand();
+}
+
 void IfcBooleanResult::setFirstOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
     m_firstOperand = value;
 }
@@ -106,12 +116,13 @@ IfcBooleanOperand *IfcBooleanResult::getSecondOperand() {
     }
 }
 
-void IfcBooleanResult::setSecondOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
-    m_secondOperand = value;
+const IfcBooleanOperand *IfcBooleanResult::getSecondOperand() const {
+    IfcBooleanResult * deConstObject = const_cast< IfcBooleanResult * > (this);
+    return deConstObject->getSecondOperand();
 }
 
-void IfcBooleanResult::release() {
-    IfcGeometricRepresentationItem::release();
+void IfcBooleanResult::setSecondOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
+    m_secondOperand = value;
 }
 
 bool IfcBooleanResult::init() {

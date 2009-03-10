@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcZone::IfcZone(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
 IfcZone::~IfcZone() {
 }
 
-bool IfcZone::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcZone(this);
+bool IfcZone::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcZone(this);
 }
 
-const std::string &IfcZone::type() {
+const std::string &IfcZone::type() const {
     return IfcZone::s_type.getName();
 }
 
-Step::ClassType IfcZone::getClassType() {
+const Step::ClassType &IfcZone::getClassType() {
     return IfcZone::s_type;
 }
 
-Step::ClassType IfcZone::getType() const {
+const Step::ClassType &IfcZone::getType() const {
     return IfcZone::s_type;
 }
 
-bool IfcZone::isOfType(Step::ClassType t) {
+bool IfcZone::isOfType(const Step::ClassType &t) const {
     return IfcZone::s_type == t ? true : IfcGroup::isOfType(t);
-}
-
-void IfcZone::release() {
-    IfcGroup::release();
 }
 
 bool IfcZone::init() {

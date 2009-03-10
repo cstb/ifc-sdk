@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcSystemFurnitureElementType::IfcSystemFurnitureElementType(Step::Id id, Step::
 IfcSystemFurnitureElementType::~IfcSystemFurnitureElementType() {
 }
 
-bool IfcSystemFurnitureElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSystemFurnitureElementType(this);
+bool IfcSystemFurnitureElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSystemFurnitureElementType(this);
 }
 
-const std::string &IfcSystemFurnitureElementType::type() {
+const std::string &IfcSystemFurnitureElementType::type() const {
     return IfcSystemFurnitureElementType::s_type.getName();
 }
 
-Step::ClassType IfcSystemFurnitureElementType::getClassType() {
+const Step::ClassType &IfcSystemFurnitureElementType::getClassType() {
     return IfcSystemFurnitureElementType::s_type;
 }
 
-Step::ClassType IfcSystemFurnitureElementType::getType() const {
+const Step::ClassType &IfcSystemFurnitureElementType::getType() const {
     return IfcSystemFurnitureElementType::s_type;
 }
 
-bool IfcSystemFurnitureElementType::isOfType(Step::ClassType t) {
+bool IfcSystemFurnitureElementType::isOfType(const Step::ClassType &t) const {
     return IfcSystemFurnitureElementType::s_type == t ? true : IfcFurnishingElementType::isOfType(t);
-}
-
-void IfcSystemFurnitureElementType::release() {
-    IfcFurnishingElementType::release();
 }
 
 bool IfcSystemFurnitureElementType::init() {

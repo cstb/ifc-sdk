@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcRelConnectsElements::IfcRelConnectsElements(Step::Id id, Step::SPFData *args)
 IfcRelConnectsElements::~IfcRelConnectsElements() {
 }
 
-bool IfcRelConnectsElements::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsElements(this);
+bool IfcRelConnectsElements::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsElements(this);
 }
 
-const std::string &IfcRelConnectsElements::type() {
+const std::string &IfcRelConnectsElements::type() const {
     return IfcRelConnectsElements::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsElements::getClassType() {
+const Step::ClassType &IfcRelConnectsElements::getClassType() {
     return IfcRelConnectsElements::s_type;
 }
 
-Step::ClassType IfcRelConnectsElements::getType() const {
+const Step::ClassType &IfcRelConnectsElements::getType() const {
     return IfcRelConnectsElements::s_type;
 }
 
-bool IfcRelConnectsElements::isOfType(Step::ClassType t) {
+bool IfcRelConnectsElements::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsElements::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcConnectionGeometry *IfcRelConnectsElements::getConnectionGeometry() {
     else {
         return NULL;
     }
+}
+
+const IfcConnectionGeometry *IfcRelConnectsElements::getConnectionGeometry() const {
+    IfcRelConnectsElements * deConstObject = const_cast< IfcRelConnectsElements * > (this);
+    return deConstObject->getConnectionGeometry();
 }
 
 void IfcRelConnectsElements::setConnectionGeometry(const Step::RefPtr< IfcConnectionGeometry > &value) {
@@ -95,9 +100,19 @@ IfcElement *IfcRelConnectsElements::getRelatingElement() {
     }
 }
 
+const IfcElement *IfcRelConnectsElements::getRelatingElement() const {
+    IfcRelConnectsElements * deConstObject = const_cast< IfcRelConnectsElements * > (this);
+    return deConstObject->getRelatingElement();
+}
+
 void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatingElement.valid()) {
+        m_relatingElement->m_connectedTo.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectedTo.insert(this);
+    }
     m_relatingElement = value;
-    m_relatingElement->m_connectedTo.insert(this);
 }
 
 IfcElement *IfcRelConnectsElements::getRelatedElement() {
@@ -109,16 +124,19 @@ IfcElement *IfcRelConnectsElements::getRelatedElement() {
     }
 }
 
-void IfcRelConnectsElements::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
-    m_relatedElement = value;
-    m_relatedElement->m_connectedFrom.insert(this);
+const IfcElement *IfcRelConnectsElements::getRelatedElement() const {
+    IfcRelConnectsElements * deConstObject = const_cast< IfcRelConnectsElements * > (this);
+    return deConstObject->getRelatedElement();
 }
 
-void IfcRelConnectsElements::release() {
-    IfcRelConnects::release();
-    m_connectionGeometry.release();
-    m_relatingElement.release();
-    m_relatedElement.release();
+void IfcRelConnectsElements::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatedElement.valid()) {
+        m_relatedElement->m_connectedFrom.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectedFrom.insert(this);
+    }
+    m_relatedElement = value;
 }
 
 bool IfcRelConnectsElements::init() {
@@ -132,30 +150,30 @@ bool IfcRelConnectsElements::init() {
         m_connectionGeometry = NULL;
     }
     else {
-        m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_connectionGeometry = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatingElement = NULL;
     }
     else {
-        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedElement = NULL;
     }
     else {
-        m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsElements::copy(const IfcRelConnectsElements &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setConnectionGeometry(copyop(obj.m_connectionGeometry.get()));
-    setRelatingElement(copyop(obj.m_relatingElement.get()));
-    setRelatedElement(copyop(obj.m_relatedElement.get()));
+    setConnectionGeometry((IfcConnectionGeometry*)copyop(obj.m_connectionGeometry.get()));
+    setRelatingElement((IfcElement*)copyop(obj.m_relatingElement.get()));
+    setRelatedElement((IfcElement*)copyop(obj.m_relatedElement.get()));
     return;
 }
 

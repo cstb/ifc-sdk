@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCircle::IfcCircle(Step::Id id, Step::SPFData *args) : IfcConic(id, args) {
 IfcCircle::~IfcCircle() {
 }
 
-bool IfcCircle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCircle(this);
+bool IfcCircle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCircle(this);
 }
 
-const std::string &IfcCircle::type() {
+const std::string &IfcCircle::type() const {
     return IfcCircle::s_type.getName();
 }
 
-Step::ClassType IfcCircle::getClassType() {
+const Step::ClassType &IfcCircle::getClassType() {
     return IfcCircle::s_type;
 }
 
-Step::ClassType IfcCircle::getType() const {
+const Step::ClassType &IfcCircle::getType() const {
     return IfcCircle::s_type;
 }
 
-bool IfcCircle::isOfType(Step::ClassType t) {
+bool IfcCircle::isOfType(const Step::ClassType &t) const {
     return IfcCircle::s_type == t ? true : IfcConic::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcCircle::getRadius() {
     }
 }
 
-void IfcCircle::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+const IfcPositiveLengthMeasure IfcCircle::getRadius() const {
+    IfcCircle * deConstObject = const_cast< IfcCircle * > (this);
+    return deConstObject->getRadius();
 }
 
-void IfcCircle::release() {
-    IfcConic::release();
+void IfcCircle::setRadius(IfcPositiveLengthMeasure value) {
+    m_radius = value;
 }
 
 bool IfcCircle::init() {

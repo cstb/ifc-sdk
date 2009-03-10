@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuralCurveMemberVarying::IfcStructuralCurveMemberVarying(Step::Id id, St
 IfcStructuralCurveMemberVarying::~IfcStructuralCurveMemberVarying() {
 }
 
-bool IfcStructuralCurveMemberVarying::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralCurveMemberVarying(this);
+bool IfcStructuralCurveMemberVarying::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralCurveMemberVarying(this);
 }
 
-const std::string &IfcStructuralCurveMemberVarying::type() {
+const std::string &IfcStructuralCurveMemberVarying::type() const {
     return IfcStructuralCurveMemberVarying::s_type.getName();
 }
 
-Step::ClassType IfcStructuralCurveMemberVarying::getClassType() {
+const Step::ClassType &IfcStructuralCurveMemberVarying::getClassType() {
     return IfcStructuralCurveMemberVarying::s_type;
 }
 
-Step::ClassType IfcStructuralCurveMemberVarying::getType() const {
+const Step::ClassType &IfcStructuralCurveMemberVarying::getType() const {
     return IfcStructuralCurveMemberVarying::s_type;
 }
 
-bool IfcStructuralCurveMemberVarying::isOfType(Step::ClassType t) {
+bool IfcStructuralCurveMemberVarying::isOfType(const Step::ClassType &t) const {
     return IfcStructuralCurveMemberVarying::s_type == t ? true : IfcStructuralCurveMember::isOfType(t);
-}
-
-void IfcStructuralCurveMemberVarying::release() {
-    IfcStructuralCurveMember::release();
 }
 
 bool IfcStructuralCurveMemberVarying::init() {

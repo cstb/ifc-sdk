@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcVibrationIsolatorType::IfcVibrationIsolatorType(Step::Id id, Step::SPFData *a
 IfcVibrationIsolatorType::~IfcVibrationIsolatorType() {
 }
 
-bool IfcVibrationIsolatorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVibrationIsolatorType(this);
+bool IfcVibrationIsolatorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVibrationIsolatorType(this);
 }
 
-const std::string &IfcVibrationIsolatorType::type() {
+const std::string &IfcVibrationIsolatorType::type() const {
     return IfcVibrationIsolatorType::s_type.getName();
 }
 
-Step::ClassType IfcVibrationIsolatorType::getClassType() {
+const Step::ClassType &IfcVibrationIsolatorType::getClassType() {
     return IfcVibrationIsolatorType::s_type;
 }
 
-Step::ClassType IfcVibrationIsolatorType::getType() const {
+const Step::ClassType &IfcVibrationIsolatorType::getType() const {
     return IfcVibrationIsolatorType::s_type;
 }
 
-bool IfcVibrationIsolatorType::isOfType(Step::ClassType t) {
+bool IfcVibrationIsolatorType::isOfType(const Step::ClassType &t) const {
     return IfcVibrationIsolatorType::s_type == t ? true : IfcDiscreteAccessoryType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcVibrationIsolatorTypeEnum IfcVibrationIsolatorType::getPredefinedType() {
     }
 }
 
-void IfcVibrationIsolatorType::setPredefinedType(IfcVibrationIsolatorTypeEnum value) {
-    m_predefinedType = value;
+const IfcVibrationIsolatorTypeEnum IfcVibrationIsolatorType::getPredefinedType() const {
+    IfcVibrationIsolatorType * deConstObject = const_cast< IfcVibrationIsolatorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcVibrationIsolatorType::release() {
-    IfcDiscreteAccessoryType::release();
+void IfcVibrationIsolatorType::setPredefinedType(IfcVibrationIsolatorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcVibrationIsolatorType::init() {

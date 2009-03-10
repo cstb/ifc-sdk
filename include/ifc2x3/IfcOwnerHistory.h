@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,99 +47,168 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcOwnerHistory : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'OwningUser'.
+         * 
          */
-        IfcPersonAndOrganization *getOwningUser();
+        virtual IfcPersonAndOrganization *getOwningUser();
+        /**
+         * (const) Returns the value of the explicit attribute 'OwningUser'.
+         * 
+         * @return the value of the explicit attribute 'OwningUser'
+         */
+        virtual const IfcPersonAndOrganization *getOwningUser() const;
         /**
          * Sets the value of the explicit attribute 'OwningUser'.
          * 
          * @param value
          */
-        void setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
+        virtual void setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
         /**
+         * Gets the value of the explicit attribute 'OwningApplication'.
+         * 
          */
-        IfcApplication *getOwningApplication();
+        virtual IfcApplication *getOwningApplication();
+        /**
+         * (const) Returns the value of the explicit attribute 'OwningApplication'.
+         * 
+         * @return the value of the explicit attribute 'OwningApplication'
+         */
+        virtual const IfcApplication *getOwningApplication() const;
         /**
          * Sets the value of the explicit attribute 'OwningApplication'.
          * 
          * @param value
          */
-        void setOwningApplication(const Step::RefPtr< IfcApplication > &value);
+        virtual void setOwningApplication(const Step::RefPtr< IfcApplication > &value);
         /**
+         * Gets the value of the explicit attribute 'State'.
+         * 
          */
-        IfcStateEnum getState();
+        virtual IfcStateEnum getState();
+        /**
+         * (const) Returns the value of the explicit attribute 'State'.
+         * 
+         * @return the value of the explicit attribute 'State'
+         */
+        virtual const IfcStateEnum getState() const;
         /**
          * Sets the value of the explicit attribute 'State'.
          * 
          * @param value
          */
-        void setState(IfcStateEnum value);
+        virtual void setState(IfcStateEnum value);
         /**
+         * Gets the value of the explicit attribute 'ChangeAction'.
+         * 
          */
-        IfcChangeActionEnum getChangeAction();
+        virtual IfcChangeActionEnum getChangeAction();
+        /**
+         * (const) Returns the value of the explicit attribute 'ChangeAction'.
+         * 
+         * @return the value of the explicit attribute 'ChangeAction'
+         */
+        virtual const IfcChangeActionEnum getChangeAction() const;
         /**
          * Sets the value of the explicit attribute 'ChangeAction'.
          * 
          * @param value
          */
-        void setChangeAction(IfcChangeActionEnum value);
+        virtual void setChangeAction(IfcChangeActionEnum value);
         /**
+         * Gets the value of the explicit attribute 'LastModifiedDate'.
+         * 
          */
-        IfcTimeStamp getLastModifiedDate();
+        virtual IfcTimeStamp getLastModifiedDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'LastModifiedDate'.
+         * 
+         * @return the value of the explicit attribute 'LastModifiedDate'
+         */
+        virtual const IfcTimeStamp getLastModifiedDate() const;
         /**
          * Sets the value of the explicit attribute 'LastModifiedDate'.
          * 
          * @param value
          */
-        void setLastModifiedDate(IfcTimeStamp value);
+        virtual void setLastModifiedDate(IfcTimeStamp value);
         /**
+         * Gets the value of the explicit attribute 'LastModifyingUser'.
+         * 
          */
-        IfcPersonAndOrganization *getLastModifyingUser();
+        virtual IfcPersonAndOrganization *getLastModifyingUser();
+        /**
+         * (const) Returns the value of the explicit attribute 'LastModifyingUser'.
+         * 
+         * @return the value of the explicit attribute 'LastModifyingUser'
+         */
+        virtual const IfcPersonAndOrganization *getLastModifyingUser() const;
         /**
          * Sets the value of the explicit attribute 'LastModifyingUser'.
          * 
          * @param value
          */
-        void setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
+        virtual void setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
         /**
+         * Gets the value of the explicit attribute 'LastModifyingApplication'.
+         * 
          */
-        IfcApplication *getLastModifyingApplication();
+        virtual IfcApplication *getLastModifyingApplication();
+        /**
+         * (const) Returns the value of the explicit attribute 'LastModifyingApplication'.
+         * 
+         * @return the value of the explicit attribute 'LastModifyingApplication'
+         */
+        virtual const IfcApplication *getLastModifyingApplication() const;
         /**
          * Sets the value of the explicit attribute 'LastModifyingApplication'.
          * 
          * @param value
          */
-        void setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value);
+        virtual void setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value);
         /**
+         * Gets the value of the explicit attribute 'CreationDate'.
+         * 
          */
-        IfcTimeStamp getCreationDate();
+        virtual IfcTimeStamp getCreationDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'CreationDate'.
+         * 
+         * @return the value of the explicit attribute 'CreationDate'
+         */
+        virtual const IfcTimeStamp getCreationDate() const;
         /**
          * Sets the value of the explicit attribute 'CreationDate'.
          * 
          * @param value
          */
-        void setCreationDate(IfcTimeStamp value);
-        /**
-         */
-        virtual void release();
+        virtual void setCreationDate(IfcTimeStamp value);
         friend class ExpressDataSet;
 
     protected:

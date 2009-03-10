@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuralSurfaceConnection::IfcStructuralSurfaceConnection(Step::Id id, Step
 IfcStructuralSurfaceConnection::~IfcStructuralSurfaceConnection() {
 }
 
-bool IfcStructuralSurfaceConnection::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralSurfaceConnection(this);
+bool IfcStructuralSurfaceConnection::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralSurfaceConnection(this);
 }
 
-const std::string &IfcStructuralSurfaceConnection::type() {
+const std::string &IfcStructuralSurfaceConnection::type() const {
     return IfcStructuralSurfaceConnection::s_type.getName();
 }
 
-Step::ClassType IfcStructuralSurfaceConnection::getClassType() {
+const Step::ClassType &IfcStructuralSurfaceConnection::getClassType() {
     return IfcStructuralSurfaceConnection::s_type;
 }
 
-Step::ClassType IfcStructuralSurfaceConnection::getType() const {
+const Step::ClassType &IfcStructuralSurfaceConnection::getType() const {
     return IfcStructuralSurfaceConnection::s_type;
 }
 
-bool IfcStructuralSurfaceConnection::isOfType(Step::ClassType t) {
+bool IfcStructuralSurfaceConnection::isOfType(const Step::ClassType &t) const {
     return IfcStructuralSurfaceConnection::s_type == t ? true : IfcStructuralConnection::isOfType(t);
-}
-
-void IfcStructuralSurfaceConnection::release() {
-    IfcStructuralConnection::release();
 }
 
 bool IfcStructuralSurfaceConnection::init() {

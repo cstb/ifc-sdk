@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,29 +46,28 @@ using namespace ifc2x3;
 
 IfcActor::IfcActor(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
     m_theActor = NULL;
-    m_isActingUpon.setUnset(true);
 }
 
 IfcActor::~IfcActor() {
 }
 
-bool IfcActor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcActor(this);
+bool IfcActor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcActor(this);
 }
 
-const std::string &IfcActor::type() {
+const std::string &IfcActor::type() const {
     return IfcActor::s_type.getName();
 }
 
-Step::ClassType IfcActor::getClassType() {
+const Step::ClassType &IfcActor::getClassType() {
     return IfcActor::s_type;
 }
 
-Step::ClassType IfcActor::getType() const {
+const Step::ClassType &IfcActor::getType() const {
     return IfcActor::s_type;
 }
 
-bool IfcActor::isOfType(Step::ClassType t) {
+bool IfcActor::isOfType(const Step::ClassType &t) const {
     return IfcActor::s_type == t ? true : IfcObject::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcActorSelect *IfcActor::getTheActor() {
     }
 }
 
+const IfcActorSelect *IfcActor::getTheActor() const {
+    IfcActor * deConstObject = const_cast< IfcActor * > (this);
+    return deConstObject->getTheActor();
+}
+
 void IfcActor::setTheActor(const Step::RefPtr< IfcActorSelect > &value) {
     m_theActor = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssignsToActor > > &IfcActor::getIsActingUpon() {
+Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() {
     if (Step::BaseObject::inited()) {
         return m_isActingUpon;
     }
@@ -95,8 +99,9 @@ Step::Set< Step::ObsPtr< IfcRelAssignsToActor > > &IfcActor::getIsActingUpon() {
     }
 }
 
-void IfcActor::release() {
-    IfcObject::release();
+const Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() const {
+    IfcActor * deConstObject = const_cast< IfcActor * > (this);
+    return deConstObject->getIsActingUpon();
 }
 
 bool IfcActor::init() {

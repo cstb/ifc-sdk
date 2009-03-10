@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcWindowStyle::IfcWindowStyle(Step::Id id, Step::SPFData *args) : IfcTypeProduc
 IfcWindowStyle::~IfcWindowStyle() {
 }
 
-bool IfcWindowStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWindowStyle(this);
+bool IfcWindowStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWindowStyle(this);
 }
 
-const std::string &IfcWindowStyle::type() {
+const std::string &IfcWindowStyle::type() const {
     return IfcWindowStyle::s_type.getName();
 }
 
-Step::ClassType IfcWindowStyle::getClassType() {
+const Step::ClassType &IfcWindowStyle::getClassType() {
     return IfcWindowStyle::s_type;
 }
 
-Step::ClassType IfcWindowStyle::getType() const {
+const Step::ClassType &IfcWindowStyle::getType() const {
     return IfcWindowStyle::s_type;
 }
 
-bool IfcWindowStyle::isOfType(Step::ClassType t) {
+bool IfcWindowStyle::isOfType(const Step::ClassType &t) const {
     return IfcWindowStyle::s_type == t ? true : IfcTypeProduct::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcWindowStyleConstructionEnum IfcWindowStyle::getConstructionType() {
     else {
         return IfcWindowStyleConstructionEnum_UNSET;
     }
+}
+
+const IfcWindowStyleConstructionEnum IfcWindowStyle::getConstructionType() const {
+    IfcWindowStyle * deConstObject = const_cast< IfcWindowStyle * > (this);
+    return deConstObject->getConstructionType();
 }
 
 void IfcWindowStyle::setConstructionType(IfcWindowStyleConstructionEnum value) {
@@ -91,11 +96,16 @@ IfcWindowStyleOperationEnum IfcWindowStyle::getOperationType() {
     }
 }
 
+const IfcWindowStyleOperationEnum IfcWindowStyle::getOperationType() const {
+    IfcWindowStyle * deConstObject = const_cast< IfcWindowStyle * > (this);
+    return deConstObject->getOperationType();
+}
+
 void IfcWindowStyle::setOperationType(IfcWindowStyleOperationEnum value) {
     m_operationType = value;
 }
 
-Step::Bool IfcWindowStyle::getParameterTakesPrecedence() {
+Step::Boolean IfcWindowStyle::getParameterTakesPrecedence() {
     if (Step::BaseObject::inited()) {
         return m_parameterTakesPrecedence;
     }
@@ -104,11 +114,16 @@ Step::Bool IfcWindowStyle::getParameterTakesPrecedence() {
     }
 }
 
-void IfcWindowStyle::setParameterTakesPrecedence(Step::Bool value) {
+const Step::Boolean IfcWindowStyle::getParameterTakesPrecedence() const {
+    IfcWindowStyle * deConstObject = const_cast< IfcWindowStyle * > (this);
+    return deConstObject->getParameterTakesPrecedence();
+}
+
+void IfcWindowStyle::setParameterTakesPrecedence(Step::Boolean value) {
     m_parameterTakesPrecedence = value;
 }
 
-Step::Bool IfcWindowStyle::getSizeable() {
+Step::Boolean IfcWindowStyle::getSizeable() {
     if (Step::BaseObject::inited()) {
         return m_sizeable;
     }
@@ -117,12 +132,13 @@ Step::Bool IfcWindowStyle::getSizeable() {
     }
 }
 
-void IfcWindowStyle::setSizeable(Step::Bool value) {
-    m_sizeable = value;
+const Step::Boolean IfcWindowStyle::getSizeable() const {
+    IfcWindowStyle * deConstObject = const_cast< IfcWindowStyle * > (this);
+    return deConstObject->getSizeable();
 }
 
-void IfcWindowStyle::release() {
-    IfcTypeProduct::release();
+void IfcWindowStyle::setSizeable(Step::Boolean value) {
+    m_sizeable = value;
 }
 
 bool IfcWindowStyle::init() {
@@ -205,14 +221,14 @@ bool IfcWindowStyle::init() {
         m_parameterTakesPrecedence = Step::getUnset(m_parameterTakesPrecedence);
     }
     else {
-        m_parameterTakesPrecedence = Step::spfToBool(arg);
+        m_parameterTakesPrecedence = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_sizeable = Step::getUnset(m_sizeable);
     }
     else {
-        m_sizeable = Step::spfToBool(arg);
+        m_sizeable = Step::spfToBoolean(arg);
     }
     return true;
 }

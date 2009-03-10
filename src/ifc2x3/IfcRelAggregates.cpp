@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRelAggregates::IfcRelAggregates(Step::Id id, Step::SPFData *args) : IfcRelDec
 IfcRelAggregates::~IfcRelAggregates() {
 }
 
-bool IfcRelAggregates::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAggregates(this);
+bool IfcRelAggregates::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAggregates(this);
 }
 
-const std::string &IfcRelAggregates::type() {
+const std::string &IfcRelAggregates::type() const {
     return IfcRelAggregates::s_type.getName();
 }
 
-Step::ClassType IfcRelAggregates::getClassType() {
+const Step::ClassType &IfcRelAggregates::getClassType() {
     return IfcRelAggregates::s_type;
 }
 
-Step::ClassType IfcRelAggregates::getType() const {
+const Step::ClassType &IfcRelAggregates::getType() const {
     return IfcRelAggregates::s_type;
 }
 
-bool IfcRelAggregates::isOfType(Step::ClassType t) {
+bool IfcRelAggregates::isOfType(const Step::ClassType &t) const {
     return IfcRelAggregates::s_type == t ? true : IfcRelDecomposes::isOfType(t);
-}
-
-void IfcRelAggregates::release() {
-    IfcRelDecomposes::release();
 }
 
 bool IfcRelAggregates::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,6 +34,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,23 +52,23 @@ IfcLocalPlacement::IfcLocalPlacement(Step::Id id, Step::SPFData *args) : IfcObje
 IfcLocalPlacement::~IfcLocalPlacement() {
 }
 
-bool IfcLocalPlacement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLocalPlacement(this);
+bool IfcLocalPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLocalPlacement(this);
 }
 
-const std::string &IfcLocalPlacement::type() {
+const std::string &IfcLocalPlacement::type() const {
     return IfcLocalPlacement::s_type.getName();
 }
 
-Step::ClassType IfcLocalPlacement::getClassType() {
+const Step::ClassType &IfcLocalPlacement::getClassType() {
     return IfcLocalPlacement::s_type;
 }
 
-Step::ClassType IfcLocalPlacement::getType() const {
+const Step::ClassType &IfcLocalPlacement::getType() const {
     return IfcLocalPlacement::s_type;
 }
 
-bool IfcLocalPlacement::isOfType(Step::ClassType t) {
+bool IfcLocalPlacement::isOfType(const Step::ClassType &t) const {
     return IfcLocalPlacement::s_type == t ? true : IfcObjectPlacement::isOfType(t);
 }
 
@@ -80,9 +81,19 @@ IfcObjectPlacement *IfcLocalPlacement::getPlacementRelTo() {
     }
 }
 
+const IfcObjectPlacement *IfcLocalPlacement::getPlacementRelTo() const {
+    IfcLocalPlacement * deConstObject = const_cast< IfcLocalPlacement * > (this);
+    return deConstObject->getPlacementRelTo();
+}
+
 void IfcLocalPlacement::setPlacementRelTo(const Step::RefPtr< IfcObjectPlacement > &value) {
+    if (m_placementRelTo.valid()) {
+        m_placementRelTo->m_referencedByPlacements.erase(this);
+    }
+    if (value.valid()) {
+        value->m_referencedByPlacements.insert(this);
+    }
     m_placementRelTo = value;
-    m_placementRelTo->m_referencedByPlacements.insert(this);
 }
 
 IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() {
@@ -94,13 +105,13 @@ IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() {
     }
 }
 
-void IfcLocalPlacement::setRelativePlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_relativePlacement = value;
+const IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() const {
+    IfcLocalPlacement * deConstObject = const_cast< IfcLocalPlacement * > (this);
+    return deConstObject->getRelativePlacement();
 }
 
-void IfcLocalPlacement::release() {
-    IfcObjectPlacement::release();
-    m_placementRelTo.release();
+void IfcLocalPlacement::setRelativePlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
+    m_relativePlacement = value;
 }
 
 bool IfcLocalPlacement::init() {
@@ -114,7 +125,7 @@ bool IfcLocalPlacement::init() {
         m_placementRelTo = NULL;
     }
     else {
-        m_placementRelTo = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_placementRelTo = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -140,7 +151,7 @@ bool IfcLocalPlacement::init() {
 
 void IfcLocalPlacement::copy(const IfcLocalPlacement &obj, const CopyOp &copyop) {
     IfcObjectPlacement::copy(obj, copyop);
-    setPlacementRelTo(copyop(obj.m_placementRelTo.get()));
+    setPlacementRelTo((IfcObjectPlacement*)copyop(obj.m_placementRelTo.get()));
     m_relativePlacement = new IfcAxis2Placement;
     m_relativePlacement->copy(*(obj.m_relativePlacement.get()), copyop);
     return;

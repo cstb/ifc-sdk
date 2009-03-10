@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcMechanicalFastenerType::IfcMechanicalFastenerType(Step::Id id, Step::SPFData 
 IfcMechanicalFastenerType::~IfcMechanicalFastenerType() {
 }
 
-bool IfcMechanicalFastenerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMechanicalFastenerType(this);
+bool IfcMechanicalFastenerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMechanicalFastenerType(this);
 }
 
-const std::string &IfcMechanicalFastenerType::type() {
+const std::string &IfcMechanicalFastenerType::type() const {
     return IfcMechanicalFastenerType::s_type.getName();
 }
 
-Step::ClassType IfcMechanicalFastenerType::getClassType() {
+const Step::ClassType &IfcMechanicalFastenerType::getClassType() {
     return IfcMechanicalFastenerType::s_type;
 }
 
-Step::ClassType IfcMechanicalFastenerType::getType() const {
+const Step::ClassType &IfcMechanicalFastenerType::getType() const {
     return IfcMechanicalFastenerType::s_type;
 }
 
-bool IfcMechanicalFastenerType::isOfType(Step::ClassType t) {
+bool IfcMechanicalFastenerType::isOfType(const Step::ClassType &t) const {
     return IfcMechanicalFastenerType::s_type == t ? true : IfcFastenerType::isOfType(t);
-}
-
-void IfcMechanicalFastenerType::release() {
-    IfcFastenerType::release();
 }
 
 bool IfcMechanicalFastenerType::init() {

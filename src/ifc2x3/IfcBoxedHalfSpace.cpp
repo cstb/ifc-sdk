@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcBoxedHalfSpace::IfcBoxedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalf
 IfcBoxedHalfSpace::~IfcBoxedHalfSpace() {
 }
 
-bool IfcBoxedHalfSpace::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoxedHalfSpace(this);
+bool IfcBoxedHalfSpace::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoxedHalfSpace(this);
 }
 
-const std::string &IfcBoxedHalfSpace::type() {
+const std::string &IfcBoxedHalfSpace::type() const {
     return IfcBoxedHalfSpace::s_type.getName();
 }
 
-Step::ClassType IfcBoxedHalfSpace::getClassType() {
+const Step::ClassType &IfcBoxedHalfSpace::getClassType() {
     return IfcBoxedHalfSpace::s_type;
 }
 
-Step::ClassType IfcBoxedHalfSpace::getType() const {
+const Step::ClassType &IfcBoxedHalfSpace::getType() const {
     return IfcBoxedHalfSpace::s_type;
 }
 
-bool IfcBoxedHalfSpace::isOfType(Step::ClassType t) {
+bool IfcBoxedHalfSpace::isOfType(const Step::ClassType &t) const {
     return IfcBoxedHalfSpace::s_type == t ? true : IfcHalfSpaceSolid::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() {
     }
 }
 
-void IfcBoxedHalfSpace::setEnclosure(const Step::RefPtr< IfcBoundingBox > &value) {
-    m_enclosure = value;
+const IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() const {
+    IfcBoxedHalfSpace * deConstObject = const_cast< IfcBoxedHalfSpace * > (this);
+    return deConstObject->getEnclosure();
 }
 
-void IfcBoxedHalfSpace::release() {
-    IfcHalfSpaceSolid::release();
-    m_enclosure.release();
+void IfcBoxedHalfSpace::setEnclosure(const Step::RefPtr< IfcBoundingBox > &value) {
+    m_enclosure = value;
 }
 
 bool IfcBoxedHalfSpace::init() {
@@ -99,14 +99,14 @@ bool IfcBoxedHalfSpace::init() {
         m_enclosure = NULL;
     }
     else {
-        m_enclosure = static_cast< IfcBoundingBox * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_enclosure = static_cast< IfcBoundingBox * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcBoxedHalfSpace::copy(const IfcBoxedHalfSpace &obj, const CopyOp &copyop) {
     IfcHalfSpaceSolid::copy(obj, copyop);
-    setEnclosure(copyop(obj.m_enclosure.get()));
+    setEnclosure((IfcBoundingBox*)copyop(obj.m_enclosure.get()));
     return;
 }
 

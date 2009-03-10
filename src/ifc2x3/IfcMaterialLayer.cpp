@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -54,23 +54,23 @@ IfcMaterialLayer::IfcMaterialLayer(Step::Id id, Step::SPFData *args) : Step::Bas
 IfcMaterialLayer::~IfcMaterialLayer() {
 }
 
-bool IfcMaterialLayer::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialLayer(this);
+bool IfcMaterialLayer::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialLayer(this);
 }
 
-const std::string &IfcMaterialLayer::type() {
+const std::string &IfcMaterialLayer::type() const {
     return IfcMaterialLayer::s_type.getName();
 }
 
-Step::ClassType IfcMaterialLayer::getClassType() {
+const Step::ClassType &IfcMaterialLayer::getClassType() {
     return IfcMaterialLayer::s_type;
 }
 
-Step::ClassType IfcMaterialLayer::getType() const {
+const Step::ClassType &IfcMaterialLayer::getType() const {
     return IfcMaterialLayer::s_type;
 }
 
-bool IfcMaterialLayer::isOfType(Step::ClassType t) {
+bool IfcMaterialLayer::isOfType(const Step::ClassType &t) const {
     return IfcMaterialLayer::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcMaterial *IfcMaterialLayer::getMaterial() {
     else {
         return NULL;
     }
+}
+
+const IfcMaterial *IfcMaterialLayer::getMaterial() const {
+    IfcMaterialLayer * deConstObject = const_cast< IfcMaterialLayer * > (this);
+    return deConstObject->getMaterial();
 }
 
 void IfcMaterialLayer::setMaterial(const Step::RefPtr< IfcMaterial > &value) {
@@ -96,6 +101,11 @@ IfcPositiveLengthMeasure IfcMaterialLayer::getLayerThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcMaterialLayer::getLayerThickness() const {
+    IfcMaterialLayer * deConstObject = const_cast< IfcMaterialLayer * > (this);
+    return deConstObject->getLayerThickness();
+}
+
 void IfcMaterialLayer::setLayerThickness(IfcPositiveLengthMeasure value) {
     m_layerThickness = value;
 }
@@ -107,6 +117,11 @@ IfcLogical IfcMaterialLayer::getIsVentilated() {
     else {
         return Step::getUnset(m_isVentilated);
     }
+}
+
+const IfcLogical IfcMaterialLayer::getIsVentilated() const {
+    IfcMaterialLayer * deConstObject = const_cast< IfcMaterialLayer * > (this);
+    return deConstObject->getIsVentilated();
 }
 
 void IfcMaterialLayer::setIsVentilated(IfcLogical value) {
@@ -122,8 +137,9 @@ IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() {
     }
 }
 
-void IfcMaterialLayer::release() {
-    m_material.release();
+const IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() const {
+    IfcMaterialLayer * deConstObject = const_cast< IfcMaterialLayer * > (this);
+    return deConstObject->getToMaterialLayerSet();
 }
 
 bool IfcMaterialLayer::init() {
@@ -134,7 +150,7 @@ bool IfcMaterialLayer::init() {
         m_material = NULL;
     }
     else {
-        m_material = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_material = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -159,7 +175,7 @@ bool IfcMaterialLayer::init() {
 
 void IfcMaterialLayer::copy(const IfcMaterialLayer &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setMaterial(copyop(obj.m_material.get()));
+    setMaterial((IfcMaterial*)copyop(obj.m_material.get()));
     setLayerThickness(obj.m_layerThickness);
     setIsVentilated(obj.m_isVentilated);
     return;

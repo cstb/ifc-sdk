@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcPipeFittingType::IfcPipeFittingType(Step::Id id, Step::SPFData *args) : IfcFl
 IfcPipeFittingType::~IfcPipeFittingType() {
 }
 
-bool IfcPipeFittingType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPipeFittingType(this);
+bool IfcPipeFittingType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPipeFittingType(this);
 }
 
-const std::string &IfcPipeFittingType::type() {
+const std::string &IfcPipeFittingType::type() const {
     return IfcPipeFittingType::s_type.getName();
 }
 
-Step::ClassType IfcPipeFittingType::getClassType() {
+const Step::ClassType &IfcPipeFittingType::getClassType() {
     return IfcPipeFittingType::s_type;
 }
 
-Step::ClassType IfcPipeFittingType::getType() const {
+const Step::ClassType &IfcPipeFittingType::getType() const {
     return IfcPipeFittingType::s_type;
 }
 
-bool IfcPipeFittingType::isOfType(Step::ClassType t) {
+bool IfcPipeFittingType::isOfType(const Step::ClassType &t) const {
     return IfcPipeFittingType::s_type == t ? true : IfcFlowFittingType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType() {
     }
 }
 
-void IfcPipeFittingType::setPredefinedType(IfcPipeFittingTypeEnum value) {
-    m_predefinedType = value;
+const IfcPipeFittingTypeEnum IfcPipeFittingType::getPredefinedType() const {
+    IfcPipeFittingType * deConstObject = const_cast< IfcPipeFittingType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcPipeFittingType::release() {
-    IfcFlowFittingType::release();
+void IfcPipeFittingType::setPredefinedType(IfcPipeFittingTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcPipeFittingType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -51,23 +52,23 @@ IfcMechanicalConcreteMaterialProperties::IfcMechanicalConcreteMaterialProperties
 IfcMechanicalConcreteMaterialProperties::~IfcMechanicalConcreteMaterialProperties() {
 }
 
-bool IfcMechanicalConcreteMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMechanicalConcreteMaterialProperties(this);
+bool IfcMechanicalConcreteMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMechanicalConcreteMaterialProperties(this);
 }
 
-const std::string &IfcMechanicalConcreteMaterialProperties::type() {
+const std::string &IfcMechanicalConcreteMaterialProperties::type() const {
     return IfcMechanicalConcreteMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcMechanicalConcreteMaterialProperties::getClassType() {
+const Step::ClassType &IfcMechanicalConcreteMaterialProperties::getClassType() {
     return IfcMechanicalConcreteMaterialProperties::s_type;
 }
 
-Step::ClassType IfcMechanicalConcreteMaterialProperties::getType() const {
+const Step::ClassType &IfcMechanicalConcreteMaterialProperties::getType() const {
     return IfcMechanicalConcreteMaterialProperties::s_type;
 }
 
-bool IfcMechanicalConcreteMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcMechanicalConcreteMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcMechanicalConcreteMaterialProperties::s_type == t ? true : IfcMechanicalMaterialProperties::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcPressureMeasure IfcMechanicalConcreteMaterialProperties::getCompressiveStreng
     else {
         return Step::getUnset(m_compressiveStrength);
     }
+}
+
+const IfcPressureMeasure IfcMechanicalConcreteMaterialProperties::getCompressiveStrength() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getCompressiveStrength();
 }
 
 void IfcMechanicalConcreteMaterialProperties::setCompressiveStrength(IfcPressureMeasure value) {
@@ -93,6 +99,11 @@ IfcPositiveLengthMeasure IfcMechanicalConcreteMaterialProperties::getMaxAggregat
     }
 }
 
+const IfcPositiveLengthMeasure IfcMechanicalConcreteMaterialProperties::getMaxAggregateSize() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getMaxAggregateSize();
+}
+
 void IfcMechanicalConcreteMaterialProperties::setMaxAggregateSize(IfcPositiveLengthMeasure value) {
     m_maxAggregateSize = value;
 }
@@ -104,6 +115,11 @@ IfcText IfcMechanicalConcreteMaterialProperties::getAdmixturesDescription() {
     else {
         return Step::getUnset(m_admixturesDescription);
     }
+}
+
+const IfcText IfcMechanicalConcreteMaterialProperties::getAdmixturesDescription() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getAdmixturesDescription();
 }
 
 void IfcMechanicalConcreteMaterialProperties::setAdmixturesDescription(const IfcText &value) {
@@ -119,6 +135,11 @@ IfcText IfcMechanicalConcreteMaterialProperties::getWorkability() {
     }
 }
 
+const IfcText IfcMechanicalConcreteMaterialProperties::getWorkability() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getWorkability();
+}
+
 void IfcMechanicalConcreteMaterialProperties::setWorkability(const IfcText &value) {
     m_workability = value;
 }
@@ -130,6 +151,11 @@ IfcNormalisedRatioMeasure IfcMechanicalConcreteMaterialProperties::getProtective
     else {
         return Step::getUnset(m_protectivePoreRatio);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcMechanicalConcreteMaterialProperties::getProtectivePoreRatio() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getProtectivePoreRatio();
 }
 
 void IfcMechanicalConcreteMaterialProperties::setProtectivePoreRatio(IfcNormalisedRatioMeasure value) {
@@ -145,12 +171,13 @@ IfcText IfcMechanicalConcreteMaterialProperties::getWaterImpermeability() {
     }
 }
 
-void IfcMechanicalConcreteMaterialProperties::setWaterImpermeability(const IfcText &value) {
-    m_waterImpermeability = value;
+const IfcText IfcMechanicalConcreteMaterialProperties::getWaterImpermeability() const {
+    IfcMechanicalConcreteMaterialProperties * deConstObject = const_cast< IfcMechanicalConcreteMaterialProperties * > (this);
+    return deConstObject->getWaterImpermeability();
 }
 
-void IfcMechanicalConcreteMaterialProperties::release() {
-    IfcMechanicalMaterialProperties::release();
+void IfcMechanicalConcreteMaterialProperties::setWaterImpermeability(const IfcText &value) {
+    m_waterImpermeability = value;
 }
 
 bool IfcMechanicalConcreteMaterialProperties::init() {
@@ -178,14 +205,14 @@ bool IfcMechanicalConcreteMaterialProperties::init() {
         m_admixturesDescription = Step::getUnset(m_admixturesDescription);
     }
     else {
-        m_admixturesDescription = Step::spfToString(arg);
+        m_admixturesDescription = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_workability = Step::getUnset(m_workability);
     }
     else {
-        m_workability = Step::spfToString(arg);
+        m_workability = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -199,7 +226,7 @@ bool IfcMechanicalConcreteMaterialProperties::init() {
         m_waterImpermeability = Step::getUnset(m_waterImpermeability);
     }
     else {
-        m_waterImpermeability = Step::spfToString(arg);
+        m_waterImpermeability = Step::String::fromSPF(arg);
     }
     return true;
 }

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcHygroscopicMaterialProperties::IfcHygroscopicMaterialProperties(Step::Id id, 
 IfcHygroscopicMaterialProperties::~IfcHygroscopicMaterialProperties() {
 }
 
-bool IfcHygroscopicMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcHygroscopicMaterialProperties(this);
+bool IfcHygroscopicMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcHygroscopicMaterialProperties(this);
 }
 
-const std::string &IfcHygroscopicMaterialProperties::type() {
+const std::string &IfcHygroscopicMaterialProperties::type() const {
     return IfcHygroscopicMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcHygroscopicMaterialProperties::getClassType() {
+const Step::ClassType &IfcHygroscopicMaterialProperties::getClassType() {
     return IfcHygroscopicMaterialProperties::s_type;
 }
 
-Step::ClassType IfcHygroscopicMaterialProperties::getType() const {
+const Step::ClassType &IfcHygroscopicMaterialProperties::getType() const {
     return IfcHygroscopicMaterialProperties::s_type;
 }
 
-bool IfcHygroscopicMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcHygroscopicMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcHygroscopicMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getUpperVaporResistanc
     else {
         return Step::getUnset(m_upperVaporResistanceFactor);
     }
+}
+
+const IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getUpperVaporResistanceFactor() const {
+    IfcHygroscopicMaterialProperties * deConstObject = const_cast< IfcHygroscopicMaterialProperties * > (this);
+    return deConstObject->getUpperVaporResistanceFactor();
 }
 
 void IfcHygroscopicMaterialProperties::setUpperVaporResistanceFactor(IfcPositiveRatioMeasure value) {
@@ -92,6 +97,11 @@ IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getLowerVaporResistanc
     }
 }
 
+const IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getLowerVaporResistanceFactor() const {
+    IfcHygroscopicMaterialProperties * deConstObject = const_cast< IfcHygroscopicMaterialProperties * > (this);
+    return deConstObject->getLowerVaporResistanceFactor();
+}
+
 void IfcHygroscopicMaterialProperties::setLowerVaporResistanceFactor(IfcPositiveRatioMeasure value) {
     m_lowerVaporResistanceFactor = value;
 }
@@ -103,6 +113,11 @@ IfcIsothermalMoistureCapacityMeasure IfcHygroscopicMaterialProperties::getIsothe
     else {
         return Step::getUnset(m_isothermalMoistureCapacity);
     }
+}
+
+const IfcIsothermalMoistureCapacityMeasure IfcHygroscopicMaterialProperties::getIsothermalMoistureCapacity() const {
+    IfcHygroscopicMaterialProperties * deConstObject = const_cast< IfcHygroscopicMaterialProperties * > (this);
+    return deConstObject->getIsothermalMoistureCapacity();
 }
 
 void IfcHygroscopicMaterialProperties::setIsothermalMoistureCapacity(IfcIsothermalMoistureCapacityMeasure value) {
@@ -118,6 +133,11 @@ IfcVaporPermeabilityMeasure IfcHygroscopicMaterialProperties::getVaporPermeabili
     }
 }
 
+const IfcVaporPermeabilityMeasure IfcHygroscopicMaterialProperties::getVaporPermeability() const {
+    IfcHygroscopicMaterialProperties * deConstObject = const_cast< IfcHygroscopicMaterialProperties * > (this);
+    return deConstObject->getVaporPermeability();
+}
+
 void IfcHygroscopicMaterialProperties::setVaporPermeability(IfcVaporPermeabilityMeasure value) {
     m_vaporPermeability = value;
 }
@@ -131,12 +151,13 @@ IfcMoistureDiffusivityMeasure IfcHygroscopicMaterialProperties::getMoistureDiffu
     }
 }
 
-void IfcHygroscopicMaterialProperties::setMoistureDiffusivity(IfcMoistureDiffusivityMeasure value) {
-    m_moistureDiffusivity = value;
+const IfcMoistureDiffusivityMeasure IfcHygroscopicMaterialProperties::getMoistureDiffusivity() const {
+    IfcHygroscopicMaterialProperties * deConstObject = const_cast< IfcHygroscopicMaterialProperties * > (this);
+    return deConstObject->getMoistureDiffusivity();
 }
 
-void IfcHygroscopicMaterialProperties::release() {
-    IfcMaterialProperties::release();
+void IfcHygroscopicMaterialProperties::setMoistureDiffusivity(IfcMoistureDiffusivityMeasure value) {
+    m_moistureDiffusivity = value;
 }
 
 bool IfcHygroscopicMaterialProperties::init() {

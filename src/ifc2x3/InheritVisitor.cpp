@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include "ifc2x3/IfcAirTerminalType.h"
 #include "ifc2x3/IfcAirToAirHeatRecoveryType.h"
 #include "ifc2x3/IfcAlarmType.h"
-#include "ifc2x3/IfcAlignmentElement.h"
 #include "ifc2x3/IfcAngularDimension.h"
 #include "ifc2x3/IfcAnnotation.h"
 #include "ifc2x3/IfcAnnotationCurveOccurrence.h"
@@ -84,16 +83,9 @@
 #include "ifc2x3/IfcBoundedSurface.h"
 #include "ifc2x3/IfcBoundingBox.h"
 #include "ifc2x3/IfcBoxedHalfSpace.h"
-#include "ifc2x3/IfcBridge.h"
-#include "ifc2x3/IfcBridgeContactElement.h"
-#include "ifc2x3/IfcBridgeElement.h"
-#include "ifc2x3/IfcBridgePart.h"
-#include "ifc2x3/IfcBridgePrismaticElement.h"
-#include "ifc2x3/IfcBridgeSegment.h"
-#include "ifc2x3/IfcBridgeSegmentPart.h"
-#include "ifc2x3/IfcBridgeStructureElement.h"
 #include "ifc2x3/IfcBuilding.h"
 #include "ifc2x3/IfcBuildingElement.h"
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include "ifc2x3/IfcBuildingElementPart.h"
 #include "ifc2x3/IfcBuildingElementProxy.h"
 #include "ifc2x3/IfcBuildingElementProxyType.h"
@@ -117,11 +109,6 @@
 #include "ifc2x3/IfcCircle.h"
 #include "ifc2x3/IfcCircleHollowProfileDef.h"
 #include "ifc2x3/IfcCircleProfileDef.h"
-#include "ifc2x3/IfcCivilElement.h"
-#include "ifc2x3/IfcCivilElementPart.h"
-#include "ifc2x3/IfcCivilSheath.h"
-#include "ifc2x3/IfcCivilStructureElement.h"
-#include "ifc2x3/IfcCivilVoid.h"
 #include "ifc2x3/IfcClassification.h"
 #include "ifc2x3/IfcClassificationItem.h"
 #include "ifc2x3/IfcClassificationItemRelationship.h"
@@ -130,7 +117,6 @@
 #include "ifc2x3/IfcClassificationNotationSelect.h"
 #include "ifc2x3/IfcClassificationReference.h"
 #include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcClothoid.h"
 #include "ifc2x3/IfcCoilType.h"
 #include "ifc2x3/IfcColour.h"
 #include "ifc2x3/IfcColourOrFactor.h"
@@ -257,7 +243,6 @@
 #include "ifc2x3/IfcElementAssembly.h"
 #include "ifc2x3/IfcElementComponent.h"
 #include "ifc2x3/IfcElementComponentType.h"
-#include "ifc2x3/IfcElementPart.h"
 #include "ifc2x3/IfcElementQuantity.h"
 #include "ifc2x3/IfcElementType.h"
 #include "ifc2x3/IfcElementarySurface.h"
@@ -502,14 +487,6 @@
 #include "ifc2x3/IfcRectangleProfileDef.h"
 #include "ifc2x3/IfcRectangularPyramid.h"
 #include "ifc2x3/IfcRectangularTrimmedSurface.h"
-#include "ifc2x3/IfcReferenceCurve.h"
-#include "ifc2x3/IfcReferenceCurve3D.h"
-#include "ifc2x3/IfcReferenceCurveAlignment2D.h"
-#include "ifc2x3/IfcReferenceCurvePlacement.h"
-#include "ifc2x3/IfcReferenceCurvePlacementSystem.h"
-#include "ifc2x3/IfcReferenceElement.h"
-#include "ifc2x3/IfcReferencePlacement.h"
-#include "ifc2x3/IfcReferencedSectionedSpine.h"
 #include "ifc2x3/IfcReferencesValueDocument.h"
 #include "ifc2x3/IfcRegularTimeSeries.h"
 #include "ifc2x3/IfcReinforcementBarProperties.h"
@@ -1217,8 +1194,12 @@ bool InheritVisitor::visitIfcBuildingElement(IfcBuildingElement *value) {
     return visitIfcElement(value);
 }
 
+bool InheritVisitor::visitIfcBuildingElementComponent(IfcBuildingElementComponent *value) {
+    return visitIfcBuildingElement(value);
+}
+
 bool InheritVisitor::visitIfcBuildingElementPart(IfcBuildingElementPart *value) {
-    return visitIfcElementPart(value);
+    return visitIfcBuildingElementComponent(value);
 }
 
 bool InheritVisitor::visitIfcBuildingElementProxy(IfcBuildingElementProxy *value) {
@@ -2100,7 +2081,7 @@ bool InheritVisitor::visitIfcGeometricSet(IfcGeometricSet *value) {
 }
 
 bool InheritVisitor::visitIfcGrid(IfcGrid *value) {
-    return visitIfcAlignmentElement(value);
+    return visitIfcProduct(value);
 }
 
 bool InheritVisitor::visitIfcGridAxis(IfcGridAxis *value) {
@@ -2519,7 +2500,7 @@ bool InheritVisitor::visitIfcPolyline(IfcPolyline *value) {
 }
 
 bool InheritVisitor::visitIfcPort(IfcPort *value) {
-    return visitIfcAlignmentElement(value);
+    return visitIfcProduct(value);
 }
 
 bool InheritVisitor::visitIfcPostalAddress(IfcPostalAddress *value) {
@@ -2792,7 +2773,7 @@ bool InheritVisitor::visitIfcReinforcingBar(IfcReinforcingBar *value) {
 }
 
 bool InheritVisitor::visitIfcReinforcingElement(IfcReinforcingElement *value) {
-    return visitIfcElementPart(value);
+    return visitIfcBuildingElementComponent(value);
 }
 
 bool InheritVisitor::visitIfcReinforcingMesh(IfcReinforcingMesh *value) {
@@ -3694,101 +3675,5 @@ bool InheritVisitor::visitIfcZShapeProfileDef(IfcZShapeProfileDef *value) {
 
 bool InheritVisitor::visitIfcZone(IfcZone *value) {
     return visitIfcGroup(value);
-}
-
-bool InheritVisitor::visitIfcCivilStructureElement(IfcCivilStructureElement *value) {
-    return visitIfcSpatialStructureElement(value);
-}
-
-bool InheritVisitor::visitIfcBridgeStructureElement(IfcBridgeStructureElement *value) {
-    return visitIfcCivilStructureElement(value);
-}
-
-bool InheritVisitor::visitIfcBridge(IfcBridge *value) {
-    return visitIfcBridgeStructureElement(value);
-}
-
-bool InheritVisitor::visitIfcBridgePart(IfcBridgePart *value) {
-    return visitIfcBridgeStructureElement(value);
-}
-
-bool InheritVisitor::visitIfcCivilElement(IfcCivilElement *value) {
-    return visitIfcElement(value);
-}
-
-bool InheritVisitor::visitIfcBridgeElement(IfcBridgeElement *value) {
-    return visitIfcCivilElement(value);
-}
-
-bool InheritVisitor::visitIfcBridgeSegment(IfcBridgeSegment *value) {
-    return visitIfcBridgeElement(value);
-}
-
-bool InheritVisitor::visitIfcBridgeSegmentPart(IfcBridgeSegmentPart *value) {
-    return visitIfcCivilElementPart(value);
-}
-
-bool InheritVisitor::visitIfcBridgeContactElement(IfcBridgeContactElement *value) {
-    return visitIfcCivilElementPart(value);
-}
-
-bool InheritVisitor::visitIfcBridgePrismaticElement(IfcBridgePrismaticElement *value) {
-    return visitIfcBridgeElement(value);
-}
-
-bool InheritVisitor::visitIfcAlignmentElement(IfcAlignmentElement *value) {
-    return visitIfcProduct(value);
-}
-
-bool InheritVisitor::visitIfcReferenceElement(IfcReferenceElement *value) {
-    return visitIfcAlignmentElement(value);
-}
-
-bool InheritVisitor::visitIfcReferenceCurve(IfcReferenceCurve *value) {
-    return visitIfcReferenceElement(value);
-}
-
-bool InheritVisitor::visitIfcReferenceCurve3D(IfcReferenceCurve3D *value) {
-    return visitIfcReferenceCurve(value);
-}
-
-bool InheritVisitor::visitIfcReferenceCurveAlignment2D(IfcReferenceCurveAlignment2D *value) {
-    return visitIfcReferenceCurve(value);
-}
-
-bool InheritVisitor::visitIfcReferencePlacement(IfcReferencePlacement *value) {
-    return visitIfcObjectPlacement(value);
-}
-
-bool InheritVisitor::visitIfcReferenceCurvePlacement(IfcReferenceCurvePlacement *value) {
-    return visitIfcReferencePlacement(value);
-}
-
-bool InheritVisitor::visitIfcReferenceCurvePlacementSystem(IfcReferenceCurvePlacementSystem *value) {
-    return visitIfcReferencePlacement(value);
-}
-
-bool InheritVisitor::visitIfcElementPart(IfcElementPart *value) {
-    return visitIfcElement(value);
-}
-
-bool InheritVisitor::visitIfcCivilElementPart(IfcCivilElementPart *value) {
-    return visitIfcElementPart(value);
-}
-
-bool InheritVisitor::visitIfcCivilSheath(IfcCivilSheath *value) {
-    return visitIfcCivilElementPart(value);
-}
-
-bool InheritVisitor::visitIfcCivilVoid(IfcCivilVoid *value) {
-    return visitIfcCivilElementPart(value);
-}
-
-bool InheritVisitor::visitIfcClothoid(IfcClothoid *value) {
-    return visitIfcCurve(value);
-}
-
-bool InheritVisitor::visitIfcReferencedSectionedSpine(IfcReferencedSectionedSpine *value) {
-    return visitIfcSolidModel(value);
 }
 

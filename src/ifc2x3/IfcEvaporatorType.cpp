@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcEvaporatorType::IfcEvaporatorType(Step::Id id, Step::SPFData *args) : IfcEner
 IfcEvaporatorType::~IfcEvaporatorType() {
 }
 
-bool IfcEvaporatorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEvaporatorType(this);
+bool IfcEvaporatorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEvaporatorType(this);
 }
 
-const std::string &IfcEvaporatorType::type() {
+const std::string &IfcEvaporatorType::type() const {
     return IfcEvaporatorType::s_type.getName();
 }
 
-Step::ClassType IfcEvaporatorType::getClassType() {
+const Step::ClassType &IfcEvaporatorType::getClassType() {
     return IfcEvaporatorType::s_type;
 }
 
-Step::ClassType IfcEvaporatorType::getType() const {
+const Step::ClassType &IfcEvaporatorType::getType() const {
     return IfcEvaporatorType::s_type;
 }
 
-bool IfcEvaporatorType::isOfType(Step::ClassType t) {
+bool IfcEvaporatorType::isOfType(const Step::ClassType &t) const {
     return IfcEvaporatorType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcEvaporatorTypeEnum IfcEvaporatorType::getPredefinedType() {
     }
 }
 
-void IfcEvaporatorType::setPredefinedType(IfcEvaporatorTypeEnum value) {
-    m_predefinedType = value;
+const IfcEvaporatorTypeEnum IfcEvaporatorType::getPredefinedType() const {
+    IfcEvaporatorType * deConstObject = const_cast< IfcEvaporatorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcEvaporatorType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcEvaporatorType::setPredefinedType(IfcEvaporatorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcEvaporatorType::init() {

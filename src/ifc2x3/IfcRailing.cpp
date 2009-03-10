@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcRailing::IfcRailing(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id
 IfcRailing::~IfcRailing() {
 }
 
-bool IfcRailing::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRailing(this);
+bool IfcRailing::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRailing(this);
 }
 
-const std::string &IfcRailing::type() {
+const std::string &IfcRailing::type() const {
     return IfcRailing::s_type.getName();
 }
 
-Step::ClassType IfcRailing::getClassType() {
+const Step::ClassType &IfcRailing::getClassType() {
     return IfcRailing::s_type;
 }
 
-Step::ClassType IfcRailing::getType() const {
+const Step::ClassType &IfcRailing::getType() const {
     return IfcRailing::s_type;
 }
 
-bool IfcRailing::isOfType(Step::ClassType t) {
+bool IfcRailing::isOfType(const Step::ClassType &t) const {
     return IfcRailing::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcRailingTypeEnum IfcRailing::getPredefinedType() {
     }
 }
 
-void IfcRailing::setPredefinedType(IfcRailingTypeEnum value) {
-    m_predefinedType = value;
+const IfcRailingTypeEnum IfcRailing::getPredefinedType() const {
+    IfcRailing * deConstObject = const_cast< IfcRailing * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcRailing::release() {
-    IfcBuildingElement::release();
+void IfcRailing::setPredefinedType(IfcRailingTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcRailing::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,133 +32,217 @@
 #include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
     class IfcDateTimeSelect;
-    class IfcPerson;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcWorkControl : public IfcControl {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Identifier'.
+         * 
          */
-        IfcIdentifier getIdentifier();
+        virtual IfcIdentifier getIdentifier();
+        /**
+         * (const) Returns the value of the explicit attribute 'Identifier'.
+         * 
+         * @return the value of the explicit attribute 'Identifier'
+         */
+        virtual const IfcIdentifier getIdentifier() const;
         /**
          * Sets the value of the explicit attribute 'Identifier'.
          * 
          * @param value
          */
-        void setIdentifier(const IfcIdentifier &value);
+        virtual void setIdentifier(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'CreationDate'.
+         * 
          */
-        IfcDateTimeSelect *getCreationDate();
+        virtual IfcDateTimeSelect *getCreationDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'CreationDate'.
+         * 
+         * @return the value of the explicit attribute 'CreationDate'
+         */
+        virtual const IfcDateTimeSelect *getCreationDate() const;
         /**
          * Sets the value of the explicit attribute 'CreationDate'.
          * 
          * @param value
          */
-        void setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'Creators'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcPerson > > &getCreators();
+        virtual Set_IfcPerson_1_n &getCreators();
+        /**
+         * (const) Returns the value of the explicit attribute 'Creators'.
+         * 
+         * @return the value of the explicit attribute 'Creators'
+         */
+        virtual const Set_IfcPerson_1_n &getCreators() const;
         /**
          * Sets the value of the explicit attribute 'Creators'.
          * 
          * @param value
          */
-        void setCreators(const Step::Set< Step::RefPtr< IfcPerson > > &value);
+        virtual void setCreators(const Set_IfcPerson_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'Purpose'.
+         * 
          */
-        IfcLabel getPurpose();
+        virtual IfcLabel getPurpose();
+        /**
+         * (const) Returns the value of the explicit attribute 'Purpose'.
+         * 
+         * @return the value of the explicit attribute 'Purpose'
+         */
+        virtual const IfcLabel getPurpose() const;
         /**
          * Sets the value of the explicit attribute 'Purpose'.
          * 
          * @param value
          */
-        void setPurpose(const IfcLabel &value);
+        virtual void setPurpose(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Duration'.
+         * 
          */
-        IfcTimeMeasure getDuration();
+        virtual IfcTimeMeasure getDuration();
+        /**
+         * (const) Returns the value of the explicit attribute 'Duration'.
+         * 
+         * @return the value of the explicit attribute 'Duration'
+         */
+        virtual const IfcTimeMeasure getDuration() const;
         /**
          * Sets the value of the explicit attribute 'Duration'.
          * 
          * @param value
          */
-        void setDuration(IfcTimeMeasure value);
+        virtual void setDuration(IfcTimeMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TotalFloat'.
+         * 
          */
-        IfcTimeMeasure getTotalFloat();
+        virtual IfcTimeMeasure getTotalFloat();
+        /**
+         * (const) Returns the value of the explicit attribute 'TotalFloat'.
+         * 
+         * @return the value of the explicit attribute 'TotalFloat'
+         */
+        virtual const IfcTimeMeasure getTotalFloat() const;
         /**
          * Sets the value of the explicit attribute 'TotalFloat'.
          * 
          * @param value
          */
-        void setTotalFloat(IfcTimeMeasure value);
+        virtual void setTotalFloat(IfcTimeMeasure value);
         /**
+         * Gets the value of the explicit attribute 'StartTime'.
+         * 
          */
-        IfcDateTimeSelect *getStartTime();
+        virtual IfcDateTimeSelect *getStartTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'StartTime'.
+         * 
+         * @return the value of the explicit attribute 'StartTime'
+         */
+        virtual const IfcDateTimeSelect *getStartTime() const;
         /**
          * Sets the value of the explicit attribute 'StartTime'.
          * 
          * @param value
          */
-        void setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'FinishTime'.
+         * 
          */
-        IfcDateTimeSelect *getFinishTime();
+        virtual IfcDateTimeSelect *getFinishTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'FinishTime'.
+         * 
+         * @return the value of the explicit attribute 'FinishTime'
+         */
+        virtual const IfcDateTimeSelect *getFinishTime() const;
         /**
          * Sets the value of the explicit attribute 'FinishTime'.
          * 
          * @param value
          */
-        void setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'WorkControlType'.
+         * 
          */
-        IfcWorkControlTypeEnum getWorkControlType();
+        virtual IfcWorkControlTypeEnum getWorkControlType();
+        /**
+         * (const) Returns the value of the explicit attribute 'WorkControlType'.
+         * 
+         * @return the value of the explicit attribute 'WorkControlType'
+         */
+        virtual const IfcWorkControlTypeEnum getWorkControlType() const;
         /**
          * Sets the value of the explicit attribute 'WorkControlType'.
          * 
          * @param value
          */
-        void setWorkControlType(IfcWorkControlTypeEnum value);
+        virtual void setWorkControlType(IfcWorkControlTypeEnum value);
         /**
+         * Gets the value of the explicit attribute 'UserDefinedControlType'.
+         * 
          */
-        IfcLabel getUserDefinedControlType();
+        virtual IfcLabel getUserDefinedControlType();
+        /**
+         * (const) Returns the value of the explicit attribute 'UserDefinedControlType'.
+         * 
+         * @return the value of the explicit attribute 'UserDefinedControlType'
+         */
+        virtual const IfcLabel getUserDefinedControlType() const;
         /**
          * Sets the value of the explicit attribute 'UserDefinedControlType'.
          * 
          * @param value
          */
-        void setUserDefinedControlType(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setUserDefinedControlType(const IfcLabel &value);
         friend class ExpressDataSet;
 
     protected:
@@ -183,16 +267,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_identifier;
+        Step::String m_identifier;
         /**
          */
         Step::RefPtr< IfcDateTimeSelect > m_creationDate;
         /**
          */
-        Step::Set< Step::RefPtr< IfcPerson > > m_creators;
+        Set_IfcPerson_1_n m_creators;
         /**
          */
-        std::string m_purpose;
+        Step::String m_purpose;
         /**
          */
         Step::Real m_duration;
@@ -210,7 +294,7 @@ namespace ifc2x3 {
         IfcWorkControlTypeEnum m_workControlType;
         /**
          */
-        std::string m_userDefinedControlType;
+        Step::String m_userDefinedControlType;
 
     };
 

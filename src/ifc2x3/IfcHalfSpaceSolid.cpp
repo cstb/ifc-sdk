@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcHalfSpaceSolid::IfcHalfSpaceSolid(Step::Id id, Step::SPFData *args) : IfcGeom
 IfcHalfSpaceSolid::~IfcHalfSpaceSolid() {
 }
 
-bool IfcHalfSpaceSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcHalfSpaceSolid(this);
+bool IfcHalfSpaceSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcHalfSpaceSolid(this);
 }
 
-const std::string &IfcHalfSpaceSolid::type() {
+const std::string &IfcHalfSpaceSolid::type() const {
     return IfcHalfSpaceSolid::s_type.getName();
 }
 
-Step::ClassType IfcHalfSpaceSolid::getClassType() {
+const Step::ClassType &IfcHalfSpaceSolid::getClassType() {
     return IfcHalfSpaceSolid::s_type;
 }
 
-Step::ClassType IfcHalfSpaceSolid::getType() const {
+const Step::ClassType &IfcHalfSpaceSolid::getType() const {
     return IfcHalfSpaceSolid::s_type;
 }
 
-bool IfcHalfSpaceSolid::isOfType(Step::ClassType t) {
+bool IfcHalfSpaceSolid::isOfType(const Step::ClassType &t) const {
     return IfcHalfSpaceSolid::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -80,11 +80,16 @@ IfcSurface *IfcHalfSpaceSolid::getBaseSurface() {
     }
 }
 
+const IfcSurface *IfcHalfSpaceSolid::getBaseSurface() const {
+    IfcHalfSpaceSolid * deConstObject = const_cast< IfcHalfSpaceSolid * > (this);
+    return deConstObject->getBaseSurface();
+}
+
 void IfcHalfSpaceSolid::setBaseSurface(const Step::RefPtr< IfcSurface > &value) {
     m_baseSurface = value;
 }
 
-Step::Bool IfcHalfSpaceSolid::getAgreementFlag() {
+Step::Boolean IfcHalfSpaceSolid::getAgreementFlag() {
     if (Step::BaseObject::inited()) {
         return m_agreementFlag;
     }
@@ -93,13 +98,13 @@ Step::Bool IfcHalfSpaceSolid::getAgreementFlag() {
     }
 }
 
-void IfcHalfSpaceSolid::setAgreementFlag(Step::Bool value) {
-    m_agreementFlag = value;
+const Step::Boolean IfcHalfSpaceSolid::getAgreementFlag() const {
+    IfcHalfSpaceSolid * deConstObject = const_cast< IfcHalfSpaceSolid * > (this);
+    return deConstObject->getAgreementFlag();
 }
 
-void IfcHalfSpaceSolid::release() {
-    IfcGeometricRepresentationItem::release();
-    m_baseSurface.release();
+void IfcHalfSpaceSolid::setAgreementFlag(Step::Boolean value) {
+    m_agreementFlag = value;
 }
 
 bool IfcHalfSpaceSolid::init() {
@@ -113,21 +118,21 @@ bool IfcHalfSpaceSolid::init() {
         m_baseSurface = NULL;
     }
     else {
-        m_baseSurface = static_cast< IfcSurface * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_baseSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_agreementFlag = Step::getUnset(m_agreementFlag);
     }
     else {
-        m_agreementFlag = Step::spfToBool(arg);
+        m_agreementFlag = Step::spfToBoolean(arg);
     }
     return true;
 }
 
 void IfcHalfSpaceSolid::copy(const IfcHalfSpaceSolid &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setBaseSurface(copyop(obj.m_baseSurface.get()));
+    setBaseSurface((IfcSurface*)copyop(obj.m_baseSurface.get()));
     setAgreementFlag(obj.m_agreementFlag);
     return;
 }

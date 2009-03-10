@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcSurfaceStyleLighting::IfcSurfaceStyleLighting(Step::Id id, Step::SPFData *arg
 IfcSurfaceStyleLighting::~IfcSurfaceStyleLighting() {
 }
 
-bool IfcSurfaceStyleLighting::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleLighting(this);
+bool IfcSurfaceStyleLighting::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleLighting(this);
 }
 
-const std::string &IfcSurfaceStyleLighting::type() {
+const std::string &IfcSurfaceStyleLighting::type() const {
     return IfcSurfaceStyleLighting::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleLighting::getClassType() {
+const Step::ClassType &IfcSurfaceStyleLighting::getClassType() {
     return IfcSurfaceStyleLighting::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleLighting::getType() const {
+const Step::ClassType &IfcSurfaceStyleLighting::getType() const {
     return IfcSurfaceStyleLighting::s_type;
 }
 
-bool IfcSurfaceStyleLighting::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleLighting::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleLighting::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseTransmissionColour() {
     else {
         return NULL;
     }
+}
+
+const IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseTransmissionColour() const {
+    IfcSurfaceStyleLighting * deConstObject = const_cast< IfcSurfaceStyleLighting * > (this);
+    return deConstObject->getDiffuseTransmissionColour();
 }
 
 void IfcSurfaceStyleLighting::setDiffuseTransmissionColour(const Step::RefPtr< IfcColourRgb > &value) {
@@ -95,6 +100,11 @@ IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseReflectionColour() {
     }
 }
 
+const IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseReflectionColour() const {
+    IfcSurfaceStyleLighting * deConstObject = const_cast< IfcSurfaceStyleLighting * > (this);
+    return deConstObject->getDiffuseReflectionColour();
+}
+
 void IfcSurfaceStyleLighting::setDiffuseReflectionColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_diffuseReflectionColour = value;
 }
@@ -106,6 +116,11 @@ IfcColourRgb *IfcSurfaceStyleLighting::getTransmissionColour() {
     else {
         return NULL;
     }
+}
+
+const IfcColourRgb *IfcSurfaceStyleLighting::getTransmissionColour() const {
+    IfcSurfaceStyleLighting * deConstObject = const_cast< IfcSurfaceStyleLighting * > (this);
+    return deConstObject->getTransmissionColour();
 }
 
 void IfcSurfaceStyleLighting::setTransmissionColour(const Step::RefPtr< IfcColourRgb > &value) {
@@ -121,15 +136,13 @@ IfcColourRgb *IfcSurfaceStyleLighting::getReflectanceColour() {
     }
 }
 
-void IfcSurfaceStyleLighting::setReflectanceColour(const Step::RefPtr< IfcColourRgb > &value) {
-    m_reflectanceColour = value;
+const IfcColourRgb *IfcSurfaceStyleLighting::getReflectanceColour() const {
+    IfcSurfaceStyleLighting * deConstObject = const_cast< IfcSurfaceStyleLighting * > (this);
+    return deConstObject->getReflectanceColour();
 }
 
-void IfcSurfaceStyleLighting::release() {
-    m_diffuseTransmissionColour.release();
-    m_diffuseReflectionColour.release();
-    m_transmissionColour.release();
-    m_reflectanceColour.release();
+void IfcSurfaceStyleLighting::setReflectanceColour(const Step::RefPtr< IfcColourRgb > &value) {
+    m_reflectanceColour = value;
 }
 
 bool IfcSurfaceStyleLighting::init() {
@@ -139,38 +152,38 @@ bool IfcSurfaceStyleLighting::init() {
         m_diffuseTransmissionColour = NULL;
     }
     else {
-        m_diffuseTransmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_diffuseTransmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_diffuseReflectionColour = NULL;
     }
     else {
-        m_diffuseReflectionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_diffuseReflectionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_transmissionColour = NULL;
     }
     else {
-        m_transmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_transmissionColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_reflectanceColour = NULL;
     }
     else {
-        m_reflectanceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_reflectanceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSurfaceStyleLighting::copy(const IfcSurfaceStyleLighting &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setDiffuseTransmissionColour(copyop(obj.m_diffuseTransmissionColour.get()));
-    setDiffuseReflectionColour(copyop(obj.m_diffuseReflectionColour.get()));
-    setTransmissionColour(copyop(obj.m_transmissionColour.get()));
-    setReflectanceColour(copyop(obj.m_reflectanceColour.get()));
+    setDiffuseTransmissionColour((IfcColourRgb*)copyop(obj.m_diffuseTransmissionColour.get()));
+    setDiffuseReflectionColour((IfcColourRgb*)copyop(obj.m_diffuseReflectionColour.get()));
+    setTransmissionColour((IfcColourRgb*)copyop(obj.m_transmissionColour.get()));
+    setReflectanceColour((IfcColourRgb*)copyop(obj.m_reflectanceColour.get()));
     return;
 }
 

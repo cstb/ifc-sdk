@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDimensionPair::IfcDimensionPair(Step::Id id, Step::SPFData *args) : IfcDraugh
 IfcDimensionPair::~IfcDimensionPair() {
 }
 
-bool IfcDimensionPair::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionPair(this);
+bool IfcDimensionPair::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionPair(this);
 }
 
-const std::string &IfcDimensionPair::type() {
+const std::string &IfcDimensionPair::type() const {
     return IfcDimensionPair::s_type.getName();
 }
 
-Step::ClassType IfcDimensionPair::getClassType() {
+const Step::ClassType &IfcDimensionPair::getClassType() {
     return IfcDimensionPair::s_type;
 }
 
-Step::ClassType IfcDimensionPair::getType() const {
+const Step::ClassType &IfcDimensionPair::getType() const {
     return IfcDimensionPair::s_type;
 }
 
-bool IfcDimensionPair::isOfType(Step::ClassType t) {
+bool IfcDimensionPair::isOfType(const Step::ClassType &t) const {
     return IfcDimensionPair::s_type == t ? true : IfcDraughtingCalloutRelationship::isOfType(t);
-}
-
-void IfcDimensionPair::release() {
-    IfcDraughtingCalloutRelationship::release();
 }
 
 bool IfcDimensionPair::init() {

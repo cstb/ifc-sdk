@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcVertex::IfcVertex(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresent
 IfcVertex::~IfcVertex() {
 }
 
-bool IfcVertex::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVertex(this);
+bool IfcVertex::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVertex(this);
 }
 
-const std::string &IfcVertex::type() {
+const std::string &IfcVertex::type() const {
     return IfcVertex::s_type.getName();
 }
 
-Step::ClassType IfcVertex::getClassType() {
+const Step::ClassType &IfcVertex::getClassType() {
     return IfcVertex::s_type;
 }
 
-Step::ClassType IfcVertex::getType() const {
+const Step::ClassType &IfcVertex::getType() const {
     return IfcVertex::s_type;
 }
 
-bool IfcVertex::isOfType(Step::ClassType t) {
+bool IfcVertex::isOfType(const Step::ClassType &t) const {
     return IfcVertex::s_type == t ? true : IfcTopologicalRepresentationItem::isOfType(t);
-}
-
-void IfcVertex::release() {
-    IfcTopologicalRepresentationItem::release();
 }
 
 bool IfcVertex::init() {

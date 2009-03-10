@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcLightFixtureType::IfcLightFixtureType(Step::Id id, Step::SPFData *args) : Ifc
 IfcLightFixtureType::~IfcLightFixtureType() {
 }
 
-bool IfcLightFixtureType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightFixtureType(this);
+bool IfcLightFixtureType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightFixtureType(this);
 }
 
-const std::string &IfcLightFixtureType::type() {
+const std::string &IfcLightFixtureType::type() const {
     return IfcLightFixtureType::s_type.getName();
 }
 
-Step::ClassType IfcLightFixtureType::getClassType() {
+const Step::ClassType &IfcLightFixtureType::getClassType() {
     return IfcLightFixtureType::s_type;
 }
 
-Step::ClassType IfcLightFixtureType::getType() const {
+const Step::ClassType &IfcLightFixtureType::getType() const {
     return IfcLightFixtureType::s_type;
 }
 
-bool IfcLightFixtureType::isOfType(Step::ClassType t) {
+bool IfcLightFixtureType::isOfType(const Step::ClassType &t) const {
     return IfcLightFixtureType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcLightFixtureTypeEnum IfcLightFixtureType::getPredefinedType() {
     }
 }
 
-void IfcLightFixtureType::setPredefinedType(IfcLightFixtureTypeEnum value) {
-    m_predefinedType = value;
+const IfcLightFixtureTypeEnum IfcLightFixtureType::getPredefinedType() const {
+    IfcLightFixtureType * deConstObject = const_cast< IfcLightFixtureType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcLightFixtureType::release() {
-    IfcFlowTerminalType::release();
+void IfcLightFixtureType::setPredefinedType(IfcLightFixtureTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcLightFixtureType::init() {

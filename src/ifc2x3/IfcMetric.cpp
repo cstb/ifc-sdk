@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,23 +52,23 @@ IfcMetric::IfcMetric(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args)
 IfcMetric::~IfcMetric() {
 }
 
-bool IfcMetric::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMetric(this);
+bool IfcMetric::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMetric(this);
 }
 
-const std::string &IfcMetric::type() {
+const std::string &IfcMetric::type() const {
     return IfcMetric::s_type.getName();
 }
 
-Step::ClassType IfcMetric::getClassType() {
+const Step::ClassType &IfcMetric::getClassType() {
     return IfcMetric::s_type;
 }
 
-Step::ClassType IfcMetric::getType() const {
+const Step::ClassType &IfcMetric::getType() const {
     return IfcMetric::s_type;
 }
 
-bool IfcMetric::isOfType(Step::ClassType t) {
+bool IfcMetric::isOfType(const Step::ClassType &t) const {
     return IfcMetric::s_type == t ? true : IfcConstraint::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcBenchmarkEnum IfcMetric::getBenchmark() {
     else {
         return IfcBenchmarkEnum_UNSET;
     }
+}
+
+const IfcBenchmarkEnum IfcMetric::getBenchmark() const {
+    IfcMetric * deConstObject = const_cast< IfcMetric * > (this);
+    return deConstObject->getBenchmark();
 }
 
 void IfcMetric::setBenchmark(IfcBenchmarkEnum value) {
@@ -93,6 +99,11 @@ IfcLabel IfcMetric::getValueSource() {
     }
 }
 
+const IfcLabel IfcMetric::getValueSource() const {
+    IfcMetric * deConstObject = const_cast< IfcMetric * > (this);
+    return deConstObject->getValueSource();
+}
+
 void IfcMetric::setValueSource(const IfcLabel &value) {
     m_valueSource = value;
 }
@@ -106,12 +117,13 @@ IfcMetricValueSelect *IfcMetric::getDataValue() {
     }
 }
 
-void IfcMetric::setDataValue(const Step::RefPtr< IfcMetricValueSelect > &value) {
-    m_dataValue = value;
+const IfcMetricValueSelect *IfcMetric::getDataValue() const {
+    IfcMetric * deConstObject = const_cast< IfcMetric * > (this);
+    return deConstObject->getDataValue();
 }
 
-void IfcMetric::release() {
-    IfcConstraint::release();
+void IfcMetric::setDataValue(const Step::RefPtr< IfcMetricValueSelect > &value) {
+    m_dataValue = value;
 }
 
 bool IfcMetric::init() {
@@ -149,7 +161,7 @@ bool IfcMetric::init() {
         m_valueSource = Step::getUnset(m_valueSource);
     }
     else {
-        m_valueSource = Step::spfToString(arg);
+        m_valueSource = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -168,8 +180,8 @@ bool IfcMetric::init() {
                 type1 = arg.substr(0, i1);
                 arg = arg.substr(i1 + 1, arg.length() - i1 - 2);
                 if (type1 == "IFCTEXT") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_dataValue->setIfcText(tmp_attr1);
                 }
             }

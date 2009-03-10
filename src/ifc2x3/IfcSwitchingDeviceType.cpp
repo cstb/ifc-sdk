@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSwitchingDeviceType::IfcSwitchingDeviceType(Step::Id id, Step::SPFData *args)
 IfcSwitchingDeviceType::~IfcSwitchingDeviceType() {
 }
 
-bool IfcSwitchingDeviceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSwitchingDeviceType(this);
+bool IfcSwitchingDeviceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSwitchingDeviceType(this);
 }
 
-const std::string &IfcSwitchingDeviceType::type() {
+const std::string &IfcSwitchingDeviceType::type() const {
     return IfcSwitchingDeviceType::s_type.getName();
 }
 
-Step::ClassType IfcSwitchingDeviceType::getClassType() {
+const Step::ClassType &IfcSwitchingDeviceType::getClassType() {
     return IfcSwitchingDeviceType::s_type;
 }
 
-Step::ClassType IfcSwitchingDeviceType::getType() const {
+const Step::ClassType &IfcSwitchingDeviceType::getType() const {
     return IfcSwitchingDeviceType::s_type;
 }
 
-bool IfcSwitchingDeviceType::isOfType(Step::ClassType t) {
+bool IfcSwitchingDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcSwitchingDeviceType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSwitchingDeviceTypeEnum IfcSwitchingDeviceType::getPredefinedType() {
     }
 }
 
-void IfcSwitchingDeviceType::setPredefinedType(IfcSwitchingDeviceTypeEnum value) {
-    m_predefinedType = value;
+const IfcSwitchingDeviceTypeEnum IfcSwitchingDeviceType::getPredefinedType() const {
+    IfcSwitchingDeviceType * deConstObject = const_cast< IfcSwitchingDeviceType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSwitchingDeviceType::release() {
-    IfcFlowControllerType::release();
+void IfcSwitchingDeviceType::setPredefinedType(IfcSwitchingDeviceTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSwitchingDeviceType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssignsToProduct::IfcRelAssignsToProduct(Step::Id id, Step::SPFData *args)
 IfcRelAssignsToProduct::~IfcRelAssignsToProduct() {
 }
 
-bool IfcRelAssignsToProduct::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToProduct(this);
+bool IfcRelAssignsToProduct::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToProduct(this);
 }
 
-const std::string &IfcRelAssignsToProduct::type() {
+const std::string &IfcRelAssignsToProduct::type() const {
     return IfcRelAssignsToProduct::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToProduct::getClassType() {
+const Step::ClassType &IfcRelAssignsToProduct::getClassType() {
     return IfcRelAssignsToProduct::s_type;
 }
 
-Step::ClassType IfcRelAssignsToProduct::getType() const {
+const Step::ClassType &IfcRelAssignsToProduct::getType() const {
     return IfcRelAssignsToProduct::s_type;
 }
 
-bool IfcRelAssignsToProduct::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToProduct::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToProduct::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcProduct *IfcRelAssignsToProduct::getRelatingProduct() {
     }
 }
 
-void IfcRelAssignsToProduct::setRelatingProduct(const Step::RefPtr< IfcProduct > &value) {
-    m_relatingProduct = value;
-    m_relatingProduct->m_referencedBy.insert(this);
+const IfcProduct *IfcRelAssignsToProduct::getRelatingProduct() const {
+    IfcRelAssignsToProduct * deConstObject = const_cast< IfcRelAssignsToProduct * > (this);
+    return deConstObject->getRelatingProduct();
 }
 
-void IfcRelAssignsToProduct::release() {
-    IfcRelAssigns::release();
-    m_relatingProduct.release();
+void IfcRelAssignsToProduct::setRelatingProduct(const Step::RefPtr< IfcProduct > &value) {
+    if (m_relatingProduct.valid()) {
+        m_relatingProduct->m_referencedBy.erase(this);
+    }
+    if (value.valid()) {
+        value->m_referencedBy.insert(this);
+    }
+    m_relatingProduct = value;
 }
 
 bool IfcRelAssignsToProduct::init() {
@@ -100,14 +105,14 @@ bool IfcRelAssignsToProduct::init() {
         m_relatingProduct = NULL;
     }
     else {
-        m_relatingProduct = static_cast< IfcProduct * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingProduct = static_cast< IfcProduct * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToProduct::copy(const IfcRelAssignsToProduct &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingProduct(copyop(obj.m_relatingProduct.get()));
+    setRelatingProduct((IfcProduct*)copyop(obj.m_relatingProduct.get()));
     return;
 }
 

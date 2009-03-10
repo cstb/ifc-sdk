@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcCurveStyleFontPattern::IfcCurveStyleFontPattern(Step::Id id, Step::SPFData *a
 IfcCurveStyleFontPattern::~IfcCurveStyleFontPattern() {
 }
 
-bool IfcCurveStyleFontPattern::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveStyleFontPattern(this);
+bool IfcCurveStyleFontPattern::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveStyleFontPattern(this);
 }
 
-const std::string &IfcCurveStyleFontPattern::type() {
+const std::string &IfcCurveStyleFontPattern::type() const {
     return IfcCurveStyleFontPattern::s_type.getName();
 }
 
-Step::ClassType IfcCurveStyleFontPattern::getClassType() {
+const Step::ClassType &IfcCurveStyleFontPattern::getClassType() {
     return IfcCurveStyleFontPattern::s_type;
 }
 
-Step::ClassType IfcCurveStyleFontPattern::getType() const {
+const Step::ClassType &IfcCurveStyleFontPattern::getType() const {
     return IfcCurveStyleFontPattern::s_type;
 }
 
-bool IfcCurveStyleFontPattern::isOfType(Step::ClassType t) {
+bool IfcCurveStyleFontPattern::isOfType(const Step::ClassType &t) const {
     return IfcCurveStyleFontPattern::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcLengthMeasure IfcCurveStyleFontPattern::getVisibleSegmentLength() {
     else {
         return Step::getUnset(m_visibleSegmentLength);
     }
+}
+
+const IfcLengthMeasure IfcCurveStyleFontPattern::getVisibleSegmentLength() const {
+    IfcCurveStyleFontPattern * deConstObject = const_cast< IfcCurveStyleFontPattern * > (this);
+    return deConstObject->getVisibleSegmentLength();
 }
 
 void IfcCurveStyleFontPattern::setVisibleSegmentLength(IfcLengthMeasure value) {
@@ -89,11 +94,13 @@ IfcPositiveLengthMeasure IfcCurveStyleFontPattern::getInvisibleSegmentLength() {
     }
 }
 
-void IfcCurveStyleFontPattern::setInvisibleSegmentLength(IfcPositiveLengthMeasure value) {
-    m_invisibleSegmentLength = value;
+const IfcPositiveLengthMeasure IfcCurveStyleFontPattern::getInvisibleSegmentLength() const {
+    IfcCurveStyleFontPattern * deConstObject = const_cast< IfcCurveStyleFontPattern * > (this);
+    return deConstObject->getInvisibleSegmentLength();
 }
 
-void IfcCurveStyleFontPattern::release() {
+void IfcCurveStyleFontPattern::setInvisibleSegmentLength(IfcPositiveLengthMeasure value) {
+    m_invisibleSegmentLength = value;
 }
 
 bool IfcCurveStyleFontPattern::init() {

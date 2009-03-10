@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcPerformanceHistory::IfcPerformanceHistory(Step::Id id, Step::SPFData *args) :
 IfcPerformanceHistory::~IfcPerformanceHistory() {
 }
 
-bool IfcPerformanceHistory::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPerformanceHistory(this);
+bool IfcPerformanceHistory::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPerformanceHistory(this);
 }
 
-const std::string &IfcPerformanceHistory::type() {
+const std::string &IfcPerformanceHistory::type() const {
     return IfcPerformanceHistory::s_type.getName();
 }
 
-Step::ClassType IfcPerformanceHistory::getClassType() {
+const Step::ClassType &IfcPerformanceHistory::getClassType() {
     return IfcPerformanceHistory::s_type;
 }
 
-Step::ClassType IfcPerformanceHistory::getType() const {
+const Step::ClassType &IfcPerformanceHistory::getType() const {
     return IfcPerformanceHistory::s_type;
 }
 
-bool IfcPerformanceHistory::isOfType(Step::ClassType t) {
+bool IfcPerformanceHistory::isOfType(const Step::ClassType &t) const {
     return IfcPerformanceHistory::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcLabel IfcPerformanceHistory::getLifeCyclePhase() {
     }
 }
 
-void IfcPerformanceHistory::setLifeCyclePhase(const IfcLabel &value) {
-    m_lifeCyclePhase = value;
+const IfcLabel IfcPerformanceHistory::getLifeCyclePhase() const {
+    IfcPerformanceHistory * deConstObject = const_cast< IfcPerformanceHistory * > (this);
+    return deConstObject->getLifeCyclePhase();
 }
 
-void IfcPerformanceHistory::release() {
-    IfcControl::release();
+void IfcPerformanceHistory::setLifeCyclePhase(const IfcLabel &value) {
+    m_lifeCyclePhase = value;
 }
 
 bool IfcPerformanceHistory::init() {
@@ -94,7 +96,7 @@ bool IfcPerformanceHistory::init() {
         m_lifeCyclePhase = Step::getUnset(m_lifeCyclePhase);
     }
     else {
-        m_lifeCyclePhase = Step::spfToString(arg);
+        m_lifeCyclePhase = Step::String::fromSPF(arg);
     }
     return true;
 }

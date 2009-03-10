@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcWallStandardCase::IfcWallStandardCase(Step::Id id, Step::SPFData *args) : Ifc
 IfcWallStandardCase::~IfcWallStandardCase() {
 }
 
-bool IfcWallStandardCase::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWallStandardCase(this);
+bool IfcWallStandardCase::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWallStandardCase(this);
 }
 
-const std::string &IfcWallStandardCase::type() {
+const std::string &IfcWallStandardCase::type() const {
     return IfcWallStandardCase::s_type.getName();
 }
 
-Step::ClassType IfcWallStandardCase::getClassType() {
+const Step::ClassType &IfcWallStandardCase::getClassType() {
     return IfcWallStandardCase::s_type;
 }
 
-Step::ClassType IfcWallStandardCase::getType() const {
+const Step::ClassType &IfcWallStandardCase::getType() const {
     return IfcWallStandardCase::s_type;
 }
 
-bool IfcWallStandardCase::isOfType(Step::ClassType t) {
+bool IfcWallStandardCase::isOfType(const Step::ClassType &t) const {
     return IfcWallStandardCase::s_type == t ? true : IfcWall::isOfType(t);
-}
-
-void IfcWallStandardCase::release() {
-    IfcWall::release();
 }
 
 bool IfcWallStandardCase::init() {

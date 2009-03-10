@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcOrderAction::IfcOrderAction(Step::Id id, Step::SPFData *args) : IfcTask(id, a
 IfcOrderAction::~IfcOrderAction() {
 }
 
-bool IfcOrderAction::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOrderAction(this);
+bool IfcOrderAction::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOrderAction(this);
 }
 
-const std::string &IfcOrderAction::type() {
+const std::string &IfcOrderAction::type() const {
     return IfcOrderAction::s_type.getName();
 }
 
-Step::ClassType IfcOrderAction::getClassType() {
+const Step::ClassType &IfcOrderAction::getClassType() {
     return IfcOrderAction::s_type;
 }
 
-Step::ClassType IfcOrderAction::getType() const {
+const Step::ClassType &IfcOrderAction::getType() const {
     return IfcOrderAction::s_type;
 }
 
-bool IfcOrderAction::isOfType(Step::ClassType t) {
+bool IfcOrderAction::isOfType(const Step::ClassType &t) const {
     return IfcOrderAction::s_type == t ? true : IfcTask::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcIdentifier IfcOrderAction::getActionID() {
     }
 }
 
-void IfcOrderAction::setActionID(const IfcIdentifier &value) {
-    m_actionID = value;
+const IfcIdentifier IfcOrderAction::getActionID() const {
+    IfcOrderAction * deConstObject = const_cast< IfcOrderAction * > (this);
+    return deConstObject->getActionID();
 }
 
-void IfcOrderAction::release() {
-    IfcTask::release();
+void IfcOrderAction::setActionID(const IfcIdentifier &value) {
+    m_actionID = value;
 }
 
 bool IfcOrderAction::init() {
@@ -94,7 +96,7 @@ bool IfcOrderAction::init() {
         m_actionID = Step::getUnset(m_actionID);
     }
     else {
-        m_actionID = Step::spfToString(arg);
+        m_actionID = Step::String::fromSPF(arg);
     }
     return true;
 }

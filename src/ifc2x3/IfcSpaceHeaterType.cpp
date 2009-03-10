@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSpaceHeaterType::IfcSpaceHeaterType(Step::Id id, Step::SPFData *args) : IfcEn
 IfcSpaceHeaterType::~IfcSpaceHeaterType() {
 }
 
-bool IfcSpaceHeaterType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpaceHeaterType(this);
+bool IfcSpaceHeaterType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpaceHeaterType(this);
 }
 
-const std::string &IfcSpaceHeaterType::type() {
+const std::string &IfcSpaceHeaterType::type() const {
     return IfcSpaceHeaterType::s_type.getName();
 }
 
-Step::ClassType IfcSpaceHeaterType::getClassType() {
+const Step::ClassType &IfcSpaceHeaterType::getClassType() {
     return IfcSpaceHeaterType::s_type;
 }
 
-Step::ClassType IfcSpaceHeaterType::getType() const {
+const Step::ClassType &IfcSpaceHeaterType::getType() const {
     return IfcSpaceHeaterType::s_type;
 }
 
-bool IfcSpaceHeaterType::isOfType(Step::ClassType t) {
+bool IfcSpaceHeaterType::isOfType(const Step::ClassType &t) const {
     return IfcSpaceHeaterType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType() {
     }
 }
 
-void IfcSpaceHeaterType::setPredefinedType(IfcSpaceHeaterTypeEnum value) {
-    m_predefinedType = value;
+const IfcSpaceHeaterTypeEnum IfcSpaceHeaterType::getPredefinedType() const {
+    IfcSpaceHeaterType * deConstObject = const_cast< IfcSpaceHeaterType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSpaceHeaterType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcSpaceHeaterType::setPredefinedType(IfcSpaceHeaterTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSpaceHeaterType::init() {

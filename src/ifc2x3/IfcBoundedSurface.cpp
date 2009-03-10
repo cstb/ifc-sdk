@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBoundedSurface::IfcBoundedSurface(Step::Id id, Step::SPFData *args) : IfcSurf
 IfcBoundedSurface::~IfcBoundedSurface() {
 }
 
-bool IfcBoundedSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundedSurface(this);
+bool IfcBoundedSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundedSurface(this);
 }
 
-const std::string &IfcBoundedSurface::type() {
+const std::string &IfcBoundedSurface::type() const {
     return IfcBoundedSurface::s_type.getName();
 }
 
-Step::ClassType IfcBoundedSurface::getClassType() {
+const Step::ClassType &IfcBoundedSurface::getClassType() {
     return IfcBoundedSurface::s_type;
 }
 
-Step::ClassType IfcBoundedSurface::getType() const {
+const Step::ClassType &IfcBoundedSurface::getType() const {
     return IfcBoundedSurface::s_type;
 }
 
-bool IfcBoundedSurface::isOfType(Step::ClassType t) {
+bool IfcBoundedSurface::isOfType(const Step::ClassType &t) const {
     return IfcBoundedSurface::s_type == t ? true : IfcSurface::isOfType(t);
-}
-
-void IfcBoundedSurface::release() {
-    IfcSurface::release();
 }
 
 bool IfcBoundedSurface::init() {

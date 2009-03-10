@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,81 +44,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcBoundaryEdgeCondition : public IfcBoundaryCondition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessByLengthX'.
+         * 
          */
-        IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthX();
+        virtual IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthX();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessByLengthX'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessByLengthX'
+         */
+        virtual const IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthX() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessByLengthX'.
          * 
          * @param value
          */
-        void setLinearStiffnessByLengthX(IfcModulusOfLinearSubgradeReactionMeasure value);
+        virtual void setLinearStiffnessByLengthX(IfcModulusOfLinearSubgradeReactionMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessByLengthY'.
+         * 
          */
-        IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthY();
+        virtual IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthY();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessByLengthY'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessByLengthY'
+         */
+        virtual const IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthY() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessByLengthY'.
          * 
          * @param value
          */
-        void setLinearStiffnessByLengthY(IfcModulusOfLinearSubgradeReactionMeasure value);
+        virtual void setLinearStiffnessByLengthY(IfcModulusOfLinearSubgradeReactionMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LinearStiffnessByLengthZ'.
+         * 
          */
-        IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthZ();
+        virtual IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'LinearStiffnessByLengthZ'.
+         * 
+         * @return the value of the explicit attribute 'LinearStiffnessByLengthZ'
+         */
+        virtual const IfcModulusOfLinearSubgradeReactionMeasure getLinearStiffnessByLengthZ() const;
         /**
          * Sets the value of the explicit attribute 'LinearStiffnessByLengthZ'.
          * 
          * @param value
          */
-        void setLinearStiffnessByLengthZ(IfcModulusOfLinearSubgradeReactionMeasure value);
+        virtual void setLinearStiffnessByLengthZ(IfcModulusOfLinearSubgradeReactionMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessByLengthX'.
+         * 
          */
-        IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthX();
+        virtual IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthX();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessByLengthX'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessByLengthX'
+         */
+        virtual const IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthX() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessByLengthX'.
          * 
          * @param value
          */
-        void setRotationalStiffnessByLengthX(IfcModulusOfRotationalSubgradeReactionMeasure value);
+        virtual void setRotationalStiffnessByLengthX(IfcModulusOfRotationalSubgradeReactionMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessByLengthY'.
+         * 
          */
-        IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthY();
+        virtual IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthY();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessByLengthY'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessByLengthY'
+         */
+        virtual const IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthY() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessByLengthY'.
          * 
          * @param value
          */
-        void setRotationalStiffnessByLengthY(IfcModulusOfRotationalSubgradeReactionMeasure value);
+        virtual void setRotationalStiffnessByLengthY(IfcModulusOfRotationalSubgradeReactionMeasure value);
         /**
+         * Gets the value of the explicit attribute 'RotationalStiffnessByLengthZ'.
+         * 
          */
-        IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthZ();
+        virtual IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'RotationalStiffnessByLengthZ'.
+         * 
+         * @return the value of the explicit attribute 'RotationalStiffnessByLengthZ'
+         */
+        virtual const IfcModulusOfRotationalSubgradeReactionMeasure getRotationalStiffnessByLengthZ() const;
         /**
          * Sets the value of the explicit attribute 'RotationalStiffnessByLengthZ'.
          * 
          * @param value
          */
-        void setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value);
         friend class ExpressDataSet;
 
     protected:

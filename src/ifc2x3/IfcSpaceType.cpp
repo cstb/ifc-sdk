@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSpaceType::IfcSpaceType(Step::Id id, Step::SPFData *args) : IfcSpatialStructu
 IfcSpaceType::~IfcSpaceType() {
 }
 
-bool IfcSpaceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpaceType(this);
+bool IfcSpaceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpaceType(this);
 }
 
-const std::string &IfcSpaceType::type() {
+const std::string &IfcSpaceType::type() const {
     return IfcSpaceType::s_type.getName();
 }
 
-Step::ClassType IfcSpaceType::getClassType() {
+const Step::ClassType &IfcSpaceType::getClassType() {
     return IfcSpaceType::s_type;
 }
 
-Step::ClassType IfcSpaceType::getType() const {
+const Step::ClassType &IfcSpaceType::getType() const {
     return IfcSpaceType::s_type;
 }
 
-bool IfcSpaceType::isOfType(Step::ClassType t) {
+bool IfcSpaceType::isOfType(const Step::ClassType &t) const {
     return IfcSpaceType::s_type == t ? true : IfcSpatialStructureElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSpaceTypeEnum IfcSpaceType::getPredefinedType() {
     }
 }
 
-void IfcSpaceType::setPredefinedType(IfcSpaceTypeEnum value) {
-    m_predefinedType = value;
+const IfcSpaceTypeEnum IfcSpaceType::getPredefinedType() const {
+    IfcSpaceType * deConstObject = const_cast< IfcSpaceType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSpaceType::release() {
-    IfcSpatialStructureElementType::release();
+void IfcSpaceType::setPredefinedType(IfcSpaceTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSpaceType::init() {

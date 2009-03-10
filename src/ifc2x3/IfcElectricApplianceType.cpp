@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricApplianceType::IfcElectricApplianceType(Step::Id id, Step::SPFData *a
 IfcElectricApplianceType::~IfcElectricApplianceType() {
 }
 
-bool IfcElectricApplianceType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricApplianceType(this);
+bool IfcElectricApplianceType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricApplianceType(this);
 }
 
-const std::string &IfcElectricApplianceType::type() {
+const std::string &IfcElectricApplianceType::type() const {
     return IfcElectricApplianceType::s_type.getName();
 }
 
-Step::ClassType IfcElectricApplianceType::getClassType() {
+const Step::ClassType &IfcElectricApplianceType::getClassType() {
     return IfcElectricApplianceType::s_type;
 }
 
-Step::ClassType IfcElectricApplianceType::getType() const {
+const Step::ClassType &IfcElectricApplianceType::getType() const {
     return IfcElectricApplianceType::s_type;
 }
 
-bool IfcElectricApplianceType::isOfType(Step::ClassType t) {
+bool IfcElectricApplianceType::isOfType(const Step::ClassType &t) const {
     return IfcElectricApplianceType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricApplianceTypeEnum IfcElectricApplianceType::getPredefinedType() {
     }
 }
 
-void IfcElectricApplianceType::setPredefinedType(IfcElectricApplianceTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricApplianceTypeEnum IfcElectricApplianceType::getPredefinedType() const {
+    IfcElectricApplianceType * deConstObject = const_cast< IfcElectricApplianceType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricApplianceType::release() {
-    IfcFlowTerminalType::release();
+void IfcElectricApplianceType::setPredefinedType(IfcElectricApplianceTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricApplianceType::init() {

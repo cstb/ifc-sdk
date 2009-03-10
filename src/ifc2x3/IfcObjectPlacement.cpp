@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,34 +44,32 @@
 using namespace ifc2x3;
 
 IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_placesObject.setUnset(true);
-    m_referencedByPlacements.setUnset(true);
 }
 
 IfcObjectPlacement::~IfcObjectPlacement() {
 }
 
-bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcObjectPlacement(this);
+bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcObjectPlacement(this);
 }
 
-const std::string &IfcObjectPlacement::type() {
+const std::string &IfcObjectPlacement::type() const {
     return IfcObjectPlacement::s_type.getName();
 }
 
-Step::ClassType IfcObjectPlacement::getClassType() {
+const Step::ClassType &IfcObjectPlacement::getClassType() {
     return IfcObjectPlacement::s_type;
 }
 
-Step::ClassType IfcObjectPlacement::getType() const {
+const Step::ClassType &IfcObjectPlacement::getType() const {
     return IfcObjectPlacement::s_type;
 }
 
-bool IfcObjectPlacement::isOfType(Step::ClassType t) {
+bool IfcObjectPlacement::isOfType(const Step::ClassType &t) const {
     return IfcObjectPlacement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcProduct > > &IfcObjectPlacement::getPlacesObject() {
+Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() {
     if (Step::BaseObject::inited()) {
         return m_placesObject;
     }
@@ -81,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcProduct > > &IfcObjectPlacement::getPlacesObject() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcLocalPlacement > > &IfcObjectPlacement::getReferencedByPlacements() {
+const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const {
+    IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
+    return deConstObject->getPlacesObject();
+}
+
+Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
     if (Step::BaseObject::inited()) {
         return m_referencedByPlacements;
     }
@@ -91,7 +94,9 @@ Step::Set< Step::ObsPtr< IfcLocalPlacement > > &IfcObjectPlacement::getReference
     }
 }
 
-void IfcObjectPlacement::release() {
+const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() const {
+    IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
+    return deConstObject->getReferencedByPlacements();
 }
 
 bool IfcObjectPlacement::init() {

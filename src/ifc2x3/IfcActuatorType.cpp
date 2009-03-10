@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcActuatorType::IfcActuatorType(Step::Id id, Step::SPFData *args) : IfcDistribu
 IfcActuatorType::~IfcActuatorType() {
 }
 
-bool IfcActuatorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcActuatorType(this);
+bool IfcActuatorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcActuatorType(this);
 }
 
-const std::string &IfcActuatorType::type() {
+const std::string &IfcActuatorType::type() const {
     return IfcActuatorType::s_type.getName();
 }
 
-Step::ClassType IfcActuatorType::getClassType() {
+const Step::ClassType &IfcActuatorType::getClassType() {
     return IfcActuatorType::s_type;
 }
 
-Step::ClassType IfcActuatorType::getType() const {
+const Step::ClassType &IfcActuatorType::getType() const {
     return IfcActuatorType::s_type;
 }
 
-bool IfcActuatorType::isOfType(Step::ClassType t) {
+bool IfcActuatorType::isOfType(const Step::ClassType &t) const {
     return IfcActuatorType::s_type == t ? true : IfcDistributionControlElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcActuatorTypeEnum IfcActuatorType::getPredefinedType() {
     }
 }
 
-void IfcActuatorType::setPredefinedType(IfcActuatorTypeEnum value) {
-    m_predefinedType = value;
+const IfcActuatorTypeEnum IfcActuatorType::getPredefinedType() const {
+    IfcActuatorType * deConstObject = const_cast< IfcActuatorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcActuatorType::release() {
-    IfcDistributionControlElementType::release();
+void IfcActuatorType::setPredefinedType(IfcActuatorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcActuatorType::init() {

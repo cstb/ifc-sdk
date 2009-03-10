@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,90 +44,151 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcDimensionalExponents : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LengthExponent'.
+         * 
          */
-        Step::Integer getLengthExponent();
+        virtual Step::Integer getLengthExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'LengthExponent'.
+         * 
+         * @return the value of the explicit attribute 'LengthExponent'
+         */
+        virtual const Step::Integer getLengthExponent() const;
         /**
          * Sets the value of the explicit attribute 'LengthExponent'.
          * 
          * @param value
          */
-        void setLengthExponent(Step::Integer value);
+        virtual void setLengthExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'MassExponent'.
+         * 
          */
-        Step::Integer getMassExponent();
+        virtual Step::Integer getMassExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'MassExponent'.
+         * 
+         * @return the value of the explicit attribute 'MassExponent'
+         */
+        virtual const Step::Integer getMassExponent() const;
         /**
          * Sets the value of the explicit attribute 'MassExponent'.
          * 
          * @param value
          */
-        void setMassExponent(Step::Integer value);
+        virtual void setMassExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'TimeExponent'.
+         * 
          */
-        Step::Integer getTimeExponent();
+        virtual Step::Integer getTimeExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'TimeExponent'.
+         * 
+         * @return the value of the explicit attribute 'TimeExponent'
+         */
+        virtual const Step::Integer getTimeExponent() const;
         /**
          * Sets the value of the explicit attribute 'TimeExponent'.
          * 
          * @param value
          */
-        void setTimeExponent(Step::Integer value);
+        virtual void setTimeExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'ElectricCurrentExponent'.
+         * 
          */
-        Step::Integer getElectricCurrentExponent();
+        virtual Step::Integer getElectricCurrentExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'ElectricCurrentExponent'.
+         * 
+         * @return the value of the explicit attribute 'ElectricCurrentExponent'
+         */
+        virtual const Step::Integer getElectricCurrentExponent() const;
         /**
          * Sets the value of the explicit attribute 'ElectricCurrentExponent'.
          * 
          * @param value
          */
-        void setElectricCurrentExponent(Step::Integer value);
+        virtual void setElectricCurrentExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'ThermodynamicTemperatureExponent'.
+         * 
          */
-        Step::Integer getThermodynamicTemperatureExponent();
+        virtual Step::Integer getThermodynamicTemperatureExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermodynamicTemperatureExponent'.
+         * 
+         * @return the value of the explicit attribute 'ThermodynamicTemperatureExponent'
+         */
+        virtual const Step::Integer getThermodynamicTemperatureExponent() const;
         /**
          * Sets the value of the explicit attribute 'ThermodynamicTemperatureExponent'.
          * 
          * @param value
          */
-        void setThermodynamicTemperatureExponent(Step::Integer value);
+        virtual void setThermodynamicTemperatureExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'AmountOfSubstanceExponent'.
+         * 
          */
-        Step::Integer getAmountOfSubstanceExponent();
+        virtual Step::Integer getAmountOfSubstanceExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'AmountOfSubstanceExponent'.
+         * 
+         * @return the value of the explicit attribute 'AmountOfSubstanceExponent'
+         */
+        virtual const Step::Integer getAmountOfSubstanceExponent() const;
         /**
          * Sets the value of the explicit attribute 'AmountOfSubstanceExponent'.
          * 
          * @param value
          */
-        void setAmountOfSubstanceExponent(Step::Integer value);
+        virtual void setAmountOfSubstanceExponent(Step::Integer value);
         /**
+         * Gets the value of the explicit attribute 'LuminousIntensityExponent'.
+         * 
          */
-        Step::Integer getLuminousIntensityExponent();
+        virtual Step::Integer getLuminousIntensityExponent();
+        /**
+         * (const) Returns the value of the explicit attribute 'LuminousIntensityExponent'.
+         * 
+         * @return the value of the explicit attribute 'LuminousIntensityExponent'
+         */
+        virtual const Step::Integer getLuminousIntensityExponent() const;
         /**
          * Sets the value of the explicit attribute 'LuminousIntensityExponent'.
          * 
          * @param value
          */
-        void setLuminousIntensityExponent(Step::Integer value);
-        /**
-         */
-        virtual void release();
+        virtual void setLuminousIntensityExponent(Step::Integer value);
         friend class ExpressDataSet;
 
     protected:

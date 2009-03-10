@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcAnnotationCurveOccurrence::IfcAnnotationCurveOccurrence(Step::Id id, Step::SP
 IfcAnnotationCurveOccurrence::~IfcAnnotationCurveOccurrence() {
 }
 
-bool IfcAnnotationCurveOccurrence::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationCurveOccurrence(this);
+bool IfcAnnotationCurveOccurrence::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationCurveOccurrence(this);
 }
 
-const std::string &IfcAnnotationCurveOccurrence::type() {
+const std::string &IfcAnnotationCurveOccurrence::type() const {
     return IfcAnnotationCurveOccurrence::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationCurveOccurrence::getClassType() {
+const Step::ClassType &IfcAnnotationCurveOccurrence::getClassType() {
     return IfcAnnotationCurveOccurrence::s_type;
 }
 
-Step::ClassType IfcAnnotationCurveOccurrence::getType() const {
+const Step::ClassType &IfcAnnotationCurveOccurrence::getType() const {
     return IfcAnnotationCurveOccurrence::s_type;
 }
 
-bool IfcAnnotationCurveOccurrence::isOfType(Step::ClassType t) {
+bool IfcAnnotationCurveOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationCurveOccurrence::s_type == t ? true : IfcAnnotationOccurrence::isOfType(t);
-}
-
-void IfcAnnotationCurveOccurrence::release() {
-    IfcAnnotationOccurrence::release();
 }
 
 bool IfcAnnotationCurveOccurrence::init() {

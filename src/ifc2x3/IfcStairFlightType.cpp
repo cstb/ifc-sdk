@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStairFlightType::IfcStairFlightType(Step::Id id, Step::SPFData *args) : IfcBu
 IfcStairFlightType::~IfcStairFlightType() {
 }
 
-bool IfcStairFlightType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStairFlightType(this);
+bool IfcStairFlightType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStairFlightType(this);
 }
 
-const std::string &IfcStairFlightType::type() {
+const std::string &IfcStairFlightType::type() const {
     return IfcStairFlightType::s_type.getName();
 }
 
-Step::ClassType IfcStairFlightType::getClassType() {
+const Step::ClassType &IfcStairFlightType::getClassType() {
     return IfcStairFlightType::s_type;
 }
 
-Step::ClassType IfcStairFlightType::getType() const {
+const Step::ClassType &IfcStairFlightType::getType() const {
     return IfcStairFlightType::s_type;
 }
 
-bool IfcStairFlightType::isOfType(Step::ClassType t) {
+bool IfcStairFlightType::isOfType(const Step::ClassType &t) const {
     return IfcStairFlightType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcStairFlightTypeEnum IfcStairFlightType::getPredefinedType() {
     }
 }
 
-void IfcStairFlightType::setPredefinedType(IfcStairFlightTypeEnum value) {
-    m_predefinedType = value;
+const IfcStairFlightTypeEnum IfcStairFlightType::getPredefinedType() const {
+    IfcStairFlightType * deConstObject = const_cast< IfcStairFlightType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcStairFlightType::release() {
-    IfcBuildingElementType::release();
+void IfcStairFlightType::setPredefinedType(IfcStairFlightTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcStairFlightType::init() {

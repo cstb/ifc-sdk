@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,226 +29,395 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcActorSelect.h"
 #include <Step/Referenced.h>
 #include <Step/ClassType.h>
 #include <Step/BaseEntity.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
+    class IfcDocumentInformation;
+    class IfcDocumentReference;
+
+    /**
+     */
+    class Inverted_IfcDocumentInformation_DocumentReferences_type : public Set_IfcDocumentReference_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcDocumentReference_1_n::size_type size_type;
+
+        /**
+         */
+        IfcDocumentInformation *mOwner;
+        /**
+         */
+        Inverted_IfcDocumentInformation_DocumentReferences_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcDocumentInformation *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcDocumentReference > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcDocumentReference > &value);
+
+    };
+
     class CopyOp;
+    class IfcActorSelect;
     class IfcCalendarDate;
     class IfcDateAndTime;
     class IfcDocumentElectronicFormat;
-    class IfcDocumentInformationRelationship;
-    class IfcDocumentReference;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcDocumentInformation : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'DocumentId'.
+         * 
          */
-        IfcIdentifier getDocumentId();
+        virtual IfcIdentifier getDocumentId();
+        /**
+         * (const) Returns the value of the explicit attribute 'DocumentId'.
+         * 
+         * @return the value of the explicit attribute 'DocumentId'
+         */
+        virtual const IfcIdentifier getDocumentId() const;
         /**
          * Sets the value of the explicit attribute 'DocumentId'.
          * 
          * @param value
          */
-        void setDocumentId(const IfcIdentifier &value);
+        virtual void setDocumentId(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Description'.
+         * 
          */
-        IfcText getDescription();
+        virtual IfcText getDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'Description'.
+         * 
+         * @return the value of the explicit attribute 'Description'
+         */
+        virtual const IfcText getDescription() const;
         /**
          * Sets the value of the explicit attribute 'Description'.
          * 
          * @param value
          */
-        void setDescription(const IfcText &value);
+        virtual void setDescription(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'DocumentReferences'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcDocumentReference > > &getDocumentReferences();
+        virtual Set_IfcDocumentReference_1_n &getDocumentReferences();
         /**
+         * (const) Returns the value of the explicit attribute 'DocumentReferences'.
+         * 
+         * @return the value of the explicit attribute 'DocumentReferences'
          */
-        IfcText getPurpose();
+        virtual const Set_IfcDocumentReference_1_n &getDocumentReferences() const;
+        /**
+         * Gets the value of the explicit attribute 'Purpose'.
+         * 
+         */
+        virtual IfcText getPurpose();
+        /**
+         * (const) Returns the value of the explicit attribute 'Purpose'.
+         * 
+         * @return the value of the explicit attribute 'Purpose'
+         */
+        virtual const IfcText getPurpose() const;
         /**
          * Sets the value of the explicit attribute 'Purpose'.
          * 
          * @param value
          */
-        void setPurpose(const IfcText &value);
+        virtual void setPurpose(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'IntendedUse'.
+         * 
          */
-        IfcText getIntendedUse();
+        virtual IfcText getIntendedUse();
+        /**
+         * (const) Returns the value of the explicit attribute 'IntendedUse'.
+         * 
+         * @return the value of the explicit attribute 'IntendedUse'
+         */
+        virtual const IfcText getIntendedUse() const;
         /**
          * Sets the value of the explicit attribute 'IntendedUse'.
          * 
          * @param value
          */
-        void setIntendedUse(const IfcText &value);
+        virtual void setIntendedUse(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'Scope'.
+         * 
          */
-        IfcText getScope();
+        virtual IfcText getScope();
+        /**
+         * (const) Returns the value of the explicit attribute 'Scope'.
+         * 
+         * @return the value of the explicit attribute 'Scope'
+         */
+        virtual const IfcText getScope() const;
         /**
          * Sets the value of the explicit attribute 'Scope'.
          * 
          * @param value
          */
-        void setScope(const IfcText &value);
+        virtual void setScope(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'Revision'.
+         * 
          */
-        IfcLabel getRevision();
+        virtual IfcLabel getRevision();
+        /**
+         * (const) Returns the value of the explicit attribute 'Revision'.
+         * 
+         * @return the value of the explicit attribute 'Revision'
+         */
+        virtual const IfcLabel getRevision() const;
         /**
          * Sets the value of the explicit attribute 'Revision'.
          * 
          * @param value
          */
-        void setRevision(const IfcLabel &value);
+        virtual void setRevision(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'DocumentOwner'.
+         * 
          */
-        IfcActorSelect *getDocumentOwner();
+        virtual IfcActorSelect *getDocumentOwner();
+        /**
+         * (const) Returns the value of the explicit attribute 'DocumentOwner'.
+         * 
+         * @return the value of the explicit attribute 'DocumentOwner'
+         */
+        virtual const IfcActorSelect *getDocumentOwner() const;
         /**
          * Sets the value of the explicit attribute 'DocumentOwner'.
          * 
          * @param value
          */
-        void setDocumentOwner(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setDocumentOwner(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'Editors'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcActorSelect > > &getEditors();
+        virtual Set_IfcActorSelect_1_n &getEditors();
+        /**
+         * (const) Returns the value of the explicit attribute 'Editors'.
+         * 
+         * @return the value of the explicit attribute 'Editors'
+         */
+        virtual const Set_IfcActorSelect_1_n &getEditors() const;
         /**
          * Sets the value of the explicit attribute 'Editors'.
          * 
          * @param value
          */
-        void setEditors(const Step::Set< Step::RefPtr< IfcActorSelect > > &value);
+        virtual void setEditors(const Set_IfcActorSelect_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'CreationTime'.
+         * 
          */
-        IfcDateAndTime *getCreationTime();
+        virtual IfcDateAndTime *getCreationTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'CreationTime'.
+         * 
+         * @return the value of the explicit attribute 'CreationTime'
+         */
+        virtual const IfcDateAndTime *getCreationTime() const;
         /**
          * Sets the value of the explicit attribute 'CreationTime'.
          * 
          * @param value
          */
-        void setCreationTime(const Step::RefPtr< IfcDateAndTime > &value);
+        virtual void setCreationTime(const Step::RefPtr< IfcDateAndTime > &value);
         /**
+         * Gets the value of the explicit attribute 'LastRevisionTime'.
+         * 
          */
-        IfcDateAndTime *getLastRevisionTime();
+        virtual IfcDateAndTime *getLastRevisionTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'LastRevisionTime'.
+         * 
+         * @return the value of the explicit attribute 'LastRevisionTime'
+         */
+        virtual const IfcDateAndTime *getLastRevisionTime() const;
         /**
          * Sets the value of the explicit attribute 'LastRevisionTime'.
          * 
          * @param value
          */
-        void setLastRevisionTime(const Step::RefPtr< IfcDateAndTime > &value);
+        virtual void setLastRevisionTime(const Step::RefPtr< IfcDateAndTime > &value);
         /**
+         * Gets the value of the explicit attribute 'ElectronicFormat'.
+         * 
          */
-        IfcDocumentElectronicFormat *getElectronicFormat();
+        virtual IfcDocumentElectronicFormat *getElectronicFormat();
+        /**
+         * (const) Returns the value of the explicit attribute 'ElectronicFormat'.
+         * 
+         * @return the value of the explicit attribute 'ElectronicFormat'
+         */
+        virtual const IfcDocumentElectronicFormat *getElectronicFormat() const;
         /**
          * Sets the value of the explicit attribute 'ElectronicFormat'.
          * 
          * @param value
          */
-        void setElectronicFormat(const Step::RefPtr< IfcDocumentElectronicFormat > &value);
+        virtual void setElectronicFormat(const Step::RefPtr< IfcDocumentElectronicFormat > &value);
         /**
+         * Gets the value of the explicit attribute 'ValidFrom'.
+         * 
          */
-        IfcCalendarDate *getValidFrom();
+        virtual IfcCalendarDate *getValidFrom();
+        /**
+         * (const) Returns the value of the explicit attribute 'ValidFrom'.
+         * 
+         * @return the value of the explicit attribute 'ValidFrom'
+         */
+        virtual const IfcCalendarDate *getValidFrom() const;
         /**
          * Sets the value of the explicit attribute 'ValidFrom'.
          * 
          * @param value
          */
-        void setValidFrom(const Step::RefPtr< IfcCalendarDate > &value);
+        virtual void setValidFrom(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * Gets the value of the explicit attribute 'ValidUntil'.
+         * 
          */
-        IfcCalendarDate *getValidUntil();
+        virtual IfcCalendarDate *getValidUntil();
+        /**
+         * (const) Returns the value of the explicit attribute 'ValidUntil'.
+         * 
+         * @return the value of the explicit attribute 'ValidUntil'
+         */
+        virtual const IfcCalendarDate *getValidUntil() const;
         /**
          * Sets the value of the explicit attribute 'ValidUntil'.
          * 
          * @param value
          */
-        void setValidUntil(const Step::RefPtr< IfcCalendarDate > &value);
+        virtual void setValidUntil(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * Gets the value of the explicit attribute 'Confidentiality'.
+         * 
          */
-        IfcDocumentConfidentialityEnum getConfidentiality();
+        virtual IfcDocumentConfidentialityEnum getConfidentiality();
+        /**
+         * (const) Returns the value of the explicit attribute 'Confidentiality'.
+         * 
+         * @return the value of the explicit attribute 'Confidentiality'
+         */
+        virtual const IfcDocumentConfidentialityEnum getConfidentiality() const;
         /**
          * Sets the value of the explicit attribute 'Confidentiality'.
          * 
          * @param value
          */
-        void setConfidentiality(IfcDocumentConfidentialityEnum value);
+        virtual void setConfidentiality(IfcDocumentConfidentialityEnum value);
         /**
+         * Gets the value of the explicit attribute 'Status'.
+         * 
          */
-        IfcDocumentStatusEnum getStatus();
+        virtual IfcDocumentStatusEnum getStatus();
+        /**
+         * (const) Returns the value of the explicit attribute 'Status'.
+         * 
+         * @return the value of the explicit attribute 'Status'
+         */
+        virtual const IfcDocumentStatusEnum getStatus() const;
         /**
          * Sets the value of the explicit attribute 'Status'.
          * 
          * @param value
          */
-        void setStatus(IfcDocumentStatusEnum value);
+        virtual void setStatus(IfcDocumentStatusEnum value);
         /**
+         * Gets the value of the inverse attribute 'IsPointedTo'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &getIsPointedTo();
+        Inverse_Set_IfcDocumentInformationRelationship_0_n &getIsPointedTo();
         /**
+         * (const) Returns the value of the explicit attribute 'IsPointedTo'.
+         * 
+         * @return the value of the explicit attribute 'IsPointedTo'
          */
-        Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &getIsPointer();
+        virtual const Inverse_Set_IfcDocumentInformationRelationship_0_n &getIsPointedTo() const;
         /**
+         * Gets the value of the inverse attribute 'IsPointer'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcDocumentInformationRelationship_0_1 &getIsPointer();
+        /**
+         * (const) Returns the value of the explicit attribute 'IsPointer'.
+         * 
+         * @return the value of the explicit attribute 'IsPointer'
+         */
+        virtual const Inverse_Set_IfcDocumentInformationRelationship_0_1 &getIsPointer() const;
+        friend class Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type;
         friend class ExpressDataSet;
         friend class IfcDocumentInformationRelationship;
-        /**
-         */
-        class Inverted_DocumentReferences_type : public Step::Set< Step::RefPtr< IfcDocumentReference > > {
-        public:
-            /**
-             */
-            IfcDocumentInformation *mOwner;
-            /**
-             */
-            Inverted_DocumentReferences_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcDocumentInformation *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcDocumentReference > &value);
-
-        };
-
 
     protected:
         /**
@@ -272,34 +441,34 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_documentId;
+        Step::String m_documentId;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        std::string m_description;
+        Step::String m_description;
         /**
          */
-        Inverted_DocumentReferences_type m_documentReferences;
+        Inverted_IfcDocumentInformation_DocumentReferences_type m_documentReferences;
         /**
          */
-        std::string m_purpose;
+        Step::String m_purpose;
         /**
          */
-        std::string m_intendedUse;
+        Step::String m_intendedUse;
         /**
          */
-        std::string m_scope;
+        Step::String m_scope;
         /**
          */
-        std::string m_revision;
+        Step::String m_revision;
         /**
          */
         Step::RefPtr< IfcActorSelect > m_documentOwner;
         /**
          */
-        Step::Set< Step::RefPtr< IfcActorSelect > > m_editors;
+        Set_IfcActorSelect_1_n m_editors;
         /**
          */
         Step::RefPtr< IfcDateAndTime > m_creationTime;
@@ -323,10 +492,10 @@ namespace ifc2x3 {
         IfcDocumentStatusEnum m_status;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > m_isPointedTo;
+        Inverse_Set_IfcDocumentInformationRelationship_0_n m_isPointedTo;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > m_isPointer;
+        Inverse_Set_IfcDocumentInformationRelationship_0_1 m_isPointer;
 
     };
 

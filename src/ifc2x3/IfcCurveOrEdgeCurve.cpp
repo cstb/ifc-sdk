@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcCurveOrEdgeCurve::~IfcCurveOrEdgeCurve() {
     deleteUnion();
 }
 
-bool IfcCurveOrEdgeCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveOrEdgeCurve(this);
+bool IfcCurveOrEdgeCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveOrEdgeCurve(this);
 }
 
 bool IfcCurveOrEdgeCurve::init() {
     return false;
 }
 
-const std::string &IfcCurveOrEdgeCurve::type() {
+const std::string &IfcCurveOrEdgeCurve::type() const {
     return IfcCurveOrEdgeCurve::s_type.getName();
 }
 
-Step::ClassType IfcCurveOrEdgeCurve::getClassType() {
+const Step::ClassType &IfcCurveOrEdgeCurve::getClassType() {
     return IfcCurveOrEdgeCurve::s_type;
 }
 
-Step::ClassType IfcCurveOrEdgeCurve::getType() const {
+const Step::ClassType &IfcCurveOrEdgeCurve::getType() const {
     return IfcCurveOrEdgeCurve::s_type;
 }
 
-bool IfcCurveOrEdgeCurve::isOfType(Step::ClassType t) {
+bool IfcCurveOrEdgeCurve::isOfType(const Step::ClassType &t) const {
     return IfcCurveOrEdgeCurve::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcCurveOrEdgeCurve::copy(const IfcCurveOrEdgeCurve &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCBOUNDEDCURVE:
-        setIfcBoundedCurve(copyop(obj.m_IfcCurveOrEdgeCurve_union.m_IfcBoundedCurve));
+        setIfcBoundedCurve((IfcBoundedCurve *) (copyop(obj.m_IfcCurveOrEdgeCurve_union.m_IfcBoundedCurve)));
         break;
     case IFCEDGECURVE:
-        setIfcEdgeCurve(copyop(obj.m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve));
+        setIfcEdgeCurve((IfcEdgeCurve *) (copyop(obj.m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve)));
         break;
         }
 }
 
-char *IfcCurveOrEdgeCurve::currentTypeName() {
+std::string IfcCurveOrEdgeCurve::currentTypeName() const {
     switch(m_type) {
     case IFCBOUNDEDCURVE:
         return "IfcBoundedCurve";
@@ -97,7 +97,7 @@ char *IfcCurveOrEdgeCurve::currentTypeName() {
     }
 }
 
-IfcCurveOrEdgeCurve::IfcCurveOrEdgeCurve_select IfcCurveOrEdgeCurve::currentType() {
+IfcCurveOrEdgeCurve::IfcCurveOrEdgeCurve_select IfcCurveOrEdgeCurve::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcCurveOrEdgeCurve::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcBoundedCurve *IfcCurveOrEdgeCurve::getIfcBoundedCurve() {
-    return m_IfcCurveOrEdgeCurve_union.m_IfcBoundedCurve;
+IfcBoundedCurve *IfcCurveOrEdgeCurve::getIfcBoundedCurve() const {
+    if (m_type == IFCBOUNDEDCURVE) {
+        return m_IfcCurveOrEdgeCurve_union.m_IfcBoundedCurve;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveOrEdgeCurve::setIfcBoundedCurve(IfcBoundedCurve *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcCurveOrEdgeCurve::setIfcBoundedCurve(IfcBoundedCurve *value) {
     m_type = IFCBOUNDEDCURVE;
 }
 
-IfcEdgeCurve *IfcCurveOrEdgeCurve::getIfcEdgeCurve() {
-    return m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve;
+IfcEdgeCurve *IfcCurveOrEdgeCurve::getIfcEdgeCurve() const {
+    if (m_type == IFCEDGECURVE) {
+        return m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveOrEdgeCurve::setIfcEdgeCurve(IfcEdgeCurve *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

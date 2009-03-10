@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,12 +32,12 @@
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include "ifc2x3/IfcTimeSeries.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -68,23 +68,23 @@ IfcFluidFlowProperties::IfcFluidFlowProperties(Step::Id id, Step::SPFData *args)
 IfcFluidFlowProperties::~IfcFluidFlowProperties() {
 }
 
-bool IfcFluidFlowProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFluidFlowProperties(this);
+bool IfcFluidFlowProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFluidFlowProperties(this);
 }
 
-const std::string &IfcFluidFlowProperties::type() {
+const std::string &IfcFluidFlowProperties::type() const {
     return IfcFluidFlowProperties::s_type.getName();
 }
 
-Step::ClassType IfcFluidFlowProperties::getClassType() {
+const Step::ClassType &IfcFluidFlowProperties::getClassType() {
     return IfcFluidFlowProperties::s_type;
 }
 
-Step::ClassType IfcFluidFlowProperties::getType() const {
+const Step::ClassType &IfcFluidFlowProperties::getType() const {
     return IfcFluidFlowProperties::s_type;
 }
 
-bool IfcFluidFlowProperties::isOfType(Step::ClassType t) {
+bool IfcFluidFlowProperties::isOfType(const Step::ClassType &t) const {
     return IfcFluidFlowProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -95,6 +95,11 @@ IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource() {
     else {
         return IfcPropertySourceEnum_UNSET;
     }
+}
+
+const IfcPropertySourceEnum IfcFluidFlowProperties::getPropertySource() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getPropertySource();
 }
 
 void IfcFluidFlowProperties::setPropertySource(IfcPropertySourceEnum value) {
@@ -110,6 +115,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() {
     }
 }
 
+const IfcTimeSeries *IfcFluidFlowProperties::getFlowConditionTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getFlowConditionTimeSeries();
+}
+
 void IfcFluidFlowProperties::setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
     m_flowConditionTimeSeries = value;
 }
@@ -121,6 +131,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() {
     else {
         return NULL;
     }
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getVelocityTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getVelocityTimeSeries();
 }
 
 void IfcFluidFlowProperties::setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
@@ -136,6 +151,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() {
     }
 }
 
+const IfcTimeSeries *IfcFluidFlowProperties::getFlowrateTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getFlowrateTimeSeries();
+}
+
 void IfcFluidFlowProperties::setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
     m_flowrateTimeSeries = value;
 }
@@ -147,6 +167,11 @@ IfcMaterial *IfcFluidFlowProperties::getFluid() {
     else {
         return NULL;
     }
+}
+
+const IfcMaterial *IfcFluidFlowProperties::getFluid() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getFluid();
 }
 
 void IfcFluidFlowProperties::setFluid(const Step::RefPtr< IfcMaterial > &value) {
@@ -162,6 +187,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() {
     }
 }
 
+const IfcTimeSeries *IfcFluidFlowProperties::getPressureTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getPressureTimeSeries();
+}
+
 void IfcFluidFlowProperties::setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
     m_pressureTimeSeries = value;
 }
@@ -173,6 +203,11 @@ IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource() {
     else {
         return Step::getUnset(m_userDefinedPropertySource);
     }
+}
+
+const IfcLabel IfcFluidFlowProperties::getUserDefinedPropertySource() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getUserDefinedPropertySource();
 }
 
 void IfcFluidFlowProperties::setUserDefinedPropertySource(const IfcLabel &value) {
@@ -188,6 +223,11 @@ IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleV
     }
 }
 
+const IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getTemperatureSingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getTemperatureSingleValue();
+}
+
 void IfcFluidFlowProperties::setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value) {
     m_temperatureSingleValue = value;
 }
@@ -199,6 +239,11 @@ IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperature
     else {
         return Step::getUnset(m_wetBulbTemperatureSingleValue);
     }
+}
+
+const IfcThermodynamicTemperatureMeasure IfcFluidFlowProperties::getWetBulbTemperatureSingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getWetBulbTemperatureSingleValue();
 }
 
 void IfcFluidFlowProperties::setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value) {
@@ -214,6 +259,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() {
     }
 }
 
+const IfcTimeSeries *IfcFluidFlowProperties::getWetBulbTemperatureTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getWetBulbTemperatureTimeSeries();
+}
+
 void IfcFluidFlowProperties::setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
     m_wetBulbTemperatureTimeSeries = value;
 }
@@ -225,6 +275,11 @@ IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() {
     else {
         return NULL;
     }
+}
+
+const IfcTimeSeries *IfcFluidFlowProperties::getTemperatureTimeSeries() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getTemperatureTimeSeries();
 }
 
 void IfcFluidFlowProperties::setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
@@ -240,6 +295,11 @@ IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() {
     }
 }
 
+const IfcDerivedMeasureValue *IfcFluidFlowProperties::getFlowrateSingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getFlowrateSingleValue();
+}
+
 void IfcFluidFlowProperties::setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
     m_flowrateSingleValue = value;
 }
@@ -251,6 +311,11 @@ IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue() {
     else {
         return Step::getUnset(m_flowConditionSingleValue);
     }
+}
+
+const IfcPositiveRatioMeasure IfcFluidFlowProperties::getFlowConditionSingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getFlowConditionSingleValue();
 }
 
 void IfcFluidFlowProperties::setFlowConditionSingleValue(IfcPositiveRatioMeasure value) {
@@ -266,6 +331,11 @@ IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue() {
     }
 }
 
+const IfcLinearVelocityMeasure IfcFluidFlowProperties::getVelocitySingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getVelocitySingleValue();
+}
+
 void IfcFluidFlowProperties::setVelocitySingleValue(IfcLinearVelocityMeasure value) {
     m_velocitySingleValue = value;
 }
@@ -279,19 +349,13 @@ IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue() {
     }
 }
 
-void IfcFluidFlowProperties::setPressureSingleValue(IfcPressureMeasure value) {
-    m_pressureSingleValue = value;
+const IfcPressureMeasure IfcFluidFlowProperties::getPressureSingleValue() const {
+    IfcFluidFlowProperties * deConstObject = const_cast< IfcFluidFlowProperties * > (this);
+    return deConstObject->getPressureSingleValue();
 }
 
-void IfcFluidFlowProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_flowConditionTimeSeries.release();
-    m_velocityTimeSeries.release();
-    m_flowrateTimeSeries.release();
-    m_fluid.release();
-    m_pressureTimeSeries.release();
-    m_wetBulbTemperatureTimeSeries.release();
-    m_temperatureTimeSeries.release();
+void IfcFluidFlowProperties::setPressureSingleValue(IfcPressureMeasure value) {
+    m_pressureSingleValue = value;
 }
 
 bool IfcFluidFlowProperties::init() {
@@ -338,42 +402,42 @@ bool IfcFluidFlowProperties::init() {
         m_flowConditionTimeSeries = NULL;
     }
     else {
-        m_flowConditionTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_flowConditionTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_velocityTimeSeries = NULL;
     }
     else {
-        m_velocityTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_velocityTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_flowrateTimeSeries = NULL;
     }
     else {
-        m_flowrateTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_flowrateTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_fluid = NULL;
     }
     else {
-        m_fluid = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_fluid = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_pressureTimeSeries = NULL;
     }
     else {
-        m_pressureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_pressureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_userDefinedPropertySource = Step::getUnset(m_userDefinedPropertySource);
     }
     else {
-        m_userDefinedPropertySource = Step::spfToString(arg);
+        m_userDefinedPropertySource = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -394,14 +458,14 @@ bool IfcFluidFlowProperties::init() {
         m_wetBulbTemperatureTimeSeries = NULL;
     }
     else {
-        m_wetBulbTemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_wetBulbTemperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_temperatureTimeSeries = NULL;
     }
     else {
-        m_temperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_temperatureTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -505,7 +569,7 @@ bool IfcFluidFlowProperties::init() {
                     m_flowrateSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -801,16 +865,16 @@ bool IfcFluidFlowProperties::init() {
 void IfcFluidFlowProperties::copy(const IfcFluidFlowProperties &obj, const CopyOp &copyop) {
     IfcPropertySetDefinition::copy(obj, copyop);
     setPropertySource(obj.m_propertySource);
-    setFlowConditionTimeSeries(copyop(obj.m_flowConditionTimeSeries.get()));
-    setVelocityTimeSeries(copyop(obj.m_velocityTimeSeries.get()));
-    setFlowrateTimeSeries(copyop(obj.m_flowrateTimeSeries.get()));
-    setFluid(copyop(obj.m_fluid.get()));
-    setPressureTimeSeries(copyop(obj.m_pressureTimeSeries.get()));
+    setFlowConditionTimeSeries((IfcTimeSeries*)copyop(obj.m_flowConditionTimeSeries.get()));
+    setVelocityTimeSeries((IfcTimeSeries*)copyop(obj.m_velocityTimeSeries.get()));
+    setFlowrateTimeSeries((IfcTimeSeries*)copyop(obj.m_flowrateTimeSeries.get()));
+    setFluid((IfcMaterial*)copyop(obj.m_fluid.get()));
+    setPressureTimeSeries((IfcTimeSeries*)copyop(obj.m_pressureTimeSeries.get()));
     setUserDefinedPropertySource(obj.m_userDefinedPropertySource);
     setTemperatureSingleValue(obj.m_temperatureSingleValue);
     setWetBulbTemperatureSingleValue(obj.m_wetBulbTemperatureSingleValue);
-    setWetBulbTemperatureTimeSeries(copyop(obj.m_wetBulbTemperatureTimeSeries.get()));
-    setTemperatureTimeSeries(copyop(obj.m_temperatureTimeSeries.get()));
+    setWetBulbTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_wetBulbTemperatureTimeSeries.get()));
+    setTemperatureTimeSeries((IfcTimeSeries*)copyop(obj.m_temperatureTimeSeries.get()));
     m_flowrateSingleValue = new IfcDerivedMeasureValue;
     m_flowrateSingleValue->copy(*(obj.m_flowrateSingleValue.get()), copyop);
     setFlowConditionSingleValue(obj.m_flowConditionSingleValue);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args) : IfcAnnotationCurveOccurrence(id, args) {
-    m_annotatedBySymbols.setUnset(true);
 }
 
 IfcDimensionCurve::~IfcDimensionCurve() {
 }
 
-bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionCurve(this);
+bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionCurve(this);
 }
 
-const std::string &IfcDimensionCurve::type() {
+const std::string &IfcDimensionCurve::type() const {
     return IfcDimensionCurve::s_type.getName();
 }
 
-Step::ClassType IfcDimensionCurve::getClassType() {
+const Step::ClassType &IfcDimensionCurve::getClassType() {
     return IfcDimensionCurve::s_type;
 }
 
-Step::ClassType IfcDimensionCurve::getType() const {
+const Step::ClassType &IfcDimensionCurve::getType() const {
     return IfcDimensionCurve::s_type;
 }
 
-bool IfcDimensionCurve::isOfType(Step::ClassType t) {
+bool IfcDimensionCurve::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCurve::s_type == t ? true : IfcAnnotationCurveOccurrence::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcTerminatorSymbol > > &IfcDimensionCurve::getAnnotatedBySymbols() {
+Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() {
     if (Step::BaseObject::inited()) {
         return m_annotatedBySymbols;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcTerminatorSymbol > > &IfcDimensionCurve::getAnnotate
     }
 }
 
-void IfcDimensionCurve::release() {
-    IfcAnnotationCurveOccurrence::release();
+const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() const {
+    IfcDimensionCurve * deConstObject = const_cast< IfcDimensionCurve * > (this);
+    return deConstObject->getAnnotatedBySymbols();
 }
 
 bool IfcDimensionCurve::init() {

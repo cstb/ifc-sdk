@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,8 +33,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -49,23 +49,23 @@ IfcSubedge::IfcSubedge(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
 IfcSubedge::~IfcSubedge() {
 }
 
-bool IfcSubedge::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSubedge(this);
+bool IfcSubedge::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSubedge(this);
 }
 
-const std::string &IfcSubedge::type() {
+const std::string &IfcSubedge::type() const {
     return IfcSubedge::s_type.getName();
 }
 
-Step::ClassType IfcSubedge::getClassType() {
+const Step::ClassType &IfcSubedge::getClassType() {
     return IfcSubedge::s_type;
 }
 
-Step::ClassType IfcSubedge::getType() const {
+const Step::ClassType &IfcSubedge::getType() const {
     return IfcSubedge::s_type;
 }
 
-bool IfcSubedge::isOfType(Step::ClassType t) {
+bool IfcSubedge::isOfType(const Step::ClassType &t) const {
     return IfcSubedge::s_type == t ? true : IfcEdge::isOfType(t);
 }
 
@@ -78,13 +78,13 @@ IfcEdge *IfcSubedge::getParentEdge() {
     }
 }
 
-void IfcSubedge::setParentEdge(const Step::RefPtr< IfcEdge > &value) {
-    m_parentEdge = value;
+const IfcEdge *IfcSubedge::getParentEdge() const {
+    IfcSubedge * deConstObject = const_cast< IfcSubedge * > (this);
+    return deConstObject->getParentEdge();
 }
 
-void IfcSubedge::release() {
-    IfcEdge::release();
-    m_parentEdge.release();
+void IfcSubedge::setParentEdge(const Step::RefPtr< IfcEdge > &value) {
+    m_parentEdge = value;
 }
 
 bool IfcSubedge::init() {
@@ -98,14 +98,14 @@ bool IfcSubedge::init() {
         m_parentEdge = NULL;
     }
     else {
-        m_parentEdge = static_cast< IfcEdge * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_parentEdge = static_cast< IfcEdge * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSubedge::copy(const IfcSubedge &obj, const CopyOp &copyop) {
     IfcEdge::copy(obj, copyop);
-    setParentEdge(copyop(obj.m_parentEdge.get()));
+    setParentEdge((IfcEdge*)copyop(obj.m_parentEdge.get()));
     return;
 }
 

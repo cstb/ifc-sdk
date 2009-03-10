@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcWindowPanelProperties::IfcWindowPanelProperties(Step::Id id, Step::SPFData *a
 IfcWindowPanelProperties::~IfcWindowPanelProperties() {
 }
 
-bool IfcWindowPanelProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWindowPanelProperties(this);
+bool IfcWindowPanelProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWindowPanelProperties(this);
 }
 
-const std::string &IfcWindowPanelProperties::type() {
+const std::string &IfcWindowPanelProperties::type() const {
     return IfcWindowPanelProperties::s_type.getName();
 }
 
-Step::ClassType IfcWindowPanelProperties::getClassType() {
+const Step::ClassType &IfcWindowPanelProperties::getClassType() {
     return IfcWindowPanelProperties::s_type;
 }
 
-Step::ClassType IfcWindowPanelProperties::getType() const {
+const Step::ClassType &IfcWindowPanelProperties::getType() const {
     return IfcWindowPanelProperties::s_type;
 }
 
-bool IfcWindowPanelProperties::isOfType(Step::ClassType t) {
+bool IfcWindowPanelProperties::isOfType(const Step::ClassType &t) const {
     return IfcWindowPanelProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcWindowPanelOperationEnum IfcWindowPanelProperties::getOperationType() {
     else {
         return IfcWindowPanelOperationEnum_UNSET;
     }
+}
+
+const IfcWindowPanelOperationEnum IfcWindowPanelProperties::getOperationType() const {
+    IfcWindowPanelProperties * deConstObject = const_cast< IfcWindowPanelProperties * > (this);
+    return deConstObject->getOperationType();
 }
 
 void IfcWindowPanelProperties::setOperationType(IfcWindowPanelOperationEnum value) {
@@ -96,6 +101,11 @@ IfcWindowPanelPositionEnum IfcWindowPanelProperties::getPanelPosition() {
     }
 }
 
+const IfcWindowPanelPositionEnum IfcWindowPanelProperties::getPanelPosition() const {
+    IfcWindowPanelProperties * deConstObject = const_cast< IfcWindowPanelProperties * > (this);
+    return deConstObject->getPanelPosition();
+}
+
 void IfcWindowPanelProperties::setPanelPosition(IfcWindowPanelPositionEnum value) {
     m_panelPosition = value;
 }
@@ -107,6 +117,11 @@ IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameDepth() {
     else {
         return Step::getUnset(m_frameDepth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameDepth() const {
+    IfcWindowPanelProperties * deConstObject = const_cast< IfcWindowPanelProperties * > (this);
+    return deConstObject->getFrameDepth();
 }
 
 void IfcWindowPanelProperties::setFrameDepth(IfcPositiveLengthMeasure value) {
@@ -122,6 +137,11 @@ IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameThickness() const {
+    IfcWindowPanelProperties * deConstObject = const_cast< IfcWindowPanelProperties * > (this);
+    return deConstObject->getFrameThickness();
+}
+
 void IfcWindowPanelProperties::setFrameThickness(IfcPositiveLengthMeasure value) {
     m_frameThickness = value;
 }
@@ -135,13 +155,13 @@ IfcShapeAspect *IfcWindowPanelProperties::getShapeAspectStyle() {
     }
 }
 
-void IfcWindowPanelProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+const IfcShapeAspect *IfcWindowPanelProperties::getShapeAspectStyle() const {
+    IfcWindowPanelProperties * deConstObject = const_cast< IfcWindowPanelProperties * > (this);
+    return deConstObject->getShapeAspectStyle();
 }
 
-void IfcWindowPanelProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_shapeAspectStyle.release();
+void IfcWindowPanelProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
+    m_shapeAspectStyle = value;
 }
 
 bool IfcWindowPanelProperties::init() {
@@ -241,7 +261,7 @@ bool IfcWindowPanelProperties::init() {
         m_shapeAspectStyle = NULL;
     }
     else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -252,7 +272,7 @@ void IfcWindowPanelProperties::copy(const IfcWindowPanelProperties &obj, const C
     setPanelPosition(obj.m_panelPosition);
     setFrameDepth(obj.m_frameDepth);
     setFrameThickness(obj.m_frameThickness);
-    setShapeAspectStyle(copyop(obj.m_shapeAspectStyle.get()));
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
     return;
 }
 

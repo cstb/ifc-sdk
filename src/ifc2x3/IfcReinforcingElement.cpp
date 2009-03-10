@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -27,10 +27,11 @@
 #include "ifc2x3/IfcReinforcingElement.h"
 
 #include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElementPart.h"
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -39,31 +40,31 @@
 #endif
 using namespace ifc2x3;
 
-IfcReinforcingElement::IfcReinforcingElement(Step::Id id, Step::SPFData *args) : IfcElementPart(id, args) {
+IfcReinforcingElement::IfcReinforcingElement(Step::Id id, Step::SPFData *args) : IfcBuildingElementComponent(id, args) {
     m_steelGrade = Step::getUnset(m_steelGrade);
 }
 
 IfcReinforcingElement::~IfcReinforcingElement() {
 }
 
-bool IfcReinforcingElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReinforcingElement(this);
+bool IfcReinforcingElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReinforcingElement(this);
 }
 
-const std::string &IfcReinforcingElement::type() {
+const std::string &IfcReinforcingElement::type() const {
     return IfcReinforcingElement::s_type.getName();
 }
 
-Step::ClassType IfcReinforcingElement::getClassType() {
+const Step::ClassType &IfcReinforcingElement::getClassType() {
     return IfcReinforcingElement::s_type;
 }
 
-Step::ClassType IfcReinforcingElement::getType() const {
+const Step::ClassType &IfcReinforcingElement::getType() const {
     return IfcReinforcingElement::s_type;
 }
 
-bool IfcReinforcingElement::isOfType(Step::ClassType t) {
-    return IfcReinforcingElement::s_type == t ? true : IfcElementPart::isOfType(t);
+bool IfcReinforcingElement::isOfType(const Step::ClassType &t) const {
+    return IfcReinforcingElement::s_type == t ? true : IfcBuildingElementComponent::isOfType(t);
 }
 
 IfcLabel IfcReinforcingElement::getSteelGrade() {
@@ -75,16 +76,17 @@ IfcLabel IfcReinforcingElement::getSteelGrade() {
     }
 }
 
+const IfcLabel IfcReinforcingElement::getSteelGrade() const {
+    IfcReinforcingElement * deConstObject = const_cast< IfcReinforcingElement * > (this);
+    return deConstObject->getSteelGrade();
+}
+
 void IfcReinforcingElement::setSteelGrade(const IfcLabel &value) {
     m_steelGrade = value;
 }
 
-void IfcReinforcingElement::release() {
-    IfcElementPart::release();
-}
-
 bool IfcReinforcingElement::init() {
-    bool status = IfcElementPart::init();
+    bool status = IfcBuildingElementComponent::init();
     std::string arg;
     if (!status) {
         return false;
@@ -94,13 +96,13 @@ bool IfcReinforcingElement::init() {
         m_steelGrade = Step::getUnset(m_steelGrade);
     }
     else {
-        m_steelGrade = Step::spfToString(arg);
+        m_steelGrade = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcReinforcingElement::copy(const IfcReinforcingElement &obj, const CopyOp &copyop) {
-    IfcElementPart::copy(obj, copyop);
+    IfcBuildingElementComponent::copy(obj, copyop);
     setSteelGrade(obj.m_steelGrade);
     return;
 }

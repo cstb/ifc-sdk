@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDuctSegmentType::IfcDuctSegmentType(Step::Id id, Step::SPFData *args) : IfcFl
 IfcDuctSegmentType::~IfcDuctSegmentType() {
 }
 
-bool IfcDuctSegmentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDuctSegmentType(this);
+bool IfcDuctSegmentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDuctSegmentType(this);
 }
 
-const std::string &IfcDuctSegmentType::type() {
+const std::string &IfcDuctSegmentType::type() const {
     return IfcDuctSegmentType::s_type.getName();
 }
 
-Step::ClassType IfcDuctSegmentType::getClassType() {
+const Step::ClassType &IfcDuctSegmentType::getClassType() {
     return IfcDuctSegmentType::s_type;
 }
 
-Step::ClassType IfcDuctSegmentType::getType() const {
+const Step::ClassType &IfcDuctSegmentType::getType() const {
     return IfcDuctSegmentType::s_type;
 }
 
-bool IfcDuctSegmentType::isOfType(Step::ClassType t) {
+bool IfcDuctSegmentType::isOfType(const Step::ClassType &t) const {
     return IfcDuctSegmentType::s_type == t ? true : IfcFlowSegmentType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcDuctSegmentTypeEnum IfcDuctSegmentType::getPredefinedType() {
     }
 }
 
-void IfcDuctSegmentType::setPredefinedType(IfcDuctSegmentTypeEnum value) {
-    m_predefinedType = value;
+const IfcDuctSegmentTypeEnum IfcDuctSegmentType::getPredefinedType() const {
+    IfcDuctSegmentType * deConstObject = const_cast< IfcDuctSegmentType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcDuctSegmentType::release() {
-    IfcFlowSegmentType::release();
+void IfcDuctSegmentType::setPredefinedType(IfcDuctSegmentTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcDuctSegmentType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +54,23 @@ IfcConnectionPortGeometry::IfcConnectionPortGeometry(Step::Id id, Step::SPFData 
 IfcConnectionPortGeometry::~IfcConnectionPortGeometry() {
 }
 
-bool IfcConnectionPortGeometry::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConnectionPortGeometry(this);
+bool IfcConnectionPortGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConnectionPortGeometry(this);
 }
 
-const std::string &IfcConnectionPortGeometry::type() {
+const std::string &IfcConnectionPortGeometry::type() const {
     return IfcConnectionPortGeometry::s_type.getName();
 }
 
-Step::ClassType IfcConnectionPortGeometry::getClassType() {
+const Step::ClassType &IfcConnectionPortGeometry::getClassType() {
     return IfcConnectionPortGeometry::s_type;
 }
 
-Step::ClassType IfcConnectionPortGeometry::getType() const {
+const Step::ClassType &IfcConnectionPortGeometry::getType() const {
     return IfcConnectionPortGeometry::s_type;
 }
 
-bool IfcConnectionPortGeometry::isOfType(Step::ClassType t) {
+bool IfcConnectionPortGeometry::isOfType(const Step::ClassType &t) const {
     return IfcConnectionPortGeometry::s_type == t ? true : IfcConnectionGeometry::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() {
     else {
         return NULL;
     }
+}
+
+const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatingElement() const {
+    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
+    return deConstObject->getLocationAtRelatingElement();
 }
 
 void IfcConnectionPortGeometry::setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value) {
@@ -95,6 +101,11 @@ IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() {
     }
 }
 
+const IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() const {
+    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
+    return deConstObject->getLocationAtRelatedElement();
+}
+
 void IfcConnectionPortGeometry::setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value) {
     m_locationAtRelatedElement = value;
 }
@@ -108,13 +119,13 @@ IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() {
     }
 }
 
-void IfcConnectionPortGeometry::setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value) {
-    m_profileOfPort = value;
+const IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() const {
+    IfcConnectionPortGeometry * deConstObject = const_cast< IfcConnectionPortGeometry * > (this);
+    return deConstObject->getProfileOfPort();
 }
 
-void IfcConnectionPortGeometry::release() {
-    IfcConnectionGeometry::release();
-    m_profileOfPort.release();
+void IfcConnectionPortGeometry::setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value) {
+    m_profileOfPort = value;
 }
 
 bool IfcConnectionPortGeometry::init() {
@@ -166,7 +177,7 @@ bool IfcConnectionPortGeometry::init() {
         m_profileOfPort = NULL;
     }
     else {
-        m_profileOfPort = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_profileOfPort = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -177,7 +188,7 @@ void IfcConnectionPortGeometry::copy(const IfcConnectionPortGeometry &obj, const
     m_locationAtRelatingElement->copy(*(obj.m_locationAtRelatingElement.get()), copyop);
     m_locationAtRelatedElement = new IfcAxis2Placement;
     m_locationAtRelatedElement->copy(*(obj.m_locationAtRelatedElement.get()), copyop);
-    setProfileOfPort(copyop(obj.m_profileOfPort.get()));
+    setProfileOfPort((IfcProfileDef*)copyop(obj.m_profileOfPort.get()));
     return;
 }
 

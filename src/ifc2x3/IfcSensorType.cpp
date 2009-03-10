@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSensorType::IfcSensorType(Step::Id id, Step::SPFData *args) : IfcDistribution
 IfcSensorType::~IfcSensorType() {
 }
 
-bool IfcSensorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSensorType(this);
+bool IfcSensorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSensorType(this);
 }
 
-const std::string &IfcSensorType::type() {
+const std::string &IfcSensorType::type() const {
     return IfcSensorType::s_type.getName();
 }
 
-Step::ClassType IfcSensorType::getClassType() {
+const Step::ClassType &IfcSensorType::getClassType() {
     return IfcSensorType::s_type;
 }
 
-Step::ClassType IfcSensorType::getType() const {
+const Step::ClassType &IfcSensorType::getType() const {
     return IfcSensorType::s_type;
 }
 
-bool IfcSensorType::isOfType(Step::ClassType t) {
+bool IfcSensorType::isOfType(const Step::ClassType &t) const {
     return IfcSensorType::s_type == t ? true : IfcDistributionControlElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSensorTypeEnum IfcSensorType::getPredefinedType() {
     }
 }
 
-void IfcSensorType::setPredefinedType(IfcSensorTypeEnum value) {
-    m_predefinedType = value;
+const IfcSensorTypeEnum IfcSensorType::getPredefinedType() const {
+    IfcSensorType * deConstObject = const_cast< IfcSensorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSensorType::release() {
-    IfcDistributionControlElementType::release();
+void IfcSensorType::setPredefinedType(IfcSensorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSensorType::init() {

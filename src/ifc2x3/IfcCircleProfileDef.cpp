@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCircleProfileDef::IfcCircleProfileDef(Step::Id id, Step::SPFData *args) : Ifc
 IfcCircleProfileDef::~IfcCircleProfileDef() {
 }
 
-bool IfcCircleProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCircleProfileDef(this);
+bool IfcCircleProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCircleProfileDef(this);
 }
 
-const std::string &IfcCircleProfileDef::type() {
+const std::string &IfcCircleProfileDef::type() const {
     return IfcCircleProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcCircleProfileDef::getClassType() {
+const Step::ClassType &IfcCircleProfileDef::getClassType() {
     return IfcCircleProfileDef::s_type;
 }
 
-Step::ClassType IfcCircleProfileDef::getType() const {
+const Step::ClassType &IfcCircleProfileDef::getType() const {
     return IfcCircleProfileDef::s_type;
 }
 
-bool IfcCircleProfileDef::isOfType(Step::ClassType t) {
+bool IfcCircleProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcCircleProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcCircleProfileDef::getRadius() {
     }
 }
 
-void IfcCircleProfileDef::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+const IfcPositiveLengthMeasure IfcCircleProfileDef::getRadius() const {
+    IfcCircleProfileDef * deConstObject = const_cast< IfcCircleProfileDef * > (this);
+    return deConstObject->getRadius();
 }
 
-void IfcCircleProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcCircleProfileDef::setRadius(IfcPositiveLengthMeasure value) {
+    m_radius = value;
 }
 
 bool IfcCircleProfileDef::init() {

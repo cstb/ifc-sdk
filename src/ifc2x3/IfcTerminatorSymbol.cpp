@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcTerminatorSymbol::IfcTerminatorSymbol(Step::Id id, Step::SPFData *args) : Ifc
 IfcTerminatorSymbol::~IfcTerminatorSymbol() {
 }
 
-bool IfcTerminatorSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTerminatorSymbol(this);
+bool IfcTerminatorSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTerminatorSymbol(this);
 }
 
-const std::string &IfcTerminatorSymbol::type() {
+const std::string &IfcTerminatorSymbol::type() const {
     return IfcTerminatorSymbol::s_type.getName();
 }
 
-Step::ClassType IfcTerminatorSymbol::getClassType() {
+const Step::ClassType &IfcTerminatorSymbol::getClassType() {
     return IfcTerminatorSymbol::s_type;
 }
 
-Step::ClassType IfcTerminatorSymbol::getType() const {
+const Step::ClassType &IfcTerminatorSymbol::getType() const {
     return IfcTerminatorSymbol::s_type;
 }
 
-bool IfcTerminatorSymbol::isOfType(Step::ClassType t) {
+bool IfcTerminatorSymbol::isOfType(const Step::ClassType &t) const {
     return IfcTerminatorSymbol::s_type == t ? true : IfcAnnotationSymbolOccurrence::isOfType(t);
 }
 
@@ -80,16 +80,15 @@ IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() {
     }
 }
 
+const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() const {
+    IfcTerminatorSymbol * deConstObject = const_cast< IfcTerminatorSymbol * > (this);
+    return deConstObject->getAnnotatedCurve();
+}
+
 void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
-    m_annotatedCurve = value;
     if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.insert(this);
     }
-}
-
-void IfcTerminatorSymbol::release() {
-    IfcAnnotationSymbolOccurrence::release();
-    m_annotatedCurve.release();
 }
 
 bool IfcTerminatorSymbol::init() {
@@ -103,14 +102,14 @@ bool IfcTerminatorSymbol::init() {
         m_annotatedCurve = NULL;
     }
     else {
-        m_annotatedCurve = static_cast< IfcAnnotationCurveOccurrence * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_annotatedCurve = static_cast< IfcAnnotationCurveOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcTerminatorSymbol::copy(const IfcTerminatorSymbol &obj, const CopyOp &copyop) {
     IfcAnnotationSymbolOccurrence::copy(obj, copyop);
-    setAnnotatedCurve(copyop(obj.m_annotatedCurve.get()));
+    setAnnotatedCurve((IfcAnnotationCurveOccurrence*)copyop(obj.m_annotatedCurve.get()));
     return;
 }
 

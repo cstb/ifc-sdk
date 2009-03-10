@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcLightSourceDirectional::IfcLightSourceDirectional(Step::Id id, Step::SPFData 
 IfcLightSourceDirectional::~IfcLightSourceDirectional() {
 }
 
-bool IfcLightSourceDirectional::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSourceDirectional(this);
+bool IfcLightSourceDirectional::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSourceDirectional(this);
 }
 
-const std::string &IfcLightSourceDirectional::type() {
+const std::string &IfcLightSourceDirectional::type() const {
     return IfcLightSourceDirectional::s_type.getName();
 }
 
-Step::ClassType IfcLightSourceDirectional::getClassType() {
+const Step::ClassType &IfcLightSourceDirectional::getClassType() {
     return IfcLightSourceDirectional::s_type;
 }
 
-Step::ClassType IfcLightSourceDirectional::getType() const {
+const Step::ClassType &IfcLightSourceDirectional::getType() const {
     return IfcLightSourceDirectional::s_type;
 }
 
-bool IfcLightSourceDirectional::isOfType(Step::ClassType t) {
+bool IfcLightSourceDirectional::isOfType(const Step::ClassType &t) const {
     return IfcLightSourceDirectional::s_type == t ? true : IfcLightSource::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcDirection *IfcLightSourceDirectional::getOrientation() {
     }
 }
 
-void IfcLightSourceDirectional::setOrientation(const Step::RefPtr< IfcDirection > &value) {
-    m_orientation = value;
+const IfcDirection *IfcLightSourceDirectional::getOrientation() const {
+    IfcLightSourceDirectional * deConstObject = const_cast< IfcLightSourceDirectional * > (this);
+    return deConstObject->getOrientation();
 }
 
-void IfcLightSourceDirectional::release() {
-    IfcLightSource::release();
-    m_orientation.release();
+void IfcLightSourceDirectional::setOrientation(const Step::RefPtr< IfcDirection > &value) {
+    m_orientation = value;
 }
 
 bool IfcLightSourceDirectional::init() {
@@ -99,14 +99,14 @@ bool IfcLightSourceDirectional::init() {
         m_orientation = NULL;
     }
     else {
-        m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcLightSourceDirectional::copy(const IfcLightSourceDirectional &obj, const CopyOp &copyop) {
     IfcLightSource::copy(obj, copyop);
-    setOrientation(copyop(obj.m_orientation.get()));
+    setOrientation((IfcDirection*)copyop(obj.m_orientation.get()));
     return;
 }
 

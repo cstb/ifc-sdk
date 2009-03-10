@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcRectangleProfileDef::IfcRectangleProfileDef(Step::Id id, Step::SPFData *args)
 IfcRectangleProfileDef::~IfcRectangleProfileDef() {
 }
 
-bool IfcRectangleProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRectangleProfileDef(this);
+bool IfcRectangleProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRectangleProfileDef(this);
 }
 
-const std::string &IfcRectangleProfileDef::type() {
+const std::string &IfcRectangleProfileDef::type() const {
     return IfcRectangleProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcRectangleProfileDef::getClassType() {
+const Step::ClassType &IfcRectangleProfileDef::getClassType() {
     return IfcRectangleProfileDef::s_type;
 }
 
-Step::ClassType IfcRectangleProfileDef::getType() const {
+const Step::ClassType &IfcRectangleProfileDef::getType() const {
     return IfcRectangleProfileDef::s_type;
 }
 
-bool IfcRectangleProfileDef::isOfType(Step::ClassType t) {
+bool IfcRectangleProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcRectangleProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim() {
     else {
         return Step::getUnset(m_xDim);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRectangleProfileDef::getXDim() const {
+    IfcRectangleProfileDef * deConstObject = const_cast< IfcRectangleProfileDef * > (this);
+    return deConstObject->getXDim();
 }
 
 void IfcRectangleProfileDef::setXDim(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() {
     }
 }
 
-void IfcRectangleProfileDef::setYDim(IfcPositiveLengthMeasure value) {
-    m_yDim = value;
+const IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() const {
+    IfcRectangleProfileDef * deConstObject = const_cast< IfcRectangleProfileDef * > (this);
+    return deConstObject->getYDim();
 }
 
-void IfcRectangleProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcRectangleProfileDef::setYDim(IfcPositiveLengthMeasure value) {
+    m_yDim = value;
 }
 
 bool IfcRectangleProfileDef::init() {

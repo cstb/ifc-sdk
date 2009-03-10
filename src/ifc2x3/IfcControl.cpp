@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcControl::IfcControl(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
-    m_controls.setUnset(true);
 }
 
 IfcControl::~IfcControl() {
 }
 
-bool IfcControl::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcControl(this);
+bool IfcControl::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcControl(this);
 }
 
-const std::string &IfcControl::type() {
+const std::string &IfcControl::type() const {
     return IfcControl::s_type.getName();
 }
 
-Step::ClassType IfcControl::getClassType() {
+const Step::ClassType &IfcControl::getClassType() {
     return IfcControl::s_type;
 }
 
-Step::ClassType IfcControl::getType() const {
+const Step::ClassType &IfcControl::getType() const {
     return IfcControl::s_type;
 }
 
-bool IfcControl::isOfType(Step::ClassType t) {
+bool IfcControl::isOfType(const Step::ClassType &t) const {
     return IfcControl::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssignsToControl > > &IfcControl::getControls() {
+Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() {
     if (Step::BaseObject::inited()) {
         return m_controls;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelAssignsToControl > > &IfcControl::getControls() {
     }
 }
 
-void IfcControl::release() {
-    IfcObject::release();
+const Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() const {
+    IfcControl * deConstObject = const_cast< IfcControl * > (this);
+    return deConstObject->getControls();
 }
 
 bool IfcControl::init() {

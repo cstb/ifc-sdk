@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPlate::IfcPlate(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, ar
 IfcPlate::~IfcPlate() {
 }
 
-bool IfcPlate::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlate(this);
+bool IfcPlate::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlate(this);
 }
 
-const std::string &IfcPlate::type() {
+const std::string &IfcPlate::type() const {
     return IfcPlate::s_type.getName();
 }
 
-Step::ClassType IfcPlate::getClassType() {
+const Step::ClassType &IfcPlate::getClassType() {
     return IfcPlate::s_type;
 }
 
-Step::ClassType IfcPlate::getType() const {
+const Step::ClassType &IfcPlate::getType() const {
     return IfcPlate::s_type;
 }
 
-bool IfcPlate::isOfType(Step::ClassType t) {
+bool IfcPlate::isOfType(const Step::ClassType &t) const {
     return IfcPlate::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcPlate::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcPlate::init() {

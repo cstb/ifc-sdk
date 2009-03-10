@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,23 +52,23 @@ IfcCurveStyleFontAndScaling::IfcCurveStyleFontAndScaling(Step::Id id, Step::SPFD
 IfcCurveStyleFontAndScaling::~IfcCurveStyleFontAndScaling() {
 }
 
-bool IfcCurveStyleFontAndScaling::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveStyleFontAndScaling(this);
+bool IfcCurveStyleFontAndScaling::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveStyleFontAndScaling(this);
 }
 
-const std::string &IfcCurveStyleFontAndScaling::type() {
+const std::string &IfcCurveStyleFontAndScaling::type() const {
     return IfcCurveStyleFontAndScaling::s_type.getName();
 }
 
-Step::ClassType IfcCurveStyleFontAndScaling::getClassType() {
+const Step::ClassType &IfcCurveStyleFontAndScaling::getClassType() {
     return IfcCurveStyleFontAndScaling::s_type;
 }
 
-Step::ClassType IfcCurveStyleFontAndScaling::getType() const {
+const Step::ClassType &IfcCurveStyleFontAndScaling::getType() const {
     return IfcCurveStyleFontAndScaling::s_type;
 }
 
-bool IfcCurveStyleFontAndScaling::isOfType(Step::ClassType t) {
+bool IfcCurveStyleFontAndScaling::isOfType(const Step::ClassType &t) const {
     return IfcCurveStyleFontAndScaling::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcLabel IfcCurveStyleFontAndScaling::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcCurveStyleFontAndScaling::getName() const {
+    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
+    return deConstObject->getName();
 }
 
 void IfcCurveStyleFontAndScaling::setName(const IfcLabel &value) {
@@ -93,6 +99,11 @@ IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() {
     }
 }
 
+const IfcCurveStyleFontSelect *IfcCurveStyleFontAndScaling::getCurveFont() const {
+    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
+    return deConstObject->getCurveFont();
+}
+
 void IfcCurveStyleFontAndScaling::setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value) {
     m_curveFont = value;
 }
@@ -106,11 +117,13 @@ IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling() {
     }
 }
 
-void IfcCurveStyleFontAndScaling::setCurveFontScaling(IfcPositiveRatioMeasure value) {
-    m_curveFontScaling = value;
+const IfcPositiveRatioMeasure IfcCurveStyleFontAndScaling::getCurveFontScaling() const {
+    IfcCurveStyleFontAndScaling * deConstObject = const_cast< IfcCurveStyleFontAndScaling * > (this);
+    return deConstObject->getCurveFontScaling();
 }
 
-void IfcCurveStyleFontAndScaling::release() {
+void IfcCurveStyleFontAndScaling::setCurveFontScaling(IfcPositiveRatioMeasure value) {
+    m_curveFontScaling = value;
 }
 
 bool IfcCurveStyleFontAndScaling::init() {
@@ -120,7 +133,7 @@ bool IfcCurveStyleFontAndScaling::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcReinforcingBar::IfcReinforcingBar(Step::Id id, Step::SPFData *args) : IfcRein
 IfcReinforcingBar::~IfcReinforcingBar() {
 }
 
-bool IfcReinforcingBar::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReinforcingBar(this);
+bool IfcReinforcingBar::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReinforcingBar(this);
 }
 
-const std::string &IfcReinforcingBar::type() {
+const std::string &IfcReinforcingBar::type() const {
     return IfcReinforcingBar::s_type.getName();
 }
 
-Step::ClassType IfcReinforcingBar::getClassType() {
+const Step::ClassType &IfcReinforcingBar::getClassType() {
     return IfcReinforcingBar::s_type;
 }
 
-Step::ClassType IfcReinforcingBar::getType() const {
+const Step::ClassType &IfcReinforcingBar::getType() const {
     return IfcReinforcingBar::s_type;
 }
 
-bool IfcReinforcingBar::isOfType(Step::ClassType t) {
+bool IfcReinforcingBar::isOfType(const Step::ClassType &t) const {
     return IfcReinforcingBar::s_type == t ? true : IfcReinforcingElement::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter() {
     else {
         return Step::getUnset(m_nominalDiameter);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcingBar::getNominalDiameter() const {
+    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
+    return deConstObject->getNominalDiameter();
 }
 
 void IfcReinforcingBar::setNominalDiameter(IfcPositiveLengthMeasure value) {
@@ -92,6 +97,11 @@ IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() {
     }
 }
 
+const IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() const {
+    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
+    return deConstObject->getCrossSectionArea();
+}
+
 void IfcReinforcingBar::setCrossSectionArea(IfcAreaMeasure value) {
     m_crossSectionArea = value;
 }
@@ -103,6 +113,11 @@ IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() {
     else {
         return Step::getUnset(m_barLength);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() const {
+    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
+    return deConstObject->getBarLength();
 }
 
 void IfcReinforcingBar::setBarLength(IfcPositiveLengthMeasure value) {
@@ -118,6 +133,11 @@ IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() {
     }
 }
 
+const IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() const {
+    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
+    return deConstObject->getBarRole();
+}
+
 void IfcReinforcingBar::setBarRole(IfcReinforcingBarRoleEnum value) {
     m_barRole = value;
 }
@@ -131,12 +151,13 @@ IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() {
     }
 }
 
-void IfcReinforcingBar::setBarSurface(IfcReinforcingBarSurfaceEnum value) {
-    m_barSurface = value;
+const IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() const {
+    IfcReinforcingBar * deConstObject = const_cast< IfcReinforcingBar * > (this);
+    return deConstObject->getBarSurface();
 }
 
-void IfcReinforcingBar::release() {
-    IfcReinforcingElement::release();
+void IfcReinforcingBar::setBarSurface(IfcReinforcingBarSurfaceEnum value) {
+    m_barSurface = value;
 }
 
 bool IfcReinforcingBar::init() {

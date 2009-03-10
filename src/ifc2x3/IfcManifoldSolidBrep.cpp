@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcManifoldSolidBrep::IfcManifoldSolidBrep(Step::Id id, Step::SPFData *args) : I
 IfcManifoldSolidBrep::~IfcManifoldSolidBrep() {
 }
 
-bool IfcManifoldSolidBrep::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcManifoldSolidBrep(this);
+bool IfcManifoldSolidBrep::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcManifoldSolidBrep(this);
 }
 
-const std::string &IfcManifoldSolidBrep::type() {
+const std::string &IfcManifoldSolidBrep::type() const {
     return IfcManifoldSolidBrep::s_type.getName();
 }
 
-Step::ClassType IfcManifoldSolidBrep::getClassType() {
+const Step::ClassType &IfcManifoldSolidBrep::getClassType() {
     return IfcManifoldSolidBrep::s_type;
 }
 
-Step::ClassType IfcManifoldSolidBrep::getType() const {
+const Step::ClassType &IfcManifoldSolidBrep::getType() const {
     return IfcManifoldSolidBrep::s_type;
 }
 
-bool IfcManifoldSolidBrep::isOfType(Step::ClassType t) {
+bool IfcManifoldSolidBrep::isOfType(const Step::ClassType &t) const {
     return IfcManifoldSolidBrep::s_type == t ? true : IfcSolidModel::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcClosedShell *IfcManifoldSolidBrep::getOuter() {
     }
 }
 
-void IfcManifoldSolidBrep::setOuter(const Step::RefPtr< IfcClosedShell > &value) {
-    m_outer = value;
+const IfcClosedShell *IfcManifoldSolidBrep::getOuter() const {
+    IfcManifoldSolidBrep * deConstObject = const_cast< IfcManifoldSolidBrep * > (this);
+    return deConstObject->getOuter();
 }
 
-void IfcManifoldSolidBrep::release() {
-    IfcSolidModel::release();
-    m_outer.release();
+void IfcManifoldSolidBrep::setOuter(const Step::RefPtr< IfcClosedShell > &value) {
+    m_outer = value;
 }
 
 bool IfcManifoldSolidBrep::init() {
@@ -99,14 +99,14 @@ bool IfcManifoldSolidBrep::init() {
         m_outer = NULL;
     }
     else {
-        m_outer = static_cast< IfcClosedShell * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_outer = static_cast< IfcClosedShell * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcManifoldSolidBrep::copy(const IfcManifoldSolidBrep &obj, const CopyOp &copyop) {
     IfcSolidModel::copy(obj, copyop);
-    setOuter(copyop(obj.m_outer.get()));
+    setOuter((IfcClosedShell*)copyop(obj.m_outer.get()));
     return;
 }
 

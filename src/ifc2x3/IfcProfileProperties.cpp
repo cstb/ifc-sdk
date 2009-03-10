@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +52,23 @@ IfcProfileProperties::IfcProfileProperties(Step::Id id, Step::SPFData *args) : S
 IfcProfileProperties::~IfcProfileProperties() {
 }
 
-bool IfcProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProfileProperties(this);
+bool IfcProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProfileProperties(this);
 }
 
-const std::string &IfcProfileProperties::type() {
+const std::string &IfcProfileProperties::type() const {
     return IfcProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcProfileProperties::getClassType() {
+const Step::ClassType &IfcProfileProperties::getClassType() {
     return IfcProfileProperties::s_type;
 }
 
-Step::ClassType IfcProfileProperties::getType() const {
+const Step::ClassType &IfcProfileProperties::getType() const {
     return IfcProfileProperties::s_type;
 }
 
-bool IfcProfileProperties::isOfType(Step::ClassType t) {
+bool IfcProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcProfileProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcLabel IfcProfileProperties::getProfileName() {
     else {
         return Step::getUnset(m_profileName);
     }
+}
+
+const IfcLabel IfcProfileProperties::getProfileName() const {
+    IfcProfileProperties * deConstObject = const_cast< IfcProfileProperties * > (this);
+    return deConstObject->getProfileName();
 }
 
 void IfcProfileProperties::setProfileName(const IfcLabel &value) {
@@ -93,12 +99,13 @@ IfcProfileDef *IfcProfileProperties::getProfileDefinition() {
     }
 }
 
-void IfcProfileProperties::setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value) {
-    m_profileDefinition = value;
+const IfcProfileDef *IfcProfileProperties::getProfileDefinition() const {
+    IfcProfileProperties * deConstObject = const_cast< IfcProfileProperties * > (this);
+    return deConstObject->getProfileDefinition();
 }
 
-void IfcProfileProperties::release() {
-    m_profileDefinition.release();
+void IfcProfileProperties::setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value) {
+    m_profileDefinition = value;
 }
 
 bool IfcProfileProperties::init() {
@@ -108,14 +115,14 @@ bool IfcProfileProperties::init() {
         m_profileName = Step::getUnset(m_profileName);
     }
     else {
-        m_profileName = Step::spfToString(arg);
+        m_profileName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_profileDefinition = NULL;
     }
     else {
-        m_profileDefinition = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_profileDefinition = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -123,7 +130,7 @@ bool IfcProfileProperties::init() {
 void IfcProfileProperties::copy(const IfcProfileProperties &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
     setProfileName(obj.m_profileName);
-    setProfileDefinition(copyop(obj.m_profileDefinition.get()));
+    setProfileDefinition((IfcProfileDef*)copyop(obj.m_profileDefinition.get()));
     return;
 }
 

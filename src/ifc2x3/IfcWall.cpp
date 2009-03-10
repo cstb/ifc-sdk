@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcWall::IfcWall(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcWall::~IfcWall() {
 }
 
-bool IfcWall::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWall(this);
+bool IfcWall::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWall(this);
 }
 
-const std::string &IfcWall::type() {
+const std::string &IfcWall::type() const {
     return IfcWall::s_type.getName();
 }
 
-Step::ClassType IfcWall::getClassType() {
+const Step::ClassType &IfcWall::getClassType() {
     return IfcWall::s_type;
 }
 
-Step::ClassType IfcWall::getType() const {
+const Step::ClassType &IfcWall::getType() const {
     return IfcWall::s_type;
 }
 
-bool IfcWall::isOfType(Step::ClassType t) {
+bool IfcWall::isOfType(const Step::ClassType &t) const {
     return IfcWall::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcWall::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcWall::init() {

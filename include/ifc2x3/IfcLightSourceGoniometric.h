@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,81 +48,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcLightSourceGoniometric : public IfcLightSource {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Position'.
+         * 
          */
-        IfcAxis2Placement3D *getPosition();
+        virtual IfcAxis2Placement3D *getPosition();
+        /**
+         * (const) Returns the value of the explicit attribute 'Position'.
+         * 
+         * @return the value of the explicit attribute 'Position'
+         */
+        virtual const IfcAxis2Placement3D *getPosition() const;
         /**
          * Sets the value of the explicit attribute 'Position'.
          * 
          * @param value
          */
-        void setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value);
+        virtual void setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value);
         /**
+         * Gets the value of the explicit attribute 'ColourAppearance'.
+         * 
          */
-        IfcColourRgb *getColourAppearance();
+        virtual IfcColourRgb *getColourAppearance();
+        /**
+         * (const) Returns the value of the explicit attribute 'ColourAppearance'.
+         * 
+         * @return the value of the explicit attribute 'ColourAppearance'
+         */
+        virtual const IfcColourRgb *getColourAppearance() const;
         /**
          * Sets the value of the explicit attribute 'ColourAppearance'.
          * 
          * @param value
          */
-        void setColourAppearance(const Step::RefPtr< IfcColourRgb > &value);
+        virtual void setColourAppearance(const Step::RefPtr< IfcColourRgb > &value);
         /**
+         * Gets the value of the explicit attribute 'ColourTemperature'.
+         * 
          */
-        IfcThermodynamicTemperatureMeasure getColourTemperature();
+        virtual IfcThermodynamicTemperatureMeasure getColourTemperature();
+        /**
+         * (const) Returns the value of the explicit attribute 'ColourTemperature'.
+         * 
+         * @return the value of the explicit attribute 'ColourTemperature'
+         */
+        virtual const IfcThermodynamicTemperatureMeasure getColourTemperature() const;
         /**
          * Sets the value of the explicit attribute 'ColourTemperature'.
          * 
          * @param value
          */
-        void setColourTemperature(IfcThermodynamicTemperatureMeasure value);
+        virtual void setColourTemperature(IfcThermodynamicTemperatureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LuminousFlux'.
+         * 
          */
-        IfcLuminousFluxMeasure getLuminousFlux();
+        virtual IfcLuminousFluxMeasure getLuminousFlux();
+        /**
+         * (const) Returns the value of the explicit attribute 'LuminousFlux'.
+         * 
+         * @return the value of the explicit attribute 'LuminousFlux'
+         */
+        virtual const IfcLuminousFluxMeasure getLuminousFlux() const;
         /**
          * Sets the value of the explicit attribute 'LuminousFlux'.
          * 
          * @param value
          */
-        void setLuminousFlux(IfcLuminousFluxMeasure value);
+        virtual void setLuminousFlux(IfcLuminousFluxMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LightEmissionSource'.
+         * 
          */
-        IfcLightEmissionSourceEnum getLightEmissionSource();
+        virtual IfcLightEmissionSourceEnum getLightEmissionSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'LightEmissionSource'.
+         * 
+         * @return the value of the explicit attribute 'LightEmissionSource'
+         */
+        virtual const IfcLightEmissionSourceEnum getLightEmissionSource() const;
         /**
          * Sets the value of the explicit attribute 'LightEmissionSource'.
          * 
          * @param value
          */
-        void setLightEmissionSource(IfcLightEmissionSourceEnum value);
+        virtual void setLightEmissionSource(IfcLightEmissionSourceEnum value);
         /**
+         * Gets the value of the explicit attribute 'LightDistributionDataSource'.
+         * 
          */
-        IfcLightDistributionDataSourceSelect *getLightDistributionDataSource();
+        virtual IfcLightDistributionDataSourceSelect *getLightDistributionDataSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'LightDistributionDataSource'.
+         * 
+         * @return the value of the explicit attribute 'LightDistributionDataSource'
+         */
+        virtual const IfcLightDistributionDataSourceSelect *getLightDistributionDataSource() const;
         /**
          * Sets the value of the explicit attribute 'LightDistributionDataSource'.
          * 
          * @param value
          */
-        void setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value);
         friend class ExpressDataSet;
 
     protected:

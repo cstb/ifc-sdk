@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,50 +33,60 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include "ifc2x3/IfcTimeSeries.h"
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcIrregularTimeSeriesValue;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcIrregularTimeSeries : public IfcTimeSeries {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Values'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > &getValues();
+        virtual List_IfcIrregularTimeSeriesValue_1_n &getValues();
+        /**
+         * (const) Returns the value of the explicit attribute 'Values'.
+         * 
+         * @return the value of the explicit attribute 'Values'
+         */
+        virtual const List_IfcIrregularTimeSeriesValue_1_n &getValues() const;
         /**
          * Sets the value of the explicit attribute 'Values'.
          * 
          * @param value
          */
-        void setValues(const Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setValues(const List_IfcIrregularTimeSeriesValue_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -101,7 +111,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue > > m_values;
+        List_IfcIrregularTimeSeriesValue_1_n m_values;
 
     };
 

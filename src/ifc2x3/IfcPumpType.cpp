@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcPumpType::IfcPumpType(Step::Id id, Step::SPFData *args) : IfcFlowMovingDevice
 IfcPumpType::~IfcPumpType() {
 }
 
-bool IfcPumpType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPumpType(this);
+bool IfcPumpType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPumpType(this);
 }
 
-const std::string &IfcPumpType::type() {
+const std::string &IfcPumpType::type() const {
     return IfcPumpType::s_type.getName();
 }
 
-Step::ClassType IfcPumpType::getClassType() {
+const Step::ClassType &IfcPumpType::getClassType() {
     return IfcPumpType::s_type;
 }
 
-Step::ClassType IfcPumpType::getType() const {
+const Step::ClassType &IfcPumpType::getType() const {
     return IfcPumpType::s_type;
 }
 
-bool IfcPumpType::isOfType(Step::ClassType t) {
+bool IfcPumpType::isOfType(const Step::ClassType &t) const {
     return IfcPumpType::s_type == t ? true : IfcFlowMovingDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPumpTypeEnum IfcPumpType::getPredefinedType() {
     }
 }
 
-void IfcPumpType::setPredefinedType(IfcPumpTypeEnum value) {
-    m_predefinedType = value;
+const IfcPumpTypeEnum IfcPumpType::getPredefinedType() const {
+    IfcPumpType * deConstObject = const_cast< IfcPumpType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcPumpType::release() {
-    IfcFlowMovingDeviceType::release();
+void IfcPumpType::setPredefinedType(IfcPumpTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcPumpType::init() {

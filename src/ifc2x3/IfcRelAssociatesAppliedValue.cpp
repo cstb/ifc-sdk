@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssociatesAppliedValue::IfcRelAssociatesAppliedValue(Step::Id id, Step::SP
 IfcRelAssociatesAppliedValue::~IfcRelAssociatesAppliedValue() {
 }
 
-bool IfcRelAssociatesAppliedValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesAppliedValue(this);
+bool IfcRelAssociatesAppliedValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesAppliedValue(this);
 }
 
-const std::string &IfcRelAssociatesAppliedValue::type() {
+const std::string &IfcRelAssociatesAppliedValue::type() const {
     return IfcRelAssociatesAppliedValue::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesAppliedValue::getClassType() {
+const Step::ClassType &IfcRelAssociatesAppliedValue::getClassType() {
     return IfcRelAssociatesAppliedValue::s_type;
 }
 
-Step::ClassType IfcRelAssociatesAppliedValue::getType() const {
+const Step::ClassType &IfcRelAssociatesAppliedValue::getType() const {
     return IfcRelAssociatesAppliedValue::s_type;
 }
 
-bool IfcRelAssociatesAppliedValue::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesAppliedValue::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesAppliedValue::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAppliedValue *IfcRelAssociatesAppliedValue::getRelatingAppliedValue() {
     }
 }
 
-void IfcRelAssociatesAppliedValue::setRelatingAppliedValue(const Step::RefPtr< IfcAppliedValue > &value) {
-    m_relatingAppliedValue = value;
+const IfcAppliedValue *IfcRelAssociatesAppliedValue::getRelatingAppliedValue() const {
+    IfcRelAssociatesAppliedValue * deConstObject = const_cast< IfcRelAssociatesAppliedValue * > (this);
+    return deConstObject->getRelatingAppliedValue();
 }
 
-void IfcRelAssociatesAppliedValue::release() {
-    IfcRelAssociates::release();
-    m_relatingAppliedValue.release();
+void IfcRelAssociatesAppliedValue::setRelatingAppliedValue(const Step::RefPtr< IfcAppliedValue > &value) {
+    m_relatingAppliedValue = value;
 }
 
 bool IfcRelAssociatesAppliedValue::init() {
@@ -99,14 +99,14 @@ bool IfcRelAssociatesAppliedValue::init() {
         m_relatingAppliedValue = NULL;
     }
     else {
-        m_relatingAppliedValue = static_cast< IfcAppliedValue * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingAppliedValue = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssociatesAppliedValue::copy(const IfcRelAssociatesAppliedValue &obj, const CopyOp &copyop) {
     IfcRelAssociates::copy(obj, copyop);
-    setRelatingAppliedValue(copyop(obj.m_relatingAppliedValue.get()));
+    setRelatingAppliedValue((IfcAppliedValue*)copyop(obj.m_relatingAppliedValue.get()));
     return;
 }
 

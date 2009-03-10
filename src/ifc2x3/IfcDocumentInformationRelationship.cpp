@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,43 @@
 
 #include "ifc2x3/IfcDocumentInformationRelationship.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcDocumentInformation.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type() {
+}
+
+void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::setOwner(IfcDocumentInformationRelationship *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::insert(const Step::RefPtr< IfcDocumentInformation > &value) throw(std::out_of_range) {
+    IfcDocumentInformation *inverse = const_cast< IfcDocumentInformation * > (value.get());
+    Set_IfcDocumentInformation_1_n::insert(value);
+    inverse->m_isPointedTo.insert(mOwner);
+}
+
+Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::size_type Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::erase(const Step::RefPtr< IfcDocumentInformation > &value) {
+    IfcDocumentInformation *inverse = const_cast< IfcDocumentInformation * > (value.get());
+    inverse->m_isPointedTo.erase(mOwner);
+    return Set_IfcDocumentInformation_1_n::erase(value);
+}
 
 IfcDocumentInformationRelationship::IfcDocumentInformationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_relatingDocument = NULL;
@@ -55,23 +74,23 @@ IfcDocumentInformationRelationship::IfcDocumentInformationRelationship(Step::Id 
 IfcDocumentInformationRelationship::~IfcDocumentInformationRelationship() {
 }
 
-bool IfcDocumentInformationRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDocumentInformationRelationship(this);
+bool IfcDocumentInformationRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDocumentInformationRelationship(this);
 }
 
-const std::string &IfcDocumentInformationRelationship::type() {
+const std::string &IfcDocumentInformationRelationship::type() const {
     return IfcDocumentInformationRelationship::s_type.getName();
 }
 
-Step::ClassType IfcDocumentInformationRelationship::getClassType() {
+const Step::ClassType &IfcDocumentInformationRelationship::getClassType() {
     return IfcDocumentInformationRelationship::s_type;
 }
 
-Step::ClassType IfcDocumentInformationRelationship::getType() const {
+const Step::ClassType &IfcDocumentInformationRelationship::getType() const {
     return IfcDocumentInformationRelationship::s_type;
 }
 
-bool IfcDocumentInformationRelationship::isOfType(Step::ClassType t) {
+bool IfcDocumentInformationRelationship::isOfType(const Step::ClassType &t) const {
     return IfcDocumentInformationRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,12 +103,22 @@ IfcDocumentInformation *IfcDocumentInformationRelationship::getRelatingDocument(
     }
 }
 
-void IfcDocumentInformationRelationship::setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value) {
-    m_relatingDocument = value;
-    m_relatingDocument->m_isPointer.insert(this);
+const IfcDocumentInformation *IfcDocumentInformationRelationship::getRelatingDocument() const {
+    IfcDocumentInformationRelationship * deConstObject = const_cast< IfcDocumentInformationRelationship * > (this);
+    return deConstObject->getRelatingDocument();
 }
 
-Step::Set< Step::RefPtr< IfcDocumentInformation > > &IfcDocumentInformationRelationship::getRelatedDocuments() {
+void IfcDocumentInformationRelationship::setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value) {
+    if (m_relatingDocument.valid()) {
+        m_relatingDocument->m_isPointer.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isPointer.insert(this);
+    }
+    m_relatingDocument = value;
+}
+
+Set_IfcDocumentInformation_1_n &IfcDocumentInformationRelationship::getRelatedDocuments() {
     if (Step::BaseObject::inited()) {
         return m_relatedDocuments;
     }
@@ -97,6 +126,11 @@ Step::Set< Step::RefPtr< IfcDocumentInformation > > &IfcDocumentInformationRelat
         m_relatedDocuments.setUnset(true);
         return m_relatedDocuments;
     }
+}
+
+const Set_IfcDocumentInformation_1_n &IfcDocumentInformationRelationship::getRelatedDocuments() const {
+    IfcDocumentInformationRelationship * deConstObject = const_cast< IfcDocumentInformationRelationship * > (this);
+    return deConstObject->getRelatedDocuments();
 }
 
 IfcLabel IfcDocumentInformationRelationship::getRelationshipType() {
@@ -108,13 +142,13 @@ IfcLabel IfcDocumentInformationRelationship::getRelationshipType() {
     }
 }
 
-void IfcDocumentInformationRelationship::setRelationshipType(const IfcLabel &value) {
-    m_relationshipType = value;
+const IfcLabel IfcDocumentInformationRelationship::getRelationshipType() const {
+    IfcDocumentInformationRelationship * deConstObject = const_cast< IfcDocumentInformationRelationship * > (this);
+    return deConstObject->getRelationshipType();
 }
 
-void IfcDocumentInformationRelationship::release() {
-    m_relatingDocument.release();
-    m_relatedDocuments.clear();
+void IfcDocumentInformationRelationship::setRelationshipType(const IfcLabel &value) {
+    m_relationshipType = value;
 }
 
 bool IfcDocumentInformationRelationship::init() {
@@ -124,7 +158,7 @@ bool IfcDocumentInformationRelationship::init() {
         m_relatingDocument = NULL;
     }
     else {
-        m_relatingDocument = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingDocument = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -137,7 +171,7 @@ bool IfcDocumentInformationRelationship::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcDocumentInformation > attr2;
-                attr2 = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcDocumentInformation * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedDocuments.insert(attr2);
             }
             else {
@@ -150,17 +184,17 @@ bool IfcDocumentInformationRelationship::init() {
         m_relationshipType = Step::getUnset(m_relationshipType);
     }
     else {
-        m_relationshipType = Step::spfToString(arg);
+        m_relationshipType = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcDocumentInformationRelationship::copy(const IfcDocumentInformationRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDocumentInformation > >::const_iterator it_m_relatedDocuments;
+    Step::Set< Step::RefPtr< IfcDocumentInformation >, 1 >::const_iterator it_m_relatedDocuments;
     Step::BaseEntity::copy(obj, copyop);
-    setRelatingDocument(copyop(obj.m_relatingDocument.get()));
+    setRelatingDocument((IfcDocumentInformation*)copyop(obj.m_relatingDocument.get()));
     for (it_m_relatedDocuments = obj.m_relatedDocuments.begin(); it_m_relatedDocuments != obj.m_relatedDocuments.end(); ++it_m_relatedDocuments) {
-        Step::RefPtr< IfcDocumentInformation > copyTarget = copyop((*it_m_relatedDocuments).get());
+        Step::RefPtr< IfcDocumentInformation > copyTarget = (IfcDocumentInformation *) (copyop((*it_m_relatedDocuments).get()));
         m_relatedDocuments.insert(copyTarget.get());
     }
     setRelationshipType(obj.m_relationshipType);
@@ -168,16 +202,3 @@ void IfcDocumentInformationRelationship::copy(const IfcDocumentInformationRelati
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcDocumentInformationRelationship::s_type("IfcDocumentInformationRelationship");
-IfcDocumentInformationRelationship::Inverted_RelatedDocuments_type::Inverted_RelatedDocuments_type() {
-}
-
-void IfcDocumentInformationRelationship::Inverted_RelatedDocuments_type::setOwner(IfcDocumentInformationRelationship *owner) {
-    mOwner = owner;
-}
-
-void IfcDocumentInformationRelationship::Inverted_RelatedDocuments_type::insert(const Step::RefPtr< IfcDocumentInformation > &value) {
-    IfcDocumentInformation *inverse = const_cast< IfcDocumentInformation * > (value.get());
-    Step::Set< Step::RefPtr< IfcDocumentInformation > >::insert(value);
-    inverse->m_isPointedTo.insert(mOwner);
-}
-

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +52,23 @@ IfcTextLiteralWithExtent::IfcTextLiteralWithExtent(Step::Id id, Step::SPFData *a
 IfcTextLiteralWithExtent::~IfcTextLiteralWithExtent() {
 }
 
-bool IfcTextLiteralWithExtent::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextLiteralWithExtent(this);
+bool IfcTextLiteralWithExtent::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextLiteralWithExtent(this);
 }
 
-const std::string &IfcTextLiteralWithExtent::type() {
+const std::string &IfcTextLiteralWithExtent::type() const {
     return IfcTextLiteralWithExtent::s_type.getName();
 }
 
-Step::ClassType IfcTextLiteralWithExtent::getClassType() {
+const Step::ClassType &IfcTextLiteralWithExtent::getClassType() {
     return IfcTextLiteralWithExtent::s_type;
 }
 
-Step::ClassType IfcTextLiteralWithExtent::getType() const {
+const Step::ClassType &IfcTextLiteralWithExtent::getType() const {
     return IfcTextLiteralWithExtent::s_type;
 }
 
-bool IfcTextLiteralWithExtent::isOfType(Step::ClassType t) {
+bool IfcTextLiteralWithExtent::isOfType(const Step::ClassType &t) const {
     return IfcTextLiteralWithExtent::s_type == t ? true : IfcTextLiteral::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcPlanarExtent *IfcTextLiteralWithExtent::getExtent() {
     else {
         return NULL;
     }
+}
+
+const IfcPlanarExtent *IfcTextLiteralWithExtent::getExtent() const {
+    IfcTextLiteralWithExtent * deConstObject = const_cast< IfcTextLiteralWithExtent * > (this);
+    return deConstObject->getExtent();
 }
 
 void IfcTextLiteralWithExtent::setExtent(const Step::RefPtr< IfcPlanarExtent > &value) {
@@ -93,13 +99,13 @@ IfcBoxAlignment IfcTextLiteralWithExtent::getBoxAlignment() {
     }
 }
 
-void IfcTextLiteralWithExtent::setBoxAlignment(const IfcBoxAlignment &value) {
-    m_boxAlignment = value;
+const IfcBoxAlignment IfcTextLiteralWithExtent::getBoxAlignment() const {
+    IfcTextLiteralWithExtent * deConstObject = const_cast< IfcTextLiteralWithExtent * > (this);
+    return deConstObject->getBoxAlignment();
 }
 
-void IfcTextLiteralWithExtent::release() {
-    IfcTextLiteral::release();
-    m_extent.release();
+void IfcTextLiteralWithExtent::setBoxAlignment(const IfcBoxAlignment &value) {
+    m_boxAlignment = value;
 }
 
 bool IfcTextLiteralWithExtent::init() {
@@ -113,21 +119,21 @@ bool IfcTextLiteralWithExtent::init() {
         m_extent = NULL;
     }
     else {
-        m_extent = static_cast< IfcPlanarExtent * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_extent = static_cast< IfcPlanarExtent * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_boxAlignment = Step::getUnset(m_boxAlignment);
     }
     else {
-        m_boxAlignment = Step::spfToString(arg);
+        m_boxAlignment = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcTextLiteralWithExtent::copy(const IfcTextLiteralWithExtent &obj, const CopyOp &copyop) {
     IfcTextLiteral::copy(obj, copyop);
-    setExtent(copyop(obj.m_extent.get()));
+    setExtent((IfcPlanarExtent*)copyop(obj.m_extent.get()));
     setBoxAlignment(obj.m_boxAlignment);
     return;
 }

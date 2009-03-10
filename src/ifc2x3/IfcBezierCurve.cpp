@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBezierCurve::IfcBezierCurve(Step::Id id, Step::SPFData *args) : IfcBSplineCur
 IfcBezierCurve::~IfcBezierCurve() {
 }
 
-bool IfcBezierCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBezierCurve(this);
+bool IfcBezierCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBezierCurve(this);
 }
 
-const std::string &IfcBezierCurve::type() {
+const std::string &IfcBezierCurve::type() const {
     return IfcBezierCurve::s_type.getName();
 }
 
-Step::ClassType IfcBezierCurve::getClassType() {
+const Step::ClassType &IfcBezierCurve::getClassType() {
     return IfcBezierCurve::s_type;
 }
 
-Step::ClassType IfcBezierCurve::getType() const {
+const Step::ClassType &IfcBezierCurve::getType() const {
     return IfcBezierCurve::s_type;
 }
 
-bool IfcBezierCurve::isOfType(Step::ClassType t) {
+bool IfcBezierCurve::isOfType(const Step::ClassType &t) const {
     return IfcBezierCurve::s_type == t ? true : IfcBSplineCurve::isOfType(t);
-}
-
-void IfcBezierCurve::release() {
-    IfcBSplineCurve::release();
 }
 
 bool IfcBezierCurve::init() {

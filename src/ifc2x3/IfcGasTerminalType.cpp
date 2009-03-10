@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcGasTerminalType::IfcGasTerminalType(Step::Id id, Step::SPFData *args) : IfcFl
 IfcGasTerminalType::~IfcGasTerminalType() {
 }
 
-bool IfcGasTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGasTerminalType(this);
+bool IfcGasTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGasTerminalType(this);
 }
 
-const std::string &IfcGasTerminalType::type() {
+const std::string &IfcGasTerminalType::type() const {
     return IfcGasTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcGasTerminalType::getClassType() {
+const Step::ClassType &IfcGasTerminalType::getClassType() {
     return IfcGasTerminalType::s_type;
 }
 
-Step::ClassType IfcGasTerminalType::getType() const {
+const Step::ClassType &IfcGasTerminalType::getType() const {
     return IfcGasTerminalType::s_type;
 }
 
-bool IfcGasTerminalType::isOfType(Step::ClassType t) {
+bool IfcGasTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcGasTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcGasTerminalTypeEnum IfcGasTerminalType::getPredefinedType() {
     }
 }
 
-void IfcGasTerminalType::setPredefinedType(IfcGasTerminalTypeEnum value) {
-    m_predefinedType = value;
+const IfcGasTerminalTypeEnum IfcGasTerminalType::getPredefinedType() const {
+    IfcGasTerminalType * deConstObject = const_cast< IfcGasTerminalType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcGasTerminalType::release() {
-    IfcFlowTerminalType::release();
+void IfcGasTerminalType::setPredefinedType(IfcGasTerminalTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcGasTerminalType::init() {

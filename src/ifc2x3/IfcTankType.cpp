@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcTankType::IfcTankType(Step::Id id, Step::SPFData *args) : IfcFlowStorageDevic
 IfcTankType::~IfcTankType() {
 }
 
-bool IfcTankType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTankType(this);
+bool IfcTankType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTankType(this);
 }
 
-const std::string &IfcTankType::type() {
+const std::string &IfcTankType::type() const {
     return IfcTankType::s_type.getName();
 }
 
-Step::ClassType IfcTankType::getClassType() {
+const Step::ClassType &IfcTankType::getClassType() {
     return IfcTankType::s_type;
 }
 
-Step::ClassType IfcTankType::getType() const {
+const Step::ClassType &IfcTankType::getType() const {
     return IfcTankType::s_type;
 }
 
-bool IfcTankType::isOfType(Step::ClassType t) {
+bool IfcTankType::isOfType(const Step::ClassType &t) const {
     return IfcTankType::s_type == t ? true : IfcFlowStorageDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcTankTypeEnum IfcTankType::getPredefinedType() {
     }
 }
 
-void IfcTankType::setPredefinedType(IfcTankTypeEnum value) {
-    m_predefinedType = value;
+const IfcTankTypeEnum IfcTankType::getPredefinedType() const {
+    IfcTankType * deConstObject = const_cast< IfcTankType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcTankType::release() {
-    IfcFlowStorageDeviceType::release();
+void IfcTankType::setPredefinedType(IfcTankTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcTankType::init() {

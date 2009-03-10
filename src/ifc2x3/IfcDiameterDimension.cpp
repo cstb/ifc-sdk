@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDiameterDimension::IfcDiameterDimension(Step::Id id, Step::SPFData *args) : I
 IfcDiameterDimension::~IfcDiameterDimension() {
 }
 
-bool IfcDiameterDimension::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDiameterDimension(this);
+bool IfcDiameterDimension::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDiameterDimension(this);
 }
 
-const std::string &IfcDiameterDimension::type() {
+const std::string &IfcDiameterDimension::type() const {
     return IfcDiameterDimension::s_type.getName();
 }
 
-Step::ClassType IfcDiameterDimension::getClassType() {
+const Step::ClassType &IfcDiameterDimension::getClassType() {
     return IfcDiameterDimension::s_type;
 }
 
-Step::ClassType IfcDiameterDimension::getType() const {
+const Step::ClassType &IfcDiameterDimension::getType() const {
     return IfcDiameterDimension::s_type;
 }
 
-bool IfcDiameterDimension::isOfType(Step::ClassType t) {
+bool IfcDiameterDimension::isOfType(const Step::ClassType &t) const {
     return IfcDiameterDimension::s_type == t ? true : IfcDimensionCurveDirectedCallout::isOfType(t);
-}
-
-void IfcDiameterDimension::release() {
-    IfcDimensionCurveDirectedCallout::release();
 }
 
 bool IfcDiameterDimension::init() {

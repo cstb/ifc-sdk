@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcTopologyRepresentation::IfcTopologyRepresentation(Step::Id id, Step::SPFData 
 IfcTopologyRepresentation::~IfcTopologyRepresentation() {
 }
 
-bool IfcTopologyRepresentation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTopologyRepresentation(this);
+bool IfcTopologyRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTopologyRepresentation(this);
 }
 
-const std::string &IfcTopologyRepresentation::type() {
+const std::string &IfcTopologyRepresentation::type() const {
     return IfcTopologyRepresentation::s_type.getName();
 }
 
-Step::ClassType IfcTopologyRepresentation::getClassType() {
+const Step::ClassType &IfcTopologyRepresentation::getClassType() {
     return IfcTopologyRepresentation::s_type;
 }
 
-Step::ClassType IfcTopologyRepresentation::getType() const {
+const Step::ClassType &IfcTopologyRepresentation::getType() const {
     return IfcTopologyRepresentation::s_type;
 }
 
-bool IfcTopologyRepresentation::isOfType(Step::ClassType t) {
+bool IfcTopologyRepresentation::isOfType(const Step::ClassType &t) const {
     return IfcTopologyRepresentation::s_type == t ? true : IfcShapeModel::isOfType(t);
-}
-
-void IfcTopologyRepresentation::release() {
-    IfcShapeModel::release();
 }
 
 bool IfcTopologyRepresentation::init() {

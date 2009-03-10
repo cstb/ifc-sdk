@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -44,29 +45,28 @@ using namespace ifc2x3;
 
 IfcObject::IfcObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
     m_objectType = Step::getUnset(m_objectType);
-    m_isDefinedBy.setUnset(true);
 }
 
 IfcObject::~IfcObject() {
 }
 
-bool IfcObject::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcObject(this);
+bool IfcObject::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcObject(this);
 }
 
-const std::string &IfcObject::type() {
+const std::string &IfcObject::type() const {
     return IfcObject::s_type.getName();
 }
 
-Step::ClassType IfcObject::getClassType() {
+const Step::ClassType &IfcObject::getClassType() {
     return IfcObject::s_type;
 }
 
-Step::ClassType IfcObject::getType() const {
+const Step::ClassType &IfcObject::getType() const {
     return IfcObject::s_type;
 }
 
-bool IfcObject::isOfType(Step::ClassType t) {
+bool IfcObject::isOfType(const Step::ClassType &t) const {
     return IfcObject::s_type == t ? true : IfcObjectDefinition::isOfType(t);
 }
 
@@ -79,11 +79,16 @@ IfcLabel IfcObject::getObjectType() {
     }
 }
 
+const IfcLabel IfcObject::getObjectType() const {
+    IfcObject * deConstObject = const_cast< IfcObject * > (this);
+    return deConstObject->getObjectType();
+}
+
 void IfcObject::setObjectType(const IfcLabel &value) {
     m_objectType = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelDefines > > &IfcObject::getIsDefinedBy() {
+Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
     if (Step::BaseObject::inited()) {
         return m_isDefinedBy;
     }
@@ -93,8 +98,9 @@ Step::Set< Step::ObsPtr< IfcRelDefines > > &IfcObject::getIsDefinedBy() {
     }
 }
 
-void IfcObject::release() {
-    IfcObjectDefinition::release();
+const Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() const {
+    IfcObject * deConstObject = const_cast< IfcObject * > (this);
+    return deConstObject->getIsDefinedBy();
 }
 
 bool IfcObject::init() {
@@ -109,7 +115,7 @@ bool IfcObject::init() {
         m_objectType = Step::getUnset(m_objectType);
     }
     else {
-        m_objectType = Step::spfToString(arg);
+        m_objectType = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcRelDefines::getClassType(), 4);
     if (inverses) {

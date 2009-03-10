@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcAnnotationSurfaceOccurrence::IfcAnnotationSurfaceOccurrence(Step::Id id, Step
 IfcAnnotationSurfaceOccurrence::~IfcAnnotationSurfaceOccurrence() {
 }
 
-bool IfcAnnotationSurfaceOccurrence::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationSurfaceOccurrence(this);
+bool IfcAnnotationSurfaceOccurrence::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationSurfaceOccurrence(this);
 }
 
-const std::string &IfcAnnotationSurfaceOccurrence::type() {
+const std::string &IfcAnnotationSurfaceOccurrence::type() const {
     return IfcAnnotationSurfaceOccurrence::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationSurfaceOccurrence::getClassType() {
+const Step::ClassType &IfcAnnotationSurfaceOccurrence::getClassType() {
     return IfcAnnotationSurfaceOccurrence::s_type;
 }
 
-Step::ClassType IfcAnnotationSurfaceOccurrence::getType() const {
+const Step::ClassType &IfcAnnotationSurfaceOccurrence::getType() const {
     return IfcAnnotationSurfaceOccurrence::s_type;
 }
 
-bool IfcAnnotationSurfaceOccurrence::isOfType(Step::ClassType t) {
+bool IfcAnnotationSurfaceOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationSurfaceOccurrence::s_type == t ? true : IfcAnnotationOccurrence::isOfType(t);
-}
-
-void IfcAnnotationSurfaceOccurrence::release() {
-    IfcAnnotationOccurrence::release();
 }
 
 bool IfcAnnotationSurfaceOccurrence::init() {

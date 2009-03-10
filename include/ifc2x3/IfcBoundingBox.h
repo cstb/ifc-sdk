@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,63 +46,105 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcBoundingBox : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Corner'.
+         * 
          */
-        IfcCartesianPoint *getCorner();
+        virtual IfcCartesianPoint *getCorner();
+        /**
+         * (const) Returns the value of the explicit attribute 'Corner'.
+         * 
+         * @return the value of the explicit attribute 'Corner'
+         */
+        virtual const IfcCartesianPoint *getCorner() const;
         /**
          * Sets the value of the explicit attribute 'Corner'.
          * 
          * @param value
          */
-        void setCorner(const Step::RefPtr< IfcCartesianPoint > &value);
+        virtual void setCorner(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * Gets the value of the explicit attribute 'XDim'.
+         * 
          */
-        IfcPositiveLengthMeasure getXDim();
+        virtual IfcPositiveLengthMeasure getXDim();
+        /**
+         * (const) Returns the value of the explicit attribute 'XDim'.
+         * 
+         * @return the value of the explicit attribute 'XDim'
+         */
+        virtual const IfcPositiveLengthMeasure getXDim() const;
         /**
          * Sets the value of the explicit attribute 'XDim'.
          * 
          * @param value
          */
-        void setXDim(IfcPositiveLengthMeasure value);
+        virtual void setXDim(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'YDim'.
+         * 
          */
-        IfcPositiveLengthMeasure getYDim();
+        virtual IfcPositiveLengthMeasure getYDim();
+        /**
+         * (const) Returns the value of the explicit attribute 'YDim'.
+         * 
+         * @return the value of the explicit attribute 'YDim'
+         */
+        virtual const IfcPositiveLengthMeasure getYDim() const;
         /**
          * Sets the value of the explicit attribute 'YDim'.
          * 
          * @param value
          */
-        void setYDim(IfcPositiveLengthMeasure value);
+        virtual void setYDim(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ZDim'.
+         * 
          */
-        IfcPositiveLengthMeasure getZDim();
+        virtual IfcPositiveLengthMeasure getZDim();
+        /**
+         * (const) Returns the value of the explicit attribute 'ZDim'.
+         * 
+         * @return the value of the explicit attribute 'ZDim'
+         */
+        virtual const IfcPositiveLengthMeasure getZDim() const;
         /**
          * Sets the value of the explicit attribute 'ZDim'.
          * 
          * @param value
          */
-        void setZDim(IfcPositiveLengthMeasure value);
+        virtual void setZDim(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
          */
-        virtual void release();
+        virtual IfcDimensionCount getDim() const;
         friend class ExpressDataSet;
 
     protected:

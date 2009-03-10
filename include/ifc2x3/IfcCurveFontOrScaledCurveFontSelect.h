@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -65,24 +65,32 @@ enum IfcCurveFontOrScaledCurveFontSelect_select {
         IfcCurveFontOrScaledCurveFontSelect();
         virtual ~IfcCurveFontOrScaledCurveFontSelect();
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
          * @param obj
          * @param copyop
@@ -90,30 +98,30 @@ enum IfcCurveFontOrScaledCurveFontSelect_select {
         virtual void copy(const IfcCurveFontOrScaledCurveFontSelect &obj, const CopyOp &copyop);
         /**
          */
-        char *currentTypeName();
+        std::string currentTypeName() const;
         /**
          */
-        IfcCurveFontOrScaledCurveFontSelect_select currentType();
+        IfcCurveFontOrScaledCurveFontSelect_select currentType() const;
         /**
          */
         void deleteUnion();
         /**
          */
-        IfcPreDefinedCurveFont *getIfcPreDefinedCurveFont();
+        IfcPreDefinedCurveFont *getIfcPreDefinedCurveFont() const;
         /**
          * @param value
          */
         void setIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value);
         /**
          */
-        IfcCurveStyleFont *getIfcCurveStyleFont();
+        IfcCurveStyleFont *getIfcCurveStyleFont() const;
         /**
          * @param value
          */
         void setIfcCurveStyleFont(IfcCurveStyleFont *value);
         /**
          */
-        IfcCurveStyleFontAndScaling *getIfcCurveStyleFontAndScaling();
+        IfcCurveStyleFontAndScaling *getIfcCurveStyleFontAndScaling() const;
         /**
          * @param value
          */

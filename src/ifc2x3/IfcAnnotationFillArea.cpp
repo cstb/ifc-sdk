@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +51,23 @@ IfcAnnotationFillArea::IfcAnnotationFillArea(Step::Id id, Step::SPFData *args) :
 IfcAnnotationFillArea::~IfcAnnotationFillArea() {
 }
 
-bool IfcAnnotationFillArea::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationFillArea(this);
+bool IfcAnnotationFillArea::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationFillArea(this);
 }
 
-const std::string &IfcAnnotationFillArea::type() {
+const std::string &IfcAnnotationFillArea::type() const {
     return IfcAnnotationFillArea::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationFillArea::getClassType() {
+const Step::ClassType &IfcAnnotationFillArea::getClassType() {
     return IfcAnnotationFillArea::s_type;
 }
 
-Step::ClassType IfcAnnotationFillArea::getType() const {
+const Step::ClassType &IfcAnnotationFillArea::getType() const {
     return IfcAnnotationFillArea::s_type;
 }
 
-bool IfcAnnotationFillArea::isOfType(Step::ClassType t) {
+bool IfcAnnotationFillArea::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationFillArea::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcCurve *IfcAnnotationFillArea::getOuterBoundary() {
     }
 }
 
+const IfcCurve *IfcAnnotationFillArea::getOuterBoundary() const {
+    IfcAnnotationFillArea * deConstObject = const_cast< IfcAnnotationFillArea * > (this);
+    return deConstObject->getOuterBoundary();
+}
+
 void IfcAnnotationFillArea::setOuterBoundary(const Step::RefPtr< IfcCurve > &value) {
     m_outerBoundary = value;
 }
 
-Step::Set< Step::RefPtr< IfcCurve > > &IfcAnnotationFillArea::getInnerBoundaries() {
+Set_IfcCurve_1_n &IfcAnnotationFillArea::getInnerBoundaries() {
     if (Step::BaseObject::inited()) {
         return m_innerBoundaries;
     }
@@ -95,14 +99,13 @@ Step::Set< Step::RefPtr< IfcCurve > > &IfcAnnotationFillArea::getInnerBoundaries
     }
 }
 
-void IfcAnnotationFillArea::setInnerBoundaries(const Step::Set< Step::RefPtr< IfcCurve > > &value) {
-    m_innerBoundaries = value;
+const Set_IfcCurve_1_n &IfcAnnotationFillArea::getInnerBoundaries() const {
+    IfcAnnotationFillArea * deConstObject = const_cast< IfcAnnotationFillArea * > (this);
+    return deConstObject->getInnerBoundaries();
 }
 
-void IfcAnnotationFillArea::release() {
-    IfcGeometricRepresentationItem::release();
-    m_outerBoundary.release();
-    m_innerBoundaries.clear();
+void IfcAnnotationFillArea::setInnerBoundaries(const Set_IfcCurve_1_n &value) {
+    m_innerBoundaries = value;
 }
 
 bool IfcAnnotationFillArea::init() {
@@ -116,7 +119,7 @@ bool IfcAnnotationFillArea::init() {
         m_outerBoundary = NULL;
     }
     else {
-        m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -129,7 +132,7 @@ bool IfcAnnotationFillArea::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCurve > attr2;
-                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_innerBoundaries.insert(attr2);
             }
             else {
@@ -141,11 +144,11 @@ bool IfcAnnotationFillArea::init() {
 }
 
 void IfcAnnotationFillArea::copy(const IfcAnnotationFillArea &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcCurve > >::const_iterator it_m_innerBoundaries;
+    Step::Set< Step::RefPtr< IfcCurve >, 1 >::const_iterator it_m_innerBoundaries;
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setOuterBoundary(copyop(obj.m_outerBoundary.get()));
+    setOuterBoundary((IfcCurve*)copyop(obj.m_outerBoundary.get()));
     for (it_m_innerBoundaries = obj.m_innerBoundaries.begin(); it_m_innerBoundaries != obj.m_innerBoundaries.end(); ++it_m_innerBoundaries) {
-        Step::RefPtr< IfcCurve > copyTarget = copyop((*it_m_innerBoundaries).get());
+        Step::RefPtr< IfcCurve > copyTarget = (IfcCurve *) (copyop((*it_m_innerBoundaries).get()));
         m_innerBoundaries.insert(copyTarget.get());
     }
     return;

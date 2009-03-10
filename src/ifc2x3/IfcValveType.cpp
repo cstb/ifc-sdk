@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcValveType::IfcValveType(Step::Id id, Step::SPFData *args) : IfcFlowController
 IfcValveType::~IfcValveType() {
 }
 
-bool IfcValveType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcValveType(this);
+bool IfcValveType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcValveType(this);
 }
 
-const std::string &IfcValveType::type() {
+const std::string &IfcValveType::type() const {
     return IfcValveType::s_type.getName();
 }
 
-Step::ClassType IfcValveType::getClassType() {
+const Step::ClassType &IfcValveType::getClassType() {
     return IfcValveType::s_type;
 }
 
-Step::ClassType IfcValveType::getType() const {
+const Step::ClassType &IfcValveType::getType() const {
     return IfcValveType::s_type;
 }
 
-bool IfcValveType::isOfType(Step::ClassType t) {
+bool IfcValveType::isOfType(const Step::ClassType &t) const {
     return IfcValveType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcValveTypeEnum IfcValveType::getPredefinedType() {
     }
 }
 
-void IfcValveType::setPredefinedType(IfcValveTypeEnum value) {
-    m_predefinedType = value;
+const IfcValveTypeEnum IfcValveType::getPredefinedType() const {
+    IfcValveType * deConstObject = const_cast< IfcValveType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcValveType::release() {
-    IfcFlowControllerType::release();
+void IfcValveType::setPredefinedType(IfcValveTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcValveType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -50,23 +51,23 @@ IfcSubContractResource::IfcSubContractResource(Step::Id id, Step::SPFData *args)
 IfcSubContractResource::~IfcSubContractResource() {
 }
 
-bool IfcSubContractResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSubContractResource(this);
+bool IfcSubContractResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSubContractResource(this);
 }
 
-const std::string &IfcSubContractResource::type() {
+const std::string &IfcSubContractResource::type() const {
     return IfcSubContractResource::s_type.getName();
 }
 
-Step::ClassType IfcSubContractResource::getClassType() {
+const Step::ClassType &IfcSubContractResource::getClassType() {
     return IfcSubContractResource::s_type;
 }
 
-Step::ClassType IfcSubContractResource::getType() const {
+const Step::ClassType &IfcSubContractResource::getType() const {
     return IfcSubContractResource::s_type;
 }
 
-bool IfcSubContractResource::isOfType(Step::ClassType t) {
+bool IfcSubContractResource::isOfType(const Step::ClassType &t) const {
     return IfcSubContractResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
 }
 
@@ -77,6 +78,11 @@ IfcActorSelect *IfcSubContractResource::getSubContractor() {
     else {
         return NULL;
     }
+}
+
+const IfcActorSelect *IfcSubContractResource::getSubContractor() const {
+    IfcSubContractResource * deConstObject = const_cast< IfcSubContractResource * > (this);
+    return deConstObject->getSubContractor();
 }
 
 void IfcSubContractResource::setSubContractor(const Step::RefPtr< IfcActorSelect > &value) {
@@ -92,12 +98,13 @@ IfcText IfcSubContractResource::getJobDescription() {
     }
 }
 
-void IfcSubContractResource::setJobDescription(const IfcText &value) {
-    m_jobDescription = value;
+const IfcText IfcSubContractResource::getJobDescription() const {
+    IfcSubContractResource * deConstObject = const_cast< IfcSubContractResource * > (this);
+    return deConstObject->getJobDescription();
 }
 
-void IfcSubContractResource::release() {
-    IfcConstructionResource::release();
+void IfcSubContractResource::setJobDescription(const IfcText &value) {
+    m_jobDescription = value;
 }
 
 bool IfcSubContractResource::init() {
@@ -130,7 +137,7 @@ bool IfcSubContractResource::init() {
         m_jobDescription = Step::getUnset(m_jobDescription);
     }
     else {
-        m_jobDescription = Step::spfToString(arg);
+        m_jobDescription = Step::String::fromSPF(arg);
     }
     return true;
 }

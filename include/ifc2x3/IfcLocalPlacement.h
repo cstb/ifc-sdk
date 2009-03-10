@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,45 +46,66 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcLocalPlacement : public IfcObjectPlacement {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'PlacementRelTo'.
+         * 
          */
-        IfcObjectPlacement *getPlacementRelTo();
+        virtual IfcObjectPlacement *getPlacementRelTo();
+        /**
+         * (const) Returns the value of the explicit attribute 'PlacementRelTo'.
+         * 
+         * @return the value of the explicit attribute 'PlacementRelTo'
+         */
+        virtual const IfcObjectPlacement *getPlacementRelTo() const;
         /**
          * Sets the value of the explicit attribute 'PlacementRelTo'.
          * 
          * @param value
          */
-        void setPlacementRelTo(const Step::RefPtr< IfcObjectPlacement > &value);
+        virtual void setPlacementRelTo(const Step::RefPtr< IfcObjectPlacement > &value);
         /**
+         * Gets the value of the explicit attribute 'RelativePlacement'.
+         * 
          */
-        IfcAxis2Placement *getRelativePlacement();
+        virtual IfcAxis2Placement *getRelativePlacement();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelativePlacement'.
+         * 
+         * @return the value of the explicit attribute 'RelativePlacement'
+         */
+        virtual const IfcAxis2Placement *getRelativePlacement() const;
         /**
          * Sets the value of the explicit attribute 'RelativePlacement'.
          * 
          * @param value
          */
-        void setRelativePlacement(const Step::RefPtr< IfcAxis2Placement > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setRelativePlacement(const Step::RefPtr< IfcAxis2Placement > &value);
         friend class ExpressDataSet;
 
     protected:

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcEquipmentStandard::IfcEquipmentStandard(Step::Id id, Step::SPFData *args) : I
 IfcEquipmentStandard::~IfcEquipmentStandard() {
 }
 
-bool IfcEquipmentStandard::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEquipmentStandard(this);
+bool IfcEquipmentStandard::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEquipmentStandard(this);
 }
 
-const std::string &IfcEquipmentStandard::type() {
+const std::string &IfcEquipmentStandard::type() const {
     return IfcEquipmentStandard::s_type.getName();
 }
 
-Step::ClassType IfcEquipmentStandard::getClassType() {
+const Step::ClassType &IfcEquipmentStandard::getClassType() {
     return IfcEquipmentStandard::s_type;
 }
 
-Step::ClassType IfcEquipmentStandard::getType() const {
+const Step::ClassType &IfcEquipmentStandard::getType() const {
     return IfcEquipmentStandard::s_type;
 }
 
-bool IfcEquipmentStandard::isOfType(Step::ClassType t) {
+bool IfcEquipmentStandard::isOfType(const Step::ClassType &t) const {
     return IfcEquipmentStandard::s_type == t ? true : IfcControl::isOfType(t);
-}
-
-void IfcEquipmentStandard::release() {
-    IfcControl::release();
 }
 
 bool IfcEquipmentStandard::init() {

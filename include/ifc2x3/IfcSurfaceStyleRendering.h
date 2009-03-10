@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,99 +47,168 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSurfaceStyleRendering : public IfcSurfaceStyleShading {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Transparency'.
+         * 
          */
-        IfcNormalisedRatioMeasure getTransparency();
+        virtual IfcNormalisedRatioMeasure getTransparency();
+        /**
+         * (const) Returns the value of the explicit attribute 'Transparency'.
+         * 
+         * @return the value of the explicit attribute 'Transparency'
+         */
+        virtual const IfcNormalisedRatioMeasure getTransparency() const;
         /**
          * Sets the value of the explicit attribute 'Transparency'.
          * 
          * @param value
          */
-        void setTransparency(IfcNormalisedRatioMeasure value);
+        virtual void setTransparency(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'DiffuseColour'.
+         * 
          */
-        IfcColourOrFactor *getDiffuseColour();
+        virtual IfcColourOrFactor *getDiffuseColour();
+        /**
+         * (const) Returns the value of the explicit attribute 'DiffuseColour'.
+         * 
+         * @return the value of the explicit attribute 'DiffuseColour'
+         */
+        virtual const IfcColourOrFactor *getDiffuseColour() const;
         /**
          * Sets the value of the explicit attribute 'DiffuseColour'.
          * 
          * @param value
          */
-        void setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        virtual void setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * Gets the value of the explicit attribute 'TransmissionColour'.
+         * 
          */
-        IfcColourOrFactor *getTransmissionColour();
+        virtual IfcColourOrFactor *getTransmissionColour();
+        /**
+         * (const) Returns the value of the explicit attribute 'TransmissionColour'.
+         * 
+         * @return the value of the explicit attribute 'TransmissionColour'
+         */
+        virtual const IfcColourOrFactor *getTransmissionColour() const;
         /**
          * Sets the value of the explicit attribute 'TransmissionColour'.
          * 
          * @param value
          */
-        void setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        virtual void setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * Gets the value of the explicit attribute 'DiffuseTransmissionColour'.
+         * 
          */
-        IfcColourOrFactor *getDiffuseTransmissionColour();
+        virtual IfcColourOrFactor *getDiffuseTransmissionColour();
+        /**
+         * (const) Returns the value of the explicit attribute 'DiffuseTransmissionColour'.
+         * 
+         * @return the value of the explicit attribute 'DiffuseTransmissionColour'
+         */
+        virtual const IfcColourOrFactor *getDiffuseTransmissionColour() const;
         /**
          * Sets the value of the explicit attribute 'DiffuseTransmissionColour'.
          * 
          * @param value
          */
-        void setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        virtual void setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * Gets the value of the explicit attribute 'ReflectionColour'.
+         * 
          */
-        IfcColourOrFactor *getReflectionColour();
+        virtual IfcColourOrFactor *getReflectionColour();
+        /**
+         * (const) Returns the value of the explicit attribute 'ReflectionColour'.
+         * 
+         * @return the value of the explicit attribute 'ReflectionColour'
+         */
+        virtual const IfcColourOrFactor *getReflectionColour() const;
         /**
          * Sets the value of the explicit attribute 'ReflectionColour'.
          * 
          * @param value
          */
-        void setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        virtual void setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * Gets the value of the explicit attribute 'SpecularColour'.
+         * 
          */
-        IfcColourOrFactor *getSpecularColour();
+        virtual IfcColourOrFactor *getSpecularColour();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpecularColour'.
+         * 
+         * @return the value of the explicit attribute 'SpecularColour'
+         */
+        virtual const IfcColourOrFactor *getSpecularColour() const;
         /**
          * Sets the value of the explicit attribute 'SpecularColour'.
          * 
          * @param value
          */
-        void setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        virtual void setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * Gets the value of the explicit attribute 'SpecularHighlight'.
+         * 
          */
-        IfcSpecularHighlightSelect *getSpecularHighlight();
+        virtual IfcSpecularHighlightSelect *getSpecularHighlight();
+        /**
+         * (const) Returns the value of the explicit attribute 'SpecularHighlight'.
+         * 
+         * @return the value of the explicit attribute 'SpecularHighlight'
+         */
+        virtual const IfcSpecularHighlightSelect *getSpecularHighlight() const;
         /**
          * Sets the value of the explicit attribute 'SpecularHighlight'.
          * 
          * @param value
          */
-        void setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value);
+        virtual void setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'ReflectanceMethod'.
+         * 
          */
-        IfcReflectanceMethodEnum getReflectanceMethod();
+        virtual IfcReflectanceMethodEnum getReflectanceMethod();
+        /**
+         * (const) Returns the value of the explicit attribute 'ReflectanceMethod'.
+         * 
+         * @return the value of the explicit attribute 'ReflectanceMethod'
+         */
+        virtual const IfcReflectanceMethodEnum getReflectanceMethod() const;
         /**
          * Sets the value of the explicit attribute 'ReflectanceMethod'.
          * 
          * @param value
          */
-        void setReflectanceMethod(IfcReflectanceMethodEnum value);
-        /**
-         */
-        virtual void release();
+        virtual void setReflectanceMethod(IfcReflectanceMethodEnum value);
         friend class ExpressDataSet;
 
     protected:

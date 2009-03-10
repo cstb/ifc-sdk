@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFanType::IfcFanType(Step::Id id, Step::SPFData *args) : IfcFlowMovingDeviceTy
 IfcFanType::~IfcFanType() {
 }
 
-bool IfcFanType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFanType(this);
+bool IfcFanType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFanType(this);
 }
 
-const std::string &IfcFanType::type() {
+const std::string &IfcFanType::type() const {
     return IfcFanType::s_type.getName();
 }
 
-Step::ClassType IfcFanType::getClassType() {
+const Step::ClassType &IfcFanType::getClassType() {
     return IfcFanType::s_type;
 }
 
-Step::ClassType IfcFanType::getType() const {
+const Step::ClassType &IfcFanType::getType() const {
     return IfcFanType::s_type;
 }
 
-bool IfcFanType::isOfType(Step::ClassType t) {
+bool IfcFanType::isOfType(const Step::ClassType &t) const {
     return IfcFanType::s_type == t ? true : IfcFlowMovingDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFanTypeEnum IfcFanType::getPredefinedType() {
     }
 }
 
-void IfcFanType::setPredefinedType(IfcFanTypeEnum value) {
-    m_predefinedType = value;
+const IfcFanTypeEnum IfcFanType::getPredefinedType() const {
+    IfcFanType * deConstObject = const_cast< IfcFanType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFanType::release() {
-    IfcFlowMovingDeviceType::release();
+void IfcFanType::setPredefinedType(IfcFanTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFanType::init() {

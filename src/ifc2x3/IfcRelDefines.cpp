@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,24 +26,42 @@
 
 #include "ifc2x3/IfcRelDefines.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcObject.h"
 #include "ifc2x3/IfcRelationship.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelDefines_RelatedObjects_type::Inverted_IfcRelDefines_RelatedObjects_type() {
+}
+
+void Inverted_IfcRelDefines_RelatedObjects_type::setOwner(IfcRelDefines *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelDefines_RelatedObjects_type::insert(const Step::RefPtr< IfcObject > &value) throw(std::out_of_range) {
+    IfcObject *inverse = const_cast< IfcObject * > (value.get());
+    Set_IfcObject_1_n::insert(value);
+    inverse->m_isDefinedBy.insert(mOwner);
+}
+
+Inverted_IfcRelDefines_RelatedObjects_type::size_type Inverted_IfcRelDefines_RelatedObjects_type::erase(const Step::RefPtr< IfcObject > &value) {
+    IfcObject *inverse = const_cast< IfcObject * > (value.get());
+    inverse->m_isDefinedBy.erase(mOwner);
+    return Set_IfcObject_1_n::erase(value);
+}
 
 IfcRelDefines::IfcRelDefines(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
     m_relatedObjects.setUnset(true);
@@ -53,27 +71,27 @@ IfcRelDefines::IfcRelDefines(Step::Id id, Step::SPFData *args) : IfcRelationship
 IfcRelDefines::~IfcRelDefines() {
 }
 
-bool IfcRelDefines::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelDefines(this);
+bool IfcRelDefines::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelDefines(this);
 }
 
-const std::string &IfcRelDefines::type() {
+const std::string &IfcRelDefines::type() const {
     return IfcRelDefines::s_type.getName();
 }
 
-Step::ClassType IfcRelDefines::getClassType() {
+const Step::ClassType &IfcRelDefines::getClassType() {
     return IfcRelDefines::s_type;
 }
 
-Step::ClassType IfcRelDefines::getType() const {
+const Step::ClassType &IfcRelDefines::getType() const {
     return IfcRelDefines::s_type;
 }
 
-bool IfcRelDefines::isOfType(Step::ClassType t) {
+bool IfcRelDefines::isOfType(const Step::ClassType &t) const {
     return IfcRelDefines::s_type == t ? true : IfcRelationship::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcObject > > &IfcRelDefines::getRelatedObjects() {
+Set_IfcObject_1_n &IfcRelDefines::getRelatedObjects() {
     if (Step::BaseObject::inited()) {
         return m_relatedObjects;
     }
@@ -83,9 +101,9 @@ Step::Set< Step::RefPtr< IfcObject > > &IfcRelDefines::getRelatedObjects() {
     }
 }
 
-void IfcRelDefines::release() {
-    IfcRelationship::release();
-    m_relatedObjects.clear();
+const Set_IfcObject_1_n &IfcRelDefines::getRelatedObjects() const {
+    IfcRelDefines * deConstObject = const_cast< IfcRelDefines * > (this);
+    return deConstObject->getRelatedObjects();
 }
 
 bool IfcRelDefines::init() {
@@ -105,7 +123,7 @@ bool IfcRelDefines::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcObject > attr2;
-                attr2 = static_cast< IfcObject * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcObject * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedObjects.insert(attr2);
             }
             else {
@@ -117,26 +135,13 @@ bool IfcRelDefines::init() {
 }
 
 void IfcRelDefines::copy(const IfcRelDefines &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcObject > >::const_iterator it_m_relatedObjects;
+    Step::Set< Step::RefPtr< IfcObject >, 1 >::const_iterator it_m_relatedObjects;
     IfcRelationship::copy(obj, copyop);
     for (it_m_relatedObjects = obj.m_relatedObjects.begin(); it_m_relatedObjects != obj.m_relatedObjects.end(); ++it_m_relatedObjects) {
-        Step::RefPtr< IfcObject > copyTarget = copyop((*it_m_relatedObjects).get());
+        Step::RefPtr< IfcObject > copyTarget = (IfcObject *) (copyop((*it_m_relatedObjects).get()));
         m_relatedObjects.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelDefines::s_type("IfcRelDefines");
-IfcRelDefines::Inverted_RelatedObjects_type::Inverted_RelatedObjects_type() {
-}
-
-void IfcRelDefines::Inverted_RelatedObjects_type::setOwner(IfcRelDefines *owner) {
-    mOwner = owner;
-}
-
-void IfcRelDefines::Inverted_RelatedObjects_type::insert(const Step::RefPtr< IfcObject > &value) {
-    IfcObject *inverse = const_cast< IfcObject * > (value.get());
-    Step::Set< Step::RefPtr< IfcObject > >::insert(value);
-    inverse->m_isDefinedBy.insert(mOwner);
-}
-

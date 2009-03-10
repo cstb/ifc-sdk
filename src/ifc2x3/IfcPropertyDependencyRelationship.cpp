@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +55,23 @@ IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id
 IfcPropertyDependencyRelationship::~IfcPropertyDependencyRelationship() {
 }
 
-bool IfcPropertyDependencyRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyDependencyRelationship(this);
+bool IfcPropertyDependencyRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyDependencyRelationship(this);
 }
 
-const std::string &IfcPropertyDependencyRelationship::type() {
+const std::string &IfcPropertyDependencyRelationship::type() const {
     return IfcPropertyDependencyRelationship::s_type.getName();
 }
 
-Step::ClassType IfcPropertyDependencyRelationship::getClassType() {
+const Step::ClassType &IfcPropertyDependencyRelationship::getClassType() {
     return IfcPropertyDependencyRelationship::s_type;
 }
 
-Step::ClassType IfcPropertyDependencyRelationship::getType() const {
+const Step::ClassType &IfcPropertyDependencyRelationship::getType() const {
     return IfcPropertyDependencyRelationship::s_type;
 }
 
-bool IfcPropertyDependencyRelationship::isOfType(Step::ClassType t) {
+bool IfcPropertyDependencyRelationship::isOfType(const Step::ClassType &t) const {
     return IfcPropertyDependencyRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -83,9 +84,19 @@ IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() {
     }
 }
 
+const IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() const {
+    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
+    return deConstObject->getDependingProperty();
+}
+
 void IfcPropertyDependencyRelationship::setDependingProperty(const Step::RefPtr< IfcProperty > &value) {
+    if (m_dependingProperty.valid()) {
+        m_dependingProperty->m_propertyForDependance.erase(this);
+    }
+    if (value.valid()) {
+        value->m_propertyForDependance.insert(this);
+    }
     m_dependingProperty = value;
-    m_dependingProperty->m_propertyForDependance.insert(this);
 }
 
 IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() {
@@ -97,9 +108,19 @@ IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() {
     }
 }
 
+const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() const {
+    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
+    return deConstObject->getDependantProperty();
+}
+
 void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value) {
+    if (m_dependantProperty.valid()) {
+        m_dependantProperty->m_propertyDependsOn.erase(this);
+    }
+    if (value.valid()) {
+        value->m_propertyDependsOn.insert(this);
+    }
     m_dependantProperty = value;
-    m_dependantProperty->m_propertyDependsOn.insert(this);
 }
 
 IfcLabel IfcPropertyDependencyRelationship::getName() {
@@ -109,6 +130,11 @@ IfcLabel IfcPropertyDependencyRelationship::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcPropertyDependencyRelationship::getName() const {
+    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
+    return deConstObject->getName();
 }
 
 void IfcPropertyDependencyRelationship::setName(const IfcLabel &value) {
@@ -124,6 +150,11 @@ IfcText IfcPropertyDependencyRelationship::getDescription() {
     }
 }
 
+const IfcText IfcPropertyDependencyRelationship::getDescription() const {
+    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcPropertyDependencyRelationship::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -137,13 +168,13 @@ IfcText IfcPropertyDependencyRelationship::getExpression() {
     }
 }
 
-void IfcPropertyDependencyRelationship::setExpression(const IfcText &value) {
-    m_expression = value;
+const IfcText IfcPropertyDependencyRelationship::getExpression() const {
+    IfcPropertyDependencyRelationship * deConstObject = const_cast< IfcPropertyDependencyRelationship * > (this);
+    return deConstObject->getExpression();
 }
 
-void IfcPropertyDependencyRelationship::release() {
-    m_dependingProperty.release();
-    m_dependantProperty.release();
+void IfcPropertyDependencyRelationship::setExpression(const IfcText &value) {
+    m_expression = value;
 }
 
 bool IfcPropertyDependencyRelationship::init() {
@@ -153,43 +184,43 @@ bool IfcPropertyDependencyRelationship::init() {
         m_dependingProperty = NULL;
     }
     else {
-        m_dependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_dependingProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_dependantProperty = NULL;
     }
     else {
-        m_dependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_dependantProperty = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_expression = Step::getUnset(m_expression);
     }
     else {
-        m_expression = Step::spfToString(arg);
+        m_expression = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcPropertyDependencyRelationship::copy(const IfcPropertyDependencyRelationship &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setDependingProperty(copyop(obj.m_dependingProperty.get()));
-    setDependantProperty(copyop(obj.m_dependantProperty.get()));
+    setDependingProperty((IfcProperty*)copyop(obj.m_dependingProperty.get()));
+    setDependantProperty((IfcProperty*)copyop(obj.m_dependantProperty.get()));
     setName(obj.m_name);
     setDescription(obj.m_description);
     setExpression(obj.m_expression);

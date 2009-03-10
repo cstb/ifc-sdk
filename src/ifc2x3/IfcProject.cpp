@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -48,30 +48,29 @@ using namespace ifc2x3;
 IfcProject::IfcProject(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
     m_longName = Step::getUnset(m_longName);
     m_phase = Step::getUnset(m_phase);
-    m_representationContexts.setUnset(true);
     m_unitsInContext = NULL;
 }
 
 IfcProject::~IfcProject() {
 }
 
-bool IfcProject::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProject(this);
+bool IfcProject::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProject(this);
 }
 
-const std::string &IfcProject::type() {
+const std::string &IfcProject::type() const {
     return IfcProject::s_type.getName();
 }
 
-Step::ClassType IfcProject::getClassType() {
+const Step::ClassType &IfcProject::getClassType() {
     return IfcProject::s_type;
 }
 
-Step::ClassType IfcProject::getType() const {
+const Step::ClassType &IfcProject::getType() const {
     return IfcProject::s_type;
 }
 
-bool IfcProject::isOfType(Step::ClassType t) {
+bool IfcProject::isOfType(const Step::ClassType &t) const {
     return IfcProject::s_type == t ? true : IfcObject::isOfType(t);
 }
 
@@ -82,6 +81,11 @@ IfcLabel IfcProject::getLongName() {
     else {
         return Step::getUnset(m_longName);
     }
+}
+
+const IfcLabel IfcProject::getLongName() const {
+    IfcProject * deConstObject = const_cast< IfcProject * > (this);
+    return deConstObject->getLongName();
 }
 
 void IfcProject::setLongName(const IfcLabel &value) {
@@ -97,11 +101,16 @@ IfcLabel IfcProject::getPhase() {
     }
 }
 
+const IfcLabel IfcProject::getPhase() const {
+    IfcProject * deConstObject = const_cast< IfcProject * > (this);
+    return deConstObject->getPhase();
+}
+
 void IfcProject::setPhase(const IfcLabel &value) {
     m_phase = value;
 }
 
-Step::Set< Step::RefPtr< IfcRepresentationContext > > &IfcProject::getRepresentationContexts() {
+Set_IfcRepresentationContext_1_n &IfcProject::getRepresentationContexts() {
     if (Step::BaseObject::inited()) {
         return m_representationContexts;
     }
@@ -111,7 +120,12 @@ Step::Set< Step::RefPtr< IfcRepresentationContext > > &IfcProject::getRepresenta
     }
 }
 
-void IfcProject::setRepresentationContexts(const Step::Set< Step::RefPtr< IfcRepresentationContext > > &value) {
+const Set_IfcRepresentationContext_1_n &IfcProject::getRepresentationContexts() const {
+    IfcProject * deConstObject = const_cast< IfcProject * > (this);
+    return deConstObject->getRepresentationContexts();
+}
+
+void IfcProject::setRepresentationContexts(const Set_IfcRepresentationContext_1_n &value) {
     m_representationContexts = value;
 }
 
@@ -124,14 +138,13 @@ IfcUnitAssignment *IfcProject::getUnitsInContext() {
     }
 }
 
-void IfcProject::setUnitsInContext(const Step::RefPtr< IfcUnitAssignment > &value) {
-    m_unitsInContext = value;
+const IfcUnitAssignment *IfcProject::getUnitsInContext() const {
+    IfcProject * deConstObject = const_cast< IfcProject * > (this);
+    return deConstObject->getUnitsInContext();
 }
 
-void IfcProject::release() {
-    IfcObject::release();
-    m_representationContexts.clear();
-    m_unitsInContext.release();
+void IfcProject::setUnitsInContext(const Step::RefPtr< IfcUnitAssignment > &value) {
+    m_unitsInContext = value;
 }
 
 bool IfcProject::init() {
@@ -145,14 +158,14 @@ bool IfcProject::init() {
         m_longName = Step::getUnset(m_longName);
     }
     else {
-        m_longName = Step::spfToString(arg);
+        m_longName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_phase = Step::getUnset(m_phase);
     }
     else {
-        m_phase = Step::spfToString(arg);
+        m_phase = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -165,7 +178,7 @@ bool IfcProject::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRepresentationContext > attr2;
-                attr2 = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_representationContexts.insert(attr2);
             }
             else {
@@ -178,21 +191,21 @@ bool IfcProject::init() {
         m_unitsInContext = NULL;
     }
     else {
-        m_unitsInContext = static_cast< IfcUnitAssignment * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_unitsInContext = static_cast< IfcUnitAssignment * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcProject::copy(const IfcProject &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcRepresentationContext > >::const_iterator it_m_representationContexts;
+    Step::Set< Step::RefPtr< IfcRepresentationContext >, 1 >::const_iterator it_m_representationContexts;
     IfcObject::copy(obj, copyop);
     setLongName(obj.m_longName);
     setPhase(obj.m_phase);
     for (it_m_representationContexts = obj.m_representationContexts.begin(); it_m_representationContexts != obj.m_representationContexts.end(); ++it_m_representationContexts) {
-        Step::RefPtr< IfcRepresentationContext > copyTarget = copyop((*it_m_representationContexts).get());
+        Step::RefPtr< IfcRepresentationContext > copyTarget = (IfcRepresentationContext *) (copyop((*it_m_representationContexts).get()));
         m_representationContexts.insert(copyTarget.get());
     }
-    setUnitsInContext(copyop(obj.m_unitsInContext.get()));
+    setUnitsInContext((IfcUnitAssignment*)copyop(obj.m_unitsInContext.get()));
     return;
 }
 

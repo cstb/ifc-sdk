@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,99 +44,168 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcTendon : public IfcReinforcingElement {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'PredefinedType'.
+         * 
          */
-        IfcTendonTypeEnum getPredefinedType();
+        virtual IfcTendonTypeEnum getPredefinedType();
+        /**
+         * (const) Returns the value of the explicit attribute 'PredefinedType'.
+         * 
+         * @return the value of the explicit attribute 'PredefinedType'
+         */
+        virtual const IfcTendonTypeEnum getPredefinedType() const;
         /**
          * Sets the value of the explicit attribute 'PredefinedType'.
          * 
          * @param value
          */
-        void setPredefinedType(IfcTendonTypeEnum value);
+        virtual void setPredefinedType(IfcTendonTypeEnum value);
         /**
+         * Gets the value of the explicit attribute 'NominalDiameter'.
+         * 
          */
-        IfcPositiveLengthMeasure getNominalDiameter();
+        virtual IfcPositiveLengthMeasure getNominalDiameter();
+        /**
+         * (const) Returns the value of the explicit attribute 'NominalDiameter'.
+         * 
+         * @return the value of the explicit attribute 'NominalDiameter'
+         */
+        virtual const IfcPositiveLengthMeasure getNominalDiameter() const;
         /**
          * Sets the value of the explicit attribute 'NominalDiameter'.
          * 
          * @param value
          */
-        void setNominalDiameter(IfcPositiveLengthMeasure value);
+        virtual void setNominalDiameter(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CrossSectionArea'.
+         * 
          */
-        IfcAreaMeasure getCrossSectionArea();
+        virtual IfcAreaMeasure getCrossSectionArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'CrossSectionArea'.
+         * 
+         * @return the value of the explicit attribute 'CrossSectionArea'
+         */
+        virtual const IfcAreaMeasure getCrossSectionArea() const;
         /**
          * Sets the value of the explicit attribute 'CrossSectionArea'.
          * 
          * @param value
          */
-        void setCrossSectionArea(IfcAreaMeasure value);
+        virtual void setCrossSectionArea(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TensionForce'.
+         * 
          */
-        IfcForceMeasure getTensionForce();
+        virtual IfcForceMeasure getTensionForce();
+        /**
+         * (const) Returns the value of the explicit attribute 'TensionForce'.
+         * 
+         * @return the value of the explicit attribute 'TensionForce'
+         */
+        virtual const IfcForceMeasure getTensionForce() const;
         /**
          * Sets the value of the explicit attribute 'TensionForce'.
          * 
          * @param value
          */
-        void setTensionForce(IfcForceMeasure value);
+        virtual void setTensionForce(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'PreStress'.
+         * 
          */
-        IfcPressureMeasure getPreStress();
+        virtual IfcPressureMeasure getPreStress();
+        /**
+         * (const) Returns the value of the explicit attribute 'PreStress'.
+         * 
+         * @return the value of the explicit attribute 'PreStress'
+         */
+        virtual const IfcPressureMeasure getPreStress() const;
         /**
          * Sets the value of the explicit attribute 'PreStress'.
          * 
          * @param value
          */
-        void setPreStress(IfcPressureMeasure value);
+        virtual void setPreStress(IfcPressureMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FrictionCoefficient'.
+         * 
          */
-        IfcNormalisedRatioMeasure getFrictionCoefficient();
+        virtual IfcNormalisedRatioMeasure getFrictionCoefficient();
+        /**
+         * (const) Returns the value of the explicit attribute 'FrictionCoefficient'.
+         * 
+         * @return the value of the explicit attribute 'FrictionCoefficient'
+         */
+        virtual const IfcNormalisedRatioMeasure getFrictionCoefficient() const;
         /**
          * Sets the value of the explicit attribute 'FrictionCoefficient'.
          * 
          * @param value
          */
-        void setFrictionCoefficient(IfcNormalisedRatioMeasure value);
+        virtual void setFrictionCoefficient(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'AnchorageSlip'.
+         * 
          */
-        IfcPositiveLengthMeasure getAnchorageSlip();
+        virtual IfcPositiveLengthMeasure getAnchorageSlip();
+        /**
+         * (const) Returns the value of the explicit attribute 'AnchorageSlip'.
+         * 
+         * @return the value of the explicit attribute 'AnchorageSlip'
+         */
+        virtual const IfcPositiveLengthMeasure getAnchorageSlip() const;
         /**
          * Sets the value of the explicit attribute 'AnchorageSlip'.
          * 
          * @param value
          */
-        void setAnchorageSlip(IfcPositiveLengthMeasure value);
+        virtual void setAnchorageSlip(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinCurvatureRadius'.
+         * 
          */
-        IfcPositiveLengthMeasure getMinCurvatureRadius();
+        virtual IfcPositiveLengthMeasure getMinCurvatureRadius();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinCurvatureRadius'.
+         * 
+         * @return the value of the explicit attribute 'MinCurvatureRadius'
+         */
+        virtual const IfcPositiveLengthMeasure getMinCurvatureRadius() const;
         /**
          * Sets the value of the explicit attribute 'MinCurvatureRadius'.
          * 
          * @param value
          */
-        void setMinCurvatureRadius(IfcPositiveLengthMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setMinCurvatureRadius(IfcPositiveLengthMeasure value);
         friend class ExpressDataSet;
 
     protected:

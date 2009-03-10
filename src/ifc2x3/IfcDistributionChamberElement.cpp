@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDistributionChamberElement::IfcDistributionChamberElement(Step::Id id, Step::
 IfcDistributionChamberElement::~IfcDistributionChamberElement() {
 }
 
-bool IfcDistributionChamberElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDistributionChamberElement(this);
+bool IfcDistributionChamberElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDistributionChamberElement(this);
 }
 
-const std::string &IfcDistributionChamberElement::type() {
+const std::string &IfcDistributionChamberElement::type() const {
     return IfcDistributionChamberElement::s_type.getName();
 }
 
-Step::ClassType IfcDistributionChamberElement::getClassType() {
+const Step::ClassType &IfcDistributionChamberElement::getClassType() {
     return IfcDistributionChamberElement::s_type;
 }
 
-Step::ClassType IfcDistributionChamberElement::getType() const {
+const Step::ClassType &IfcDistributionChamberElement::getType() const {
     return IfcDistributionChamberElement::s_type;
 }
 
-bool IfcDistributionChamberElement::isOfType(Step::ClassType t) {
+bool IfcDistributionChamberElement::isOfType(const Step::ClassType &t) const {
     return IfcDistributionChamberElement::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcDistributionChamberElement::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcDistributionChamberElement::init() {

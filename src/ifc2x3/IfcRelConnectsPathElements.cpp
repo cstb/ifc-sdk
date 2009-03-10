@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,8 +41,6 @@
 using namespace ifc2x3;
 
 IfcRelConnectsPathElements::IfcRelConnectsPathElements(Step::Id id, Step::SPFData *args) : IfcRelConnectsElements(id, args) {
-    m_relatingPriorities.setUnset(true);
-    m_relatedPriorities.setUnset(true);
     m_relatedConnectionType = IfcConnectionTypeEnum_UNSET;
     m_relatingConnectionType = IfcConnectionTypeEnum_UNSET;
 }
@@ -50,27 +48,27 @@ IfcRelConnectsPathElements::IfcRelConnectsPathElements(Step::Id id, Step::SPFDat
 IfcRelConnectsPathElements::~IfcRelConnectsPathElements() {
 }
 
-bool IfcRelConnectsPathElements::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsPathElements(this);
+bool IfcRelConnectsPathElements::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsPathElements(this);
 }
 
-const std::string &IfcRelConnectsPathElements::type() {
+const std::string &IfcRelConnectsPathElements::type() const {
     return IfcRelConnectsPathElements::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsPathElements::getClassType() {
+const Step::ClassType &IfcRelConnectsPathElements::getClassType() {
     return IfcRelConnectsPathElements::s_type;
 }
 
-Step::ClassType IfcRelConnectsPathElements::getType() const {
+const Step::ClassType &IfcRelConnectsPathElements::getType() const {
     return IfcRelConnectsPathElements::s_type;
 }
 
-bool IfcRelConnectsPathElements::isOfType(Step::ClassType t) {
+bool IfcRelConnectsPathElements::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsPathElements::s_type == t ? true : IfcRelConnectsElements::isOfType(t);
 }
 
-Step::List< Step::Integer > &IfcRelConnectsPathElements::getRelatingPriorities() {
+List_Integer_0_n &IfcRelConnectsPathElements::getRelatingPriorities() {
     if (Step::BaseObject::inited()) {
         return m_relatingPriorities;
     }
@@ -80,11 +78,16 @@ Step::List< Step::Integer > &IfcRelConnectsPathElements::getRelatingPriorities()
     }
 }
 
-void IfcRelConnectsPathElements::setRelatingPriorities(const Step::List< Step::Integer > &value) {
+const List_Integer_0_n &IfcRelConnectsPathElements::getRelatingPriorities() const {
+    IfcRelConnectsPathElements * deConstObject = const_cast< IfcRelConnectsPathElements * > (this);
+    return deConstObject->getRelatingPriorities();
+}
+
+void IfcRelConnectsPathElements::setRelatingPriorities(const List_Integer_0_n &value) {
     m_relatingPriorities = value;
 }
 
-Step::List< Step::Integer > &IfcRelConnectsPathElements::getRelatedPriorities() {
+List_Integer_0_n &IfcRelConnectsPathElements::getRelatedPriorities() {
     if (Step::BaseObject::inited()) {
         return m_relatedPriorities;
     }
@@ -94,7 +97,12 @@ Step::List< Step::Integer > &IfcRelConnectsPathElements::getRelatedPriorities() 
     }
 }
 
-void IfcRelConnectsPathElements::setRelatedPriorities(const Step::List< Step::Integer > &value) {
+const List_Integer_0_n &IfcRelConnectsPathElements::getRelatedPriorities() const {
+    IfcRelConnectsPathElements * deConstObject = const_cast< IfcRelConnectsPathElements * > (this);
+    return deConstObject->getRelatedPriorities();
+}
+
+void IfcRelConnectsPathElements::setRelatedPriorities(const List_Integer_0_n &value) {
     m_relatedPriorities = value;
 }
 
@@ -105,6 +113,11 @@ IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatedConnectionType() {
     else {
         return IfcConnectionTypeEnum_UNSET;
     }
+}
+
+const IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatedConnectionType() const {
+    IfcRelConnectsPathElements * deConstObject = const_cast< IfcRelConnectsPathElements * > (this);
+    return deConstObject->getRelatedConnectionType();
 }
 
 void IfcRelConnectsPathElements::setRelatedConnectionType(IfcConnectionTypeEnum value) {
@@ -120,14 +133,13 @@ IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatingConnectionType() {
     }
 }
 
-void IfcRelConnectsPathElements::setRelatingConnectionType(IfcConnectionTypeEnum value) {
-    m_relatingConnectionType = value;
+const IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatingConnectionType() const {
+    IfcRelConnectsPathElements * deConstObject = const_cast< IfcRelConnectsPathElements * > (this);
+    return deConstObject->getRelatingConnectionType();
 }
 
-void IfcRelConnectsPathElements::release() {
-    IfcRelConnectsElements::release();
-    m_relatingPriorities.clear();
-    m_relatedPriorities.clear();
+void IfcRelConnectsPathElements::setRelatingConnectionType(IfcConnectionTypeEnum value) {
+    m_relatingConnectionType = value;
 }
 
 bool IfcRelConnectsPathElements::init() {

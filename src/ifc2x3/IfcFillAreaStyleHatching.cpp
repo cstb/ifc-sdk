@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -56,23 +57,23 @@ IfcFillAreaStyleHatching::IfcFillAreaStyleHatching(Step::Id id, Step::SPFData *a
 IfcFillAreaStyleHatching::~IfcFillAreaStyleHatching() {
 }
 
-bool IfcFillAreaStyleHatching::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillAreaStyleHatching(this);
+bool IfcFillAreaStyleHatching::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyleHatching(this);
 }
 
-const std::string &IfcFillAreaStyleHatching::type() {
+const std::string &IfcFillAreaStyleHatching::type() const {
     return IfcFillAreaStyleHatching::s_type.getName();
 }
 
-Step::ClassType IfcFillAreaStyleHatching::getClassType() {
+const Step::ClassType &IfcFillAreaStyleHatching::getClassType() {
     return IfcFillAreaStyleHatching::s_type;
 }
 
-Step::ClassType IfcFillAreaStyleHatching::getType() const {
+const Step::ClassType &IfcFillAreaStyleHatching::getType() const {
     return IfcFillAreaStyleHatching::s_type;
 }
 
-bool IfcFillAreaStyleHatching::isOfType(Step::ClassType t) {
+bool IfcFillAreaStyleHatching::isOfType(const Step::ClassType &t) const {
     return IfcFillAreaStyleHatching::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -83,6 +84,11 @@ IfcCurveStyle *IfcFillAreaStyleHatching::getHatchLineAppearance() {
     else {
         return NULL;
     }
+}
+
+const IfcCurveStyle *IfcFillAreaStyleHatching::getHatchLineAppearance() const {
+    IfcFillAreaStyleHatching * deConstObject = const_cast< IfcFillAreaStyleHatching * > (this);
+    return deConstObject->getHatchLineAppearance();
 }
 
 void IfcFillAreaStyleHatching::setHatchLineAppearance(const Step::RefPtr< IfcCurveStyle > &value) {
@@ -98,6 +104,11 @@ IfcHatchLineDistanceSelect *IfcFillAreaStyleHatching::getStartOfNextHatchLine() 
     }
 }
 
+const IfcHatchLineDistanceSelect *IfcFillAreaStyleHatching::getStartOfNextHatchLine() const {
+    IfcFillAreaStyleHatching * deConstObject = const_cast< IfcFillAreaStyleHatching * > (this);
+    return deConstObject->getStartOfNextHatchLine();
+}
+
 void IfcFillAreaStyleHatching::setStartOfNextHatchLine(const Step::RefPtr< IfcHatchLineDistanceSelect > &value) {
     m_startOfNextHatchLine = value;
 }
@@ -109,6 +120,11 @@ IfcCartesianPoint *IfcFillAreaStyleHatching::getPointOfReferenceHatchLine() {
     else {
         return NULL;
     }
+}
+
+const IfcCartesianPoint *IfcFillAreaStyleHatching::getPointOfReferenceHatchLine() const {
+    IfcFillAreaStyleHatching * deConstObject = const_cast< IfcFillAreaStyleHatching * > (this);
+    return deConstObject->getPointOfReferenceHatchLine();
 }
 
 void IfcFillAreaStyleHatching::setPointOfReferenceHatchLine(const Step::RefPtr< IfcCartesianPoint > &value) {
@@ -124,6 +140,11 @@ IfcCartesianPoint *IfcFillAreaStyleHatching::getPatternStart() {
     }
 }
 
+const IfcCartesianPoint *IfcFillAreaStyleHatching::getPatternStart() const {
+    IfcFillAreaStyleHatching * deConstObject = const_cast< IfcFillAreaStyleHatching * > (this);
+    return deConstObject->getPatternStart();
+}
+
 void IfcFillAreaStyleHatching::setPatternStart(const Step::RefPtr< IfcCartesianPoint > &value) {
     m_patternStart = value;
 }
@@ -137,15 +158,13 @@ IfcPlaneAngleMeasure IfcFillAreaStyleHatching::getHatchLineAngle() {
     }
 }
 
-void IfcFillAreaStyleHatching::setHatchLineAngle(IfcPlaneAngleMeasure value) {
-    m_hatchLineAngle = value;
+const IfcPlaneAngleMeasure IfcFillAreaStyleHatching::getHatchLineAngle() const {
+    IfcFillAreaStyleHatching * deConstObject = const_cast< IfcFillAreaStyleHatching * > (this);
+    return deConstObject->getHatchLineAngle();
 }
 
-void IfcFillAreaStyleHatching::release() {
-    IfcGeometricRepresentationItem::release();
-    m_hatchLineAppearance.release();
-    m_pointOfReferenceHatchLine.release();
-    m_patternStart.release();
+void IfcFillAreaStyleHatching::setHatchLineAngle(IfcPlaneAngleMeasure value) {
+    m_hatchLineAngle = value;
 }
 
 bool IfcFillAreaStyleHatching::init() {
@@ -159,7 +178,7 @@ bool IfcFillAreaStyleHatching::init() {
         m_hatchLineAppearance = NULL;
     }
     else {
-        m_hatchLineAppearance = static_cast< IfcCurveStyle * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_hatchLineAppearance = static_cast< IfcCurveStyle * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -190,14 +209,14 @@ bool IfcFillAreaStyleHatching::init() {
         m_pointOfReferenceHatchLine = NULL;
     }
     else {
-        m_pointOfReferenceHatchLine = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_pointOfReferenceHatchLine = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_patternStart = NULL;
     }
     else {
-        m_patternStart = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_patternStart = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -211,11 +230,11 @@ bool IfcFillAreaStyleHatching::init() {
 
 void IfcFillAreaStyleHatching::copy(const IfcFillAreaStyleHatching &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setHatchLineAppearance(copyop(obj.m_hatchLineAppearance.get()));
+    setHatchLineAppearance((IfcCurveStyle*)copyop(obj.m_hatchLineAppearance.get()));
     m_startOfNextHatchLine = new IfcHatchLineDistanceSelect;
     m_startOfNextHatchLine->copy(*(obj.m_startOfNextHatchLine.get()), copyop);
-    setPointOfReferenceHatchLine(copyop(obj.m_pointOfReferenceHatchLine.get()));
-    setPatternStart(copyop(obj.m_patternStart.get()));
+    setPointOfReferenceHatchLine((IfcCartesianPoint*)copyop(obj.m_pointOfReferenceHatchLine.get()));
+    setPatternStart((IfcCartesianPoint*)copyop(obj.m_patternStart.get()));
     setHatchLineAngle(obj.m_hatchLineAngle);
     return;
 }

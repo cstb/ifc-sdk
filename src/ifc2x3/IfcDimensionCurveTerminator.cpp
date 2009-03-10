@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDimensionCurveTerminator::IfcDimensionCurveTerminator(Step::Id id, Step::SPFD
 IfcDimensionCurveTerminator::~IfcDimensionCurveTerminator() {
 }
 
-bool IfcDimensionCurveTerminator::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionCurveTerminator(this);
+bool IfcDimensionCurveTerminator::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionCurveTerminator(this);
 }
 
-const std::string &IfcDimensionCurveTerminator::type() {
+const std::string &IfcDimensionCurveTerminator::type() const {
     return IfcDimensionCurveTerminator::s_type.getName();
 }
 
-Step::ClassType IfcDimensionCurveTerminator::getClassType() {
+const Step::ClassType &IfcDimensionCurveTerminator::getClassType() {
     return IfcDimensionCurveTerminator::s_type;
 }
 
-Step::ClassType IfcDimensionCurveTerminator::getType() const {
+const Step::ClassType &IfcDimensionCurveTerminator::getType() const {
     return IfcDimensionCurveTerminator::s_type;
 }
 
-bool IfcDimensionCurveTerminator::isOfType(Step::ClassType t) {
+bool IfcDimensionCurveTerminator::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCurveTerminator::s_type == t ? true : IfcTerminatorSymbol::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcDimensionExtentUsage IfcDimensionCurveTerminator::getRole() {
     }
 }
 
-void IfcDimensionCurveTerminator::setRole(IfcDimensionExtentUsage value) {
-    m_role = value;
+const IfcDimensionExtentUsage IfcDimensionCurveTerminator::getRole() const {
+    IfcDimensionCurveTerminator * deConstObject = const_cast< IfcDimensionCurveTerminator * > (this);
+    return deConstObject->getRole();
 }
 
-void IfcDimensionCurveTerminator::release() {
-    IfcTerminatorSymbol::release();
+void IfcDimensionCurveTerminator::setRole(IfcDimensionExtentUsage value) {
+    m_role = value;
 }
 
 bool IfcDimensionCurveTerminator::init() {

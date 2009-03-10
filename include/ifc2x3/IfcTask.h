@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,8 +31,9 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcProcess.h"
 
 namespace ifc2x3 {
@@ -44,72 +45,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcTask : public IfcProcess {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'TaskId'.
+         * 
          */
-        IfcIdentifier getTaskId();
+        virtual IfcIdentifier getTaskId();
+        /**
+         * (const) Returns the value of the explicit attribute 'TaskId'.
+         * 
+         * @return the value of the explicit attribute 'TaskId'
+         */
+        virtual const IfcIdentifier getTaskId() const;
         /**
          * Sets the value of the explicit attribute 'TaskId'.
          * 
          * @param value
          */
-        void setTaskId(const IfcIdentifier &value);
+        virtual void setTaskId(const IfcIdentifier &value);
         /**
+         * Gets the value of the explicit attribute 'Status'.
+         * 
          */
-        IfcLabel getStatus();
+        virtual IfcLabel getStatus();
+        /**
+         * (const) Returns the value of the explicit attribute 'Status'.
+         * 
+         * @return the value of the explicit attribute 'Status'
+         */
+        virtual const IfcLabel getStatus() const;
         /**
          * Sets the value of the explicit attribute 'Status'.
          * 
          * @param value
          */
-        void setStatus(const IfcLabel &value);
+        virtual void setStatus(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'WorkMethod'.
+         * 
          */
-        IfcLabel getWorkMethod();
+        virtual IfcLabel getWorkMethod();
+        /**
+         * (const) Returns the value of the explicit attribute 'WorkMethod'.
+         * 
+         * @return the value of the explicit attribute 'WorkMethod'
+         */
+        virtual const IfcLabel getWorkMethod() const;
         /**
          * Sets the value of the explicit attribute 'WorkMethod'.
          * 
          * @param value
          */
-        void setWorkMethod(const IfcLabel &value);
+        virtual void setWorkMethod(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'IsMilestone'.
+         * 
          */
-        Step::Bool getIsMilestone();
+        virtual Step::Boolean getIsMilestone();
+        /**
+         * (const) Returns the value of the explicit attribute 'IsMilestone'.
+         * 
+         * @return the value of the explicit attribute 'IsMilestone'
+         */
+        virtual const Step::Boolean getIsMilestone() const;
         /**
          * Sets the value of the explicit attribute 'IsMilestone'.
          * 
          * @param value
          */
-        void setIsMilestone(Step::Bool value);
+        virtual void setIsMilestone(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'Priority'.
+         * 
          */
-        Step::Integer getPriority();
+        virtual Step::Integer getPriority();
+        /**
+         * (const) Returns the value of the explicit attribute 'Priority'.
+         * 
+         * @return the value of the explicit attribute 'Priority'
+         */
+        virtual const Step::Integer getPriority() const;
         /**
          * Sets the value of the explicit attribute 'Priority'.
          * 
          * @param value
          */
-        void setPriority(Step::Integer value);
-        /**
-         */
-        virtual void release();
+        virtual void setPriority(Step::Integer value);
         friend class ExpressDataSet;
 
     protected:
@@ -134,16 +180,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_taskId;
+        Step::String m_taskId;
         /**
          */
-        std::string m_status;
+        Step::String m_status;
         /**
          */
-        std::string m_workMethod;
+        Step::String m_workMethod;
         /**
          */
-        Step::Bool m_isMilestone;
+        Step::Boolean m_isMilestone;
         /**
          */
         Step::Integer m_priority;

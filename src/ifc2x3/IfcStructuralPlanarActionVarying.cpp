@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -47,29 +46,28 @@ using namespace ifc2x3;
 
 IfcStructuralPlanarActionVarying::IfcStructuralPlanarActionVarying(Step::Id id, Step::SPFData *args) : IfcStructuralPlanarAction(id, args) {
     m_varyingAppliedLoadLocation = NULL;
-    m_subsequentAppliedLoads.setUnset(true);
 }
 
 IfcStructuralPlanarActionVarying::~IfcStructuralPlanarActionVarying() {
 }
 
-bool IfcStructuralPlanarActionVarying::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralPlanarActionVarying(this);
+bool IfcStructuralPlanarActionVarying::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralPlanarActionVarying(this);
 }
 
-const std::string &IfcStructuralPlanarActionVarying::type() {
+const std::string &IfcStructuralPlanarActionVarying::type() const {
     return IfcStructuralPlanarActionVarying::s_type.getName();
 }
 
-Step::ClassType IfcStructuralPlanarActionVarying::getClassType() {
+const Step::ClassType &IfcStructuralPlanarActionVarying::getClassType() {
     return IfcStructuralPlanarActionVarying::s_type;
 }
 
-Step::ClassType IfcStructuralPlanarActionVarying::getType() const {
+const Step::ClassType &IfcStructuralPlanarActionVarying::getType() const {
     return IfcStructuralPlanarActionVarying::s_type;
 }
 
-bool IfcStructuralPlanarActionVarying::isOfType(Step::ClassType t) {
+bool IfcStructuralPlanarActionVarying::isOfType(const Step::ClassType &t) const {
     return IfcStructuralPlanarActionVarying::s_type == t ? true : IfcStructuralPlanarAction::isOfType(t);
 }
 
@@ -82,11 +80,16 @@ IfcShapeAspect *IfcStructuralPlanarActionVarying::getVaryingAppliedLoadLocation(
     }
 }
 
+const IfcShapeAspect *IfcStructuralPlanarActionVarying::getVaryingAppliedLoadLocation() const {
+    IfcStructuralPlanarActionVarying * deConstObject = const_cast< IfcStructuralPlanarActionVarying * > (this);
+    return deConstObject->getVaryingAppliedLoadLocation();
+}
+
 void IfcStructuralPlanarActionVarying::setVaryingAppliedLoadLocation(const Step::RefPtr< IfcShapeAspect > &value) {
     m_varyingAppliedLoadLocation = value;
 }
 
-Step::List< Step::RefPtr< IfcStructuralLoad > > &IfcStructuralPlanarActionVarying::getSubsequentAppliedLoads() {
+List_IfcStructuralLoad_2_n &IfcStructuralPlanarActionVarying::getSubsequentAppliedLoads() {
     if (Step::BaseObject::inited()) {
         return m_subsequentAppliedLoads;
     }
@@ -96,14 +99,13 @@ Step::List< Step::RefPtr< IfcStructuralLoad > > &IfcStructuralPlanarActionVaryin
     }
 }
 
-void IfcStructuralPlanarActionVarying::setSubsequentAppliedLoads(const Step::List< Step::RefPtr< IfcStructuralLoad > > &value) {
-    m_subsequentAppliedLoads = value;
+const List_IfcStructuralLoad_2_n &IfcStructuralPlanarActionVarying::getSubsequentAppliedLoads() const {
+    IfcStructuralPlanarActionVarying * deConstObject = const_cast< IfcStructuralPlanarActionVarying * > (this);
+    return deConstObject->getSubsequentAppliedLoads();
 }
 
-void IfcStructuralPlanarActionVarying::release() {
-    IfcStructuralPlanarAction::release();
-    m_varyingAppliedLoadLocation.release();
-    m_subsequentAppliedLoads.clear();
+void IfcStructuralPlanarActionVarying::setSubsequentAppliedLoads(const List_IfcStructuralLoad_2_n &value) {
+    m_subsequentAppliedLoads = value;
 }
 
 bool IfcStructuralPlanarActionVarying::init() {
@@ -117,7 +119,7 @@ bool IfcStructuralPlanarActionVarying::init() {
         m_varyingAppliedLoadLocation = NULL;
     }
     else {
-        m_varyingAppliedLoadLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_varyingAppliedLoadLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -130,7 +132,7 @@ bool IfcStructuralPlanarActionVarying::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcStructuralLoad > attr2;
-                attr2 = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcStructuralLoad * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_subsequentAppliedLoads.push_back(attr2);
             }
             else {
@@ -142,11 +144,11 @@ bool IfcStructuralPlanarActionVarying::init() {
 }
 
 void IfcStructuralPlanarActionVarying::copy(const IfcStructuralPlanarActionVarying &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcStructuralLoad > >::const_iterator it_m_subsequentAppliedLoads;
+    Step::List< Step::RefPtr< IfcStructuralLoad >, 2 >::const_iterator it_m_subsequentAppliedLoads;
     IfcStructuralPlanarAction::copy(obj, copyop);
-    setVaryingAppliedLoadLocation(copyop(obj.m_varyingAppliedLoadLocation.get()));
+    setVaryingAppliedLoadLocation((IfcShapeAspect*)copyop(obj.m_varyingAppliedLoadLocation.get()));
     for (it_m_subsequentAppliedLoads = obj.m_subsequentAppliedLoads.begin(); it_m_subsequentAppliedLoads != obj.m_subsequentAppliedLoads.end(); ++it_m_subsequentAppliedLoads) {
-        Step::RefPtr< IfcStructuralLoad > copyTarget = copyop((*it_m_subsequentAppliedLoads).get());
+        Step::RefPtr< IfcStructuralLoad > copyTarget = (IfcStructuralLoad *) (copyop((*it_m_subsequentAppliedLoads).get()));
         m_subsequentAppliedLoads.push_back(copyTarget.get());
     }
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,34 +48,34 @@ IfcHatchLineDistanceSelect::~IfcHatchLineDistanceSelect() {
     deleteUnion();
 }
 
-bool IfcHatchLineDistanceSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcHatchLineDistanceSelect(this);
+bool IfcHatchLineDistanceSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcHatchLineDistanceSelect(this);
 }
 
 bool IfcHatchLineDistanceSelect::init() {
     return false;
 }
 
-const std::string &IfcHatchLineDistanceSelect::type() {
+const std::string &IfcHatchLineDistanceSelect::type() const {
     return IfcHatchLineDistanceSelect::s_type.getName();
 }
 
-Step::ClassType IfcHatchLineDistanceSelect::getClassType() {
+const Step::ClassType &IfcHatchLineDistanceSelect::getClassType() {
     return IfcHatchLineDistanceSelect::s_type;
 }
 
-Step::ClassType IfcHatchLineDistanceSelect::getType() const {
+const Step::ClassType &IfcHatchLineDistanceSelect::getType() const {
     return IfcHatchLineDistanceSelect::s_type;
 }
 
-bool IfcHatchLineDistanceSelect::isOfType(Step::ClassType t) {
+bool IfcHatchLineDistanceSelect::isOfType(const Step::ClassType &t) const {
     return IfcHatchLineDistanceSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcHatchLineDistanceSelect::copy(const IfcHatchLineDistanceSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCONEDIRECTIONREPEATFACTOR:
-        setIfcOneDirectionRepeatFactor(copyop(obj.m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor));
+        setIfcOneDirectionRepeatFactor((IfcOneDirectionRepeatFactor *) (copyop(obj.m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor)));
         break;
     case IFCPOSITIVELENGTHMEASURE:
         setIfcPositiveLengthMeasure(obj.m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure);
@@ -83,7 +83,7 @@ void IfcHatchLineDistanceSelect::copy(const IfcHatchLineDistanceSelect &obj, con
         }
 }
 
-char *IfcHatchLineDistanceSelect::currentTypeName() {
+std::string IfcHatchLineDistanceSelect::currentTypeName() const {
     switch(m_type) {
     case IFCONEDIRECTIONREPEATFACTOR:
         return "IfcOneDirectionRepeatFactor";
@@ -96,7 +96,7 @@ char *IfcHatchLineDistanceSelect::currentTypeName() {
     }
 }
 
-IfcHatchLineDistanceSelect::IfcHatchLineDistanceSelect_select IfcHatchLineDistanceSelect::currentType() {
+IfcHatchLineDistanceSelect::IfcHatchLineDistanceSelect_select IfcHatchLineDistanceSelect::currentType() const {
     return m_type;
 }
 
@@ -109,12 +109,16 @@ void IfcHatchLineDistanceSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcOneDirectionRepeatFactor *IfcHatchLineDistanceSelect::getIfcOneDirectionRepeatFactor() {
-    return m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor;
+IfcOneDirectionRepeatFactor *IfcHatchLineDistanceSelect::getIfcOneDirectionRepeatFactor() const {
+    if (m_type == IFCONEDIRECTIONREPEATFACTOR) {
+        return m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcHatchLineDistanceSelect::setIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -129,12 +133,16 @@ void IfcHatchLineDistanceSelect::setIfcOneDirectionRepeatFactor(IfcOneDirectionR
     m_type = IFCONEDIRECTIONREPEATFACTOR;
 }
 
-IfcPositiveLengthMeasure IfcHatchLineDistanceSelect::getIfcPositiveLengthMeasure() {
-    return m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure;
+IfcPositiveLengthMeasure IfcHatchLineDistanceSelect::getIfcPositiveLengthMeasure() const {
+    if (m_type == IFCPOSITIVELENGTHMEASURE) {
+        return m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure);
+    }
 }
 
 void IfcHatchLineDistanceSelect::setIfcPositiveLengthMeasure(IfcPositiveLengthMeasure value) {
-    deleteUnion();
     m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure = value;
     m_type = IFCPOSITIVELENGTHMEASURE;
 }

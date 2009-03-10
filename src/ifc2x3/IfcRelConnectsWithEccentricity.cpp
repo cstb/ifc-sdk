@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelConnectsWithEccentricity::IfcRelConnectsWithEccentricity(Step::Id id, Step
 IfcRelConnectsWithEccentricity::~IfcRelConnectsWithEccentricity() {
 }
 
-bool IfcRelConnectsWithEccentricity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsWithEccentricity(this);
+bool IfcRelConnectsWithEccentricity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsWithEccentricity(this);
 }
 
-const std::string &IfcRelConnectsWithEccentricity::type() {
+const std::string &IfcRelConnectsWithEccentricity::type() const {
     return IfcRelConnectsWithEccentricity::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsWithEccentricity::getClassType() {
+const Step::ClassType &IfcRelConnectsWithEccentricity::getClassType() {
     return IfcRelConnectsWithEccentricity::s_type;
 }
 
-Step::ClassType IfcRelConnectsWithEccentricity::getType() const {
+const Step::ClassType &IfcRelConnectsWithEccentricity::getType() const {
     return IfcRelConnectsWithEccentricity::s_type;
 }
 
-bool IfcRelConnectsWithEccentricity::isOfType(Step::ClassType t) {
+bool IfcRelConnectsWithEccentricity::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsWithEccentricity::s_type == t ? true : IfcRelConnectsStructuralMember::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcConnectionGeometry *IfcRelConnectsWithEccentricity::getConnectionConstraint()
     }
 }
 
-void IfcRelConnectsWithEccentricity::setConnectionConstraint(const Step::RefPtr< IfcConnectionGeometry > &value) {
-    m_connectionConstraint = value;
+const IfcConnectionGeometry *IfcRelConnectsWithEccentricity::getConnectionConstraint() const {
+    IfcRelConnectsWithEccentricity * deConstObject = const_cast< IfcRelConnectsWithEccentricity * > (this);
+    return deConstObject->getConnectionConstraint();
 }
 
-void IfcRelConnectsWithEccentricity::release() {
-    IfcRelConnectsStructuralMember::release();
-    m_connectionConstraint.release();
+void IfcRelConnectsWithEccentricity::setConnectionConstraint(const Step::RefPtr< IfcConnectionGeometry > &value) {
+    m_connectionConstraint = value;
 }
 
 bool IfcRelConnectsWithEccentricity::init() {
@@ -99,14 +99,14 @@ bool IfcRelConnectsWithEccentricity::init() {
         m_connectionConstraint = NULL;
     }
     else {
-        m_connectionConstraint = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_connectionConstraint = static_cast< IfcConnectionGeometry * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsWithEccentricity::copy(const IfcRelConnectsWithEccentricity &obj, const CopyOp &copyop) {
     IfcRelConnectsStructuralMember::copy(obj, copyop);
-    setConnectionConstraint(copyop(obj.m_connectionConstraint.get()));
+    setConnectionConstraint((IfcConnectionGeometry*)copyop(obj.m_connectionConstraint.get()));
     return;
 }
 

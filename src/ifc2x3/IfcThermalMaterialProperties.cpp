@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcThermalMaterialProperties::IfcThermalMaterialProperties(Step::Id id, Step::SP
 IfcThermalMaterialProperties::~IfcThermalMaterialProperties() {
 }
 
-bool IfcThermalMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcThermalMaterialProperties(this);
+bool IfcThermalMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcThermalMaterialProperties(this);
 }
 
-const std::string &IfcThermalMaterialProperties::type() {
+const std::string &IfcThermalMaterialProperties::type() const {
     return IfcThermalMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcThermalMaterialProperties::getClassType() {
+const Step::ClassType &IfcThermalMaterialProperties::getClassType() {
     return IfcThermalMaterialProperties::s_type;
 }
 
-Step::ClassType IfcThermalMaterialProperties::getType() const {
+const Step::ClassType &IfcThermalMaterialProperties::getType() const {
     return IfcThermalMaterialProperties::s_type;
 }
 
-bool IfcThermalMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcThermalMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcThermalMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcSpecificHeatCapacityMeasure IfcThermalMaterialProperties::getSpecificHeatCapa
     else {
         return Step::getUnset(m_specificHeatCapacity);
     }
+}
+
+const IfcSpecificHeatCapacityMeasure IfcThermalMaterialProperties::getSpecificHeatCapacity() const {
+    IfcThermalMaterialProperties * deConstObject = const_cast< IfcThermalMaterialProperties * > (this);
+    return deConstObject->getSpecificHeatCapacity();
 }
 
 void IfcThermalMaterialProperties::setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value) {
@@ -91,6 +96,11 @@ IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getBoilingPoint
     }
 }
 
+const IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getBoilingPoint() const {
+    IfcThermalMaterialProperties * deConstObject = const_cast< IfcThermalMaterialProperties * > (this);
+    return deConstObject->getBoilingPoint();
+}
+
 void IfcThermalMaterialProperties::setBoilingPoint(IfcThermodynamicTemperatureMeasure value) {
     m_boilingPoint = value;
 }
@@ -102,6 +112,11 @@ IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getFreezingPoin
     else {
         return Step::getUnset(m_freezingPoint);
     }
+}
+
+const IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getFreezingPoint() const {
+    IfcThermalMaterialProperties * deConstObject = const_cast< IfcThermalMaterialProperties * > (this);
+    return deConstObject->getFreezingPoint();
 }
 
 void IfcThermalMaterialProperties::setFreezingPoint(IfcThermodynamicTemperatureMeasure value) {
@@ -117,12 +132,13 @@ IfcThermalConductivityMeasure IfcThermalMaterialProperties::getThermalConductivi
     }
 }
 
-void IfcThermalMaterialProperties::setThermalConductivity(IfcThermalConductivityMeasure value) {
-    m_thermalConductivity = value;
+const IfcThermalConductivityMeasure IfcThermalMaterialProperties::getThermalConductivity() const {
+    IfcThermalMaterialProperties * deConstObject = const_cast< IfcThermalMaterialProperties * > (this);
+    return deConstObject->getThermalConductivity();
 }
 
-void IfcThermalMaterialProperties::release() {
-    IfcMaterialProperties::release();
+void IfcThermalMaterialProperties::setThermalConductivity(IfcThermalConductivityMeasure value) {
+    m_thermalConductivity = value;
 }
 
 bool IfcThermalMaterialProperties::init() {

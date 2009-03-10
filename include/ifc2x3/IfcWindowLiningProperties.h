@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,108 +46,185 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcWindowLiningProperties : public IfcPropertySetDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LiningDepth'.
+         * 
          */
-        IfcPositiveLengthMeasure getLiningDepth();
+        virtual IfcPositiveLengthMeasure getLiningDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'LiningDepth'.
+         * 
+         * @return the value of the explicit attribute 'LiningDepth'
+         */
+        virtual const IfcPositiveLengthMeasure getLiningDepth() const;
         /**
          * Sets the value of the explicit attribute 'LiningDepth'.
          * 
          * @param value
          */
-        void setLiningDepth(IfcPositiveLengthMeasure value);
+        virtual void setLiningDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LiningThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getLiningThickness();
+        virtual IfcPositiveLengthMeasure getLiningThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'LiningThickness'.
+         * 
+         * @return the value of the explicit attribute 'LiningThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getLiningThickness() const;
         /**
          * Sets the value of the explicit attribute 'LiningThickness'.
          * 
          * @param value
          */
-        void setLiningThickness(IfcPositiveLengthMeasure value);
+        virtual void setLiningThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TransomThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getTransomThickness();
+        virtual IfcPositiveLengthMeasure getTransomThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'TransomThickness'.
+         * 
+         * @return the value of the explicit attribute 'TransomThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getTransomThickness() const;
         /**
          * Sets the value of the explicit attribute 'TransomThickness'.
          * 
          * @param value
          */
-        void setTransomThickness(IfcPositiveLengthMeasure value);
+        virtual void setTransomThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MullionThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getMullionThickness();
+        virtual IfcPositiveLengthMeasure getMullionThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'MullionThickness'.
+         * 
+         * @return the value of the explicit attribute 'MullionThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getMullionThickness() const;
         /**
          * Sets the value of the explicit attribute 'MullionThickness'.
          * 
          * @param value
          */
-        void setMullionThickness(IfcPositiveLengthMeasure value);
+        virtual void setMullionThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FirstTransomOffset'.
+         * 
          */
-        IfcNormalisedRatioMeasure getFirstTransomOffset();
+        virtual IfcNormalisedRatioMeasure getFirstTransomOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'FirstTransomOffset'.
+         * 
+         * @return the value of the explicit attribute 'FirstTransomOffset'
+         */
+        virtual const IfcNormalisedRatioMeasure getFirstTransomOffset() const;
         /**
          * Sets the value of the explicit attribute 'FirstTransomOffset'.
          * 
          * @param value
          */
-        void setFirstTransomOffset(IfcNormalisedRatioMeasure value);
+        virtual void setFirstTransomOffset(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SecondTransomOffset'.
+         * 
          */
-        IfcNormalisedRatioMeasure getSecondTransomOffset();
+        virtual IfcNormalisedRatioMeasure getSecondTransomOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'SecondTransomOffset'.
+         * 
+         * @return the value of the explicit attribute 'SecondTransomOffset'
+         */
+        virtual const IfcNormalisedRatioMeasure getSecondTransomOffset() const;
         /**
          * Sets the value of the explicit attribute 'SecondTransomOffset'.
          * 
          * @param value
          */
-        void setSecondTransomOffset(IfcNormalisedRatioMeasure value);
+        virtual void setSecondTransomOffset(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'FirstMullionOffset'.
+         * 
          */
-        IfcNormalisedRatioMeasure getFirstMullionOffset();
+        virtual IfcNormalisedRatioMeasure getFirstMullionOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'FirstMullionOffset'.
+         * 
+         * @return the value of the explicit attribute 'FirstMullionOffset'
+         */
+        virtual const IfcNormalisedRatioMeasure getFirstMullionOffset() const;
         /**
          * Sets the value of the explicit attribute 'FirstMullionOffset'.
          * 
          * @param value
          */
-        void setFirstMullionOffset(IfcNormalisedRatioMeasure value);
+        virtual void setFirstMullionOffset(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SecondMullionOffset'.
+         * 
          */
-        IfcNormalisedRatioMeasure getSecondMullionOffset();
+        virtual IfcNormalisedRatioMeasure getSecondMullionOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'SecondMullionOffset'.
+         * 
+         * @return the value of the explicit attribute 'SecondMullionOffset'
+         */
+        virtual const IfcNormalisedRatioMeasure getSecondMullionOffset() const;
         /**
          * Sets the value of the explicit attribute 'SecondMullionOffset'.
          * 
          * @param value
          */
-        void setSecondMullionOffset(IfcNormalisedRatioMeasure value);
+        virtual void setSecondMullionOffset(IfcNormalisedRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
          */
-        IfcShapeAspect *getShapeAspectStyle();
+        virtual IfcShapeAspect *getShapeAspectStyle();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
+         * @return the value of the explicit attribute 'ShapeAspectStyle'
+         */
+        virtual const IfcShapeAspect *getShapeAspectStyle() const;
         /**
          * Sets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          * @param value
          */
-        void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
         friend class ExpressDataSet;
 
     protected:

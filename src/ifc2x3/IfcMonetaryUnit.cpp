@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcMonetaryUnit::IfcMonetaryUnit(Step::Id id, Step::SPFData *args) : Step::BaseE
 IfcMonetaryUnit::~IfcMonetaryUnit() {
 }
 
-bool IfcMonetaryUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMonetaryUnit(this);
+bool IfcMonetaryUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMonetaryUnit(this);
 }
 
-const std::string &IfcMonetaryUnit::type() {
+const std::string &IfcMonetaryUnit::type() const {
     return IfcMonetaryUnit::s_type.getName();
 }
 
-Step::ClassType IfcMonetaryUnit::getClassType() {
+const Step::ClassType &IfcMonetaryUnit::getClassType() {
     return IfcMonetaryUnit::s_type;
 }
 
-Step::ClassType IfcMonetaryUnit::getType() const {
+const Step::ClassType &IfcMonetaryUnit::getType() const {
     return IfcMonetaryUnit::s_type;
 }
 
-bool IfcMonetaryUnit::isOfType(Step::ClassType t) {
+bool IfcMonetaryUnit::isOfType(const Step::ClassType &t) const {
     return IfcMonetaryUnit::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +75,13 @@ IfcCurrencyEnum IfcMonetaryUnit::getCurrency() {
     }
 }
 
-void IfcMonetaryUnit::setCurrency(IfcCurrencyEnum value) {
-    m_currency = value;
+const IfcCurrencyEnum IfcMonetaryUnit::getCurrency() const {
+    IfcMonetaryUnit * deConstObject = const_cast< IfcMonetaryUnit * > (this);
+    return deConstObject->getCurrency();
 }
 
-void IfcMonetaryUnit::release() {
+void IfcMonetaryUnit::setCurrency(IfcCurrencyEnum value) {
+    m_currency = value;
 }
 
 bool IfcMonetaryUnit::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcEnvironmentalImpactValue::IfcEnvironmentalImpactValue(Step::Id id, Step::SPFD
 IfcEnvironmentalImpactValue::~IfcEnvironmentalImpactValue() {
 }
 
-bool IfcEnvironmentalImpactValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEnvironmentalImpactValue(this);
+bool IfcEnvironmentalImpactValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEnvironmentalImpactValue(this);
 }
 
-const std::string &IfcEnvironmentalImpactValue::type() {
+const std::string &IfcEnvironmentalImpactValue::type() const {
     return IfcEnvironmentalImpactValue::s_type.getName();
 }
 
-Step::ClassType IfcEnvironmentalImpactValue::getClassType() {
+const Step::ClassType &IfcEnvironmentalImpactValue::getClassType() {
     return IfcEnvironmentalImpactValue::s_type;
 }
 
-Step::ClassType IfcEnvironmentalImpactValue::getType() const {
+const Step::ClassType &IfcEnvironmentalImpactValue::getType() const {
     return IfcEnvironmentalImpactValue::s_type;
 }
 
-bool IfcEnvironmentalImpactValue::isOfType(Step::ClassType t) {
+bool IfcEnvironmentalImpactValue::isOfType(const Step::ClassType &t) const {
     return IfcEnvironmentalImpactValue::s_type == t ? true : IfcAppliedValue::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcLabel IfcEnvironmentalImpactValue::getImpactType() {
     else {
         return Step::getUnset(m_impactType);
     }
+}
+
+const IfcLabel IfcEnvironmentalImpactValue::getImpactType() const {
+    IfcEnvironmentalImpactValue * deConstObject = const_cast< IfcEnvironmentalImpactValue * > (this);
+    return deConstObject->getImpactType();
 }
 
 void IfcEnvironmentalImpactValue::setImpactType(const IfcLabel &value) {
@@ -90,6 +96,11 @@ IfcEnvironmentalImpactCategoryEnum IfcEnvironmentalImpactValue::getCategory() {
     }
 }
 
+const IfcEnvironmentalImpactCategoryEnum IfcEnvironmentalImpactValue::getCategory() const {
+    IfcEnvironmentalImpactValue * deConstObject = const_cast< IfcEnvironmentalImpactValue * > (this);
+    return deConstObject->getCategory();
+}
+
 void IfcEnvironmentalImpactValue::setCategory(IfcEnvironmentalImpactCategoryEnum value) {
     m_category = value;
 }
@@ -103,12 +114,13 @@ IfcLabel IfcEnvironmentalImpactValue::getUserDefinedCategory() {
     }
 }
 
-void IfcEnvironmentalImpactValue::setUserDefinedCategory(const IfcLabel &value) {
-    m_userDefinedCategory = value;
+const IfcLabel IfcEnvironmentalImpactValue::getUserDefinedCategory() const {
+    IfcEnvironmentalImpactValue * deConstObject = const_cast< IfcEnvironmentalImpactValue * > (this);
+    return deConstObject->getUserDefinedCategory();
 }
 
-void IfcEnvironmentalImpactValue::release() {
-    IfcAppliedValue::release();
+void IfcEnvironmentalImpactValue::setUserDefinedCategory(const IfcLabel &value) {
+    m_userDefinedCategory = value;
 }
 
 bool IfcEnvironmentalImpactValue::init() {
@@ -122,7 +134,7 @@ bool IfcEnvironmentalImpactValue::init() {
         m_impactType = Step::getUnset(m_impactType);
     }
     else {
-        m_impactType = Step::spfToString(arg);
+        m_impactType = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -159,7 +171,7 @@ bool IfcEnvironmentalImpactValue::init() {
         m_userDefinedCategory = Step::getUnset(m_userDefinedCategory);
     }
     else {
-        m_userDefinedCategory = Step::spfToString(arg);
+        m_userDefinedCategory = Step::String::fromSPF(arg);
     }
     return true;
 }

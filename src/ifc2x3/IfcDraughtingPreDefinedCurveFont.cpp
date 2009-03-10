@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDraughtingPreDefinedCurveFont::IfcDraughtingPreDefinedCurveFont(Step::Id id, 
 IfcDraughtingPreDefinedCurveFont::~IfcDraughtingPreDefinedCurveFont() {
 }
 
-bool IfcDraughtingPreDefinedCurveFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingPreDefinedCurveFont(this);
+bool IfcDraughtingPreDefinedCurveFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingPreDefinedCurveFont(this);
 }
 
-const std::string &IfcDraughtingPreDefinedCurveFont::type() {
+const std::string &IfcDraughtingPreDefinedCurveFont::type() const {
     return IfcDraughtingPreDefinedCurveFont::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingPreDefinedCurveFont::getClassType() {
+const Step::ClassType &IfcDraughtingPreDefinedCurveFont::getClassType() {
     return IfcDraughtingPreDefinedCurveFont::s_type;
 }
 
-Step::ClassType IfcDraughtingPreDefinedCurveFont::getType() const {
+const Step::ClassType &IfcDraughtingPreDefinedCurveFont::getType() const {
     return IfcDraughtingPreDefinedCurveFont::s_type;
 }
 
-bool IfcDraughtingPreDefinedCurveFont::isOfType(Step::ClassType t) {
+bool IfcDraughtingPreDefinedCurveFont::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingPreDefinedCurveFont::s_type == t ? true : IfcPreDefinedCurveFont::isOfType(t);
-}
-
-void IfcDraughtingPreDefinedCurveFont::release() {
-    IfcPreDefinedCurveFont::release();
 }
 
 bool IfcDraughtingPreDefinedCurveFont::init() {

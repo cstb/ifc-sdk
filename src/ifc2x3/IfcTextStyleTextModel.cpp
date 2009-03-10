@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -55,23 +56,23 @@ IfcTextStyleTextModel::IfcTextStyleTextModel(Step::Id id, Step::SPFData *args) :
 IfcTextStyleTextModel::~IfcTextStyleTextModel() {
 }
 
-bool IfcTextStyleTextModel::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyleTextModel(this);
+bool IfcTextStyleTextModel::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyleTextModel(this);
 }
 
-const std::string &IfcTextStyleTextModel::type() {
+const std::string &IfcTextStyleTextModel::type() const {
     return IfcTextStyleTextModel::s_type.getName();
 }
 
-Step::ClassType IfcTextStyleTextModel::getClassType() {
+const Step::ClassType &IfcTextStyleTextModel::getClassType() {
     return IfcTextStyleTextModel::s_type;
 }
 
-Step::ClassType IfcTextStyleTextModel::getType() const {
+const Step::ClassType &IfcTextStyleTextModel::getType() const {
     return IfcTextStyleTextModel::s_type;
 }
 
-bool IfcTextStyleTextModel::isOfType(Step::ClassType t) {
+bool IfcTextStyleTextModel::isOfType(const Step::ClassType &t) const {
     return IfcTextStyleTextModel::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,6 +83,11 @@ IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() {
     else {
         return NULL;
     }
+}
+
+const IfcSizeSelect *IfcTextStyleTextModel::getTextIndent() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getTextIndent();
 }
 
 void IfcTextStyleTextModel::setTextIndent(const Step::RefPtr< IfcSizeSelect > &value) {
@@ -97,6 +103,11 @@ IfcTextAlignment IfcTextStyleTextModel::getTextAlign() {
     }
 }
 
+const IfcTextAlignment IfcTextStyleTextModel::getTextAlign() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getTextAlign();
+}
+
 void IfcTextStyleTextModel::setTextAlign(const IfcTextAlignment &value) {
     m_textAlign = value;
 }
@@ -108,6 +119,11 @@ IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() {
     else {
         return Step::getUnset(m_textDecoration);
     }
+}
+
+const IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getTextDecoration();
 }
 
 void IfcTextStyleTextModel::setTextDecoration(const IfcTextDecoration &value) {
@@ -123,6 +139,11 @@ IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() {
     }
 }
 
+const IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getLetterSpacing();
+}
+
 void IfcTextStyleTextModel::setLetterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
     m_letterSpacing = value;
 }
@@ -134,6 +155,11 @@ IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() {
     else {
         return NULL;
     }
+}
+
+const IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getWordSpacing();
 }
 
 void IfcTextStyleTextModel::setWordSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
@@ -149,6 +175,11 @@ IfcTextTransformation IfcTextStyleTextModel::getTextTransform() {
     }
 }
 
+const IfcTextTransformation IfcTextStyleTextModel::getTextTransform() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getTextTransform();
+}
+
 void IfcTextStyleTextModel::setTextTransform(const IfcTextTransformation &value) {
     m_textTransform = value;
 }
@@ -162,11 +193,13 @@ IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() {
     }
 }
 
-void IfcTextStyleTextModel::setLineHeight(const Step::RefPtr< IfcSizeSelect > &value) {
-    m_lineHeight = value;
+const IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() const {
+    IfcTextStyleTextModel * deConstObject = const_cast< IfcTextStyleTextModel * > (this);
+    return deConstObject->getLineHeight();
 }
 
-void IfcTextStyleTextModel::release() {
+void IfcTextStyleTextModel::setLineHeight(const Step::RefPtr< IfcSizeSelect > &value) {
+    m_lineHeight = value;
 }
 
 bool IfcTextStyleTextModel::init() {
@@ -198,8 +231,8 @@ bool IfcTextStyleTextModel::init() {
                     m_textIndent->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_textIndent->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {
@@ -225,14 +258,14 @@ bool IfcTextStyleTextModel::init() {
         m_textAlign = Step::getUnset(m_textAlign);
     }
     else {
-        m_textAlign = Step::spfToString(arg);
+        m_textAlign = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_textDecoration = Step::getUnset(m_textDecoration);
     }
     else {
-        m_textDecoration = Step::spfToString(arg);
+        m_textDecoration = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -261,8 +294,8 @@ bool IfcTextStyleTextModel::init() {
                     m_letterSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_letterSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {
@@ -310,8 +343,8 @@ bool IfcTextStyleTextModel::init() {
                     m_wordSpacing->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_wordSpacing->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {
@@ -337,7 +370,7 @@ bool IfcTextStyleTextModel::init() {
         m_textTransform = Step::getUnset(m_textTransform);
     }
     else {
-        m_textTransform = Step::spfToString(arg);
+        m_textTransform = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -366,8 +399,8 @@ bool IfcTextStyleTextModel::init() {
                     m_lineHeight->setIfcLengthMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_lineHeight->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCPOSITIVELENGTHMEASURE") {

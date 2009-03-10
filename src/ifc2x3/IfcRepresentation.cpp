@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,8 +39,8 @@
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -53,32 +53,28 @@ IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args) : Step::B
     m_contextOfItems = NULL;
     m_representationIdentifier = Step::getUnset(m_representationIdentifier);
     m_representationType = Step::getUnset(m_representationType);
-    m_items.setUnset(true);
-    m_representationMap.setUnset(true);
-    m_layerAssignments.setUnset(true);
-    m_ofProductRepresentation.setUnset(true);
 }
 
 IfcRepresentation::~IfcRepresentation() {
 }
 
-bool IfcRepresentation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRepresentation(this);
+bool IfcRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRepresentation(this);
 }
 
-const std::string &IfcRepresentation::type() {
+const std::string &IfcRepresentation::type() const {
     return IfcRepresentation::s_type.getName();
 }
 
-Step::ClassType IfcRepresentation::getClassType() {
+const Step::ClassType &IfcRepresentation::getClassType() {
     return IfcRepresentation::s_type;
 }
 
-Step::ClassType IfcRepresentation::getType() const {
+const Step::ClassType &IfcRepresentation::getType() const {
     return IfcRepresentation::s_type;
 }
 
-bool IfcRepresentation::isOfType(Step::ClassType t) {
+bool IfcRepresentation::isOfType(const Step::ClassType &t) const {
     return IfcRepresentation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -91,9 +87,19 @@ IfcRepresentationContext *IfcRepresentation::getContextOfItems() {
     }
 }
 
+const IfcRepresentationContext *IfcRepresentation::getContextOfItems() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getContextOfItems();
+}
+
 void IfcRepresentation::setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value) {
+    if (m_contextOfItems.valid()) {
+        m_contextOfItems->m_representationsInContext.erase(this);
+    }
+    if (value.valid()) {
+        value->m_representationsInContext.insert(this);
+    }
     m_contextOfItems = value;
-    m_contextOfItems->m_representationsInContext.insert(this);
 }
 
 IfcLabel IfcRepresentation::getRepresentationIdentifier() {
@@ -103,6 +109,11 @@ IfcLabel IfcRepresentation::getRepresentationIdentifier() {
     else {
         return Step::getUnset(m_representationIdentifier);
     }
+}
+
+const IfcLabel IfcRepresentation::getRepresentationIdentifier() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getRepresentationIdentifier();
 }
 
 void IfcRepresentation::setRepresentationIdentifier(const IfcLabel &value) {
@@ -118,11 +129,16 @@ IfcLabel IfcRepresentation::getRepresentationType() {
     }
 }
 
+const IfcLabel IfcRepresentation::getRepresentationType() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getRepresentationType();
+}
+
 void IfcRepresentation::setRepresentationType(const IfcLabel &value) {
     m_representationType = value;
 }
 
-Step::Set< Step::RefPtr< IfcRepresentationItem > > &IfcRepresentation::getItems() {
+Set_IfcRepresentationItem_1_n &IfcRepresentation::getItems() {
     if (Step::BaseObject::inited()) {
         return m_items;
     }
@@ -132,11 +148,16 @@ Step::Set< Step::RefPtr< IfcRepresentationItem > > &IfcRepresentation::getItems(
     }
 }
 
-void IfcRepresentation::setItems(const Step::Set< Step::RefPtr< IfcRepresentationItem > > &value) {
+const Set_IfcRepresentationItem_1_n &IfcRepresentation::getItems() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getItems();
+}
+
+void IfcRepresentation::setItems(const Set_IfcRepresentationItem_1_n &value) {
     m_items = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRepresentationMap > > &IfcRepresentation::getRepresentationMap() {
+Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() {
     if (Step::BaseObject::inited()) {
         return m_representationMap;
     }
@@ -146,7 +167,12 @@ Step::Set< Step::ObsPtr< IfcRepresentationMap > > &IfcRepresentation::getReprese
     }
 }
 
-Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > &IfcRepresentation::getLayerAssignments() {
+const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getRepresentationMap();
+}
+
+Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() {
     if (Step::BaseObject::inited()) {
         return m_layerAssignments;
     }
@@ -156,7 +182,12 @@ Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > &IfcRepresentation::
     }
 }
 
-Step::Set< Step::ObsPtr< IfcProductRepresentation > > &IfcRepresentation::getOfProductRepresentation() {
+const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getLayerAssignments();
+}
+
+Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_ofProductRepresentation;
     }
@@ -166,9 +197,9 @@ Step::Set< Step::ObsPtr< IfcProductRepresentation > > &IfcRepresentation::getOfP
     }
 }
 
-void IfcRepresentation::release() {
-    m_contextOfItems.release();
-    m_items.clear();
+const Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() const {
+    IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
+    return deConstObject->getOfProductRepresentation();
 }
 
 bool IfcRepresentation::init() {
@@ -179,21 +210,21 @@ bool IfcRepresentation::init() {
         m_contextOfItems = NULL;
     }
     else {
-        m_contextOfItems = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_contextOfItems = static_cast< IfcRepresentationContext * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_representationIdentifier = Step::getUnset(m_representationIdentifier);
     }
     else {
-        m_representationIdentifier = Step::spfToString(arg);
+        m_representationIdentifier = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_representationType = Step::getUnset(m_representationType);
     }
     else {
-        m_representationType = Step::spfToString(arg);
+        m_representationType = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -206,7 +237,7 @@ bool IfcRepresentation::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRepresentationItem > attr2;
-                attr2 = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRepresentationItem * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_items.insert(attr2);
             }
             else {
@@ -242,13 +273,13 @@ bool IfcRepresentation::init() {
 }
 
 void IfcRepresentation::copy(const IfcRepresentation &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcRepresentationItem > >::const_iterator it_m_items;
+    Step::Set< Step::RefPtr< IfcRepresentationItem >, 1 >::const_iterator it_m_items;
     Step::BaseEntity::copy(obj, copyop);
-    setContextOfItems(copyop(obj.m_contextOfItems.get()));
+    setContextOfItems((IfcRepresentationContext*)copyop(obj.m_contextOfItems.get()));
     setRepresentationIdentifier(obj.m_representationIdentifier);
     setRepresentationType(obj.m_representationType);
     for (it_m_items = obj.m_items.begin(); it_m_items != obj.m_items.end(); ++it_m_items) {
-        Step::RefPtr< IfcRepresentationItem > copyTarget = copyop((*it_m_items).get());
+        Step::RefPtr< IfcRepresentationItem > copyTarget = (IfcRepresentationItem *) (copyop((*it_m_items).get()));
         m_items.insert(copyTarget.get());
     }
     return;

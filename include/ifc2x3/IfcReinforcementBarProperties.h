@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,9 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
@@ -44,81 +45,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcReinforcementBarProperties : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'TotalCrossSectionArea'.
+         * 
          */
-        IfcAreaMeasure getTotalCrossSectionArea();
+        virtual IfcAreaMeasure getTotalCrossSectionArea();
+        /**
+         * (const) Returns the value of the explicit attribute 'TotalCrossSectionArea'.
+         * 
+         * @return the value of the explicit attribute 'TotalCrossSectionArea'
+         */
+        virtual const IfcAreaMeasure getTotalCrossSectionArea() const;
         /**
          * Sets the value of the explicit attribute 'TotalCrossSectionArea'.
          * 
          * @param value
          */
-        void setTotalCrossSectionArea(IfcAreaMeasure value);
+        virtual void setTotalCrossSectionArea(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SteelGrade'.
+         * 
          */
-        IfcLabel getSteelGrade();
+        virtual IfcLabel getSteelGrade();
+        /**
+         * (const) Returns the value of the explicit attribute 'SteelGrade'.
+         * 
+         * @return the value of the explicit attribute 'SteelGrade'
+         */
+        virtual const IfcLabel getSteelGrade() const;
         /**
          * Sets the value of the explicit attribute 'SteelGrade'.
          * 
          * @param value
          */
-        void setSteelGrade(const IfcLabel &value);
+        virtual void setSteelGrade(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'BarSurface'.
+         * 
          */
-        IfcReinforcingBarSurfaceEnum getBarSurface();
+        virtual IfcReinforcingBarSurfaceEnum getBarSurface();
+        /**
+         * (const) Returns the value of the explicit attribute 'BarSurface'.
+         * 
+         * @return the value of the explicit attribute 'BarSurface'
+         */
+        virtual const IfcReinforcingBarSurfaceEnum getBarSurface() const;
         /**
          * Sets the value of the explicit attribute 'BarSurface'.
          * 
          * @param value
          */
-        void setBarSurface(IfcReinforcingBarSurfaceEnum value);
+        virtual void setBarSurface(IfcReinforcingBarSurfaceEnum value);
         /**
+         * Gets the value of the explicit attribute 'EffectiveDepth'.
+         * 
          */
-        IfcLengthMeasure getEffectiveDepth();
+        virtual IfcLengthMeasure getEffectiveDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'EffectiveDepth'.
+         * 
+         * @return the value of the explicit attribute 'EffectiveDepth'
+         */
+        virtual const IfcLengthMeasure getEffectiveDepth() const;
         /**
          * Sets the value of the explicit attribute 'EffectiveDepth'.
          * 
          * @param value
          */
-        void setEffectiveDepth(IfcLengthMeasure value);
+        virtual void setEffectiveDepth(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'NominalBarDiameter'.
+         * 
          */
-        IfcPositiveLengthMeasure getNominalBarDiameter();
+        virtual IfcPositiveLengthMeasure getNominalBarDiameter();
+        /**
+         * (const) Returns the value of the explicit attribute 'NominalBarDiameter'.
+         * 
+         * @return the value of the explicit attribute 'NominalBarDiameter'
+         */
+        virtual const IfcPositiveLengthMeasure getNominalBarDiameter() const;
         /**
          * Sets the value of the explicit attribute 'NominalBarDiameter'.
          * 
          * @param value
          */
-        void setNominalBarDiameter(IfcPositiveLengthMeasure value);
+        virtual void setNominalBarDiameter(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'BarCount'.
+         * 
          */
-        IfcCountMeasure getBarCount();
+        virtual IfcCountMeasure getBarCount();
+        /**
+         * (const) Returns the value of the explicit attribute 'BarCount'.
+         * 
+         * @return the value of the explicit attribute 'BarCount'
+         */
+        virtual const IfcCountMeasure getBarCount() const;
         /**
          * Sets the value of the explicit attribute 'BarCount'.
          * 
          * @param value
          */
-        void setBarCount(IfcCountMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setBarCount(IfcCountMeasure value);
         friend class ExpressDataSet;
 
     protected:
@@ -146,7 +200,7 @@ namespace ifc2x3 {
         Step::Real m_totalCrossSectionArea;
         /**
          */
-        std::string m_steelGrade;
+        Step::String m_steelGrade;
         /**
          */
         IfcReinforcingBarSurfaceEnum m_barSurface;
@@ -158,7 +212,7 @@ namespace ifc2x3 {
         Step::Real m_nominalBarDiameter;
         /**
          */
-        Step::Integer m_barCount;
+        Step::Number m_barCount;
 
     };
 

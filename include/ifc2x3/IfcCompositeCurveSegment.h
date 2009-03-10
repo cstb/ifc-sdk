@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,13 +34,11 @@
 #include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcCompositeCurve;
     class IfcCurve;
 
     /**
@@ -48,59 +46,102 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCompositeCurveSegment : public IfcGeometricRepresentationItem {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Transition'.
+         * 
          */
-        IfcTransitionCode getTransition();
+        virtual IfcTransitionCode getTransition();
+        /**
+         * (const) Returns the value of the explicit attribute 'Transition'.
+         * 
+         * @return the value of the explicit attribute 'Transition'
+         */
+        virtual const IfcTransitionCode getTransition() const;
         /**
          * Sets the value of the explicit attribute 'Transition'.
          * 
          * @param value
          */
-        void setTransition(IfcTransitionCode value);
+        virtual void setTransition(IfcTransitionCode value);
         /**
+         * Gets the value of the explicit attribute 'SameSense'.
+         * 
          */
-        Step::Bool getSameSense();
+        virtual Step::Boolean getSameSense();
+        /**
+         * (const) Returns the value of the explicit attribute 'SameSense'.
+         * 
+         * @return the value of the explicit attribute 'SameSense'
+         */
+        virtual const Step::Boolean getSameSense() const;
         /**
          * Sets the value of the explicit attribute 'SameSense'.
          * 
          * @param value
          */
-        void setSameSense(Step::Bool value);
+        virtual void setSameSense(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'ParentCurve'.
+         * 
          */
-        IfcCurve *getParentCurve();
+        virtual IfcCurve *getParentCurve();
+        /**
+         * (const) Returns the value of the explicit attribute 'ParentCurve'.
+         * 
+         * @return the value of the explicit attribute 'ParentCurve'
+         */
+        virtual const IfcCurve *getParentCurve() const;
         /**
          * Sets the value of the explicit attribute 'ParentCurve'.
          * 
          * @param value
          */
-        void setParentCurve(const Step::RefPtr< IfcCurve > &value);
+        virtual void setParentCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * Gets the value of the inverse attribute 'UsingCurves'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcCompositeCurve > > &getUsingCurves();
+        Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves();
         /**
+         * (const) Returns the value of the explicit attribute 'UsingCurves'.
+         * 
+         * @return the value of the explicit attribute 'UsingCurves'
          */
-        virtual void release();
+        virtual const Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves() const;
+        /**
+         * Gets the value of the derived attribute 'Dim'.
+         * 
+         */
+        virtual IfcDimensionCount getDim() const;
         friend class IfcCompositeCurve;
         friend class ExpressDataSet;
+        friend class Inverted_IfcCompositeCurve_Segments_type;
 
     protected:
         /**
@@ -127,13 +168,13 @@ namespace ifc2x3 {
         IfcTransitionCode m_transition;
         /**
          */
-        Step::Bool m_sameSense;
+        Step::Boolean m_sameSense;
         /**
          */
         Step::RefPtr< IfcCurve > m_parentCurve;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcCompositeCurve > > m_usingCurves;
+        Inverse_Set_IfcCompositeCurve_1_n m_usingCurves;
 
     };
 

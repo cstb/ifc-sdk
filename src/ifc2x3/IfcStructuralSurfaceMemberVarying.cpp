@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,34 +44,33 @@
 using namespace ifc2x3;
 
 IfcStructuralSurfaceMemberVarying::IfcStructuralSurfaceMemberVarying(Step::Id id, Step::SPFData *args) : IfcStructuralSurfaceMember(id, args) {
-    m_subsequentThickness.setUnset(true);
     m_varyingThicknessLocation = NULL;
 }
 
 IfcStructuralSurfaceMemberVarying::~IfcStructuralSurfaceMemberVarying() {
 }
 
-bool IfcStructuralSurfaceMemberVarying::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralSurfaceMemberVarying(this);
+bool IfcStructuralSurfaceMemberVarying::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralSurfaceMemberVarying(this);
 }
 
-const std::string &IfcStructuralSurfaceMemberVarying::type() {
+const std::string &IfcStructuralSurfaceMemberVarying::type() const {
     return IfcStructuralSurfaceMemberVarying::s_type.getName();
 }
 
-Step::ClassType IfcStructuralSurfaceMemberVarying::getClassType() {
+const Step::ClassType &IfcStructuralSurfaceMemberVarying::getClassType() {
     return IfcStructuralSurfaceMemberVarying::s_type;
 }
 
-Step::ClassType IfcStructuralSurfaceMemberVarying::getType() const {
+const Step::ClassType &IfcStructuralSurfaceMemberVarying::getType() const {
     return IfcStructuralSurfaceMemberVarying::s_type;
 }
 
-bool IfcStructuralSurfaceMemberVarying::isOfType(Step::ClassType t) {
+bool IfcStructuralSurfaceMemberVarying::isOfType(const Step::ClassType &t) const {
     return IfcStructuralSurfaceMemberVarying::s_type == t ? true : IfcStructuralSurfaceMember::isOfType(t);
 }
 
-Step::List< IfcPositiveLengthMeasure > &IfcStructuralSurfaceMemberVarying::getSubsequentThickness() {
+List_IfcPositiveLengthMeasure_2_n &IfcStructuralSurfaceMemberVarying::getSubsequentThickness() {
     if (Step::BaseObject::inited()) {
         return m_subsequentThickness;
     }
@@ -82,7 +80,12 @@ Step::List< IfcPositiveLengthMeasure > &IfcStructuralSurfaceMemberVarying::getSu
     }
 }
 
-void IfcStructuralSurfaceMemberVarying::setSubsequentThickness(const Step::List< IfcPositiveLengthMeasure > &value) {
+const List_IfcPositiveLengthMeasure_2_n &IfcStructuralSurfaceMemberVarying::getSubsequentThickness() const {
+    IfcStructuralSurfaceMemberVarying * deConstObject = const_cast< IfcStructuralSurfaceMemberVarying * > (this);
+    return deConstObject->getSubsequentThickness();
+}
+
+void IfcStructuralSurfaceMemberVarying::setSubsequentThickness(const List_IfcPositiveLengthMeasure_2_n &value) {
     m_subsequentThickness = value;
 }
 
@@ -95,14 +98,13 @@ IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLocation()
     }
 }
 
-void IfcStructuralSurfaceMemberVarying::setVaryingThicknessLocation(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_varyingThicknessLocation = value;
+const IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLocation() const {
+    IfcStructuralSurfaceMemberVarying * deConstObject = const_cast< IfcStructuralSurfaceMemberVarying * > (this);
+    return deConstObject->getVaryingThicknessLocation();
 }
 
-void IfcStructuralSurfaceMemberVarying::release() {
-    IfcStructuralSurfaceMember::release();
-    m_subsequentThickness.clear();
-    m_varyingThicknessLocation.release();
+void IfcStructuralSurfaceMemberVarying::setVaryingThicknessLocation(const Step::RefPtr< IfcShapeAspect > &value) {
+    m_varyingThicknessLocation = value;
 }
 
 bool IfcStructuralSurfaceMemberVarying::init() {
@@ -135,19 +137,19 @@ bool IfcStructuralSurfaceMemberVarying::init() {
         m_varyingThicknessLocation = NULL;
     }
     else {
-        m_varyingThicknessLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_varyingThicknessLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcStructuralSurfaceMemberVarying::copy(const IfcStructuralSurfaceMemberVarying &obj, const CopyOp &copyop) {
-    Step::List< IfcPositiveLengthMeasure >::const_iterator it_m_subsequentThickness;
+    Step::List< IfcPositiveLengthMeasure, 2 >::const_iterator it_m_subsequentThickness;
     IfcStructuralSurfaceMember::copy(obj, copyop);
     for (it_m_subsequentThickness = obj.m_subsequentThickness.begin(); it_m_subsequentThickness != obj.m_subsequentThickness.end(); ++it_m_subsequentThickness) {
         IfcPositiveLengthMeasure copyTarget = (*it_m_subsequentThickness);
         m_subsequentThickness.push_back(copyTarget);
     }
-    setVaryingThicknessLocation(copyop(obj.m_varyingThicknessLocation.get()));
+    setVaryingThicknessLocation((IfcShapeAspect*)copyop(obj.m_varyingThicknessLocation.get()));
     return;
 }
 

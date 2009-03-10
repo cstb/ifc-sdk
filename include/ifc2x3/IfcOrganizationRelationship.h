@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,49 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
+
+    class IfcOrganization;
+    class IfcOrganizationRelationship;
+
+    /**
+     */
+    class Inverted_IfcOrganizationRelationship_RelatedOrganizations_type : public Set_IfcOrganization_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcOrganization_1_n::size_type size_type;
+
+        /**
+         */
+        IfcOrganizationRelationship *mOwner;
+        /**
+         */
+        Inverted_IfcOrganizationRelationship_RelatedOrganizations_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcOrganizationRelationship *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcOrganization > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcOrganization > &value);
+
+    };
 
     class CopyOp;
     class IfcOrganization;
@@ -47,79 +81,95 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcOrganizationRelationship : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Description'.
+         * 
          */
-        IfcText getDescription();
+        virtual IfcText getDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'Description'.
+         * 
+         * @return the value of the explicit attribute 'Description'
+         */
+        virtual const IfcText getDescription() const;
         /**
          * Sets the value of the explicit attribute 'Description'.
          * 
          * @param value
          */
-        void setDescription(const IfcText &value);
+        virtual void setDescription(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'RelatingOrganization'.
+         * 
          */
-        IfcOrganization *getRelatingOrganization();
+        virtual IfcOrganization *getRelatingOrganization();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingOrganization'.
+         * 
+         * @return the value of the explicit attribute 'RelatingOrganization'
+         */
+        virtual const IfcOrganization *getRelatingOrganization() const;
         /**
          * Sets the value of the explicit attribute 'RelatingOrganization'.
          * 
          * @param value
          */
-        void setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value);
+        virtual void setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedOrganizations'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcOrganization > > &getRelatedOrganizations();
+        virtual Set_IfcOrganization_1_n &getRelatedOrganizations();
         /**
+         * (const) Returns the value of the explicit attribute 'RelatedOrganizations'.
+         * 
+         * @return the value of the explicit attribute 'RelatedOrganizations'
          */
-        virtual void release();
+        virtual const Set_IfcOrganization_1_n &getRelatedOrganizations() const;
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_RelatedOrganizations_type : public Step::Set< Step::RefPtr< IfcOrganization > > {
-        public:
-            /**
-             */
-            IfcOrganizationRelationship *mOwner;
-            /**
-             */
-            Inverted_RelatedOrganizations_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcOrganizationRelationship *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcOrganization > &value);
-
-        };
-
 
     protected:
         /**
@@ -143,16 +193,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        std::string m_description;
+        Step::String m_description;
         /**
          */
         Step::RefPtr< IfcOrganization > m_relatingOrganization;
         /**
          */
-        Inverted_RelatedOrganizations_type m_relatedOrganizations;
+        Inverted_IfcOrganizationRelationship_RelatedOrganizations_type m_relatedOrganizations;
 
     };
 

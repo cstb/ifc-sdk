@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityArea::IfcQuantityArea(Step::Id id, Step::SPFData *args) : IfcPhysical
 IfcQuantityArea::~IfcQuantityArea() {
 }
 
-bool IfcQuantityArea::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityArea(this);
+bool IfcQuantityArea::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityArea(this);
 }
 
-const std::string &IfcQuantityArea::type() {
+const std::string &IfcQuantityArea::type() const {
     return IfcQuantityArea::s_type.getName();
 }
 
-Step::ClassType IfcQuantityArea::getClassType() {
+const Step::ClassType &IfcQuantityArea::getClassType() {
     return IfcQuantityArea::s_type;
 }
 
-Step::ClassType IfcQuantityArea::getType() const {
+const Step::ClassType &IfcQuantityArea::getType() const {
     return IfcQuantityArea::s_type;
 }
 
-bool IfcQuantityArea::isOfType(Step::ClassType t) {
+bool IfcQuantityArea::isOfType(const Step::ClassType &t) const {
     return IfcQuantityArea::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcAreaMeasure IfcQuantityArea::getAreaValue() {
     }
 }
 
-void IfcQuantityArea::setAreaValue(IfcAreaMeasure value) {
-    m_areaValue = value;
+const IfcAreaMeasure IfcQuantityArea::getAreaValue() const {
+    IfcQuantityArea * deConstObject = const_cast< IfcQuantityArea * > (this);
+    return deConstObject->getAreaValue();
 }
 
-void IfcQuantityArea::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityArea::setAreaValue(IfcAreaMeasure value) {
+    m_areaValue = value;
 }
 
 bool IfcQuantityArea::init() {

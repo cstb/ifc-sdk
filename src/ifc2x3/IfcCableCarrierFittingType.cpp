@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCableCarrierFittingType::IfcCableCarrierFittingType(Step::Id id, Step::SPFDat
 IfcCableCarrierFittingType::~IfcCableCarrierFittingType() {
 }
 
-bool IfcCableCarrierFittingType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCableCarrierFittingType(this);
+bool IfcCableCarrierFittingType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCableCarrierFittingType(this);
 }
 
-const std::string &IfcCableCarrierFittingType::type() {
+const std::string &IfcCableCarrierFittingType::type() const {
     return IfcCableCarrierFittingType::s_type.getName();
 }
 
-Step::ClassType IfcCableCarrierFittingType::getClassType() {
+const Step::ClassType &IfcCableCarrierFittingType::getClassType() {
     return IfcCableCarrierFittingType::s_type;
 }
 
-Step::ClassType IfcCableCarrierFittingType::getType() const {
+const Step::ClassType &IfcCableCarrierFittingType::getType() const {
     return IfcCableCarrierFittingType::s_type;
 }
 
-bool IfcCableCarrierFittingType::isOfType(Step::ClassType t) {
+bool IfcCableCarrierFittingType::isOfType(const Step::ClassType &t) const {
     return IfcCableCarrierFittingType::s_type == t ? true : IfcFlowFittingType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCableCarrierFittingTypeEnum IfcCableCarrierFittingType::getPredefinedType() {
     }
 }
 
-void IfcCableCarrierFittingType::setPredefinedType(IfcCableCarrierFittingTypeEnum value) {
-    m_predefinedType = value;
+const IfcCableCarrierFittingTypeEnum IfcCableCarrierFittingType::getPredefinedType() const {
+    IfcCableCarrierFittingType * deConstObject = const_cast< IfcCableCarrierFittingType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCableCarrierFittingType::release() {
-    IfcFlowFittingType::release();
+void IfcCableCarrierFittingType::setPredefinedType(IfcCableCarrierFittingTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCableCarrierFittingType::init() {

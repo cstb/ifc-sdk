@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcStructuralLoadSingleForce::IfcStructuralLoadSingleForce(Step::Id id, Step::SP
 IfcStructuralLoadSingleForce::~IfcStructuralLoadSingleForce() {
 }
 
-bool IfcStructuralLoadSingleForce::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadSingleForce(this);
+bool IfcStructuralLoadSingleForce::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadSingleForce(this);
 }
 
-const std::string &IfcStructuralLoadSingleForce::type() {
+const std::string &IfcStructuralLoadSingleForce::type() const {
     return IfcStructuralLoadSingleForce::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadSingleForce::getClassType() {
+const Step::ClassType &IfcStructuralLoadSingleForce::getClassType() {
     return IfcStructuralLoadSingleForce::s_type;
 }
 
-Step::ClassType IfcStructuralLoadSingleForce::getType() const {
+const Step::ClassType &IfcStructuralLoadSingleForce::getType() const {
     return IfcStructuralLoadSingleForce::s_type;
 }
 
-bool IfcStructuralLoadSingleForce::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadSingleForce::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadSingleForce::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcForceMeasure IfcStructuralLoadSingleForce::getForceX() {
     else {
         return Step::getUnset(m_forceX);
     }
+}
+
+const IfcForceMeasure IfcStructuralLoadSingleForce::getForceX() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getForceX();
 }
 
 void IfcStructuralLoadSingleForce::setForceX(IfcForceMeasure value) {
@@ -93,6 +98,11 @@ IfcForceMeasure IfcStructuralLoadSingleForce::getForceY() {
     }
 }
 
+const IfcForceMeasure IfcStructuralLoadSingleForce::getForceY() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getForceY();
+}
+
 void IfcStructuralLoadSingleForce::setForceY(IfcForceMeasure value) {
     m_forceY = value;
 }
@@ -104,6 +114,11 @@ IfcForceMeasure IfcStructuralLoadSingleForce::getForceZ() {
     else {
         return Step::getUnset(m_forceZ);
     }
+}
+
+const IfcForceMeasure IfcStructuralLoadSingleForce::getForceZ() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getForceZ();
 }
 
 void IfcStructuralLoadSingleForce::setForceZ(IfcForceMeasure value) {
@@ -119,6 +134,11 @@ IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentX() {
     }
 }
 
+const IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentX() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getMomentX();
+}
+
 void IfcStructuralLoadSingleForce::setMomentX(IfcTorqueMeasure value) {
     m_momentX = value;
 }
@@ -130,6 +150,11 @@ IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentY() {
     else {
         return Step::getUnset(m_momentY);
     }
+}
+
+const IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentY() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getMomentY();
 }
 
 void IfcStructuralLoadSingleForce::setMomentY(IfcTorqueMeasure value) {
@@ -145,12 +170,13 @@ IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentZ() {
     }
 }
 
-void IfcStructuralLoadSingleForce::setMomentZ(IfcTorqueMeasure value) {
-    m_momentZ = value;
+const IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentZ() const {
+    IfcStructuralLoadSingleForce * deConstObject = const_cast< IfcStructuralLoadSingleForce * > (this);
+    return deConstObject->getMomentZ();
 }
 
-void IfcStructuralLoadSingleForce::release() {
-    IfcStructuralLoadStatic::release();
+void IfcStructuralLoadSingleForce::setMomentZ(IfcTorqueMeasure value) {
+    m_momentZ = value;
 }
 
 bool IfcStructuralLoadSingleForce::init() {

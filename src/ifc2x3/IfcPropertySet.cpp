@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcPropertySet::IfcPropertySet(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
-    m_hasProperties.setUnset(true);
 }
 
 IfcPropertySet::~IfcPropertySet() {
 }
 
-bool IfcPropertySet::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertySet(this);
+bool IfcPropertySet::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertySet(this);
 }
 
-const std::string &IfcPropertySet::type() {
+const std::string &IfcPropertySet::type() const {
     return IfcPropertySet::s_type.getName();
 }
 
-Step::ClassType IfcPropertySet::getClassType() {
+const Step::ClassType &IfcPropertySet::getClassType() {
     return IfcPropertySet::s_type;
 }
 
-Step::ClassType IfcPropertySet::getType() const {
+const Step::ClassType &IfcPropertySet::getType() const {
     return IfcPropertySet::s_type;
 }
 
-bool IfcPropertySet::isOfType(Step::ClassType t) {
+bool IfcPropertySet::isOfType(const Step::ClassType &t) const {
     return IfcPropertySet::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcPropertySet::getHasProperties() {
+Set_IfcProperty_1_n &IfcPropertySet::getHasProperties() {
     if (Step::BaseObject::inited()) {
         return m_hasProperties;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcPropertySet::getHasProperties() {
     }
 }
 
-void IfcPropertySet::setHasProperties(const Step::Set< Step::RefPtr< IfcProperty > > &value) {
-    m_hasProperties = value;
+const Set_IfcProperty_1_n &IfcPropertySet::getHasProperties() const {
+    IfcPropertySet * deConstObject = const_cast< IfcPropertySet * > (this);
+    return deConstObject->getHasProperties();
 }
 
-void IfcPropertySet::release() {
-    IfcPropertySetDefinition::release();
-    m_hasProperties.clear();
+void IfcPropertySet::setHasProperties(const Set_IfcProperty_1_n &value) {
+    m_hasProperties = value;
 }
 
 bool IfcPropertySet::init() {
@@ -107,7 +105,7 @@ bool IfcPropertySet::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_hasProperties.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcPropertySet::init() {
 }
 
 void IfcPropertySet::copy(const IfcPropertySet &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_hasProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_hasProperties;
     IfcPropertySetDefinition::copy(obj, copyop);
     for (it_m_hasProperties = obj.m_hasProperties.begin(); it_m_hasProperties != obj.m_hasProperties.end(); ++it_m_hasProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_hasProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_hasProperties).get()));
         m_hasProperties.insert(copyTarget.get());
     }
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,34 +44,33 @@
 using namespace ifc2x3;
 
 IfcProjectOrderRecord::IfcProjectOrderRecord(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
-    m_records.setUnset(true);
     m_predefinedType = IfcProjectOrderRecordTypeEnum_UNSET;
 }
 
 IfcProjectOrderRecord::~IfcProjectOrderRecord() {
 }
 
-bool IfcProjectOrderRecord::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProjectOrderRecord(this);
+bool IfcProjectOrderRecord::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProjectOrderRecord(this);
 }
 
-const std::string &IfcProjectOrderRecord::type() {
+const std::string &IfcProjectOrderRecord::type() const {
     return IfcProjectOrderRecord::s_type.getName();
 }
 
-Step::ClassType IfcProjectOrderRecord::getClassType() {
+const Step::ClassType &IfcProjectOrderRecord::getClassType() {
     return IfcProjectOrderRecord::s_type;
 }
 
-Step::ClassType IfcProjectOrderRecord::getType() const {
+const Step::ClassType &IfcProjectOrderRecord::getType() const {
     return IfcProjectOrderRecord::s_type;
 }
 
-bool IfcProjectOrderRecord::isOfType(Step::ClassType t) {
+bool IfcProjectOrderRecord::isOfType(const Step::ClassType &t) const {
     return IfcProjectOrderRecord::s_type == t ? true : IfcControl::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > > &IfcProjectOrderRecord::getRecords() {
+List_IfcRelAssignsToProjectOrder_1_n &IfcProjectOrderRecord::getRecords() {
     if (Step::BaseObject::inited()) {
         return m_records;
     }
@@ -82,7 +80,12 @@ Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > > &IfcProjectOrderRecord
     }
 }
 
-void IfcProjectOrderRecord::setRecords(const Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > > &value) {
+const List_IfcRelAssignsToProjectOrder_1_n &IfcProjectOrderRecord::getRecords() const {
+    IfcProjectOrderRecord * deConstObject = const_cast< IfcProjectOrderRecord * > (this);
+    return deConstObject->getRecords();
+}
+
+void IfcProjectOrderRecord::setRecords(const List_IfcRelAssignsToProjectOrder_1_n &value) {
     m_records = value;
 }
 
@@ -95,13 +98,13 @@ IfcProjectOrderRecordTypeEnum IfcProjectOrderRecord::getPredefinedType() {
     }
 }
 
-void IfcProjectOrderRecord::setPredefinedType(IfcProjectOrderRecordTypeEnum value) {
-    m_predefinedType = value;
+const IfcProjectOrderRecordTypeEnum IfcProjectOrderRecord::getPredefinedType() const {
+    IfcProjectOrderRecord * deConstObject = const_cast< IfcProjectOrderRecord * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcProjectOrderRecord::release() {
-    IfcControl::release();
-    m_records.clear();
+void IfcProjectOrderRecord::setPredefinedType(IfcProjectOrderRecordTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcProjectOrderRecord::init() {
@@ -121,7 +124,7 @@ bool IfcProjectOrderRecord::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRelAssignsToProjectOrder > attr2;
-                attr2 = static_cast< IfcRelAssignsToProjectOrder * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRelAssignsToProjectOrder * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_records.push_back(attr2);
             }
             else {
@@ -160,10 +163,10 @@ bool IfcProjectOrderRecord::init() {
 }
 
 void IfcProjectOrderRecord::copy(const IfcProjectOrderRecord &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder > >::const_iterator it_m_records;
+    Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder >, 1 >::const_iterator it_m_records;
     IfcControl::copy(obj, copyop);
     for (it_m_records = obj.m_records.begin(); it_m_records != obj.m_records.end(); ++it_m_records) {
-        Step::RefPtr< IfcRelAssignsToProjectOrder > copyTarget = copyop((*it_m_records).get());
+        Step::RefPtr< IfcRelAssignsToProjectOrder > copyTarget = (IfcRelAssignsToProjectOrder *) (copyop((*it_m_records).get()));
         m_records.push_back(copyTarget.get());
     }
     setPredefinedType(obj.m_predefinedType);

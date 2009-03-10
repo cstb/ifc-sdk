@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcStructuralLoadTemperature::IfcStructuralLoadTemperature(Step::Id id, Step::SP
 IfcStructuralLoadTemperature::~IfcStructuralLoadTemperature() {
 }
 
-bool IfcStructuralLoadTemperature::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadTemperature(this);
+bool IfcStructuralLoadTemperature::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadTemperature(this);
 }
 
-const std::string &IfcStructuralLoadTemperature::type() {
+const std::string &IfcStructuralLoadTemperature::type() const {
     return IfcStructuralLoadTemperature::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadTemperature::getClassType() {
+const Step::ClassType &IfcStructuralLoadTemperature::getClassType() {
     return IfcStructuralLoadTemperature::s_type;
 }
 
-Step::ClassType IfcStructuralLoadTemperature::getType() const {
+const Step::ClassType &IfcStructuralLoadTemperature::getType() const {
     return IfcStructuralLoadTemperature::s_type;
 }
 
-bool IfcStructuralLoadTemperature::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadTemperature::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadTemperature::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Const
     else {
         return Step::getUnset(m_deltaT_Constant);
     }
+}
+
+const IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Constant() const {
+    IfcStructuralLoadTemperature * deConstObject = const_cast< IfcStructuralLoadTemperature * > (this);
+    return deConstObject->getDeltaT_Constant();
 }
 
 void IfcStructuralLoadTemperature::setDeltaT_Constant(IfcThermodynamicTemperatureMeasure value) {
@@ -90,6 +95,11 @@ IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Y() {
     }
 }
 
+const IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Y() const {
+    IfcStructuralLoadTemperature * deConstObject = const_cast< IfcStructuralLoadTemperature * > (this);
+    return deConstObject->getDeltaT_Y();
+}
+
 void IfcStructuralLoadTemperature::setDeltaT_Y(IfcThermodynamicTemperatureMeasure value) {
     m_deltaT_Y = value;
 }
@@ -103,12 +113,13 @@ IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Z() {
     }
 }
 
-void IfcStructuralLoadTemperature::setDeltaT_Z(IfcThermodynamicTemperatureMeasure value) {
-    m_deltaT_Z = value;
+const IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Z() const {
+    IfcStructuralLoadTemperature * deConstObject = const_cast< IfcStructuralLoadTemperature * > (this);
+    return deConstObject->getDeltaT_Z();
 }
 
-void IfcStructuralLoadTemperature::release() {
-    IfcStructuralLoadStatic::release();
+void IfcStructuralLoadTemperature::setDeltaT_Z(IfcThermodynamicTemperatureMeasure value) {
+    m_deltaT_Z = value;
 }
 
 bool IfcStructuralLoadTemperature::init() {

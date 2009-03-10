@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcOutletType::IfcOutletType(Step::Id id, Step::SPFData *args) : IfcFlowTerminal
 IfcOutletType::~IfcOutletType() {
 }
 
-bool IfcOutletType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOutletType(this);
+bool IfcOutletType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOutletType(this);
 }
 
-const std::string &IfcOutletType::type() {
+const std::string &IfcOutletType::type() const {
     return IfcOutletType::s_type.getName();
 }
 
-Step::ClassType IfcOutletType::getClassType() {
+const Step::ClassType &IfcOutletType::getClassType() {
     return IfcOutletType::s_type;
 }
 
-Step::ClassType IfcOutletType::getType() const {
+const Step::ClassType &IfcOutletType::getType() const {
     return IfcOutletType::s_type;
 }
 
-bool IfcOutletType::isOfType(Step::ClassType t) {
+bool IfcOutletType::isOfType(const Step::ClassType &t) const {
     return IfcOutletType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcOutletTypeEnum IfcOutletType::getPredefinedType() {
     }
 }
 
-void IfcOutletType::setPredefinedType(IfcOutletTypeEnum value) {
-    m_predefinedType = value;
+const IfcOutletTypeEnum IfcOutletType::getPredefinedType() const {
+    IfcOutletType * deConstObject = const_cast< IfcOutletType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcOutletType::release() {
-    IfcFlowTerminalType::release();
+void IfcOutletType::setPredefinedType(IfcOutletTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcOutletType::init() {

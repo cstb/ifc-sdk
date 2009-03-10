@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcDraughtingPreDefinedTextFont::IfcDraughtingPreDefinedTextFont(Step::Id id, St
 IfcDraughtingPreDefinedTextFont::~IfcDraughtingPreDefinedTextFont() {
 }
 
-bool IfcDraughtingPreDefinedTextFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingPreDefinedTextFont(this);
+bool IfcDraughtingPreDefinedTextFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingPreDefinedTextFont(this);
 }
 
-const std::string &IfcDraughtingPreDefinedTextFont::type() {
+const std::string &IfcDraughtingPreDefinedTextFont::type() const {
     return IfcDraughtingPreDefinedTextFont::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingPreDefinedTextFont::getClassType() {
+const Step::ClassType &IfcDraughtingPreDefinedTextFont::getClassType() {
     return IfcDraughtingPreDefinedTextFont::s_type;
 }
 
-Step::ClassType IfcDraughtingPreDefinedTextFont::getType() const {
+const Step::ClassType &IfcDraughtingPreDefinedTextFont::getType() const {
     return IfcDraughtingPreDefinedTextFont::s_type;
 }
 
-bool IfcDraughtingPreDefinedTextFont::isOfType(Step::ClassType t) {
+bool IfcDraughtingPreDefinedTextFont::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingPreDefinedTextFont::s_type == t ? true : IfcPreDefinedTextFont::isOfType(t);
-}
-
-void IfcDraughtingPreDefinedTextFont::release() {
-    IfcPreDefinedTextFont::release();
 }
 
 bool IfcDraughtingPreDefinedTextFont::init() {

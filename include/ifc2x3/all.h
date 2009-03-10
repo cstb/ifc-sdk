@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -53,7 +53,6 @@
 #include "IfcBoxedHalfSpace.h"
 #include "IfcRelAssignsToProcess.h"
 #include "IfcCurveStyleFontSelect.h"
-#include "IfcBridge.h"
 #include "IfcWorkPlan.h"
 #include "IfcReinforcementBarProperties.h"
 #include "fwDecl.h"
@@ -69,7 +68,6 @@
 #include "IfcLinearDimension.h"
 #include "IfcMaterial.h"
 #include "IfcExternallyDefinedTextFont.h"
-#include "IfcBridgeStructureElement.h"
 #include "IfcRampFlight.h"
 #include "IfcObjectDefinition.h"
 #include "IfcFlowControllerType.h"
@@ -77,7 +75,6 @@
 #include "IfcCurtainWallType.h"
 #include "IfcApprovalPropertyRelationship.h"
 #include "Visitor.h"
-#include "IfcBridgePrismaticElement.h"
 #include "IfcStructuralLoadPlanarForce.h"
 #include "IfcFanType.h"
 #include "IfcValue.h"
@@ -124,7 +121,6 @@
 #include "IfcCompressorType.h"
 #include "IfcCableCarrierSegmentType.h"
 #include "IfcRelAssociatesConstraint.h"
-#include "IfcReferenceElement.h"
 #include "IfcRampFlightType.h"
 #include "IfcTransportElement.h"
 #include "IfcDistributionControlElementType.h"
@@ -138,7 +134,6 @@
 #include "IfcRelFillsElement.h"
 #include "IfcStructuralProfileProperties.h"
 #include "IfcConstraintAggregationRelationship.h"
-#include "IfcReferencedSectionedSpine.h"
 #include "IfcRelAssignsToActor.h"
 #include "IfcLoop.h"
 #include "IfcConnectionSurfaceGeometry.h"
@@ -208,7 +203,6 @@
 #include "IfcRoundedRectangleProfileDef.h"
 #include "IfcDuctFittingType.h"
 #include "IfcClassification.h"
-#include "IfcCivilElement.h"
 #include "IfcDraughtingPreDefinedCurveFont.h"
 #include "IfcSpaceProgram.h"
 #include "IfcDefinedSymbol.h"
@@ -226,7 +220,6 @@
 #include "IfcSimpleProperty.h"
 #include "IfcColourSpecification.h"
 #include "IfcRelAssociatesProfileProperties.h"
-#include "IfcReferenceCurveAlignment2D.h"
 #include "IfcDistributionChamberElement.h"
 #include "IfcStructuralLoadSingleForceWarping.h"
 #include "IfcStructuralCurveMemberVarying.h"
@@ -302,13 +295,11 @@
 #include "IfcLaborResource.h"
 #include "IfcShapeModel.h"
 #include "IfcConstraintClassificationRelationship.h"
-#include "IfcReferencePlacement.h"
 #include "IfcTimeSeriesReferenceRelationship.h"
 #include "IfcMonetaryUnit.h"
 #include "IfcRectangularPyramid.h"
 #include "IfcVirtualGridIntersection.h"
 #include "IfcFooting.h"
-#include "IfcAlignmentElement.h"
 #include "IfcCondition.h"
 #include "IfcFlowTerminalType.h"
 #include "IfcDraughtingPreDefinedColour.h"
@@ -347,7 +338,6 @@
 #include "IfcMaterialLayer.h"
 #include "IfcRelConnects.h"
 #include "IfcSpecularHighlightSelect.h"
-#include "IfcBridgePart.h"
 #include "IfcFeatureElementSubtraction.h"
 #include "IfcPolygonalBoundedHalfSpace.h"
 #include "IfcFillAreaStyleTileShapeSelect.h"
@@ -416,7 +406,6 @@
 #include "IfcWall.h"
 #include "IfcRelSequence.h"
 #include "IfcClassificationItem.h"
-#include "IfcCivilSheath.h"
 #include "IfcFlowTreatmentDeviceType.h"
 #include "IfcRelDefinesByProperties.h"
 #include "IfcSymbolStyleSelect.h"
@@ -460,11 +449,9 @@
 #include "IfcRelConnectsPorts.h"
 #include "IfcPresentationStyleAssignment.h"
 #include "IfcMeasureValue.h"
-#include "IfcReferenceCurvePlacementSystem.h"
 #include "IfcCompositeCurveSegment.h"
 #include "IfcFurnishingElementType.h"
 #include "IfcAsset.h"
-#include "IfcCivilStructureElement.h"
 #include "IfcRelSchedulesCostItems.h"
 #include "IfcRelOccupiesSpaces.h"
 #include "IfcStructuredDimensionCallout.h"
@@ -480,7 +467,6 @@
 #include "IfcTendonAnchor.h"
 #include "IfcInventory.h"
 #include "IfcOrganizationRelationship.h"
-#include "IfcCivilElementPart.h"
 #include "IfcSpaceThermalLoadProperties.h"
 #include "IfcTelecomAddress.h"
 #include "IfcFurnitureStandard.h"
@@ -516,7 +502,6 @@
 #include "IfcDraughtingPreDefinedTextFont.h"
 #include "IfcVirtualElement.h"
 #include "IfcCurveStyleFontAndScaling.h"
-#include "IfcBridgeSegmentPart.h"
 #include "IfcDraughtingCalloutRelationship.h"
 #include "IfcMaterialList.h"
 #include "IfcQuantityArea.h"
@@ -573,11 +558,10 @@
 #include "IfcPermit.h"
 #include "IfcElectricFlowStorageDeviceType.h"
 #include "IfcRamp.h"
-#include "IfcElectricGeneratorType.h"
 #include "IfcDimensionCurve.h"
+#include "IfcElectricGeneratorType.h"
 #include "IfcTextLiteral.h"
 #include "IfcPlacement.h"
-#include "IfcReferenceCurvePlacement.h"
 #include "IfcWasteTerminalType.h"
 #include "IfcElementAssembly.h"
 #include "IfcRevolvedAreaSolid.h"
@@ -586,9 +570,7 @@
 #include "IfcFireSuppressionTerminalType.h"
 #include "IfcObjectPlacement.h"
 #include "IfcCurveFontOrScaledCurveFontSelect.h"
-#include "IfcClothoid.h"
 #include "IfcOrganization.h"
-#include "IfcElementPart.h"
 #include "IfcFlowMovingDeviceType.h"
 #include "IfcAppliedValueRelationship.h"
 #include "IfcFillAreaStyleTiles.h"
@@ -681,13 +663,13 @@
 #include "IfcBoundingBox.h"
 #include "IfcRelAssociatesLibrary.h"
 #include "IfcDerivedUnit.h"
+#include "IfcBuildingElementComponent.h"
 #include "IfcConnectionCurveGeometry.h"
 #include "IfcRectangularTrimmedSurface.h"
 #include "IfcClassificationNotation.h"
 #include "IfcActuatorType.h"
 #include "IfcBezierCurve.h"
 #include "IfcStructuralLoadSingleForce.h"
-#include "IfcReferenceCurve3D.h"
 #include "IfcRelCoversSpaces.h"
 #include "IfcAirTerminalBoxType.h"
 #include "IfcFlowFittingType.h"
@@ -701,18 +683,14 @@
 #include "IfcEvaporativeCoolerType.h"
 #include "IfcZone.h"
 #include "IfcSurfaceStyleRendering.h"
-#include "IfcReferenceCurve.h"
 #include "IfcRelAssociatesApproval.h"
-#include "IfcBridgeElement.h"
 #include "IfcGeometricSetSelect.h"
 #include "IfcShapeAspect.h"
 #include "IfcStructuralLinearAction.h"
 #include "IfcRelAssociatesDocument.h"
 #include "IfcBeamType.h"
 #include "IfcConic.h"
-#include "IfcBridgeContactElement.h"
 #include "IfcGeometricSet.h"
-#include "IfcBridgeSegment.h"
 #include "IfcLightFixtureType.h"
 #include "IfcEnergyConversionDeviceType.h"
 #include "IfcStructuralPointReaction.h"
@@ -726,7 +704,6 @@
 #include "ExpressDataSet.h"
 #include "IfcRoot.h"
 #include <ifc2x3/DefinedTypes.h>
-#include "IfcCivilVoid.h"
 #include "IfcTopologicalRepresentationItem.h"
 #include "IfcFlowInstrumentType.h"
 #include "IfcOffsetCurve2D.h"

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,25 +26,44 @@
 
 #include "ifc2x3/IfcShapeAspect.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcProductDefinitionShape.h"
 #include "ifc2x3/IfcShapeModel.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcShapeAspect_ShapeRepresentations_type::Inverted_IfcShapeAspect_ShapeRepresentations_type() {
+}
+
+void Inverted_IfcShapeAspect_ShapeRepresentations_type::setOwner(IfcShapeAspect *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcShapeAspect_ShapeRepresentations_type::push_back(const Step::RefPtr< IfcShapeModel > &value) throw(std::out_of_range) {
+    IfcShapeModel *inverse = const_cast< IfcShapeModel * > (value.get());
+    List_IfcShapeModel_1_n::push_back(value);
+    inverse->m_ofShapeAspect.insert(mOwner);
+}
+
+Inverted_IfcShapeAspect_ShapeRepresentations_type::iterator Inverted_IfcShapeAspect_ShapeRepresentations_type::erase(const Step::RefPtr< IfcShapeModel > &value) {
+    IfcShapeModel *inverse = const_cast< IfcShapeModel * > (value.get());
+    inverse->m_ofShapeAspect.erase(mOwner);
+    return List_IfcShapeModel_1_n::erase(value);
+}
 
 IfcShapeAspect::IfcShapeAspect(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_shapeRepresentations.setUnset(true);
@@ -58,27 +77,27 @@ IfcShapeAspect::IfcShapeAspect(Step::Id id, Step::SPFData *args) : Step::BaseEnt
 IfcShapeAspect::~IfcShapeAspect() {
 }
 
-bool IfcShapeAspect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcShapeAspect(this);
+bool IfcShapeAspect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcShapeAspect(this);
 }
 
-const std::string &IfcShapeAspect::type() {
+const std::string &IfcShapeAspect::type() const {
     return IfcShapeAspect::s_type.getName();
 }
 
-Step::ClassType IfcShapeAspect::getClassType() {
+const Step::ClassType &IfcShapeAspect::getClassType() {
     return IfcShapeAspect::s_type;
 }
 
-Step::ClassType IfcShapeAspect::getType() const {
+const Step::ClassType &IfcShapeAspect::getType() const {
     return IfcShapeAspect::s_type;
 }
 
-bool IfcShapeAspect::isOfType(Step::ClassType t) {
+bool IfcShapeAspect::isOfType(const Step::ClassType &t) const {
     return IfcShapeAspect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcShapeModel > > &IfcShapeAspect::getShapeRepresentations() {
+List_IfcShapeModel_1_n &IfcShapeAspect::getShapeRepresentations() {
     if (Step::BaseObject::inited()) {
         return m_shapeRepresentations;
     }
@@ -88,6 +107,11 @@ Step::List< Step::RefPtr< IfcShapeModel > > &IfcShapeAspect::getShapeRepresentat
     }
 }
 
+const List_IfcShapeModel_1_n &IfcShapeAspect::getShapeRepresentations() const {
+    IfcShapeAspect * deConstObject = const_cast< IfcShapeAspect * > (this);
+    return deConstObject->getShapeRepresentations();
+}
+
 IfcLabel IfcShapeAspect::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -95,6 +119,11 @@ IfcLabel IfcShapeAspect::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcShapeAspect::getName() const {
+    IfcShapeAspect * deConstObject = const_cast< IfcShapeAspect * > (this);
+    return deConstObject->getName();
 }
 
 void IfcShapeAspect::setName(const IfcLabel &value) {
@@ -110,6 +139,11 @@ IfcText IfcShapeAspect::getDescription() {
     }
 }
 
+const IfcText IfcShapeAspect::getDescription() const {
+    IfcShapeAspect * deConstObject = const_cast< IfcShapeAspect * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcShapeAspect::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -121,6 +155,11 @@ Step::Logical IfcShapeAspect::getProductDefinitional() {
     else {
         return Step::getUnset(m_productDefinitional);
     }
+}
+
+const Step::Logical IfcShapeAspect::getProductDefinitional() const {
+    IfcShapeAspect * deConstObject = const_cast< IfcShapeAspect * > (this);
+    return deConstObject->getProductDefinitional();
 }
 
 void IfcShapeAspect::setProductDefinitional(Step::Logical value) {
@@ -136,14 +175,19 @@ IfcProductDefinitionShape *IfcShapeAspect::getPartOfProductDefinitionShape() {
     }
 }
 
-void IfcShapeAspect::setPartOfProductDefinitionShape(const Step::RefPtr< IfcProductDefinitionShape > &value) {
-    m_partOfProductDefinitionShape = value;
-    m_partOfProductDefinitionShape->m_hasShapeAspects.insert(this);
+const IfcProductDefinitionShape *IfcShapeAspect::getPartOfProductDefinitionShape() const {
+    IfcShapeAspect * deConstObject = const_cast< IfcShapeAspect * > (this);
+    return deConstObject->getPartOfProductDefinitionShape();
 }
 
-void IfcShapeAspect::release() {
-    m_shapeRepresentations.clear();
-    m_partOfProductDefinitionShape.release();
+void IfcShapeAspect::setPartOfProductDefinitionShape(const Step::RefPtr< IfcProductDefinitionShape > &value) {
+    if (m_partOfProductDefinitionShape.valid()) {
+        m_partOfProductDefinitionShape->m_hasShapeAspects.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasShapeAspects.insert(this);
+    }
+    m_partOfProductDefinitionShape = value;
 }
 
 bool IfcShapeAspect::init() {
@@ -159,7 +203,7 @@ bool IfcShapeAspect::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcShapeModel > attr2;
-                attr2 = static_cast< IfcShapeModel * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcShapeModel * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_shapeRepresentations.push_back(attr2);
             }
             else {
@@ -172,14 +216,14 @@ bool IfcShapeAspect::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -193,36 +237,23 @@ bool IfcShapeAspect::init() {
         m_partOfProductDefinitionShape = NULL;
     }
     else {
-        m_partOfProductDefinitionShape = static_cast< IfcProductDefinitionShape * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_partOfProductDefinitionShape = static_cast< IfcProductDefinitionShape * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcShapeAspect::copy(const IfcShapeAspect &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcShapeModel > >::const_iterator it_m_shapeRepresentations;
+    Step::List< Step::RefPtr< IfcShapeModel >, 1 >::const_iterator it_m_shapeRepresentations;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_shapeRepresentations = obj.m_shapeRepresentations.begin(); it_m_shapeRepresentations != obj.m_shapeRepresentations.end(); ++it_m_shapeRepresentations) {
-        Step::RefPtr< IfcShapeModel > copyTarget = copyop((*it_m_shapeRepresentations).get());
+        Step::RefPtr< IfcShapeModel > copyTarget = (IfcShapeModel *) (copyop((*it_m_shapeRepresentations).get()));
         m_shapeRepresentations.push_back(copyTarget.get());
     }
     setName(obj.m_name);
     setDescription(obj.m_description);
     setProductDefinitional(obj.m_productDefinitional);
-    setPartOfProductDefinitionShape(copyop(obj.m_partOfProductDefinitionShape.get()));
+    setPartOfProductDefinitionShape((IfcProductDefinitionShape*)copyop(obj.m_partOfProductDefinitionShape.get()));
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcShapeAspect::s_type("IfcShapeAspect");
-IfcShapeAspect::Inverted_ShapeRepresentations_type::Inverted_ShapeRepresentations_type() {
-}
-
-void IfcShapeAspect::Inverted_ShapeRepresentations_type::setOwner(IfcShapeAspect *owner) {
-    mOwner = owner;
-}
-
-void IfcShapeAspect::Inverted_ShapeRepresentations_type::push_back(const Step::RefPtr< IfcShapeModel > &value) {
-    IfcShapeModel *inverse = const_cast< IfcShapeModel * > (value.get());
-    Step::List< Step::RefPtr< IfcShapeModel > >::push_back(value);
-    inverse->m_ofShapeAspect.insert(mOwner);
-}
-

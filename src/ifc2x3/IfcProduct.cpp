@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,8 +37,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -50,29 +50,28 @@ using namespace ifc2x3;
 IfcProduct::IfcProduct(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
     m_objectPlacement = NULL;
     m_representation = NULL;
-    m_referencedBy.setUnset(true);
 }
 
 IfcProduct::~IfcProduct() {
 }
 
-bool IfcProduct::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProduct(this);
+bool IfcProduct::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProduct(this);
 }
 
-const std::string &IfcProduct::type() {
+const std::string &IfcProduct::type() const {
     return IfcProduct::s_type.getName();
 }
 
-Step::ClassType IfcProduct::getClassType() {
+const Step::ClassType &IfcProduct::getClassType() {
     return IfcProduct::s_type;
 }
 
-Step::ClassType IfcProduct::getType() const {
+const Step::ClassType &IfcProduct::getType() const {
     return IfcProduct::s_type;
 }
 
-bool IfcProduct::isOfType(Step::ClassType t) {
+bool IfcProduct::isOfType(const Step::ClassType &t) const {
     return IfcProduct::s_type == t ? true : IfcObject::isOfType(t);
 }
 
@@ -85,9 +84,19 @@ IfcObjectPlacement *IfcProduct::getObjectPlacement() {
     }
 }
 
+const IfcObjectPlacement *IfcProduct::getObjectPlacement() const {
+    IfcProduct * deConstObject = const_cast< IfcProduct * > (this);
+    return deConstObject->getObjectPlacement();
+}
+
 void IfcProduct::setObjectPlacement(const Step::RefPtr< IfcObjectPlacement > &value) {
+    if (m_objectPlacement.valid()) {
+        m_objectPlacement->m_placesObject.erase(this);
+    }
+    if (value.valid()) {
+        value->m_placesObject.insert(this);
+    }
     m_objectPlacement = value;
-    m_objectPlacement->m_placesObject.insert(this);
 }
 
 IfcProductRepresentation *IfcProduct::getRepresentation() {
@@ -99,14 +108,25 @@ IfcProductRepresentation *IfcProduct::getRepresentation() {
     }
 }
 
-void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
-    m_representation = value;
-    if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
-        ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.insert(this);
-    }
+const IfcProductRepresentation *IfcProduct::getRepresentation() const {
+    IfcProduct * deConstObject = const_cast< IfcProduct * > (this);
+    return deConstObject->getRepresentation();
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssignsToProduct > > &IfcProduct::getReferencedBy() {
+void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
+	// If we already had a representation, remove it from Inverse relation
+	if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
+		((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.erase(this);
+	}
+	// Add new representation to the Inverse relation
+	if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != NULL) {
+		((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct.insert(this);
+	}
+	// Set the new representation
+	m_representation = value;
+}
+
+Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() {
     if (Step::BaseObject::inited()) {
         return m_referencedBy;
     }
@@ -116,10 +136,9 @@ Step::Set< Step::ObsPtr< IfcRelAssignsToProduct > > &IfcProduct::getReferencedBy
     }
 }
 
-void IfcProduct::release() {
-    IfcObject::release();
-    m_objectPlacement.release();
-    m_representation.release();
+const Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() const {
+    IfcProduct * deConstObject = const_cast< IfcProduct * > (this);
+    return deConstObject->getReferencedBy();
 }
 
 bool IfcProduct::init() {
@@ -134,14 +153,14 @@ bool IfcProduct::init() {
         m_objectPlacement = NULL;
     }
     else {
-        m_objectPlacement = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_objectPlacement = static_cast< IfcObjectPlacement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_representation = NULL;
     }
     else {
-        m_representation = static_cast< IfcProductRepresentation * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_representation = static_cast< IfcProductRepresentation * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     inverses = m_args->getInverses(IfcRelAssignsToProduct::getClassType(), 6);
     if (inverses) {
@@ -156,8 +175,8 @@ bool IfcProduct::init() {
 
 void IfcProduct::copy(const IfcProduct &obj, const CopyOp &copyop) {
     IfcObject::copy(obj, copyop);
-    setObjectPlacement(copyop(obj.m_objectPlacement.get()));
-    setRepresentation(copyop(obj.m_representation.get()));
+    setObjectPlacement((IfcObjectPlacement*)copyop(obj.m_objectPlacement.get()));
+    setRepresentation((IfcProductRepresentation*)copyop(obj.m_representation.get()));
     return;
 }
 

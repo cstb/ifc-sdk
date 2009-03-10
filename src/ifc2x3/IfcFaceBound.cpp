@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcFaceBound::IfcFaceBound(Step::Id id, Step::SPFData *args) : IfcTopologicalRep
 IfcFaceBound::~IfcFaceBound() {
 }
 
-bool IfcFaceBound::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFaceBound(this);
+bool IfcFaceBound::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFaceBound(this);
 }
 
-const std::string &IfcFaceBound::type() {
+const std::string &IfcFaceBound::type() const {
     return IfcFaceBound::s_type.getName();
 }
 
-Step::ClassType IfcFaceBound::getClassType() {
+const Step::ClassType &IfcFaceBound::getClassType() {
     return IfcFaceBound::s_type;
 }
 
-Step::ClassType IfcFaceBound::getType() const {
+const Step::ClassType &IfcFaceBound::getType() const {
     return IfcFaceBound::s_type;
 }
 
-bool IfcFaceBound::isOfType(Step::ClassType t) {
+bool IfcFaceBound::isOfType(const Step::ClassType &t) const {
     return IfcFaceBound::s_type == t ? true : IfcTopologicalRepresentationItem::isOfType(t);
 }
 
@@ -80,11 +80,16 @@ IfcLoop *IfcFaceBound::getBound() {
     }
 }
 
+const IfcLoop *IfcFaceBound::getBound() const {
+    IfcFaceBound * deConstObject = const_cast< IfcFaceBound * > (this);
+    return deConstObject->getBound();
+}
+
 void IfcFaceBound::setBound(const Step::RefPtr< IfcLoop > &value) {
     m_bound = value;
 }
 
-Step::Bool IfcFaceBound::getOrientation() {
+Step::Boolean IfcFaceBound::getOrientation() {
     if (Step::BaseObject::inited()) {
         return m_orientation;
     }
@@ -93,13 +98,13 @@ Step::Bool IfcFaceBound::getOrientation() {
     }
 }
 
-void IfcFaceBound::setOrientation(Step::Bool value) {
-    m_orientation = value;
+const Step::Boolean IfcFaceBound::getOrientation() const {
+    IfcFaceBound * deConstObject = const_cast< IfcFaceBound * > (this);
+    return deConstObject->getOrientation();
 }
 
-void IfcFaceBound::release() {
-    IfcTopologicalRepresentationItem::release();
-    m_bound.release();
+void IfcFaceBound::setOrientation(Step::Boolean value) {
+    m_orientation = value;
 }
 
 bool IfcFaceBound::init() {
@@ -113,21 +118,21 @@ bool IfcFaceBound::init() {
         m_bound = NULL;
     }
     else {
-        m_bound = static_cast< IfcLoop * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_bound = static_cast< IfcLoop * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_orientation = Step::getUnset(m_orientation);
     }
     else {
-        m_orientation = Step::spfToBool(arg);
+        m_orientation = Step::spfToBoolean(arg);
     }
     return true;
 }
 
 void IfcFaceBound::copy(const IfcFaceBound &obj, const CopyOp &copyop) {
     IfcTopologicalRepresentationItem::copy(obj, copyop);
-    setBound(copyop(obj.m_bound.get()));
+    setBound((IfcLoop*)copyop(obj.m_bound.get()));
     setOrientation(obj.m_orientation);
     return;
 }

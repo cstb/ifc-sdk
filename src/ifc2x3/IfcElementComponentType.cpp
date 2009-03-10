@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcElementComponentType::IfcElementComponentType(Step::Id id, Step::SPFData *arg
 IfcElementComponentType::~IfcElementComponentType() {
 }
 
-bool IfcElementComponentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElementComponentType(this);
+bool IfcElementComponentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElementComponentType(this);
 }
 
-const std::string &IfcElementComponentType::type() {
+const std::string &IfcElementComponentType::type() const {
     return IfcElementComponentType::s_type.getName();
 }
 
-Step::ClassType IfcElementComponentType::getClassType() {
+const Step::ClassType &IfcElementComponentType::getClassType() {
     return IfcElementComponentType::s_type;
 }
 
-Step::ClassType IfcElementComponentType::getType() const {
+const Step::ClassType &IfcElementComponentType::getType() const {
     return IfcElementComponentType::s_type;
 }
 
-bool IfcElementComponentType::isOfType(Step::ClassType t) {
+bool IfcElementComponentType::isOfType(const Step::ClassType &t) const {
     return IfcElementComponentType::s_type == t ? true : IfcElementType::isOfType(t);
-}
-
-void IfcElementComponentType::release() {
-    IfcElementType::release();
 }
 
 bool IfcElementComponentType::init() {

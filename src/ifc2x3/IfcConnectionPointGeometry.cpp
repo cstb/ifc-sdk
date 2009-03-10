@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcConnectionPointGeometry::IfcConnectionPointGeometry(Step::Id id, Step::SPFDat
 IfcConnectionPointGeometry::~IfcConnectionPointGeometry() {
 }
 
-bool IfcConnectionPointGeometry::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConnectionPointGeometry(this);
+bool IfcConnectionPointGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConnectionPointGeometry(this);
 }
 
-const std::string &IfcConnectionPointGeometry::type() {
+const std::string &IfcConnectionPointGeometry::type() const {
     return IfcConnectionPointGeometry::s_type.getName();
 }
 
-Step::ClassType IfcConnectionPointGeometry::getClassType() {
+const Step::ClassType &IfcConnectionPointGeometry::getClassType() {
     return IfcConnectionPointGeometry::s_type;
 }
 
-Step::ClassType IfcConnectionPointGeometry::getType() const {
+const Step::ClassType &IfcConnectionPointGeometry::getType() const {
     return IfcConnectionPointGeometry::s_type;
 }
 
-bool IfcConnectionPointGeometry::isOfType(Step::ClassType t) {
+bool IfcConnectionPointGeometry::isOfType(const Step::ClassType &t) const {
     return IfcConnectionPointGeometry::s_type == t ? true : IfcConnectionGeometry::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() {
     else {
         return NULL;
     }
+}
+
+const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatingElement() const {
+    IfcConnectionPointGeometry * deConstObject = const_cast< IfcConnectionPointGeometry * > (this);
+    return deConstObject->getPointOnRelatingElement();
 }
 
 void IfcConnectionPointGeometry::setPointOnRelatingElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
@@ -92,12 +97,13 @@ IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() {
     }
 }
 
-void IfcConnectionPointGeometry::setPointOnRelatedElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
-    m_pointOnRelatedElement = value;
+const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() const {
+    IfcConnectionPointGeometry * deConstObject = const_cast< IfcConnectionPointGeometry * > (this);
+    return deConstObject->getPointOnRelatedElement();
 }
 
-void IfcConnectionPointGeometry::release() {
-    IfcConnectionGeometry::release();
+void IfcConnectionPointGeometry::setPointOnRelatedElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
+    m_pointOnRelatedElement = value;
 }
 
 bool IfcConnectionPointGeometry::init() {

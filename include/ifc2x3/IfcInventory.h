@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,12 +30,11 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
+#include <Step/ClassType.h>
+#include "ifc2x3/IfcGroup.h"
+#include <string>
 #include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcGroup.h"
-#include <Step/ClassType.h>
-#include <Step/Aggregation.h>
-#include <string>
 
 namespace ifc2x3 {
 
@@ -43,88 +42,140 @@ namespace ifc2x3 {
     class IfcActorSelect;
     class IfcCalendarDate;
     class IfcCostValue;
-    class IfcPerson;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcInventory : public IfcGroup {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'InventoryType'.
+         * 
          */
-        IfcInventoryTypeEnum getInventoryType();
+        virtual IfcInventoryTypeEnum getInventoryType();
+        /**
+         * (const) Returns the value of the explicit attribute 'InventoryType'.
+         * 
+         * @return the value of the explicit attribute 'InventoryType'
+         */
+        virtual const IfcInventoryTypeEnum getInventoryType() const;
         /**
          * Sets the value of the explicit attribute 'InventoryType'.
          * 
          * @param value
          */
-        void setInventoryType(IfcInventoryTypeEnum value);
+        virtual void setInventoryType(IfcInventoryTypeEnum value);
         /**
+         * Gets the value of the explicit attribute 'Jurisdiction'.
+         * 
          */
-        IfcActorSelect *getJurisdiction();
+        virtual IfcActorSelect *getJurisdiction();
+        /**
+         * (const) Returns the value of the explicit attribute 'Jurisdiction'.
+         * 
+         * @return the value of the explicit attribute 'Jurisdiction'
+         */
+        virtual const IfcActorSelect *getJurisdiction() const;
         /**
          * Sets the value of the explicit attribute 'Jurisdiction'.
          * 
          * @param value
          */
-        void setJurisdiction(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setJurisdiction(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'ResponsiblePersons'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcPerson > > &getResponsiblePersons();
+        virtual Set_IfcPerson_1_n &getResponsiblePersons();
+        /**
+         * (const) Returns the value of the explicit attribute 'ResponsiblePersons'.
+         * 
+         * @return the value of the explicit attribute 'ResponsiblePersons'
+         */
+        virtual const Set_IfcPerson_1_n &getResponsiblePersons() const;
         /**
          * Sets the value of the explicit attribute 'ResponsiblePersons'.
          * 
          * @param value
          */
-        void setResponsiblePersons(const Step::Set< Step::RefPtr< IfcPerson > > &value);
+        virtual void setResponsiblePersons(const Set_IfcPerson_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'LastUpdateDate'.
+         * 
          */
-        IfcCalendarDate *getLastUpdateDate();
+        virtual IfcCalendarDate *getLastUpdateDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'LastUpdateDate'.
+         * 
+         * @return the value of the explicit attribute 'LastUpdateDate'
+         */
+        virtual const IfcCalendarDate *getLastUpdateDate() const;
         /**
          * Sets the value of the explicit attribute 'LastUpdateDate'.
          * 
          * @param value
          */
-        void setLastUpdateDate(const Step::RefPtr< IfcCalendarDate > &value);
+        virtual void setLastUpdateDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * Gets the value of the explicit attribute 'CurrentValue'.
+         * 
          */
-        IfcCostValue *getCurrentValue();
+        virtual IfcCostValue *getCurrentValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'CurrentValue'.
+         * 
+         * @return the value of the explicit attribute 'CurrentValue'
+         */
+        virtual const IfcCostValue *getCurrentValue() const;
         /**
          * Sets the value of the explicit attribute 'CurrentValue'.
          * 
          * @param value
          */
-        void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
+        virtual void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * Gets the value of the explicit attribute 'OriginalValue'.
+         * 
          */
-        IfcCostValue *getOriginalValue();
+        virtual IfcCostValue *getOriginalValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'OriginalValue'.
+         * 
+         * @return the value of the explicit attribute 'OriginalValue'
+         */
+        virtual const IfcCostValue *getOriginalValue() const;
         /**
          * Sets the value of the explicit attribute 'OriginalValue'.
          * 
          * @param value
          */
-        void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
         friend class ExpressDataSet;
 
     protected:
@@ -155,7 +206,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcActorSelect > m_jurisdiction;
         /**
          */
-        Step::Set< Step::RefPtr< IfcPerson > > m_responsiblePersons;
+        Set_IfcPerson_1_n m_responsiblePersons;
         /**
          */
         Step::RefPtr< IfcCalendarDate > m_lastUpdateDate;

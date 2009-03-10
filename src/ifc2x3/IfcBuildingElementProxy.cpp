@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcBuildingElementProxy::IfcBuildingElementProxy(Step::Id id, Step::SPFData *arg
 IfcBuildingElementProxy::~IfcBuildingElementProxy() {
 }
 
-bool IfcBuildingElementProxy::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBuildingElementProxy(this);
+bool IfcBuildingElementProxy::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBuildingElementProxy(this);
 }
 
-const std::string &IfcBuildingElementProxy::type() {
+const std::string &IfcBuildingElementProxy::type() const {
     return IfcBuildingElementProxy::s_type.getName();
 }
 
-Step::ClassType IfcBuildingElementProxy::getClassType() {
+const Step::ClassType &IfcBuildingElementProxy::getClassType() {
     return IfcBuildingElementProxy::s_type;
 }
 
-Step::ClassType IfcBuildingElementProxy::getType() const {
+const Step::ClassType &IfcBuildingElementProxy::getType() const {
     return IfcBuildingElementProxy::s_type;
 }
 
-bool IfcBuildingElementProxy::isOfType(Step::ClassType t) {
+bool IfcBuildingElementProxy::isOfType(const Step::ClassType &t) const {
     return IfcBuildingElementProxy::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElementCompositionEnum IfcBuildingElementProxy::getCompositionType() {
     }
 }
 
-void IfcBuildingElementProxy::setCompositionType(IfcElementCompositionEnum value) {
-    m_compositionType = value;
+const IfcElementCompositionEnum IfcBuildingElementProxy::getCompositionType() const {
+    IfcBuildingElementProxy * deConstObject = const_cast< IfcBuildingElementProxy * > (this);
+    return deConstObject->getCompositionType();
 }
 
-void IfcBuildingElementProxy::release() {
-    IfcBuildingElement::release();
+void IfcBuildingElementProxy::setCompositionType(IfcElementCompositionEnum value) {
+    m_compositionType = value;
 }
 
 bool IfcBuildingElementProxy::init() {

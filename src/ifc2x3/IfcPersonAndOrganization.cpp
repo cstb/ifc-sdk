@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,7 +38,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -55,23 +54,23 @@ IfcPersonAndOrganization::IfcPersonAndOrganization(Step::Id id, Step::SPFData *a
 IfcPersonAndOrganization::~IfcPersonAndOrganization() {
 }
 
-bool IfcPersonAndOrganization::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPersonAndOrganization(this);
+bool IfcPersonAndOrganization::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPersonAndOrganization(this);
 }
 
-const std::string &IfcPersonAndOrganization::type() {
+const std::string &IfcPersonAndOrganization::type() const {
     return IfcPersonAndOrganization::s_type.getName();
 }
 
-Step::ClassType IfcPersonAndOrganization::getClassType() {
+const Step::ClassType &IfcPersonAndOrganization::getClassType() {
     return IfcPersonAndOrganization::s_type;
 }
 
-Step::ClassType IfcPersonAndOrganization::getType() const {
+const Step::ClassType &IfcPersonAndOrganization::getType() const {
     return IfcPersonAndOrganization::s_type;
 }
 
-bool IfcPersonAndOrganization::isOfType(Step::ClassType t) {
+bool IfcPersonAndOrganization::isOfType(const Step::ClassType &t) const {
     return IfcPersonAndOrganization::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,9 +83,19 @@ IfcPerson *IfcPersonAndOrganization::getThePerson() {
     }
 }
 
+const IfcPerson *IfcPersonAndOrganization::getThePerson() const {
+    IfcPersonAndOrganization * deConstObject = const_cast< IfcPersonAndOrganization * > (this);
+    return deConstObject->getThePerson();
+}
+
 void IfcPersonAndOrganization::setThePerson(const Step::RefPtr< IfcPerson > &value) {
+    if (m_thePerson.valid()) {
+        m_thePerson->m_engagedIn.erase(this);
+    }
+    if (value.valid()) {
+        value->m_engagedIn.insert(this);
+    }
     m_thePerson = value;
-    m_thePerson->m_engagedIn.insert(this);
 }
 
 IfcOrganization *IfcPersonAndOrganization::getTheOrganization() {
@@ -98,12 +107,22 @@ IfcOrganization *IfcPersonAndOrganization::getTheOrganization() {
     }
 }
 
-void IfcPersonAndOrganization::setTheOrganization(const Step::RefPtr< IfcOrganization > &value) {
-    m_theOrganization = value;
-    m_theOrganization->m_engages.insert(this);
+const IfcOrganization *IfcPersonAndOrganization::getTheOrganization() const {
+    IfcPersonAndOrganization * deConstObject = const_cast< IfcPersonAndOrganization * > (this);
+    return deConstObject->getTheOrganization();
 }
 
-Step::List< Step::RefPtr< IfcActorRole > > &IfcPersonAndOrganization::getRoles() {
+void IfcPersonAndOrganization::setTheOrganization(const Step::RefPtr< IfcOrganization > &value) {
+    if (m_theOrganization.valid()) {
+        m_theOrganization->m_engages.erase(this);
+    }
+    if (value.valid()) {
+        value->m_engages.insert(this);
+    }
+    m_theOrganization = value;
+}
+
+List_IfcActorRole_1_n &IfcPersonAndOrganization::getRoles() {
     if (Step::BaseObject::inited()) {
         return m_roles;
     }
@@ -113,14 +132,13 @@ Step::List< Step::RefPtr< IfcActorRole > > &IfcPersonAndOrganization::getRoles()
     }
 }
 
-void IfcPersonAndOrganization::setRoles(const Step::List< Step::RefPtr< IfcActorRole > > &value) {
-    m_roles = value;
+const List_IfcActorRole_1_n &IfcPersonAndOrganization::getRoles() const {
+    IfcPersonAndOrganization * deConstObject = const_cast< IfcPersonAndOrganization * > (this);
+    return deConstObject->getRoles();
 }
 
-void IfcPersonAndOrganization::release() {
-    m_thePerson.release();
-    m_theOrganization.release();
-    m_roles.clear();
+void IfcPersonAndOrganization::setRoles(const List_IfcActorRole_1_n &value) {
+    m_roles = value;
 }
 
 bool IfcPersonAndOrganization::init() {
@@ -130,14 +148,14 @@ bool IfcPersonAndOrganization::init() {
         m_thePerson = NULL;
     }
     else {
-        m_thePerson = static_cast< IfcPerson * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_thePerson = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_theOrganization = NULL;
     }
     else {
-        m_theOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_theOrganization = static_cast< IfcOrganization * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -150,7 +168,7 @@ bool IfcPersonAndOrganization::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcActorRole > attr2;
-                attr2 = static_cast< IfcActorRole * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_roles.push_back(attr2);
             }
             else {
@@ -162,12 +180,12 @@ bool IfcPersonAndOrganization::init() {
 }
 
 void IfcPersonAndOrganization::copy(const IfcPersonAndOrganization &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcActorRole > >::const_iterator it_m_roles;
+    Step::List< Step::RefPtr< IfcActorRole >, 1 >::const_iterator it_m_roles;
     Step::BaseEntity::copy(obj, copyop);
-    setThePerson(copyop(obj.m_thePerson.get()));
-    setTheOrganization(copyop(obj.m_theOrganization.get()));
+    setThePerson((IfcPerson*)copyop(obj.m_thePerson.get()));
+    setTheOrganization((IfcOrganization*)copyop(obj.m_theOrganization.get()));
     for (it_m_roles = obj.m_roles.begin(); it_m_roles != obj.m_roles.end(); ++it_m_roles) {
-        Step::RefPtr< IfcActorRole > copyTarget = copyop((*it_m_roles).get());
+        Step::RefPtr< IfcActorRole > copyTarget = (IfcActorRole *) (copyop((*it_m_roles).get()));
         m_roles.push_back(copyTarget.get());
     }
     return;

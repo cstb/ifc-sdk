@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcFailureConnectionCondition::IfcFailureConnectionCondition(Step::Id id, Step::
 IfcFailureConnectionCondition::~IfcFailureConnectionCondition() {
 }
 
-bool IfcFailureConnectionCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFailureConnectionCondition(this);
+bool IfcFailureConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFailureConnectionCondition(this);
 }
 
-const std::string &IfcFailureConnectionCondition::type() {
+const std::string &IfcFailureConnectionCondition::type() const {
     return IfcFailureConnectionCondition::s_type.getName();
 }
 
-Step::ClassType IfcFailureConnectionCondition::getClassType() {
+const Step::ClassType &IfcFailureConnectionCondition::getClassType() {
     return IfcFailureConnectionCondition::s_type;
 }
 
-Step::ClassType IfcFailureConnectionCondition::getType() const {
+const Step::ClassType &IfcFailureConnectionCondition::getType() const {
     return IfcFailureConnectionCondition::s_type;
 }
 
-bool IfcFailureConnectionCondition::isOfType(Step::ClassType t) {
+bool IfcFailureConnectionCondition::isOfType(const Step::ClassType &t) const {
     return IfcFailureConnectionCondition::s_type == t ? true : IfcStructuralConnectionCondition::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX() {
     else {
         return Step::getUnset(m_tensionFailureX);
     }
+}
+
+const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureX() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getTensionFailureX();
 }
 
 void IfcFailureConnectionCondition::setTensionFailureX(IfcForceMeasure value) {
@@ -93,6 +98,11 @@ IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() {
     }
 }
 
+const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getTensionFailureY();
+}
+
 void IfcFailureConnectionCondition::setTensionFailureY(IfcForceMeasure value) {
     m_tensionFailureY = value;
 }
@@ -104,6 +114,11 @@ IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() {
     else {
         return Step::getUnset(m_tensionFailureZ);
     }
+}
+
+const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getTensionFailureZ();
 }
 
 void IfcFailureConnectionCondition::setTensionFailureZ(IfcForceMeasure value) {
@@ -119,6 +134,11 @@ IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() {
     }
 }
 
+const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getCompressionFailureX();
+}
+
 void IfcFailureConnectionCondition::setCompressionFailureX(IfcForceMeasure value) {
     m_compressionFailureX = value;
 }
@@ -130,6 +150,11 @@ IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() {
     else {
         return Step::getUnset(m_compressionFailureY);
     }
+}
+
+const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getCompressionFailureY();
 }
 
 void IfcFailureConnectionCondition::setCompressionFailureY(IfcForceMeasure value) {
@@ -145,12 +170,13 @@ IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() {
     }
 }
 
-void IfcFailureConnectionCondition::setCompressionFailureZ(IfcForceMeasure value) {
-    m_compressionFailureZ = value;
+const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() const {
+    IfcFailureConnectionCondition * deConstObject = const_cast< IfcFailureConnectionCondition * > (this);
+    return deConstObject->getCompressionFailureZ();
 }
 
-void IfcFailureConnectionCondition::release() {
-    IfcStructuralConnectionCondition::release();
+void IfcFailureConnectionCondition::setCompressionFailureZ(IfcForceMeasure value) {
+    m_compressionFailureZ = value;
 }
 
 bool IfcFailureConnectionCondition::init() {

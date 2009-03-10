@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,473 +32,505 @@
 
 namespace ifc2x3 {
 
-/**
- */
-typedef Step::Real IfcAbsorbedDoseMeasure;
-
-/**
- */
-typedef Step::Real IfcAccelerationMeasure;
-
-/**
- */
-typedef Step::Real IfcAmountOfSubstanceMeasure;
-
-/**
- */
-typedef Step::Real IfcAngularVelocityMeasure;
-
-/**
- */
-typedef Step::Real IfcAreaMeasure;
-
-/**
- */
-typedef Step::Bool IfcBoolean;
-
-/**
- */
-typedef std::string IfcBoxAlignment;
-
-/**
- */
-typedef Step::Array< Step::Real > IfcComplexNumber;
-
-/**
- */
-typedef Step::List< Step::Integer > IfcCompoundPlaneAngleMeasure;
-
-/**
- */
-typedef Step::Real IfcContextDependentMeasure;
-
-/**
- */
-typedef Step::Integer IfcCountMeasure;
-
-/**
- */
-typedef Step::Real IfcCurvatureMeasure;
-
-/**
- */
-typedef Step::Integer IfcDayInMonthNumber;
-
-/**
- */
-typedef Step::Integer IfcDaylightSavingHour;
-
-/**
- */
-typedef std::string IfcDescriptiveMeasure;
-
-/**
- */
-typedef Step::Integer IfcDimensionCount;
-
-/**
- */
-typedef Step::Real IfcDoseEquivalentMeasure;
-
-/**
- */
-typedef Step::Real IfcDynamicViscosityMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricCapacitanceMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricChargeMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricConductanceMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricCurrentMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricResistanceMeasure;
-
-/**
- */
-typedef Step::Real IfcElectricVoltageMeasure;
-
-/**
- */
-typedef Step::Real IfcEnergyMeasure;
-
-/**
- */
-typedef std::string IfcFontStyle;
-
-/**
- */
-typedef std::string IfcFontVariant;
-
-/**
- */
-typedef std::string IfcFontWeight;
-
-/**
- */
-typedef Step::Real IfcForceMeasure;
-
-/**
- */
-typedef Step::Real IfcFrequencyMeasure;
-
-/**
- */
-typedef std::string IfcGloballyUniqueId;
-
-/**
- */
-typedef Step::Real IfcHeatFluxDensityMeasure;
-
-/**
- */
-typedef Step::Real IfcHeatingValueMeasure;
-
-/**
- */
-typedef Step::Integer IfcHourInDay;
-
-/**
- */
-typedef std::string IfcIdentifier;
-
-/**
- */
-typedef Step::Real IfcIlluminanceMeasure;
-
-/**
- */
-typedef Step::Real IfcInductanceMeasure;
-
-/**
- */
-typedef Step::Integer IfcInteger;
-
-/**
- */
-typedef Step::Integer IfcIntegerCountRateMeasure;
-
-/**
- */
-typedef Step::Real IfcIonConcentrationMeasure;
-
-/**
- */
-typedef Step::Real IfcIsothermalMoistureCapacityMeasure;
-
-/**
- */
-typedef Step::Real IfcKinematicViscosityMeasure;
-
-/**
- */
-typedef std::string IfcLabel;
-
-/**
- */
-typedef Step::Real IfcLengthMeasure;
-
-/**
- */
-typedef Step::Real IfcLinearForceMeasure;
-
-/**
- */
-typedef Step::Real IfcLinearMomentMeasure;
-
-/**
- */
-typedef Step::Real IfcLinearStiffnessMeasure;
-
-/**
- */
-typedef Step::Real IfcLinearVelocityMeasure;
-
-/**
- */
-typedef Step::Logical IfcLogical;
-
-/**
- */
-typedef Step::Real IfcLuminousFluxMeasure;
-
-/**
- */
-typedef Step::Real IfcLuminousIntensityDistributionMeasure;
-
-/**
- */
-typedef Step::Real IfcLuminousIntensityMeasure;
-
-/**
- */
-typedef Step::Real IfcMagneticFluxDensityMeasure;
-
-/**
- */
-typedef Step::Real IfcMagneticFluxMeasure;
-
-/**
- */
-typedef Step::Real IfcMassDensityMeasure;
-
-/**
- */
-typedef Step::Real IfcMassFlowRateMeasure;
-
-/**
- */
-typedef Step::Real IfcMassMeasure;
-
-/**
- */
-typedef Step::Real IfcMassPerLengthMeasure;
-
-/**
- */
-typedef Step::Integer IfcMinuteInHour;
-
-/**
- */
-typedef Step::Real IfcModulusOfElasticityMeasure;
-
-/**
- */
-typedef Step::Real IfcModulusOfLinearSubgradeReactionMeasure;
-
-/**
- */
-typedef Step::Real IfcModulusOfRotationalSubgradeReactionMeasure;
-
-/**
- */
-typedef Step::Real IfcModulusOfSubgradeReactionMeasure;
-
-/**
- */
-typedef Step::Real IfcMoistureDiffusivityMeasure;
-
-/**
- */
-typedef Step::Real IfcMolecularWeightMeasure;
-
-/**
- */
-typedef Step::Real IfcMomentOfInertiaMeasure;
-
-/**
- */
-typedef Step::Real IfcMonetaryMeasure;
-
-/**
- */
-typedef Step::Integer IfcMonthInYearNumber;
-
-/**
- */
-typedef Step::Real IfcNormalisedRatioMeasure;
-
-/**
- */
-typedef Step::Integer IfcNumericMeasure;
-
-/**
- */
-typedef Step::Real IfcPHMeasure;
-
-/**
- */
-typedef Step::Real IfcParameterValue;
-
-/**
- */
-typedef Step::Real IfcPlanarForceMeasure;
-
-/**
- */
-typedef Step::Real IfcPlaneAngleMeasure;
-
-/**
- */
-typedef Step::Real IfcPositiveLengthMeasure;
-
-/**
- */
-typedef Step::Real IfcPositivePlaneAngleMeasure;
-
-/**
- */
-typedef Step::Real IfcPositiveRatioMeasure;
-
-/**
- */
-typedef Step::Real IfcPowerMeasure;
-
-/**
- */
-typedef std::string IfcPresentableText;
-
-/**
- */
-typedef Step::Real IfcPressureMeasure;
-
-/**
- */
-typedef Step::Real IfcRadioActivityMeasure;
-
-/**
- */
-typedef Step::Real IfcRatioMeasure;
-
-/**
- */
-typedef Step::Real IfcReal;
-
-/**
- */
-typedef Step::Real IfcRotationalFrequencyMeasure;
-
-/**
- */
-typedef Step::Real IfcRotationalMassMeasure;
-
-/**
- */
-typedef Step::Real IfcRotationalStiffnessMeasure;
-
-/**
- */
-typedef Step::Real IfcSecondInMinute;
-
-/**
- */
-typedef Step::Real IfcSectionModulusMeasure;
-
-/**
- */
-typedef Step::Real IfcSectionalAreaIntegralMeasure;
-
-/**
- */
-typedef Step::Real IfcShearModulusMeasure;
-
-/**
- */
-typedef Step::Real IfcSolidAngleMeasure;
-
-/**
- */
-typedef Step::Real IfcSoundPowerMeasure;
-
-/**
- */
-typedef Step::Real IfcSoundPressureMeasure;
-
-/**
- */
-typedef Step::Real IfcSpecificHeatCapacityMeasure;
-
-/**
- */
-typedef Step::Real IfcSpecularExponent;
-
-/**
- */
-typedef Step::Real IfcSpecularRoughness;
-
-/**
- */
-typedef Step::Real IfcTemperatureGradientMeasure;
-
-/**
- */
-typedef std::string IfcText;
-
-/**
- */
-typedef std::string IfcTextAlignment;
-
-/**
- */
-typedef std::string IfcTextDecoration;
-
-/**
- */
-typedef std::string IfcTextFontName;
-
-/**
- */
-typedef std::string IfcTextTransformation;
-
-/**
- */
-typedef Step::Real IfcThermalAdmittanceMeasure;
-
-/**
- */
-typedef Step::Real IfcThermalConductivityMeasure;
-
-/**
- */
-typedef Step::Real IfcThermalExpansionCoefficientMeasure;
-
-/**
- */
-typedef Step::Real IfcThermalResistanceMeasure;
-
-/**
- */
-typedef Step::Real IfcThermalTransmittanceMeasure;
-
-/**
- */
-typedef Step::Real IfcThermodynamicTemperatureMeasure;
-
-/**
- */
-typedef Step::Real IfcTimeMeasure;
-
-/**
- */
-typedef Step::Integer IfcTimeStamp;
-
-/**
- */
-typedef Step::Real IfcTorqueMeasure;
-
-/**
- */
-typedef Step::Real IfcVaporPermeabilityMeasure;
-
-/**
- */
-typedef Step::Real IfcVolumeMeasure;
-
-/**
- */
-typedef Step::Real IfcVolumetricFlowRateMeasure;
-
-/**
- */
-typedef Step::Real IfcWarpingConstantMeasure;
-
-/**
- */
-typedef Step::Real IfcWarpingMomentMeasure;
-
-/**
- */
-typedef Step::Integer IfcYearNumber;
+    /**
+     */
+    typedef Step::Real IfcAbsorbedDoseMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcAccelerationMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcAmountOfSubstanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcAngularVelocityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcAreaMeasure;
+
+    /**
+     */
+    typedef Step::Boolean IfcBoolean;
+
+    /**
+     */
+    typedef Step::String IfcBoxAlignment;
+
+    /**
+     */
+    typedef Step::Real IfcContextDependentMeasure;
+
+    /**
+     */
+    typedef Step::Number IfcCountMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcCurvatureMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcDayInMonthNumber;
+
+    /**
+     */
+    typedef Step::Integer IfcDaylightSavingHour;
+
+    /**
+     */
+    typedef Step::String IfcDescriptiveMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcDimensionCount;
+
+    /**
+     */
+    typedef Step::Real IfcDoseEquivalentMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcDynamicViscosityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricCapacitanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricChargeMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricConductanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricCurrentMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricResistanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcElectricVoltageMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcEnergyMeasure;
+
+    /**
+     */
+    typedef Step::String IfcFontStyle;
+
+    /**
+     */
+    typedef Step::String IfcFontVariant;
+
+    /**
+     */
+    typedef Step::String IfcFontWeight;
+
+    /**
+     */
+    typedef Step::Real IfcForceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcFrequencyMeasure;
+
+    /**
+     */
+    typedef Step::String IfcGloballyUniqueId;
+
+    /**
+     */
+    typedef Step::Real IfcHeatFluxDensityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcHeatingValueMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcHourInDay;
+
+    /**
+     */
+    typedef Step::String IfcIdentifier;
+
+    /**
+     */
+    typedef Step::Real IfcIlluminanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcInductanceMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcInteger;
+
+    /**
+     */
+    typedef Step::Integer IfcIntegerCountRateMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcIonConcentrationMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcIsothermalMoistureCapacityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcKinematicViscosityMeasure;
+
+    /**
+     */
+    typedef Step::String IfcLabel;
+
+    /**
+     */
+    typedef Step::List< IfcLabel, 1 > List_IfcLabel_1_n;
+
+    /**
+     */
+    typedef Step::Real IfcLengthMeasure;
+
+    /**
+     */
+    typedef Step::List< IfcLengthMeasure, 1, 3 > List_IfcLengthMeasure_1_3;
+
+    /**
+     */
+    typedef Step::List< IfcLengthMeasure, 2, 3 > List_IfcLengthMeasure_2_3;
+
+    /**
+     */
+    typedef Step::Real IfcLinearForceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcLinearMomentMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcLinearStiffnessMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcLinearVelocityMeasure;
+
+    /**
+     */
+    typedef Step::Logical IfcLogical;
+
+    /**
+     */
+    typedef Step::Real IfcLuminousFluxMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcLuminousIntensityDistributionMeasure;
+
+    /**
+     */
+    typedef Step::List< IfcLuminousIntensityDistributionMeasure, 1 > List_IfcLuminousIntensityDistributionMeasure_1_n;
+
+    /**
+     */
+    typedef Step::Real IfcLuminousIntensityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMagneticFluxDensityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMagneticFluxMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMassDensityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMassFlowRateMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMassMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMassPerLengthMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcMinuteInHour;
+
+    /**
+     */
+    typedef Step::Real IfcModulusOfElasticityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcModulusOfLinearSubgradeReactionMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcModulusOfRotationalSubgradeReactionMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcModulusOfSubgradeReactionMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMoistureDiffusivityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMolecularWeightMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMomentOfInertiaMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcMonetaryMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcMonthInYearNumber;
+
+    /**
+     */
+    typedef Step::Real IfcNormalisedRatioMeasure;
+
+    /**
+     */
+    typedef Step::Number IfcNumericMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcPHMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcParameterValue;
+
+    /**
+     */
+    typedef Step::List< IfcParameterValue, 2, 2 > List_IfcParameterValue_2_2;
+
+    /**
+     */
+    typedef Step::Real IfcPlanarForceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcPlaneAngleMeasure;
+
+    /**
+     */
+    typedef Step::List< IfcPlaneAngleMeasure, 1 > List_IfcPlaneAngleMeasure_1_n;
+
+    /**
+     */
+    typedef Step::Real IfcPositiveLengthMeasure;
+
+    /**
+     */
+    typedef Step::List< IfcPositiveLengthMeasure, 3 > List_IfcPositiveLengthMeasure_3_n;
+
+    /**
+     */
+    typedef Step::List< IfcPositiveLengthMeasure, 2 > List_IfcPositiveLengthMeasure_2_n;
+
+    /**
+     */
+    typedef Step::Real IfcPositivePlaneAngleMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcPositiveRatioMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcPowerMeasure;
+
+    /**
+     */
+    typedef Step::String IfcPresentableText;
+
+    /**
+     */
+    typedef Step::Real IfcPressureMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcRadioActivityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcRatioMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcReal;
+
+    /**
+     */
+    typedef Step::Real IfcRotationalFrequencyMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcRotationalMassMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcRotationalStiffnessMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSecondInMinute;
+
+    /**
+     */
+    typedef Step::Real IfcSectionModulusMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSectionalAreaIntegralMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcShearModulusMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSolidAngleMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSoundPowerMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSoundPressureMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSpecificHeatCapacityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcSpecularExponent;
+
+    /**
+     */
+    typedef Step::Real IfcSpecularRoughness;
+
+    /**
+     */
+    typedef Step::Real IfcTemperatureGradientMeasure;
+
+    /**
+     */
+    typedef Step::String IfcText;
+
+    /**
+     */
+    typedef Step::List< IfcText, 1 > List_IfcText_1_n;
+
+    /**
+     */
+    typedef Step::String IfcTextAlignment;
+
+    /**
+     */
+    typedef Step::String IfcTextDecoration;
+
+    /**
+     */
+    typedef Step::String IfcTextFontName;
+
+    /**
+     */
+    typedef Step::List< IfcTextFontName, 1 > List_IfcTextFontName_1_n;
+
+    /**
+     */
+    typedef Step::String IfcTextTransformation;
+
+    /**
+     */
+    typedef Step::Real IfcThermalAdmittanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcThermalConductivityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcThermalExpansionCoefficientMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcThermalResistanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcThermalTransmittanceMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcThermodynamicTemperatureMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcTimeMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcTimeStamp;
+
+    /**
+     */
+    typedef Step::Real IfcTorqueMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcVaporPermeabilityMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcVolumeMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcVolumetricFlowRateMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcWarpingConstantMeasure;
+
+    /**
+     */
+    typedef Step::Real IfcWarpingMomentMeasure;
+
+    /**
+     */
+    typedef Step::Integer IfcYearNumber;
 
 /**
  */
@@ -2794,183 +2826,713 @@ enum IfcWorkControlTypeEnum {
         IfcWorkControlTypeEnum_NOTDEFINED,
     };
 
-/**
- */
-enum IfcBridgeContactType {
-        IfcBridgeContactType_UNSET,
-        IfcBridgeContactType_GLUE,
-        IfcBridgeContactType_RIVET,
-        IfcBridgeContactType_CONNECTOR,
-        IfcBridgeContactType_WELD,
-        IfcBridgeContactType_RESUMPTION_OF_CONCRETE,
-        IfcBridgeContactType_SLIDING,
-    };
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcClassificationNotationFacet >, 1 > Set_IfcClassificationNotationFacet_1_n;
 
-/**
- */
-enum IfcBridgeMechanicalRoleType {
-        IfcBridgeMechanicalRoleType_UNSET,
-        IfcBridgeMechanicalRoleType_LONGITUDINAL,
-        IfcBridgeMechanicalRoleType_TRANSVERSAL,
-        IfcBridgeMechanicalRoleType_COMPLETE,
-        IfcBridgeMechanicalRoleType_NONE,
-        IfcBridgeMechanicalRoleType_UNDEFINED,
-    };
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect >, 1 > Set_IfcPresentationStyleSelect_1_n;
 
-/**
- */
-enum IfcBridgePrismaticElementType {
-        IfcBridgePrismaticElementType_UNSET,
-        IfcBridgePrismaticElementType_UNICELLULAR_MONO_BOX_GIRDER,
-        IfcBridgePrismaticElementType_MULTICELLULAR_MONO_BOX_GIRDER,
-        IfcBridgePrismaticElementType_UNICELLULAR_MULTI_BOX_GIRDER,
-        IfcBridgePrismaticElementType_MULTICELLULAR_MULTI_BOX_GIRDER,
-        IfcBridgePrismaticElementType_DOUBLE_BEAM_RIBBED_SLAB,
-        IfcBridgePrismaticElementType_MULTI_BEAM_RIBBED_SLAB,
-        IfcBridgePrismaticElementType_MASSIVE_SECTION_ELEMENT,
-        IfcBridgePrismaticElementType_HOLLOW_SECTION_ELEMENT,
-        IfcBridgePrismaticElementType_SOLID_SLAB,
-        IfcBridgePrismaticElementType_HOLLOW_SLAB,
-        IfcBridgePrismaticElementType_SLAB_WITH_BROAD_CANTILEVER,
-        IfcBridgePrismaticElementType_MASTER_BEAM,
-        IfcBridgePrismaticElementType_LONGITUDINAL_GIRDER,
-        IfcBridgePrismaticElementType_RIGIDITY_BEAM,
-        IfcBridgePrismaticElementType_BRACING,
-        IfcBridgePrismaticElementType_UPPER_FLANGE,
-        IfcBridgePrismaticElementType_LOWER_FLANGE,
-        IfcBridgePrismaticElementType_UPPER_FOOTING,
-        IfcBridgePrismaticElementType_LOWER_FOOTING,
-        IfcBridgePrismaticElementType_WEB,
-        IfcBridgePrismaticElementType_FLOORING_SHEET,
-        IfcBridgePrismaticElementType_BOTTOM_SHEET,
-        IfcBridgePrismaticElementType_KERB_SHEET,
-        IfcBridgePrismaticElementType_CANTILEVER_SHEET,
-        IfcBridgePrismaticElementType_PAVEMENT_SHEET,
-        IfcBridgePrismaticElementType_AUGET,
-        IfcBridgePrismaticElementType_LONGITUDINAL_WEB_STIFFENER,
-        IfcBridgePrismaticElementType_RAKER,
-        IfcBridgePrismaticElementType_TRANSVERSE_GIRDER,
-        IfcBridgePrismaticElementType_DEFLECTER,
-        IfcBridgePrismaticElementType_TRANSVERSE_MEMBER,
-        IfcBridgePrismaticElementType_TRANSVERSE,
-        IfcBridgePrismaticElementType_DIAGONALE,
-        IfcBridgePrismaticElementType_JAMB,
-        IfcBridgePrismaticElementType_TENSION_MEMBER,
-        IfcBridgePrismaticElementType_BONDING_BAR,
-        IfcBridgePrismaticElementType_TRANSVERSAL_STIFFENER,
-        IfcBridgePrismaticElementType_STIFFENER_FOOTING,
-        IfcBridgePrismaticElementType_TENDON,
-    };
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > Inverse_Set_IfcVirtualGridIntersection_0_n;
 
-/**
- */
-enum IfcBridgeSegmentType {
-        IfcBridgeSegmentType_UNSET,
-        IfcBridgeSegmentType_TYPICAL_SEGMENT,
-        IfcBridgeSegmentType_PIER_SEGMENT,
-        IfcBridgeSegmentType_PIECE,
-        IfcBridgeSegmentType_LIFT,
-        IfcBridgeSegmentType_ELEMENT,
-        IfcBridgeSegmentType_JAMB,
-        IfcBridgeSegmentType_PYLON_HEAD,
-        IfcBridgeSegmentType_SPAN,
-        IfcBridgeSegmentType_CANTILEVER,
-        IfcBridgeSegmentType_FINITE_ELEMENT_REFERENCE,
-    };
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcMaterial >, 1 > List_IfcMaterial_1_n;
 
-/**
- */
-enum IfcBridgeStructureElementType {
-        IfcBridgeStructureElementType_UNSET,
-        IfcBridgeStructureElementType_DECK,
-        IfcBridgeStructureElementType_PIER,
-        IfcBridgeStructureElementType_SMALL_PIER,
-        IfcBridgeStructureElementType_PYLON,
-        IfcBridgeStructureElementType_ARCH,
-        IfcBridgeStructureElementType_LAUNCHING_NOSE,
-        IfcBridgeStructureElementType_TEMPORARY_BENT,
-        IfcBridgeStructureElementType_TRANSVERSE_GIRDER,
-        IfcBridgeStructureElementType_STRUT,
-        IfcBridgeStructureElementType_COUNTER_STRUT,
-        IfcBridgeStructureElementType_CABLE,
-        IfcBridgeStructureElementType_SUSPENDED_TENDON,
-        IfcBridgeStructureElementType_SUSPENDER,
-        IfcBridgeStructureElementType_MOBILE_FALSEWORK,
-        IfcBridgeStructureElementType_STAYING_MAST,
-        IfcBridgeStructureElementType_LAUNCHING_BEAM,
-    };
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 1 > List_IfcStructuralLoad_1_n;
 
-/**
- */
-enum IfcBridgeStructureIndicator {
-        IfcBridgeStructureIndicator_UNSET,
-        IfcBridgeStructureIndicator_COMPOSITE,
-        IfcBridgeStructureIndicator_COATED,
-        IfcBridgeStructureIndicator_HOMOGENEOUS,
-        IfcBridgeStructureIndicator_OTHER,
-    };
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcStyledItem >, 0, 1 > Inverse_Set_IfcStyledItem_0_1;
 
-/**
- */
-enum IfcBridgeStructureType {
-        IfcBridgeStructureType_UNSET,
-        IfcBridgeStructureType_BOX_GIRDER_BRIDGE,
-        IfcBridgeStructureType_ARCHED_BRIDGE,
-        IfcBridgeStructureType_SUSPENSION_BRIDGE,
-        IfcBridgeStructureType_CABLE_STAYED_BRIDGE,
-        IfcBridgeStructureType_GIRDER_BRIDGE,
-        IfcBridgeStructureType_SLAB_BRIDGE,
-        IfcBridgeStructureType_SLAB_BRIDGE_WITH_BROAD_CANTILEVER,
-        IfcBridgeStructureType_BOW_STRING_BRIDGE,
-        IfcBridgeStructureType_LADDER_BRIDGE,
-        IfcBridgeStructureType_FRAMEWORK_BRIDGE,
-        IfcBridgeStructureType_GISCLARD_BRIDGE,
-        IfcBridgeStructureType_PORTAL_BRIDGE,
-    };
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity >, 0, 1 > Inverse_Set_IfcPhysicalComplexQuantity_0_1;
 
-/**
- */
-enum IfcBridgeSubPartType {
-        IfcBridgeSubPartType_UNSET,
-        IfcBridgeSubPartType_LEFT_WEB,
-        IfcBridgeSubPartType_RIGHT_WEB,
-        IfcBridgeSubPartType_CENTRAL_WEB,
-        IfcBridgeSubPartType_TOP_SLAB,
-        IfcBridgeSubPartType_LOWER_SLAB,
-        IfcBridgeSubPartType_RIGHT_OVERHANG,
-        IfcBridgeSubPartType_LEFT_OVERHANG,
-        IfcBridgeSubPartType_UPPER_FLANGE_,
-        IfcBridgeSubPartType_LOWER_FLANGE,
-        IfcBridgeSubPartType_LOWER_FLOORING,
-        IfcBridgeSubPartType_UPPER_FLOORING,
-        IfcBridgeSubPartType_MORPHOLOGY_NODE,
-        IfcBridgeSubPartType_REFERENCE_FIBRE,
-        IfcBridgeSubPartType_BRANCH_WALL,
-    };
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleSelect > > Set_IfcPresentationStyleSelect_0_n;
 
-/**
- * - End of IfcBridge Types.
- * 
- */
-enum IfcBridgeTechnologicalElementType {
-        IfcBridgeTechnologicalElementType_UNSET,
-        IfcBridgeTechnologicalElementType_UNICELLULAR_MONO_BOX_GIRDER,
-        IfcBridgeTechnologicalElementType_MULTICELLULAR_MONO_BOX_GIRDER,
-        IfcBridgeTechnologicalElementType_UNICELLULAR_MULTI_BOX_GIRDER,
-        IfcBridgeTechnologicalElementType_MULTICELLULAR_MULTI_BOX_GIRDER,
-        IfcBridgeTechnologicalElementType_SOLID_SLAB,
-        IfcBridgeTechnologicalElementType_HOLLOW_SLAB,
-        IfcBridgeTechnologicalElementType_SLAB_WITH_BROAD_CANTILEVER,
-        IfcBridgeTechnologicalElementType_DOUBLE_BEAM_RIBBED_SLAB,
-        IfcBridgeTechnologicalElementType_MULTI_BEAM_RIBBED_SLAB,
-        IfcBridgeTechnologicalElementType_MASSIVE_SECTION_ELEMENT,
-        IfcBridgeTechnologicalElementType_HOLLOW_SECTION_ELEMENT,
-        IfcBridgeTechnologicalElementType_MARKETED_SECTION_GIRDER,
-        IfcBridgeTechnologicalElementType_RE_ASSEMBLED_SECTION_GIRDER,
-        IfcBridgeTechnologicalElementType_TRUSS,
-        IfcBridgeTechnologicalElementType_LADDER_OR_VIERENDEEL,
-        IfcBridgeTechnologicalElementType_BOW_STRING,
-    };
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcElement >, 1 > Set_IfcElement_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcOrganization > > Inverse_Set_IfcOrganization_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > Inverse_Set_IfcRelConnectsPortToElement_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 2 > List_IfcStructuralLoad_2_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcLocalPlacement > > Inverse_Set_IfcLocalPlacement_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsElements > > Inverse_Set_IfcRelConnectsElements_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcReinforcementBarProperties >, 1 > Set_IfcReinforcementBarProperties_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcRepresentationContext >, 1 > Set_IfcRepresentationContext_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcMaterialClassificationRelationship >, 0, 1 > Inverse_Set_IfcMaterialClassificationRelationship_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcTimeSeriesReferenceRelationship >, 0, 1 > Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcVertexBasedTextureMap >, 1 > Set_IfcVertexBasedTextureMap_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcDraughtingCalloutRelationship > > Inverse_Set_IfcDraughtingCalloutRelationship_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcCurveStyleFontPattern >, 1 > List_IfcCurveStyleFontPattern_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcProduct >, 1, 1 > Inverse_Set_IfcProduct_1_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPropertySetDefinition >, 1 > Set_IfcPropertySetDefinition_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember >, 1 > Inverse_Set_IfcRelConnectsStructuralMember_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcStructuralLoad >, 3 > List_IfcStructuralLoad_3_n;
+
+    /**
+     */
+    typedef Step::Array< Step::Real, 1, 2 > Array_Real_1_2;
+
+    /**
+     */
+    typedef Array_Real_1_2 IfcComplexNumber;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcIrregularTimeSeriesValue >, 1 > List_IfcIrregularTimeSeriesValue_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::Real, 2 > List_Real_2_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel >, 0, 1 > Inverse_Set_IfcStructuralAnalysisModel_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcGrid >, 0, 1 > Inverse_Set_IfcGrid_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDraughtingCalloutElement >, 1 > Set_IfcDraughtingCalloutElement_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcShapeModel >, 1 > List_IfcShapeModel_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToActor > > Inverse_Set_IfcRelAssignsToActor_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcGeometricSetSelect >, 1 > Set_IfcGeometricSetSelect_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcTableRow >, 1 > List_IfcTableRow_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDocumentSelect >, 1 > Set_IfcDocumentSelect_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcActorSelect >, 1 > Set_IfcActorSelect_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToControl > > Inverse_Set_IfcRelAssignsToControl_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > Inverse_Set_IfcRelConnectsStructuralMember_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcConnectedFaceSet >, 1 > Set_IfcConnectedFaceSet_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcCovering >, 1 > Set_IfcCovering_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes > > Inverse_Set_IfcRelDecomposes_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcProfileDef >, 2 > List_IfcProfileDef_2_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcReferencesValueDocument > > Inverse_Set_IfcReferencesValueDocument_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > Inverse_Set_IfcRelInteractionRequirements_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcMappedItem > > Inverse_Set_IfcMappedItem_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcProduct >, 1 > Set_IfcProduct_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcConstraintRelationship > > Inverse_Set_IfcConstraintRelationship_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint >, 3 > List_IfcCartesianPoint_3_n;
+
+    /**
+     */
+    typedef Step::List< Step::Real, 2, 3 > List_Real_2_3;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcProductRepresentation >, 0, 1 > Inverse_Set_IfcProductRepresentation_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings >, 0, 1 > Inverse_Set_IfcRelServicesBuildings_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralActivity > > Inverse_Set_IfcRelConnectsStructuralActivity_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > Inverse_Set_IfcRelAssignsToProcess_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcLibraryInformation >, 0, 1 > Inverse_Set_IfcLibraryInformation_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDocumentReference >, 1 > Set_IfcDocumentReference_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcOrganizationRelationship > > Inverse_Set_IfcOrganizationRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcApprovalActorRelationship > > Inverse_Set_IfcApprovalActorRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcClassificationItem >, 1 > Set_IfcClassificationItem_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcRepresentation >, 1 > List_IfcRepresentation_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcGridAxis >, 1 > List_IfcGridAxis_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcOrganization >, 1 > Set_IfcOrganization_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcRelaxation >, 1 > Set_IfcRelaxation_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelFlowControlElements >, 0, 1 > Inverse_Set_IfcRelFlowControlElements_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcAnnotationSurface >, 1, 1 > Inverse_Set_IfcAnnotationSurface_1_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcClassificationItem > > Inverse_Set_IfcClassificationItem_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcSectionReinforcementProperties >, 1 > List_IfcSectionReinforcementProperties_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcProfileDef >, 2 > Set_IfcProfileDef_2_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > Inverse_Set_IfcRelCoversBldgElements_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcLightDistributionData >, 1 > List_IfcLightDistributionData_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcOrientedEdge >, 1 > List_IfcOrientedEdge_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcCurve > > Set_IfcCurve_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure >, 0, 1 > Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPresentationStyleAssignment >, 1 > Set_IfcPresentationStyleAssignment_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsPorts >, 0, 1 > Inverse_Set_IfcRelConnectsPorts_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelProjectsElement > > Inverse_Set_IfcRelProjectsElement_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::Integer, 3, 4 > List_Integer_3_4;
+
+    /**
+     */
+    typedef List_Integer_3_4 IfcCompoundPlaneAngleMeasure;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssociates > > Inverse_Set_IfcRelAssociates_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcFillStyleSelect >, 1 > Set_IfcFillStyleSelect_1_n;
+
+    /**
+     */
+    typedef Step::Array< Step::RefPtr< IfcCartesianPoint >, 0, 255 > Array_IfcCartesianPoint_0_255;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcClassificationItemRelationship >, 0, 1 > Inverse_Set_IfcClassificationItemRelationship_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelVoidsElement > > Inverse_Set_IfcRelVoidsElement_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcMaterialDefinitionRepresentation >, 0, 1 > Inverse_Set_IfcMaterialDefinitionRepresentation_0_1;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcAxis2Placement3D >, 2 > List_IfcAxis2Placement3D_2_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformation >, 0, 1 > Inverse_Set_IfcDocumentInformation_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPerson > > Inverse_Set_IfcPerson_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPropertyConstraintRelationship > > Inverse_Set_IfcPropertyConstraintRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByType >, 0, 1 > Inverse_Set_IfcRelDefinesByType_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversBldgElements >, 0, 1 > Inverse_Set_IfcRelCoversBldgElements_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > Inverse_Set_IfcRelConnectsWithRealizingElements_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcStructuralResultGroup >, 1 > Set_IfcStructuralResultGroup_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcConstraint >, 1 > List_IfcConstraint_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > Inverse_Set_IfcRelCoversSpaces_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcSurfaceTexture >, 1 > List_IfcSurfaceTexture_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > Inverse_Set_IfcConstraintAggregationRelationship_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::Binary< 32 >, 1 > List_32_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRepresentationMap >, 0, 1 > Inverse_Set_IfcRepresentationMap_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcStructuralLoadGroup >, 1 > Set_IfcStructuralLoadGroup_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcValue >, 1 > List_IfcValue_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcAppliedValue >, 1 > Set_IfcAppliedValue_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcSpatialStructureElement >, 1 > Set_IfcSpatialStructureElement_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelDefinesByProperties >, 0, 1 > Inverse_Set_IfcRelDefinesByProperties_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > Inverse_Set_IfcDocumentInformationRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelDecomposes >, 0, 1 > Inverse_Set_IfcRelDecomposes_0_1;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcSimpleValue >, 1 > List_IfcSimpleValue_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcUnit >, 1 > Set_IfcUnit_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelDefines > > Inverse_Set_IfcRelDefines_0_n;
+
+    /**
+     */
+    typedef Step::Array< Step::Real, 0, 255 > Array_Real_0_255;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcTextureVertex >, 3 > List_IfcTextureVertex_3_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcFillAreaStyleTileShapeSelect >, 1 > Set_IfcFillAreaStyleTileShapeSelect_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcSurfaceStyleElementSelect >, 1, 5 > Set_IfcSurfaceStyleElementSelect_1_5;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcTypeObject >, 0, 1 > Inverse_Set_IfcTypeObject_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelSequence > > Inverse_Set_IfcRelSequence_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::Integer > List_Integer_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcCartesianPoint >, 2 > List_IfcCartesianPoint_2_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcTimeSeriesValue >, 1 > List_IfcTimeSeriesValue_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > Inverse_Set_IfcRelContainedInSpatialStructure_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcObject >, 1 > Set_IfcObject_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPropertyDependencyRelationship > > Inverse_Set_IfcPropertyDependencyRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcClassificationNotationSelect >, 1 > Set_IfcClassificationNotationSelect_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPhysicalQuantity >, 1 > Set_IfcPhysicalQuantity_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcConstraint >, 1 > Set_IfcConstraint_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcProperty >, 1 > Set_IfcProperty_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelCoversSpaces >, 0, 1 > Inverse_Set_IfcRelCoversSpaces_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcLibraryReference >, 1 > Set_IfcLibraryReference_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > Inverse_Set_IfcPresentationLayerAssignment_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcStructuralResultGroup >, 0, 1 > Inverse_Set_IfcStructuralResultGroup_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcFaceBound >, 1 > Set_IfcFaceBound_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcRelAssignsToProjectOrder >, 1 > List_IfcRelAssignsToProjectOrder_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcMaterialLayer >, 1 > List_IfcMaterialLayer_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcPersonAndOrganization > > Inverse_Set_IfcPersonAndOrganization_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcAppliedValueRelationship > > Inverse_Set_IfcAppliedValueRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcClosedShell >, 1 > Set_IfcClosedShell_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcShapeAspect > > Inverse_Set_IfcShapeAspect_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDistributionControlElement >, 1 > Set_IfcDistributionControlElement_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDerivedUnitElement >, 1 > Set_IfcDerivedUnitElement_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcSoundValue >, 1, 8 > List_IfcSoundValue_1_8;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRepresentation > > Inverse_Set_IfcRepresentation_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcObjectDefinition >, 1 > Set_IfcObjectDefinition_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcConstraintClassificationRelationship > > Inverse_Set_IfcConstraintClassificationRelationship_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcCompositeCurveSegment >, 1 > List_IfcCompositeCurveSegment_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > Inverse_Set_IfcRelSpaceBoundary_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcActorRole >, 1 > List_IfcActorRole_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcAddress >, 1 > List_IfcAddress_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcDocumentInformation >, 1 > Set_IfcDocumentInformation_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcCompositeCurve >, 1 > Inverse_Set_IfcCompositeCurve_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcFace >, 1 > Set_IfcFace_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcCurve >, 1 > Set_IfcCurve_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToResource > > Inverse_Set_IfcRelAssignsToResource_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcApprovalRelationship > > Inverse_Set_IfcApprovalRelationship_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcRepresentationMap >, 1 > List_IfcRepresentationMap_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcTrimmingSelect >, 1, 2 > Set_IfcTrimmingSelect_1_2;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelFillsElement >, 0, 1 > Inverse_Set_IfcRelFillsElement_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship >, 0, 1 > Inverse_Set_IfcDocumentInformationRelationship_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcLayeredItem >, 1 > Set_IfcLayeredItem_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAnalysisModel > > Inverse_Set_IfcStructuralAnalysisModel_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcDirection >, 2, 2 > List_IfcDirection_2_2;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcStructuralAction > > Inverse_Set_IfcStructuralAction_0_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcDirection >, 3, 3 > List_IfcDirection_3_3;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcGridAxis >, 2, 2 > List_IfcGridAxis_2_2;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcRepresentationItem >, 1 > Set_IfcRepresentationItem_1_n;
+
+    /**
+     */
+    typedef Step::List< Step::RefPtr< IfcDateTimeSelect >, 1 > List_IfcDateTimeSelect_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcRoot >, 1 > Set_IfcRoot_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssignsToProduct > > Inverse_Set_IfcRelAssignsToProduct_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelAssigns > > Inverse_Set_IfcRelAssigns_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcTerminatorSymbol >, 0, 2 > Inverse_Set_IfcTerminatorSymbol_0_2;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelServicesBuildings > > Inverse_Set_IfcRelServicesBuildings_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcComplexProperty >, 0, 1 > Inverse_Set_IfcComplexProperty_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > Inverse_Set_IfcGeometricRepresentationSubContext_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcShapeAspect >, 0, 1 > Inverse_Set_IfcShapeAspect_0_1;
+
+    /**
+     */
+    typedef Step::Set< Step::ObsPtr< IfcRelFillsElement > > Inverse_Set_IfcRelFillsElement_0_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcShell >, 1 > Set_IfcShell_1_n;
+
+    /**
+     */
+    typedef Step::Set< Step::RefPtr< IfcPerson >, 1 > Set_IfcPerson_1_n;
 
 }
 

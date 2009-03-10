@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcRelAssociatesLibrary::IfcRelAssociatesLibrary(Step::Id id, Step::SPFData *arg
 IfcRelAssociatesLibrary::~IfcRelAssociatesLibrary() {
 }
 
-bool IfcRelAssociatesLibrary::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesLibrary(this);
+bool IfcRelAssociatesLibrary::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesLibrary(this);
 }
 
-const std::string &IfcRelAssociatesLibrary::type() {
+const std::string &IfcRelAssociatesLibrary::type() const {
     return IfcRelAssociatesLibrary::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesLibrary::getClassType() {
+const Step::ClassType &IfcRelAssociatesLibrary::getClassType() {
     return IfcRelAssociatesLibrary::s_type;
 }
 
-Step::ClassType IfcRelAssociatesLibrary::getType() const {
+const Step::ClassType &IfcRelAssociatesLibrary::getType() const {
     return IfcRelAssociatesLibrary::s_type;
 }
 
-bool IfcRelAssociatesLibrary::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesLibrary::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesLibrary::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcLibrarySelect *IfcRelAssociatesLibrary::getRelatingLibrary() {
     }
 }
 
-void IfcRelAssociatesLibrary::setRelatingLibrary(const Step::RefPtr< IfcLibrarySelect > &value) {
-    m_relatingLibrary = value;
+const IfcLibrarySelect *IfcRelAssociatesLibrary::getRelatingLibrary() const {
+    IfcRelAssociatesLibrary * deConstObject = const_cast< IfcRelAssociatesLibrary * > (this);
+    return deConstObject->getRelatingLibrary();
 }
 
-void IfcRelAssociatesLibrary::release() {
-    IfcRelAssociates::release();
+void IfcRelAssociatesLibrary::setRelatingLibrary(const Step::RefPtr< IfcLibrarySelect > &value) {
+    m_relatingLibrary = value;
 }
 
 bool IfcRelAssociatesLibrary::init() {

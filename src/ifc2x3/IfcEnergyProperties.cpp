@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcEnergyProperties::IfcEnergyProperties(Step::Id id, Step::SPFData *args) : Ifc
 IfcEnergyProperties::~IfcEnergyProperties() {
 }
 
-bool IfcEnergyProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEnergyProperties(this);
+bool IfcEnergyProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEnergyProperties(this);
 }
 
-const std::string &IfcEnergyProperties::type() {
+const std::string &IfcEnergyProperties::type() const {
     return IfcEnergyProperties::s_type.getName();
 }
 
-Step::ClassType IfcEnergyProperties::getClassType() {
+const Step::ClassType &IfcEnergyProperties::getClassType() {
     return IfcEnergyProperties::s_type;
 }
 
-Step::ClassType IfcEnergyProperties::getType() const {
+const Step::ClassType &IfcEnergyProperties::getType() const {
     return IfcEnergyProperties::s_type;
 }
 
-bool IfcEnergyProperties::isOfType(Step::ClassType t) {
+bool IfcEnergyProperties::isOfType(const Step::ClassType &t) const {
     return IfcEnergyProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -74,6 +75,11 @@ IfcEnergySequenceEnum IfcEnergyProperties::getEnergySequence() {
     else {
         return IfcEnergySequenceEnum_UNSET;
     }
+}
+
+const IfcEnergySequenceEnum IfcEnergyProperties::getEnergySequence() const {
+    IfcEnergyProperties * deConstObject = const_cast< IfcEnergyProperties * > (this);
+    return deConstObject->getEnergySequence();
 }
 
 void IfcEnergyProperties::setEnergySequence(IfcEnergySequenceEnum value) {
@@ -89,12 +95,13 @@ IfcLabel IfcEnergyProperties::getUserDefinedEnergySequence() {
     }
 }
 
-void IfcEnergyProperties::setUserDefinedEnergySequence(const IfcLabel &value) {
-    m_userDefinedEnergySequence = value;
+const IfcLabel IfcEnergyProperties::getUserDefinedEnergySequence() const {
+    IfcEnergyProperties * deConstObject = const_cast< IfcEnergyProperties * > (this);
+    return deConstObject->getUserDefinedEnergySequence();
 }
 
-void IfcEnergyProperties::release() {
-    IfcPropertySetDefinition::release();
+void IfcEnergyProperties::setUserDefinedEnergySequence(const IfcLabel &value) {
+    m_userDefinedEnergySequence = value;
 }
 
 bool IfcEnergyProperties::init() {
@@ -132,7 +139,7 @@ bool IfcEnergyProperties::init() {
         m_userDefinedEnergySequence = Step::getUnset(m_userDefinedEnergySequence);
     }
     else {
-        m_userDefinedEnergySequence = Step::spfToString(arg);
+        m_userDefinedEnergySequence = Step::String::fromSPF(arg);
     }
     return true;
 }

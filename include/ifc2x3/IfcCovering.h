@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,58 +33,85 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
-#include <Step/Referenced.h>
 #include "ifc2x3/IfcBuildingElement.h"
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelCoversBldgElements;
-    class IfcRelCoversSpaces;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcCovering : public IfcBuildingElement {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'PredefinedType'.
+         * 
          */
-        IfcCoveringTypeEnum getPredefinedType();
+        virtual IfcCoveringTypeEnum getPredefinedType();
+        /**
+         * (const) Returns the value of the explicit attribute 'PredefinedType'.
+         * 
+         * @return the value of the explicit attribute 'PredefinedType'
+         */
+        virtual const IfcCoveringTypeEnum getPredefinedType() const;
         /**
          * Sets the value of the explicit attribute 'PredefinedType'.
          * 
          * @param value
          */
-        void setPredefinedType(IfcCoveringTypeEnum value);
+        virtual void setPredefinedType(IfcCoveringTypeEnum value);
         /**
+         * Gets the value of the inverse attribute 'CoversSpaces'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > &getCoversSpaces();
+        Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces();
         /**
+         * (const) Returns the value of the explicit attribute 'CoversSpaces'.
+         * 
+         * @return the value of the explicit attribute 'CoversSpaces'
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > &getCovers();
+        virtual const Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
         /**
+         * Gets the value of the inverse attribute 'Covers'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers();
+        /**
+         * (const) Returns the value of the explicit attribute 'Covers'.
+         * 
+         * @return the value of the explicit attribute 'Covers'
+         */
+        virtual const Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers() const;
+        friend class Inverted_IfcRelCoversSpaces_RelatedCoverings_type;
         friend class IfcRelCoversBldgElements;
+        friend class Inverted_IfcRelCoversBldgElements_RelatedCoverings_type;
         friend class ExpressDataSet;
         friend class IfcRelCoversSpaces;
 
@@ -113,10 +140,10 @@ namespace ifc2x3 {
         IfcCoveringTypeEnum m_predefinedType;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > m_coversSpaces;
+        Inverse_Set_IfcRelCoversSpaces_0_1 m_coversSpaces;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > m_covers;
+        Inverse_Set_IfcRelCoversBldgElements_0_1 m_covers;
 
     };
 

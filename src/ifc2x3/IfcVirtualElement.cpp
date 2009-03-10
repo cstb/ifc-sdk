@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcVirtualElement::IfcVirtualElement(Step::Id id, Step::SPFData *args) : IfcElem
 IfcVirtualElement::~IfcVirtualElement() {
 }
 
-bool IfcVirtualElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcVirtualElement(this);
+bool IfcVirtualElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcVirtualElement(this);
 }
 
-const std::string &IfcVirtualElement::type() {
+const std::string &IfcVirtualElement::type() const {
     return IfcVirtualElement::s_type.getName();
 }
 
-Step::ClassType IfcVirtualElement::getClassType() {
+const Step::ClassType &IfcVirtualElement::getClassType() {
     return IfcVirtualElement::s_type;
 }
 
-Step::ClassType IfcVirtualElement::getType() const {
+const Step::ClassType &IfcVirtualElement::getType() const {
     return IfcVirtualElement::s_type;
 }
 
-bool IfcVirtualElement::isOfType(Step::ClassType t) {
+bool IfcVirtualElement::isOfType(const Step::ClassType &t) const {
     return IfcVirtualElement::s_type == t ? true : IfcElement::isOfType(t);
-}
-
-void IfcVirtualElement::release() {
-    IfcElement::release();
 }
 
 bool IfcVirtualElement::init() {

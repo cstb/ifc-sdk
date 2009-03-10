@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,23 +52,23 @@ IfcTextLiteral::IfcTextLiteral(Step::Id id, Step::SPFData *args) : IfcGeometricR
 IfcTextLiteral::~IfcTextLiteral() {
 }
 
-bool IfcTextLiteral::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextLiteral(this);
+bool IfcTextLiteral::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextLiteral(this);
 }
 
-const std::string &IfcTextLiteral::type() {
+const std::string &IfcTextLiteral::type() const {
     return IfcTextLiteral::s_type.getName();
 }
 
-Step::ClassType IfcTextLiteral::getClassType() {
+const Step::ClassType &IfcTextLiteral::getClassType() {
     return IfcTextLiteral::s_type;
 }
 
-Step::ClassType IfcTextLiteral::getType() const {
+const Step::ClassType &IfcTextLiteral::getType() const {
     return IfcTextLiteral::s_type;
 }
 
-bool IfcTextLiteral::isOfType(Step::ClassType t) {
+bool IfcTextLiteral::isOfType(const Step::ClassType &t) const {
     return IfcTextLiteral::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcPresentableText IfcTextLiteral::getLiteral() {
     else {
         return Step::getUnset(m_literal);
     }
+}
+
+const IfcPresentableText IfcTextLiteral::getLiteral() const {
+    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
+    return deConstObject->getLiteral();
 }
 
 void IfcTextLiteral::setLiteral(const IfcPresentableText &value) {
@@ -93,6 +99,11 @@ IfcAxis2Placement *IfcTextLiteral::getPlacement() {
     }
 }
 
+const IfcAxis2Placement *IfcTextLiteral::getPlacement() const {
+    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
+    return deConstObject->getPlacement();
+}
+
 void IfcTextLiteral::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
     m_placement = value;
 }
@@ -106,12 +117,13 @@ IfcTextPath IfcTextLiteral::getPath() {
     }
 }
 
-void IfcTextLiteral::setPath(IfcTextPath value) {
-    m_path = value;
+const IfcTextPath IfcTextLiteral::getPath() const {
+    IfcTextLiteral * deConstObject = const_cast< IfcTextLiteral * > (this);
+    return deConstObject->getPath();
 }
 
-void IfcTextLiteral::release() {
-    IfcGeometricRepresentationItem::release();
+void IfcTextLiteral::setPath(IfcTextPath value) {
+    m_path = value;
 }
 
 bool IfcTextLiteral::init() {
@@ -125,7 +137,7 @@ bool IfcTextLiteral::init() {
         m_literal = Step::getUnset(m_literal);
     }
     else {
-        m_literal = Step::spfToString(arg);
+        m_literal = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

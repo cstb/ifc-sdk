@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,18 +26,19 @@
 
 #include "ifc2x3/IfcPresentationLayerAssignment.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcLayeredItem.h"
 #include "ifc2x3/IfcRepresentation.h"
 #include "ifc2x3/IfcRepresentationItem.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -46,6 +47,39 @@
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcPresentationLayerAssignment_AssignedItems_type::Inverted_IfcPresentationLayerAssignment_AssignedItems_type() {
+}
+
+void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::setOwner(IfcPresentationLayerAssignment *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::insert(const Step::RefPtr< IfcLayeredItem > &value) throw(std::out_of_range) {
+    IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
+    Set_IfcLayeredItem_1_n::insert(value);
+    if (inverse->getIfcRepresentation() != NULL) {
+        IfcRepresentation *object = inverse->getIfcRepresentation();
+        object->m_layerAssignments.insert(mOwner);
+    }
+    else if (inverse->getIfcRepresentationItem() != NULL) {
+        IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
+        object->m_layerAssignments.insert(mOwner);
+    }
+}
+
+Inverted_IfcPresentationLayerAssignment_AssignedItems_type::size_type Inverted_IfcPresentationLayerAssignment_AssignedItems_type::erase(const Step::RefPtr< IfcLayeredItem > &value) {
+    IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
+    if (inverse->getIfcRepresentation() != NULL) {
+        IfcRepresentation *object = inverse->getIfcRepresentation();
+        object->m_layerAssignments.erase(mOwner);
+    }
+    else if (inverse->getIfcRepresentationItem() != NULL) {
+        IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
+        object->m_layerAssignments.erase(mOwner);
+    }
+    return Set_IfcLayeredItem_1_n::erase(value);
+}
 
 IfcPresentationLayerAssignment::IfcPresentationLayerAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
@@ -58,23 +92,23 @@ IfcPresentationLayerAssignment::IfcPresentationLayerAssignment(Step::Id id, Step
 IfcPresentationLayerAssignment::~IfcPresentationLayerAssignment() {
 }
 
-bool IfcPresentationLayerAssignment::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPresentationLayerAssignment(this);
+bool IfcPresentationLayerAssignment::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPresentationLayerAssignment(this);
 }
 
-const std::string &IfcPresentationLayerAssignment::type() {
+const std::string &IfcPresentationLayerAssignment::type() const {
     return IfcPresentationLayerAssignment::s_type.getName();
 }
 
-Step::ClassType IfcPresentationLayerAssignment::getClassType() {
+const Step::ClassType &IfcPresentationLayerAssignment::getClassType() {
     return IfcPresentationLayerAssignment::s_type;
 }
 
-Step::ClassType IfcPresentationLayerAssignment::getType() const {
+const Step::ClassType &IfcPresentationLayerAssignment::getType() const {
     return IfcPresentationLayerAssignment::s_type;
 }
 
-bool IfcPresentationLayerAssignment::isOfType(Step::ClassType t) {
+bool IfcPresentationLayerAssignment::isOfType(const Step::ClassType &t) const {
     return IfcPresentationLayerAssignment::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -85,6 +119,11 @@ IfcLabel IfcPresentationLayerAssignment::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcPresentationLayerAssignment::getName() const {
+    IfcPresentationLayerAssignment * deConstObject = const_cast< IfcPresentationLayerAssignment * > (this);
+    return deConstObject->getName();
 }
 
 void IfcPresentationLayerAssignment::setName(const IfcLabel &value) {
@@ -100,11 +139,16 @@ IfcText IfcPresentationLayerAssignment::getDescription() {
     }
 }
 
+const IfcText IfcPresentationLayerAssignment::getDescription() const {
+    IfcPresentationLayerAssignment * deConstObject = const_cast< IfcPresentationLayerAssignment * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcPresentationLayerAssignment::setDescription(const IfcText &value) {
     m_description = value;
 }
 
-Step::Set< Step::RefPtr< IfcLayeredItem > > &IfcPresentationLayerAssignment::getAssignedItems() {
+Set_IfcLayeredItem_1_n &IfcPresentationLayerAssignment::getAssignedItems() {
     if (Step::BaseObject::inited()) {
         return m_assignedItems;
     }
@@ -112,6 +156,11 @@ Step::Set< Step::RefPtr< IfcLayeredItem > > &IfcPresentationLayerAssignment::get
         m_assignedItems.setUnset(true);
         return m_assignedItems;
     }
+}
+
+const Set_IfcLayeredItem_1_n &IfcPresentationLayerAssignment::getAssignedItems() const {
+    IfcPresentationLayerAssignment * deConstObject = const_cast< IfcPresentationLayerAssignment * > (this);
+    return deConstObject->getAssignedItems();
 }
 
 IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() {
@@ -123,12 +172,13 @@ IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() {
     }
 }
 
-void IfcPresentationLayerAssignment::setIdentifier(const IfcIdentifier &value) {
-    m_identifier = value;
+const IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() const {
+    IfcPresentationLayerAssignment * deConstObject = const_cast< IfcPresentationLayerAssignment * > (this);
+    return deConstObject->getIdentifier();
 }
 
-void IfcPresentationLayerAssignment::release() {
-    m_assignedItems.clear();
+void IfcPresentationLayerAssignment::setIdentifier(const IfcIdentifier &value) {
+    m_identifier = value;
 }
 
 bool IfcPresentationLayerAssignment::init() {
@@ -138,14 +188,14 @@ bool IfcPresentationLayerAssignment::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -183,13 +233,13 @@ bool IfcPresentationLayerAssignment::init() {
         m_identifier = Step::getUnset(m_identifier);
     }
     else {
-        m_identifier = Step::spfToString(arg);
+        m_identifier = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcPresentationLayerAssignment::copy(const IfcPresentationLayerAssignment &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcLayeredItem > >::const_iterator it_m_assignedItems;
+    Step::Set< Step::RefPtr< IfcLayeredItem >, 1 >::const_iterator it_m_assignedItems;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     setDescription(obj.m_description);
@@ -203,23 +253,3 @@ void IfcPresentationLayerAssignment::copy(const IfcPresentationLayerAssignment &
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcPresentationLayerAssignment::s_type("IfcPresentationLayerAssignment");
-IfcPresentationLayerAssignment::Inverted_AssignedItems_type::Inverted_AssignedItems_type() {
-}
-
-void IfcPresentationLayerAssignment::Inverted_AssignedItems_type::setOwner(IfcPresentationLayerAssignment *owner) {
-    mOwner = owner;
-}
-
-void IfcPresentationLayerAssignment::Inverted_AssignedItems_type::insert(const Step::RefPtr< IfcLayeredItem > &value) {
-    IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
-    Step::Set< Step::RefPtr< IfcLayeredItem > >::insert(value);
-    if (inverse->getIfcRepresentation() != NULL) {
-        IfcRepresentation *object = inverse->getIfcRepresentation();
-        object->m_layerAssignments.insert(mOwner);
-    }
-    else if (inverse->getIfcRepresentationItem() != NULL) {
-        IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
-        object->m_layerAssignments.insert(mOwner);
-    }
-}
-

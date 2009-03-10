@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcPolyLoop::IfcPolyLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, args) {
-    m_polygon.setUnset(true);
 }
 
 IfcPolyLoop::~IfcPolyLoop() {
 }
 
-bool IfcPolyLoop::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPolyLoop(this);
+bool IfcPolyLoop::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPolyLoop(this);
 }
 
-const std::string &IfcPolyLoop::type() {
+const std::string &IfcPolyLoop::type() const {
     return IfcPolyLoop::s_type.getName();
 }
 
-Step::ClassType IfcPolyLoop::getClassType() {
+const Step::ClassType &IfcPolyLoop::getClassType() {
     return IfcPolyLoop::s_type;
 }
 
-Step::ClassType IfcPolyLoop::getType() const {
+const Step::ClassType &IfcPolyLoop::getType() const {
     return IfcPolyLoop::s_type;
 }
 
-bool IfcPolyLoop::isOfType(Step::ClassType t) {
+bool IfcPolyLoop::isOfType(const Step::ClassType &t) const {
     return IfcPolyLoop::s_type == t ? true : IfcLoop::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcPolyLoop::getPolygon() {
+List_IfcCartesianPoint_3_n &IfcPolyLoop::getPolygon() {
     if (Step::BaseObject::inited()) {
         return m_polygon;
     }
@@ -81,13 +79,13 @@ Step::List< Step::RefPtr< IfcCartesianPoint > > &IfcPolyLoop::getPolygon() {
     }
 }
 
-void IfcPolyLoop::setPolygon(const Step::List< Step::RefPtr< IfcCartesianPoint > > &value) {
-    m_polygon = value;
+const List_IfcCartesianPoint_3_n &IfcPolyLoop::getPolygon() const {
+    IfcPolyLoop * deConstObject = const_cast< IfcPolyLoop * > (this);
+    return deConstObject->getPolygon();
 }
 
-void IfcPolyLoop::release() {
-    IfcLoop::release();
-    m_polygon.clear();
+void IfcPolyLoop::setPolygon(const List_IfcCartesianPoint_3_n &value) {
+    m_polygon = value;
 }
 
 bool IfcPolyLoop::init() {
@@ -107,7 +105,7 @@ bool IfcPolyLoop::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCartesianPoint > attr2;
-                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_polygon.push_back(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcPolyLoop::init() {
 }
 
 void IfcPolyLoop::copy(const IfcPolyLoop &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcCartesianPoint > >::const_iterator it_m_polygon;
+    Step::List< Step::RefPtr< IfcCartesianPoint >, 3 >::const_iterator it_m_polygon;
     IfcLoop::copy(obj, copyop);
     for (it_m_polygon = obj.m_polygon.begin(); it_m_polygon != obj.m_polygon.end(); ++it_m_polygon) {
-        Step::RefPtr< IfcCartesianPoint > copyTarget = copyop((*it_m_polygon).get());
+        Step::RefPtr< IfcCartesianPoint > copyTarget = (IfcCartesianPoint *) (copyop((*it_m_polygon).get()));
         m_polygon.push_back(copyTarget.get());
     }
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -46,29 +46,28 @@ using namespace ifc2x3;
 
 IfcReinforcementDefinitionProperties::IfcReinforcementDefinitionProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
     m_definitionType = Step::getUnset(m_definitionType);
-    m_reinforcementSectionDefinitions.setUnset(true);
 }
 
 IfcReinforcementDefinitionProperties::~IfcReinforcementDefinitionProperties() {
 }
 
-bool IfcReinforcementDefinitionProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReinforcementDefinitionProperties(this);
+bool IfcReinforcementDefinitionProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReinforcementDefinitionProperties(this);
 }
 
-const std::string &IfcReinforcementDefinitionProperties::type() {
+const std::string &IfcReinforcementDefinitionProperties::type() const {
     return IfcReinforcementDefinitionProperties::s_type.getName();
 }
 
-Step::ClassType IfcReinforcementDefinitionProperties::getClassType() {
+const Step::ClassType &IfcReinforcementDefinitionProperties::getClassType() {
     return IfcReinforcementDefinitionProperties::s_type;
 }
 
-Step::ClassType IfcReinforcementDefinitionProperties::getType() const {
+const Step::ClassType &IfcReinforcementDefinitionProperties::getType() const {
     return IfcReinforcementDefinitionProperties::s_type;
 }
 
-bool IfcReinforcementDefinitionProperties::isOfType(Step::ClassType t) {
+bool IfcReinforcementDefinitionProperties::isOfType(const Step::ClassType &t) const {
     return IfcReinforcementDefinitionProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcLabel IfcReinforcementDefinitionProperties::getDefinitionType() {
     }
 }
 
+const IfcLabel IfcReinforcementDefinitionProperties::getDefinitionType() const {
+    IfcReinforcementDefinitionProperties * deConstObject = const_cast< IfcReinforcementDefinitionProperties * > (this);
+    return deConstObject->getDefinitionType();
+}
+
 void IfcReinforcementDefinitionProperties::setDefinitionType(const IfcLabel &value) {
     m_definitionType = value;
 }
 
-Step::List< Step::RefPtr< IfcSectionReinforcementProperties > > &IfcReinforcementDefinitionProperties::getReinforcementSectionDefinitions() {
+List_IfcSectionReinforcementProperties_1_n &IfcReinforcementDefinitionProperties::getReinforcementSectionDefinitions() {
     if (Step::BaseObject::inited()) {
         return m_reinforcementSectionDefinitions;
     }
@@ -95,13 +99,13 @@ Step::List< Step::RefPtr< IfcSectionReinforcementProperties > > &IfcReinforcemen
     }
 }
 
-void IfcReinforcementDefinitionProperties::setReinforcementSectionDefinitions(const Step::List< Step::RefPtr< IfcSectionReinforcementProperties > > &value) {
-    m_reinforcementSectionDefinitions = value;
+const List_IfcSectionReinforcementProperties_1_n &IfcReinforcementDefinitionProperties::getReinforcementSectionDefinitions() const {
+    IfcReinforcementDefinitionProperties * deConstObject = const_cast< IfcReinforcementDefinitionProperties * > (this);
+    return deConstObject->getReinforcementSectionDefinitions();
 }
 
-void IfcReinforcementDefinitionProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_reinforcementSectionDefinitions.clear();
+void IfcReinforcementDefinitionProperties::setReinforcementSectionDefinitions(const List_IfcSectionReinforcementProperties_1_n &value) {
+    m_reinforcementSectionDefinitions = value;
 }
 
 bool IfcReinforcementDefinitionProperties::init() {
@@ -115,7 +119,7 @@ bool IfcReinforcementDefinitionProperties::init() {
         m_definitionType = Step::getUnset(m_definitionType);
     }
     else {
-        m_definitionType = Step::spfToString(arg);
+        m_definitionType = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -128,7 +132,7 @@ bool IfcReinforcementDefinitionProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcSectionReinforcementProperties > attr2;
-                attr2 = static_cast< IfcSectionReinforcementProperties * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcSectionReinforcementProperties * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_reinforcementSectionDefinitions.push_back(attr2);
             }
             else {
@@ -140,11 +144,11 @@ bool IfcReinforcementDefinitionProperties::init() {
 }
 
 void IfcReinforcementDefinitionProperties::copy(const IfcReinforcementDefinitionProperties &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcSectionReinforcementProperties > >::const_iterator it_m_reinforcementSectionDefinitions;
+    Step::List< Step::RefPtr< IfcSectionReinforcementProperties >, 1 >::const_iterator it_m_reinforcementSectionDefinitions;
     IfcPropertySetDefinition::copy(obj, copyop);
     setDefinitionType(obj.m_definitionType);
     for (it_m_reinforcementSectionDefinitions = obj.m_reinforcementSectionDefinitions.begin(); it_m_reinforcementSectionDefinitions != obj.m_reinforcementSectionDefinitions.end(); ++it_m_reinforcementSectionDefinitions) {
-        Step::RefPtr< IfcSectionReinforcementProperties > copyTarget = copyop((*it_m_reinforcementSectionDefinitions).get());
+        Step::RefPtr< IfcSectionReinforcementProperties > copyTarget = (IfcSectionReinforcementProperties *) (copyop((*it_m_reinforcementSectionDefinitions).get()));
         m_reinforcementSectionDefinitions.push_back(copyTarget.get());
     }
     return;

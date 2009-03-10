@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCurtainWall::IfcCurtainWall(Step::Id id, Step::SPFData *args) : IfcBuildingEl
 IfcCurtainWall::~IfcCurtainWall() {
 }
 
-bool IfcCurtainWall::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurtainWall(this);
+bool IfcCurtainWall::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurtainWall(this);
 }
 
-const std::string &IfcCurtainWall::type() {
+const std::string &IfcCurtainWall::type() const {
     return IfcCurtainWall::s_type.getName();
 }
 
-Step::ClassType IfcCurtainWall::getClassType() {
+const Step::ClassType &IfcCurtainWall::getClassType() {
     return IfcCurtainWall::s_type;
 }
 
-Step::ClassType IfcCurtainWall::getType() const {
+const Step::ClassType &IfcCurtainWall::getType() const {
     return IfcCurtainWall::s_type;
 }
 
-bool IfcCurtainWall::isOfType(Step::ClassType t) {
+bool IfcCurtainWall::isOfType(const Step::ClassType &t) const {
     return IfcCurtainWall::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcCurtainWall::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcCurtainWall::init() {

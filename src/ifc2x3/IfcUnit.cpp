@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcUnit::~IfcUnit() {
     deleteUnion();
 }
 
-bool IfcUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcUnit(this);
+bool IfcUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcUnit(this);
 }
 
 bool IfcUnit::init() {
     return false;
 }
 
-const std::string &IfcUnit::type() {
+const std::string &IfcUnit::type() const {
     return IfcUnit::s_type.getName();
 }
 
-Step::ClassType IfcUnit::getClassType() {
+const Step::ClassType &IfcUnit::getClassType() {
     return IfcUnit::s_type;
 }
 
-Step::ClassType IfcUnit::getType() const {
+const Step::ClassType &IfcUnit::getType() const {
     return IfcUnit::s_type;
 }
 
-bool IfcUnit::isOfType(Step::ClassType t) {
+bool IfcUnit::isOfType(const Step::ClassType &t) const {
     return IfcUnit::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcUnit::copy(const IfcUnit &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCDERIVEDUNIT:
-        setIfcDerivedUnit(copyop(obj.m_IfcUnit_union.m_IfcDerivedUnit));
+        setIfcDerivedUnit((IfcDerivedUnit *) (copyop(obj.m_IfcUnit_union.m_IfcDerivedUnit)));
         break;
     case IFCNAMEDUNIT:
-        setIfcNamedUnit(copyop(obj.m_IfcUnit_union.m_IfcNamedUnit));
+        setIfcNamedUnit((IfcNamedUnit *) (copyop(obj.m_IfcUnit_union.m_IfcNamedUnit)));
         break;
     case IFCMONETARYUNIT:
-        setIfcMonetaryUnit(copyop(obj.m_IfcUnit_union.m_IfcMonetaryUnit));
+        setIfcMonetaryUnit((IfcMonetaryUnit *) (copyop(obj.m_IfcUnit_union.m_IfcMonetaryUnit)));
         break;
         }
 }
 
-char *IfcUnit::currentTypeName() {
+std::string IfcUnit::currentTypeName() const {
     switch(m_type) {
     case IFCDERIVEDUNIT:
         return "IfcDerivedUnit";
@@ -104,7 +104,7 @@ char *IfcUnit::currentTypeName() {
     }
 }
 
-IfcUnit::IfcUnit_select IfcUnit::currentType() {
+IfcUnit::IfcUnit_select IfcUnit::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcUnit::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcDerivedUnit *IfcUnit::getIfcDerivedUnit() {
-    return m_IfcUnit_union.m_IfcDerivedUnit;
+IfcDerivedUnit *IfcUnit::getIfcDerivedUnit() const {
+    if (m_type == IFCDERIVEDUNIT) {
+        return m_IfcUnit_union.m_IfcDerivedUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcUnit::setIfcDerivedUnit(IfcDerivedUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcUnit::setIfcDerivedUnit(IfcDerivedUnit *value) {
     m_type = IFCDERIVEDUNIT;
 }
 
-IfcNamedUnit *IfcUnit::getIfcNamedUnit() {
-    return m_IfcUnit_union.m_IfcNamedUnit;
+IfcNamedUnit *IfcUnit::getIfcNamedUnit() const {
+    if (m_type == IFCNAMEDUNIT) {
+        return m_IfcUnit_union.m_IfcNamedUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcUnit::setIfcNamedUnit(IfcNamedUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcUnit::setIfcNamedUnit(IfcNamedUnit *value) {
     m_type = IFCNAMEDUNIT;
 }
 
-IfcMonetaryUnit *IfcUnit::getIfcMonetaryUnit() {
-    return m_IfcUnit_union.m_IfcMonetaryUnit;
+IfcMonetaryUnit *IfcUnit::getIfcMonetaryUnit() const {
+    if (m_type == IFCMONETARYUNIT) {
+        return m_IfcUnit_union.m_IfcMonetaryUnit;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcUnit::setIfcMonetaryUnit(IfcMonetaryUnit *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

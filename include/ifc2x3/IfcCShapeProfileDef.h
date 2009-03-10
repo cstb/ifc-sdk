@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,81 +44,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcCShapeProfileDef : public IfcParameterizedProfileDef {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Depth'.
+         * 
          */
-        IfcPositiveLengthMeasure getDepth();
+        virtual IfcPositiveLengthMeasure getDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'Depth'.
+         * 
+         * @return the value of the explicit attribute 'Depth'
+         */
+        virtual const IfcPositiveLengthMeasure getDepth() const;
         /**
          * Sets the value of the explicit attribute 'Depth'.
          * 
          * @param value
          */
-        void setDepth(IfcPositiveLengthMeasure value);
+        virtual void setDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Width'.
+         * 
          */
-        IfcPositiveLengthMeasure getWidth();
+        virtual IfcPositiveLengthMeasure getWidth();
+        /**
+         * (const) Returns the value of the explicit attribute 'Width'.
+         * 
+         * @return the value of the explicit attribute 'Width'
+         */
+        virtual const IfcPositiveLengthMeasure getWidth() const;
         /**
          * Sets the value of the explicit attribute 'Width'.
          * 
          * @param value
          */
-        void setWidth(IfcPositiveLengthMeasure value);
+        virtual void setWidth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'WallThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getWallThickness();
+        virtual IfcPositiveLengthMeasure getWallThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'WallThickness'.
+         * 
+         * @return the value of the explicit attribute 'WallThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getWallThickness() const;
         /**
          * Sets the value of the explicit attribute 'WallThickness'.
          * 
          * @param value
          */
-        void setWallThickness(IfcPositiveLengthMeasure value);
+        virtual void setWallThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'Girth'.
+         * 
          */
-        IfcPositiveLengthMeasure getGirth();
+        virtual IfcPositiveLengthMeasure getGirth();
+        /**
+         * (const) Returns the value of the explicit attribute 'Girth'.
+         * 
+         * @return the value of the explicit attribute 'Girth'
+         */
+        virtual const IfcPositiveLengthMeasure getGirth() const;
         /**
          * Sets the value of the explicit attribute 'Girth'.
          * 
          * @param value
          */
-        void setGirth(IfcPositiveLengthMeasure value);
+        virtual void setGirth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'InternalFilletRadius'.
+         * 
          */
-        IfcPositiveLengthMeasure getInternalFilletRadius();
+        virtual IfcPositiveLengthMeasure getInternalFilletRadius();
+        /**
+         * (const) Returns the value of the explicit attribute 'InternalFilletRadius'.
+         * 
+         * @return the value of the explicit attribute 'InternalFilletRadius'
+         */
+        virtual const IfcPositiveLengthMeasure getInternalFilletRadius() const;
         /**
          * Sets the value of the explicit attribute 'InternalFilletRadius'.
          * 
          * @param value
          */
-        void setInternalFilletRadius(IfcPositiveLengthMeasure value);
+        virtual void setInternalFilletRadius(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CentreOfGravityInX'.
+         * 
          */
-        IfcPositiveLengthMeasure getCentreOfGravityInX();
+        virtual IfcPositiveLengthMeasure getCentreOfGravityInX();
+        /**
+         * (const) Returns the value of the explicit attribute 'CentreOfGravityInX'.
+         * 
+         * @return the value of the explicit attribute 'CentreOfGravityInX'
+         */
+        virtual const IfcPositiveLengthMeasure getCentreOfGravityInX() const;
         /**
          * Sets the value of the explicit attribute 'CentreOfGravityInX'.
          * 
          * @param value
          */
-        void setCentreOfGravityInX(IfcPositiveLengthMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setCentreOfGravityInX(IfcPositiveLengthMeasure value);
         friend class ExpressDataSet;
 
     protected:

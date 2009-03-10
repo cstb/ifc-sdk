@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcCostValue::IfcCostValue(Step::Id id, Step::SPFData *args) : IfcAppliedValue(i
 IfcCostValue::~IfcCostValue() {
 }
 
-bool IfcCostValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCostValue(this);
+bool IfcCostValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCostValue(this);
 }
 
-const std::string &IfcCostValue::type() {
+const std::string &IfcCostValue::type() const {
     return IfcCostValue::s_type.getName();
 }
 
-Step::ClassType IfcCostValue::getClassType() {
+const Step::ClassType &IfcCostValue::getClassType() {
     return IfcCostValue::s_type;
 }
 
-Step::ClassType IfcCostValue::getType() const {
+const Step::ClassType &IfcCostValue::getType() const {
     return IfcCostValue::s_type;
 }
 
-bool IfcCostValue::isOfType(Step::ClassType t) {
+bool IfcCostValue::isOfType(const Step::ClassType &t) const {
     return IfcCostValue::s_type == t ? true : IfcAppliedValue::isOfType(t);
 }
 
@@ -74,6 +75,11 @@ IfcLabel IfcCostValue::getCostType() {
     else {
         return Step::getUnset(m_costType);
     }
+}
+
+const IfcLabel IfcCostValue::getCostType() const {
+    IfcCostValue * deConstObject = const_cast< IfcCostValue * > (this);
+    return deConstObject->getCostType();
 }
 
 void IfcCostValue::setCostType(const IfcLabel &value) {
@@ -89,12 +95,13 @@ IfcText IfcCostValue::getCondition() {
     }
 }
 
-void IfcCostValue::setCondition(const IfcText &value) {
-    m_condition = value;
+const IfcText IfcCostValue::getCondition() const {
+    IfcCostValue * deConstObject = const_cast< IfcCostValue * > (this);
+    return deConstObject->getCondition();
 }
 
-void IfcCostValue::release() {
-    IfcAppliedValue::release();
+void IfcCostValue::setCondition(const IfcText &value) {
+    m_condition = value;
 }
 
 bool IfcCostValue::init() {
@@ -108,14 +115,14 @@ bool IfcCostValue::init() {
         m_costType = Step::getUnset(m_costType);
     }
     else {
-        m_costType = Step::spfToString(arg);
+        m_costType = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_condition = Step::getUnset(m_condition);
     }
     else {
-        m_condition = Step::spfToString(arg);
+        m_condition = Step::String::fromSPF(arg);
     }
     return true;
 }

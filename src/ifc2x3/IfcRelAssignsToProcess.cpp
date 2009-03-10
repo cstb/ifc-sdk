@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelAssignsToProcess::IfcRelAssignsToProcess(Step::Id id, Step::SPFData *args)
 IfcRelAssignsToProcess::~IfcRelAssignsToProcess() {
 }
 
-bool IfcRelAssignsToProcess::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToProcess(this);
+bool IfcRelAssignsToProcess::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToProcess(this);
 }
 
-const std::string &IfcRelAssignsToProcess::type() {
+const std::string &IfcRelAssignsToProcess::type() const {
     return IfcRelAssignsToProcess::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToProcess::getClassType() {
+const Step::ClassType &IfcRelAssignsToProcess::getClassType() {
     return IfcRelAssignsToProcess::s_type;
 }
 
-Step::ClassType IfcRelAssignsToProcess::getType() const {
+const Step::ClassType &IfcRelAssignsToProcess::getType() const {
     return IfcRelAssignsToProcess::s_type;
 }
 
-bool IfcRelAssignsToProcess::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToProcess::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToProcess::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcProcess *IfcRelAssignsToProcess::getRelatingProcess() {
     }
 }
 
+const IfcProcess *IfcRelAssignsToProcess::getRelatingProcess() const {
+    IfcRelAssignsToProcess * deConstObject = const_cast< IfcRelAssignsToProcess * > (this);
+    return deConstObject->getRelatingProcess();
+}
+
 void IfcRelAssignsToProcess::setRelatingProcess(const Step::RefPtr< IfcProcess > &value) {
+    if (m_relatingProcess.valid()) {
+        m_relatingProcess->m_operatesOn.erase(this);
+    }
+    if (value.valid()) {
+        value->m_operatesOn.insert(this);
+    }
     m_relatingProcess = value;
-    m_relatingProcess->m_operatesOn.insert(this);
 }
 
 IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() {
@@ -95,14 +105,13 @@ IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() {
     }
 }
 
-void IfcRelAssignsToProcess::setQuantityInProcess(const Step::RefPtr< IfcMeasureWithUnit > &value) {
-    m_quantityInProcess = value;
+const IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() const {
+    IfcRelAssignsToProcess * deConstObject = const_cast< IfcRelAssignsToProcess * > (this);
+    return deConstObject->getQuantityInProcess();
 }
 
-void IfcRelAssignsToProcess::release() {
-    IfcRelAssigns::release();
-    m_relatingProcess.release();
-    m_quantityInProcess.release();
+void IfcRelAssignsToProcess::setQuantityInProcess(const Step::RefPtr< IfcMeasureWithUnit > &value) {
+    m_quantityInProcess = value;
 }
 
 bool IfcRelAssignsToProcess::init() {
@@ -116,22 +125,22 @@ bool IfcRelAssignsToProcess::init() {
         m_relatingProcess = NULL;
     }
     else {
-        m_relatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingProcess = static_cast< IfcProcess * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_quantityInProcess = NULL;
     }
     else {
-        m_quantityInProcess = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_quantityInProcess = static_cast< IfcMeasureWithUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToProcess::copy(const IfcRelAssignsToProcess &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingProcess(copyop(obj.m_relatingProcess.get()));
-    setQuantityInProcess(copyop(obj.m_quantityInProcess.get()));
+    setRelatingProcess((IfcProcess*)copyop(obj.m_relatingProcess.get()));
+    setQuantityInProcess((IfcMeasureWithUnit*)copyop(obj.m_quantityInProcess.get()));
     return;
 }
 

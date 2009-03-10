@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFilterType::IfcFilterType(Step::Id id, Step::SPFData *args) : IfcFlowTreatmen
 IfcFilterType::~IfcFilterType() {
 }
 
-bool IfcFilterType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFilterType(this);
+bool IfcFilterType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFilterType(this);
 }
 
-const std::string &IfcFilterType::type() {
+const std::string &IfcFilterType::type() const {
     return IfcFilterType::s_type.getName();
 }
 
-Step::ClassType IfcFilterType::getClassType() {
+const Step::ClassType &IfcFilterType::getClassType() {
     return IfcFilterType::s_type;
 }
 
-Step::ClassType IfcFilterType::getType() const {
+const Step::ClassType &IfcFilterType::getType() const {
     return IfcFilterType::s_type;
 }
 
-bool IfcFilterType::isOfType(Step::ClassType t) {
+bool IfcFilterType::isOfType(const Step::ClassType &t) const {
     return IfcFilterType::s_type == t ? true : IfcFlowTreatmentDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFilterTypeEnum IfcFilterType::getPredefinedType() {
     }
 }
 
-void IfcFilterType::setPredefinedType(IfcFilterTypeEnum value) {
-    m_predefinedType = value;
+const IfcFilterTypeEnum IfcFilterType::getPredefinedType() const {
+    IfcFilterType * deConstObject = const_cast< IfcFilterType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFilterType::release() {
-    IfcFlowTreatmentDeviceType::release();
+void IfcFilterType::setPredefinedType(IfcFilterTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFilterType::init() {

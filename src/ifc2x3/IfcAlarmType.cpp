@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcAlarmType::IfcAlarmType(Step::Id id, Step::SPFData *args) : IfcDistributionCo
 IfcAlarmType::~IfcAlarmType() {
 }
 
-bool IfcAlarmType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAlarmType(this);
+bool IfcAlarmType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAlarmType(this);
 }
 
-const std::string &IfcAlarmType::type() {
+const std::string &IfcAlarmType::type() const {
     return IfcAlarmType::s_type.getName();
 }
 
-Step::ClassType IfcAlarmType::getClassType() {
+const Step::ClassType &IfcAlarmType::getClassType() {
     return IfcAlarmType::s_type;
 }
 
-Step::ClassType IfcAlarmType::getType() const {
+const Step::ClassType &IfcAlarmType::getType() const {
     return IfcAlarmType::s_type;
 }
 
-bool IfcAlarmType::isOfType(Step::ClassType t) {
+bool IfcAlarmType::isOfType(const Step::ClassType &t) const {
     return IfcAlarmType::s_type == t ? true : IfcDistributionControlElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcAlarmTypeEnum IfcAlarmType::getPredefinedType() {
     }
 }
 
-void IfcAlarmType::setPredefinedType(IfcAlarmTypeEnum value) {
-    m_predefinedType = value;
+const IfcAlarmTypeEnum IfcAlarmType::getPredefinedType() const {
+    IfcAlarmType * deConstObject = const_cast< IfcAlarmType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcAlarmType::release() {
-    IfcDistributionControlElementType::release();
+void IfcAlarmType::setPredefinedType(IfcAlarmTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcAlarmType::init() {

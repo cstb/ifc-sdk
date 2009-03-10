@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +52,23 @@ IfcRelAssociatesConstraint::IfcRelAssociatesConstraint(Step::Id id, Step::SPFDat
 IfcRelAssociatesConstraint::~IfcRelAssociatesConstraint() {
 }
 
-bool IfcRelAssociatesConstraint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesConstraint(this);
+bool IfcRelAssociatesConstraint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesConstraint(this);
 }
 
-const std::string &IfcRelAssociatesConstraint::type() {
+const std::string &IfcRelAssociatesConstraint::type() const {
     return IfcRelAssociatesConstraint::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesConstraint::getClassType() {
+const Step::ClassType &IfcRelAssociatesConstraint::getClassType() {
     return IfcRelAssociatesConstraint::s_type;
 }
 
-Step::ClassType IfcRelAssociatesConstraint::getType() const {
+const Step::ClassType &IfcRelAssociatesConstraint::getType() const {
     return IfcRelAssociatesConstraint::s_type;
 }
 
-bool IfcRelAssociatesConstraint::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesConstraint::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesConstraint::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -78,6 +79,11 @@ IfcLabel IfcRelAssociatesConstraint::getIntent() {
     else {
         return Step::getUnset(m_intent);
     }
+}
+
+const IfcLabel IfcRelAssociatesConstraint::getIntent() const {
+    IfcRelAssociatesConstraint * deConstObject = const_cast< IfcRelAssociatesConstraint * > (this);
+    return deConstObject->getIntent();
 }
 
 void IfcRelAssociatesConstraint::setIntent(const IfcLabel &value) {
@@ -93,13 +99,13 @@ IfcConstraint *IfcRelAssociatesConstraint::getRelatingConstraint() {
     }
 }
 
-void IfcRelAssociatesConstraint::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    m_relatingConstraint = value;
+const IfcConstraint *IfcRelAssociatesConstraint::getRelatingConstraint() const {
+    IfcRelAssociatesConstraint * deConstObject = const_cast< IfcRelAssociatesConstraint * > (this);
+    return deConstObject->getRelatingConstraint();
 }
 
-void IfcRelAssociatesConstraint::release() {
-    IfcRelAssociates::release();
-    m_relatingConstraint.release();
+void IfcRelAssociatesConstraint::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
+    m_relatingConstraint = value;
 }
 
 bool IfcRelAssociatesConstraint::init() {
@@ -113,14 +119,14 @@ bool IfcRelAssociatesConstraint::init() {
         m_intent = Step::getUnset(m_intent);
     }
     else {
-        m_intent = Step::spfToString(arg);
+        m_intent = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatingConstraint = NULL;
     }
     else {
-        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingConstraint = static_cast< IfcConstraint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -128,7 +134,7 @@ bool IfcRelAssociatesConstraint::init() {
 void IfcRelAssociatesConstraint::copy(const IfcRelAssociatesConstraint &obj, const CopyOp &copyop) {
     IfcRelAssociates::copy(obj, copyop);
     setIntent(obj.m_intent);
-    setRelatingConstraint(copyop(obj.m_relatingConstraint.get()));
+    setRelatingConstraint((IfcConstraint*)copyop(obj.m_relatingConstraint.get()));
     return;
 }
 

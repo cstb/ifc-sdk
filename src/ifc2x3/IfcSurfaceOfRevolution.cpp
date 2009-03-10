@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcSurfaceOfRevolution::IfcSurfaceOfRevolution(Step::Id id, Step::SPFData *args)
 IfcSurfaceOfRevolution::~IfcSurfaceOfRevolution() {
 }
 
-bool IfcSurfaceOfRevolution::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceOfRevolution(this);
+bool IfcSurfaceOfRevolution::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceOfRevolution(this);
 }
 
-const std::string &IfcSurfaceOfRevolution::type() {
+const std::string &IfcSurfaceOfRevolution::type() const {
     return IfcSurfaceOfRevolution::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceOfRevolution::getClassType() {
+const Step::ClassType &IfcSurfaceOfRevolution::getClassType() {
     return IfcSurfaceOfRevolution::s_type;
 }
 
-Step::ClassType IfcSurfaceOfRevolution::getType() const {
+const Step::ClassType &IfcSurfaceOfRevolution::getType() const {
     return IfcSurfaceOfRevolution::s_type;
 }
 
-bool IfcSurfaceOfRevolution::isOfType(Step::ClassType t) {
+bool IfcSurfaceOfRevolution::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceOfRevolution::s_type == t ? true : IfcSweptSurface::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() {
     }
 }
 
-void IfcSurfaceOfRevolution::setAxisPosition(const Step::RefPtr< IfcAxis1Placement > &value) {
-    m_axisPosition = value;
+const IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() const {
+    IfcSurfaceOfRevolution * deConstObject = const_cast< IfcSurfaceOfRevolution * > (this);
+    return deConstObject->getAxisPosition();
 }
 
-void IfcSurfaceOfRevolution::release() {
-    IfcSweptSurface::release();
-    m_axisPosition.release();
+void IfcSurfaceOfRevolution::setAxisPosition(const Step::RefPtr< IfcAxis1Placement > &value) {
+    m_axisPosition = value;
 }
 
 bool IfcSurfaceOfRevolution::init() {
@@ -99,14 +99,14 @@ bool IfcSurfaceOfRevolution::init() {
         m_axisPosition = NULL;
     }
     else {
-        m_axisPosition = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_axisPosition = static_cast< IfcAxis1Placement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSurfaceOfRevolution::copy(const IfcSurfaceOfRevolution &obj, const CopyOp &copyop) {
     IfcSweptSurface::copy(obj, copyop);
-    setAxisPosition(copyop(obj.m_axisPosition.get()));
+    setAxisPosition((IfcAxis1Placement*)copyop(obj.m_axisPosition.get()));
     return;
 }
 

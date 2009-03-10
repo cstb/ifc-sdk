@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -47,29 +47,28 @@ using namespace ifc2x3;
 
 IfcStructuralConnection::IfcStructuralConnection(Step::Id id, Step::SPFData *args) : IfcStructuralItem(id, args) {
     m_appliedCondition = NULL;
-    m_connectsStructuralMembers.setUnset(true);
 }
 
 IfcStructuralConnection::~IfcStructuralConnection() {
 }
 
-bool IfcStructuralConnection::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralConnection(this);
+bool IfcStructuralConnection::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralConnection(this);
 }
 
-const std::string &IfcStructuralConnection::type() {
+const std::string &IfcStructuralConnection::type() const {
     return IfcStructuralConnection::s_type.getName();
 }
 
-Step::ClassType IfcStructuralConnection::getClassType() {
+const Step::ClassType &IfcStructuralConnection::getClassType() {
     return IfcStructuralConnection::s_type;
 }
 
-Step::ClassType IfcStructuralConnection::getType() const {
+const Step::ClassType &IfcStructuralConnection::getType() const {
     return IfcStructuralConnection::s_type;
 }
 
-bool IfcStructuralConnection::isOfType(Step::ClassType t) {
+bool IfcStructuralConnection::isOfType(const Step::ClassType &t) const {
     return IfcStructuralConnection::s_type == t ? true : IfcStructuralItem::isOfType(t);
 }
 
@@ -82,11 +81,16 @@ IfcBoundaryCondition *IfcStructuralConnection::getAppliedCondition() {
     }
 }
 
+const IfcBoundaryCondition *IfcStructuralConnection::getAppliedCondition() const {
+    IfcStructuralConnection * deConstObject = const_cast< IfcStructuralConnection * > (this);
+    return deConstObject->getAppliedCondition();
+}
+
 void IfcStructuralConnection::setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value) {
     m_appliedCondition = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > &IfcStructuralConnection::getConnectsStructuralMembers() {
+Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() {
     if (Step::BaseObject::inited()) {
         return m_connectsStructuralMembers;
     }
@@ -96,9 +100,9 @@ Step::Set< Step::ObsPtr< IfcRelConnectsStructuralMember > > &IfcStructuralConnec
     }
 }
 
-void IfcStructuralConnection::release() {
-    IfcStructuralItem::release();
-    m_appliedCondition.release();
+const Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() const {
+    IfcStructuralConnection * deConstObject = const_cast< IfcStructuralConnection * > (this);
+    return deConstObject->getConnectsStructuralMembers();
 }
 
 bool IfcStructuralConnection::init() {
@@ -113,7 +117,7 @@ bool IfcStructuralConnection::init() {
         m_appliedCondition = NULL;
     }
     else {
-        m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     inverses = m_args->getInverses(IfcRelConnectsStructuralMember::getClassType(), 5);
     if (inverses) {
@@ -128,7 +132,7 @@ bool IfcStructuralConnection::init() {
 
 void IfcStructuralConnection::copy(const IfcStructuralConnection &obj, const CopyOp &copyop) {
     IfcStructuralItem::copy(obj, copyop);
-    setAppliedCondition(copyop(obj.m_appliedCondition.get()));
+    setAppliedCondition((IfcBoundaryCondition*)copyop(obj.m_appliedCondition.get()));
     return;
 }
 

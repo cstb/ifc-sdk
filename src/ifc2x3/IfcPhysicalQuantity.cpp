@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -45,29 +46,28 @@ using namespace ifc2x3;
 IfcPhysicalQuantity::IfcPhysicalQuantity(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_partOfComplex.setUnset(true);
 }
 
 IfcPhysicalQuantity::~IfcPhysicalQuantity() {
 }
 
-bool IfcPhysicalQuantity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPhysicalQuantity(this);
+bool IfcPhysicalQuantity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPhysicalQuantity(this);
 }
 
-const std::string &IfcPhysicalQuantity::type() {
+const std::string &IfcPhysicalQuantity::type() const {
     return IfcPhysicalQuantity::s_type.getName();
 }
 
-Step::ClassType IfcPhysicalQuantity::getClassType() {
+const Step::ClassType &IfcPhysicalQuantity::getClassType() {
     return IfcPhysicalQuantity::s_type;
 }
 
-Step::ClassType IfcPhysicalQuantity::getType() const {
+const Step::ClassType &IfcPhysicalQuantity::getType() const {
     return IfcPhysicalQuantity::s_type;
 }
 
-bool IfcPhysicalQuantity::isOfType(Step::ClassType t) {
+bool IfcPhysicalQuantity::isOfType(const Step::ClassType &t) const {
     return IfcPhysicalQuantity::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcLabel IfcPhysicalQuantity::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcPhysicalQuantity::getName() const {
+    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
+    return deConstObject->getName();
 }
 
 void IfcPhysicalQuantity::setName(const IfcLabel &value) {
@@ -93,11 +98,16 @@ IfcText IfcPhysicalQuantity::getDescription() {
     }
 }
 
+const IfcText IfcPhysicalQuantity::getDescription() const {
+    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcPhysicalQuantity::setDescription(const IfcText &value) {
     m_description = value;
 }
 
-Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity > > &IfcPhysicalQuantity::getPartOfComplex() {
+Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return m_partOfComplex;
     }
@@ -107,7 +117,9 @@ Step::Set< Step::ObsPtr< IfcPhysicalComplexQuantity > > &IfcPhysicalQuantity::ge
     }
 }
 
-void IfcPhysicalQuantity::release() {
+const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() const {
+    IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
+    return deConstObject->getPartOfComplex();
 }
 
 bool IfcPhysicalQuantity::init() {
@@ -118,14 +130,14 @@ bool IfcPhysicalQuantity::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     inverses = m_args->getInverses(IfcPhysicalComplexQuantity::getClassType(), 2);
     if (inverses) {

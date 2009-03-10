@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcBeamType::IfcBeamType(Step::Id id, Step::SPFData *args) : IfcBuildingElementT
 IfcBeamType::~IfcBeamType() {
 }
 
-bool IfcBeamType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBeamType(this);
+bool IfcBeamType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBeamType(this);
 }
 
-const std::string &IfcBeamType::type() {
+const std::string &IfcBeamType::type() const {
     return IfcBeamType::s_type.getName();
 }
 
-Step::ClassType IfcBeamType::getClassType() {
+const Step::ClassType &IfcBeamType::getClassType() {
     return IfcBeamType::s_type;
 }
 
-Step::ClassType IfcBeamType::getType() const {
+const Step::ClassType &IfcBeamType::getType() const {
     return IfcBeamType::s_type;
 }
 
-bool IfcBeamType::isOfType(Step::ClassType t) {
+bool IfcBeamType::isOfType(const Step::ClassType &t) const {
     return IfcBeamType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcBeamTypeEnum IfcBeamType::getPredefinedType() {
     }
 }
 
-void IfcBeamType::setPredefinedType(IfcBeamTypeEnum value) {
-    m_predefinedType = value;
+const IfcBeamTypeEnum IfcBeamType::getPredefinedType() const {
+    IfcBeamType * deConstObject = const_cast< IfcBeamType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcBeamType::release() {
-    IfcBuildingElementType::release();
+void IfcBeamType::setPredefinedType(IfcBeamTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcBeamType::init() {

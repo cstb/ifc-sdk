@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcFillAreaStyleTileSymbolWithStyle::IfcFillAreaStyleTileSymbolWithStyle(Step::I
 IfcFillAreaStyleTileSymbolWithStyle::~IfcFillAreaStyleTileSymbolWithStyle() {
 }
 
-bool IfcFillAreaStyleTileSymbolWithStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFillAreaStyleTileSymbolWithStyle(this);
+bool IfcFillAreaStyleTileSymbolWithStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyleTileSymbolWithStyle(this);
 }
 
-const std::string &IfcFillAreaStyleTileSymbolWithStyle::type() {
+const std::string &IfcFillAreaStyleTileSymbolWithStyle::type() const {
     return IfcFillAreaStyleTileSymbolWithStyle::s_type.getName();
 }
 
-Step::ClassType IfcFillAreaStyleTileSymbolWithStyle::getClassType() {
+const Step::ClassType &IfcFillAreaStyleTileSymbolWithStyle::getClassType() {
     return IfcFillAreaStyleTileSymbolWithStyle::s_type;
 }
 
-Step::ClassType IfcFillAreaStyleTileSymbolWithStyle::getType() const {
+const Step::ClassType &IfcFillAreaStyleTileSymbolWithStyle::getType() const {
     return IfcFillAreaStyleTileSymbolWithStyle::s_type;
 }
 
-bool IfcFillAreaStyleTileSymbolWithStyle::isOfType(Step::ClassType t) {
+bool IfcFillAreaStyleTileSymbolWithStyle::isOfType(const Step::ClassType &t) const {
     return IfcFillAreaStyleTileSymbolWithStyle::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcAnnotationSymbolOccurrence *IfcFillAreaStyleTileSymbolWithStyle::getSymbol() 
     }
 }
 
-void IfcFillAreaStyleTileSymbolWithStyle::setSymbol(const Step::RefPtr< IfcAnnotationSymbolOccurrence > &value) {
-    m_symbol = value;
+const IfcAnnotationSymbolOccurrence *IfcFillAreaStyleTileSymbolWithStyle::getSymbol() const {
+    IfcFillAreaStyleTileSymbolWithStyle * deConstObject = const_cast< IfcFillAreaStyleTileSymbolWithStyle * > (this);
+    return deConstObject->getSymbol();
 }
 
-void IfcFillAreaStyleTileSymbolWithStyle::release() {
-    IfcGeometricRepresentationItem::release();
-    m_symbol.release();
+void IfcFillAreaStyleTileSymbolWithStyle::setSymbol(const Step::RefPtr< IfcAnnotationSymbolOccurrence > &value) {
+    m_symbol = value;
 }
 
 bool IfcFillAreaStyleTileSymbolWithStyle::init() {
@@ -99,14 +99,14 @@ bool IfcFillAreaStyleTileSymbolWithStyle::init() {
         m_symbol = NULL;
     }
     else {
-        m_symbol = static_cast< IfcAnnotationSymbolOccurrence * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_symbol = static_cast< IfcAnnotationSymbolOccurrence * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcFillAreaStyleTileSymbolWithStyle::copy(const IfcFillAreaStyleTileSymbolWithStyle &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setSymbol(copyop(obj.m_symbol.get()));
+    setSymbol((IfcAnnotationSymbolOccurrence*)copyop(obj.m_symbol.get()));
     return;
 }
 

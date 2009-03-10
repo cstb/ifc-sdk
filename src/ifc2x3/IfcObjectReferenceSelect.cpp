@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -60,75 +60,75 @@ IfcObjectReferenceSelect::~IfcObjectReferenceSelect() {
     deleteUnion();
 }
 
-bool IfcObjectReferenceSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcObjectReferenceSelect(this);
+bool IfcObjectReferenceSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcObjectReferenceSelect(this);
 }
 
 bool IfcObjectReferenceSelect::init() {
     return false;
 }
 
-const std::string &IfcObjectReferenceSelect::type() {
+const std::string &IfcObjectReferenceSelect::type() const {
     return IfcObjectReferenceSelect::s_type.getName();
 }
 
-Step::ClassType IfcObjectReferenceSelect::getClassType() {
+const Step::ClassType &IfcObjectReferenceSelect::getClassType() {
     return IfcObjectReferenceSelect::s_type;
 }
 
-Step::ClassType IfcObjectReferenceSelect::getType() const {
+const Step::ClassType &IfcObjectReferenceSelect::getType() const {
     return IfcObjectReferenceSelect::s_type;
 }
 
-bool IfcObjectReferenceSelect::isOfType(Step::ClassType t) {
+bool IfcObjectReferenceSelect::isOfType(const Step::ClassType &t) const {
     return IfcObjectReferenceSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcObjectReferenceSelect::copy(const IfcObjectReferenceSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCMATERIAL:
-        setIfcMaterial(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterial));
+        setIfcMaterial((IfcMaterial *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterial)));
         break;
     case IFCPERSON:
-        setIfcPerson(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcPerson));
+        setIfcPerson((IfcPerson *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcPerson)));
         break;
     case IFCDATEANDTIME:
-        setIfcDateAndTime(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcDateAndTime));
+        setIfcDateAndTime((IfcDateAndTime *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcDateAndTime)));
         break;
     case IFCMATERIALLIST:
-        setIfcMaterialList(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterialList));
+        setIfcMaterialList((IfcMaterialList *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterialList)));
         break;
     case IFCORGANIZATION:
-        setIfcOrganization(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcOrganization));
+        setIfcOrganization((IfcOrganization *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcOrganization)));
         break;
     case IFCCALENDARDATE:
-        setIfcCalendarDate(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcCalendarDate));
+        setIfcCalendarDate((IfcCalendarDate *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcCalendarDate)));
         break;
     case IFCLOCALTIME:
-        setIfcLocalTime(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcLocalTime));
+        setIfcLocalTime((IfcLocalTime *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcLocalTime)));
         break;
     case IFCPERSONANDORGANIZATION:
-        setIfcPersonAndOrganization(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcPersonAndOrganization));
+        setIfcPersonAndOrganization((IfcPersonAndOrganization *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcPersonAndOrganization)));
         break;
     case IFCMATERIALLAYER:
-        setIfcMaterialLayer(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterialLayer));
+        setIfcMaterialLayer((IfcMaterialLayer *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcMaterialLayer)));
         break;
     case IFCEXTERNALREFERENCE:
-        setIfcExternalReference(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcExternalReference));
+        setIfcExternalReference((IfcExternalReference *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcExternalReference)));
         break;
     case IFCTIMESERIES:
-        setIfcTimeSeries(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcTimeSeries));
+        setIfcTimeSeries((IfcTimeSeries *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcTimeSeries)));
         break;
     case IFCADDRESS:
-        setIfcAddress(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcAddress));
+        setIfcAddress((IfcAddress *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcAddress)));
         break;
     case IFCAPPLIEDVALUE:
-        setIfcAppliedValue(copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcAppliedValue));
+        setIfcAppliedValue((IfcAppliedValue *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcAppliedValue)));
         break;
         }
 }
 
-char *IfcObjectReferenceSelect::currentTypeName() {
+std::string IfcObjectReferenceSelect::currentTypeName() const {
     switch(m_type) {
     case IFCMATERIAL:
         return "IfcMaterial";
@@ -174,7 +174,7 @@ char *IfcObjectReferenceSelect::currentTypeName() {
     }
 }
 
-IfcObjectReferenceSelect::IfcObjectReferenceSelect_select IfcObjectReferenceSelect::currentType() {
+IfcObjectReferenceSelect::IfcObjectReferenceSelect_select IfcObjectReferenceSelect::currentType() const {
     return m_type;
 }
 
@@ -223,12 +223,16 @@ void IfcObjectReferenceSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcMaterial *IfcObjectReferenceSelect::getIfcMaterial() {
-    return m_IfcObjectReferenceSelect_union.m_IfcMaterial;
+IfcMaterial *IfcObjectReferenceSelect::getIfcMaterial() const {
+    if (m_type == IFCMATERIAL) {
+        return m_IfcObjectReferenceSelect_union.m_IfcMaterial;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcMaterial(IfcMaterial *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -243,12 +247,16 @@ void IfcObjectReferenceSelect::setIfcMaterial(IfcMaterial *value) {
     m_type = IFCMATERIAL;
 }
 
-IfcPerson *IfcObjectReferenceSelect::getIfcPerson() {
-    return m_IfcObjectReferenceSelect_union.m_IfcPerson;
+IfcPerson *IfcObjectReferenceSelect::getIfcPerson() const {
+    if (m_type == IFCPERSON) {
+        return m_IfcObjectReferenceSelect_union.m_IfcPerson;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcPerson(IfcPerson *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -263,12 +271,16 @@ void IfcObjectReferenceSelect::setIfcPerson(IfcPerson *value) {
     m_type = IFCPERSON;
 }
 
-IfcDateAndTime *IfcObjectReferenceSelect::getIfcDateAndTime() {
-    return m_IfcObjectReferenceSelect_union.m_IfcDateAndTime;
+IfcDateAndTime *IfcObjectReferenceSelect::getIfcDateAndTime() const {
+    if (m_type == IFCDATEANDTIME) {
+        return m_IfcObjectReferenceSelect_union.m_IfcDateAndTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcDateAndTime(IfcDateAndTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -283,12 +295,16 @@ void IfcObjectReferenceSelect::setIfcDateAndTime(IfcDateAndTime *value) {
     m_type = IFCDATEANDTIME;
 }
 
-IfcMaterialList *IfcObjectReferenceSelect::getIfcMaterialList() {
-    return m_IfcObjectReferenceSelect_union.m_IfcMaterialList;
+IfcMaterialList *IfcObjectReferenceSelect::getIfcMaterialList() const {
+    if (m_type == IFCMATERIALLIST) {
+        return m_IfcObjectReferenceSelect_union.m_IfcMaterialList;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcMaterialList(IfcMaterialList *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -303,12 +319,16 @@ void IfcObjectReferenceSelect::setIfcMaterialList(IfcMaterialList *value) {
     m_type = IFCMATERIALLIST;
 }
 
-IfcOrganization *IfcObjectReferenceSelect::getIfcOrganization() {
-    return m_IfcObjectReferenceSelect_union.m_IfcOrganization;
+IfcOrganization *IfcObjectReferenceSelect::getIfcOrganization() const {
+    if (m_type == IFCORGANIZATION) {
+        return m_IfcObjectReferenceSelect_union.m_IfcOrganization;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcOrganization(IfcOrganization *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -323,12 +343,16 @@ void IfcObjectReferenceSelect::setIfcOrganization(IfcOrganization *value) {
     m_type = IFCORGANIZATION;
 }
 
-IfcCalendarDate *IfcObjectReferenceSelect::getIfcCalendarDate() {
-    return m_IfcObjectReferenceSelect_union.m_IfcCalendarDate;
+IfcCalendarDate *IfcObjectReferenceSelect::getIfcCalendarDate() const {
+    if (m_type == IFCCALENDARDATE) {
+        return m_IfcObjectReferenceSelect_union.m_IfcCalendarDate;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcCalendarDate(IfcCalendarDate *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -343,12 +367,16 @@ void IfcObjectReferenceSelect::setIfcCalendarDate(IfcCalendarDate *value) {
     m_type = IFCCALENDARDATE;
 }
 
-IfcLocalTime *IfcObjectReferenceSelect::getIfcLocalTime() {
-    return m_IfcObjectReferenceSelect_union.m_IfcLocalTime;
+IfcLocalTime *IfcObjectReferenceSelect::getIfcLocalTime() const {
+    if (m_type == IFCLOCALTIME) {
+        return m_IfcObjectReferenceSelect_union.m_IfcLocalTime;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcLocalTime(IfcLocalTime *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -363,12 +391,16 @@ void IfcObjectReferenceSelect::setIfcLocalTime(IfcLocalTime *value) {
     m_type = IFCLOCALTIME;
 }
 
-IfcPersonAndOrganization *IfcObjectReferenceSelect::getIfcPersonAndOrganization() {
-    return m_IfcObjectReferenceSelect_union.m_IfcPersonAndOrganization;
+IfcPersonAndOrganization *IfcObjectReferenceSelect::getIfcPersonAndOrganization() const {
+    if (m_type == IFCPERSONANDORGANIZATION) {
+        return m_IfcObjectReferenceSelect_union.m_IfcPersonAndOrganization;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcPersonAndOrganization(IfcPersonAndOrganization *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -383,12 +415,16 @@ void IfcObjectReferenceSelect::setIfcPersonAndOrganization(IfcPersonAndOrganizat
     m_type = IFCPERSONANDORGANIZATION;
 }
 
-IfcMaterialLayer *IfcObjectReferenceSelect::getIfcMaterialLayer() {
-    return m_IfcObjectReferenceSelect_union.m_IfcMaterialLayer;
+IfcMaterialLayer *IfcObjectReferenceSelect::getIfcMaterialLayer() const {
+    if (m_type == IFCMATERIALLAYER) {
+        return m_IfcObjectReferenceSelect_union.m_IfcMaterialLayer;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcMaterialLayer(IfcMaterialLayer *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -403,12 +439,16 @@ void IfcObjectReferenceSelect::setIfcMaterialLayer(IfcMaterialLayer *value) {
     m_type = IFCMATERIALLAYER;
 }
 
-IfcExternalReference *IfcObjectReferenceSelect::getIfcExternalReference() {
-    return m_IfcObjectReferenceSelect_union.m_IfcExternalReference;
+IfcExternalReference *IfcObjectReferenceSelect::getIfcExternalReference() const {
+    if (m_type == IFCEXTERNALREFERENCE) {
+        return m_IfcObjectReferenceSelect_union.m_IfcExternalReference;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcExternalReference(IfcExternalReference *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -423,12 +463,16 @@ void IfcObjectReferenceSelect::setIfcExternalReference(IfcExternalReference *val
     m_type = IFCEXTERNALREFERENCE;
 }
 
-IfcTimeSeries *IfcObjectReferenceSelect::getIfcTimeSeries() {
-    return m_IfcObjectReferenceSelect_union.m_IfcTimeSeries;
+IfcTimeSeries *IfcObjectReferenceSelect::getIfcTimeSeries() const {
+    if (m_type == IFCTIMESERIES) {
+        return m_IfcObjectReferenceSelect_union.m_IfcTimeSeries;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcTimeSeries(IfcTimeSeries *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -443,12 +487,16 @@ void IfcObjectReferenceSelect::setIfcTimeSeries(IfcTimeSeries *value) {
     m_type = IFCTIMESERIES;
 }
 
-IfcAddress *IfcObjectReferenceSelect::getIfcAddress() {
-    return m_IfcObjectReferenceSelect_union.m_IfcAddress;
+IfcAddress *IfcObjectReferenceSelect::getIfcAddress() const {
+    if (m_type == IFCADDRESS) {
+        return m_IfcObjectReferenceSelect_union.m_IfcAddress;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcAddress(IfcAddress *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -463,12 +511,16 @@ void IfcObjectReferenceSelect::setIfcAddress(IfcAddress *value) {
     m_type = IFCADDRESS;
 }
 
-IfcAppliedValue *IfcObjectReferenceSelect::getIfcAppliedValue() {
-    return m_IfcObjectReferenceSelect_union.m_IfcAppliedValue;
+IfcAppliedValue *IfcObjectReferenceSelect::getIfcAppliedValue() const {
+    if (m_type == IFCAPPLIEDVALUE) {
+        return m_IfcObjectReferenceSelect_union.m_IfcAppliedValue;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcObjectReferenceSelect::setIfcAppliedValue(IfcAppliedValue *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

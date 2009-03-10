@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcRelAssociatesDocument::IfcRelAssociatesDocument(Step::Id id, Step::SPFData *a
 IfcRelAssociatesDocument::~IfcRelAssociatesDocument() {
 }
 
-bool IfcRelAssociatesDocument::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesDocument(this);
+bool IfcRelAssociatesDocument::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesDocument(this);
 }
 
-const std::string &IfcRelAssociatesDocument::type() {
+const std::string &IfcRelAssociatesDocument::type() const {
     return IfcRelAssociatesDocument::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesDocument::getClassType() {
+const Step::ClassType &IfcRelAssociatesDocument::getClassType() {
     return IfcRelAssociatesDocument::s_type;
 }
 
-Step::ClassType IfcRelAssociatesDocument::getType() const {
+const Step::ClassType &IfcRelAssociatesDocument::getType() const {
     return IfcRelAssociatesDocument::s_type;
 }
 
-bool IfcRelAssociatesDocument::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesDocument::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesDocument::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() {
     }
 }
 
-void IfcRelAssociatesDocument::setRelatingDocument(const Step::RefPtr< IfcDocumentSelect > &value) {
-    m_relatingDocument = value;
+const IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() const {
+    IfcRelAssociatesDocument * deConstObject = const_cast< IfcRelAssociatesDocument * > (this);
+    return deConstObject->getRelatingDocument();
 }
 
-void IfcRelAssociatesDocument::release() {
-    IfcRelAssociates::release();
+void IfcRelAssociatesDocument::setRelatingDocument(const Step::RefPtr< IfcDocumentSelect > &value) {
+    m_relatingDocument = value;
 }
 
 bool IfcRelAssociatesDocument::init() {

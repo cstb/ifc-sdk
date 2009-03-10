@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcServiceLife::IfcServiceLife(Step::Id id, Step::SPFData *args) : IfcControl(id
 IfcServiceLife::~IfcServiceLife() {
 }
 
-bool IfcServiceLife::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcServiceLife(this);
+bool IfcServiceLife::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcServiceLife(this);
 }
 
-const std::string &IfcServiceLife::type() {
+const std::string &IfcServiceLife::type() const {
     return IfcServiceLife::s_type.getName();
 }
 
-Step::ClassType IfcServiceLife::getClassType() {
+const Step::ClassType &IfcServiceLife::getClassType() {
     return IfcServiceLife::s_type;
 }
 
-Step::ClassType IfcServiceLife::getType() const {
+const Step::ClassType &IfcServiceLife::getType() const {
     return IfcServiceLife::s_type;
 }
 
-bool IfcServiceLife::isOfType(Step::ClassType t) {
+bool IfcServiceLife::isOfType(const Step::ClassType &t) const {
     return IfcServiceLife::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcServiceLifeTypeEnum IfcServiceLife::getServiceLifeType() {
     else {
         return IfcServiceLifeTypeEnum_UNSET;
     }
+}
+
+const IfcServiceLifeTypeEnum IfcServiceLife::getServiceLifeType() const {
+    IfcServiceLife * deConstObject = const_cast< IfcServiceLife * > (this);
+    return deConstObject->getServiceLifeType();
 }
 
 void IfcServiceLife::setServiceLifeType(IfcServiceLifeTypeEnum value) {
@@ -89,12 +94,13 @@ IfcTimeMeasure IfcServiceLife::getServiceLifeDuration() {
     }
 }
 
-void IfcServiceLife::setServiceLifeDuration(IfcTimeMeasure value) {
-    m_serviceLifeDuration = value;
+const IfcTimeMeasure IfcServiceLife::getServiceLifeDuration() const {
+    IfcServiceLife * deConstObject = const_cast< IfcServiceLife * > (this);
+    return deConstObject->getServiceLifeDuration();
 }
 
-void IfcServiceLife::release() {
-    IfcControl::release();
+void IfcServiceLife::setServiceLifeDuration(IfcTimeMeasure value) {
+    m_serviceLifeDuration = value;
 }
 
 bool IfcServiceLife::init() {

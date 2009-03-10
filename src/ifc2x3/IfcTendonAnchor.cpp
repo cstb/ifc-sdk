@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcTendonAnchor::IfcTendonAnchor(Step::Id id, Step::SPFData *args) : IfcReinforc
 IfcTendonAnchor::~IfcTendonAnchor() {
 }
 
-bool IfcTendonAnchor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTendonAnchor(this);
+bool IfcTendonAnchor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTendonAnchor(this);
 }
 
-const std::string &IfcTendonAnchor::type() {
+const std::string &IfcTendonAnchor::type() const {
     return IfcTendonAnchor::s_type.getName();
 }
 
-Step::ClassType IfcTendonAnchor::getClassType() {
+const Step::ClassType &IfcTendonAnchor::getClassType() {
     return IfcTendonAnchor::s_type;
 }
 
-Step::ClassType IfcTendonAnchor::getType() const {
+const Step::ClassType &IfcTendonAnchor::getType() const {
     return IfcTendonAnchor::s_type;
 }
 
-bool IfcTendonAnchor::isOfType(Step::ClassType t) {
+bool IfcTendonAnchor::isOfType(const Step::ClassType &t) const {
     return IfcTendonAnchor::s_type == t ? true : IfcReinforcingElement::isOfType(t);
-}
-
-void IfcTendonAnchor::release() {
-    IfcReinforcingElement::release();
 }
 
 bool IfcTendonAnchor::init() {

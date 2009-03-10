@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcColumnType::IfcColumnType(Step::Id id, Step::SPFData *args) : IfcBuildingElem
 IfcColumnType::~IfcColumnType() {
 }
 
-bool IfcColumnType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColumnType(this);
+bool IfcColumnType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColumnType(this);
 }
 
-const std::string &IfcColumnType::type() {
+const std::string &IfcColumnType::type() const {
     return IfcColumnType::s_type.getName();
 }
 
-Step::ClassType IfcColumnType::getClassType() {
+const Step::ClassType &IfcColumnType::getClassType() {
     return IfcColumnType::s_type;
 }
 
-Step::ClassType IfcColumnType::getType() const {
+const Step::ClassType &IfcColumnType::getType() const {
     return IfcColumnType::s_type;
 }
 
-bool IfcColumnType::isOfType(Step::ClassType t) {
+bool IfcColumnType::isOfType(const Step::ClassType &t) const {
     return IfcColumnType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcColumnTypeEnum IfcColumnType::getPredefinedType() {
     }
 }
 
-void IfcColumnType::setPredefinedType(IfcColumnTypeEnum value) {
-    m_predefinedType = value;
+const IfcColumnTypeEnum IfcColumnType::getPredefinedType() const {
+    IfcColumnType * deConstObject = const_cast< IfcColumnType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcColumnType::release() {
-    IfcBuildingElementType::release();
+void IfcColumnType::setPredefinedType(IfcColumnTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcColumnType::init() {

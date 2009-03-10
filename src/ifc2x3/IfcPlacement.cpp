@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcPlacement::IfcPlacement(Step::Id id, Step::SPFData *args) : IfcGeometricRepre
 IfcPlacement::~IfcPlacement() {
 }
 
-bool IfcPlacement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlacement(this);
+bool IfcPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlacement(this);
 }
 
-const std::string &IfcPlacement::type() {
+const std::string &IfcPlacement::type() const {
     return IfcPlacement::s_type.getName();
 }
 
-Step::ClassType IfcPlacement::getClassType() {
+const Step::ClassType &IfcPlacement::getClassType() {
     return IfcPlacement::s_type;
 }
 
-Step::ClassType IfcPlacement::getType() const {
+const Step::ClassType &IfcPlacement::getType() const {
     return IfcPlacement::s_type;
 }
 
-bool IfcPlacement::isOfType(Step::ClassType t) {
+bool IfcPlacement::isOfType(const Step::ClassType &t) const {
     return IfcPlacement::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcCartesianPoint *IfcPlacement::getLocation() {
     }
 }
 
-void IfcPlacement::setLocation(const Step::RefPtr< IfcCartesianPoint > &value) {
-    m_location = value;
+const IfcCartesianPoint *IfcPlacement::getLocation() const {
+    IfcPlacement * deConstObject = const_cast< IfcPlacement * > (this);
+    return deConstObject->getLocation();
 }
 
-void IfcPlacement::release() {
-    IfcGeometricRepresentationItem::release();
-    m_location.release();
+void IfcPlacement::setLocation(const Step::RefPtr< IfcCartesianPoint > &value) {
+    m_location = value;
 }
 
 bool IfcPlacement::init() {
@@ -99,14 +99,14 @@ bool IfcPlacement::init() {
         m_location = NULL;
     }
     else {
-        m_location = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_location = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcPlacement::copy(const IfcPlacement &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setLocation(copyop(obj.m_location.get()));
+    setLocation((IfcCartesianPoint*)copyop(obj.m_location.get()));
     return;
 }
 

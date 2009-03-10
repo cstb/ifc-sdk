@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -27,7 +27,7 @@
 #include "ifc2x3/IfcBuildingElementPart.h"
 
 #include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElementPart.h"
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include "ifc2x3/Visitor.h"
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -38,38 +38,34 @@
 #endif
 using namespace ifc2x3;
 
-IfcBuildingElementPart::IfcBuildingElementPart(Step::Id id, Step::SPFData *args) : IfcElementPart(id, args) {
+IfcBuildingElementPart::IfcBuildingElementPart(Step::Id id, Step::SPFData *args) : IfcBuildingElementComponent(id, args) {
 }
 
 IfcBuildingElementPart::~IfcBuildingElementPart() {
 }
 
-bool IfcBuildingElementPart::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBuildingElementPart(this);
+bool IfcBuildingElementPart::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBuildingElementPart(this);
 }
 
-const std::string &IfcBuildingElementPart::type() {
+const std::string &IfcBuildingElementPart::type() const {
     return IfcBuildingElementPart::s_type.getName();
 }
 
-Step::ClassType IfcBuildingElementPart::getClassType() {
+const Step::ClassType &IfcBuildingElementPart::getClassType() {
     return IfcBuildingElementPart::s_type;
 }
 
-Step::ClassType IfcBuildingElementPart::getType() const {
+const Step::ClassType &IfcBuildingElementPart::getType() const {
     return IfcBuildingElementPart::s_type;
 }
 
-bool IfcBuildingElementPart::isOfType(Step::ClassType t) {
-    return IfcBuildingElementPart::s_type == t ? true : IfcElementPart::isOfType(t);
-}
-
-void IfcBuildingElementPart::release() {
-    IfcElementPart::release();
+bool IfcBuildingElementPart::isOfType(const Step::ClassType &t) const {
+    return IfcBuildingElementPart::s_type == t ? true : IfcBuildingElementComponent::isOfType(t);
 }
 
 bool IfcBuildingElementPart::init() {
-    bool status = IfcElementPart::init();
+    bool status = IfcBuildingElementComponent::init();
     std::string arg;
     if (!status) {
         return false;
@@ -78,7 +74,7 @@ bool IfcBuildingElementPart::init() {
 }
 
 void IfcBuildingElementPart::copy(const IfcBuildingElementPart &obj, const CopyOp &copyop) {
-    IfcElementPart::copy(obj, copyop);
+    IfcBuildingElementComponent::copy(obj, copyop);
     return;
 }
 

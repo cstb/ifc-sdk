@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,29 +50,28 @@ IfcSectionReinforcementProperties::IfcSectionReinforcementProperties(Step::Id id
     m_transversePosition = Step::getUnset(m_transversePosition);
     m_reinforcementRole = IfcReinforcingBarRoleEnum_UNSET;
     m_sectionDefinition = NULL;
-    m_crossSectionReinforcementDefinitions.setUnset(true);
 }
 
 IfcSectionReinforcementProperties::~IfcSectionReinforcementProperties() {
 }
 
-bool IfcSectionReinforcementProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSectionReinforcementProperties(this);
+bool IfcSectionReinforcementProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSectionReinforcementProperties(this);
 }
 
-const std::string &IfcSectionReinforcementProperties::type() {
+const std::string &IfcSectionReinforcementProperties::type() const {
     return IfcSectionReinforcementProperties::s_type.getName();
 }
 
-Step::ClassType IfcSectionReinforcementProperties::getClassType() {
+const Step::ClassType &IfcSectionReinforcementProperties::getClassType() {
     return IfcSectionReinforcementProperties::s_type;
 }
 
-Step::ClassType IfcSectionReinforcementProperties::getType() const {
+const Step::ClassType &IfcSectionReinforcementProperties::getType() const {
     return IfcSectionReinforcementProperties::s_type;
 }
 
-bool IfcSectionReinforcementProperties::isOfType(Step::ClassType t) {
+bool IfcSectionReinforcementProperties::isOfType(const Step::ClassType &t) const {
     return IfcSectionReinforcementProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -84,6 +82,11 @@ IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalStartPosition
     else {
         return Step::getUnset(m_longitudinalStartPosition);
     }
+}
+
+const IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalStartPosition() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getLongitudinalStartPosition();
 }
 
 void IfcSectionReinforcementProperties::setLongitudinalStartPosition(IfcLengthMeasure value) {
@@ -99,6 +102,11 @@ IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalEndPosition()
     }
 }
 
+const IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalEndPosition() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getLongitudinalEndPosition();
+}
+
 void IfcSectionReinforcementProperties::setLongitudinalEndPosition(IfcLengthMeasure value) {
     m_longitudinalEndPosition = value;
 }
@@ -110,6 +118,11 @@ IfcLengthMeasure IfcSectionReinforcementProperties::getTransversePosition() {
     else {
         return Step::getUnset(m_transversePosition);
     }
+}
+
+const IfcLengthMeasure IfcSectionReinforcementProperties::getTransversePosition() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getTransversePosition();
 }
 
 void IfcSectionReinforcementProperties::setTransversePosition(IfcLengthMeasure value) {
@@ -125,6 +138,11 @@ IfcReinforcingBarRoleEnum IfcSectionReinforcementProperties::getReinforcementRol
     }
 }
 
+const IfcReinforcingBarRoleEnum IfcSectionReinforcementProperties::getReinforcementRole() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getReinforcementRole();
+}
+
 void IfcSectionReinforcementProperties::setReinforcementRole(IfcReinforcingBarRoleEnum value) {
     m_reinforcementRole = value;
 }
@@ -138,11 +156,16 @@ IfcSectionProperties *IfcSectionReinforcementProperties::getSectionDefinition() 
     }
 }
 
+const IfcSectionProperties *IfcSectionReinforcementProperties::getSectionDefinition() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getSectionDefinition();
+}
+
 void IfcSectionReinforcementProperties::setSectionDefinition(const Step::RefPtr< IfcSectionProperties > &value) {
     m_sectionDefinition = value;
 }
 
-Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > &IfcSectionReinforcementProperties::getCrossSectionReinforcementDefinitions() {
+Set_IfcReinforcementBarProperties_1_n &IfcSectionReinforcementProperties::getCrossSectionReinforcementDefinitions() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionReinforcementDefinitions;
     }
@@ -152,13 +175,13 @@ Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > &IfcSectionReinforcem
     }
 }
 
-void IfcSectionReinforcementProperties::setCrossSectionReinforcementDefinitions(const Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > &value) {
-    m_crossSectionReinforcementDefinitions = value;
+const Set_IfcReinforcementBarProperties_1_n &IfcSectionReinforcementProperties::getCrossSectionReinforcementDefinitions() const {
+    IfcSectionReinforcementProperties * deConstObject = const_cast< IfcSectionReinforcementProperties * > (this);
+    return deConstObject->getCrossSectionReinforcementDefinitions();
 }
 
-void IfcSectionReinforcementProperties::release() {
-    m_sectionDefinition.release();
-    m_crossSectionReinforcementDefinitions.clear();
+void IfcSectionReinforcementProperties::setCrossSectionReinforcementDefinitions(const Set_IfcReinforcementBarProperties_1_n &value) {
+    m_crossSectionReinforcementDefinitions = value;
 }
 
 bool IfcSectionReinforcementProperties::init() {
@@ -222,7 +245,7 @@ bool IfcSectionReinforcementProperties::init() {
         m_sectionDefinition = NULL;
     }
     else {
-        m_sectionDefinition = static_cast< IfcSectionProperties * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_sectionDefinition = static_cast< IfcSectionProperties * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -235,7 +258,7 @@ bool IfcSectionReinforcementProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcReinforcementBarProperties > attr2;
-                attr2 = static_cast< IfcReinforcementBarProperties * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcReinforcementBarProperties * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_crossSectionReinforcementDefinitions.insert(attr2);
             }
             else {
@@ -247,15 +270,15 @@ bool IfcSectionReinforcementProperties::init() {
 }
 
 void IfcSectionReinforcementProperties::copy(const IfcSectionReinforcementProperties &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcReinforcementBarProperties > >::const_iterator it_m_crossSectionReinforcementDefinitions;
+    Step::Set< Step::RefPtr< IfcReinforcementBarProperties >, 1 >::const_iterator it_m_crossSectionReinforcementDefinitions;
     Step::BaseEntity::copy(obj, copyop);
     setLongitudinalStartPosition(obj.m_longitudinalStartPosition);
     setLongitudinalEndPosition(obj.m_longitudinalEndPosition);
     setTransversePosition(obj.m_transversePosition);
     setReinforcementRole(obj.m_reinforcementRole);
-    setSectionDefinition(copyop(obj.m_sectionDefinition.get()));
+    setSectionDefinition((IfcSectionProperties*)copyop(obj.m_sectionDefinition.get()));
     for (it_m_crossSectionReinforcementDefinitions = obj.m_crossSectionReinforcementDefinitions.begin(); it_m_crossSectionReinforcementDefinitions != obj.m_crossSectionReinforcementDefinitions.end(); ++it_m_crossSectionReinforcementDefinitions) {
-        Step::RefPtr< IfcReinforcementBarProperties > copyTarget = copyop((*it_m_crossSectionReinforcementDefinitions).get());
+        Step::RefPtr< IfcReinforcementBarProperties > copyTarget = (IfcReinforcementBarProperties *) (copyop((*it_m_crossSectionReinforcementDefinitions).get()));
         m_crossSectionReinforcementDefinitions.insert(copyTarget.get());
     }
     return;

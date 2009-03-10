@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -58,23 +58,23 @@ IfcWindowLiningProperties::IfcWindowLiningProperties(Step::Id id, Step::SPFData 
 IfcWindowLiningProperties::~IfcWindowLiningProperties() {
 }
 
-bool IfcWindowLiningProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWindowLiningProperties(this);
+bool IfcWindowLiningProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWindowLiningProperties(this);
 }
 
-const std::string &IfcWindowLiningProperties::type() {
+const std::string &IfcWindowLiningProperties::type() const {
     return IfcWindowLiningProperties::s_type.getName();
 }
 
-Step::ClassType IfcWindowLiningProperties::getClassType() {
+const Step::ClassType &IfcWindowLiningProperties::getClassType() {
     return IfcWindowLiningProperties::s_type;
 }
 
-Step::ClassType IfcWindowLiningProperties::getType() const {
+const Step::ClassType &IfcWindowLiningProperties::getType() const {
     return IfcWindowLiningProperties::s_type;
 }
 
-bool IfcWindowLiningProperties::isOfType(Step::ClassType t) {
+bool IfcWindowLiningProperties::isOfType(const Step::ClassType &t) const {
     return IfcWindowLiningProperties::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -85,6 +85,11 @@ IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth() {
     else {
         return Step::getUnset(m_liningDepth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningDepth() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getLiningDepth();
 }
 
 void IfcWindowLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value) {
@@ -100,6 +105,11 @@ IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getLiningThickness();
+}
+
 void IfcWindowLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value) {
     m_liningThickness = value;
 }
@@ -111,6 +121,11 @@ IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() {
     else {
         return Step::getUnset(m_transomThickness);
     }
+}
+
+const IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getTransomThickness();
 }
 
 void IfcWindowLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value) {
@@ -126,6 +141,11 @@ IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getMullionThickness();
+}
+
 void IfcWindowLiningProperties::setMullionThickness(IfcPositiveLengthMeasure value) {
     m_mullionThickness = value;
 }
@@ -137,6 +157,11 @@ IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() {
     else {
         return Step::getUnset(m_firstTransomOffset);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getFirstTransomOffset();
 }
 
 void IfcWindowLiningProperties::setFirstTransomOffset(IfcNormalisedRatioMeasure value) {
@@ -152,6 +177,11 @@ IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getSecondTransomOffset();
+}
+
 void IfcWindowLiningProperties::setSecondTransomOffset(IfcNormalisedRatioMeasure value) {
     m_secondTransomOffset = value;
 }
@@ -163,6 +193,11 @@ IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() {
     else {
         return Step::getUnset(m_firstMullionOffset);
     }
+}
+
+const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getFirstMullionOffset();
 }
 
 void IfcWindowLiningProperties::setFirstMullionOffset(IfcNormalisedRatioMeasure value) {
@@ -178,6 +213,11 @@ IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getSecondMullionOffset();
+}
+
 void IfcWindowLiningProperties::setSecondMullionOffset(IfcNormalisedRatioMeasure value) {
     m_secondMullionOffset = value;
 }
@@ -191,13 +231,13 @@ IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() {
     }
 }
 
-void IfcWindowLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
-    m_shapeAspectStyle = value;
+const IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() const {
+    IfcWindowLiningProperties * deConstObject = const_cast< IfcWindowLiningProperties * > (this);
+    return deConstObject->getShapeAspectStyle();
 }
 
-void IfcWindowLiningProperties::release() {
-    IfcPropertySetDefinition::release();
-    m_shapeAspectStyle.release();
+void IfcWindowLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
+    m_shapeAspectStyle = value;
 }
 
 bool IfcWindowLiningProperties::init() {
@@ -267,7 +307,7 @@ bool IfcWindowLiningProperties::init() {
         m_shapeAspectStyle = NULL;
     }
     else {
-        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_shapeAspectStyle = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -282,7 +322,7 @@ void IfcWindowLiningProperties::copy(const IfcWindowLiningProperties &obj, const
     setSecondTransomOffset(obj.m_secondTransomOffset);
     setFirstMullionOffset(obj.m_firstMullionOffset);
     setSecondMullionOffset(obj.m_secondMullionOffset);
-    setShapeAspectStyle(copyop(obj.m_shapeAspectStyle.get()));
+    setShapeAspectStyle((IfcShapeAspect*)copyop(obj.m_shapeAspectStyle.get()));
     return;
 }
 

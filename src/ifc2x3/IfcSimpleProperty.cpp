@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcSimpleProperty::IfcSimpleProperty(Step::Id id, Step::SPFData *args) : IfcProp
 IfcSimpleProperty::~IfcSimpleProperty() {
 }
 
-bool IfcSimpleProperty::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSimpleProperty(this);
+bool IfcSimpleProperty::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSimpleProperty(this);
 }
 
-const std::string &IfcSimpleProperty::type() {
+const std::string &IfcSimpleProperty::type() const {
     return IfcSimpleProperty::s_type.getName();
 }
 
-Step::ClassType IfcSimpleProperty::getClassType() {
+const Step::ClassType &IfcSimpleProperty::getClassType() {
     return IfcSimpleProperty::s_type;
 }
 
-Step::ClassType IfcSimpleProperty::getType() const {
+const Step::ClassType &IfcSimpleProperty::getType() const {
     return IfcSimpleProperty::s_type;
 }
 
-bool IfcSimpleProperty::isOfType(Step::ClassType t) {
+bool IfcSimpleProperty::isOfType(const Step::ClassType &t) const {
     return IfcSimpleProperty::s_type == t ? true : IfcProperty::isOfType(t);
-}
-
-void IfcSimpleProperty::release() {
-    IfcProperty::release();
 }
 
 bool IfcSimpleProperty::init() {

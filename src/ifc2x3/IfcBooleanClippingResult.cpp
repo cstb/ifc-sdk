@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcBooleanClippingResult::IfcBooleanClippingResult(Step::Id id, Step::SPFData *a
 IfcBooleanClippingResult::~IfcBooleanClippingResult() {
 }
 
-bool IfcBooleanClippingResult::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBooleanClippingResult(this);
+bool IfcBooleanClippingResult::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBooleanClippingResult(this);
 }
 
-const std::string &IfcBooleanClippingResult::type() {
+const std::string &IfcBooleanClippingResult::type() const {
     return IfcBooleanClippingResult::s_type.getName();
 }
 
-Step::ClassType IfcBooleanClippingResult::getClassType() {
+const Step::ClassType &IfcBooleanClippingResult::getClassType() {
     return IfcBooleanClippingResult::s_type;
 }
 
-Step::ClassType IfcBooleanClippingResult::getType() const {
+const Step::ClassType &IfcBooleanClippingResult::getType() const {
     return IfcBooleanClippingResult::s_type;
 }
 
-bool IfcBooleanClippingResult::isOfType(Step::ClassType t) {
+bool IfcBooleanClippingResult::isOfType(const Step::ClassType &t) const {
     return IfcBooleanClippingResult::s_type == t ? true : IfcBooleanResult::isOfType(t);
-}
-
-void IfcBooleanClippingResult::release() {
-    IfcBooleanResult::release();
 }
 
 bool IfcBooleanClippingResult::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcCurveFontOrScaledCurveFontSelect::~IfcCurveFontOrScaledCurveFontSelect() {
     deleteUnion();
 }
 
-bool IfcCurveFontOrScaledCurveFontSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveFontOrScaledCurveFontSelect(this);
+bool IfcCurveFontOrScaledCurveFontSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveFontOrScaledCurveFontSelect(this);
 }
 
 bool IfcCurveFontOrScaledCurveFontSelect::init() {
     return false;
 }
 
-const std::string &IfcCurveFontOrScaledCurveFontSelect::type() {
+const std::string &IfcCurveFontOrScaledCurveFontSelect::type() const {
     return IfcCurveFontOrScaledCurveFontSelect::s_type.getName();
 }
 
-Step::ClassType IfcCurveFontOrScaledCurveFontSelect::getClassType() {
+const Step::ClassType &IfcCurveFontOrScaledCurveFontSelect::getClassType() {
     return IfcCurveFontOrScaledCurveFontSelect::s_type;
 }
 
-Step::ClassType IfcCurveFontOrScaledCurveFontSelect::getType() const {
+const Step::ClassType &IfcCurveFontOrScaledCurveFontSelect::getType() const {
     return IfcCurveFontOrScaledCurveFontSelect::s_type;
 }
 
-bool IfcCurveFontOrScaledCurveFontSelect::isOfType(Step::ClassType t) {
+bool IfcCurveFontOrScaledCurveFontSelect::isOfType(const Step::ClassType &t) const {
     return IfcCurveFontOrScaledCurveFontSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcCurveFontOrScaledCurveFontSelect::copy(const IfcCurveFontOrScaledCurveFontSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCPREDEFINEDCURVEFONT:
-        setIfcPreDefinedCurveFont(copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcPreDefinedCurveFont));
+        setIfcPreDefinedCurveFont((IfcPreDefinedCurveFont *) (copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcPreDefinedCurveFont)));
         break;
     case IFCCURVESTYLEFONT:
-        setIfcCurveStyleFont(copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFont));
+        setIfcCurveStyleFont((IfcCurveStyleFont *) (copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFont)));
         break;
     case IFCCURVESTYLEFONTANDSCALING:
-        setIfcCurveStyleFontAndScaling(copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFontAndScaling));
+        setIfcCurveStyleFontAndScaling((IfcCurveStyleFontAndScaling *) (copyop(obj.m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFontAndScaling)));
         break;
         }
 }
 
-char *IfcCurveFontOrScaledCurveFontSelect::currentTypeName() {
+std::string IfcCurveFontOrScaledCurveFontSelect::currentTypeName() const {
     switch(m_type) {
     case IFCPREDEFINEDCURVEFONT:
         return "IfcPreDefinedCurveFont";
@@ -104,7 +104,7 @@ char *IfcCurveFontOrScaledCurveFontSelect::currentTypeName() {
     }
 }
 
-IfcCurveFontOrScaledCurveFontSelect::IfcCurveFontOrScaledCurveFontSelect_select IfcCurveFontOrScaledCurveFontSelect::currentType() {
+IfcCurveFontOrScaledCurveFontSelect::IfcCurveFontOrScaledCurveFontSelect_select IfcCurveFontOrScaledCurveFontSelect::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcCurveFontOrScaledCurveFontSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPreDefinedCurveFont *IfcCurveFontOrScaledCurveFontSelect::getIfcPreDefinedCurveFont() {
-    return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcPreDefinedCurveFont;
+IfcPreDefinedCurveFont *IfcCurveFontOrScaledCurveFontSelect::getIfcPreDefinedCurveFont() const {
+    if (m_type == IFCPREDEFINEDCURVEFONT) {
+        return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcPreDefinedCurveFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveFontOrScaledCurveFontSelect::setIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcCurveFontOrScaledCurveFontSelect::setIfcPreDefinedCurveFont(IfcPreDefine
     m_type = IFCPREDEFINEDCURVEFONT;
 }
 
-IfcCurveStyleFont *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveStyleFont() {
-    return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFont;
+IfcCurveStyleFont *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveStyleFont() const {
+    if (m_type == IFCCURVESTYLEFONT) {
+        return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveFontOrScaledCurveFontSelect::setIfcCurveStyleFont(IfcCurveStyleFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcCurveFontOrScaledCurveFontSelect::setIfcCurveStyleFont(IfcCurveStyleFont
     m_type = IFCCURVESTYLEFONT;
 }
 
-IfcCurveStyleFontAndScaling *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveStyleFontAndScaling() {
-    return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFontAndScaling;
+IfcCurveStyleFontAndScaling *IfcCurveFontOrScaledCurveFontSelect::getIfcCurveStyleFontAndScaling() const {
+    if (m_type == IFCCURVESTYLEFONTANDSCALING) {
+        return m_IfcCurveFontOrScaledCurveFontSelect_union.m_IfcCurveStyleFontAndScaling;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveFontOrScaledCurveFontSelect::setIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

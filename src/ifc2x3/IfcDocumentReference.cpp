@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcDocumentReference::IfcDocumentReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
-    m_referenceToDocument.setUnset(true);
 }
 
 IfcDocumentReference::~IfcDocumentReference() {
 }
 
-bool IfcDocumentReference::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDocumentReference(this);
+bool IfcDocumentReference::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDocumentReference(this);
 }
 
-const std::string &IfcDocumentReference::type() {
+const std::string &IfcDocumentReference::type() const {
     return IfcDocumentReference::s_type.getName();
 }
 
-Step::ClassType IfcDocumentReference::getClassType() {
+const Step::ClassType &IfcDocumentReference::getClassType() {
     return IfcDocumentReference::s_type;
 }
 
-Step::ClassType IfcDocumentReference::getType() const {
+const Step::ClassType &IfcDocumentReference::getType() const {
     return IfcDocumentReference::s_type;
 }
 
-bool IfcDocumentReference::isOfType(Step::ClassType t) {
+bool IfcDocumentReference::isOfType(const Step::ClassType &t) const {
     return IfcDocumentReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcDocumentInformation > > &IfcDocumentReference::getReferenceToDocument() {
+Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocument() {
     if (Step::BaseObject::inited()) {
         return m_referenceToDocument;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcDocumentInformation > > &IfcDocumentReference::getRe
     }
 }
 
-void IfcDocumentReference::release() {
-    IfcExternalReference::release();
+const Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocument() const {
+    IfcDocumentReference * deConstObject = const_cast< IfcDocumentReference * > (this);
+    return deConstObject->getReferenceToDocument();
 }
 
 bool IfcDocumentReference::init() {

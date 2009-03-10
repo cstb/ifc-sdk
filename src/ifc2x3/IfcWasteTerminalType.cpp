@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcWasteTerminalType::IfcWasteTerminalType(Step::Id id, Step::SPFData *args) : I
 IfcWasteTerminalType::~IfcWasteTerminalType() {
 }
 
-bool IfcWasteTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWasteTerminalType(this);
+bool IfcWasteTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWasteTerminalType(this);
 }
 
-const std::string &IfcWasteTerminalType::type() {
+const std::string &IfcWasteTerminalType::type() const {
     return IfcWasteTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcWasteTerminalType::getClassType() {
+const Step::ClassType &IfcWasteTerminalType::getClassType() {
     return IfcWasteTerminalType::s_type;
 }
 
-Step::ClassType IfcWasteTerminalType::getType() const {
+const Step::ClassType &IfcWasteTerminalType::getType() const {
     return IfcWasteTerminalType::s_type;
 }
 
-bool IfcWasteTerminalType::isOfType(Step::ClassType t) {
+bool IfcWasteTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcWasteTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcWasteTerminalTypeEnum IfcWasteTerminalType::getPredefinedType() {
     }
 }
 
-void IfcWasteTerminalType::setPredefinedType(IfcWasteTerminalTypeEnum value) {
-    m_predefinedType = value;
+const IfcWasteTerminalTypeEnum IfcWasteTerminalType::getPredefinedType() const {
+    IfcWasteTerminalType * deConstObject = const_cast< IfcWasteTerminalType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcWasteTerminalType::release() {
-    IfcFlowTerminalType::release();
+void IfcWasteTerminalType::setPredefinedType(IfcWasteTerminalTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcWasteTerminalType::init() {

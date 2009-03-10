@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcAnnotationFillAreaOccurrence::IfcAnnotationFillAreaOccurrence(Step::Id id, St
 IfcAnnotationFillAreaOccurrence::~IfcAnnotationFillAreaOccurrence() {
 }
 
-bool IfcAnnotationFillAreaOccurrence::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAnnotationFillAreaOccurrence(this);
+bool IfcAnnotationFillAreaOccurrence::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAnnotationFillAreaOccurrence(this);
 }
 
-const std::string &IfcAnnotationFillAreaOccurrence::type() {
+const std::string &IfcAnnotationFillAreaOccurrence::type() const {
     return IfcAnnotationFillAreaOccurrence::s_type.getName();
 }
 
-Step::ClassType IfcAnnotationFillAreaOccurrence::getClassType() {
+const Step::ClassType &IfcAnnotationFillAreaOccurrence::getClassType() {
     return IfcAnnotationFillAreaOccurrence::s_type;
 }
 
-Step::ClassType IfcAnnotationFillAreaOccurrence::getType() const {
+const Step::ClassType &IfcAnnotationFillAreaOccurrence::getType() const {
     return IfcAnnotationFillAreaOccurrence::s_type;
 }
 
-bool IfcAnnotationFillAreaOccurrence::isOfType(Step::ClassType t) {
+bool IfcAnnotationFillAreaOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationFillAreaOccurrence::s_type == t ? true : IfcAnnotationOccurrence::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcPoint *IfcAnnotationFillAreaOccurrence::getFillStyleTarget() {
     else {
         return NULL;
     }
+}
+
+const IfcPoint *IfcAnnotationFillAreaOccurrence::getFillStyleTarget() const {
+    IfcAnnotationFillAreaOccurrence * deConstObject = const_cast< IfcAnnotationFillAreaOccurrence * > (this);
+    return deConstObject->getFillStyleTarget();
 }
 
 void IfcAnnotationFillAreaOccurrence::setFillStyleTarget(const Step::RefPtr< IfcPoint > &value) {
@@ -93,13 +98,13 @@ IfcGlobalOrLocalEnum IfcAnnotationFillAreaOccurrence::getGlobalOrLocal() {
     }
 }
 
-void IfcAnnotationFillAreaOccurrence::setGlobalOrLocal(IfcGlobalOrLocalEnum value) {
-    m_globalOrLocal = value;
+const IfcGlobalOrLocalEnum IfcAnnotationFillAreaOccurrence::getGlobalOrLocal() const {
+    IfcAnnotationFillAreaOccurrence * deConstObject = const_cast< IfcAnnotationFillAreaOccurrence * > (this);
+    return deConstObject->getGlobalOrLocal();
 }
 
-void IfcAnnotationFillAreaOccurrence::release() {
-    IfcAnnotationOccurrence::release();
-    m_fillStyleTarget.release();
+void IfcAnnotationFillAreaOccurrence::setGlobalOrLocal(IfcGlobalOrLocalEnum value) {
+    m_globalOrLocal = value;
 }
 
 bool IfcAnnotationFillAreaOccurrence::init() {
@@ -113,7 +118,7 @@ bool IfcAnnotationFillAreaOccurrence::init() {
         m_fillStyleTarget = NULL;
     }
     else {
-        m_fillStyleTarget = static_cast< IfcPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_fillStyleTarget = static_cast< IfcPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -132,7 +137,7 @@ bool IfcAnnotationFillAreaOccurrence::init() {
 
 void IfcAnnotationFillAreaOccurrence::copy(const IfcAnnotationFillAreaOccurrence &obj, const CopyOp &copyop) {
     IfcAnnotationOccurrence::copy(obj, copyop);
-    setFillStyleTarget(copyop(obj.m_fillStyleTarget.get()));
+    setFillStyleTarget((IfcPoint*)copyop(obj.m_fillStyleTarget.get()));
     setGlobalOrLocal(obj.m_globalOrLocal);
     return;
 }

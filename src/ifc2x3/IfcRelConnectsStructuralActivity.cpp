@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +54,23 @@ IfcRelConnectsStructuralActivity::IfcRelConnectsStructuralActivity(Step::Id id, 
 IfcRelConnectsStructuralActivity::~IfcRelConnectsStructuralActivity() {
 }
 
-bool IfcRelConnectsStructuralActivity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsStructuralActivity(this);
+bool IfcRelConnectsStructuralActivity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsStructuralActivity(this);
 }
 
-const std::string &IfcRelConnectsStructuralActivity::type() {
+const std::string &IfcRelConnectsStructuralActivity::type() const {
     return IfcRelConnectsStructuralActivity::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsStructuralActivity::getClassType() {
+const Step::ClassType &IfcRelConnectsStructuralActivity::getClassType() {
     return IfcRelConnectsStructuralActivity::s_type;
 }
 
-Step::ClassType IfcRelConnectsStructuralActivity::getType() const {
+const Step::ClassType &IfcRelConnectsStructuralActivity::getType() const {
     return IfcRelConnectsStructuralActivity::s_type;
 }
 
-bool IfcRelConnectsStructuralActivity::isOfType(Step::ClassType t) {
+bool IfcRelConnectsStructuralActivity::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsStructuralActivity::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -82,12 +83,17 @@ IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRela
     }
 }
 
+const IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::getRelatingElement() const {
+    IfcRelConnectsStructuralActivity * deConstObject = const_cast< IfcRelConnectsStructuralActivity * > (this);
+    return deConstObject->getRelatingElement();
+}
+
 void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value) {
-    m_relatingElement = value;
     if (m_relatingElement->getIfcStructuralItem() != NULL) {
         IfcStructuralItem * object = m_relatingElement->getIfcStructuralItem();
         object->m_assignedStructuralActivity.insert(this);
     }
+    m_relatingElement = value;
 }
 
 IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralActivity() {
@@ -99,14 +105,19 @@ IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralAct
     }
 }
 
-void IfcRelConnectsStructuralActivity::setRelatedStructuralActivity(const Step::RefPtr< IfcStructuralActivity > &value) {
-    m_relatedStructuralActivity = value;
-    m_relatedStructuralActivity->m_assignedToStructuralItem = this;
+const IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralActivity() const {
+    IfcRelConnectsStructuralActivity * deConstObject = const_cast< IfcRelConnectsStructuralActivity * > (this);
+    return deConstObject->getRelatedStructuralActivity();
 }
 
-void IfcRelConnectsStructuralActivity::release() {
-    IfcRelConnects::release();
-    m_relatedStructuralActivity.release();
+void IfcRelConnectsStructuralActivity::setRelatedStructuralActivity(const Step::RefPtr< IfcStructuralActivity > &value) {
+    if (m_relatedStructuralActivity.valid()) {
+        m_relatedStructuralActivity->m_assignedToStructuralItem = NULL;
+    }
+    if (value.valid()) {
+        value->m_assignedToStructuralItem = this;
+    }
+    m_relatedStructuralActivity = value;
 }
 
 bool IfcRelConnectsStructuralActivity::init() {
@@ -139,7 +150,7 @@ bool IfcRelConnectsStructuralActivity::init() {
         m_relatedStructuralActivity = NULL;
     }
     else {
-        m_relatedStructuralActivity = static_cast< IfcStructuralActivity * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedStructuralActivity = static_cast< IfcStructuralActivity * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -148,7 +159,7 @@ void IfcRelConnectsStructuralActivity::copy(const IfcRelConnectsStructuralActivi
     IfcRelConnects::copy(obj, copyop);
     m_relatingElement = new IfcStructuralActivityAssignmentSelect;
     m_relatingElement->copy(*(obj.m_relatingElement.get()), copyop);
-    setRelatedStructuralActivity(copyop(obj.m_relatedStructuralActivity.get()));
+    setRelatedStructuralActivity((IfcStructuralActivity*)copyop(obj.m_relatedStructuralActivity.get()));
     return;
 }
 

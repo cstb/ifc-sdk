@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -53,23 +53,23 @@ IfcReinforcingMesh::IfcReinforcingMesh(Step::Id id, Step::SPFData *args) : IfcRe
 IfcReinforcingMesh::~IfcReinforcingMesh() {
 }
 
-bool IfcReinforcingMesh::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReinforcingMesh(this);
+bool IfcReinforcingMesh::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReinforcingMesh(this);
 }
 
-const std::string &IfcReinforcingMesh::type() {
+const std::string &IfcReinforcingMesh::type() const {
     return IfcReinforcingMesh::s_type.getName();
 }
 
-Step::ClassType IfcReinforcingMesh::getClassType() {
+const Step::ClassType &IfcReinforcingMesh::getClassType() {
     return IfcReinforcingMesh::s_type;
 }
 
-Step::ClassType IfcReinforcingMesh::getType() const {
+const Step::ClassType &IfcReinforcingMesh::getType() const {
     return IfcReinforcingMesh::s_type;
 }
 
-bool IfcReinforcingMesh::isOfType(Step::ClassType t) {
+bool IfcReinforcingMesh::isOfType(const Step::ClassType &t) const {
     return IfcReinforcingMesh::s_type == t ? true : IfcReinforcingElement::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength() {
     else {
         return Step::getUnset(m_meshLength);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshLength() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getMeshLength();
 }
 
 void IfcReinforcingMesh::setMeshLength(IfcPositiveLengthMeasure value) {
@@ -95,6 +100,11 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getMeshWidth();
+}
+
 void IfcReinforcingMesh::setMeshWidth(IfcPositiveLengthMeasure value) {
     m_meshWidth = value;
 }
@@ -106,6 +116,11 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter()
     else {
         return Step::getUnset(m_longitudinalBarNominalDiameter);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getLongitudinalBarNominalDiameter();
 }
 
 void IfcReinforcingMesh::setLongitudinalBarNominalDiameter(IfcPositiveLengthMeasure value) {
@@ -121,6 +136,11 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getTransverseBarNominalDiameter();
+}
+
 void IfcReinforcingMesh::setTransverseBarNominalDiameter(IfcPositiveLengthMeasure value) {
     m_transverseBarNominalDiameter = value;
 }
@@ -132,6 +152,11 @@ IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() {
     else {
         return Step::getUnset(m_longitudinalBarCrossSectionArea);
     }
+}
+
+const IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getLongitudinalBarCrossSectionArea();
 }
 
 void IfcReinforcingMesh::setLongitudinalBarCrossSectionArea(IfcAreaMeasure value) {
@@ -147,6 +172,11 @@ IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() {
     }
 }
 
+const IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getTransverseBarCrossSectionArea();
+}
+
 void IfcReinforcingMesh::setTransverseBarCrossSectionArea(IfcAreaMeasure value) {
     m_transverseBarCrossSectionArea = value;
 }
@@ -158,6 +188,11 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() {
     else {
         return Step::getUnset(m_longitudinalBarSpacing);
     }
+}
+
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getLongitudinalBarSpacing();
 }
 
 void IfcReinforcingMesh::setLongitudinalBarSpacing(IfcPositiveLengthMeasure value) {
@@ -173,12 +208,13 @@ IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() {
     }
 }
 
-void IfcReinforcingMesh::setTransverseBarSpacing(IfcPositiveLengthMeasure value) {
-    m_transverseBarSpacing = value;
+const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() const {
+    IfcReinforcingMesh * deConstObject = const_cast< IfcReinforcingMesh * > (this);
+    return deConstObject->getTransverseBarSpacing();
 }
 
-void IfcReinforcingMesh::release() {
-    IfcReinforcingElement::release();
+void IfcReinforcingMesh::setTransverseBarSpacing(IfcPositiveLengthMeasure value) {
+    m_transverseBarSpacing = value;
 }
 
 bool IfcReinforcingMesh::init() {

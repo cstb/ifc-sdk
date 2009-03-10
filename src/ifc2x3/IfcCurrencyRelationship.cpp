@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -56,23 +56,23 @@ IfcCurrencyRelationship::IfcCurrencyRelationship(Step::Id id, Step::SPFData *arg
 IfcCurrencyRelationship::~IfcCurrencyRelationship() {
 }
 
-bool IfcCurrencyRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurrencyRelationship(this);
+bool IfcCurrencyRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurrencyRelationship(this);
 }
 
-const std::string &IfcCurrencyRelationship::type() {
+const std::string &IfcCurrencyRelationship::type() const {
     return IfcCurrencyRelationship::s_type.getName();
 }
 
-Step::ClassType IfcCurrencyRelationship::getClassType() {
+const Step::ClassType &IfcCurrencyRelationship::getClassType() {
     return IfcCurrencyRelationship::s_type;
 }
 
-Step::ClassType IfcCurrencyRelationship::getType() const {
+const Step::ClassType &IfcCurrencyRelationship::getType() const {
     return IfcCurrencyRelationship::s_type;
 }
 
-bool IfcCurrencyRelationship::isOfType(Step::ClassType t) {
+bool IfcCurrencyRelationship::isOfType(const Step::ClassType &t) const {
     return IfcCurrencyRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -83,6 +83,11 @@ IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() {
     else {
         return NULL;
     }
+}
+
+const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatingMonetaryUnit() const {
+    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
+    return deConstObject->getRelatingMonetaryUnit();
 }
 
 void IfcCurrencyRelationship::setRelatingMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value) {
@@ -98,6 +103,11 @@ IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() {
     }
 }
 
+const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() const {
+    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
+    return deConstObject->getRelatedMonetaryUnit();
+}
+
 void IfcCurrencyRelationship::setRelatedMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value) {
     m_relatedMonetaryUnit = value;
 }
@@ -109,6 +119,11 @@ IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() {
     else {
         return Step::getUnset(m_exchangeRate);
     }
+}
+
+const IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() const {
+    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
+    return deConstObject->getExchangeRate();
 }
 
 void IfcCurrencyRelationship::setExchangeRate(IfcPositiveRatioMeasure value) {
@@ -124,6 +139,11 @@ IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() {
     }
 }
 
+const IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() const {
+    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
+    return deConstObject->getRateDateTime();
+}
+
 void IfcCurrencyRelationship::setRateDateTime(const Step::RefPtr< IfcDateAndTime > &value) {
     m_rateDateTime = value;
 }
@@ -137,15 +157,13 @@ IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() {
     }
 }
 
-void IfcCurrencyRelationship::setRateSource(const Step::RefPtr< IfcLibraryInformation > &value) {
-    m_rateSource = value;
+const IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() const {
+    IfcCurrencyRelationship * deConstObject = const_cast< IfcCurrencyRelationship * > (this);
+    return deConstObject->getRateSource();
 }
 
-void IfcCurrencyRelationship::release() {
-    m_relatingMonetaryUnit.release();
-    m_relatedMonetaryUnit.release();
-    m_rateDateTime.release();
-    m_rateSource.release();
+void IfcCurrencyRelationship::setRateSource(const Step::RefPtr< IfcLibraryInformation > &value) {
+    m_rateSource = value;
 }
 
 bool IfcCurrencyRelationship::init() {
@@ -155,14 +173,14 @@ bool IfcCurrencyRelationship::init() {
         m_relatingMonetaryUnit = NULL;
     }
     else {
-        m_relatingMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedMonetaryUnit = NULL;
     }
     else {
-        m_relatedMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedMonetaryUnit = static_cast< IfcMonetaryUnit * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -176,25 +194,25 @@ bool IfcCurrencyRelationship::init() {
         m_rateDateTime = NULL;
     }
     else {
-        m_rateDateTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_rateDateTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_rateSource = NULL;
     }
     else {
-        m_rateSource = static_cast< IfcLibraryInformation * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_rateSource = static_cast< IfcLibraryInformation * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcCurrencyRelationship::copy(const IfcCurrencyRelationship &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setRelatingMonetaryUnit(copyop(obj.m_relatingMonetaryUnit.get()));
-    setRelatedMonetaryUnit(copyop(obj.m_relatedMonetaryUnit.get()));
+    setRelatingMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_relatingMonetaryUnit.get()));
+    setRelatedMonetaryUnit((IfcMonetaryUnit*)copyop(obj.m_relatedMonetaryUnit.get()));
     setExchangeRate(obj.m_exchangeRate);
-    setRateDateTime(copyop(obj.m_rateDateTime.get()));
-    setRateSource(copyop(obj.m_rateSource.get()));
+    setRateDateTime((IfcDateAndTime*)copyop(obj.m_rateDateTime.get()));
+    setRateSource((IfcLibraryInformation*)copyop(obj.m_rateSource.get()));
     return;
 }
 

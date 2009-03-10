@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -73,24 +73,32 @@ enum IfcPresentationStyleSelect_select {
         IfcPresentationStyleSelect();
         virtual ~IfcPresentationStyleSelect();
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
          * @param obj
          * @param copyop
@@ -98,51 +106,51 @@ enum IfcPresentationStyleSelect_select {
         virtual void copy(const IfcPresentationStyleSelect &obj, const CopyOp &copyop);
         /**
          */
-        char *currentTypeName();
+        std::string currentTypeName() const;
         /**
          */
-        IfcPresentationStyleSelect_select currentType();
+        IfcPresentationStyleSelect_select currentType() const;
         /**
          */
         void deleteUnion();
         /**
          */
-        IfcNullStyle getIfcNullStyle();
+        IfcNullStyle getIfcNullStyle() const;
         /**
          * @param value
          */
         void setIfcNullStyle(IfcNullStyle value);
         /**
          */
-        IfcCurveStyle *getIfcCurveStyle();
+        IfcCurveStyle *getIfcCurveStyle() const;
         /**
          * @param value
          */
         void setIfcCurveStyle(IfcCurveStyle *value);
         /**
          */
-        IfcSymbolStyle *getIfcSymbolStyle();
+        IfcSymbolStyle *getIfcSymbolStyle() const;
         /**
          * @param value
          */
         void setIfcSymbolStyle(IfcSymbolStyle *value);
         /**
          */
-        IfcFillAreaStyle *getIfcFillAreaStyle();
+        IfcFillAreaStyle *getIfcFillAreaStyle() const;
         /**
          * @param value
          */
         void setIfcFillAreaStyle(IfcFillAreaStyle *value);
         /**
          */
-        IfcTextStyle *getIfcTextStyle();
+        IfcTextStyle *getIfcTextStyle() const;
         /**
          * @param value
          */
         void setIfcTextStyle(IfcTextStyle *value);
         /**
          */
-        IfcSurfaceStyle *getIfcSurfaceStyle();
+        IfcSurfaceStyle *getIfcSurfaceStyle() const;
         /**
          * @param value
          */

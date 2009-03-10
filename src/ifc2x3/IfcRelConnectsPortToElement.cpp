@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelConnectsPortToElement::IfcRelConnectsPortToElement(Step::Id id, Step::SPFD
 IfcRelConnectsPortToElement::~IfcRelConnectsPortToElement() {
 }
 
-bool IfcRelConnectsPortToElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsPortToElement(this);
+bool IfcRelConnectsPortToElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsPortToElement(this);
 }
 
-const std::string &IfcRelConnectsPortToElement::type() {
+const std::string &IfcRelConnectsPortToElement::type() const {
     return IfcRelConnectsPortToElement::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsPortToElement::getClassType() {
+const Step::ClassType &IfcRelConnectsPortToElement::getClassType() {
     return IfcRelConnectsPortToElement::s_type;
 }
 
-Step::ClassType IfcRelConnectsPortToElement::getType() const {
+const Step::ClassType &IfcRelConnectsPortToElement::getType() const {
     return IfcRelConnectsPortToElement::s_type;
 }
 
-bool IfcRelConnectsPortToElement::isOfType(Step::ClassType t) {
+bool IfcRelConnectsPortToElement::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsPortToElement::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcPort *IfcRelConnectsPortToElement::getRelatingPort() {
     }
 }
 
+const IfcPort *IfcRelConnectsPortToElement::getRelatingPort() const {
+    IfcRelConnectsPortToElement * deConstObject = const_cast< IfcRelConnectsPortToElement * > (this);
+    return deConstObject->getRelatingPort();
+}
+
 void IfcRelConnectsPortToElement::setRelatingPort(const Step::RefPtr< IfcPort > &value) {
+    if (m_relatingPort.valid()) {
+        m_relatingPort->m_containedIn = NULL;
+    }
+    if (value.valid()) {
+        value->m_containedIn = this;
+    }
     m_relatingPort = value;
-    m_relatingPort->m_containedIn = this;
 }
 
 IfcElement *IfcRelConnectsPortToElement::getRelatedElement() {
@@ -95,15 +105,19 @@ IfcElement *IfcRelConnectsPortToElement::getRelatedElement() {
     }
 }
 
-void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
-    m_relatedElement = value;
-    m_relatedElement->m_hasPorts.insert(this);
+const IfcElement *IfcRelConnectsPortToElement::getRelatedElement() const {
+    IfcRelConnectsPortToElement * deConstObject = const_cast< IfcRelConnectsPortToElement * > (this);
+    return deConstObject->getRelatedElement();
 }
 
-void IfcRelConnectsPortToElement::release() {
-    IfcRelConnects::release();
-    m_relatingPort.release();
-    m_relatedElement.release();
+void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatedElement.valid()) {
+        m_relatedElement->m_hasPorts.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasPorts.insert(this);
+    }
+    m_relatedElement = value;
 }
 
 bool IfcRelConnectsPortToElement::init() {
@@ -117,22 +131,22 @@ bool IfcRelConnectsPortToElement::init() {
         m_relatingPort = NULL;
     }
     else {
-        m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedElement = NULL;
     }
     else {
-        m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsPortToElement::copy(const IfcRelConnectsPortToElement &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingPort(copyop(obj.m_relatingPort.get()));
-    setRelatedElement(copyop(obj.m_relatedElement.get()));
+    setRelatingPort((IfcPort*)copyop(obj.m_relatingPort.get()));
+    setRelatedElement((IfcElement*)copyop(obj.m_relatedElement.get()));
     return;
 }
 

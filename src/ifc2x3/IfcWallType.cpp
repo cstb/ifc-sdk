@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcWallType::IfcWallType(Step::Id id, Step::SPFData *args) : IfcBuildingElementT
 IfcWallType::~IfcWallType() {
 }
 
-bool IfcWallType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWallType(this);
+bool IfcWallType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWallType(this);
 }
 
-const std::string &IfcWallType::type() {
+const std::string &IfcWallType::type() const {
     return IfcWallType::s_type.getName();
 }
 
-Step::ClassType IfcWallType::getClassType() {
+const Step::ClassType &IfcWallType::getClassType() {
     return IfcWallType::s_type;
 }
 
-Step::ClassType IfcWallType::getType() const {
+const Step::ClassType &IfcWallType::getType() const {
     return IfcWallType::s_type;
 }
 
-bool IfcWallType::isOfType(Step::ClassType t) {
+bool IfcWallType::isOfType(const Step::ClassType &t) const {
     return IfcWallType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcWallTypeEnum IfcWallType::getPredefinedType() {
     }
 }
 
-void IfcWallType::setPredefinedType(IfcWallTypeEnum value) {
-    m_predefinedType = value;
+const IfcWallTypeEnum IfcWallType::getPredefinedType() const {
+    IfcWallType * deConstObject = const_cast< IfcWallType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcWallType::release() {
-    IfcBuildingElementType::release();
+void IfcWallType::setPredefinedType(IfcWallTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcWallType::init() {

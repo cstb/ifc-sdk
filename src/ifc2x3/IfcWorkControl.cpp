@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -61,23 +62,23 @@ IfcWorkControl::IfcWorkControl(Step::Id id, Step::SPFData *args) : IfcControl(id
 IfcWorkControl::~IfcWorkControl() {
 }
 
-bool IfcWorkControl::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWorkControl(this);
+bool IfcWorkControl::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWorkControl(this);
 }
 
-const std::string &IfcWorkControl::type() {
+const std::string &IfcWorkControl::type() const {
     return IfcWorkControl::s_type.getName();
 }
 
-Step::ClassType IfcWorkControl::getClassType() {
+const Step::ClassType &IfcWorkControl::getClassType() {
     return IfcWorkControl::s_type;
 }
 
-Step::ClassType IfcWorkControl::getType() const {
+const Step::ClassType &IfcWorkControl::getType() const {
     return IfcWorkControl::s_type;
 }
 
-bool IfcWorkControl::isOfType(Step::ClassType t) {
+bool IfcWorkControl::isOfType(const Step::ClassType &t) const {
     return IfcWorkControl::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -88,6 +89,11 @@ IfcIdentifier IfcWorkControl::getIdentifier() {
     else {
         return Step::getUnset(m_identifier);
     }
+}
+
+const IfcIdentifier IfcWorkControl::getIdentifier() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getIdentifier();
 }
 
 void IfcWorkControl::setIdentifier(const IfcIdentifier &value) {
@@ -103,11 +109,16 @@ IfcDateTimeSelect *IfcWorkControl::getCreationDate() {
     }
 }
 
+const IfcDateTimeSelect *IfcWorkControl::getCreationDate() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getCreationDate();
+}
+
 void IfcWorkControl::setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_creationDate = value;
 }
 
-Step::Set< Step::RefPtr< IfcPerson > > &IfcWorkControl::getCreators() {
+Set_IfcPerson_1_n &IfcWorkControl::getCreators() {
     if (Step::BaseObject::inited()) {
         return m_creators;
     }
@@ -117,7 +128,12 @@ Step::Set< Step::RefPtr< IfcPerson > > &IfcWorkControl::getCreators() {
     }
 }
 
-void IfcWorkControl::setCreators(const Step::Set< Step::RefPtr< IfcPerson > > &value) {
+const Set_IfcPerson_1_n &IfcWorkControl::getCreators() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getCreators();
+}
+
+void IfcWorkControl::setCreators(const Set_IfcPerson_1_n &value) {
     m_creators = value;
 }
 
@@ -128,6 +144,11 @@ IfcLabel IfcWorkControl::getPurpose() {
     else {
         return Step::getUnset(m_purpose);
     }
+}
+
+const IfcLabel IfcWorkControl::getPurpose() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getPurpose();
 }
 
 void IfcWorkControl::setPurpose(const IfcLabel &value) {
@@ -143,6 +164,11 @@ IfcTimeMeasure IfcWorkControl::getDuration() {
     }
 }
 
+const IfcTimeMeasure IfcWorkControl::getDuration() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getDuration();
+}
+
 void IfcWorkControl::setDuration(IfcTimeMeasure value) {
     m_duration = value;
 }
@@ -154,6 +180,11 @@ IfcTimeMeasure IfcWorkControl::getTotalFloat() {
     else {
         return Step::getUnset(m_totalFloat);
     }
+}
+
+const IfcTimeMeasure IfcWorkControl::getTotalFloat() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getTotalFloat();
 }
 
 void IfcWorkControl::setTotalFloat(IfcTimeMeasure value) {
@@ -169,6 +200,11 @@ IfcDateTimeSelect *IfcWorkControl::getStartTime() {
     }
 }
 
+const IfcDateTimeSelect *IfcWorkControl::getStartTime() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getStartTime();
+}
+
 void IfcWorkControl::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_startTime = value;
 }
@@ -180,6 +216,11 @@ IfcDateTimeSelect *IfcWorkControl::getFinishTime() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcWorkControl::getFinishTime() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getFinishTime();
 }
 
 void IfcWorkControl::setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -195,6 +236,11 @@ IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() {
     }
 }
 
+const IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getWorkControlType();
+}
+
 void IfcWorkControl::setWorkControlType(IfcWorkControlTypeEnum value) {
     m_workControlType = value;
 }
@@ -208,13 +254,13 @@ IfcLabel IfcWorkControl::getUserDefinedControlType() {
     }
 }
 
-void IfcWorkControl::setUserDefinedControlType(const IfcLabel &value) {
-    m_userDefinedControlType = value;
+const IfcLabel IfcWorkControl::getUserDefinedControlType() const {
+    IfcWorkControl * deConstObject = const_cast< IfcWorkControl * > (this);
+    return deConstObject->getUserDefinedControlType();
 }
 
-void IfcWorkControl::release() {
-    IfcControl::release();
-    m_creators.clear();
+void IfcWorkControl::setUserDefinedControlType(const IfcLabel &value) {
+    m_userDefinedControlType = value;
 }
 
 bool IfcWorkControl::init() {
@@ -228,7 +274,7 @@ bool IfcWorkControl::init() {
         m_identifier = Step::getUnset(m_identifier);
     }
     else {
-        m_identifier = Step::spfToString(arg);
+        m_identifier = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -260,7 +306,7 @@ bool IfcWorkControl::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcPerson > attr2;
-                attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcPerson * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_creators.insert(attr2);
             }
             else {
@@ -273,7 +319,7 @@ bool IfcWorkControl::init() {
         m_purpose = Step::getUnset(m_purpose);
     }
     else {
-        m_purpose = Step::spfToString(arg);
+        m_purpose = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -353,19 +399,19 @@ bool IfcWorkControl::init() {
         m_userDefinedControlType = Step::getUnset(m_userDefinedControlType);
     }
     else {
-        m_userDefinedControlType = Step::spfToString(arg);
+        m_userDefinedControlType = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcWorkControl::copy(const IfcWorkControl &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPerson > >::const_iterator it_m_creators;
+    Step::Set< Step::RefPtr< IfcPerson >, 1 >::const_iterator it_m_creators;
     IfcControl::copy(obj, copyop);
     setIdentifier(obj.m_identifier);
     m_creationDate = new IfcDateTimeSelect;
     m_creationDate->copy(*(obj.m_creationDate.get()), copyop);
     for (it_m_creators = obj.m_creators.begin(); it_m_creators != obj.m_creators.end(); ++it_m_creators) {
-        Step::RefPtr< IfcPerson > copyTarget = copyop((*it_m_creators).get());
+        Step::RefPtr< IfcPerson > copyTarget = (IfcPerson *) (copyop((*it_m_creators).get()));
         m_creators.insert(copyTarget.get());
     }
     setPurpose(obj.m_purpose);

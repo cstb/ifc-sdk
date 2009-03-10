@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcArbitraryClosedProfileDef::IfcArbitraryClosedProfileDef(Step::Id id, Step::SP
 IfcArbitraryClosedProfileDef::~IfcArbitraryClosedProfileDef() {
 }
 
-bool IfcArbitraryClosedProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcArbitraryClosedProfileDef(this);
+bool IfcArbitraryClosedProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcArbitraryClosedProfileDef(this);
 }
 
-const std::string &IfcArbitraryClosedProfileDef::type() {
+const std::string &IfcArbitraryClosedProfileDef::type() const {
     return IfcArbitraryClosedProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcArbitraryClosedProfileDef::getClassType() {
+const Step::ClassType &IfcArbitraryClosedProfileDef::getClassType() {
     return IfcArbitraryClosedProfileDef::s_type;
 }
 
-Step::ClassType IfcArbitraryClosedProfileDef::getType() const {
+const Step::ClassType &IfcArbitraryClosedProfileDef::getType() const {
     return IfcArbitraryClosedProfileDef::s_type;
 }
 
-bool IfcArbitraryClosedProfileDef::isOfType(Step::ClassType t) {
+bool IfcArbitraryClosedProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcArbitraryClosedProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcCurve *IfcArbitraryClosedProfileDef::getOuterCurve() {
     }
 }
 
-void IfcArbitraryClosedProfileDef::setOuterCurve(const Step::RefPtr< IfcCurve > &value) {
-    m_outerCurve = value;
+const IfcCurve *IfcArbitraryClosedProfileDef::getOuterCurve() const {
+    IfcArbitraryClosedProfileDef * deConstObject = const_cast< IfcArbitraryClosedProfileDef * > (this);
+    return deConstObject->getOuterCurve();
 }
 
-void IfcArbitraryClosedProfileDef::release() {
-    IfcProfileDef::release();
-    m_outerCurve.release();
+void IfcArbitraryClosedProfileDef::setOuterCurve(const Step::RefPtr< IfcCurve > &value) {
+    m_outerCurve = value;
 }
 
 bool IfcArbitraryClosedProfileDef::init() {
@@ -99,14 +99,14 @@ bool IfcArbitraryClosedProfileDef::init() {
         m_outerCurve = NULL;
     }
     else {
-        m_outerCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_outerCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcArbitraryClosedProfileDef::copy(const IfcArbitraryClosedProfileDef &obj, const CopyOp &copyop) {
     IfcProfileDef::copy(obj, copyop);
-    setOuterCurve(copyop(obj.m_outerCurve.get()));
+    setOuterCurve((IfcCurve*)copyop(obj.m_outerCurve.get()));
     return;
 }
 

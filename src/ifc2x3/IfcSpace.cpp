@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,30 +46,28 @@ using namespace ifc2x3;
 IfcSpace::IfcSpace(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
     m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
     m_elevationWithFlooring = Step::getUnset(m_elevationWithFlooring);
-    m_hasCoverings.setUnset(true);
-    m_boundedBy.setUnset(true);
 }
 
 IfcSpace::~IfcSpace() {
 }
 
-bool IfcSpace::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpace(this);
+bool IfcSpace::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpace(this);
 }
 
-const std::string &IfcSpace::type() {
+const std::string &IfcSpace::type() const {
     return IfcSpace::s_type.getName();
 }
 
-Step::ClassType IfcSpace::getClassType() {
+const Step::ClassType &IfcSpace::getClassType() {
     return IfcSpace::s_type;
 }
 
-Step::ClassType IfcSpace::getType() const {
+const Step::ClassType &IfcSpace::getType() const {
     return IfcSpace::s_type;
 }
 
-bool IfcSpace::isOfType(Step::ClassType t) {
+bool IfcSpace::isOfType(const Step::ClassType &t) const {
     return IfcSpace::s_type == t ? true : IfcSpatialStructureElement::isOfType(t);
 }
 
@@ -80,6 +78,11 @@ IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace() {
     else {
         return IfcInternalOrExternalEnum_UNSET;
     }
+}
+
+const IfcInternalOrExternalEnum IfcSpace::getInteriorOrExteriorSpace() const {
+    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
+    return deConstObject->getInteriorOrExteriorSpace();
 }
 
 void IfcSpace::setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value) {
@@ -95,11 +98,16 @@ IfcLengthMeasure IfcSpace::getElevationWithFlooring() {
     }
 }
 
+const IfcLengthMeasure IfcSpace::getElevationWithFlooring() const {
+    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
+    return deConstObject->getElevationWithFlooring();
+}
+
 void IfcSpace::setElevationWithFlooring(IfcLengthMeasure value) {
     m_elevationWithFlooring = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > &IfcSpace::getHasCoverings() {
+Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() {
     if (Step::BaseObject::inited()) {
         return m_hasCoverings;
     }
@@ -109,7 +117,12 @@ Step::Set< Step::ObsPtr< IfcRelCoversSpaces > > &IfcSpace::getHasCoverings() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &IfcSpace::getBoundedBy() {
+const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const {
+    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
+    return deConstObject->getHasCoverings();
+}
+
+Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
     if (Step::BaseObject::inited()) {
         return m_boundedBy;
     }
@@ -119,8 +132,9 @@ Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &IfcSpace::getBoundedBy() {
     }
 }
 
-void IfcSpace::release() {
-    IfcSpatialStructureElement::release();
+const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const {
+    IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
+    return deConstObject->getBoundedBy();
 }
 
 bool IfcSpace::init() {

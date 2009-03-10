@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStructuralLoadSingleDisplacementDistortion::IfcStructuralLoadSingleDisplaceme
 IfcStructuralLoadSingleDisplacementDistortion::~IfcStructuralLoadSingleDisplacementDistortion() {
 }
 
-bool IfcStructuralLoadSingleDisplacementDistortion::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadSingleDisplacementDistortion(this);
+bool IfcStructuralLoadSingleDisplacementDistortion::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadSingleDisplacementDistortion(this);
 }
 
-const std::string &IfcStructuralLoadSingleDisplacementDistortion::type() {
+const std::string &IfcStructuralLoadSingleDisplacementDistortion::type() const {
     return IfcStructuralLoadSingleDisplacementDistortion::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadSingleDisplacementDistortion::getClassType() {
+const Step::ClassType &IfcStructuralLoadSingleDisplacementDistortion::getClassType() {
     return IfcStructuralLoadSingleDisplacementDistortion::s_type;
 }
 
-Step::ClassType IfcStructuralLoadSingleDisplacementDistortion::getType() const {
+const Step::ClassType &IfcStructuralLoadSingleDisplacementDistortion::getType() const {
     return IfcStructuralLoadSingleDisplacementDistortion::s_type;
 }
 
-bool IfcStructuralLoadSingleDisplacementDistortion::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadSingleDisplacementDistortion::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadSingleDisplacementDistortion::s_type == t ? true : IfcStructuralLoadSingleDisplacement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCurvatureMeasure IfcStructuralLoadSingleDisplacementDistortion::getDistortion
     }
 }
 
-void IfcStructuralLoadSingleDisplacementDistortion::setDistortion(IfcCurvatureMeasure value) {
-    m_distortion = value;
+const IfcCurvatureMeasure IfcStructuralLoadSingleDisplacementDistortion::getDistortion() const {
+    IfcStructuralLoadSingleDisplacementDistortion * deConstObject = const_cast< IfcStructuralLoadSingleDisplacementDistortion * > (this);
+    return deConstObject->getDistortion();
 }
 
-void IfcStructuralLoadSingleDisplacementDistortion::release() {
-    IfcStructuralLoadSingleDisplacement::release();
+void IfcStructuralLoadSingleDisplacementDistortion::setDistortion(IfcCurvatureMeasure value) {
+    m_distortion = value;
 }
 
 bool IfcStructuralLoadSingleDisplacementDistortion::init() {

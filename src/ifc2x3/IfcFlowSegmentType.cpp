@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowSegmentType::IfcFlowSegmentType(Step::Id id, Step::SPFData *args) : IfcDi
 IfcFlowSegmentType::~IfcFlowSegmentType() {
 }
 
-bool IfcFlowSegmentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowSegmentType(this);
+bool IfcFlowSegmentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowSegmentType(this);
 }
 
-const std::string &IfcFlowSegmentType::type() {
+const std::string &IfcFlowSegmentType::type() const {
     return IfcFlowSegmentType::s_type.getName();
 }
 
-Step::ClassType IfcFlowSegmentType::getClassType() {
+const Step::ClassType &IfcFlowSegmentType::getClassType() {
     return IfcFlowSegmentType::s_type;
 }
 
-Step::ClassType IfcFlowSegmentType::getType() const {
+const Step::ClassType &IfcFlowSegmentType::getType() const {
     return IfcFlowSegmentType::s_type;
 }
 
-bool IfcFlowSegmentType::isOfType(Step::ClassType t) {
+bool IfcFlowSegmentType::isOfType(const Step::ClassType &t) const {
     return IfcFlowSegmentType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
-}
-
-void IfcFlowSegmentType::release() {
-    IfcDistributionFlowElementType::release();
 }
 
 bool IfcFlowSegmentType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,6 +26,7 @@
 
 #include "ifc2x3/IfcDocumentInformation.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcActorSelect.h"
 #include "ifc2x3/IfcCalendarDate.h"
@@ -34,13 +35,13 @@
 #include "ifc2x3/IfcDocumentInformationRelationship.h"
 #include "ifc2x3/IfcDocumentReference.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -50,6 +51,25 @@
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcDocumentInformation_DocumentReferences_type::Inverted_IfcDocumentInformation_DocumentReferences_type() {
+}
+
+void Inverted_IfcDocumentInformation_DocumentReferences_type::setOwner(IfcDocumentInformation *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcDocumentInformation_DocumentReferences_type::insert(const Step::RefPtr< IfcDocumentReference > &value) throw(std::out_of_range) {
+    IfcDocumentReference *inverse = const_cast< IfcDocumentReference * > (value.get());
+    Set_IfcDocumentReference_1_n::insert(value);
+    inverse->m_referenceToDocument.insert(mOwner);
+}
+
+Inverted_IfcDocumentInformation_DocumentReferences_type::size_type Inverted_IfcDocumentInformation_DocumentReferences_type::erase(const Step::RefPtr< IfcDocumentReference > &value) {
+    IfcDocumentReference *inverse = const_cast< IfcDocumentReference * > (value.get());
+    inverse->m_referenceToDocument.erase(mOwner);
+    return Set_IfcDocumentReference_1_n::erase(value);
+}
 
 IfcDocumentInformation::IfcDocumentInformation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_documentId = Step::getUnset(m_documentId);
@@ -70,30 +90,28 @@ IfcDocumentInformation::IfcDocumentInformation(Step::Id id, Step::SPFData *args)
     m_validUntil = NULL;
     m_confidentiality = IfcDocumentConfidentialityEnum_UNSET;
     m_status = IfcDocumentStatusEnum_UNSET;
-    m_isPointedTo.setUnset(true);
-    m_isPointer.setUnset(true);
 }
 
 IfcDocumentInformation::~IfcDocumentInformation() {
 }
 
-bool IfcDocumentInformation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDocumentInformation(this);
+bool IfcDocumentInformation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDocumentInformation(this);
 }
 
-const std::string &IfcDocumentInformation::type() {
+const std::string &IfcDocumentInformation::type() const {
     return IfcDocumentInformation::s_type.getName();
 }
 
-Step::ClassType IfcDocumentInformation::getClassType() {
+const Step::ClassType &IfcDocumentInformation::getClassType() {
     return IfcDocumentInformation::s_type;
 }
 
-Step::ClassType IfcDocumentInformation::getType() const {
+const Step::ClassType &IfcDocumentInformation::getType() const {
     return IfcDocumentInformation::s_type;
 }
 
-bool IfcDocumentInformation::isOfType(Step::ClassType t) {
+bool IfcDocumentInformation::isOfType(const Step::ClassType &t) const {
     return IfcDocumentInformation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -104,6 +122,11 @@ IfcIdentifier IfcDocumentInformation::getDocumentId() {
     else {
         return Step::getUnset(m_documentId);
     }
+}
+
+const IfcIdentifier IfcDocumentInformation::getDocumentId() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getDocumentId();
 }
 
 void IfcDocumentInformation::setDocumentId(const IfcIdentifier &value) {
@@ -119,6 +142,11 @@ IfcLabel IfcDocumentInformation::getName() {
     }
 }
 
+const IfcLabel IfcDocumentInformation::getName() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getName();
+}
+
 void IfcDocumentInformation::setName(const IfcLabel &value) {
     m_name = value;
 }
@@ -132,11 +160,16 @@ IfcText IfcDocumentInformation::getDescription() {
     }
 }
 
+const IfcText IfcDocumentInformation::getDescription() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcDocumentInformation::setDescription(const IfcText &value) {
     m_description = value;
 }
 
-Step::Set< Step::RefPtr< IfcDocumentReference > > &IfcDocumentInformation::getDocumentReferences() {
+Set_IfcDocumentReference_1_n &IfcDocumentInformation::getDocumentReferences() {
     if (Step::BaseObject::inited()) {
         return m_documentReferences;
     }
@@ -146,6 +179,11 @@ Step::Set< Step::RefPtr< IfcDocumentReference > > &IfcDocumentInformation::getDo
     }
 }
 
+const Set_IfcDocumentReference_1_n &IfcDocumentInformation::getDocumentReferences() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getDocumentReferences();
+}
+
 IfcText IfcDocumentInformation::getPurpose() {
     if (Step::BaseObject::inited()) {
         return m_purpose;
@@ -153,6 +191,11 @@ IfcText IfcDocumentInformation::getPurpose() {
     else {
         return Step::getUnset(m_purpose);
     }
+}
+
+const IfcText IfcDocumentInformation::getPurpose() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getPurpose();
 }
 
 void IfcDocumentInformation::setPurpose(const IfcText &value) {
@@ -168,6 +211,11 @@ IfcText IfcDocumentInformation::getIntendedUse() {
     }
 }
 
+const IfcText IfcDocumentInformation::getIntendedUse() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getIntendedUse();
+}
+
 void IfcDocumentInformation::setIntendedUse(const IfcText &value) {
     m_intendedUse = value;
 }
@@ -179,6 +227,11 @@ IfcText IfcDocumentInformation::getScope() {
     else {
         return Step::getUnset(m_scope);
     }
+}
+
+const IfcText IfcDocumentInformation::getScope() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getScope();
 }
 
 void IfcDocumentInformation::setScope(const IfcText &value) {
@@ -194,6 +247,11 @@ IfcLabel IfcDocumentInformation::getRevision() {
     }
 }
 
+const IfcLabel IfcDocumentInformation::getRevision() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getRevision();
+}
+
 void IfcDocumentInformation::setRevision(const IfcLabel &value) {
     m_revision = value;
 }
@@ -207,11 +265,16 @@ IfcActorSelect *IfcDocumentInformation::getDocumentOwner() {
     }
 }
 
+const IfcActorSelect *IfcDocumentInformation::getDocumentOwner() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getDocumentOwner();
+}
+
 void IfcDocumentInformation::setDocumentOwner(const Step::RefPtr< IfcActorSelect > &value) {
     m_documentOwner = value;
 }
 
-Step::Set< Step::RefPtr< IfcActorSelect > > &IfcDocumentInformation::getEditors() {
+Set_IfcActorSelect_1_n &IfcDocumentInformation::getEditors() {
     if (Step::BaseObject::inited()) {
         return m_editors;
     }
@@ -221,7 +284,12 @@ Step::Set< Step::RefPtr< IfcActorSelect > > &IfcDocumentInformation::getEditors(
     }
 }
 
-void IfcDocumentInformation::setEditors(const Step::Set< Step::RefPtr< IfcActorSelect > > &value) {
+const Set_IfcActorSelect_1_n &IfcDocumentInformation::getEditors() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getEditors();
+}
+
+void IfcDocumentInformation::setEditors(const Set_IfcActorSelect_1_n &value) {
     m_editors = value;
 }
 
@@ -232,6 +300,11 @@ IfcDateAndTime *IfcDocumentInformation::getCreationTime() {
     else {
         return NULL;
     }
+}
+
+const IfcDateAndTime *IfcDocumentInformation::getCreationTime() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getCreationTime();
 }
 
 void IfcDocumentInformation::setCreationTime(const Step::RefPtr< IfcDateAndTime > &value) {
@@ -247,6 +320,11 @@ IfcDateAndTime *IfcDocumentInformation::getLastRevisionTime() {
     }
 }
 
+const IfcDateAndTime *IfcDocumentInformation::getLastRevisionTime() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getLastRevisionTime();
+}
+
 void IfcDocumentInformation::setLastRevisionTime(const Step::RefPtr< IfcDateAndTime > &value) {
     m_lastRevisionTime = value;
 }
@@ -258,6 +336,11 @@ IfcDocumentElectronicFormat *IfcDocumentInformation::getElectronicFormat() {
     else {
         return NULL;
     }
+}
+
+const IfcDocumentElectronicFormat *IfcDocumentInformation::getElectronicFormat() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getElectronicFormat();
 }
 
 void IfcDocumentInformation::setElectronicFormat(const Step::RefPtr< IfcDocumentElectronicFormat > &value) {
@@ -273,6 +356,11 @@ IfcCalendarDate *IfcDocumentInformation::getValidFrom() {
     }
 }
 
+const IfcCalendarDate *IfcDocumentInformation::getValidFrom() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getValidFrom();
+}
+
 void IfcDocumentInformation::setValidFrom(const Step::RefPtr< IfcCalendarDate > &value) {
     m_validFrom = value;
 }
@@ -284,6 +372,11 @@ IfcCalendarDate *IfcDocumentInformation::getValidUntil() {
     else {
         return NULL;
     }
+}
+
+const IfcCalendarDate *IfcDocumentInformation::getValidUntil() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getValidUntil();
 }
 
 void IfcDocumentInformation::setValidUntil(const Step::RefPtr< IfcCalendarDate > &value) {
@@ -299,6 +392,11 @@ IfcDocumentConfidentialityEnum IfcDocumentInformation::getConfidentiality() {
     }
 }
 
+const IfcDocumentConfidentialityEnum IfcDocumentInformation::getConfidentiality() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getConfidentiality();
+}
+
 void IfcDocumentInformation::setConfidentiality(IfcDocumentConfidentialityEnum value) {
     m_confidentiality = value;
 }
@@ -312,11 +410,16 @@ IfcDocumentStatusEnum IfcDocumentInformation::getStatus() {
     }
 }
 
+const IfcDocumentStatusEnum IfcDocumentInformation::getStatus() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getStatus();
+}
+
 void IfcDocumentInformation::setStatus(IfcDocumentStatusEnum value) {
     m_status = value;
 }
 
-Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &IfcDocumentInformation::getIsPointedTo() {
+Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation::getIsPointedTo() {
     if (Step::BaseObject::inited()) {
         return m_isPointedTo;
     }
@@ -326,7 +429,12 @@ Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &IfcDocumentInfo
     }
 }
 
-Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &IfcDocumentInformation::getIsPointer() {
+const Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation::getIsPointedTo() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getIsPointedTo();
+}
+
+Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getIsPointer() {
     if (Step::BaseObject::inited()) {
         return m_isPointer;
     }
@@ -336,14 +444,9 @@ Step::Set< Step::ObsPtr< IfcDocumentInformationRelationship > > &IfcDocumentInfo
     }
 }
 
-void IfcDocumentInformation::release() {
-    m_documentReferences.clear();
-    m_editors.clear();
-    m_creationTime.release();
-    m_lastRevisionTime.release();
-    m_electronicFormat.release();
-    m_validFrom.release();
-    m_validUntil.release();
+const Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getIsPointer() const {
+    IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
+    return deConstObject->getIsPointer();
 }
 
 bool IfcDocumentInformation::init() {
@@ -354,21 +457,21 @@ bool IfcDocumentInformation::init() {
         m_documentId = Step::getUnset(m_documentId);
     }
     else {
-        m_documentId = Step::spfToString(arg);
+        m_documentId = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -381,7 +484,7 @@ bool IfcDocumentInformation::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcDocumentReference > attr2;
-                attr2 = static_cast< IfcDocumentReference * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcDocumentReference * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_documentReferences.insert(attr2);
             }
             else {
@@ -394,28 +497,28 @@ bool IfcDocumentInformation::init() {
         m_purpose = Step::getUnset(m_purpose);
     }
     else {
-        m_purpose = Step::spfToString(arg);
+        m_purpose = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_intendedUse = Step::getUnset(m_intendedUse);
     }
     else {
-        m_intendedUse = Step::spfToString(arg);
+        m_intendedUse = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_scope = Step::getUnset(m_scope);
     }
     else {
-        m_scope = Step::spfToString(arg);
+        m_scope = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_revision = Step::getUnset(m_revision);
     }
     else {
-        m_revision = Step::spfToString(arg);
+        m_revision = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -472,35 +575,35 @@ bool IfcDocumentInformation::init() {
         m_creationTime = NULL;
     }
     else {
-        m_creationTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_creationTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_lastRevisionTime = NULL;
     }
     else {
-        m_lastRevisionTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_lastRevisionTime = static_cast< IfcDateAndTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_electronicFormat = NULL;
     }
     else {
-        m_electronicFormat = static_cast< IfcDocumentElectronicFormat * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_electronicFormat = static_cast< IfcDocumentElectronicFormat * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_validFrom = NULL;
     }
     else {
-        m_validFrom = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_validFrom = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_validUntil = NULL;
     }
     else {
-        m_validUntil = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_validUntil = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -567,14 +670,14 @@ bool IfcDocumentInformation::init() {
 }
 
 void IfcDocumentInformation::copy(const IfcDocumentInformation &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDocumentReference > >::const_iterator it_m_documentReferences;
-    Step::Set< Step::RefPtr< IfcActorSelect > >::const_iterator it_m_editors;
+    Step::Set< Step::RefPtr< IfcDocumentReference >, 1 >::const_iterator it_m_documentReferences;
+    Step::Set< Step::RefPtr< IfcActorSelect >, 1 >::const_iterator it_m_editors;
     Step::BaseEntity::copy(obj, copyop);
     setDocumentId(obj.m_documentId);
     setName(obj.m_name);
     setDescription(obj.m_description);
     for (it_m_documentReferences = obj.m_documentReferences.begin(); it_m_documentReferences != obj.m_documentReferences.end(); ++it_m_documentReferences) {
-        Step::RefPtr< IfcDocumentReference > copyTarget = copyop((*it_m_documentReferences).get());
+        Step::RefPtr< IfcDocumentReference > copyTarget = (IfcDocumentReference *) (copyop((*it_m_documentReferences).get()));
         m_documentReferences.insert(copyTarget.get());
     }
     setPurpose(obj.m_purpose);
@@ -588,27 +691,14 @@ void IfcDocumentInformation::copy(const IfcDocumentInformation &obj, const CopyO
         copyTarget->copy(*((*it_m_editors).get()), copyop);
         m_editors.insert(copyTarget.get());
     }
-    setCreationTime(copyop(obj.m_creationTime.get()));
-    setLastRevisionTime(copyop(obj.m_lastRevisionTime.get()));
-    setElectronicFormat(copyop(obj.m_electronicFormat.get()));
-    setValidFrom(copyop(obj.m_validFrom.get()));
-    setValidUntil(copyop(obj.m_validUntil.get()));
+    setCreationTime((IfcDateAndTime*)copyop(obj.m_creationTime.get()));
+    setLastRevisionTime((IfcDateAndTime*)copyop(obj.m_lastRevisionTime.get()));
+    setElectronicFormat((IfcDocumentElectronicFormat*)copyop(obj.m_electronicFormat.get()));
+    setValidFrom((IfcCalendarDate*)copyop(obj.m_validFrom.get()));
+    setValidUntil((IfcCalendarDate*)copyop(obj.m_validUntil.get()));
     setConfidentiality(obj.m_confidentiality);
     setStatus(obj.m_status);
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcDocumentInformation::s_type("IfcDocumentInformation");
-IfcDocumentInformation::Inverted_DocumentReferences_type::Inverted_DocumentReferences_type() {
-}
-
-void IfcDocumentInformation::Inverted_DocumentReferences_type::setOwner(IfcDocumentInformation *owner) {
-    mOwner = owner;
-}
-
-void IfcDocumentInformation::Inverted_DocumentReferences_type::insert(const Step::RefPtr< IfcDocumentReference > &value) {
-    IfcDocumentReference *inverse = const_cast< IfcDocumentReference * > (value.get());
-    Step::Set< Step::RefPtr< IfcDocumentReference > >::insert(value);
-    inverse->m_referenceToDocument.insert(mOwner);
-}
-

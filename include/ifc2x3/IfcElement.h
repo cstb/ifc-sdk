@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,111 +30,211 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcProduct.h"
-#include <Step/Referenced.h>
 #include <Step/ClassType.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include "ifc2x3/IfcProduct.h"
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcRelConnectsElements;
-    class IfcRelConnectsPortToElement;
-    class IfcRelConnectsStructuralElement;
-    class IfcRelConnectsWithRealizingElements;
-    class IfcRelContainedInSpatialStructure;
-    class IfcRelCoversBldgElements;
-    class IfcRelFillsElement;
-    class IfcRelProjectsElement;
-    class IfcRelReferencedInSpatialStructure;
-    class IfcRelSpaceBoundary;
-    class IfcRelVoidsElement;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcElement : public IfcProduct {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Tag'.
+         * 
          */
-        IfcIdentifier getTag();
+        virtual IfcIdentifier getTag();
+        /**
+         * (const) Returns the value of the explicit attribute 'Tag'.
+         * 
+         * @return the value of the explicit attribute 'Tag'
+         */
+        virtual const IfcIdentifier getTag() const;
         /**
          * Sets the value of the explicit attribute 'Tag'.
          * 
          * @param value
          */
-        void setTag(const IfcIdentifier &value);
+        virtual void setTag(const IfcIdentifier &value);
         /**
+         * Gets the value of the inverse attribute 'HasStructuralMember'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelFillsElement > > &getFillsVoids();
+        Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember();
         /**
+         * (const) Returns the value of the explicit attribute 'HasStructuralMember'.
+         * 
+         * @return the value of the explicit attribute 'HasStructuralMember'
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsElements > > &getConnectedTo();
+        virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember() const;
         /**
+         * Gets the value of the inverse attribute 'FillsVoids'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > &getHasCoverings();
+        Inverse_Set_IfcRelFillsElement_0_1 &getFillsVoids();
         /**
+         * (const) Returns the value of the explicit attribute 'FillsVoids'.
+         * 
+         * @return the value of the explicit attribute 'FillsVoids'
          */
-        Step::Set< Step::ObsPtr< IfcRelProjectsElement > > &getHasProjections();
+        virtual const Inverse_Set_IfcRelFillsElement_0_1 &getFillsVoids() const;
         /**
+         * Gets the value of the inverse attribute 'ConnectedTo'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > &getHasStructuralMember();
+        Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo();
         /**
+         * (const) Returns the value of the explicit attribute 'ConnectedTo'.
+         * 
+         * @return the value of the explicit attribute 'ConnectedTo'
          */
-        Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > &getReferencedInStructures();
+        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo() const;
         /**
+         * Gets the value of the inverse attribute 'HasCoverings'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > &getHasPorts();
+        Inverse_Set_IfcRelCoversBldgElements_0_n &getHasCoverings();
         /**
+         * (const) Returns the value of the explicit attribute 'HasCoverings'.
+         * 
+         * @return the value of the explicit attribute 'HasCoverings'
          */
-        Step::Set< Step::ObsPtr< IfcRelVoidsElement > > &getHasOpenings();
+        virtual const Inverse_Set_IfcRelCoversBldgElements_0_n &getHasCoverings() const;
         /**
+         * Gets the value of the inverse attribute 'HasProjections'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > &getIsConnectionRealization();
+        Inverse_Set_IfcRelProjectsElement_0_n &getHasProjections();
         /**
+         * (const) Returns the value of the explicit attribute 'HasProjections'.
+         * 
+         * @return the value of the explicit attribute 'HasProjections'
          */
-        Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &getProvidesBoundaries();
+        virtual const Inverse_Set_IfcRelProjectsElement_0_n &getHasProjections() const;
         /**
+         * Gets the value of the inverse attribute 'ReferencedInStructures'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsElements > > &getConnectedFrom();
+        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures();
         /**
+         * (const) Returns the value of the explicit attribute 'ReferencedInStructures'.
+         * 
+         * @return the value of the explicit attribute 'ReferencedInStructures'
          */
-        Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &getContainedInStructure();
+        virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures() const;
         /**
+         * Gets the value of the inverse attribute 'HasPorts'.
+         * 
          */
-        virtual void release();
-        friend class IfcRelCoversBldgElements;
-        friend class IfcRelVoidsElement;
+        Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts();
+        /**
+         * (const) Returns the value of the explicit attribute 'HasPorts'.
+         * 
+         * @return the value of the explicit attribute 'HasPorts'
+         */
+        virtual const Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts() const;
+        /**
+         * Gets the value of the inverse attribute 'HasOpenings'.
+         * 
+         */
+        Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings();
+        /**
+         * (const) Returns the value of the explicit attribute 'HasOpenings'.
+         * 
+         * @return the value of the explicit attribute 'HasOpenings'
+         */
+        virtual const Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings() const;
+        /**
+         * Gets the value of the inverse attribute 'IsConnectionRealization'.
+         * 
+         */
+        Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization();
+        /**
+         * (const) Returns the value of the explicit attribute 'IsConnectionRealization'.
+         * 
+         * @return the value of the explicit attribute 'IsConnectionRealization'
+         */
+        virtual const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization() const;
+        /**
+         * Gets the value of the inverse attribute 'ProvidesBoundaries'.
+         * 
+         */
+        Inverse_Set_IfcRelSpaceBoundary_0_n &getProvidesBoundaries();
+        /**
+         * (const) Returns the value of the explicit attribute 'ProvidesBoundaries'.
+         * 
+         * @return the value of the explicit attribute 'ProvidesBoundaries'
+         */
+        virtual const Inverse_Set_IfcRelSpaceBoundary_0_n &getProvidesBoundaries() const;
+        /**
+         * Gets the value of the inverse attribute 'ConnectedFrom'.
+         * 
+         */
+        Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConnectedFrom'.
+         * 
+         * @return the value of the explicit attribute 'ConnectedFrom'
+         */
+        virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom() const;
+        /**
+         * Gets the value of the inverse attribute 'ContainedInStructure'.
+         * 
+         */
+        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure();
+        /**
+         * (const) Returns the value of the explicit attribute 'ContainedInStructure'.
+         * 
+         * @return the value of the explicit attribute 'ContainedInStructure'
+         */
+        virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
         friend class IfcRelFillsElement;
-        friend class IfcRelSpaceBoundary;
+        friend class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type;
         friend class IfcRelProjectsElement;
-        friend class IfcRelConnectsWithRealizingElements;
-        friend class IfcRelReferencedInSpatialStructure;
         friend class IfcRelConnectsStructuralElement;
+        friend class IfcRelConnectsWithRealizingElements;
         friend class ExpressDataSet;
         friend class IfcRelConnectsElements;
         friend class IfcRelContainedInSpatialStructure;
         friend class IfcRelConnectsPortToElement;
+        friend class IfcRelCoversBldgElements;
+        friend class IfcRelVoidsElement;
+        friend class IfcRelSpaceBoundary;
+        friend class Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type;
+        friend class IfcRelReferencedInSpatialStructure;
+        friend class Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type;
 
     protected:
         /**
@@ -158,43 +258,43 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_tag;
+        Step::String m_tag;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelFillsElement > > m_fillsVoids;
+        Inverse_Set_IfcRelConnectsStructuralElement_0_n m_hasStructuralMember;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsElements > > m_connectedTo;
+        Inverse_Set_IfcRelFillsElement_0_1 m_fillsVoids;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > m_hasCoverings;
+        Inverse_Set_IfcRelConnectsElements_0_n m_connectedTo;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelProjectsElement > > m_hasProjections;
+        Inverse_Set_IfcRelCoversBldgElements_0_n m_hasCoverings;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > m_hasStructuralMember;
+        Inverse_Set_IfcRelProjectsElement_0_n m_hasProjections;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > m_referencedInStructures;
+        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n m_referencedInStructures;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > m_hasPorts;
+        Inverse_Set_IfcRelConnectsPortToElement_0_n m_hasPorts;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelVoidsElement > > m_hasOpenings;
+        Inverse_Set_IfcRelVoidsElement_0_n m_hasOpenings;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > m_isConnectionRealization;
+        Inverse_Set_IfcRelConnectsWithRealizingElements_0_n m_isConnectionRealization;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > m_providesBoundaries;
+        Inverse_Set_IfcRelSpaceBoundary_0_n m_providesBoundaries;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelConnectsElements > > m_connectedFrom;
+        Inverse_Set_IfcRelConnectsElements_0_n m_connectedFrom;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > m_containedInStructure;
+        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 m_containedInStructure;
 
     };
 

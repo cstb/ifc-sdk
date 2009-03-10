@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcRectangularPyramid::IfcRectangularPyramid(Step::Id id, Step::SPFData *args) :
 IfcRectangularPyramid::~IfcRectangularPyramid() {
 }
 
-bool IfcRectangularPyramid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRectangularPyramid(this);
+bool IfcRectangularPyramid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRectangularPyramid(this);
 }
 
-const std::string &IfcRectangularPyramid::type() {
+const std::string &IfcRectangularPyramid::type() const {
     return IfcRectangularPyramid::s_type.getName();
 }
 
-Step::ClassType IfcRectangularPyramid::getClassType() {
+const Step::ClassType &IfcRectangularPyramid::getClassType() {
     return IfcRectangularPyramid::s_type;
 }
 
-Step::ClassType IfcRectangularPyramid::getType() const {
+const Step::ClassType &IfcRectangularPyramid::getType() const {
     return IfcRectangularPyramid::s_type;
 }
 
-bool IfcRectangularPyramid::isOfType(Step::ClassType t) {
+bool IfcRectangularPyramid::isOfType(const Step::ClassType &t) const {
     return IfcRectangularPyramid::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcPositiveLengthMeasure IfcRectangularPyramid::getXLength() {
     else {
         return Step::getUnset(m_xLength);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRectangularPyramid::getXLength() const {
+    IfcRectangularPyramid * deConstObject = const_cast< IfcRectangularPyramid * > (this);
+    return deConstObject->getXLength();
 }
 
 void IfcRectangularPyramid::setXLength(IfcPositiveLengthMeasure value) {
@@ -90,6 +95,11 @@ IfcPositiveLengthMeasure IfcRectangularPyramid::getYLength() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcRectangularPyramid::getYLength() const {
+    IfcRectangularPyramid * deConstObject = const_cast< IfcRectangularPyramid * > (this);
+    return deConstObject->getYLength();
+}
+
 void IfcRectangularPyramid::setYLength(IfcPositiveLengthMeasure value) {
     m_yLength = value;
 }
@@ -103,12 +113,13 @@ IfcPositiveLengthMeasure IfcRectangularPyramid::getHeight() {
     }
 }
 
-void IfcRectangularPyramid::setHeight(IfcPositiveLengthMeasure value) {
-    m_height = value;
+const IfcPositiveLengthMeasure IfcRectangularPyramid::getHeight() const {
+    IfcRectangularPyramid * deConstObject = const_cast< IfcRectangularPyramid * > (this);
+    return deConstObject->getHeight();
 }
 
-void IfcRectangularPyramid::release() {
-    IfcCsgPrimitive3D::release();
+void IfcRectangularPyramid::setHeight(IfcPositiveLengthMeasure value) {
+    m_height = value;
 }
 
 bool IfcRectangularPyramid::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRadiusDimension::IfcRadiusDimension(Step::Id id, Step::SPFData *args) : IfcDi
 IfcRadiusDimension::~IfcRadiusDimension() {
 }
 
-bool IfcRadiusDimension::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRadiusDimension(this);
+bool IfcRadiusDimension::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRadiusDimension(this);
 }
 
-const std::string &IfcRadiusDimension::type() {
+const std::string &IfcRadiusDimension::type() const {
     return IfcRadiusDimension::s_type.getName();
 }
 
-Step::ClassType IfcRadiusDimension::getClassType() {
+const Step::ClassType &IfcRadiusDimension::getClassType() {
     return IfcRadiusDimension::s_type;
 }
 
-Step::ClassType IfcRadiusDimension::getType() const {
+const Step::ClassType &IfcRadiusDimension::getType() const {
     return IfcRadiusDimension::s_type;
 }
 
-bool IfcRadiusDimension::isOfType(Step::ClassType t) {
+bool IfcRadiusDimension::isOfType(const Step::ClassType &t) const {
     return IfcRadiusDimension::s_type == t ? true : IfcDimensionCurveDirectedCallout::isOfType(t);
-}
-
-void IfcRadiusDimension::release() {
-    IfcDimensionCurveDirectedCallout::release();
 }
 
 bool IfcRadiusDimension::init() {

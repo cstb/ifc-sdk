@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,19 +26,20 @@
 
 #include "ifc2x3/IfcGrid.h"
 
+
+
+
 #include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAlignmentElement.h"
 #include "ifc2x3/IfcGridAxis.h"
+#include "ifc2x3/IfcProduct.h"
 #include "ifc2x3/IfcRelContainedInSpatialStructure.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -47,40 +48,96 @@
 #endif
 using namespace ifc2x3;
 
-IfcGrid::IfcGrid(Step::Id id, Step::SPFData *args) : IfcAlignmentElement(id, args) {
+Inverted_IfcGrid_UAxes_type::Inverted_IfcGrid_UAxes_type() {
+}
+
+void Inverted_IfcGrid_UAxes_type::setOwner(IfcGrid *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcGrid_UAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    List_IfcGridAxis_1_n::push_back(value);
+    inverse->m_partOfU.insert(mOwner);
+}
+
+Inverted_IfcGrid_UAxes_type::iterator Inverted_IfcGrid_UAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    inverse->m_partOfU.erase(mOwner);
+    return List_IfcGridAxis_1_n::erase(value);
+}
+
+Inverted_IfcGrid_VAxes_type::Inverted_IfcGrid_VAxes_type() {
+}
+
+void Inverted_IfcGrid_VAxes_type::setOwner(IfcGrid *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcGrid_VAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    List_IfcGridAxis_1_n::push_back(value);
+    inverse->m_partOfV.insert(mOwner);
+}
+
+Inverted_IfcGrid_VAxes_type::iterator Inverted_IfcGrid_VAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    inverse->m_partOfV.erase(mOwner);
+    return List_IfcGridAxis_1_n::erase(value);
+}
+
+Inverted_IfcGrid_WAxes_type::Inverted_IfcGrid_WAxes_type() {
+}
+
+void Inverted_IfcGrid_WAxes_type::setOwner(IfcGrid *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcGrid_WAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    List_IfcGridAxis_1_n::push_back(value);
+    inverse->m_partOfW.insert(mOwner);
+}
+
+Inverted_IfcGrid_WAxes_type::iterator Inverted_IfcGrid_WAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
+    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
+    inverse->m_partOfW.erase(mOwner);
+    return List_IfcGridAxis_1_n::erase(value);
+}
+
+IfcGrid::IfcGrid(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
     m_uAxes.setUnset(true);
     m_uAxes.setOwner(this);
     m_vAxes.setUnset(true);
     m_vAxes.setOwner(this);
     m_wAxes.setUnset(true);
     m_wAxes.setOwner(this);
-    m_containedInStructure.setUnset(true);
 }
 
 IfcGrid::~IfcGrid() {
 }
 
-bool IfcGrid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGrid(this);
+bool IfcGrid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGrid(this);
 }
 
-const std::string &IfcGrid::type() {
+const std::string &IfcGrid::type() const {
     return IfcGrid::s_type.getName();
 }
 
-Step::ClassType IfcGrid::getClassType() {
+const Step::ClassType &IfcGrid::getClassType() {
     return IfcGrid::s_type;
 }
 
-Step::ClassType IfcGrid::getType() const {
+const Step::ClassType &IfcGrid::getType() const {
     return IfcGrid::s_type;
 }
 
-bool IfcGrid::isOfType(Step::ClassType t) {
-    return IfcGrid::s_type == t ? true : IfcAlignmentElement::isOfType(t);
+bool IfcGrid::isOfType(const Step::ClassType &t) const {
+    return IfcGrid::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getUAxes() {
+List_IfcGridAxis_1_n &IfcGrid::getUAxes() {
     if (Step::BaseObject::inited()) {
         return m_uAxes;
     }
@@ -90,7 +147,12 @@ Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getUAxes() {
     }
 }
 
-Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getVAxes() {
+const List_IfcGridAxis_1_n &IfcGrid::getUAxes() const {
+    IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
+    return deConstObject->getUAxes();
+}
+
+List_IfcGridAxis_1_n &IfcGrid::getVAxes() {
     if (Step::BaseObject::inited()) {
         return m_vAxes;
     }
@@ -100,7 +162,12 @@ Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getVAxes() {
     }
 }
 
-Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getWAxes() {
+const List_IfcGridAxis_1_n &IfcGrid::getVAxes() const {
+    IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
+    return deConstObject->getVAxes();
+}
+
+List_IfcGridAxis_1_n &IfcGrid::getWAxes() {
     if (Step::BaseObject::inited()) {
         return m_wAxes;
     }
@@ -110,7 +177,12 @@ Step::List< Step::RefPtr< IfcGridAxis > > &IfcGrid::getWAxes() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcGrid::getContainedInStructure() {
+const List_IfcGridAxis_1_n &IfcGrid::getWAxes() const {
+    IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
+    return deConstObject->getWAxes();
+}
+
+Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
     }
@@ -120,15 +192,13 @@ Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcGrid::getCont
     }
 }
 
-void IfcGrid::release() {
-    IfcAlignmentElement::release();
-    m_uAxes.clear();
-    m_vAxes.clear();
-    m_wAxes.clear();
+const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() const {
+    IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
+    return deConstObject->getContainedInStructure();
 }
 
 bool IfcGrid::init() {
-    bool status = IfcAlignmentElement::init();
+    bool status = IfcProduct::init();
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {
@@ -145,7 +215,7 @@ bool IfcGrid::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcGridAxis > attr2;
-                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_uAxes.push_back(attr2);
             }
             else {
@@ -164,7 +234,7 @@ bool IfcGrid::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcGridAxis > attr2;
-                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_vAxes.push_back(attr2);
             }
             else {
@@ -183,7 +253,7 @@ bool IfcGrid::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcGridAxis > attr2;
-                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcGridAxis * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_wAxes.push_back(attr2);
             }
             else {
@@ -203,62 +273,23 @@ bool IfcGrid::init() {
 }
 
 void IfcGrid::copy(const IfcGrid &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcGridAxis > >::const_iterator it_m_uAxes;
-    Step::List< Step::RefPtr< IfcGridAxis > >::const_iterator it_m_vAxes;
-    Step::List< Step::RefPtr< IfcGridAxis > >::const_iterator it_m_wAxes;
-    IfcAlignmentElement::copy(obj, copyop);
+    Step::List< Step::RefPtr< IfcGridAxis >, 1 >::const_iterator it_m_uAxes;
+    Step::List< Step::RefPtr< IfcGridAxis >, 1 >::const_iterator it_m_vAxes;
+    Step::List< Step::RefPtr< IfcGridAxis >, 1 >::const_iterator it_m_wAxes;
+    IfcProduct::copy(obj, copyop);
     for (it_m_uAxes = obj.m_uAxes.begin(); it_m_uAxes != obj.m_uAxes.end(); ++it_m_uAxes) {
-        Step::RefPtr< IfcGridAxis > copyTarget = copyop((*it_m_uAxes).get());
+        Step::RefPtr< IfcGridAxis > copyTarget = (IfcGridAxis *) (copyop((*it_m_uAxes).get()));
         m_uAxes.push_back(copyTarget.get());
     }
     for (it_m_vAxes = obj.m_vAxes.begin(); it_m_vAxes != obj.m_vAxes.end(); ++it_m_vAxes) {
-        Step::RefPtr< IfcGridAxis > copyTarget = copyop((*it_m_vAxes).get());
+        Step::RefPtr< IfcGridAxis > copyTarget = (IfcGridAxis *) (copyop((*it_m_vAxes).get()));
         m_vAxes.push_back(copyTarget.get());
     }
     for (it_m_wAxes = obj.m_wAxes.begin(); it_m_wAxes != obj.m_wAxes.end(); ++it_m_wAxes) {
-        Step::RefPtr< IfcGridAxis > copyTarget = copyop((*it_m_wAxes).get());
+        Step::RefPtr< IfcGridAxis > copyTarget = (IfcGridAxis *) (copyop((*it_m_wAxes).get()));
         m_wAxes.push_back(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcGrid::s_type("IfcGrid");
-IfcGrid::Inverted_VAxes_type::Inverted_VAxes_type() {
-}
-
-void IfcGrid::Inverted_VAxes_type::setOwner(IfcGrid *owner) {
-    mOwner = owner;
-}
-
-void IfcGrid::Inverted_VAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    Step::List< Step::RefPtr< IfcGridAxis > >::push_back(value);
-    inverse->m_partOfV.insert(mOwner);
-}
-
-IfcGrid::Inverted_WAxes_type::Inverted_WAxes_type() {
-}
-
-void IfcGrid::Inverted_WAxes_type::setOwner(IfcGrid *owner) {
-    mOwner = owner;
-}
-
-void IfcGrid::Inverted_WAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    Step::List< Step::RefPtr< IfcGridAxis > >::push_back(value);
-    inverse->m_partOfW.insert(mOwner);
-}
-
-IfcGrid::Inverted_UAxes_type::Inverted_UAxes_type() {
-}
-
-void IfcGrid::Inverted_UAxes_type::setOwner(IfcGrid *owner) {
-    mOwner = owner;
-}
-
-void IfcGrid::Inverted_UAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    Step::List< Step::RefPtr< IfcGridAxis > >::push_back(value);
-    inverse->m_partOfU.insert(mOwner);
-}
-

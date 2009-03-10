@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcSpatialStructureElementType::IfcSpatialStructureElementType(Step::Id id, Step
 IfcSpatialStructureElementType::~IfcSpatialStructureElementType() {
 }
 
-bool IfcSpatialStructureElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpatialStructureElementType(this);
+bool IfcSpatialStructureElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpatialStructureElementType(this);
 }
 
-const std::string &IfcSpatialStructureElementType::type() {
+const std::string &IfcSpatialStructureElementType::type() const {
     return IfcSpatialStructureElementType::s_type.getName();
 }
 
-Step::ClassType IfcSpatialStructureElementType::getClassType() {
+const Step::ClassType &IfcSpatialStructureElementType::getClassType() {
     return IfcSpatialStructureElementType::s_type;
 }
 
-Step::ClassType IfcSpatialStructureElementType::getType() const {
+const Step::ClassType &IfcSpatialStructureElementType::getType() const {
     return IfcSpatialStructureElementType::s_type;
 }
 
-bool IfcSpatialStructureElementType::isOfType(Step::ClassType t) {
+bool IfcSpatialStructureElementType::isOfType(const Step::ClassType &t) const {
     return IfcSpatialStructureElementType::s_type == t ? true : IfcElementType::isOfType(t);
-}
-
-void IfcSpatialStructureElementType::release() {
-    IfcElementType::release();
 }
 
 bool IfcSpatialStructureElementType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSanitaryTerminalType::IfcSanitaryTerminalType(Step::Id id, Step::SPFData *arg
 IfcSanitaryTerminalType::~IfcSanitaryTerminalType() {
 }
 
-bool IfcSanitaryTerminalType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSanitaryTerminalType(this);
+bool IfcSanitaryTerminalType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSanitaryTerminalType(this);
 }
 
-const std::string &IfcSanitaryTerminalType::type() {
+const std::string &IfcSanitaryTerminalType::type() const {
     return IfcSanitaryTerminalType::s_type.getName();
 }
 
-Step::ClassType IfcSanitaryTerminalType::getClassType() {
+const Step::ClassType &IfcSanitaryTerminalType::getClassType() {
     return IfcSanitaryTerminalType::s_type;
 }
 
-Step::ClassType IfcSanitaryTerminalType::getType() const {
+const Step::ClassType &IfcSanitaryTerminalType::getType() const {
     return IfcSanitaryTerminalType::s_type;
 }
 
-bool IfcSanitaryTerminalType::isOfType(Step::ClassType t) {
+bool IfcSanitaryTerminalType::isOfType(const Step::ClassType &t) const {
     return IfcSanitaryTerminalType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcSanitaryTerminalTypeEnum IfcSanitaryTerminalType::getPredefinedType() {
     }
 }
 
-void IfcSanitaryTerminalType::setPredefinedType(IfcSanitaryTerminalTypeEnum value) {
-    m_predefinedType = value;
+const IfcSanitaryTerminalTypeEnum IfcSanitaryTerminalType::getPredefinedType() const {
+    IfcSanitaryTerminalType * deConstObject = const_cast< IfcSanitaryTerminalType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcSanitaryTerminalType::release() {
-    IfcFlowTerminalType::release();
+void IfcSanitaryTerminalType::setPredefinedType(IfcSanitaryTerminalTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcSanitaryTerminalType::init() {

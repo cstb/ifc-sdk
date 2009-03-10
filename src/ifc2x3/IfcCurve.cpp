@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCurve::IfcCurve(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentatio
 IfcCurve::~IfcCurve() {
 }
 
-bool IfcCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurve(this);
+bool IfcCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurve(this);
 }
 
-const std::string &IfcCurve::type() {
+const std::string &IfcCurve::type() const {
     return IfcCurve::s_type.getName();
 }
 
-Step::ClassType IfcCurve::getClassType() {
+const Step::ClassType &IfcCurve::getClassType() {
     return IfcCurve::s_type;
 }
 
-Step::ClassType IfcCurve::getType() const {
+const Step::ClassType &IfcCurve::getType() const {
     return IfcCurve::s_type;
 }
 
-bool IfcCurve::isOfType(Step::ClassType t) {
+bool IfcCurve::isOfType(const Step::ClassType &t) const {
     return IfcCurve::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-void IfcCurve::release() {
-    IfcGeometricRepresentationItem::release();
 }
 
 bool IfcCurve::init() {

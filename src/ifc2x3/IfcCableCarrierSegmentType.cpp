@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCableCarrierSegmentType::IfcCableCarrierSegmentType(Step::Id id, Step::SPFDat
 IfcCableCarrierSegmentType::~IfcCableCarrierSegmentType() {
 }
 
-bool IfcCableCarrierSegmentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCableCarrierSegmentType(this);
+bool IfcCableCarrierSegmentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCableCarrierSegmentType(this);
 }
 
-const std::string &IfcCableCarrierSegmentType::type() {
+const std::string &IfcCableCarrierSegmentType::type() const {
     return IfcCableCarrierSegmentType::s_type.getName();
 }
 
-Step::ClassType IfcCableCarrierSegmentType::getClassType() {
+const Step::ClassType &IfcCableCarrierSegmentType::getClassType() {
     return IfcCableCarrierSegmentType::s_type;
 }
 
-Step::ClassType IfcCableCarrierSegmentType::getType() const {
+const Step::ClassType &IfcCableCarrierSegmentType::getType() const {
     return IfcCableCarrierSegmentType::s_type;
 }
 
-bool IfcCableCarrierSegmentType::isOfType(Step::ClassType t) {
+bool IfcCableCarrierSegmentType::isOfType(const Step::ClassType &t) const {
     return IfcCableCarrierSegmentType::s_type == t ? true : IfcFlowSegmentType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType() {
     }
 }
 
-void IfcCableCarrierSegmentType::setPredefinedType(IfcCableCarrierSegmentTypeEnum value) {
-    m_predefinedType = value;
+const IfcCableCarrierSegmentTypeEnum IfcCableCarrierSegmentType::getPredefinedType() const {
+    IfcCableCarrierSegmentType * deConstObject = const_cast< IfcCableCarrierSegmentType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCableCarrierSegmentType::release() {
-    IfcFlowSegmentType::release();
+void IfcCableCarrierSegmentType::setPredefinedType(IfcCableCarrierSegmentTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCableCarrierSegmentType::init() {

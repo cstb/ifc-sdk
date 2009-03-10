@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelFillsElement::IfcRelFillsElement(Step::Id id, Step::SPFData *args) : IfcRe
 IfcRelFillsElement::~IfcRelFillsElement() {
 }
 
-bool IfcRelFillsElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelFillsElement(this);
+bool IfcRelFillsElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelFillsElement(this);
 }
 
-const std::string &IfcRelFillsElement::type() {
+const std::string &IfcRelFillsElement::type() const {
     return IfcRelFillsElement::s_type.getName();
 }
 
-Step::ClassType IfcRelFillsElement::getClassType() {
+const Step::ClassType &IfcRelFillsElement::getClassType() {
     return IfcRelFillsElement::s_type;
 }
 
-Step::ClassType IfcRelFillsElement::getType() const {
+const Step::ClassType &IfcRelFillsElement::getType() const {
     return IfcRelFillsElement::s_type;
 }
 
-bool IfcRelFillsElement::isOfType(Step::ClassType t) {
+bool IfcRelFillsElement::isOfType(const Step::ClassType &t) const {
     return IfcRelFillsElement::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcOpeningElement *IfcRelFillsElement::getRelatingOpeningElement() {
     }
 }
 
+const IfcOpeningElement *IfcRelFillsElement::getRelatingOpeningElement() const {
+    IfcRelFillsElement * deConstObject = const_cast< IfcRelFillsElement * > (this);
+    return deConstObject->getRelatingOpeningElement();
+}
+
 void IfcRelFillsElement::setRelatingOpeningElement(const Step::RefPtr< IfcOpeningElement > &value) {
+    if (m_relatingOpeningElement.valid()) {
+        m_relatingOpeningElement->m_hasFillings.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasFillings.insert(this);
+    }
     m_relatingOpeningElement = value;
-    m_relatingOpeningElement->m_hasFillings.insert(this);
 }
 
 IfcElement *IfcRelFillsElement::getRelatedBuildingElement() {
@@ -95,15 +105,19 @@ IfcElement *IfcRelFillsElement::getRelatedBuildingElement() {
     }
 }
 
-void IfcRelFillsElement::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    m_relatedBuildingElement = value;
-    m_relatedBuildingElement->m_fillsVoids.insert(this);
+const IfcElement *IfcRelFillsElement::getRelatedBuildingElement() const {
+    IfcRelFillsElement * deConstObject = const_cast< IfcRelFillsElement * > (this);
+    return deConstObject->getRelatedBuildingElement();
 }
 
-void IfcRelFillsElement::release() {
-    IfcRelConnects::release();
-    m_relatingOpeningElement.release();
-    m_relatedBuildingElement.release();
+void IfcRelFillsElement::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatedBuildingElement.valid()) {
+        m_relatedBuildingElement->m_fillsVoids.erase(this);
+    }
+    if (value.valid()) {
+        value->m_fillsVoids.insert(this);
+    }
+    m_relatedBuildingElement = value;
 }
 
 bool IfcRelFillsElement::init() {
@@ -117,22 +131,22 @@ bool IfcRelFillsElement::init() {
         m_relatingOpeningElement = NULL;
     }
     else {
-        m_relatingOpeningElement = static_cast< IfcOpeningElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingOpeningElement = static_cast< IfcOpeningElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedBuildingElement = NULL;
     }
     else {
-        m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedBuildingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelFillsElement::copy(const IfcRelFillsElement &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingOpeningElement(copyop(obj.m_relatingOpeningElement.get()));
-    setRelatedBuildingElement(copyop(obj.m_relatedBuildingElement.get()));
+    setRelatingOpeningElement((IfcOpeningElement*)copyop(obj.m_relatingOpeningElement.get()));
+    setRelatedBuildingElement((IfcElement*)copyop(obj.m_relatedBuildingElement.get()));
     return;
 }
 

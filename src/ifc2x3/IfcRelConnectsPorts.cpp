@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcRelConnectsPorts::IfcRelConnectsPorts(Step::Id id, Step::SPFData *args) : Ifc
 IfcRelConnectsPorts::~IfcRelConnectsPorts() {
 }
 
-bool IfcRelConnectsPorts::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsPorts(this);
+bool IfcRelConnectsPorts::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsPorts(this);
 }
 
-const std::string &IfcRelConnectsPorts::type() {
+const std::string &IfcRelConnectsPorts::type() const {
     return IfcRelConnectsPorts::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsPorts::getClassType() {
+const Step::ClassType &IfcRelConnectsPorts::getClassType() {
     return IfcRelConnectsPorts::s_type;
 }
 
-Step::ClassType IfcRelConnectsPorts::getType() const {
+const Step::ClassType &IfcRelConnectsPorts::getType() const {
     return IfcRelConnectsPorts::s_type;
 }
 
-bool IfcRelConnectsPorts::isOfType(Step::ClassType t) {
+bool IfcRelConnectsPorts::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsPorts::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -82,9 +82,19 @@ IfcPort *IfcRelConnectsPorts::getRelatingPort() {
     }
 }
 
+const IfcPort *IfcRelConnectsPorts::getRelatingPort() const {
+    IfcRelConnectsPorts * deConstObject = const_cast< IfcRelConnectsPorts * > (this);
+    return deConstObject->getRelatingPort();
+}
+
 void IfcRelConnectsPorts::setRelatingPort(const Step::RefPtr< IfcPort > &value) {
+    if (m_relatingPort.valid()) {
+        m_relatingPort->m_connectedTo.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectedTo.insert(this);
+    }
     m_relatingPort = value;
-    m_relatingPort->m_connectedTo.insert(this);
 }
 
 IfcPort *IfcRelConnectsPorts::getRelatedPort() {
@@ -96,9 +106,19 @@ IfcPort *IfcRelConnectsPorts::getRelatedPort() {
     }
 }
 
+const IfcPort *IfcRelConnectsPorts::getRelatedPort() const {
+    IfcRelConnectsPorts * deConstObject = const_cast< IfcRelConnectsPorts * > (this);
+    return deConstObject->getRelatedPort();
+}
+
 void IfcRelConnectsPorts::setRelatedPort(const Step::RefPtr< IfcPort > &value) {
+    if (m_relatedPort.valid()) {
+        m_relatedPort->m_connectedFrom.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectedFrom.insert(this);
+    }
     m_relatedPort = value;
-    m_relatedPort->m_connectedFrom.insert(this);
 }
 
 IfcElement *IfcRelConnectsPorts::getRealizingElement() {
@@ -110,15 +130,13 @@ IfcElement *IfcRelConnectsPorts::getRealizingElement() {
     }
 }
 
-void IfcRelConnectsPorts::setRealizingElement(const Step::RefPtr< IfcElement > &value) {
-    m_realizingElement = value;
+const IfcElement *IfcRelConnectsPorts::getRealizingElement() const {
+    IfcRelConnectsPorts * deConstObject = const_cast< IfcRelConnectsPorts * > (this);
+    return deConstObject->getRealizingElement();
 }
 
-void IfcRelConnectsPorts::release() {
-    IfcRelConnects::release();
-    m_relatingPort.release();
-    m_relatedPort.release();
-    m_realizingElement.release();
+void IfcRelConnectsPorts::setRealizingElement(const Step::RefPtr< IfcElement > &value) {
+    m_realizingElement = value;
 }
 
 bool IfcRelConnectsPorts::init() {
@@ -132,30 +150,30 @@ bool IfcRelConnectsPorts::init() {
         m_relatingPort = NULL;
     }
     else {
-        m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedPort = NULL;
     }
     else {
-        m_relatedPort = static_cast< IfcPort * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedPort = static_cast< IfcPort * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_realizingElement = NULL;
     }
     else {
-        m_realizingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_realizingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsPorts::copy(const IfcRelConnectsPorts &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingPort(copyop(obj.m_relatingPort.get()));
-    setRelatedPort(copyop(obj.m_relatedPort.get()));
-    setRealizingElement(copyop(obj.m_realizingElement.get()));
+    setRelatingPort((IfcPort*)copyop(obj.m_relatingPort.get()));
+    setRelatedPort((IfcPort*)copyop(obj.m_relatedPort.get()));
+    setRealizingElement((IfcElement*)copyop(obj.m_realizingElement.get()));
     return;
 }
 

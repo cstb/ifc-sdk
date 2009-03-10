@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricMotorType::IfcElectricMotorType(Step::Id id, Step::SPFData *args) : I
 IfcElectricMotorType::~IfcElectricMotorType() {
 }
 
-bool IfcElectricMotorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricMotorType(this);
+bool IfcElectricMotorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricMotorType(this);
 }
 
-const std::string &IfcElectricMotorType::type() {
+const std::string &IfcElectricMotorType::type() const {
     return IfcElectricMotorType::s_type.getName();
 }
 
-Step::ClassType IfcElectricMotorType::getClassType() {
+const Step::ClassType &IfcElectricMotorType::getClassType() {
     return IfcElectricMotorType::s_type;
 }
 
-Step::ClassType IfcElectricMotorType::getType() const {
+const Step::ClassType &IfcElectricMotorType::getType() const {
     return IfcElectricMotorType::s_type;
 }
 
-bool IfcElectricMotorType::isOfType(Step::ClassType t) {
+bool IfcElectricMotorType::isOfType(const Step::ClassType &t) const {
     return IfcElectricMotorType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType() {
     }
 }
 
-void IfcElectricMotorType::setPredefinedType(IfcElectricMotorTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricMotorTypeEnum IfcElectricMotorType::getPredefinedType() const {
+    IfcElectricMotorType * deConstObject = const_cast< IfcElectricMotorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricMotorType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcElectricMotorType::setPredefinedType(IfcElectricMotorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricMotorType::init() {

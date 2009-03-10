@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcColour::~IfcColour() {
     deleteUnion();
 }
 
-bool IfcColour::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColour(this);
+bool IfcColour::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColour(this);
 }
 
 bool IfcColour::init() {
     return false;
 }
 
-const std::string &IfcColour::type() {
+const std::string &IfcColour::type() const {
     return IfcColour::s_type.getName();
 }
 
-Step::ClassType IfcColour::getClassType() {
+const Step::ClassType &IfcColour::getClassType() {
     return IfcColour::s_type;
 }
 
-Step::ClassType IfcColour::getType() const {
+const Step::ClassType &IfcColour::getType() const {
     return IfcColour::s_type;
 }
 
-bool IfcColour::isOfType(Step::ClassType t) {
+bool IfcColour::isOfType(const Step::ClassType &t) const {
     return IfcColour::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcColour::copy(const IfcColour &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCOLOURSPECIFICATION:
-        setIfcColourSpecification(copyop(obj.m_IfcColour_union.m_IfcColourSpecification));
+        setIfcColourSpecification((IfcColourSpecification *) (copyop(obj.m_IfcColour_union.m_IfcColourSpecification)));
         break;
     case IFCPREDEFINEDCOLOUR:
-        setIfcPreDefinedColour(copyop(obj.m_IfcColour_union.m_IfcPreDefinedColour));
+        setIfcPreDefinedColour((IfcPreDefinedColour *) (copyop(obj.m_IfcColour_union.m_IfcPreDefinedColour)));
         break;
         }
 }
 
-char *IfcColour::currentTypeName() {
+std::string IfcColour::currentTypeName() const {
     switch(m_type) {
     case IFCCOLOURSPECIFICATION:
         return "IfcColourSpecification";
@@ -97,7 +97,7 @@ char *IfcColour::currentTypeName() {
     }
 }
 
-IfcColour::IfcColour_select IfcColour::currentType() {
+IfcColour::IfcColour_select IfcColour::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcColour::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcColourSpecification *IfcColour::getIfcColourSpecification() {
-    return m_IfcColour_union.m_IfcColourSpecification;
+IfcColourSpecification *IfcColour::getIfcColourSpecification() const {
+    if (m_type == IFCCOLOURSPECIFICATION) {
+        return m_IfcColour_union.m_IfcColourSpecification;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcColour::setIfcColourSpecification(IfcColourSpecification *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcColour::setIfcColourSpecification(IfcColourSpecification *value) {
     m_type = IFCCOLOURSPECIFICATION;
 }
 
-IfcPreDefinedColour *IfcColour::getIfcPreDefinedColour() {
-    return m_IfcColour_union.m_IfcPreDefinedColour;
+IfcPreDefinedColour *IfcColour::getIfcPreDefinedColour() const {
+    if (m_type == IFCPREDEFINEDCOLOUR) {
+        return m_IfcColour_union.m_IfcPreDefinedColour;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcColour::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

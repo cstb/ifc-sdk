@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcStructuredDimensionCallout::IfcStructuredDimensionCallout(Step::Id id, Step::
 IfcStructuredDimensionCallout::~IfcStructuredDimensionCallout() {
 }
 
-bool IfcStructuredDimensionCallout::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuredDimensionCallout(this);
+bool IfcStructuredDimensionCallout::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuredDimensionCallout(this);
 }
 
-const std::string &IfcStructuredDimensionCallout::type() {
+const std::string &IfcStructuredDimensionCallout::type() const {
     return IfcStructuredDimensionCallout::s_type.getName();
 }
 
-Step::ClassType IfcStructuredDimensionCallout::getClassType() {
+const Step::ClassType &IfcStructuredDimensionCallout::getClassType() {
     return IfcStructuredDimensionCallout::s_type;
 }
 
-Step::ClassType IfcStructuredDimensionCallout::getType() const {
+const Step::ClassType &IfcStructuredDimensionCallout::getType() const {
     return IfcStructuredDimensionCallout::s_type;
 }
 
-bool IfcStructuredDimensionCallout::isOfType(Step::ClassType t) {
+bool IfcStructuredDimensionCallout::isOfType(const Step::ClassType &t) const {
     return IfcStructuredDimensionCallout::s_type == t ? true : IfcDraughtingCallout::isOfType(t);
-}
-
-void IfcStructuredDimensionCallout::release() {
-    IfcDraughtingCallout::release();
 }
 
 bool IfcStructuredDimensionCallout::init() {

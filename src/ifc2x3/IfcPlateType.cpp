@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcPlateType::IfcPlateType(Step::Id id, Step::SPFData *args) : IfcBuildingElemen
 IfcPlateType::~IfcPlateType() {
 }
 
-bool IfcPlateType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlateType(this);
+bool IfcPlateType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlateType(this);
 }
 
-const std::string &IfcPlateType::type() {
+const std::string &IfcPlateType::type() const {
     return IfcPlateType::s_type.getName();
 }
 
-Step::ClassType IfcPlateType::getClassType() {
+const Step::ClassType &IfcPlateType::getClassType() {
     return IfcPlateType::s_type;
 }
 
-Step::ClassType IfcPlateType::getType() const {
+const Step::ClassType &IfcPlateType::getType() const {
     return IfcPlateType::s_type;
 }
 
-bool IfcPlateType::isOfType(Step::ClassType t) {
+bool IfcPlateType::isOfType(const Step::ClassType &t) const {
     return IfcPlateType::s_type == t ? true : IfcBuildingElementType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPlateTypeEnum IfcPlateType::getPredefinedType() {
     }
 }
 
-void IfcPlateType::setPredefinedType(IfcPlateTypeEnum value) {
-    m_predefinedType = value;
+const IfcPlateTypeEnum IfcPlateType::getPredefinedType() const {
+    IfcPlateType * deConstObject = const_cast< IfcPlateType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcPlateType::release() {
-    IfcBuildingElementType::release();
+void IfcPlateType::setPredefinedType(IfcPlateTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcPlateType::init() {

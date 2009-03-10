@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcProcedure::IfcProcedure(Step::Id id, Step::SPFData *args) : IfcProcess(id, ar
 IfcProcedure::~IfcProcedure() {
 }
 
-bool IfcProcedure::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProcedure(this);
+bool IfcProcedure::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProcedure(this);
 }
 
-const std::string &IfcProcedure::type() {
+const std::string &IfcProcedure::type() const {
     return IfcProcedure::s_type.getName();
 }
 
-Step::ClassType IfcProcedure::getClassType() {
+const Step::ClassType &IfcProcedure::getClassType() {
     return IfcProcedure::s_type;
 }
 
-Step::ClassType IfcProcedure::getType() const {
+const Step::ClassType &IfcProcedure::getType() const {
     return IfcProcedure::s_type;
 }
 
-bool IfcProcedure::isOfType(Step::ClassType t) {
+bool IfcProcedure::isOfType(const Step::ClassType &t) const {
     return IfcProcedure::s_type == t ? true : IfcProcess::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcIdentifier IfcProcedure::getProcedureID() {
     else {
         return Step::getUnset(m_procedureID);
     }
+}
+
+const IfcIdentifier IfcProcedure::getProcedureID() const {
+    IfcProcedure * deConstObject = const_cast< IfcProcedure * > (this);
+    return deConstObject->getProcedureID();
 }
 
 void IfcProcedure::setProcedureID(const IfcIdentifier &value) {
@@ -90,6 +96,11 @@ IfcProcedureTypeEnum IfcProcedure::getProcedureType() {
     }
 }
 
+const IfcProcedureTypeEnum IfcProcedure::getProcedureType() const {
+    IfcProcedure * deConstObject = const_cast< IfcProcedure * > (this);
+    return deConstObject->getProcedureType();
+}
+
 void IfcProcedure::setProcedureType(IfcProcedureTypeEnum value) {
     m_procedureType = value;
 }
@@ -103,12 +114,13 @@ IfcLabel IfcProcedure::getUserDefinedProcedureType() {
     }
 }
 
-void IfcProcedure::setUserDefinedProcedureType(const IfcLabel &value) {
-    m_userDefinedProcedureType = value;
+const IfcLabel IfcProcedure::getUserDefinedProcedureType() const {
+    IfcProcedure * deConstObject = const_cast< IfcProcedure * > (this);
+    return deConstObject->getUserDefinedProcedureType();
 }
 
-void IfcProcedure::release() {
-    IfcProcess::release();
+void IfcProcedure::setUserDefinedProcedureType(const IfcLabel &value) {
+    m_userDefinedProcedureType = value;
 }
 
 bool IfcProcedure::init() {
@@ -122,7 +134,7 @@ bool IfcProcedure::init() {
         m_procedureID = Step::getUnset(m_procedureID);
     }
     else {
-        m_procedureID = Step::spfToString(arg);
+        m_procedureID = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -162,7 +174,7 @@ bool IfcProcedure::init() {
         m_userDefinedProcedureType = Step::getUnset(m_userDefinedProcedureType);
     }
     else {
-        m_userDefinedProcedureType = Step::spfToString(arg);
+        m_userDefinedProcedureType = Step::String::fromSPF(arg);
     }
     return true;
 }

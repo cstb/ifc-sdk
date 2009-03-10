@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,27 +48,27 @@ IfcOrientationSelect::~IfcOrientationSelect() {
     deleteUnion();
 }
 
-bool IfcOrientationSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOrientationSelect(this);
+bool IfcOrientationSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOrientationSelect(this);
 }
 
 bool IfcOrientationSelect::init() {
     return false;
 }
 
-const std::string &IfcOrientationSelect::type() {
+const std::string &IfcOrientationSelect::type() const {
     return IfcOrientationSelect::s_type.getName();
 }
 
-Step::ClassType IfcOrientationSelect::getClassType() {
+const Step::ClassType &IfcOrientationSelect::getClassType() {
     return IfcOrientationSelect::s_type;
 }
 
-Step::ClassType IfcOrientationSelect::getType() const {
+const Step::ClassType &IfcOrientationSelect::getType() const {
     return IfcOrientationSelect::s_type;
 }
 
-bool IfcOrientationSelect::isOfType(Step::ClassType t) {
+bool IfcOrientationSelect::isOfType(const Step::ClassType &t) const {
     return IfcOrientationSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,12 +78,12 @@ void IfcOrientationSelect::copy(const IfcOrientationSelect &obj, const CopyOp &c
         setIfcPlaneAngleMeasure(obj.m_IfcOrientationSelect_union.m_IfcPlaneAngleMeasure);
         break;
     case IFCDIRECTION:
-        setIfcDirection(copyop(obj.m_IfcOrientationSelect_union.m_IfcDirection));
+        setIfcDirection((IfcDirection *) (copyop(obj.m_IfcOrientationSelect_union.m_IfcDirection)));
         break;
         }
 }
 
-char *IfcOrientationSelect::currentTypeName() {
+std::string IfcOrientationSelect::currentTypeName() const {
     switch(m_type) {
     case IFCPLANEANGLEMEASURE:
         return "IfcPlaneAngleMeasure";
@@ -96,7 +96,7 @@ char *IfcOrientationSelect::currentTypeName() {
     }
 }
 
-IfcOrientationSelect::IfcOrientationSelect_select IfcOrientationSelect::currentType() {
+IfcOrientationSelect::IfcOrientationSelect_select IfcOrientationSelect::currentType() const {
     return m_type;
 }
 
@@ -109,22 +109,30 @@ void IfcOrientationSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPlaneAngleMeasure IfcOrientationSelect::getIfcPlaneAngleMeasure() {
-    return m_IfcOrientationSelect_union.m_IfcPlaneAngleMeasure;
+IfcPlaneAngleMeasure IfcOrientationSelect::getIfcPlaneAngleMeasure() const {
+    if (m_type == IFCPLANEANGLEMEASURE) {
+        return m_IfcOrientationSelect_union.m_IfcPlaneAngleMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcOrientationSelect_union.m_IfcPlaneAngleMeasure);
+    }
 }
 
 void IfcOrientationSelect::setIfcPlaneAngleMeasure(IfcPlaneAngleMeasure value) {
-    deleteUnion();
     m_IfcOrientationSelect_union.m_IfcPlaneAngleMeasure = value;
     m_type = IFCPLANEANGLEMEASURE;
 }
 
-IfcDirection *IfcOrientationSelect::getIfcDirection() {
-    return m_IfcOrientationSelect_union.m_IfcDirection;
+IfcDirection *IfcOrientationSelect::getIfcDirection() const {
+    if (m_type == IFCDIRECTION) {
+        return m_IfcOrientationSelect_union.m_IfcDirection;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcOrientationSelect::setIfcDirection(IfcDirection *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

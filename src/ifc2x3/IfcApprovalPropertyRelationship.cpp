@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -46,34 +45,33 @@
 using namespace ifc2x3;
 
 IfcApprovalPropertyRelationship::IfcApprovalPropertyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_approvedProperties.setUnset(true);
     m_approval = NULL;
 }
 
 IfcApprovalPropertyRelationship::~IfcApprovalPropertyRelationship() {
 }
 
-bool IfcApprovalPropertyRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcApprovalPropertyRelationship(this);
+bool IfcApprovalPropertyRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcApprovalPropertyRelationship(this);
 }
 
-const std::string &IfcApprovalPropertyRelationship::type() {
+const std::string &IfcApprovalPropertyRelationship::type() const {
     return IfcApprovalPropertyRelationship::s_type.getName();
 }
 
-Step::ClassType IfcApprovalPropertyRelationship::getClassType() {
+const Step::ClassType &IfcApprovalPropertyRelationship::getClassType() {
     return IfcApprovalPropertyRelationship::s_type;
 }
 
-Step::ClassType IfcApprovalPropertyRelationship::getType() const {
+const Step::ClassType &IfcApprovalPropertyRelationship::getType() const {
     return IfcApprovalPropertyRelationship::s_type;
 }
 
-bool IfcApprovalPropertyRelationship::isOfType(Step::ClassType t) {
+bool IfcApprovalPropertyRelationship::isOfType(const Step::ClassType &t) const {
     return IfcApprovalPropertyRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcApprovalPropertyRelationship::getApprovedProperties() {
+Set_IfcProperty_1_n &IfcApprovalPropertyRelationship::getApprovedProperties() {
     if (Step::BaseObject::inited()) {
         return m_approvedProperties;
     }
@@ -83,7 +81,12 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcApprovalPropertyRelationship::getAp
     }
 }
 
-void IfcApprovalPropertyRelationship::setApprovedProperties(const Step::Set< Step::RefPtr< IfcProperty > > &value) {
+const Set_IfcProperty_1_n &IfcApprovalPropertyRelationship::getApprovedProperties() const {
+    IfcApprovalPropertyRelationship * deConstObject = const_cast< IfcApprovalPropertyRelationship * > (this);
+    return deConstObject->getApprovedProperties();
+}
+
+void IfcApprovalPropertyRelationship::setApprovedProperties(const Set_IfcProperty_1_n &value) {
     m_approvedProperties = value;
 }
 
@@ -96,13 +99,13 @@ IfcApproval *IfcApprovalPropertyRelationship::getApproval() {
     }
 }
 
-void IfcApprovalPropertyRelationship::setApproval(const Step::RefPtr< IfcApproval > &value) {
-    m_approval = value;
+const IfcApproval *IfcApprovalPropertyRelationship::getApproval() const {
+    IfcApprovalPropertyRelationship * deConstObject = const_cast< IfcApprovalPropertyRelationship * > (this);
+    return deConstObject->getApproval();
 }
 
-void IfcApprovalPropertyRelationship::release() {
-    m_approvedProperties.clear();
-    m_approval.release();
+void IfcApprovalPropertyRelationship::setApproval(const Step::RefPtr< IfcApproval > &value) {
+    m_approval = value;
 }
 
 bool IfcApprovalPropertyRelationship::init() {
@@ -118,7 +121,7 @@ bool IfcApprovalPropertyRelationship::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_approvedProperties.insert(attr2);
             }
             else {
@@ -131,19 +134,19 @@ bool IfcApprovalPropertyRelationship::init() {
         m_approval = NULL;
     }
     else {
-        m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_approval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcApprovalPropertyRelationship::copy(const IfcApprovalPropertyRelationship &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_approvedProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_approvedProperties;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_approvedProperties = obj.m_approvedProperties.begin(); it_m_approvedProperties != obj.m_approvedProperties.end(); ++it_m_approvedProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_approvedProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_approvedProperties).get()));
         m_approvedProperties.insert(copyTarget.get());
     }
-    setApproval(copyop(obj.m_approval.get()));
+    setApproval((IfcApproval*)copyop(obj.m_approval.get()));
     return;
 }
 

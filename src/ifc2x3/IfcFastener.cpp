@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFastener::IfcFastener(Step::Id id, Step::SPFData *args) : IfcElementComponent
 IfcFastener::~IfcFastener() {
 }
 
-bool IfcFastener::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFastener(this);
+bool IfcFastener::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFastener(this);
 }
 
-const std::string &IfcFastener::type() {
+const std::string &IfcFastener::type() const {
     return IfcFastener::s_type.getName();
 }
 
-Step::ClassType IfcFastener::getClassType() {
+const Step::ClassType &IfcFastener::getClassType() {
     return IfcFastener::s_type;
 }
 
-Step::ClassType IfcFastener::getType() const {
+const Step::ClassType &IfcFastener::getType() const {
     return IfcFastener::s_type;
 }
 
-bool IfcFastener::isOfType(Step::ClassType t) {
+bool IfcFastener::isOfType(const Step::ClassType &t) const {
     return IfcFastener::s_type == t ? true : IfcElementComponent::isOfType(t);
-}
-
-void IfcFastener::release() {
-    IfcElementComponent::release();
 }
 
 bool IfcFastener::init() {

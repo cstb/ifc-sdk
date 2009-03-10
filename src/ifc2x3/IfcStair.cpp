@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStair::IfcStair(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, ar
 IfcStair::~IfcStair() {
 }
 
-bool IfcStair::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStair(this);
+bool IfcStair::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStair(this);
 }
 
-const std::string &IfcStair::type() {
+const std::string &IfcStair::type() const {
     return IfcStair::s_type.getName();
 }
 
-Step::ClassType IfcStair::getClassType() {
+const Step::ClassType &IfcStair::getClassType() {
     return IfcStair::s_type;
 }
 
-Step::ClassType IfcStair::getType() const {
+const Step::ClassType &IfcStair::getType() const {
     return IfcStair::s_type;
 }
 
-bool IfcStair::isOfType(Step::ClassType t) {
+bool IfcStair::isOfType(const Step::ClassType &t) const {
     return IfcStair::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcStairTypeEnum IfcStair::getShapeType() {
     }
 }
 
-void IfcStair::setShapeType(IfcStairTypeEnum value) {
-    m_shapeType = value;
+const IfcStairTypeEnum IfcStair::getShapeType() const {
+    IfcStair * deConstObject = const_cast< IfcStair * > (this);
+    return deConstObject->getShapeType();
 }
 
-void IfcStair::release() {
-    IfcBuildingElement::release();
+void IfcStair::setShapeType(IfcStairTypeEnum value) {
+    m_shapeType = value;
 }
 
 bool IfcStair::init() {

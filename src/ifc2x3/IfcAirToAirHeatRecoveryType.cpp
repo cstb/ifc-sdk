@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcAirToAirHeatRecoveryType::IfcAirToAirHeatRecoveryType(Step::Id id, Step::SPFD
 IfcAirToAirHeatRecoveryType::~IfcAirToAirHeatRecoveryType() {
 }
 
-bool IfcAirToAirHeatRecoveryType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAirToAirHeatRecoveryType(this);
+bool IfcAirToAirHeatRecoveryType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAirToAirHeatRecoveryType(this);
 }
 
-const std::string &IfcAirToAirHeatRecoveryType::type() {
+const std::string &IfcAirToAirHeatRecoveryType::type() const {
     return IfcAirToAirHeatRecoveryType::s_type.getName();
 }
 
-Step::ClassType IfcAirToAirHeatRecoveryType::getClassType() {
+const Step::ClassType &IfcAirToAirHeatRecoveryType::getClassType() {
     return IfcAirToAirHeatRecoveryType::s_type;
 }
 
-Step::ClassType IfcAirToAirHeatRecoveryType::getType() const {
+const Step::ClassType &IfcAirToAirHeatRecoveryType::getType() const {
     return IfcAirToAirHeatRecoveryType::s_type;
 }
 
-bool IfcAirToAirHeatRecoveryType::isOfType(Step::ClassType t) {
+bool IfcAirToAirHeatRecoveryType::isOfType(const Step::ClassType &t) const {
     return IfcAirToAirHeatRecoveryType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcAirToAirHeatRecoveryTypeEnum IfcAirToAirHeatRecoveryType::getPredefinedType()
     }
 }
 
-void IfcAirToAirHeatRecoveryType::setPredefinedType(IfcAirToAirHeatRecoveryTypeEnum value) {
-    m_predefinedType = value;
+const IfcAirToAirHeatRecoveryTypeEnum IfcAirToAirHeatRecoveryType::getPredefinedType() const {
+    IfcAirToAirHeatRecoveryType * deConstObject = const_cast< IfcAirToAirHeatRecoveryType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcAirToAirHeatRecoveryType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcAirToAirHeatRecoveryType::setPredefinedType(IfcAirToAirHeatRecoveryTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcAirToAirHeatRecoveryType::init() {

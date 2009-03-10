@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcBlobTexture::IfcBlobTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTex
 IfcBlobTexture::~IfcBlobTexture() {
 }
 
-bool IfcBlobTexture::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBlobTexture(this);
+bool IfcBlobTexture::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBlobTexture(this);
 }
 
-const std::string &IfcBlobTexture::type() {
+const std::string &IfcBlobTexture::type() const {
     return IfcBlobTexture::s_type.getName();
 }
 
-Step::ClassType IfcBlobTexture::getClassType() {
+const Step::ClassType &IfcBlobTexture::getClassType() {
     return IfcBlobTexture::s_type;
 }
 
-Step::ClassType IfcBlobTexture::getType() const {
+const Step::ClassType &IfcBlobTexture::getType() const {
     return IfcBlobTexture::s_type;
 }
 
-bool IfcBlobTexture::isOfType(Step::ClassType t) {
+bool IfcBlobTexture::isOfType(const Step::ClassType &t) const {
     return IfcBlobTexture::s_type == t ? true : IfcSurfaceTexture::isOfType(t);
 }
 
@@ -76,11 +77,16 @@ IfcIdentifier IfcBlobTexture::getRasterFormat() {
     }
 }
 
+const IfcIdentifier IfcBlobTexture::getRasterFormat() const {
+    IfcBlobTexture * deConstObject = const_cast< IfcBlobTexture * > (this);
+    return deConstObject->getRasterFormat();
+}
+
 void IfcBlobTexture::setRasterFormat(const IfcIdentifier &value) {
     m_rasterFormat = value;
 }
 
-Step::Bool IfcBlobTexture::getRasterCode() {
+Step::Boolean IfcBlobTexture::getRasterCode() {
     if (Step::BaseObject::inited()) {
         return m_rasterCode;
     }
@@ -89,12 +95,13 @@ Step::Bool IfcBlobTexture::getRasterCode() {
     }
 }
 
-void IfcBlobTexture::setRasterCode(Step::Bool value) {
-    m_rasterCode = value;
+const Step::Boolean IfcBlobTexture::getRasterCode() const {
+    IfcBlobTexture * deConstObject = const_cast< IfcBlobTexture * > (this);
+    return deConstObject->getRasterCode();
 }
 
-void IfcBlobTexture::release() {
-    IfcSurfaceTexture::release();
+void IfcBlobTexture::setRasterCode(Step::Boolean value) {
+    m_rasterCode = value;
 }
 
 bool IfcBlobTexture::init() {
@@ -108,14 +115,14 @@ bool IfcBlobTexture::init() {
         m_rasterFormat = Step::getUnset(m_rasterFormat);
     }
     else {
-        m_rasterFormat = Step::spfToString(arg);
+        m_rasterFormat = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_rasterCode = Step::getUnset(m_rasterCode);
     }
     else {
-        m_rasterCode = Step::spfToBool(arg);
+        m_rasterCode = Step::spfToBoolean(arg);
     }
     return true;
 }

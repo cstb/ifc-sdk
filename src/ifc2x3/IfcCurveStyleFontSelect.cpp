@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcCurveStyleFontSelect::~IfcCurveStyleFontSelect() {
     deleteUnion();
 }
 
-bool IfcCurveStyleFontSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveStyleFontSelect(this);
+bool IfcCurveStyleFontSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveStyleFontSelect(this);
 }
 
 bool IfcCurveStyleFontSelect::init() {
     return false;
 }
 
-const std::string &IfcCurveStyleFontSelect::type() {
+const std::string &IfcCurveStyleFontSelect::type() const {
     return IfcCurveStyleFontSelect::s_type.getName();
 }
 
-Step::ClassType IfcCurveStyleFontSelect::getClassType() {
+const Step::ClassType &IfcCurveStyleFontSelect::getClassType() {
     return IfcCurveStyleFontSelect::s_type;
 }
 
-Step::ClassType IfcCurveStyleFontSelect::getType() const {
+const Step::ClassType &IfcCurveStyleFontSelect::getType() const {
     return IfcCurveStyleFontSelect::s_type;
 }
 
-bool IfcCurveStyleFontSelect::isOfType(Step::ClassType t) {
+bool IfcCurveStyleFontSelect::isOfType(const Step::ClassType &t) const {
     return IfcCurveStyleFontSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcCurveStyleFontSelect::copy(const IfcCurveStyleFontSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCPREDEFINEDCURVEFONT:
-        setIfcPreDefinedCurveFont(copyop(obj.m_IfcCurveStyleFontSelect_union.m_IfcPreDefinedCurveFont));
+        setIfcPreDefinedCurveFont((IfcPreDefinedCurveFont *) (copyop(obj.m_IfcCurveStyleFontSelect_union.m_IfcPreDefinedCurveFont)));
         break;
     case IFCCURVESTYLEFONT:
-        setIfcCurveStyleFont(copyop(obj.m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont));
+        setIfcCurveStyleFont((IfcCurveStyleFont *) (copyop(obj.m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont)));
         break;
         }
 }
 
-char *IfcCurveStyleFontSelect::currentTypeName() {
+std::string IfcCurveStyleFontSelect::currentTypeName() const {
     switch(m_type) {
     case IFCPREDEFINEDCURVEFONT:
         return "IfcPreDefinedCurveFont";
@@ -97,7 +97,7 @@ char *IfcCurveStyleFontSelect::currentTypeName() {
     }
 }
 
-IfcCurveStyleFontSelect::IfcCurveStyleFontSelect_select IfcCurveStyleFontSelect::currentType() {
+IfcCurveStyleFontSelect::IfcCurveStyleFontSelect_select IfcCurveStyleFontSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcCurveStyleFontSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPreDefinedCurveFont *IfcCurveStyleFontSelect::getIfcPreDefinedCurveFont() {
-    return m_IfcCurveStyleFontSelect_union.m_IfcPreDefinedCurveFont;
+IfcPreDefinedCurveFont *IfcCurveStyleFontSelect::getIfcPreDefinedCurveFont() const {
+    if (m_type == IFCPREDEFINEDCURVEFONT) {
+        return m_IfcCurveStyleFontSelect_union.m_IfcPreDefinedCurveFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveStyleFontSelect::setIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcCurveStyleFontSelect::setIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *
     m_type = IFCPREDEFINEDCURVEFONT;
 }
 
-IfcCurveStyleFont *IfcCurveStyleFontSelect::getIfcCurveStyleFont() {
-    return m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont;
+IfcCurveStyleFont *IfcCurveStyleFontSelect::getIfcCurveStyleFont() const {
+    if (m_type == IFCCURVESTYLEFONT) {
+        return m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcCurveStyleFontSelect::setIfcCurveStyleFont(IfcCurveStyleFont *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

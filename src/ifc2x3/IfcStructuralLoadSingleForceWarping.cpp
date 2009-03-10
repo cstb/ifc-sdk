@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcStructuralLoadSingleForceWarping::IfcStructuralLoadSingleForceWarping(Step::I
 IfcStructuralLoadSingleForceWarping::~IfcStructuralLoadSingleForceWarping() {
 }
 
-bool IfcStructuralLoadSingleForceWarping::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadSingleForceWarping(this);
+bool IfcStructuralLoadSingleForceWarping::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadSingleForceWarping(this);
 }
 
-const std::string &IfcStructuralLoadSingleForceWarping::type() {
+const std::string &IfcStructuralLoadSingleForceWarping::type() const {
     return IfcStructuralLoadSingleForceWarping::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadSingleForceWarping::getClassType() {
+const Step::ClassType &IfcStructuralLoadSingleForceWarping::getClassType() {
     return IfcStructuralLoadSingleForceWarping::s_type;
 }
 
-Step::ClassType IfcStructuralLoadSingleForceWarping::getType() const {
+const Step::ClassType &IfcStructuralLoadSingleForceWarping::getType() const {
     return IfcStructuralLoadSingleForceWarping::s_type;
 }
 
-bool IfcStructuralLoadSingleForceWarping::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadSingleForceWarping::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadSingleForceWarping::s_type == t ? true : IfcStructuralLoadSingleForce::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcWarpingMomentMeasure IfcStructuralLoadSingleForceWarping::getWarpingMoment() 
     }
 }
 
-void IfcStructuralLoadSingleForceWarping::setWarpingMoment(IfcWarpingMomentMeasure value) {
-    m_warpingMoment = value;
+const IfcWarpingMomentMeasure IfcStructuralLoadSingleForceWarping::getWarpingMoment() const {
+    IfcStructuralLoadSingleForceWarping * deConstObject = const_cast< IfcStructuralLoadSingleForceWarping * > (this);
+    return deConstObject->getWarpingMoment();
 }
 
-void IfcStructuralLoadSingleForceWarping::release() {
-    IfcStructuralLoadSingleForce::release();
+void IfcStructuralLoadSingleForceWarping::setWarpingMoment(IfcWarpingMomentMeasure value) {
+    m_warpingMoment = value;
 }
 
 bool IfcStructuralLoadSingleForceWarping::init() {

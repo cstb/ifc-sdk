@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcPreDefinedItem::IfcPreDefinedItem(Step::Id id, Step::SPFData *args) : Step::B
 IfcPreDefinedItem::~IfcPreDefinedItem() {
 }
 
-bool IfcPreDefinedItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedItem(this);
+bool IfcPreDefinedItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedItem(this);
 }
 
-const std::string &IfcPreDefinedItem::type() {
+const std::string &IfcPreDefinedItem::type() const {
     return IfcPreDefinedItem::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedItem::getClassType() {
+const Step::ClassType &IfcPreDefinedItem::getClassType() {
     return IfcPreDefinedItem::s_type;
 }
 
-Step::ClassType IfcPreDefinedItem::getType() const {
+const Step::ClassType &IfcPreDefinedItem::getType() const {
     return IfcPreDefinedItem::s_type;
 }
 
-bool IfcPreDefinedItem::isOfType(Step::ClassType t) {
+bool IfcPreDefinedItem::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedItem::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcPreDefinedItem::getName() {
     }
 }
 
-void IfcPreDefinedItem::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcPreDefinedItem::getName() const {
+    IfcPreDefinedItem * deConstObject = const_cast< IfcPreDefinedItem * > (this);
+    return deConstObject->getName();
 }
 
-void IfcPreDefinedItem::release() {
+void IfcPreDefinedItem::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcPreDefinedItem::init() {
@@ -89,7 +92,7 @@ bool IfcPreDefinedItem::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

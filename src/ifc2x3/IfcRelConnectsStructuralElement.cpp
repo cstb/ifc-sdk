@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelConnectsStructuralElement::IfcRelConnectsStructuralElement(Step::Id id, St
 IfcRelConnectsStructuralElement::~IfcRelConnectsStructuralElement() {
 }
 
-bool IfcRelConnectsStructuralElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsStructuralElement(this);
+bool IfcRelConnectsStructuralElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsStructuralElement(this);
 }
 
-const std::string &IfcRelConnectsStructuralElement::type() {
+const std::string &IfcRelConnectsStructuralElement::type() const {
     return IfcRelConnectsStructuralElement::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsStructuralElement::getClassType() {
+const Step::ClassType &IfcRelConnectsStructuralElement::getClassType() {
     return IfcRelConnectsStructuralElement::s_type;
 }
 
-Step::ClassType IfcRelConnectsStructuralElement::getType() const {
+const Step::ClassType &IfcRelConnectsStructuralElement::getType() const {
     return IfcRelConnectsStructuralElement::s_type;
 }
 
-bool IfcRelConnectsStructuralElement::isOfType(Step::ClassType t) {
+bool IfcRelConnectsStructuralElement::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsStructuralElement::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcElement *IfcRelConnectsStructuralElement::getRelatingElement() {
     }
 }
 
+const IfcElement *IfcRelConnectsStructuralElement::getRelatingElement() const {
+    IfcRelConnectsStructuralElement * deConstObject = const_cast< IfcRelConnectsStructuralElement * > (this);
+    return deConstObject->getRelatingElement();
+}
+
 void IfcRelConnectsStructuralElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
+    if (m_relatingElement.valid()) {
+        m_relatingElement->m_hasStructuralMember.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasStructuralMember.insert(this);
+    }
     m_relatingElement = value;
-    m_relatingElement->m_hasStructuralMember.insert(this);
 }
 
 IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructuralMember() {
@@ -95,15 +105,19 @@ IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructuralMember
     }
 }
 
-void IfcRelConnectsStructuralElement::setRelatedStructuralMember(const Step::RefPtr< IfcStructuralMember > &value) {
-    m_relatedStructuralMember = value;
-    m_relatedStructuralMember->m_referencesElement.insert(this);
+const IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructuralMember() const {
+    IfcRelConnectsStructuralElement * deConstObject = const_cast< IfcRelConnectsStructuralElement * > (this);
+    return deConstObject->getRelatedStructuralMember();
 }
 
-void IfcRelConnectsStructuralElement::release() {
-    IfcRelConnects::release();
-    m_relatingElement.release();
-    m_relatedStructuralMember.release();
+void IfcRelConnectsStructuralElement::setRelatedStructuralMember(const Step::RefPtr< IfcStructuralMember > &value) {
+    if (m_relatedStructuralMember.valid()) {
+        m_relatedStructuralMember->m_referencesElement.erase(this);
+    }
+    if (value.valid()) {
+        value->m_referencesElement.insert(this);
+    }
+    m_relatedStructuralMember = value;
 }
 
 bool IfcRelConnectsStructuralElement::init() {
@@ -117,22 +131,22 @@ bool IfcRelConnectsStructuralElement::init() {
         m_relatingElement = NULL;
     }
     else {
-        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingElement = static_cast< IfcElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedStructuralMember = NULL;
     }
     else {
-        m_relatedStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsStructuralElement::copy(const IfcRelConnectsStructuralElement &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingElement(copyop(obj.m_relatingElement.get()));
-    setRelatedStructuralMember(copyop(obj.m_relatedStructuralMember.get()));
+    setRelatingElement((IfcElement*)copyop(obj.m_relatingElement.get()));
+    setRelatedStructuralMember((IfcStructuralMember*)copyop(obj.m_relatedStructuralMember.get()));
     return;
 }
 

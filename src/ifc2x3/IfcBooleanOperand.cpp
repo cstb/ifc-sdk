@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,48 +51,48 @@ IfcBooleanOperand::~IfcBooleanOperand() {
     deleteUnion();
 }
 
-bool IfcBooleanOperand::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBooleanOperand(this);
+bool IfcBooleanOperand::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBooleanOperand(this);
 }
 
 bool IfcBooleanOperand::init() {
     return false;
 }
 
-const std::string &IfcBooleanOperand::type() {
+const std::string &IfcBooleanOperand::type() const {
     return IfcBooleanOperand::s_type.getName();
 }
 
-Step::ClassType IfcBooleanOperand::getClassType() {
+const Step::ClassType &IfcBooleanOperand::getClassType() {
     return IfcBooleanOperand::s_type;
 }
 
-Step::ClassType IfcBooleanOperand::getType() const {
+const Step::ClassType &IfcBooleanOperand::getType() const {
     return IfcBooleanOperand::s_type;
 }
 
-bool IfcBooleanOperand::isOfType(Step::ClassType t) {
+bool IfcBooleanOperand::isOfType(const Step::ClassType &t) const {
     return IfcBooleanOperand::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcBooleanOperand::copy(const IfcBooleanOperand &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCSOLIDMODEL:
-        setIfcSolidModel(copyop(obj.m_IfcBooleanOperand_union.m_IfcSolidModel));
+        setIfcSolidModel((IfcSolidModel *) (copyop(obj.m_IfcBooleanOperand_union.m_IfcSolidModel)));
         break;
     case IFCHALFSPACESOLID:
-        setIfcHalfSpaceSolid(copyop(obj.m_IfcBooleanOperand_union.m_IfcHalfSpaceSolid));
+        setIfcHalfSpaceSolid((IfcHalfSpaceSolid *) (copyop(obj.m_IfcBooleanOperand_union.m_IfcHalfSpaceSolid)));
         break;
     case IFCBOOLEANRESULT:
-        setIfcBooleanResult(copyop(obj.m_IfcBooleanOperand_union.m_IfcBooleanResult));
+        setIfcBooleanResult((IfcBooleanResult *) (copyop(obj.m_IfcBooleanOperand_union.m_IfcBooleanResult)));
         break;
     case IFCCSGPRIMITIVE3D:
-        setIfcCsgPrimitive3D(copyop(obj.m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D));
+        setIfcCsgPrimitive3D((IfcCsgPrimitive3D *) (copyop(obj.m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D)));
         break;
         }
 }
 
-char *IfcBooleanOperand::currentTypeName() {
+std::string IfcBooleanOperand::currentTypeName() const {
     switch(m_type) {
     case IFCSOLIDMODEL:
         return "IfcSolidModel";
@@ -111,7 +111,7 @@ char *IfcBooleanOperand::currentTypeName() {
     }
 }
 
-IfcBooleanOperand::IfcBooleanOperand_select IfcBooleanOperand::currentType() {
+IfcBooleanOperand::IfcBooleanOperand_select IfcBooleanOperand::currentType() const {
     return m_type;
 }
 
@@ -133,12 +133,16 @@ void IfcBooleanOperand::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcSolidModel *IfcBooleanOperand::getIfcSolidModel() {
-    return m_IfcBooleanOperand_union.m_IfcSolidModel;
+IfcSolidModel *IfcBooleanOperand::getIfcSolidModel() const {
+    if (m_type == IFCSOLIDMODEL) {
+        return m_IfcBooleanOperand_union.m_IfcSolidModel;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcBooleanOperand::setIfcSolidModel(IfcSolidModel *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -153,12 +157,16 @@ void IfcBooleanOperand::setIfcSolidModel(IfcSolidModel *value) {
     m_type = IFCSOLIDMODEL;
 }
 
-IfcHalfSpaceSolid *IfcBooleanOperand::getIfcHalfSpaceSolid() {
-    return m_IfcBooleanOperand_union.m_IfcHalfSpaceSolid;
+IfcHalfSpaceSolid *IfcBooleanOperand::getIfcHalfSpaceSolid() const {
+    if (m_type == IFCHALFSPACESOLID) {
+        return m_IfcBooleanOperand_union.m_IfcHalfSpaceSolid;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcBooleanOperand::setIfcHalfSpaceSolid(IfcHalfSpaceSolid *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -173,12 +181,16 @@ void IfcBooleanOperand::setIfcHalfSpaceSolid(IfcHalfSpaceSolid *value) {
     m_type = IFCHALFSPACESOLID;
 }
 
-IfcBooleanResult *IfcBooleanOperand::getIfcBooleanResult() {
-    return m_IfcBooleanOperand_union.m_IfcBooleanResult;
+IfcBooleanResult *IfcBooleanOperand::getIfcBooleanResult() const {
+    if (m_type == IFCBOOLEANRESULT) {
+        return m_IfcBooleanOperand_union.m_IfcBooleanResult;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcBooleanOperand::setIfcBooleanResult(IfcBooleanResult *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -193,12 +205,16 @@ void IfcBooleanOperand::setIfcBooleanResult(IfcBooleanResult *value) {
     m_type = IFCBOOLEANRESULT;
 }
 
-IfcCsgPrimitive3D *IfcBooleanOperand::getIfcCsgPrimitive3D() {
-    return m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D;
+IfcCsgPrimitive3D *IfcBooleanOperand::getIfcCsgPrimitive3D() const {
+    if (m_type == IFCCSGPRIMITIVE3D) {
+        return m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcBooleanOperand::setIfcCsgPrimitive3D(IfcCsgPrimitive3D *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

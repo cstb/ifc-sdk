@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcClosedShell::IfcClosedShell(Step::Id id, Step::SPFData *args) : IfcConnectedF
 IfcClosedShell::~IfcClosedShell() {
 }
 
-bool IfcClosedShell::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClosedShell(this);
+bool IfcClosedShell::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClosedShell(this);
 }
 
-const std::string &IfcClosedShell::type() {
+const std::string &IfcClosedShell::type() const {
     return IfcClosedShell::s_type.getName();
 }
 
-Step::ClassType IfcClosedShell::getClassType() {
+const Step::ClassType &IfcClosedShell::getClassType() {
     return IfcClosedShell::s_type;
 }
 
-Step::ClassType IfcClosedShell::getType() const {
+const Step::ClassType &IfcClosedShell::getType() const {
     return IfcClosedShell::s_type;
 }
 
-bool IfcClosedShell::isOfType(Step::ClassType t) {
+bool IfcClosedShell::isOfType(const Step::ClassType &t) const {
     return IfcClosedShell::s_type == t ? true : IfcConnectedFaceSet::isOfType(t);
-}
-
-void IfcClosedShell::release() {
-    IfcConnectedFaceSet::release();
 }
 
 bool IfcClosedShell::init() {

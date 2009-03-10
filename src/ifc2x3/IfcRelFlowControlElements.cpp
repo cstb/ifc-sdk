@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,25 +26,43 @@
 
 #include "ifc2x3/IfcRelFlowControlElements.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcDistributionControlElement.h"
 #include "ifc2x3/IfcDistributionFlowElement.h"
 #include "ifc2x3/IfcRelConnects.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcRelFlowControlElements_RelatedControlElements_type::Inverted_IfcRelFlowControlElements_RelatedControlElements_type() {
+}
+
+void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::setOwner(IfcRelFlowControlElements *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::insert(const Step::RefPtr< IfcDistributionControlElement > &value) throw(std::out_of_range) {
+    IfcDistributionControlElement *inverse = const_cast< IfcDistributionControlElement * > (value.get());
+    Set_IfcDistributionControlElement_1_n::insert(value);
+    inverse->m_assignedToFlowElement.insert(mOwner);
+}
+
+Inverted_IfcRelFlowControlElements_RelatedControlElements_type::size_type Inverted_IfcRelFlowControlElements_RelatedControlElements_type::erase(const Step::RefPtr< IfcDistributionControlElement > &value) {
+    IfcDistributionControlElement *inverse = const_cast< IfcDistributionControlElement * > (value.get());
+    inverse->m_assignedToFlowElement.erase(mOwner);
+    return Set_IfcDistributionControlElement_1_n::erase(value);
+}
 
 IfcRelFlowControlElements::IfcRelFlowControlElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatedControlElements.setUnset(true);
@@ -55,27 +73,27 @@ IfcRelFlowControlElements::IfcRelFlowControlElements(Step::Id id, Step::SPFData 
 IfcRelFlowControlElements::~IfcRelFlowControlElements() {
 }
 
-bool IfcRelFlowControlElements::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelFlowControlElements(this);
+bool IfcRelFlowControlElements::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelFlowControlElements(this);
 }
 
-const std::string &IfcRelFlowControlElements::type() {
+const std::string &IfcRelFlowControlElements::type() const {
     return IfcRelFlowControlElements::s_type.getName();
 }
 
-Step::ClassType IfcRelFlowControlElements::getClassType() {
+const Step::ClassType &IfcRelFlowControlElements::getClassType() {
     return IfcRelFlowControlElements::s_type;
 }
 
-Step::ClassType IfcRelFlowControlElements::getType() const {
+const Step::ClassType &IfcRelFlowControlElements::getType() const {
     return IfcRelFlowControlElements::s_type;
 }
 
-bool IfcRelFlowControlElements::isOfType(Step::ClassType t) {
+bool IfcRelFlowControlElements::isOfType(const Step::ClassType &t) const {
     return IfcRelFlowControlElements::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcDistributionControlElement > > &IfcRelFlowControlElements::getRelatedControlElements() {
+Set_IfcDistributionControlElement_1_n &IfcRelFlowControlElements::getRelatedControlElements() {
     if (Step::BaseObject::inited()) {
         return m_relatedControlElements;
     }
@@ -83,6 +101,11 @@ Step::Set< Step::RefPtr< IfcDistributionControlElement > > &IfcRelFlowControlEle
         m_relatedControlElements.setUnset(true);
         return m_relatedControlElements;
     }
+}
+
+const Set_IfcDistributionControlElement_1_n &IfcRelFlowControlElements::getRelatedControlElements() const {
+    IfcRelFlowControlElements * deConstObject = const_cast< IfcRelFlowControlElements * > (this);
+    return deConstObject->getRelatedControlElements();
 }
 
 IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() {
@@ -94,15 +117,19 @@ IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() 
     }
 }
 
-void IfcRelFlowControlElements::setRelatingFlowElement(const Step::RefPtr< IfcDistributionFlowElement > &value) {
-    m_relatingFlowElement = value;
-    m_relatingFlowElement->m_hasControlElements.insert(this);
+const IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() const {
+    IfcRelFlowControlElements * deConstObject = const_cast< IfcRelFlowControlElements * > (this);
+    return deConstObject->getRelatingFlowElement();
 }
 
-void IfcRelFlowControlElements::release() {
-    IfcRelConnects::release();
-    m_relatedControlElements.clear();
-    m_relatingFlowElement.release();
+void IfcRelFlowControlElements::setRelatingFlowElement(const Step::RefPtr< IfcDistributionFlowElement > &value) {
+    if (m_relatingFlowElement.valid()) {
+        m_relatingFlowElement->m_hasControlElements.erase(this);
+    }
+    if (value.valid()) {
+        value->m_hasControlElements.insert(this);
+    }
+    m_relatingFlowElement = value;
 }
 
 bool IfcRelFlowControlElements::init() {
@@ -122,7 +149,7 @@ bool IfcRelFlowControlElements::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcDistributionControlElement > attr2;
-                attr2 = static_cast< IfcDistributionControlElement * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcDistributionControlElement * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relatedControlElements.insert(attr2);
             }
             else {
@@ -135,33 +162,20 @@ bool IfcRelFlowControlElements::init() {
         m_relatingFlowElement = NULL;
     }
     else {
-        m_relatingFlowElement = static_cast< IfcDistributionFlowElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingFlowElement = static_cast< IfcDistributionFlowElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelFlowControlElements::copy(const IfcRelFlowControlElements &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcDistributionControlElement > >::const_iterator it_m_relatedControlElements;
+    Step::Set< Step::RefPtr< IfcDistributionControlElement >, 1 >::const_iterator it_m_relatedControlElements;
     IfcRelConnects::copy(obj, copyop);
     for (it_m_relatedControlElements = obj.m_relatedControlElements.begin(); it_m_relatedControlElements != obj.m_relatedControlElements.end(); ++it_m_relatedControlElements) {
-        Step::RefPtr< IfcDistributionControlElement > copyTarget = copyop((*it_m_relatedControlElements).get());
+        Step::RefPtr< IfcDistributionControlElement > copyTarget = (IfcDistributionControlElement *) (copyop((*it_m_relatedControlElements).get()));
         m_relatedControlElements.insert(copyTarget.get());
     }
-    setRelatingFlowElement(copyop(obj.m_relatingFlowElement.get()));
+    setRelatingFlowElement((IfcDistributionFlowElement*)copyop(obj.m_relatingFlowElement.get()));
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcRelFlowControlElements::s_type("IfcRelFlowControlElements");
-IfcRelFlowControlElements::Inverted_RelatedControlElements_type::Inverted_RelatedControlElements_type() {
-}
-
-void IfcRelFlowControlElements::Inverted_RelatedControlElements_type::setOwner(IfcRelFlowControlElements *owner) {
-    mOwner = owner;
-}
-
-void IfcRelFlowControlElements::Inverted_RelatedControlElements_type::insert(const Step::RefPtr< IfcDistributionControlElement > &value) {
-    IfcDistributionControlElement *inverse = const_cast< IfcDistributionControlElement * > (value.get());
-    Step::Set< Step::RefPtr< IfcDistributionControlElement > >::insert(value);
-    inverse->m_assignedToFlowElement.insert(mOwner);
-}
-

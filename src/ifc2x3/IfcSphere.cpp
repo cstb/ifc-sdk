@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcSphere::IfcSphere(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, a
 IfcSphere::~IfcSphere() {
 }
 
-bool IfcSphere::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSphere(this);
+bool IfcSphere::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSphere(this);
 }
 
-const std::string &IfcSphere::type() {
+const std::string &IfcSphere::type() const {
     return IfcSphere::s_type.getName();
 }
 
-Step::ClassType IfcSphere::getClassType() {
+const Step::ClassType &IfcSphere::getClassType() {
     return IfcSphere::s_type;
 }
 
-Step::ClassType IfcSphere::getType() const {
+const Step::ClassType &IfcSphere::getType() const {
     return IfcSphere::s_type;
 }
 
-bool IfcSphere::isOfType(Step::ClassType t) {
+bool IfcSphere::isOfType(const Step::ClassType &t) const {
     return IfcSphere::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcSphere::getRadius() {
     }
 }
 
-void IfcSphere::setRadius(IfcPositiveLengthMeasure value) {
-    m_radius = value;
+const IfcPositiveLengthMeasure IfcSphere::getRadius() const {
+    IfcSphere * deConstObject = const_cast< IfcSphere * > (this);
+    return deConstObject->getRadius();
 }
 
-void IfcSphere::release() {
-    IfcCsgPrimitive3D::release();
+void IfcSphere::setRadius(IfcPositiveLengthMeasure value) {
+    m_radius = value;
 }
 
 bool IfcSphere::init() {

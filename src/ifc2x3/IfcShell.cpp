@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcShell::~IfcShell() {
     deleteUnion();
 }
 
-bool IfcShell::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcShell(this);
+bool IfcShell::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcShell(this);
 }
 
 bool IfcShell::init() {
     return false;
 }
 
-const std::string &IfcShell::type() {
+const std::string &IfcShell::type() const {
     return IfcShell::s_type.getName();
 }
 
-Step::ClassType IfcShell::getClassType() {
+const Step::ClassType &IfcShell::getClassType() {
     return IfcShell::s_type;
 }
 
-Step::ClassType IfcShell::getType() const {
+const Step::ClassType &IfcShell::getType() const {
     return IfcShell::s_type;
 }
 
-bool IfcShell::isOfType(Step::ClassType t) {
+bool IfcShell::isOfType(const Step::ClassType &t) const {
     return IfcShell::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcShell::copy(const IfcShell &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCLOSEDSHELL:
-        setIfcClosedShell(copyop(obj.m_IfcShell_union.m_IfcClosedShell));
+        setIfcClosedShell((IfcClosedShell *) (copyop(obj.m_IfcShell_union.m_IfcClosedShell)));
         break;
     case IFCOPENSHELL:
-        setIfcOpenShell(copyop(obj.m_IfcShell_union.m_IfcOpenShell));
+        setIfcOpenShell((IfcOpenShell *) (copyop(obj.m_IfcShell_union.m_IfcOpenShell)));
         break;
         }
 }
 
-char *IfcShell::currentTypeName() {
+std::string IfcShell::currentTypeName() const {
     switch(m_type) {
     case IFCCLOSEDSHELL:
         return "IfcClosedShell";
@@ -97,7 +97,7 @@ char *IfcShell::currentTypeName() {
     }
 }
 
-IfcShell::IfcShell_select IfcShell::currentType() {
+IfcShell::IfcShell_select IfcShell::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcShell::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcClosedShell *IfcShell::getIfcClosedShell() {
-    return m_IfcShell_union.m_IfcClosedShell;
+IfcClosedShell *IfcShell::getIfcClosedShell() const {
+    if (m_type == IFCCLOSEDSHELL) {
+        return m_IfcShell_union.m_IfcClosedShell;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcShell::setIfcClosedShell(IfcClosedShell *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcShell::setIfcClosedShell(IfcClosedShell *value) {
     m_type = IFCCLOSEDSHELL;
 }
 
-IfcOpenShell *IfcShell::getIfcOpenShell() {
-    return m_IfcShell_union.m_IfcOpenShell;
+IfcOpenShell *IfcShell::getIfcOpenShell() const {
+    if (m_type == IFCOPENSHELL) {
+        return m_IfcShell_union.m_IfcOpenShell;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcShell::setIfcOpenShell(IfcOpenShell *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

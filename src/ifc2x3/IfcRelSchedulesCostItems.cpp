@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcRelSchedulesCostItems::IfcRelSchedulesCostItems(Step::Id id, Step::SPFData *a
 IfcRelSchedulesCostItems::~IfcRelSchedulesCostItems() {
 }
 
-bool IfcRelSchedulesCostItems::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelSchedulesCostItems(this);
+bool IfcRelSchedulesCostItems::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelSchedulesCostItems(this);
 }
 
-const std::string &IfcRelSchedulesCostItems::type() {
+const std::string &IfcRelSchedulesCostItems::type() const {
     return IfcRelSchedulesCostItems::s_type.getName();
 }
 
-Step::ClassType IfcRelSchedulesCostItems::getClassType() {
+const Step::ClassType &IfcRelSchedulesCostItems::getClassType() {
     return IfcRelSchedulesCostItems::s_type;
 }
 
-Step::ClassType IfcRelSchedulesCostItems::getType() const {
+const Step::ClassType &IfcRelSchedulesCostItems::getType() const {
     return IfcRelSchedulesCostItems::s_type;
 }
 
-bool IfcRelSchedulesCostItems::isOfType(Step::ClassType t) {
+bool IfcRelSchedulesCostItems::isOfType(const Step::ClassType &t) const {
     return IfcRelSchedulesCostItems::s_type == t ? true : IfcRelAssignsToControl::isOfType(t);
-}
-
-void IfcRelSchedulesCostItems::release() {
-    IfcRelAssignsToControl::release();
 }
 
 bool IfcRelSchedulesCostItems::init() {

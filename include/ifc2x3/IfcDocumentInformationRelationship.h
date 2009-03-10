@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,49 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
+
+    class IfcDocumentInformation;
+    class IfcDocumentInformationRelationship;
+
+    /**
+     */
+    class Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type : public Set_IfcDocumentInformation_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcDocumentInformation_1_n::size_type size_type;
+
+        /**
+         */
+        IfcDocumentInformationRelationship *mOwner;
+        /**
+         */
+        Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcDocumentInformationRelationship *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcDocumentInformation > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcDocumentInformation > &value);
+
+    };
 
     class CopyOp;
     class IfcDocumentInformation;
@@ -47,70 +81,78 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcDocumentInformationRelationship : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RelatingDocument'.
+         * 
          */
-        IfcDocumentInformation *getRelatingDocument();
+        virtual IfcDocumentInformation *getRelatingDocument();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingDocument'.
+         * 
+         * @return the value of the explicit attribute 'RelatingDocument'
+         */
+        virtual const IfcDocumentInformation *getRelatingDocument() const;
         /**
          * Sets the value of the explicit attribute 'RelatingDocument'.
          * 
          * @param value
          */
-        void setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value);
+        virtual void setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedDocuments'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcDocumentInformation > > &getRelatedDocuments();
+        virtual Set_IfcDocumentInformation_1_n &getRelatedDocuments();
         /**
+         * (const) Returns the value of the explicit attribute 'RelatedDocuments'.
+         * 
+         * @return the value of the explicit attribute 'RelatedDocuments'
          */
-        IfcLabel getRelationshipType();
+        virtual const Set_IfcDocumentInformation_1_n &getRelatedDocuments() const;
+        /**
+         * Gets the value of the explicit attribute 'RelationshipType'.
+         * 
+         */
+        virtual IfcLabel getRelationshipType();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelationshipType'.
+         * 
+         * @return the value of the explicit attribute 'RelationshipType'
+         */
+        virtual const IfcLabel getRelationshipType() const;
         /**
          * Sets the value of the explicit attribute 'RelationshipType'.
          * 
          * @param value
          */
-        void setRelationshipType(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setRelationshipType(const IfcLabel &value);
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_RelatedDocuments_type : public Step::Set< Step::RefPtr< IfcDocumentInformation > > {
-        public:
-            /**
-             */
-            IfcDocumentInformationRelationship *mOwner;
-            /**
-             */
-            Inverted_RelatedDocuments_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcDocumentInformationRelationship *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcDocumentInformation > &value);
-
-        };
-
 
     protected:
         /**
@@ -137,10 +179,10 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDocumentInformation > m_relatingDocument;
         /**
          */
-        Inverted_RelatedDocuments_type m_relatedDocuments;
+        Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type m_relatedDocuments;
         /**
          */
-        std::string m_relationshipType;
+        Step::String m_relationshipType;
 
     };
 

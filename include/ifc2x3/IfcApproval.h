@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,17 +31,15 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcApprovalActorRelationship;
-    class IfcApprovalRelationship;
     class IfcDateTimeSelect;
 
     /**
@@ -49,99 +47,184 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcApproval : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Description'.
+         * 
          */
-        IfcText getDescription();
+        virtual IfcText getDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'Description'.
+         * 
+         * @return the value of the explicit attribute 'Description'
+         */
+        virtual const IfcText getDescription() const;
         /**
          * Sets the value of the explicit attribute 'Description'.
          * 
          * @param value
          */
-        void setDescription(const IfcText &value);
+        virtual void setDescription(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'ApprovalDateTime'.
+         * 
          */
-        IfcDateTimeSelect *getApprovalDateTime();
+        virtual IfcDateTimeSelect *getApprovalDateTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApprovalDateTime'.
+         * 
+         * @return the value of the explicit attribute 'ApprovalDateTime'
+         */
+        virtual const IfcDateTimeSelect *getApprovalDateTime() const;
         /**
          * Sets the value of the explicit attribute 'ApprovalDateTime'.
          * 
          * @param value
          */
-        void setApprovalDateTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setApprovalDateTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'ApprovalStatus'.
+         * 
          */
-        IfcLabel getApprovalStatus();
+        virtual IfcLabel getApprovalStatus();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApprovalStatus'.
+         * 
+         * @return the value of the explicit attribute 'ApprovalStatus'
+         */
+        virtual const IfcLabel getApprovalStatus() const;
         /**
          * Sets the value of the explicit attribute 'ApprovalStatus'.
          * 
          * @param value
          */
-        void setApprovalStatus(const IfcLabel &value);
+        virtual void setApprovalStatus(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'ApprovalLevel'.
+         * 
          */
-        IfcLabel getApprovalLevel();
+        virtual IfcLabel getApprovalLevel();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApprovalLevel'.
+         * 
+         * @return the value of the explicit attribute 'ApprovalLevel'
+         */
+        virtual const IfcLabel getApprovalLevel() const;
         /**
          * Sets the value of the explicit attribute 'ApprovalLevel'.
          * 
          * @param value
          */
-        void setApprovalLevel(const IfcLabel &value);
+        virtual void setApprovalLevel(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'ApprovalQualifier'.
+         * 
          */
-        IfcText getApprovalQualifier();
+        virtual IfcText getApprovalQualifier();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApprovalQualifier'.
+         * 
+         * @return the value of the explicit attribute 'ApprovalQualifier'
+         */
+        virtual const IfcText getApprovalQualifier() const;
         /**
          * Sets the value of the explicit attribute 'ApprovalQualifier'.
          * 
          * @param value
          */
-        void setApprovalQualifier(const IfcText &value);
+        virtual void setApprovalQualifier(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Identifier'.
+         * 
          */
-        IfcIdentifier getIdentifier();
+        virtual IfcIdentifier getIdentifier();
+        /**
+         * (const) Returns the value of the explicit attribute 'Identifier'.
+         * 
+         * @return the value of the explicit attribute 'Identifier'
+         */
+        virtual const IfcIdentifier getIdentifier() const;
         /**
          * Sets the value of the explicit attribute 'Identifier'.
          * 
          * @param value
          */
-        void setIdentifier(const IfcIdentifier &value);
+        virtual void setIdentifier(const IfcIdentifier &value);
         /**
+         * Gets the value of the inverse attribute 'Actors'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcApprovalActorRelationship > > &getActors();
+        Inverse_Set_IfcApprovalActorRelationship_0_n &getActors();
         /**
+         * (const) Returns the value of the explicit attribute 'Actors'.
+         * 
+         * @return the value of the explicit attribute 'Actors'
          */
-        Step::Set< Step::ObsPtr< IfcApprovalRelationship > > &getIsRelatedWith();
+        virtual const Inverse_Set_IfcApprovalActorRelationship_0_n &getActors() const;
         /**
+         * Gets the value of the inverse attribute 'IsRelatedWith'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcApprovalRelationship > > &getRelates();
+        Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith();
         /**
+         * (const) Returns the value of the explicit attribute 'IsRelatedWith'.
+         * 
+         * @return the value of the explicit attribute 'IsRelatedWith'
          */
-        virtual void release();
+        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith() const;
+        /**
+         * Gets the value of the inverse attribute 'Relates'.
+         * 
+         */
+        Inverse_Set_IfcApprovalRelationship_0_n &getRelates();
+        /**
+         * (const) Returns the value of the explicit attribute 'Relates'.
+         * 
+         * @return the value of the explicit attribute 'Relates'
+         */
+        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
         friend class IfcApprovalRelationship;
         friend class IfcApprovalActorRelationship;
         friend class ExpressDataSet;
@@ -168,34 +251,34 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_description;
+        Step::String m_description;
         /**
          */
         Step::RefPtr< IfcDateTimeSelect > m_approvalDateTime;
         /**
          */
-        std::string m_approvalStatus;
+        Step::String m_approvalStatus;
         /**
          */
-        std::string m_approvalLevel;
+        Step::String m_approvalLevel;
         /**
          */
-        std::string m_approvalQualifier;
+        Step::String m_approvalQualifier;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        std::string m_identifier;
+        Step::String m_identifier;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcApprovalActorRelationship > > m_actors;
+        Inverse_Set_IfcApprovalActorRelationship_0_n m_actors;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcApprovalRelationship > > m_isRelatedWith;
+        Inverse_Set_IfcApprovalRelationship_0_n m_isRelatedWith;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcApprovalRelationship > > m_relates;
+        Inverse_Set_IfcApprovalRelationship_0_n m_relates;
 
     };
 

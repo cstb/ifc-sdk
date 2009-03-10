@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcAngularDimension::IfcAngularDimension(Step::Id id, Step::SPFData *args) : Ifc
 IfcAngularDimension::~IfcAngularDimension() {
 }
 
-bool IfcAngularDimension::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAngularDimension(this);
+bool IfcAngularDimension::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAngularDimension(this);
 }
 
-const std::string &IfcAngularDimension::type() {
+const std::string &IfcAngularDimension::type() const {
     return IfcAngularDimension::s_type.getName();
 }
 
-Step::ClassType IfcAngularDimension::getClassType() {
+const Step::ClassType &IfcAngularDimension::getClassType() {
     return IfcAngularDimension::s_type;
 }
 
-Step::ClassType IfcAngularDimension::getType() const {
+const Step::ClassType &IfcAngularDimension::getType() const {
     return IfcAngularDimension::s_type;
 }
 
-bool IfcAngularDimension::isOfType(Step::ClassType t) {
+bool IfcAngularDimension::isOfType(const Step::ClassType &t) const {
     return IfcAngularDimension::s_type == t ? true : IfcDimensionCurveDirectedCallout::isOfType(t);
-}
-
-void IfcAngularDimension::release() {
-    IfcDimensionCurveDirectedCallout::release();
 }
 
 bool IfcAngularDimension::init() {

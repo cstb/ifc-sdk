@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcPermit::IfcPermit(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
 IfcPermit::~IfcPermit() {
 }
 
-bool IfcPermit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPermit(this);
+bool IfcPermit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPermit(this);
 }
 
-const std::string &IfcPermit::type() {
+const std::string &IfcPermit::type() const {
     return IfcPermit::s_type.getName();
 }
 
-Step::ClassType IfcPermit::getClassType() {
+const Step::ClassType &IfcPermit::getClassType() {
     return IfcPermit::s_type;
 }
 
-Step::ClassType IfcPermit::getType() const {
+const Step::ClassType &IfcPermit::getType() const {
     return IfcPermit::s_type;
 }
 
-bool IfcPermit::isOfType(Step::ClassType t) {
+bool IfcPermit::isOfType(const Step::ClassType &t) const {
     return IfcPermit::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcIdentifier IfcPermit::getPermitID() {
     }
 }
 
-void IfcPermit::setPermitID(const IfcIdentifier &value) {
-    m_permitID = value;
+const IfcIdentifier IfcPermit::getPermitID() const {
+    IfcPermit * deConstObject = const_cast< IfcPermit * > (this);
+    return deConstObject->getPermitID();
 }
 
-void IfcPermit::release() {
-    IfcControl::release();
+void IfcPermit::setPermitID(const IfcIdentifier &value) {
+    m_permitID = value;
 }
 
 bool IfcPermit::init() {
@@ -94,7 +96,7 @@ bool IfcPermit::init() {
         m_permitID = Step::getUnset(m_permitID);
     }
     else {
-        m_permitID = Step::spfToString(arg);
+        m_permitID = Step::String::fromSPF(arg);
     }
     return true;
 }

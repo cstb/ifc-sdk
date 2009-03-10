@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args) : IfcRepresentation(id, args) {
-    m_ofShapeAspect.setUnset(true);
 }
 
 IfcShapeModel::~IfcShapeModel() {
 }
 
-bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcShapeModel(this);
+bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcShapeModel(this);
 }
 
-const std::string &IfcShapeModel::type() {
+const std::string &IfcShapeModel::type() const {
     return IfcShapeModel::s_type.getName();
 }
 
-Step::ClassType IfcShapeModel::getClassType() {
+const Step::ClassType &IfcShapeModel::getClassType() {
     return IfcShapeModel::s_type;
 }
 
-Step::ClassType IfcShapeModel::getType() const {
+const Step::ClassType &IfcShapeModel::getType() const {
     return IfcShapeModel::s_type;
 }
 
-bool IfcShapeModel::isOfType(Step::ClassType t) {
+bool IfcShapeModel::isOfType(const Step::ClassType &t) const {
     return IfcShapeModel::s_type == t ? true : IfcRepresentation::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcShapeAspect > > &IfcShapeModel::getOfShapeAspect() {
+Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
     if (Step::BaseObject::inited()) {
         return m_ofShapeAspect;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcShapeAspect > > &IfcShapeModel::getOfShapeAspect() {
     }
 }
 
-void IfcShapeModel::release() {
-    IfcRepresentation::release();
+const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const {
+    IfcShapeModel * deConstObject = const_cast< IfcShapeModel * > (this);
+    return deConstObject->getOfShapeAspect();
 }
 
 bool IfcShapeModel::init() {

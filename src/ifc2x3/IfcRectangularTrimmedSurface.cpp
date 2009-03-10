@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -56,23 +56,23 @@ IfcRectangularTrimmedSurface::IfcRectangularTrimmedSurface(Step::Id id, Step::SP
 IfcRectangularTrimmedSurface::~IfcRectangularTrimmedSurface() {
 }
 
-bool IfcRectangularTrimmedSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRectangularTrimmedSurface(this);
+bool IfcRectangularTrimmedSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRectangularTrimmedSurface(this);
 }
 
-const std::string &IfcRectangularTrimmedSurface::type() {
+const std::string &IfcRectangularTrimmedSurface::type() const {
     return IfcRectangularTrimmedSurface::s_type.getName();
 }
 
-Step::ClassType IfcRectangularTrimmedSurface::getClassType() {
+const Step::ClassType &IfcRectangularTrimmedSurface::getClassType() {
     return IfcRectangularTrimmedSurface::s_type;
 }
 
-Step::ClassType IfcRectangularTrimmedSurface::getType() const {
+const Step::ClassType &IfcRectangularTrimmedSurface::getType() const {
     return IfcRectangularTrimmedSurface::s_type;
 }
 
-bool IfcRectangularTrimmedSurface::isOfType(Step::ClassType t) {
+bool IfcRectangularTrimmedSurface::isOfType(const Step::ClassType &t) const {
     return IfcRectangularTrimmedSurface::s_type == t ? true : IfcBoundedSurface::isOfType(t);
 }
 
@@ -83,6 +83,11 @@ IfcSurface *IfcRectangularTrimmedSurface::getBasisSurface() {
     else {
         return NULL;
     }
+}
+
+const IfcSurface *IfcRectangularTrimmedSurface::getBasisSurface() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getBasisSurface();
 }
 
 void IfcRectangularTrimmedSurface::setBasisSurface(const Step::RefPtr< IfcSurface > &value) {
@@ -98,6 +103,11 @@ IfcParameterValue IfcRectangularTrimmedSurface::getU1() {
     }
 }
 
+const IfcParameterValue IfcRectangularTrimmedSurface::getU1() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getU1();
+}
+
 void IfcRectangularTrimmedSurface::setU1(IfcParameterValue value) {
     m_u1 = value;
 }
@@ -109,6 +119,11 @@ IfcParameterValue IfcRectangularTrimmedSurface::getV1() {
     else {
         return Step::getUnset(m_v1);
     }
+}
+
+const IfcParameterValue IfcRectangularTrimmedSurface::getV1() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getV1();
 }
 
 void IfcRectangularTrimmedSurface::setV1(IfcParameterValue value) {
@@ -124,6 +139,11 @@ IfcParameterValue IfcRectangularTrimmedSurface::getU2() {
     }
 }
 
+const IfcParameterValue IfcRectangularTrimmedSurface::getU2() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getU2();
+}
+
 void IfcRectangularTrimmedSurface::setU2(IfcParameterValue value) {
     m_u2 = value;
 }
@@ -137,11 +157,16 @@ IfcParameterValue IfcRectangularTrimmedSurface::getV2() {
     }
 }
 
+const IfcParameterValue IfcRectangularTrimmedSurface::getV2() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getV2();
+}
+
 void IfcRectangularTrimmedSurface::setV2(IfcParameterValue value) {
     m_v2 = value;
 }
 
-Step::Bool IfcRectangularTrimmedSurface::getUsense() {
+Step::Boolean IfcRectangularTrimmedSurface::getUsense() {
     if (Step::BaseObject::inited()) {
         return m_usense;
     }
@@ -150,11 +175,16 @@ Step::Bool IfcRectangularTrimmedSurface::getUsense() {
     }
 }
 
-void IfcRectangularTrimmedSurface::setUsense(Step::Bool value) {
+const Step::Boolean IfcRectangularTrimmedSurface::getUsense() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getUsense();
+}
+
+void IfcRectangularTrimmedSurface::setUsense(Step::Boolean value) {
     m_usense = value;
 }
 
-Step::Bool IfcRectangularTrimmedSurface::getVsense() {
+Step::Boolean IfcRectangularTrimmedSurface::getVsense() {
     if (Step::BaseObject::inited()) {
         return m_vsense;
     }
@@ -163,13 +193,13 @@ Step::Bool IfcRectangularTrimmedSurface::getVsense() {
     }
 }
 
-void IfcRectangularTrimmedSurface::setVsense(Step::Bool value) {
-    m_vsense = value;
+const Step::Boolean IfcRectangularTrimmedSurface::getVsense() const {
+    IfcRectangularTrimmedSurface * deConstObject = const_cast< IfcRectangularTrimmedSurface * > (this);
+    return deConstObject->getVsense();
 }
 
-void IfcRectangularTrimmedSurface::release() {
-    IfcBoundedSurface::release();
-    m_basisSurface.release();
+void IfcRectangularTrimmedSurface::setVsense(Step::Boolean value) {
+    m_vsense = value;
 }
 
 bool IfcRectangularTrimmedSurface::init() {
@@ -183,7 +213,7 @@ bool IfcRectangularTrimmedSurface::init() {
         m_basisSurface = NULL;
     }
     else {
-        m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -218,21 +248,21 @@ bool IfcRectangularTrimmedSurface::init() {
         m_usense = Step::getUnset(m_usense);
     }
     else {
-        m_usense = Step::spfToBool(arg);
+        m_usense = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_vsense = Step::getUnset(m_vsense);
     }
     else {
-        m_vsense = Step::spfToBool(arg);
+        m_vsense = Step::spfToBoolean(arg);
     }
     return true;
 }
 
 void IfcRectangularTrimmedSurface::copy(const IfcRectangularTrimmedSurface &obj, const CopyOp &copyop) {
     IfcBoundedSurface::copy(obj, copyop);
-    setBasisSurface(copyop(obj.m_basisSurface.get()));
+    setBasisSurface((IfcSurface*)copyop(obj.m_basisSurface.get()));
     setU1(obj.m_u1);
     setV1(obj.m_v1);
     setU2(obj.m_u2);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -47,23 +48,23 @@ IfcElectricDistributionPoint::IfcElectricDistributionPoint(Step::Id id, Step::SP
 IfcElectricDistributionPoint::~IfcElectricDistributionPoint() {
 }
 
-bool IfcElectricDistributionPoint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricDistributionPoint(this);
+bool IfcElectricDistributionPoint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricDistributionPoint(this);
 }
 
-const std::string &IfcElectricDistributionPoint::type() {
+const std::string &IfcElectricDistributionPoint::type() const {
     return IfcElectricDistributionPoint::s_type.getName();
 }
 
-Step::ClassType IfcElectricDistributionPoint::getClassType() {
+const Step::ClassType &IfcElectricDistributionPoint::getClassType() {
     return IfcElectricDistributionPoint::s_type;
 }
 
-Step::ClassType IfcElectricDistributionPoint::getType() const {
+const Step::ClassType &IfcElectricDistributionPoint::getType() const {
     return IfcElectricDistributionPoint::s_type;
 }
 
-bool IfcElectricDistributionPoint::isOfType(Step::ClassType t) {
+bool IfcElectricDistributionPoint::isOfType(const Step::ClassType &t) const {
     return IfcElectricDistributionPoint::s_type == t ? true : IfcFlowController::isOfType(t);
 }
 
@@ -74,6 +75,11 @@ IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistri
     else {
         return IfcElectricDistributionPointFunctionEnum_UNSET;
     }
+}
+
+const IfcElectricDistributionPointFunctionEnum IfcElectricDistributionPoint::getDistributionPointFunction() const {
+    IfcElectricDistributionPoint * deConstObject = const_cast< IfcElectricDistributionPoint * > (this);
+    return deConstObject->getDistributionPointFunction();
 }
 
 void IfcElectricDistributionPoint::setDistributionPointFunction(IfcElectricDistributionPointFunctionEnum value) {
@@ -89,12 +95,13 @@ IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() {
     }
 }
 
-void IfcElectricDistributionPoint::setUserDefinedFunction(const IfcLabel &value) {
-    m_userDefinedFunction = value;
+const IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() const {
+    IfcElectricDistributionPoint * deConstObject = const_cast< IfcElectricDistributionPoint * > (this);
+    return deConstObject->getUserDefinedFunction();
 }
 
-void IfcElectricDistributionPoint::release() {
-    IfcFlowController::release();
+void IfcElectricDistributionPoint::setUserDefinedFunction(const IfcLabel &value) {
+    m_userDefinedFunction = value;
 }
 
 bool IfcElectricDistributionPoint::init() {
@@ -147,7 +154,7 @@ bool IfcElectricDistributionPoint::init() {
         m_userDefinedFunction = Step::getUnset(m_userDefinedFunction);
     }
     else {
-        m_userDefinedFunction = Step::spfToString(arg);
+        m_userDefinedFunction = Step::String::fromSPF(arg);
     }
     return true;
 }

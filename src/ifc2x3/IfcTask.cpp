@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -50,23 +51,23 @@ IfcTask::IfcTask(Step::Id id, Step::SPFData *args) : IfcProcess(id, args) {
 IfcTask::~IfcTask() {
 }
 
-bool IfcTask::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTask(this);
+bool IfcTask::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTask(this);
 }
 
-const std::string &IfcTask::type() {
+const std::string &IfcTask::type() const {
     return IfcTask::s_type.getName();
 }
 
-Step::ClassType IfcTask::getClassType() {
+const Step::ClassType &IfcTask::getClassType() {
     return IfcTask::s_type;
 }
 
-Step::ClassType IfcTask::getType() const {
+const Step::ClassType &IfcTask::getType() const {
     return IfcTask::s_type;
 }
 
-bool IfcTask::isOfType(Step::ClassType t) {
+bool IfcTask::isOfType(const Step::ClassType &t) const {
     return IfcTask::s_type == t ? true : IfcProcess::isOfType(t);
 }
 
@@ -77,6 +78,11 @@ IfcIdentifier IfcTask::getTaskId() {
     else {
         return Step::getUnset(m_taskId);
     }
+}
+
+const IfcIdentifier IfcTask::getTaskId() const {
+    IfcTask * deConstObject = const_cast< IfcTask * > (this);
+    return deConstObject->getTaskId();
 }
 
 void IfcTask::setTaskId(const IfcIdentifier &value) {
@@ -92,6 +98,11 @@ IfcLabel IfcTask::getStatus() {
     }
 }
 
+const IfcLabel IfcTask::getStatus() const {
+    IfcTask * deConstObject = const_cast< IfcTask * > (this);
+    return deConstObject->getStatus();
+}
+
 void IfcTask::setStatus(const IfcLabel &value) {
     m_status = value;
 }
@@ -105,11 +116,16 @@ IfcLabel IfcTask::getWorkMethod() {
     }
 }
 
+const IfcLabel IfcTask::getWorkMethod() const {
+    IfcTask * deConstObject = const_cast< IfcTask * > (this);
+    return deConstObject->getWorkMethod();
+}
+
 void IfcTask::setWorkMethod(const IfcLabel &value) {
     m_workMethod = value;
 }
 
-Step::Bool IfcTask::getIsMilestone() {
+Step::Boolean IfcTask::getIsMilestone() {
     if (Step::BaseObject::inited()) {
         return m_isMilestone;
     }
@@ -118,7 +134,12 @@ Step::Bool IfcTask::getIsMilestone() {
     }
 }
 
-void IfcTask::setIsMilestone(Step::Bool value) {
+const Step::Boolean IfcTask::getIsMilestone() const {
+    IfcTask * deConstObject = const_cast< IfcTask * > (this);
+    return deConstObject->getIsMilestone();
+}
+
+void IfcTask::setIsMilestone(Step::Boolean value) {
     m_isMilestone = value;
 }
 
@@ -131,12 +152,13 @@ Step::Integer IfcTask::getPriority() {
     }
 }
 
-void IfcTask::setPriority(Step::Integer value) {
-    m_priority = value;
+const Step::Integer IfcTask::getPriority() const {
+    IfcTask * deConstObject = const_cast< IfcTask * > (this);
+    return deConstObject->getPriority();
 }
 
-void IfcTask::release() {
-    IfcProcess::release();
+void IfcTask::setPriority(Step::Integer value) {
+    m_priority = value;
 }
 
 bool IfcTask::init() {
@@ -150,28 +172,28 @@ bool IfcTask::init() {
         m_taskId = Step::getUnset(m_taskId);
     }
     else {
-        m_taskId = Step::spfToString(arg);
+        m_taskId = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_status = Step::getUnset(m_status);
     }
     else {
-        m_status = Step::spfToString(arg);
+        m_status = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_workMethod = Step::getUnset(m_workMethod);
     }
     else {
-        m_workMethod = Step::spfToString(arg);
+        m_workMethod = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_isMilestone = Step::getUnset(m_isMilestone);
     }
     else {
-        m_isMilestone = Step::spfToBool(arg);
+        m_isMilestone = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

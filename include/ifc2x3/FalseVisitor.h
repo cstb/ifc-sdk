@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,7 +44,6 @@ namespace ifc2x3 {
     class IfcAirTerminalType;
     class IfcAirToAirHeatRecoveryType;
     class IfcAlarmType;
-    class IfcAlignmentElement;
     class IfcAngularDimension;
     class IfcAnnotation;
     class IfcAnnotationCurveOccurrence;
@@ -91,16 +90,9 @@ namespace ifc2x3 {
     class IfcBoundedSurface;
     class IfcBoundingBox;
     class IfcBoxedHalfSpace;
-    class IfcBridge;
-    class IfcBridgeContactElement;
-    class IfcBridgeElement;
-    class IfcBridgePart;
-    class IfcBridgePrismaticElement;
-    class IfcBridgeSegment;
-    class IfcBridgeSegmentPart;
-    class IfcBridgeStructureElement;
     class IfcBuilding;
     class IfcBuildingElement;
+    class IfcBuildingElementComponent;
     class IfcBuildingElementPart;
     class IfcBuildingElementProxy;
     class IfcBuildingElementProxyType;
@@ -124,11 +116,6 @@ namespace ifc2x3 {
     class IfcCircle;
     class IfcCircleHollowProfileDef;
     class IfcCircleProfileDef;
-    class IfcCivilElement;
-    class IfcCivilElementPart;
-    class IfcCivilSheath;
-    class IfcCivilStructureElement;
-    class IfcCivilVoid;
     class IfcClassification;
     class IfcClassificationItem;
     class IfcClassificationItemRelationship;
@@ -137,7 +124,6 @@ namespace ifc2x3 {
     class IfcClassificationNotationSelect;
     class IfcClassificationReference;
     class IfcClosedShell;
-    class IfcClothoid;
     class IfcCoilType;
     class IfcColour;
     class IfcColourOrFactor;
@@ -264,7 +250,6 @@ namespace ifc2x3 {
     class IfcElementAssembly;
     class IfcElementComponent;
     class IfcElementComponentType;
-    class IfcElementPart;
     class IfcElementQuantity;
     class IfcElementType;
     class IfcElementarySurface;
@@ -509,14 +494,6 @@ namespace ifc2x3 {
     class IfcRectangleProfileDef;
     class IfcRectangularPyramid;
     class IfcRectangularTrimmedSurface;
-    class IfcReferenceCurve;
-    class IfcReferenceCurve3D;
-    class IfcReferenceCurveAlignment2D;
-    class IfcReferenceCurvePlacement;
-    class IfcReferenceCurvePlacementSystem;
-    class IfcReferenceElement;
-    class IfcReferencePlacement;
-    class IfcReferencedSectionedSpine;
     class IfcReferencesValueDocument;
     class IfcRegularTimeSeries;
     class IfcReinforcementBarProperties;
@@ -1168,6 +1145,10 @@ namespace ifc2x3 {
          * @param value the IfcBuildingElement datatype to visit
          */
         virtual bool visitIfcBuildingElement(IfcBuildingElement *value);
+        /**
+         * @param value the IfcBuildingElementComponent datatype to visit
+         */
+        virtual bool visitIfcBuildingElementComponent(IfcBuildingElementComponent *value);
         /**
          * @param value the IfcBuildingElementPart datatype to visit
          */
@@ -3556,102 +3537,6 @@ namespace ifc2x3 {
          * @param value the IfcZone datatype to visit
          */
         virtual bool visitIfcZone(IfcZone *value);
-        /**
-         * @param value the IfcCivilStructureElement datatype to visit
-         */
-        virtual bool visitIfcCivilStructureElement(IfcCivilStructureElement *value);
-        /**
-         * @param value the IfcBridgeStructureElement datatype to visit
-         */
-        virtual bool visitIfcBridgeStructureElement(IfcBridgeStructureElement *value);
-        /**
-         * @param value the IfcBridge datatype to visit
-         */
-        virtual bool visitIfcBridge(IfcBridge *value);
-        /**
-         * @param value the IfcBridgePart datatype to visit
-         */
-        virtual bool visitIfcBridgePart(IfcBridgePart *value);
-        /**
-         * @param value the IfcCivilElement datatype to visit
-         */
-        virtual bool visitIfcCivilElement(IfcCivilElement *value);
-        /**
-         * @param value the IfcBridgeElement datatype to visit
-         */
-        virtual bool visitIfcBridgeElement(IfcBridgeElement *value);
-        /**
-         * @param value the IfcBridgeSegment datatype to visit
-         */
-        virtual bool visitIfcBridgeSegment(IfcBridgeSegment *value);
-        /**
-         * @param value the IfcBridgeSegmentPart datatype to visit
-         */
-        virtual bool visitIfcBridgeSegmentPart(IfcBridgeSegmentPart *value);
-        /**
-         * @param value the IfcBridgeContactElement datatype to visit
-         */
-        virtual bool visitIfcBridgeContactElement(IfcBridgeContactElement *value);
-        /**
-         * @param value the IfcBridgePrismaticElement datatype to visit
-         */
-        virtual bool visitIfcBridgePrismaticElement(IfcBridgePrismaticElement *value);
-        /**
-         * @param value the IfcAlignmentElement datatype to visit
-         */
-        virtual bool visitIfcAlignmentElement(IfcAlignmentElement *value);
-        /**
-         * @param value the IfcReferenceElement datatype to visit
-         */
-        virtual bool visitIfcReferenceElement(IfcReferenceElement *value);
-        /**
-         * @param value the IfcReferenceCurve datatype to visit
-         */
-        virtual bool visitIfcReferenceCurve(IfcReferenceCurve *value);
-        /**
-         * @param value the IfcReferenceCurve3D datatype to visit
-         */
-        virtual bool visitIfcReferenceCurve3D(IfcReferenceCurve3D *value);
-        /**
-         * @param value the IfcReferenceCurveAlignment2D datatype to visit
-         */
-        virtual bool visitIfcReferenceCurveAlignment2D(IfcReferenceCurveAlignment2D *value);
-        /**
-         * @param value the IfcReferencePlacement datatype to visit
-         */
-        virtual bool visitIfcReferencePlacement(IfcReferencePlacement *value);
-        /**
-         * @param value the IfcReferenceCurvePlacement datatype to visit
-         */
-        virtual bool visitIfcReferenceCurvePlacement(IfcReferenceCurvePlacement *value);
-        /**
-         * @param value the IfcReferenceCurvePlacementSystem datatype to visit
-         */
-        virtual bool visitIfcReferenceCurvePlacementSystem(IfcReferenceCurvePlacementSystem *value);
-        /**
-         * @param value the IfcElementPart datatype to visit
-         */
-        virtual bool visitIfcElementPart(IfcElementPart *value);
-        /**
-         * @param value the IfcCivilElementPart datatype to visit
-         */
-        virtual bool visitIfcCivilElementPart(IfcCivilElementPart *value);
-        /**
-         * @param value the IfcCivilSheath datatype to visit
-         */
-        virtual bool visitIfcCivilSheath(IfcCivilSheath *value);
-        /**
-         * @param value the IfcCivilVoid datatype to visit
-         */
-        virtual bool visitIfcCivilVoid(IfcCivilVoid *value);
-        /**
-         * @param value the IfcClothoid datatype to visit
-         */
-        virtual bool visitIfcClothoid(IfcClothoid *value);
-        /**
-         * @param value the IfcReferencedSectionedSpine datatype to visit
-         */
-        virtual bool visitIfcReferencedSectionedSpine(IfcReferencedSectionedSpine *value);
 
     };
 

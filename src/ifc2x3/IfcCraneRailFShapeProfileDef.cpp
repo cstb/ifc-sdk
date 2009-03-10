@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -54,23 +54,23 @@ IfcCraneRailFShapeProfileDef::IfcCraneRailFShapeProfileDef(Step::Id id, Step::SP
 IfcCraneRailFShapeProfileDef::~IfcCraneRailFShapeProfileDef() {
 }
 
-bool IfcCraneRailFShapeProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCraneRailFShapeProfileDef(this);
+bool IfcCraneRailFShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCraneRailFShapeProfileDef(this);
 }
 
-const std::string &IfcCraneRailFShapeProfileDef::type() {
+const std::string &IfcCraneRailFShapeProfileDef::type() const {
     return IfcCraneRailFShapeProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcCraneRailFShapeProfileDef::getClassType() {
+const Step::ClassType &IfcCraneRailFShapeProfileDef::getClassType() {
     return IfcCraneRailFShapeProfileDef::s_type;
 }
 
-Step::ClassType IfcCraneRailFShapeProfileDef::getType() const {
+const Step::ClassType &IfcCraneRailFShapeProfileDef::getType() const {
     return IfcCraneRailFShapeProfileDef::s_type;
 }
 
-bool IfcCraneRailFShapeProfileDef::isOfType(Step::ClassType t) {
+bool IfcCraneRailFShapeProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcCraneRailFShapeProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight() {
     else {
         return Step::getUnset(m_overallHeight);
     }
+}
+
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getOverallHeight() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getOverallHeight();
 }
 
 void IfcCraneRailFShapeProfileDef::setOverallHeight(IfcPositiveLengthMeasure value) {
@@ -96,6 +101,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadWidth() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getHeadWidth();
+}
+
 void IfcCraneRailFShapeProfileDef::setHeadWidth(IfcPositiveLengthMeasure value) {
     m_headWidth = value;
 }
@@ -107,6 +117,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius() {
     else {
         return Step::getUnset(m_radius);
     }
+}
+
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getRadius() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getRadius();
 }
 
 void IfcCraneRailFShapeProfileDef::setRadius(IfcPositiveLengthMeasure value) {
@@ -122,6 +137,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth2() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getHeadDepth2();
+}
+
 void IfcCraneRailFShapeProfileDef::setHeadDepth2(IfcPositiveLengthMeasure value) {
     m_headDepth2 = value;
 }
@@ -133,6 +153,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3() {
     else {
         return Step::getUnset(m_headDepth3);
     }
+}
+
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getHeadDepth3() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getHeadDepth3();
 }
 
 void IfcCraneRailFShapeProfileDef::setHeadDepth3(IfcPositiveLengthMeasure value) {
@@ -148,6 +173,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getWebThickness() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getWebThickness();
+}
+
 void IfcCraneRailFShapeProfileDef::setWebThickness(IfcPositiveLengthMeasure value) {
     m_webThickness = value;
 }
@@ -159,6 +189,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1() {
     else {
         return Step::getUnset(m_baseDepth1);
     }
+}
+
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth1() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getBaseDepth1();
 }
 
 void IfcCraneRailFShapeProfileDef::setBaseDepth1(IfcPositiveLengthMeasure value) {
@@ -174,6 +209,11 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getBaseDepth2() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getBaseDepth2();
+}
+
 void IfcCraneRailFShapeProfileDef::setBaseDepth2(IfcPositiveLengthMeasure value) {
     m_baseDepth2 = value;
 }
@@ -187,12 +227,13 @@ IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY() {
     }
 }
 
-void IfcCraneRailFShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInY = value;
+const IfcPositiveLengthMeasure IfcCraneRailFShapeProfileDef::getCentreOfGravityInY() const {
+    IfcCraneRailFShapeProfileDef * deConstObject = const_cast< IfcCraneRailFShapeProfileDef * > (this);
+    return deConstObject->getCentreOfGravityInY();
 }
 
-void IfcCraneRailFShapeProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcCraneRailFShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
+    m_centreOfGravityInY = value;
 }
 
 bool IfcCraneRailFShapeProfileDef::init() {

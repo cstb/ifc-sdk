@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,83 +31,127 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
     class IfcCalendarDate;
-    class IfcClassificationItem;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcClassification : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Source'.
+         * 
          */
-        IfcLabel getSource();
+        virtual IfcLabel getSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'Source'.
+         * 
+         * @return the value of the explicit attribute 'Source'
+         */
+        virtual const IfcLabel getSource() const;
         /**
          * Sets the value of the explicit attribute 'Source'.
          * 
          * @param value
          */
-        void setSource(const IfcLabel &value);
+        virtual void setSource(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Edition'.
+         * 
          */
-        IfcLabel getEdition();
+        virtual IfcLabel getEdition();
+        /**
+         * (const) Returns the value of the explicit attribute 'Edition'.
+         * 
+         * @return the value of the explicit attribute 'Edition'
+         */
+        virtual const IfcLabel getEdition() const;
         /**
          * Sets the value of the explicit attribute 'Edition'.
          * 
          * @param value
          */
-        void setEdition(const IfcLabel &value);
+        virtual void setEdition(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'EditionDate'.
+         * 
          */
-        IfcCalendarDate *getEditionDate();
+        virtual IfcCalendarDate *getEditionDate();
+        /**
+         * (const) Returns the value of the explicit attribute 'EditionDate'.
+         * 
+         * @return the value of the explicit attribute 'EditionDate'
+         */
+        virtual const IfcCalendarDate *getEditionDate() const;
         /**
          * Sets the value of the explicit attribute 'EditionDate'.
          * 
          * @param value
          */
-        void setEditionDate(const Step::RefPtr< IfcCalendarDate > &value);
+        virtual void setEditionDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the inverse attribute 'Contains'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItem > > &getContains();
+        Inverse_Set_IfcClassificationItem_0_n &getContains();
         /**
+         * (const) Returns the value of the explicit attribute 'Contains'.
+         * 
+         * @return the value of the explicit attribute 'Contains'
          */
-        virtual void release();
+        virtual const Inverse_Set_IfcClassificationItem_0_n &getContains() const;
         friend class IfcClassificationItem;
         friend class ExpressDataSet;
 
@@ -133,19 +177,19 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_source;
+        Step::String m_source;
         /**
          */
-        std::string m_edition;
+        Step::String m_edition;
         /**
          */
         Step::RefPtr< IfcCalendarDate > m_editionDate;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcClassificationItem > > m_contains;
+        Inverse_Set_IfcClassificationItem_0_n m_contains;
 
     };
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,7 +31,6 @@
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include "ifc2x3/IfcTimeSeries.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -55,23 +54,23 @@ IfcSoundValue::IfcSoundValue(Step::Id id, Step::SPFData *args) : IfcPropertySetD
 IfcSoundValue::~IfcSoundValue() {
 }
 
-bool IfcSoundValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSoundValue(this);
+bool IfcSoundValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSoundValue(this);
 }
 
-const std::string &IfcSoundValue::type() {
+const std::string &IfcSoundValue::type() const {
     return IfcSoundValue::s_type.getName();
 }
 
-Step::ClassType IfcSoundValue::getClassType() {
+const Step::ClassType &IfcSoundValue::getClassType() {
     return IfcSoundValue::s_type;
 }
 
-Step::ClassType IfcSoundValue::getType() const {
+const Step::ClassType &IfcSoundValue::getType() const {
     return IfcSoundValue::s_type;
 }
 
-bool IfcSoundValue::isOfType(Step::ClassType t) {
+bool IfcSoundValue::isOfType(const Step::ClassType &t) const {
     return IfcSoundValue::s_type == t ? true : IfcPropertySetDefinition::isOfType(t);
 }
 
@@ -82,6 +81,11 @@ IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() {
     else {
         return NULL;
     }
+}
+
+const IfcTimeSeries *IfcSoundValue::getSoundLevelTimeSeries() const {
+    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
+    return deConstObject->getSoundLevelTimeSeries();
 }
 
 void IfcSoundValue::setSoundLevelTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
@@ -97,6 +101,11 @@ IfcFrequencyMeasure IfcSoundValue::getFrequency() {
     }
 }
 
+const IfcFrequencyMeasure IfcSoundValue::getFrequency() const {
+    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
+    return deConstObject->getFrequency();
+}
+
 void IfcSoundValue::setFrequency(IfcFrequencyMeasure value) {
     m_frequency = value;
 }
@@ -110,13 +119,13 @@ IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() {
     }
 }
 
-void IfcSoundValue::setSoundLevelSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
-    m_soundLevelSingleValue = value;
+const IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() const {
+    IfcSoundValue * deConstObject = const_cast< IfcSoundValue * > (this);
+    return deConstObject->getSoundLevelSingleValue();
 }
 
-void IfcSoundValue::release() {
-    IfcPropertySetDefinition::release();
-    m_soundLevelTimeSeries.release();
+void IfcSoundValue::setSoundLevelSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
+    m_soundLevelSingleValue = value;
 }
 
 bool IfcSoundValue::init() {
@@ -130,7 +139,7 @@ bool IfcSoundValue::init() {
         m_soundLevelTimeSeries = NULL;
     }
     else {
-        m_soundLevelTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_soundLevelTimeSeries = static_cast< IfcTimeSeries * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -241,7 +250,7 @@ bool IfcSoundValue::init() {
                     m_soundLevelSingleValue->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -515,7 +524,7 @@ bool IfcSoundValue::init() {
 
 void IfcSoundValue::copy(const IfcSoundValue &obj, const CopyOp &copyop) {
     IfcPropertySetDefinition::copy(obj, copyop);
-    setSoundLevelTimeSeries(copyop(obj.m_soundLevelTimeSeries.get()));
+    setSoundLevelTimeSeries((IfcTimeSeries*)copyop(obj.m_soundLevelTimeSeries.get()));
     setFrequency(obj.m_frequency);
     m_soundLevelSingleValue = new IfcDerivedMeasureValue;
     m_soundLevelSingleValue->copy(*(obj.m_soundLevelSingleValue.get()), copyop);

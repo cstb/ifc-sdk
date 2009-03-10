@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcRelAssignsToActor::IfcRelAssignsToActor(Step::Id id, Step::SPFData *args) : I
 IfcRelAssignsToActor::~IfcRelAssignsToActor() {
 }
 
-bool IfcRelAssignsToActor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToActor(this);
+bool IfcRelAssignsToActor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToActor(this);
 }
 
-const std::string &IfcRelAssignsToActor::type() {
+const std::string &IfcRelAssignsToActor::type() const {
     return IfcRelAssignsToActor::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToActor::getClassType() {
+const Step::ClassType &IfcRelAssignsToActor::getClassType() {
     return IfcRelAssignsToActor::s_type;
 }
 
-Step::ClassType IfcRelAssignsToActor::getType() const {
+const Step::ClassType &IfcRelAssignsToActor::getType() const {
     return IfcRelAssignsToActor::s_type;
 }
 
-bool IfcRelAssignsToActor::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToActor::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToActor::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -81,9 +81,19 @@ IfcActor *IfcRelAssignsToActor::getRelatingActor() {
     }
 }
 
+const IfcActor *IfcRelAssignsToActor::getRelatingActor() const {
+    IfcRelAssignsToActor * deConstObject = const_cast< IfcRelAssignsToActor * > (this);
+    return deConstObject->getRelatingActor();
+}
+
 void IfcRelAssignsToActor::setRelatingActor(const Step::RefPtr< IfcActor > &value) {
+    if (m_relatingActor.valid()) {
+        m_relatingActor->m_isActingUpon.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isActingUpon.insert(this);
+    }
     m_relatingActor = value;
-    m_relatingActor->m_isActingUpon.insert(this);
 }
 
 IfcActorRole *IfcRelAssignsToActor::getActingRole() {
@@ -95,14 +105,13 @@ IfcActorRole *IfcRelAssignsToActor::getActingRole() {
     }
 }
 
-void IfcRelAssignsToActor::setActingRole(const Step::RefPtr< IfcActorRole > &value) {
-    m_actingRole = value;
+const IfcActorRole *IfcRelAssignsToActor::getActingRole() const {
+    IfcRelAssignsToActor * deConstObject = const_cast< IfcRelAssignsToActor * > (this);
+    return deConstObject->getActingRole();
 }
 
-void IfcRelAssignsToActor::release() {
-    IfcRelAssigns::release();
-    m_relatingActor.release();
-    m_actingRole.release();
+void IfcRelAssignsToActor::setActingRole(const Step::RefPtr< IfcActorRole > &value) {
+    m_actingRole = value;
 }
 
 bool IfcRelAssignsToActor::init() {
@@ -116,22 +125,22 @@ bool IfcRelAssignsToActor::init() {
         m_relatingActor = NULL;
     }
     else {
-        m_relatingActor = static_cast< IfcActor * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingActor = static_cast< IfcActor * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_actingRole = NULL;
     }
     else {
-        m_actingRole = static_cast< IfcActorRole * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_actingRole = static_cast< IfcActorRole * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToActor::copy(const IfcRelAssignsToActor &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingActor(copyop(obj.m_relatingActor.get()));
-    setActingRole(copyop(obj.m_actingRole.get()));
+    setRelatingActor((IfcActor*)copyop(obj.m_relatingActor.get()));
+    setActingRole((IfcActorRole*)copyop(obj.m_actingRole.get()));
     return;
 }
 

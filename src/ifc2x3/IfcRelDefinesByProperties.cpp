@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelDefinesByProperties::IfcRelDefinesByProperties(Step::Id id, Step::SPFData 
 IfcRelDefinesByProperties::~IfcRelDefinesByProperties() {
 }
 
-bool IfcRelDefinesByProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelDefinesByProperties(this);
+bool IfcRelDefinesByProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelDefinesByProperties(this);
 }
 
-const std::string &IfcRelDefinesByProperties::type() {
+const std::string &IfcRelDefinesByProperties::type() const {
     return IfcRelDefinesByProperties::s_type.getName();
 }
 
-Step::ClassType IfcRelDefinesByProperties::getClassType() {
+const Step::ClassType &IfcRelDefinesByProperties::getClassType() {
     return IfcRelDefinesByProperties::s_type;
 }
 
-Step::ClassType IfcRelDefinesByProperties::getType() const {
+const Step::ClassType &IfcRelDefinesByProperties::getType() const {
     return IfcRelDefinesByProperties::s_type;
 }
 
-bool IfcRelDefinesByProperties::isOfType(Step::ClassType t) {
+bool IfcRelDefinesByProperties::isOfType(const Step::ClassType &t) const {
     return IfcRelDefinesByProperties::s_type == t ? true : IfcRelDefines::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcPropertySetDefinition *IfcRelDefinesByProperties::getRelatingPropertyDefiniti
     }
 }
 
-void IfcRelDefinesByProperties::setRelatingPropertyDefinition(const Step::RefPtr< IfcPropertySetDefinition > &value) {
-    m_relatingPropertyDefinition = value;
-    m_relatingPropertyDefinition->m_propertyDefinitionOf.insert(this);
+const IfcPropertySetDefinition *IfcRelDefinesByProperties::getRelatingPropertyDefinition() const {
+    IfcRelDefinesByProperties * deConstObject = const_cast< IfcRelDefinesByProperties * > (this);
+    return deConstObject->getRelatingPropertyDefinition();
 }
 
-void IfcRelDefinesByProperties::release() {
-    IfcRelDefines::release();
-    m_relatingPropertyDefinition.release();
+void IfcRelDefinesByProperties::setRelatingPropertyDefinition(const Step::RefPtr< IfcPropertySetDefinition > &value) {
+    if (m_relatingPropertyDefinition.valid()) {
+        m_relatingPropertyDefinition->m_propertyDefinitionOf.erase(this);
+    }
+    if (value.valid()) {
+        value->m_propertyDefinitionOf.insert(this);
+    }
+    m_relatingPropertyDefinition = value;
 }
 
 bool IfcRelDefinesByProperties::init() {
@@ -100,14 +105,14 @@ bool IfcRelDefinesByProperties::init() {
         m_relatingPropertyDefinition = NULL;
     }
     else {
-        m_relatingPropertyDefinition = static_cast< IfcPropertySetDefinition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingPropertyDefinition = static_cast< IfcPropertySetDefinition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelDefinesByProperties::copy(const IfcRelDefinesByProperties &obj, const CopyOp &copyop) {
     IfcRelDefines::copy(obj, copyop);
-    setRelatingPropertyDefinition(copyop(obj.m_relatingPropertyDefinition.get()));
+    setRelatingPropertyDefinition((IfcPropertySetDefinition*)copyop(obj.m_relatingPropertyDefinition.get()));
     return;
 }
 

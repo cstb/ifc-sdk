@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,45 +47,66 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcLine : public IfcCurve {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Pnt'.
+         * 
          */
-        IfcCartesianPoint *getPnt();
+        virtual IfcCartesianPoint *getPnt();
+        /**
+         * (const) Returns the value of the explicit attribute 'Pnt'.
+         * 
+         * @return the value of the explicit attribute 'Pnt'
+         */
+        virtual const IfcCartesianPoint *getPnt() const;
         /**
          * Sets the value of the explicit attribute 'Pnt'.
          * 
          * @param value
          */
-        void setPnt(const Step::RefPtr< IfcCartesianPoint > &value);
+        virtual void setPnt(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * Gets the value of the explicit attribute 'Dir'.
+         * 
          */
-        IfcVector *getDir();
+        virtual IfcVector *getDir();
+        /**
+         * (const) Returns the value of the explicit attribute 'Dir'.
+         * 
+         * @return the value of the explicit attribute 'Dir'
+         */
+        virtual const IfcVector *getDir() const;
         /**
          * Sets the value of the explicit attribute 'Dir'.
          * 
          * @param value
          */
-        void setDir(const Step::RefPtr< IfcVector > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setDir(const Step::RefPtr< IfcVector > &value);
         friend class ExpressDataSet;
 
     protected:

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,7 +45,6 @@
 using namespace ifc2x3;
 
 IfcExtendedMaterialProperties::IfcExtendedMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
-    m_extendedProperties.setUnset(true);
     m_description = Step::getUnset(m_description);
     m_name = Step::getUnset(m_name);
 }
@@ -53,27 +52,27 @@ IfcExtendedMaterialProperties::IfcExtendedMaterialProperties(Step::Id id, Step::
 IfcExtendedMaterialProperties::~IfcExtendedMaterialProperties() {
 }
 
-bool IfcExtendedMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExtendedMaterialProperties(this);
+bool IfcExtendedMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExtendedMaterialProperties(this);
 }
 
-const std::string &IfcExtendedMaterialProperties::type() {
+const std::string &IfcExtendedMaterialProperties::type() const {
     return IfcExtendedMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcExtendedMaterialProperties::getClassType() {
+const Step::ClassType &IfcExtendedMaterialProperties::getClassType() {
     return IfcExtendedMaterialProperties::s_type;
 }
 
-Step::ClassType IfcExtendedMaterialProperties::getType() const {
+const Step::ClassType &IfcExtendedMaterialProperties::getType() const {
     return IfcExtendedMaterialProperties::s_type;
 }
 
-bool IfcExtendedMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcExtendedMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcExtendedMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcProperty > > &IfcExtendedMaterialProperties::getExtendedProperties() {
+Set_IfcProperty_1_n &IfcExtendedMaterialProperties::getExtendedProperties() {
     if (Step::BaseObject::inited()) {
         return m_extendedProperties;
     }
@@ -83,7 +82,12 @@ Step::Set< Step::RefPtr< IfcProperty > > &IfcExtendedMaterialProperties::getExte
     }
 }
 
-void IfcExtendedMaterialProperties::setExtendedProperties(const Step::Set< Step::RefPtr< IfcProperty > > &value) {
+const Set_IfcProperty_1_n &IfcExtendedMaterialProperties::getExtendedProperties() const {
+    IfcExtendedMaterialProperties * deConstObject = const_cast< IfcExtendedMaterialProperties * > (this);
+    return deConstObject->getExtendedProperties();
+}
+
+void IfcExtendedMaterialProperties::setExtendedProperties(const Set_IfcProperty_1_n &value) {
     m_extendedProperties = value;
 }
 
@@ -94,6 +98,11 @@ IfcText IfcExtendedMaterialProperties::getDescription() {
     else {
         return Step::getUnset(m_description);
     }
+}
+
+const IfcText IfcExtendedMaterialProperties::getDescription() const {
+    IfcExtendedMaterialProperties * deConstObject = const_cast< IfcExtendedMaterialProperties * > (this);
+    return deConstObject->getDescription();
 }
 
 void IfcExtendedMaterialProperties::setDescription(const IfcText &value) {
@@ -109,13 +118,13 @@ IfcLabel IfcExtendedMaterialProperties::getName() {
     }
 }
 
-void IfcExtendedMaterialProperties::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcExtendedMaterialProperties::getName() const {
+    IfcExtendedMaterialProperties * deConstObject = const_cast< IfcExtendedMaterialProperties * > (this);
+    return deConstObject->getName();
 }
 
-void IfcExtendedMaterialProperties::release() {
-    IfcMaterialProperties::release();
-    m_extendedProperties.clear();
+void IfcExtendedMaterialProperties::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcExtendedMaterialProperties::init() {
@@ -135,7 +144,7 @@ bool IfcExtendedMaterialProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProperty > attr2;
-                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProperty * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_extendedProperties.insert(attr2);
             }
             else {
@@ -148,23 +157,23 @@ bool IfcExtendedMaterialProperties::init() {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcExtendedMaterialProperties::copy(const IfcExtendedMaterialProperties &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcProperty > >::const_iterator it_m_extendedProperties;
+    Step::Set< Step::RefPtr< IfcProperty >, 1 >::const_iterator it_m_extendedProperties;
     IfcMaterialProperties::copy(obj, copyop);
     for (it_m_extendedProperties = obj.m_extendedProperties.begin(); it_m_extendedProperties != obj.m_extendedProperties.end(); ++it_m_extendedProperties) {
-        Step::RefPtr< IfcProperty > copyTarget = copyop((*it_m_extendedProperties).get());
+        Step::RefPtr< IfcProperty > copyTarget = (IfcProperty *) (copyop((*it_m_extendedProperties).get()));
         m_extendedProperties.insert(copyTarget.get());
     }
     setDescription(obj.m_description);

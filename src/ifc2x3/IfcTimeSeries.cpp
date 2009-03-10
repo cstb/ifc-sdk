@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,29 +55,28 @@ IfcTimeSeries::IfcTimeSeries(Step::Id id, Step::SPFData *args) : Step::BaseEntit
     m_dataOrigin = IfcDataOriginEnum_UNSET;
     m_userDefinedDataOrigin = Step::getUnset(m_userDefinedDataOrigin);
     m_unit = NULL;
-    m_documentedBy.setUnset(true);
 }
 
 IfcTimeSeries::~IfcTimeSeries() {
 }
 
-bool IfcTimeSeries::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTimeSeries(this);
+bool IfcTimeSeries::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTimeSeries(this);
 }
 
-const std::string &IfcTimeSeries::type() {
+const std::string &IfcTimeSeries::type() const {
     return IfcTimeSeries::s_type.getName();
 }
 
-Step::ClassType IfcTimeSeries::getClassType() {
+const Step::ClassType &IfcTimeSeries::getClassType() {
     return IfcTimeSeries::s_type;
 }
 
-Step::ClassType IfcTimeSeries::getType() const {
+const Step::ClassType &IfcTimeSeries::getType() const {
     return IfcTimeSeries::s_type;
 }
 
-bool IfcTimeSeries::isOfType(Step::ClassType t) {
+bool IfcTimeSeries::isOfType(const Step::ClassType &t) const {
     return IfcTimeSeries::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -87,6 +87,11 @@ IfcLabel IfcTimeSeries::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcTimeSeries::getName() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getName();
 }
 
 void IfcTimeSeries::setName(const IfcLabel &value) {
@@ -102,6 +107,11 @@ IfcText IfcTimeSeries::getDescription() {
     }
 }
 
+const IfcText IfcTimeSeries::getDescription() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcTimeSeries::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -113,6 +123,11 @@ IfcDateTimeSelect *IfcTimeSeries::getStartTime() {
     else {
         return NULL;
     }
+}
+
+const IfcDateTimeSelect *IfcTimeSeries::getStartTime() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getStartTime();
 }
 
 void IfcTimeSeries::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
@@ -128,6 +143,11 @@ IfcDateTimeSelect *IfcTimeSeries::getEndTime() {
     }
 }
 
+const IfcDateTimeSelect *IfcTimeSeries::getEndTime() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getEndTime();
+}
+
 void IfcTimeSeries::setEndTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_endTime = value;
 }
@@ -139,6 +159,11 @@ IfcTimeSeriesDataTypeEnum IfcTimeSeries::getTimeSeriesDataType() {
     else {
         return IfcTimeSeriesDataTypeEnum_UNSET;
     }
+}
+
+const IfcTimeSeriesDataTypeEnum IfcTimeSeries::getTimeSeriesDataType() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getTimeSeriesDataType();
 }
 
 void IfcTimeSeries::setTimeSeriesDataType(IfcTimeSeriesDataTypeEnum value) {
@@ -154,6 +179,11 @@ IfcDataOriginEnum IfcTimeSeries::getDataOrigin() {
     }
 }
 
+const IfcDataOriginEnum IfcTimeSeries::getDataOrigin() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getDataOrigin();
+}
+
 void IfcTimeSeries::setDataOrigin(IfcDataOriginEnum value) {
     m_dataOrigin = value;
 }
@@ -165,6 +195,11 @@ IfcLabel IfcTimeSeries::getUserDefinedDataOrigin() {
     else {
         return Step::getUnset(m_userDefinedDataOrigin);
     }
+}
+
+const IfcLabel IfcTimeSeries::getUserDefinedDataOrigin() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getUserDefinedDataOrigin();
 }
 
 void IfcTimeSeries::setUserDefinedDataOrigin(const IfcLabel &value) {
@@ -180,11 +215,16 @@ IfcUnit *IfcTimeSeries::getUnit() {
     }
 }
 
+const IfcUnit *IfcTimeSeries::getUnit() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getUnit();
+}
+
 void IfcTimeSeries::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
 }
 
-Step::Set< Step::ObsPtr< IfcTimeSeriesReferenceRelationship > > &IfcTimeSeries::getDocumentedBy() {
+Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() {
     if (Step::BaseObject::inited()) {
         return m_documentedBy;
     }
@@ -194,7 +234,9 @@ Step::Set< Step::ObsPtr< IfcTimeSeriesReferenceRelationship > > &IfcTimeSeries::
     }
 }
 
-void IfcTimeSeries::release() {
+const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() const {
+    IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
+    return deConstObject->getDocumentedBy();
 }
 
 bool IfcTimeSeries::init() {
@@ -205,14 +247,14 @@ bool IfcTimeSeries::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -305,7 +347,7 @@ bool IfcTimeSeries::init() {
         m_userDefinedDataOrigin = Step::getUnset(m_userDefinedDataOrigin);
     }
     else {
-        m_userDefinedDataOrigin = Step::spfToString(arg);
+        m_userDefinedDataOrigin = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

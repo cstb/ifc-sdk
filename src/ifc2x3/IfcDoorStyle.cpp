@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcDoorStyle::IfcDoorStyle(Step::Id id, Step::SPFData *args) : IfcTypeProduct(id
 IfcDoorStyle::~IfcDoorStyle() {
 }
 
-bool IfcDoorStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDoorStyle(this);
+bool IfcDoorStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDoorStyle(this);
 }
 
-const std::string &IfcDoorStyle::type() {
+const std::string &IfcDoorStyle::type() const {
     return IfcDoorStyle::s_type.getName();
 }
 
-Step::ClassType IfcDoorStyle::getClassType() {
+const Step::ClassType &IfcDoorStyle::getClassType() {
     return IfcDoorStyle::s_type;
 }
 
-Step::ClassType IfcDoorStyle::getType() const {
+const Step::ClassType &IfcDoorStyle::getType() const {
     return IfcDoorStyle::s_type;
 }
 
-bool IfcDoorStyle::isOfType(Step::ClassType t) {
+bool IfcDoorStyle::isOfType(const Step::ClassType &t) const {
     return IfcDoorStyle::s_type == t ? true : IfcTypeProduct::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcDoorStyleOperationEnum IfcDoorStyle::getOperationType() {
     else {
         return IfcDoorStyleOperationEnum_UNSET;
     }
+}
+
+const IfcDoorStyleOperationEnum IfcDoorStyle::getOperationType() const {
+    IfcDoorStyle * deConstObject = const_cast< IfcDoorStyle * > (this);
+    return deConstObject->getOperationType();
 }
 
 void IfcDoorStyle::setOperationType(IfcDoorStyleOperationEnum value) {
@@ -91,11 +96,16 @@ IfcDoorStyleConstructionEnum IfcDoorStyle::getConstructionType() {
     }
 }
 
+const IfcDoorStyleConstructionEnum IfcDoorStyle::getConstructionType() const {
+    IfcDoorStyle * deConstObject = const_cast< IfcDoorStyle * > (this);
+    return deConstObject->getConstructionType();
+}
+
 void IfcDoorStyle::setConstructionType(IfcDoorStyleConstructionEnum value) {
     m_constructionType = value;
 }
 
-Step::Bool IfcDoorStyle::getParameterTakesPrecedence() {
+Step::Boolean IfcDoorStyle::getParameterTakesPrecedence() {
     if (Step::BaseObject::inited()) {
         return m_parameterTakesPrecedence;
     }
@@ -104,11 +114,16 @@ Step::Bool IfcDoorStyle::getParameterTakesPrecedence() {
     }
 }
 
-void IfcDoorStyle::setParameterTakesPrecedence(Step::Bool value) {
+const Step::Boolean IfcDoorStyle::getParameterTakesPrecedence() const {
+    IfcDoorStyle * deConstObject = const_cast< IfcDoorStyle * > (this);
+    return deConstObject->getParameterTakesPrecedence();
+}
+
+void IfcDoorStyle::setParameterTakesPrecedence(Step::Boolean value) {
     m_parameterTakesPrecedence = value;
 }
 
-Step::Bool IfcDoorStyle::getSizeable() {
+Step::Boolean IfcDoorStyle::getSizeable() {
     if (Step::BaseObject::inited()) {
         return m_sizeable;
     }
@@ -117,12 +132,13 @@ Step::Bool IfcDoorStyle::getSizeable() {
     }
 }
 
-void IfcDoorStyle::setSizeable(Step::Bool value) {
-    m_sizeable = value;
+const Step::Boolean IfcDoorStyle::getSizeable() const {
+    IfcDoorStyle * deConstObject = const_cast< IfcDoorStyle * > (this);
+    return deConstObject->getSizeable();
 }
 
-void IfcDoorStyle::release() {
-    IfcTypeProduct::release();
+void IfcDoorStyle::setSizeable(Step::Boolean value) {
+    m_sizeable = value;
 }
 
 bool IfcDoorStyle::init() {
@@ -229,14 +245,14 @@ bool IfcDoorStyle::init() {
         m_parameterTakesPrecedence = Step::getUnset(m_parameterTakesPrecedence);
     }
     else {
-        m_parameterTakesPrecedence = Step::spfToBool(arg);
+        m_parameterTakesPrecedence = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_sizeable = Step::getUnset(m_sizeable);
     }
     else {
-        m_sizeable = Step::spfToBool(arg);
+        m_sizeable = Step::spfToBoolean(arg);
     }
     return true;
 }

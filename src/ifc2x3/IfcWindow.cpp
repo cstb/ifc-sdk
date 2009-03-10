@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcWindow::IfcWindow(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, 
 IfcWindow::~IfcWindow() {
 }
 
-bool IfcWindow::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWindow(this);
+bool IfcWindow::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWindow(this);
 }
 
-const std::string &IfcWindow::type() {
+const std::string &IfcWindow::type() const {
     return IfcWindow::s_type.getName();
 }
 
-Step::ClassType IfcWindow::getClassType() {
+const Step::ClassType &IfcWindow::getClassType() {
     return IfcWindow::s_type;
 }
 
-Step::ClassType IfcWindow::getType() const {
+const Step::ClassType &IfcWindow::getType() const {
     return IfcWindow::s_type;
 }
 
-bool IfcWindow::isOfType(Step::ClassType t) {
+bool IfcWindow::isOfType(const Step::ClassType &t) const {
     return IfcWindow::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcWindow::getOverallHeight() {
     else {
         return Step::getUnset(m_overallHeight);
     }
+}
+
+const IfcPositiveLengthMeasure IfcWindow::getOverallHeight() const {
+    IfcWindow * deConstObject = const_cast< IfcWindow * > (this);
+    return deConstObject->getOverallHeight();
 }
 
 void IfcWindow::setOverallHeight(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcWindow::getOverallWidth() {
     }
 }
 
-void IfcWindow::setOverallWidth(IfcPositiveLengthMeasure value) {
-    m_overallWidth = value;
+const IfcPositiveLengthMeasure IfcWindow::getOverallWidth() const {
+    IfcWindow * deConstObject = const_cast< IfcWindow * > (this);
+    return deConstObject->getOverallWidth();
 }
 
-void IfcWindow::release() {
-    IfcBuildingElement::release();
+void IfcWindow::setOverallWidth(IfcPositiveLengthMeasure value) {
+    m_overallWidth = value;
 }
 
 bool IfcWindow::init() {

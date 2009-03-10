@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcApprovalRelationship::IfcApprovalRelationship(Step::Id id, Step::SPFData *arg
 IfcApprovalRelationship::~IfcApprovalRelationship() {
 }
 
-bool IfcApprovalRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcApprovalRelationship(this);
+bool IfcApprovalRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcApprovalRelationship(this);
 }
 
-const std::string &IfcApprovalRelationship::type() {
+const std::string &IfcApprovalRelationship::type() const {
     return IfcApprovalRelationship::s_type.getName();
 }
 
-Step::ClassType IfcApprovalRelationship::getClassType() {
+const Step::ClassType &IfcApprovalRelationship::getClassType() {
     return IfcApprovalRelationship::s_type;
 }
 
-Step::ClassType IfcApprovalRelationship::getType() const {
+const Step::ClassType &IfcApprovalRelationship::getType() const {
     return IfcApprovalRelationship::s_type;
 }
 
-bool IfcApprovalRelationship::isOfType(Step::ClassType t) {
+bool IfcApprovalRelationship::isOfType(const Step::ClassType &t) const {
     return IfcApprovalRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -82,9 +83,19 @@ IfcApproval *IfcApprovalRelationship::getRelatedApproval() {
     }
 }
 
+const IfcApproval *IfcApprovalRelationship::getRelatedApproval() const {
+    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
+    return deConstObject->getRelatedApproval();
+}
+
 void IfcApprovalRelationship::setRelatedApproval(const Step::RefPtr< IfcApproval > &value) {
+    if (m_relatedApproval.valid()) {
+        m_relatedApproval->m_isRelatedWith.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isRelatedWith.insert(this);
+    }
     m_relatedApproval = value;
-    m_relatedApproval->m_isRelatedWith.insert(this);
 }
 
 IfcApproval *IfcApprovalRelationship::getRelatingApproval() {
@@ -96,9 +107,19 @@ IfcApproval *IfcApprovalRelationship::getRelatingApproval() {
     }
 }
 
+const IfcApproval *IfcApprovalRelationship::getRelatingApproval() const {
+    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
+    return deConstObject->getRelatingApproval();
+}
+
 void IfcApprovalRelationship::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
+    if (m_relatingApproval.valid()) {
+        m_relatingApproval->m_relates.erase(this);
+    }
+    if (value.valid()) {
+        value->m_relates.insert(this);
+    }
     m_relatingApproval = value;
-    m_relatingApproval->m_relates.insert(this);
 }
 
 IfcText IfcApprovalRelationship::getDescription() {
@@ -108,6 +129,11 @@ IfcText IfcApprovalRelationship::getDescription() {
     else {
         return Step::getUnset(m_description);
     }
+}
+
+const IfcText IfcApprovalRelationship::getDescription() const {
+    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
+    return deConstObject->getDescription();
 }
 
 void IfcApprovalRelationship::setDescription(const IfcText &value) {
@@ -123,13 +149,13 @@ IfcLabel IfcApprovalRelationship::getName() {
     }
 }
 
-void IfcApprovalRelationship::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcApprovalRelationship::getName() const {
+    IfcApprovalRelationship * deConstObject = const_cast< IfcApprovalRelationship * > (this);
+    return deConstObject->getName();
 }
 
-void IfcApprovalRelationship::release() {
-    m_relatedApproval.release();
-    m_relatingApproval.release();
+void IfcApprovalRelationship::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcApprovalRelationship::init() {
@@ -139,36 +165,36 @@ bool IfcApprovalRelationship::init() {
         m_relatedApproval = NULL;
     }
     else {
-        m_relatedApproval = static_cast< IfcApproval * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatingApproval = NULL;
     }
     else {
-        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingApproval = static_cast< IfcApproval * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcApprovalRelationship::copy(const IfcApprovalRelationship &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setRelatedApproval(copyop(obj.m_relatedApproval.get()));
-    setRelatingApproval(copyop(obj.m_relatingApproval.get()));
+    setRelatedApproval((IfcApproval*)copyop(obj.m_relatedApproval.get()));
+    setRelatingApproval((IfcApproval*)copyop(obj.m_relatingApproval.get()));
     setDescription(obj.m_description);
     setName(obj.m_name);
     return;

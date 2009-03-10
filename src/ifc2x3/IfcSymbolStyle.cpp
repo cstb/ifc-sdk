@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcSymbolStyle::IfcSymbolStyle(Step::Id id, Step::SPFData *args) : IfcPresentati
 IfcSymbolStyle::~IfcSymbolStyle() {
 }
 
-bool IfcSymbolStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSymbolStyle(this);
+bool IfcSymbolStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSymbolStyle(this);
 }
 
-const std::string &IfcSymbolStyle::type() {
+const std::string &IfcSymbolStyle::type() const {
     return IfcSymbolStyle::s_type.getName();
 }
 
-Step::ClassType IfcSymbolStyle::getClassType() {
+const Step::ClassType &IfcSymbolStyle::getClassType() {
     return IfcSymbolStyle::s_type;
 }
 
-Step::ClassType IfcSymbolStyle::getType() const {
+const Step::ClassType &IfcSymbolStyle::getType() const {
     return IfcSymbolStyle::s_type;
 }
 
-bool IfcSymbolStyle::isOfType(Step::ClassType t) {
+bool IfcSymbolStyle::isOfType(const Step::ClassType &t) const {
     return IfcSymbolStyle::s_type == t ? true : IfcPresentationStyle::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcSymbolStyleSelect *IfcSymbolStyle::getStyleOfSymbol() {
     }
 }
 
-void IfcSymbolStyle::setStyleOfSymbol(const Step::RefPtr< IfcSymbolStyleSelect > &value) {
-    m_styleOfSymbol = value;
+const IfcSymbolStyleSelect *IfcSymbolStyle::getStyleOfSymbol() const {
+    IfcSymbolStyle * deConstObject = const_cast< IfcSymbolStyle * > (this);
+    return deConstObject->getStyleOfSymbol();
 }
 
-void IfcSymbolStyle::release() {
-    IfcPresentationStyle::release();
+void IfcSymbolStyle::setStyleOfSymbol(const Step::RefPtr< IfcSymbolStyleSelect > &value) {
+    m_styleOfSymbol = value;
 }
 
 bool IfcSymbolStyle::init() {

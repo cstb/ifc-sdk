@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,6 +35,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -52,23 +53,23 @@ IfcDefinedSymbol::IfcDefinedSymbol(Step::Id id, Step::SPFData *args) : IfcGeomet
 IfcDefinedSymbol::~IfcDefinedSymbol() {
 }
 
-bool IfcDefinedSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDefinedSymbol(this);
+bool IfcDefinedSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDefinedSymbol(this);
 }
 
-const std::string &IfcDefinedSymbol::type() {
+const std::string &IfcDefinedSymbol::type() const {
     return IfcDefinedSymbol::s_type.getName();
 }
 
-Step::ClassType IfcDefinedSymbol::getClassType() {
+const Step::ClassType &IfcDefinedSymbol::getClassType() {
     return IfcDefinedSymbol::s_type;
 }
 
-Step::ClassType IfcDefinedSymbol::getType() const {
+const Step::ClassType &IfcDefinedSymbol::getType() const {
     return IfcDefinedSymbol::s_type;
 }
 
-bool IfcDefinedSymbol::isOfType(Step::ClassType t) {
+bool IfcDefinedSymbol::isOfType(const Step::ClassType &t) const {
     return IfcDefinedSymbol::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -79,6 +80,11 @@ IfcDefinedSymbolSelect *IfcDefinedSymbol::getDefinition() {
     else {
         return NULL;
     }
+}
+
+const IfcDefinedSymbolSelect *IfcDefinedSymbol::getDefinition() const {
+    IfcDefinedSymbol * deConstObject = const_cast< IfcDefinedSymbol * > (this);
+    return deConstObject->getDefinition();
 }
 
 void IfcDefinedSymbol::setDefinition(const Step::RefPtr< IfcDefinedSymbolSelect > &value) {
@@ -94,13 +100,13 @@ IfcCartesianTransformationOperator2D *IfcDefinedSymbol::getTarget() {
     }
 }
 
-void IfcDefinedSymbol::setTarget(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
-    m_target = value;
+const IfcCartesianTransformationOperator2D *IfcDefinedSymbol::getTarget() const {
+    IfcDefinedSymbol * deConstObject = const_cast< IfcDefinedSymbol * > (this);
+    return deConstObject->getTarget();
 }
 
-void IfcDefinedSymbol::release() {
-    IfcGeometricRepresentationItem::release();
-    m_target.release();
+void IfcDefinedSymbol::setTarget(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
+    m_target = value;
 }
 
 bool IfcDefinedSymbol::init() {
@@ -133,7 +139,7 @@ bool IfcDefinedSymbol::init() {
         m_target = NULL;
     }
     else {
-        m_target = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_target = static_cast< IfcCartesianTransformationOperator2D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -142,7 +148,7 @@ void IfcDefinedSymbol::copy(const IfcDefinedSymbol &obj, const CopyOp &copyop) {
     IfcGeometricRepresentationItem::copy(obj, copyop);
     m_definition = new IfcDefinedSymbolSelect;
     m_definition->copy(*(obj.m_definition.get()), copyop);
-    setTarget(copyop(obj.m_target.get()));
+    setTarget((IfcCartesianTransformationOperator2D*)copyop(obj.m_target.get()));
     return;
 }
 

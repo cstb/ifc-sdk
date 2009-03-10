@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -54,23 +54,23 @@ IfcOpticalMaterialProperties::IfcOpticalMaterialProperties(Step::Id id, Step::SP
 IfcOpticalMaterialProperties::~IfcOpticalMaterialProperties() {
 }
 
-bool IfcOpticalMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOpticalMaterialProperties(this);
+bool IfcOpticalMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOpticalMaterialProperties(this);
 }
 
-const std::string &IfcOpticalMaterialProperties::type() {
+const std::string &IfcOpticalMaterialProperties::type() const {
     return IfcOpticalMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcOpticalMaterialProperties::getClassType() {
+const Step::ClassType &IfcOpticalMaterialProperties::getClassType() {
     return IfcOpticalMaterialProperties::s_type;
 }
 
-Step::ClassType IfcOpticalMaterialProperties::getType() const {
+const Step::ClassType &IfcOpticalMaterialProperties::getType() const {
     return IfcOpticalMaterialProperties::s_type;
 }
 
-bool IfcOpticalMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcOpticalMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcOpticalMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance() 
     else {
         return Step::getUnset(m_visibleTransmittance);
     }
+}
+
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleTransmittance() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getVisibleTransmittance();
 }
 
 void IfcOpticalMaterialProperties::setVisibleTransmittance(IfcPositiveRatioMeasure value) {
@@ -96,6 +101,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() {
     }
 }
 
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getSolarTransmittance();
+}
+
 void IfcOpticalMaterialProperties::setSolarTransmittance(IfcPositiveRatioMeasure value) {
     m_solarTransmittance = value;
 }
@@ -107,6 +117,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance(
     else {
         return Step::getUnset(m_thermalIrTransmittance);
     }
+}
+
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getThermalIrTransmittance();
 }
 
 void IfcOpticalMaterialProperties::setThermalIrTransmittance(IfcPositiveRatioMeasure value) {
@@ -122,6 +137,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack
     }
 }
 
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getThermalIrEmissivityBack();
+}
+
 void IfcOpticalMaterialProperties::setThermalIrEmissivityBack(IfcPositiveRatioMeasure value) {
     m_thermalIrEmissivityBack = value;
 }
@@ -133,6 +153,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFron
     else {
         return Step::getUnset(m_thermalIrEmissivityFront);
     }
+}
+
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getThermalIrEmissivityFront();
 }
 
 void IfcOpticalMaterialProperties::setThermalIrEmissivityFront(IfcPositiveRatioMeasure value) {
@@ -148,6 +173,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack(
     }
 }
 
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getVisibleReflectanceBack();
+}
+
 void IfcOpticalMaterialProperties::setVisibleReflectanceBack(IfcPositiveRatioMeasure value) {
     m_visibleReflectanceBack = value;
 }
@@ -159,6 +189,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront
     else {
         return Step::getUnset(m_visibleReflectanceFront);
     }
+}
+
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getVisibleReflectanceFront();
 }
 
 void IfcOpticalMaterialProperties::setVisibleReflectanceFront(IfcPositiveRatioMeasure value) {
@@ -174,6 +209,11 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront()
     }
 }
 
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getSolarReflectanceFront();
+}
+
 void IfcOpticalMaterialProperties::setSolarReflectanceFront(IfcPositiveRatioMeasure value) {
     m_solarReflectanceFront = value;
 }
@@ -187,12 +227,13 @@ IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() 
     }
 }
 
-void IfcOpticalMaterialProperties::setSolarReflectanceBack(IfcPositiveRatioMeasure value) {
-    m_solarReflectanceBack = value;
+const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() const {
+    IfcOpticalMaterialProperties * deConstObject = const_cast< IfcOpticalMaterialProperties * > (this);
+    return deConstObject->getSolarReflectanceBack();
 }
 
-void IfcOpticalMaterialProperties::release() {
-    IfcMaterialProperties::release();
+void IfcOpticalMaterialProperties::setSolarReflectanceBack(IfcPositiveRatioMeasure value) {
+    m_solarReflectanceBack = value;
 }
 
 bool IfcOpticalMaterialProperties::init() {

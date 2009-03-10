@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +53,23 @@ IfcLightSourceSpot::IfcLightSourceSpot(Step::Id id, Step::SPFData *args) : IfcLi
 IfcLightSourceSpot::~IfcLightSourceSpot() {
 }
 
-bool IfcLightSourceSpot::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSourceSpot(this);
+bool IfcLightSourceSpot::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSourceSpot(this);
 }
 
-const std::string &IfcLightSourceSpot::type() {
+const std::string &IfcLightSourceSpot::type() const {
     return IfcLightSourceSpot::s_type.getName();
 }
 
-Step::ClassType IfcLightSourceSpot::getClassType() {
+const Step::ClassType &IfcLightSourceSpot::getClassType() {
     return IfcLightSourceSpot::s_type;
 }
 
-Step::ClassType IfcLightSourceSpot::getType() const {
+const Step::ClassType &IfcLightSourceSpot::getType() const {
     return IfcLightSourceSpot::s_type;
 }
 
-bool IfcLightSourceSpot::isOfType(Step::ClassType t) {
+bool IfcLightSourceSpot::isOfType(const Step::ClassType &t) const {
     return IfcLightSourceSpot::s_type == t ? true : IfcLightSourcePositional::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcDirection *IfcLightSourceSpot::getOrientation() {
     else {
         return NULL;
     }
+}
+
+const IfcDirection *IfcLightSourceSpot::getOrientation() const {
+    IfcLightSourceSpot * deConstObject = const_cast< IfcLightSourceSpot * > (this);
+    return deConstObject->getOrientation();
 }
 
 void IfcLightSourceSpot::setOrientation(const Step::RefPtr< IfcDirection > &value) {
@@ -95,6 +100,11 @@ IfcReal IfcLightSourceSpot::getConcentrationExponent() {
     }
 }
 
+const IfcReal IfcLightSourceSpot::getConcentrationExponent() const {
+    IfcLightSourceSpot * deConstObject = const_cast< IfcLightSourceSpot * > (this);
+    return deConstObject->getConcentrationExponent();
+}
+
 void IfcLightSourceSpot::setConcentrationExponent(IfcReal value) {
     m_concentrationExponent = value;
 }
@@ -106,6 +116,11 @@ IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getSpreadAngle() {
     else {
         return Step::getUnset(m_spreadAngle);
     }
+}
+
+const IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getSpreadAngle() const {
+    IfcLightSourceSpot * deConstObject = const_cast< IfcLightSourceSpot * > (this);
+    return deConstObject->getSpreadAngle();
 }
 
 void IfcLightSourceSpot::setSpreadAngle(IfcPositivePlaneAngleMeasure value) {
@@ -121,13 +136,13 @@ IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getBeamWidthAngle() {
     }
 }
 
-void IfcLightSourceSpot::setBeamWidthAngle(IfcPositivePlaneAngleMeasure value) {
-    m_beamWidthAngle = value;
+const IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getBeamWidthAngle() const {
+    IfcLightSourceSpot * deConstObject = const_cast< IfcLightSourceSpot * > (this);
+    return deConstObject->getBeamWidthAngle();
 }
 
-void IfcLightSourceSpot::release() {
-    IfcLightSourcePositional::release();
-    m_orientation.release();
+void IfcLightSourceSpot::setBeamWidthAngle(IfcPositivePlaneAngleMeasure value) {
+    m_beamWidthAngle = value;
 }
 
 bool IfcLightSourceSpot::init() {
@@ -141,7 +156,7 @@ bool IfcLightSourceSpot::init() {
         m_orientation = NULL;
     }
     else {
-        m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_orientation = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -169,7 +184,7 @@ bool IfcLightSourceSpot::init() {
 
 void IfcLightSourceSpot::copy(const IfcLightSourceSpot &obj, const CopyOp &copyop) {
     IfcLightSourcePositional::copy(obj, copyop);
-    setOrientation(copyop(obj.m_orientation.get()));
+    setOrientation((IfcDirection*)copyop(obj.m_orientation.get()));
     setConcentrationExponent(obj.m_concentrationExponent);
     setSpreadAngle(obj.m_spreadAngle);
     setBeamWidthAngle(obj.m_beamWidthAngle);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,35 +44,32 @@
 using namespace ifc2x3;
 
 IfcProcess::IfcProcess(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
-    m_operatesOn.setUnset(true);
-    m_isSuccessorFrom.setUnset(true);
-    m_isPredecessorTo.setUnset(true);
 }
 
 IfcProcess::~IfcProcess() {
 }
 
-bool IfcProcess::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProcess(this);
+bool IfcProcess::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProcess(this);
 }
 
-const std::string &IfcProcess::type() {
+const std::string &IfcProcess::type() const {
     return IfcProcess::s_type.getName();
 }
 
-Step::ClassType IfcProcess::getClassType() {
+const Step::ClassType &IfcProcess::getClassType() {
     return IfcProcess::s_type;
 }
 
-Step::ClassType IfcProcess::getType() const {
+const Step::ClassType &IfcProcess::getType() const {
     return IfcProcess::s_type;
 }
 
-bool IfcProcess::isOfType(Step::ClassType t) {
+bool IfcProcess::isOfType(const Step::ClassType &t) const {
     return IfcProcess::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > &IfcProcess::getOperatesOn() {
+Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() {
     if (Step::BaseObject::inited()) {
         return m_operatesOn;
     }
@@ -82,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcRelAssignsToProcess > > &IfcProcess::getOperatesOn()
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelSequence > > &IfcProcess::getIsSuccessorFrom() {
+const Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() const {
+    IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
+    return deConstObject->getOperatesOn();
+}
+
+Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() {
     if (Step::BaseObject::inited()) {
         return m_isSuccessorFrom;
     }
@@ -92,7 +94,12 @@ Step::Set< Step::ObsPtr< IfcRelSequence > > &IfcProcess::getIsSuccessorFrom() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelSequence > > &IfcProcess::getIsPredecessorTo() {
+const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const {
+    IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
+    return deConstObject->getIsSuccessorFrom();
+}
+
+Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
     if (Step::BaseObject::inited()) {
         return m_isPredecessorTo;
     }
@@ -102,8 +109,9 @@ Step::Set< Step::ObsPtr< IfcRelSequence > > &IfcProcess::getIsPredecessorTo() {
     }
 }
 
-void IfcProcess::release() {
-    IfcObject::release();
+const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() const {
+    IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
+    return deConstObject->getIsPredecessorTo();
 }
 
 bool IfcProcess::init() {

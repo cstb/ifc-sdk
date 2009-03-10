@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcLaborResource::IfcLaborResource(Step::Id id, Step::SPFData *args) : IfcConstr
 IfcLaborResource::~IfcLaborResource() {
 }
 
-bool IfcLaborResource::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLaborResource(this);
+bool IfcLaborResource::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLaborResource(this);
 }
 
-const std::string &IfcLaborResource::type() {
+const std::string &IfcLaborResource::type() const {
     return IfcLaborResource::s_type.getName();
 }
 
-Step::ClassType IfcLaborResource::getClassType() {
+const Step::ClassType &IfcLaborResource::getClassType() {
     return IfcLaborResource::s_type;
 }
 
-Step::ClassType IfcLaborResource::getType() const {
+const Step::ClassType &IfcLaborResource::getType() const {
     return IfcLaborResource::s_type;
 }
 
-bool IfcLaborResource::isOfType(Step::ClassType t) {
+bool IfcLaborResource::isOfType(const Step::ClassType &t) const {
     return IfcLaborResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcText IfcLaborResource::getSkillSet() {
     }
 }
 
-void IfcLaborResource::setSkillSet(const IfcText &value) {
-    m_skillSet = value;
+const IfcText IfcLaborResource::getSkillSet() const {
+    IfcLaborResource * deConstObject = const_cast< IfcLaborResource * > (this);
+    return deConstObject->getSkillSet();
 }
 
-void IfcLaborResource::release() {
-    IfcConstructionResource::release();
+void IfcLaborResource::setSkillSet(const IfcText &value) {
+    m_skillSet = value;
 }
 
 bool IfcLaborResource::init() {
@@ -94,7 +96,7 @@ bool IfcLaborResource::init() {
         m_skillSet = Step::getUnset(m_skillSet);
     }
     else {
-        m_skillSet = Step::spfToString(arg);
+        m_skillSet = Step::String::fromSPF(arg);
     }
     return true;
 }

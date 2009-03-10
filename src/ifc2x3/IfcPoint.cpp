@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPoint::IfcPoint(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentatio
 IfcPoint::~IfcPoint() {
 }
 
-bool IfcPoint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPoint(this);
+bool IfcPoint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPoint(this);
 }
 
-const std::string &IfcPoint::type() {
+const std::string &IfcPoint::type() const {
     return IfcPoint::s_type.getName();
 }
 
-Step::ClassType IfcPoint::getClassType() {
+const Step::ClassType &IfcPoint::getClassType() {
     return IfcPoint::s_type;
 }
 
-Step::ClassType IfcPoint::getType() const {
+const Step::ClassType &IfcPoint::getType() const {
     return IfcPoint::s_type;
 }
 
-bool IfcPoint::isOfType(Step::ClassType t) {
+bool IfcPoint::isOfType(const Step::ClassType &t) const {
     return IfcPoint::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
-}
-
-void IfcPoint::release() {
-    IfcGeometricRepresentationItem::release();
 }
 
 bool IfcPoint::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,6 +33,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -50,23 +51,23 @@ IfcPropertyReferenceValue::IfcPropertyReferenceValue(Step::Id id, Step::SPFData 
 IfcPropertyReferenceValue::~IfcPropertyReferenceValue() {
 }
 
-bool IfcPropertyReferenceValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertyReferenceValue(this);
+bool IfcPropertyReferenceValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertyReferenceValue(this);
 }
 
-const std::string &IfcPropertyReferenceValue::type() {
+const std::string &IfcPropertyReferenceValue::type() const {
     return IfcPropertyReferenceValue::s_type.getName();
 }
 
-Step::ClassType IfcPropertyReferenceValue::getClassType() {
+const Step::ClassType &IfcPropertyReferenceValue::getClassType() {
     return IfcPropertyReferenceValue::s_type;
 }
 
-Step::ClassType IfcPropertyReferenceValue::getType() const {
+const Step::ClassType &IfcPropertyReferenceValue::getType() const {
     return IfcPropertyReferenceValue::s_type;
 }
 
-bool IfcPropertyReferenceValue::isOfType(Step::ClassType t) {
+bool IfcPropertyReferenceValue::isOfType(const Step::ClassType &t) const {
     return IfcPropertyReferenceValue::s_type == t ? true : IfcSimpleProperty::isOfType(t);
 }
 
@@ -77,6 +78,11 @@ IfcLabel IfcPropertyReferenceValue::getUsageName() {
     else {
         return Step::getUnset(m_usageName);
     }
+}
+
+const IfcLabel IfcPropertyReferenceValue::getUsageName() const {
+    IfcPropertyReferenceValue * deConstObject = const_cast< IfcPropertyReferenceValue * > (this);
+    return deConstObject->getUsageName();
 }
 
 void IfcPropertyReferenceValue::setUsageName(const IfcLabel &value) {
@@ -92,12 +98,13 @@ IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() {
     }
 }
 
-void IfcPropertyReferenceValue::setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value) {
-    m_propertyReference = value;
+const IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() const {
+    IfcPropertyReferenceValue * deConstObject = const_cast< IfcPropertyReferenceValue * > (this);
+    return deConstObject->getPropertyReference();
 }
 
-void IfcPropertyReferenceValue::release() {
-    IfcSimpleProperty::release();
+void IfcPropertyReferenceValue::setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value) {
+    m_propertyReference = value;
 }
 
 bool IfcPropertyReferenceValue::init() {
@@ -111,7 +118,7 @@ bool IfcPropertyReferenceValue::init() {
         m_usageName = Step::getUnset(m_usageName);
     }
     else {
-        m_usageName = Step::spfToString(arg);
+        m_usageName = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

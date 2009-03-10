@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcPolygonalBoundedHalfSpace::IfcPolygonalBoundedHalfSpace(Step::Id id, Step::SP
 IfcPolygonalBoundedHalfSpace::~IfcPolygonalBoundedHalfSpace() {
 }
 
-bool IfcPolygonalBoundedHalfSpace::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPolygonalBoundedHalfSpace(this);
+bool IfcPolygonalBoundedHalfSpace::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPolygonalBoundedHalfSpace(this);
 }
 
-const std::string &IfcPolygonalBoundedHalfSpace::type() {
+const std::string &IfcPolygonalBoundedHalfSpace::type() const {
     return IfcPolygonalBoundedHalfSpace::s_type.getName();
 }
 
-Step::ClassType IfcPolygonalBoundedHalfSpace::getClassType() {
+const Step::ClassType &IfcPolygonalBoundedHalfSpace::getClassType() {
     return IfcPolygonalBoundedHalfSpace::s_type;
 }
 
-Step::ClassType IfcPolygonalBoundedHalfSpace::getType() const {
+const Step::ClassType &IfcPolygonalBoundedHalfSpace::getType() const {
     return IfcPolygonalBoundedHalfSpace::s_type;
 }
 
-bool IfcPolygonalBoundedHalfSpace::isOfType(Step::ClassType t) {
+bool IfcPolygonalBoundedHalfSpace::isOfType(const Step::ClassType &t) const {
     return IfcPolygonalBoundedHalfSpace::s_type == t ? true : IfcHalfSpaceSolid::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcAxis2Placement3D *IfcPolygonalBoundedHalfSpace::getPosition() {
     else {
         return NULL;
     }
+}
+
+const IfcAxis2Placement3D *IfcPolygonalBoundedHalfSpace::getPosition() const {
+    IfcPolygonalBoundedHalfSpace * deConstObject = const_cast< IfcPolygonalBoundedHalfSpace * > (this);
+    return deConstObject->getPosition();
 }
 
 void IfcPolygonalBoundedHalfSpace::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
@@ -94,14 +99,13 @@ IfcBoundedCurve *IfcPolygonalBoundedHalfSpace::getPolygonalBoundary() {
     }
 }
 
-void IfcPolygonalBoundedHalfSpace::setPolygonalBoundary(const Step::RefPtr< IfcBoundedCurve > &value) {
-    m_polygonalBoundary = value;
+const IfcBoundedCurve *IfcPolygonalBoundedHalfSpace::getPolygonalBoundary() const {
+    IfcPolygonalBoundedHalfSpace * deConstObject = const_cast< IfcPolygonalBoundedHalfSpace * > (this);
+    return deConstObject->getPolygonalBoundary();
 }
 
-void IfcPolygonalBoundedHalfSpace::release() {
-    IfcHalfSpaceSolid::release();
-    m_position.release();
-    m_polygonalBoundary.release();
+void IfcPolygonalBoundedHalfSpace::setPolygonalBoundary(const Step::RefPtr< IfcBoundedCurve > &value) {
+    m_polygonalBoundary = value;
 }
 
 bool IfcPolygonalBoundedHalfSpace::init() {
@@ -115,22 +119,22 @@ bool IfcPolygonalBoundedHalfSpace::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_polygonalBoundary = NULL;
     }
     else {
-        m_polygonalBoundary = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_polygonalBoundary = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcPolygonalBoundedHalfSpace::copy(const IfcPolygonalBoundedHalfSpace &obj, const CopyOp &copyop) {
     IfcHalfSpaceSolid::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
-    setPolygonalBoundary(copyop(obj.m_polygonalBoundary.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
+    setPolygonalBoundary((IfcBoundedCurve*)copyop(obj.m_polygonalBoundary.get()));
     return;
 }
 

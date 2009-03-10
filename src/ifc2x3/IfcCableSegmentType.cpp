@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCableSegmentType::IfcCableSegmentType(Step::Id id, Step::SPFData *args) : Ifc
 IfcCableSegmentType::~IfcCableSegmentType() {
 }
 
-bool IfcCableSegmentType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCableSegmentType(this);
+bool IfcCableSegmentType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCableSegmentType(this);
 }
 
-const std::string &IfcCableSegmentType::type() {
+const std::string &IfcCableSegmentType::type() const {
     return IfcCableSegmentType::s_type.getName();
 }
 
-Step::ClassType IfcCableSegmentType::getClassType() {
+const Step::ClassType &IfcCableSegmentType::getClassType() {
     return IfcCableSegmentType::s_type;
 }
 
-Step::ClassType IfcCableSegmentType::getType() const {
+const Step::ClassType &IfcCableSegmentType::getType() const {
     return IfcCableSegmentType::s_type;
 }
 
-bool IfcCableSegmentType::isOfType(Step::ClassType t) {
+bool IfcCableSegmentType::isOfType(const Step::ClassType &t) const {
     return IfcCableSegmentType::s_type == t ? true : IfcFlowSegmentType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCableSegmentTypeEnum IfcCableSegmentType::getPredefinedType() {
     }
 }
 
-void IfcCableSegmentType::setPredefinedType(IfcCableSegmentTypeEnum value) {
-    m_predefinedType = value;
+const IfcCableSegmentTypeEnum IfcCableSegmentType::getPredefinedType() const {
+    IfcCableSegmentType * deConstObject = const_cast< IfcCableSegmentType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCableSegmentType::release() {
-    IfcFlowSegmentType::release();
+void IfcCableSegmentType::setPredefinedType(IfcCableSegmentTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCableSegmentType::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,7 +34,6 @@
 #include "ifc2x3/IfcRelConnectsElements.h"
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 
 namespace ifc2x3 {
 
@@ -45,63 +44,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRelConnectsPathElements : public IfcRelConnectsElements {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RelatingPriorities'.
+         * 
          */
-        Step::List< Step::Integer > &getRelatingPriorities();
+        virtual List_Integer_0_n &getRelatingPriorities();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingPriorities'.
+         * 
+         * @return the value of the explicit attribute 'RelatingPriorities'
+         */
+        virtual const List_Integer_0_n &getRelatingPriorities() const;
         /**
          * Sets the value of the explicit attribute 'RelatingPriorities'.
          * 
          * @param value
          */
-        void setRelatingPriorities(const Step::List< Step::Integer > &value);
+        virtual void setRelatingPriorities(const List_Integer_0_n &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedPriorities'.
+         * 
          */
-        Step::List< Step::Integer > &getRelatedPriorities();
+        virtual List_Integer_0_n &getRelatedPriorities();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatedPriorities'.
+         * 
+         * @return the value of the explicit attribute 'RelatedPriorities'
+         */
+        virtual const List_Integer_0_n &getRelatedPriorities() const;
         /**
          * Sets the value of the explicit attribute 'RelatedPriorities'.
          * 
          * @param value
          */
-        void setRelatedPriorities(const Step::List< Step::Integer > &value);
+        virtual void setRelatedPriorities(const List_Integer_0_n &value);
         /**
+         * Gets the value of the explicit attribute 'RelatedConnectionType'.
+         * 
          */
-        IfcConnectionTypeEnum getRelatedConnectionType();
+        virtual IfcConnectionTypeEnum getRelatedConnectionType();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatedConnectionType'.
+         * 
+         * @return the value of the explicit attribute 'RelatedConnectionType'
+         */
+        virtual const IfcConnectionTypeEnum getRelatedConnectionType() const;
         /**
          * Sets the value of the explicit attribute 'RelatedConnectionType'.
          * 
          * @param value
          */
-        void setRelatedConnectionType(IfcConnectionTypeEnum value);
+        virtual void setRelatedConnectionType(IfcConnectionTypeEnum value);
         /**
+         * Gets the value of the explicit attribute 'RelatingConnectionType'.
+         * 
          */
-        IfcConnectionTypeEnum getRelatingConnectionType();
+        virtual IfcConnectionTypeEnum getRelatingConnectionType();
+        /**
+         * (const) Returns the value of the explicit attribute 'RelatingConnectionType'.
+         * 
+         * @return the value of the explicit attribute 'RelatingConnectionType'
+         */
+        virtual const IfcConnectionTypeEnum getRelatingConnectionType() const;
         /**
          * Sets the value of the explicit attribute 'RelatingConnectionType'.
          * 
          * @param value
          */
-        void setRelatingConnectionType(IfcConnectionTypeEnum value);
-        /**
-         */
-        virtual void release();
+        virtual void setRelatingConnectionType(IfcConnectionTypeEnum value);
         friend class ExpressDataSet;
 
     protected:
@@ -126,10 +162,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::List< Step::Integer > m_relatingPriorities;
+        List_Integer_0_n m_relatingPriorities;
         /**
          */
-        Step::List< Step::Integer > m_relatedPriorities;
+        List_Integer_0_n m_relatedPriorities;
         /**
          */
         IfcConnectionTypeEnum m_relatedConnectionType;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcConnectionPointEccentricity::IfcConnectionPointEccentricity(Step::Id id, Step
 IfcConnectionPointEccentricity::~IfcConnectionPointEccentricity() {
 }
 
-bool IfcConnectionPointEccentricity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConnectionPointEccentricity(this);
+bool IfcConnectionPointEccentricity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConnectionPointEccentricity(this);
 }
 
-const std::string &IfcConnectionPointEccentricity::type() {
+const std::string &IfcConnectionPointEccentricity::type() const {
     return IfcConnectionPointEccentricity::s_type.getName();
 }
 
-Step::ClassType IfcConnectionPointEccentricity::getClassType() {
+const Step::ClassType &IfcConnectionPointEccentricity::getClassType() {
     return IfcConnectionPointEccentricity::s_type;
 }
 
-Step::ClassType IfcConnectionPointEccentricity::getType() const {
+const Step::ClassType &IfcConnectionPointEccentricity::getType() const {
     return IfcConnectionPointEccentricity::s_type;
 }
 
-bool IfcConnectionPointEccentricity::isOfType(Step::ClassType t) {
+bool IfcConnectionPointEccentricity::isOfType(const Step::ClassType &t) const {
     return IfcConnectionPointEccentricity::s_type == t ? true : IfcConnectionPointGeometry::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX() {
     else {
         return Step::getUnset(m_eccentricityInX);
     }
+}
+
+const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInX() const {
+    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
+    return deConstObject->getEccentricityInX();
 }
 
 void IfcConnectionPointEccentricity::setEccentricityInX(IfcLengthMeasure value) {
@@ -90,6 +95,11 @@ IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() {
     }
 }
 
+const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() const {
+    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
+    return deConstObject->getEccentricityInY();
+}
+
 void IfcConnectionPointEccentricity::setEccentricityInY(IfcLengthMeasure value) {
     m_eccentricityInY = value;
 }
@@ -103,12 +113,13 @@ IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() {
     }
 }
 
-void IfcConnectionPointEccentricity::setEccentricityInZ(IfcLengthMeasure value) {
-    m_eccentricityInZ = value;
+const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() const {
+    IfcConnectionPointEccentricity * deConstObject = const_cast< IfcConnectionPointEccentricity * > (this);
+    return deConstObject->getEccentricityInZ();
 }
 
-void IfcConnectionPointEccentricity::release() {
-    IfcConnectionPointGeometry::release();
+void IfcConnectionPointEccentricity::setEccentricityInZ(IfcLengthMeasure value) {
+    m_eccentricityInZ = value;
 }
 
 bool IfcConnectionPointEccentricity::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcContextDependentUnit::IfcContextDependentUnit(Step::Id id, Step::SPFData *arg
 IfcContextDependentUnit::~IfcContextDependentUnit() {
 }
 
-bool IfcContextDependentUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcContextDependentUnit(this);
+bool IfcContextDependentUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcContextDependentUnit(this);
 }
 
-const std::string &IfcContextDependentUnit::type() {
+const std::string &IfcContextDependentUnit::type() const {
     return IfcContextDependentUnit::s_type.getName();
 }
 
-Step::ClassType IfcContextDependentUnit::getClassType() {
+const Step::ClassType &IfcContextDependentUnit::getClassType() {
     return IfcContextDependentUnit::s_type;
 }
 
-Step::ClassType IfcContextDependentUnit::getType() const {
+const Step::ClassType &IfcContextDependentUnit::getType() const {
     return IfcContextDependentUnit::s_type;
 }
 
-bool IfcContextDependentUnit::isOfType(Step::ClassType t) {
+bool IfcContextDependentUnit::isOfType(const Step::ClassType &t) const {
     return IfcContextDependentUnit::s_type == t ? true : IfcNamedUnit::isOfType(t);
 }
 
@@ -75,12 +76,13 @@ IfcLabel IfcContextDependentUnit::getName() {
     }
 }
 
-void IfcContextDependentUnit::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcContextDependentUnit::getName() const {
+    IfcContextDependentUnit * deConstObject = const_cast< IfcContextDependentUnit * > (this);
+    return deConstObject->getName();
 }
 
-void IfcContextDependentUnit::release() {
-    IfcNamedUnit::release();
+void IfcContextDependentUnit::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcContextDependentUnit::init() {
@@ -94,7 +96,7 @@ bool IfcContextDependentUnit::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

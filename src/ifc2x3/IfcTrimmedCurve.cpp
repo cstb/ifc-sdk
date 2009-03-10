@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,8 +47,6 @@ using namespace ifc2x3;
 
 IfcTrimmedCurve::IfcTrimmedCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
     m_basisCurve = NULL;
-    m_trim1.setUnset(true);
-    m_trim2.setUnset(true);
     m_senseAgreement = Step::getUnset(m_senseAgreement);
     m_masterRepresentation = IfcTrimmingPreference_UNSET;
 }
@@ -56,23 +54,23 @@ IfcTrimmedCurve::IfcTrimmedCurve(Step::Id id, Step::SPFData *args) : IfcBoundedC
 IfcTrimmedCurve::~IfcTrimmedCurve() {
 }
 
-bool IfcTrimmedCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTrimmedCurve(this);
+bool IfcTrimmedCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTrimmedCurve(this);
 }
 
-const std::string &IfcTrimmedCurve::type() {
+const std::string &IfcTrimmedCurve::type() const {
     return IfcTrimmedCurve::s_type.getName();
 }
 
-Step::ClassType IfcTrimmedCurve::getClassType() {
+const Step::ClassType &IfcTrimmedCurve::getClassType() {
     return IfcTrimmedCurve::s_type;
 }
 
-Step::ClassType IfcTrimmedCurve::getType() const {
+const Step::ClassType &IfcTrimmedCurve::getType() const {
     return IfcTrimmedCurve::s_type;
 }
 
-bool IfcTrimmedCurve::isOfType(Step::ClassType t) {
+bool IfcTrimmedCurve::isOfType(const Step::ClassType &t) const {
     return IfcTrimmedCurve::s_type == t ? true : IfcBoundedCurve::isOfType(t);
 }
 
@@ -85,11 +83,16 @@ IfcCurve *IfcTrimmedCurve::getBasisCurve() {
     }
 }
 
+const IfcCurve *IfcTrimmedCurve::getBasisCurve() const {
+    IfcTrimmedCurve * deConstObject = const_cast< IfcTrimmedCurve * > (this);
+    return deConstObject->getBasisCurve();
+}
+
 void IfcTrimmedCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_basisCurve = value;
 }
 
-Step::Set< Step::RefPtr< IfcTrimmingSelect > > &IfcTrimmedCurve::getTrim1() {
+Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim1() {
     if (Step::BaseObject::inited()) {
         return m_trim1;
     }
@@ -99,11 +102,16 @@ Step::Set< Step::RefPtr< IfcTrimmingSelect > > &IfcTrimmedCurve::getTrim1() {
     }
 }
 
-void IfcTrimmedCurve::setTrim1(const Step::Set< Step::RefPtr< IfcTrimmingSelect > > &value) {
+const Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim1() const {
+    IfcTrimmedCurve * deConstObject = const_cast< IfcTrimmedCurve * > (this);
+    return deConstObject->getTrim1();
+}
+
+void IfcTrimmedCurve::setTrim1(const Set_IfcTrimmingSelect_1_2 &value) {
     m_trim1 = value;
 }
 
-Step::Set< Step::RefPtr< IfcTrimmingSelect > > &IfcTrimmedCurve::getTrim2() {
+Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim2() {
     if (Step::BaseObject::inited()) {
         return m_trim2;
     }
@@ -113,11 +121,16 @@ Step::Set< Step::RefPtr< IfcTrimmingSelect > > &IfcTrimmedCurve::getTrim2() {
     }
 }
 
-void IfcTrimmedCurve::setTrim2(const Step::Set< Step::RefPtr< IfcTrimmingSelect > > &value) {
+const Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim2() const {
+    IfcTrimmedCurve * deConstObject = const_cast< IfcTrimmedCurve * > (this);
+    return deConstObject->getTrim2();
+}
+
+void IfcTrimmedCurve::setTrim2(const Set_IfcTrimmingSelect_1_2 &value) {
     m_trim2 = value;
 }
 
-Step::Bool IfcTrimmedCurve::getSenseAgreement() {
+Step::Boolean IfcTrimmedCurve::getSenseAgreement() {
     if (Step::BaseObject::inited()) {
         return m_senseAgreement;
     }
@@ -126,7 +139,12 @@ Step::Bool IfcTrimmedCurve::getSenseAgreement() {
     }
 }
 
-void IfcTrimmedCurve::setSenseAgreement(Step::Bool value) {
+const Step::Boolean IfcTrimmedCurve::getSenseAgreement() const {
+    IfcTrimmedCurve * deConstObject = const_cast< IfcTrimmedCurve * > (this);
+    return deConstObject->getSenseAgreement();
+}
+
+void IfcTrimmedCurve::setSenseAgreement(Step::Boolean value) {
     m_senseAgreement = value;
 }
 
@@ -139,15 +157,13 @@ IfcTrimmingPreference IfcTrimmedCurve::getMasterRepresentation() {
     }
 }
 
-void IfcTrimmedCurve::setMasterRepresentation(IfcTrimmingPreference value) {
-    m_masterRepresentation = value;
+const IfcTrimmingPreference IfcTrimmedCurve::getMasterRepresentation() const {
+    IfcTrimmedCurve * deConstObject = const_cast< IfcTrimmedCurve * > (this);
+    return deConstObject->getMasterRepresentation();
 }
 
-void IfcTrimmedCurve::release() {
-    IfcBoundedCurve::release();
-    m_basisCurve.release();
-    m_trim1.clear();
-    m_trim2.clear();
+void IfcTrimmedCurve::setMasterRepresentation(IfcTrimmingPreference value) {
+    m_masterRepresentation = value;
 }
 
 bool IfcTrimmedCurve::init() {
@@ -161,7 +177,7 @@ bool IfcTrimmedCurve::init() {
         m_basisCurve = NULL;
     }
     else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -240,7 +256,7 @@ bool IfcTrimmedCurve::init() {
         m_senseAgreement = Step::getUnset(m_senseAgreement);
     }
     else {
-        m_senseAgreement = Step::spfToBool(arg);
+        m_senseAgreement = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -261,10 +277,10 @@ bool IfcTrimmedCurve::init() {
 }
 
 void IfcTrimmedCurve::copy(const IfcTrimmedCurve &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcTrimmingSelect > >::const_iterator it_m_trim1;
-    Step::Set< Step::RefPtr< IfcTrimmingSelect > >::const_iterator it_m_trim2;
+    Step::Set< Step::RefPtr< IfcTrimmingSelect >, 1, 2 >::const_iterator it_m_trim1;
+    Step::Set< Step::RefPtr< IfcTrimmingSelect >, 1, 2 >::const_iterator it_m_trim2;
     IfcBoundedCurve::copy(obj, copyop);
-    setBasisCurve(copyop(obj.m_basisCurve.get()));
+    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
     for (it_m_trim1 = obj.m_trim1.begin(); it_m_trim1 != obj.m_trim1.end(); ++it_m_trim1) {
         Step::RefPtr< IfcTrimmingSelect > copyTarget = new IfcTrimmingSelect;
         copyTarget->copy(*((*it_m_trim1).get()), copyop);

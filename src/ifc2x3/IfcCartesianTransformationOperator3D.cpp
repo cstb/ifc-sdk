@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcCartesianTransformationOperator3D::IfcCartesianTransformationOperator3D(Step:
 IfcCartesianTransformationOperator3D::~IfcCartesianTransformationOperator3D() {
 }
 
-bool IfcCartesianTransformationOperator3D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCartesianTransformationOperator3D(this);
+bool IfcCartesianTransformationOperator3D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCartesianTransformationOperator3D(this);
 }
 
-const std::string &IfcCartesianTransformationOperator3D::type() {
+const std::string &IfcCartesianTransformationOperator3D::type() const {
     return IfcCartesianTransformationOperator3D::s_type.getName();
 }
 
-Step::ClassType IfcCartesianTransformationOperator3D::getClassType() {
+const Step::ClassType &IfcCartesianTransformationOperator3D::getClassType() {
     return IfcCartesianTransformationOperator3D::s_type;
 }
 
-Step::ClassType IfcCartesianTransformationOperator3D::getType() const {
+const Step::ClassType &IfcCartesianTransformationOperator3D::getType() const {
     return IfcCartesianTransformationOperator3D::s_type;
 }
 
-bool IfcCartesianTransformationOperator3D::isOfType(Step::ClassType t) {
+bool IfcCartesianTransformationOperator3D::isOfType(const Step::ClassType &t) const {
     return IfcCartesianTransformationOperator3D::s_type == t ? true : IfcCartesianTransformationOperator::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcDirection *IfcCartesianTransformationOperator3D::getAxis3() {
     }
 }
 
-void IfcCartesianTransformationOperator3D::setAxis3(const Step::RefPtr< IfcDirection > &value) {
-    m_axis3 = value;
+const IfcDirection *IfcCartesianTransformationOperator3D::getAxis3() const {
+    IfcCartesianTransformationOperator3D * deConstObject = const_cast< IfcCartesianTransformationOperator3D * > (this);
+    return deConstObject->getAxis3();
 }
 
-void IfcCartesianTransformationOperator3D::release() {
-    IfcCartesianTransformationOperator::release();
-    m_axis3.release();
+void IfcCartesianTransformationOperator3D::setAxis3(const Step::RefPtr< IfcDirection > &value) {
+    m_axis3 = value;
 }
 
 bool IfcCartesianTransformationOperator3D::init() {
@@ -99,14 +99,14 @@ bool IfcCartesianTransformationOperator3D::init() {
         m_axis3 = NULL;
     }
     else {
-        m_axis3 = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_axis3 = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcCartesianTransformationOperator3D::copy(const IfcCartesianTransformationOperator3D &obj, const CopyOp &copyop) {
     IfcCartesianTransformationOperator::copy(obj, copyop);
-    setAxis3(copyop(obj.m_axis3.get()));
+    setAxis3((IfcDirection*)copyop(obj.m_axis3.get()));
     return;
 }
 

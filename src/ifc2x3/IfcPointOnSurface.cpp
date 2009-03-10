@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcPointOnSurface::IfcPointOnSurface(Step::Id id, Step::SPFData *args) : IfcPoin
 IfcPointOnSurface::~IfcPointOnSurface() {
 }
 
-bool IfcPointOnSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPointOnSurface(this);
+bool IfcPointOnSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPointOnSurface(this);
 }
 
-const std::string &IfcPointOnSurface::type() {
+const std::string &IfcPointOnSurface::type() const {
     return IfcPointOnSurface::s_type.getName();
 }
 
-Step::ClassType IfcPointOnSurface::getClassType() {
+const Step::ClassType &IfcPointOnSurface::getClassType() {
     return IfcPointOnSurface::s_type;
 }
 
-Step::ClassType IfcPointOnSurface::getType() const {
+const Step::ClassType &IfcPointOnSurface::getType() const {
     return IfcPointOnSurface::s_type;
 }
 
-bool IfcPointOnSurface::isOfType(Step::ClassType t) {
+bool IfcPointOnSurface::isOfType(const Step::ClassType &t) const {
     return IfcPointOnSurface::s_type == t ? true : IfcPoint::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcSurface *IfcPointOnSurface::getBasisSurface() {
     else {
         return NULL;
     }
+}
+
+const IfcSurface *IfcPointOnSurface::getBasisSurface() const {
+    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
+    return deConstObject->getBasisSurface();
 }
 
 void IfcPointOnSurface::setBasisSurface(const Step::RefPtr< IfcSurface > &value) {
@@ -94,6 +99,11 @@ IfcParameterValue IfcPointOnSurface::getPointParameterU() {
     }
 }
 
+const IfcParameterValue IfcPointOnSurface::getPointParameterU() const {
+    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
+    return deConstObject->getPointParameterU();
+}
+
 void IfcPointOnSurface::setPointParameterU(IfcParameterValue value) {
     m_pointParameterU = value;
 }
@@ -107,13 +117,13 @@ IfcParameterValue IfcPointOnSurface::getPointParameterV() {
     }
 }
 
-void IfcPointOnSurface::setPointParameterV(IfcParameterValue value) {
-    m_pointParameterV = value;
+const IfcParameterValue IfcPointOnSurface::getPointParameterV() const {
+    IfcPointOnSurface * deConstObject = const_cast< IfcPointOnSurface * > (this);
+    return deConstObject->getPointParameterV();
 }
 
-void IfcPointOnSurface::release() {
-    IfcPoint::release();
-    m_basisSurface.release();
+void IfcPointOnSurface::setPointParameterV(IfcParameterValue value) {
+    m_pointParameterV = value;
 }
 
 bool IfcPointOnSurface::init() {
@@ -127,7 +137,7 @@ bool IfcPointOnSurface::init() {
         m_basisSurface = NULL;
     }
     else {
-        m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisSurface = static_cast< IfcSurface * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -148,7 +158,7 @@ bool IfcPointOnSurface::init() {
 
 void IfcPointOnSurface::copy(const IfcPointOnSurface &obj, const CopyOp &copyop) {
     IfcPoint::copy(obj, copyop);
-    setBasisSurface(copyop(obj.m_basisSurface.get()));
+    setBasisSurface((IfcSurface*)copyop(obj.m_basisSurface.get()));
     setPointParameterU(obj.m_pointParameterU);
     setPointParameterV(obj.m_pointParameterV);
     return;

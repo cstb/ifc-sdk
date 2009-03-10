@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,10 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/SPFData.h>
 #include "ifc2x3/IfcAddress.h"
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
@@ -45,72 +45,117 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcTelecomAddress : public IfcAddress {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'TelephoneNumbers'.
+         * 
          */
-        Step::List< IfcLabel > &getTelephoneNumbers();
+        virtual List_IfcLabel_1_n &getTelephoneNumbers();
+        /**
+         * (const) Returns the value of the explicit attribute 'TelephoneNumbers'.
+         * 
+         * @return the value of the explicit attribute 'TelephoneNumbers'
+         */
+        virtual const List_IfcLabel_1_n &getTelephoneNumbers() const;
         /**
          * Sets the value of the explicit attribute 'TelephoneNumbers'.
          * 
          * @param value
          */
-        void setTelephoneNumbers(const Step::List< IfcLabel > &value);
+        virtual void setTelephoneNumbers(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'FacsimileNumbers'.
+         * 
          */
-        Step::List< IfcLabel > &getFacsimileNumbers();
+        virtual List_IfcLabel_1_n &getFacsimileNumbers();
+        /**
+         * (const) Returns the value of the explicit attribute 'FacsimileNumbers'.
+         * 
+         * @return the value of the explicit attribute 'FacsimileNumbers'
+         */
+        virtual const List_IfcLabel_1_n &getFacsimileNumbers() const;
         /**
          * Sets the value of the explicit attribute 'FacsimileNumbers'.
          * 
          * @param value
          */
-        void setFacsimileNumbers(const Step::List< IfcLabel > &value);
+        virtual void setFacsimileNumbers(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'PagerNumber'.
+         * 
          */
-        IfcLabel getPagerNumber();
+        virtual IfcLabel getPagerNumber();
+        /**
+         * (const) Returns the value of the explicit attribute 'PagerNumber'.
+         * 
+         * @return the value of the explicit attribute 'PagerNumber'
+         */
+        virtual const IfcLabel getPagerNumber() const;
         /**
          * Sets the value of the explicit attribute 'PagerNumber'.
          * 
          * @param value
          */
-        void setPagerNumber(const IfcLabel &value);
+        virtual void setPagerNumber(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'ElectronicMailAddresses'.
+         * 
          */
-        Step::List< IfcLabel > &getElectronicMailAddresses();
+        virtual List_IfcLabel_1_n &getElectronicMailAddresses();
+        /**
+         * (const) Returns the value of the explicit attribute 'ElectronicMailAddresses'.
+         * 
+         * @return the value of the explicit attribute 'ElectronicMailAddresses'
+         */
+        virtual const List_IfcLabel_1_n &getElectronicMailAddresses() const;
         /**
          * Sets the value of the explicit attribute 'ElectronicMailAddresses'.
          * 
          * @param value
          */
-        void setElectronicMailAddresses(const Step::List< IfcLabel > &value);
+        virtual void setElectronicMailAddresses(const List_IfcLabel_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'WWWHomePageURL'.
+         * 
          */
-        IfcLabel getWWWHomePageURL();
+        virtual IfcLabel getWWWHomePageURL();
+        /**
+         * (const) Returns the value of the explicit attribute 'WWWHomePageURL'.
+         * 
+         * @return the value of the explicit attribute 'WWWHomePageURL'
+         */
+        virtual const IfcLabel getWWWHomePageURL() const;
         /**
          * Sets the value of the explicit attribute 'WWWHomePageURL'.
          * 
          * @param value
          */
-        void setWWWHomePageURL(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setWWWHomePageURL(const IfcLabel &value);
         friend class ExpressDataSet;
 
     protected:
@@ -135,19 +180,19 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Step::List< IfcLabel > m_telephoneNumbers;
+        List_IfcLabel_1_n m_telephoneNumbers;
         /**
          */
-        Step::List< IfcLabel > m_facsimileNumbers;
+        List_IfcLabel_1_n m_facsimileNumbers;
         /**
          */
-        std::string m_pagerNumber;
+        Step::String m_pagerNumber;
         /**
          */
-        Step::List< IfcLabel > m_electronicMailAddresses;
+        List_IfcLabel_1_n m_electronicMailAddresses;
         /**
          */
-        std::string m_wWWHomePageURL;
+        Step::String m_wWWHomePageURL;
 
     };
 

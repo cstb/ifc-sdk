@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcSlippageConnectionCondition::IfcSlippageConnectionCondition(Step::Id id, Step
 IfcSlippageConnectionCondition::~IfcSlippageConnectionCondition() {
 }
 
-bool IfcSlippageConnectionCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSlippageConnectionCondition(this);
+bool IfcSlippageConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSlippageConnectionCondition(this);
 }
 
-const std::string &IfcSlippageConnectionCondition::type() {
+const std::string &IfcSlippageConnectionCondition::type() const {
     return IfcSlippageConnectionCondition::s_type.getName();
 }
 
-Step::ClassType IfcSlippageConnectionCondition::getClassType() {
+const Step::ClassType &IfcSlippageConnectionCondition::getClassType() {
     return IfcSlippageConnectionCondition::s_type;
 }
 
-Step::ClassType IfcSlippageConnectionCondition::getType() const {
+const Step::ClassType &IfcSlippageConnectionCondition::getType() const {
     return IfcSlippageConnectionCondition::s_type;
 }
 
-bool IfcSlippageConnectionCondition::isOfType(Step::ClassType t) {
+bool IfcSlippageConnectionCondition::isOfType(const Step::ClassType &t) const {
     return IfcSlippageConnectionCondition::s_type == t ? true : IfcStructuralConnectionCondition::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX() {
     else {
         return Step::getUnset(m_slippageX);
     }
+}
+
+const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageX() const {
+    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
+    return deConstObject->getSlippageX();
 }
 
 void IfcSlippageConnectionCondition::setSlippageX(IfcLengthMeasure value) {
@@ -90,6 +95,11 @@ IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() {
     }
 }
 
+const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() const {
+    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
+    return deConstObject->getSlippageY();
+}
+
 void IfcSlippageConnectionCondition::setSlippageY(IfcLengthMeasure value) {
     m_slippageY = value;
 }
@@ -103,12 +113,13 @@ IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() {
     }
 }
 
-void IfcSlippageConnectionCondition::setSlippageZ(IfcLengthMeasure value) {
-    m_slippageZ = value;
+const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() const {
+    IfcSlippageConnectionCondition * deConstObject = const_cast< IfcSlippageConnectionCondition * > (this);
+    return deConstObject->getSlippageZ();
 }
 
-void IfcSlippageConnectionCondition::release() {
-    IfcStructuralConnectionCondition::release();
+void IfcSlippageConnectionCondition::setSlippageZ(IfcLengthMeasure value) {
+    m_slippageZ = value;
 }
 
 bool IfcSlippageConnectionCondition::init() {

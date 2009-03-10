@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,126 +46,219 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcDoorLiningProperties : public IfcPropertySetDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LiningDepth'.
+         * 
          */
-        IfcPositiveLengthMeasure getLiningDepth();
+        virtual IfcPositiveLengthMeasure getLiningDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'LiningDepth'.
+         * 
+         * @return the value of the explicit attribute 'LiningDepth'
+         */
+        virtual const IfcPositiveLengthMeasure getLiningDepth() const;
         /**
          * Sets the value of the explicit attribute 'LiningDepth'.
          * 
          * @param value
          */
-        void setLiningDepth(IfcPositiveLengthMeasure value);
+        virtual void setLiningDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LiningThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getLiningThickness();
+        virtual IfcPositiveLengthMeasure getLiningThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'LiningThickness'.
+         * 
+         * @return the value of the explicit attribute 'LiningThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getLiningThickness() const;
         /**
          * Sets the value of the explicit attribute 'LiningThickness'.
          * 
          * @param value
          */
-        void setLiningThickness(IfcPositiveLengthMeasure value);
+        virtual void setLiningThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThresholdDepth'.
+         * 
          */
-        IfcPositiveLengthMeasure getThresholdDepth();
+        virtual IfcPositiveLengthMeasure getThresholdDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThresholdDepth'.
+         * 
+         * @return the value of the explicit attribute 'ThresholdDepth'
+         */
+        virtual const IfcPositiveLengthMeasure getThresholdDepth() const;
         /**
          * Sets the value of the explicit attribute 'ThresholdDepth'.
          * 
          * @param value
          */
-        void setThresholdDepth(IfcPositiveLengthMeasure value);
+        virtual void setThresholdDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThresholdThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getThresholdThickness();
+        virtual IfcPositiveLengthMeasure getThresholdThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThresholdThickness'.
+         * 
+         * @return the value of the explicit attribute 'ThresholdThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getThresholdThickness() const;
         /**
          * Sets the value of the explicit attribute 'ThresholdThickness'.
          * 
          * @param value
          */
-        void setThresholdThickness(IfcPositiveLengthMeasure value);
+        virtual void setThresholdThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TransomThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getTransomThickness();
+        virtual IfcPositiveLengthMeasure getTransomThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'TransomThickness'.
+         * 
+         * @return the value of the explicit attribute 'TransomThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getTransomThickness() const;
         /**
          * Sets the value of the explicit attribute 'TransomThickness'.
          * 
          * @param value
          */
-        void setTransomThickness(IfcPositiveLengthMeasure value);
+        virtual void setTransomThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TransomOffset'.
+         * 
          */
-        IfcLengthMeasure getTransomOffset();
+        virtual IfcLengthMeasure getTransomOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'TransomOffset'.
+         * 
+         * @return the value of the explicit attribute 'TransomOffset'
+         */
+        virtual const IfcLengthMeasure getTransomOffset() const;
         /**
          * Sets the value of the explicit attribute 'TransomOffset'.
          * 
          * @param value
          */
-        void setTransomOffset(IfcLengthMeasure value);
+        virtual void setTransomOffset(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LiningOffset'.
+         * 
          */
-        IfcLengthMeasure getLiningOffset();
+        virtual IfcLengthMeasure getLiningOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'LiningOffset'.
+         * 
+         * @return the value of the explicit attribute 'LiningOffset'
+         */
+        virtual const IfcLengthMeasure getLiningOffset() const;
         /**
          * Sets the value of the explicit attribute 'LiningOffset'.
          * 
          * @param value
          */
-        void setLiningOffset(IfcLengthMeasure value);
+        virtual void setLiningOffset(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThresholdOffset'.
+         * 
          */
-        IfcLengthMeasure getThresholdOffset();
+        virtual IfcLengthMeasure getThresholdOffset();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThresholdOffset'.
+         * 
+         * @return the value of the explicit attribute 'ThresholdOffset'
+         */
+        virtual const IfcLengthMeasure getThresholdOffset() const;
         /**
          * Sets the value of the explicit attribute 'ThresholdOffset'.
          * 
          * @param value
          */
-        void setThresholdOffset(IfcLengthMeasure value);
+        virtual void setThresholdOffset(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CasingThickness'.
+         * 
          */
-        IfcPositiveLengthMeasure getCasingThickness();
+        virtual IfcPositiveLengthMeasure getCasingThickness();
+        /**
+         * (const) Returns the value of the explicit attribute 'CasingThickness'.
+         * 
+         * @return the value of the explicit attribute 'CasingThickness'
+         */
+        virtual const IfcPositiveLengthMeasure getCasingThickness() const;
         /**
          * Sets the value of the explicit attribute 'CasingThickness'.
          * 
          * @param value
          */
-        void setCasingThickness(IfcPositiveLengthMeasure value);
+        virtual void setCasingThickness(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CasingDepth'.
+         * 
          */
-        IfcPositiveLengthMeasure getCasingDepth();
+        virtual IfcPositiveLengthMeasure getCasingDepth();
+        /**
+         * (const) Returns the value of the explicit attribute 'CasingDepth'.
+         * 
+         * @return the value of the explicit attribute 'CasingDepth'
+         */
+        virtual const IfcPositiveLengthMeasure getCasingDepth() const;
         /**
          * Sets the value of the explicit attribute 'CasingDepth'.
          * 
          * @param value
          */
-        void setCasingDepth(IfcPositiveLengthMeasure value);
+        virtual void setCasingDepth(IfcPositiveLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
          */
-        IfcShapeAspect *getShapeAspectStyle();
+        virtual IfcShapeAspect *getShapeAspectStyle();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShapeAspectStyle'.
+         * 
+         * @return the value of the explicit attribute 'ShapeAspectStyle'
+         */
+        virtual const IfcShapeAspect *getShapeAspectStyle() const;
         /**
          * Sets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          * @param value
          */
-        void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
         friend class ExpressDataSet;
 
     protected:

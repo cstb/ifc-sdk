@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,34 +48,34 @@ IfcTrimmingSelect::~IfcTrimmingSelect() {
     deleteUnion();
 }
 
-bool IfcTrimmingSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTrimmingSelect(this);
+bool IfcTrimmingSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTrimmingSelect(this);
 }
 
 bool IfcTrimmingSelect::init() {
     return false;
 }
 
-const std::string &IfcTrimmingSelect::type() {
+const std::string &IfcTrimmingSelect::type() const {
     return IfcTrimmingSelect::s_type.getName();
 }
 
-Step::ClassType IfcTrimmingSelect::getClassType() {
+const Step::ClassType &IfcTrimmingSelect::getClassType() {
     return IfcTrimmingSelect::s_type;
 }
 
-Step::ClassType IfcTrimmingSelect::getType() const {
+const Step::ClassType &IfcTrimmingSelect::getType() const {
     return IfcTrimmingSelect::s_type;
 }
 
-bool IfcTrimmingSelect::isOfType(Step::ClassType t) {
+bool IfcTrimmingSelect::isOfType(const Step::ClassType &t) const {
     return IfcTrimmingSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcTrimmingSelect::copy(const IfcTrimmingSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCCARTESIANPOINT:
-        setIfcCartesianPoint(copyop(obj.m_IfcTrimmingSelect_union.m_IfcCartesianPoint));
+        setIfcCartesianPoint((IfcCartesianPoint *) (copyop(obj.m_IfcTrimmingSelect_union.m_IfcCartesianPoint)));
         break;
     case IFCPARAMETERVALUE:
         setIfcParameterValue(obj.m_IfcTrimmingSelect_union.m_IfcParameterValue);
@@ -83,7 +83,7 @@ void IfcTrimmingSelect::copy(const IfcTrimmingSelect &obj, const CopyOp &copyop)
         }
 }
 
-char *IfcTrimmingSelect::currentTypeName() {
+std::string IfcTrimmingSelect::currentTypeName() const {
     switch(m_type) {
     case IFCCARTESIANPOINT:
         return "IfcCartesianPoint";
@@ -96,7 +96,7 @@ char *IfcTrimmingSelect::currentTypeName() {
     }
 }
 
-IfcTrimmingSelect::IfcTrimmingSelect_select IfcTrimmingSelect::currentType() {
+IfcTrimmingSelect::IfcTrimmingSelect_select IfcTrimmingSelect::currentType() const {
     return m_type;
 }
 
@@ -109,12 +109,16 @@ void IfcTrimmingSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcCartesianPoint *IfcTrimmingSelect::getIfcCartesianPoint() {
-    return m_IfcTrimmingSelect_union.m_IfcCartesianPoint;
+IfcCartesianPoint *IfcTrimmingSelect::getIfcCartesianPoint() const {
+    if (m_type == IFCCARTESIANPOINT) {
+        return m_IfcTrimmingSelect_union.m_IfcCartesianPoint;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcTrimmingSelect::setIfcCartesianPoint(IfcCartesianPoint *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -129,12 +133,16 @@ void IfcTrimmingSelect::setIfcCartesianPoint(IfcCartesianPoint *value) {
     m_type = IFCCARTESIANPOINT;
 }
 
-IfcParameterValue IfcTrimmingSelect::getIfcParameterValue() {
-    return m_IfcTrimmingSelect_union.m_IfcParameterValue;
+IfcParameterValue IfcTrimmingSelect::getIfcParameterValue() const {
+    if (m_type == IFCPARAMETERVALUE) {
+        return m_IfcTrimmingSelect_union.m_IfcParameterValue;
+    }
+    else {
+        return Step::getUnset(m_IfcTrimmingSelect_union.m_IfcParameterValue);
+    }
 }
 
 void IfcTrimmingSelect::setIfcParameterValue(IfcParameterValue value) {
-    deleteUnion();
     m_IfcTrimmingSelect_union.m_IfcParameterValue = value;
     m_type = IFCPARAMETERVALUE;
 }

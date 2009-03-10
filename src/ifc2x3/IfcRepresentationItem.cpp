@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,34 +44,32 @@
 using namespace ifc2x3;
 
 IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_layerAssignments.setUnset(true);
-    m_styledByItem.setUnset(true);
 }
 
 IfcRepresentationItem::~IfcRepresentationItem() {
 }
 
-bool IfcRepresentationItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRepresentationItem(this);
+bool IfcRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRepresentationItem(this);
 }
 
-const std::string &IfcRepresentationItem::type() {
+const std::string &IfcRepresentationItem::type() const {
     return IfcRepresentationItem::s_type.getName();
 }
 
-Step::ClassType IfcRepresentationItem::getClassType() {
+const Step::ClassType &IfcRepresentationItem::getClassType() {
     return IfcRepresentationItem::s_type;
 }
 
-Step::ClassType IfcRepresentationItem::getType() const {
+const Step::ClassType &IfcRepresentationItem::getType() const {
     return IfcRepresentationItem::s_type;
 }
 
-bool IfcRepresentationItem::isOfType(Step::ClassType t) {
+bool IfcRepresentationItem::isOfType(const Step::ClassType &t) const {
     return IfcRepresentationItem::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > &IfcRepresentationItem::getLayerAssignments() {
+Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() {
     if (Step::BaseObject::inited()) {
         return m_layerAssignments;
     }
@@ -81,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcPresentationLayerAssignment > > &IfcRepresentationIt
     }
 }
 
-Step::Set< Step::ObsPtr< IfcStyledItem > > &IfcRepresentationItem::getStyledByItem() {
+const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() const {
+    IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
+    return deConstObject->getLayerAssignments();
+}
+
+Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
     if (Step::BaseObject::inited()) {
         return m_styledByItem;
     }
@@ -91,7 +94,9 @@ Step::Set< Step::ObsPtr< IfcStyledItem > > &IfcRepresentationItem::getStyledByIt
     }
 }
 
-void IfcRepresentationItem::release() {
+const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const {
+    IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
+    return deConstObject->getStyledByItem();
 }
 
 bool IfcRepresentationItem::init() {

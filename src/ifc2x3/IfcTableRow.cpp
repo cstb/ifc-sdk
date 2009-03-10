@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,13 +30,13 @@
 #include "ifc2x3/IfcTable.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -48,34 +48,33 @@
 using namespace ifc2x3;
 
 IfcTableRow::IfcTableRow(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_rowCells.setUnset(true);
     m_isHeading = Step::getUnset(m_isHeading);
 }
 
 IfcTableRow::~IfcTableRow() {
 }
 
-bool IfcTableRow::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTableRow(this);
+bool IfcTableRow::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTableRow(this);
 }
 
-const std::string &IfcTableRow::type() {
+const std::string &IfcTableRow::type() const {
     return IfcTableRow::s_type.getName();
 }
 
-Step::ClassType IfcTableRow::getClassType() {
+const Step::ClassType &IfcTableRow::getClassType() {
     return IfcTableRow::s_type;
 }
 
-Step::ClassType IfcTableRow::getType() const {
+const Step::ClassType &IfcTableRow::getType() const {
     return IfcTableRow::s_type;
 }
 
-bool IfcTableRow::isOfType(Step::ClassType t) {
+bool IfcTableRow::isOfType(const Step::ClassType &t) const {
     return IfcTableRow::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< Step::RefPtr< IfcValue > > &IfcTableRow::getRowCells() {
+List_IfcValue_1_n &IfcTableRow::getRowCells() {
     if (Step::BaseObject::inited()) {
         return m_rowCells;
     }
@@ -85,11 +84,16 @@ Step::List< Step::RefPtr< IfcValue > > &IfcTableRow::getRowCells() {
     }
 }
 
-void IfcTableRow::setRowCells(const Step::List< Step::RefPtr< IfcValue > > &value) {
+const List_IfcValue_1_n &IfcTableRow::getRowCells() const {
+    IfcTableRow * deConstObject = const_cast< IfcTableRow * > (this);
+    return deConstObject->getRowCells();
+}
+
+void IfcTableRow::setRowCells(const List_IfcValue_1_n &value) {
     m_rowCells = value;
 }
 
-Step::Bool IfcTableRow::getIsHeading() {
+Step::Boolean IfcTableRow::getIsHeading() {
     if (Step::BaseObject::inited()) {
         return m_isHeading;
     }
@@ -98,7 +102,12 @@ Step::Bool IfcTableRow::getIsHeading() {
     }
 }
 
-void IfcTableRow::setIsHeading(Step::Bool value) {
+const Step::Boolean IfcTableRow::getIsHeading() const {
+    IfcTableRow * deConstObject = const_cast< IfcTableRow * > (this);
+    return deConstObject->getIsHeading();
+}
+
+void IfcTableRow::setIsHeading(Step::Boolean value) {
     m_isHeading = value;
 }
 
@@ -111,8 +120,9 @@ IfcTable *IfcTableRow::getOfTable() {
     }
 }
 
-void IfcTableRow::release() {
-    m_rowCells.clear();
+const IfcTable *IfcTableRow::getOfTable() const {
+    IfcTableRow * deConstObject = const_cast< IfcTableRow * > (this);
+    return deConstObject->getOfTable();
 }
 
 bool IfcTableRow::init() {
@@ -186,7 +196,7 @@ bool IfcTableRow::init() {
                             attr2->setIfcParameterValue(tmp_attr2);
                         }
                         if (type2 == "IFCNUMERICMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcNumericMeasure(tmp_attr2);
                         }
@@ -211,12 +221,12 @@ bool IfcTableRow::init() {
                             attr2->setIfcElectricCurrentMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCDESCRIPTIVEMEASURE") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcDescriptiveMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOUNTMEASURE") {
-                            Step::Integer tmp_attr2;
+                            Step::Number tmp_attr2;
                             tmp_attr2 = Step::spfToInteger(str1);
                             attr2->setIfcCountMeasure(tmp_attr2);
                         }
@@ -246,7 +256,8 @@ bool IfcTableRow::init() {
                             attr2->setIfcNormalisedRatioMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPLEXNUMBER") {
-                            Step::Array< Step::Real > tmp_attr2;
+                            Array_Real_1_2 tmp_attr2;
+                            Array_Real_1_2::iterator it_tmp_attr2 = tmp_attr2.begin();
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -254,7 +265,7 @@ bool IfcTableRow::init() {
                                 if (str3 != "") {
                                     Step::Real attr4;
                                     attr4 = Step::spfToReal(str3);
-                                    tmp_attr2.push_back(attr4);
+                                    *(it_tmp_attr2++) = attr4;
                                 }
                                 else {
                                     break;
@@ -273,23 +284,23 @@ bool IfcTableRow::init() {
                             attr2->setIfcReal(tmp_attr2);
                         }
                         if (type2 == "IFCBOOLEAN") {
-                            Step::Bool tmp_attr2;
-                            tmp_attr2 = Step::spfToBool(str1);
+                            Step::Boolean tmp_attr2;
+                            tmp_attr2 = Step::spfToBoolean(str1);
                             attr2->setIfcBoolean(tmp_attr2);
                         }
                         if (type2 == "IFCIDENTIFIER") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcIdentifier(tmp_attr2);
                         }
                         if (type2 == "IFCTEXT") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcText(tmp_attr2);
                         }
                         if (type2 == "IFCLABEL") {
-                            std::string tmp_attr2;
-                            tmp_attr2 = Step::spfToString(str1);
+                            Step::String tmp_attr2;
+                            tmp_attr2 = Step::String::fromSPF(str1);
                             attr2->setIfcLabel(tmp_attr2);
                         }
                         if (type2 == "IFCLOGICAL") {
@@ -383,7 +394,7 @@ bool IfcTableRow::init() {
                             attr2->setIfcDynamicViscosityMeasure(tmp_attr2);
                         }
                         if (type2 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                            Step::List< Step::Integer > tmp_attr2;
+                            List_Integer_3_4 tmp_attr2;
                             tmp_attr2.setUnset(false);
                             while (true) {
                                 std::string str3;
@@ -663,7 +674,7 @@ bool IfcTableRow::init() {
         m_isHeading = Step::getUnset(m_isHeading);
     }
     else {
-        m_isHeading = Step::spfToBool(arg);
+        m_isHeading = Step::spfToBoolean(arg);
     }
     inverses = m_args->getInverses(IfcTable::getClassType(), 1);
     if (inverses) {
@@ -673,7 +684,7 @@ bool IfcTableRow::init() {
 }
 
 void IfcTableRow::copy(const IfcTableRow &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcValue > >::const_iterator it_m_rowCells;
+    Step::List< Step::RefPtr< IfcValue >, 1 >::const_iterator it_m_rowCells;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_rowCells = obj.m_rowCells.begin(); it_m_rowCells != obj.m_rowCells.end(); ++it_m_rowCells) {
         Step::RefPtr< IfcValue > copyTarget = new IfcValue;

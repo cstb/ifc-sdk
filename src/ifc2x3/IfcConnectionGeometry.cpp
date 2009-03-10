@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,27 +45,24 @@ IfcConnectionGeometry::IfcConnectionGeometry(Step::Id id, Step::SPFData *args) :
 IfcConnectionGeometry::~IfcConnectionGeometry() {
 }
 
-bool IfcConnectionGeometry::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConnectionGeometry(this);
+bool IfcConnectionGeometry::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConnectionGeometry(this);
 }
 
-const std::string &IfcConnectionGeometry::type() {
+const std::string &IfcConnectionGeometry::type() const {
     return IfcConnectionGeometry::s_type.getName();
 }
 
-Step::ClassType IfcConnectionGeometry::getClassType() {
+const Step::ClassType &IfcConnectionGeometry::getClassType() {
     return IfcConnectionGeometry::s_type;
 }
 
-Step::ClassType IfcConnectionGeometry::getType() const {
+const Step::ClassType &IfcConnectionGeometry::getType() const {
     return IfcConnectionGeometry::s_type;
 }
 
-bool IfcConnectionGeometry::isOfType(Step::ClassType t) {
+bool IfcConnectionGeometry::isOfType(const Step::ClassType &t) const {
     return IfcConnectionGeometry::s_type == t ? true : Step::BaseObject::isOfType(t);
-}
-
-void IfcConnectionGeometry::release() {
 }
 
 bool IfcConnectionGeometry::init() {

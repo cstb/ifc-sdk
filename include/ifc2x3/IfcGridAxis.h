@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,87 +31,150 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
     class IfcCurve;
-    class IfcGrid;
-    class IfcVirtualGridIntersection;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcGridAxis : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'AxisTag'.
+         * 
          */
-        IfcLabel getAxisTag();
+        virtual IfcLabel getAxisTag();
+        /**
+         * (const) Returns the value of the explicit attribute 'AxisTag'.
+         * 
+         * @return the value of the explicit attribute 'AxisTag'
+         */
+        virtual const IfcLabel getAxisTag() const;
         /**
          * Sets the value of the explicit attribute 'AxisTag'.
          * 
          * @param value
          */
-        void setAxisTag(const IfcLabel &value);
+        virtual void setAxisTag(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'AxisCurve'.
+         * 
          */
-        IfcCurve *getAxisCurve();
+        virtual IfcCurve *getAxisCurve();
+        /**
+         * (const) Returns the value of the explicit attribute 'AxisCurve'.
+         * 
+         * @return the value of the explicit attribute 'AxisCurve'
+         */
+        virtual const IfcCurve *getAxisCurve() const;
         /**
          * Sets the value of the explicit attribute 'AxisCurve'.
          * 
          * @param value
          */
-        void setAxisCurve(const Step::RefPtr< IfcCurve > &value);
+        virtual void setAxisCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * Gets the value of the explicit attribute 'SameSense'.
+         * 
          */
-        IfcBoolean getSameSense();
+        virtual IfcBoolean getSameSense();
+        /**
+         * (const) Returns the value of the explicit attribute 'SameSense'.
+         * 
+         * @return the value of the explicit attribute 'SameSense'
+         */
+        virtual const IfcBoolean getSameSense() const;
         /**
          * Sets the value of the explicit attribute 'SameSense'.
          * 
          * @param value
          */
-        void setSameSense(IfcBoolean value);
+        virtual void setSameSense(IfcBoolean value);
         /**
+         * Gets the value of the inverse attribute 'PartOfW'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > &getPartOfW();
+        Inverse_Set_IfcGrid_0_1 &getPartOfW();
         /**
+         * (const) Returns the value of the explicit attribute 'PartOfW'.
+         * 
+         * @return the value of the explicit attribute 'PartOfW'
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > &getPartOfV();
+        virtual const Inverse_Set_IfcGrid_0_1 &getPartOfW() const;
         /**
+         * Gets the value of the inverse attribute 'PartOfV'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > &getPartOfU();
+        Inverse_Set_IfcGrid_0_1 &getPartOfV();
         /**
+         * (const) Returns the value of the explicit attribute 'PartOfV'.
+         * 
+         * @return the value of the explicit attribute 'PartOfV'
          */
-        Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > &getHasIntersections();
+        virtual const Inverse_Set_IfcGrid_0_1 &getPartOfV() const;
         /**
+         * Gets the value of the inverse attribute 'PartOfU'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcGrid_0_1 &getPartOfU();
+        /**
+         * (const) Returns the value of the explicit attribute 'PartOfU'.
+         * 
+         * @return the value of the explicit attribute 'PartOfU'
+         */
+        virtual const Inverse_Set_IfcGrid_0_1 &getPartOfU() const;
+        /**
+         * Gets the value of the inverse attribute 'HasIntersections'.
+         * 
+         */
+        Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections();
+        /**
+         * (const) Returns the value of the explicit attribute 'HasIntersections'.
+         * 
+         * @return the value of the explicit attribute 'HasIntersections'
+         */
+        virtual const Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections() const;
+        friend class Inverted_IfcGrid_UAxes_type;
         friend class IfcVirtualGridIntersection;
         friend class IfcGrid;
         friend class ExpressDataSet;
+        friend class Inverted_IfcVirtualGridIntersection_IntersectingAxes_type;
+        friend class Inverted_IfcGrid_WAxes_type;
+        friend class Inverted_IfcGrid_VAxes_type;
 
     protected:
         /**
@@ -135,25 +198,25 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_axisTag;
+        Step::String m_axisTag;
         /**
          */
         Step::RefPtr< IfcCurve > m_axisCurve;
         /**
          */
-        Step::Bool m_sameSense;
+        Step::Boolean m_sameSense;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > m_partOfW;
+        Inverse_Set_IfcGrid_0_1 m_partOfW;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > m_partOfV;
+        Inverse_Set_IfcGrid_0_1 m_partOfV;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcGrid > > m_partOfU;
+        Inverse_Set_IfcGrid_0_1 m_partOfU;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > m_hasIntersections;
+        Inverse_Set_IfcVirtualGridIntersection_0_n m_hasIntersections;
 
     };
 

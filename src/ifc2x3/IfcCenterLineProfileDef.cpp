@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCenterLineProfileDef::IfcCenterLineProfileDef(Step::Id id, Step::SPFData *arg
 IfcCenterLineProfileDef::~IfcCenterLineProfileDef() {
 }
 
-bool IfcCenterLineProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCenterLineProfileDef(this);
+bool IfcCenterLineProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCenterLineProfileDef(this);
 }
 
-const std::string &IfcCenterLineProfileDef::type() {
+const std::string &IfcCenterLineProfileDef::type() const {
     return IfcCenterLineProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcCenterLineProfileDef::getClassType() {
+const Step::ClassType &IfcCenterLineProfileDef::getClassType() {
     return IfcCenterLineProfileDef::s_type;
 }
 
-Step::ClassType IfcCenterLineProfileDef::getType() const {
+const Step::ClassType &IfcCenterLineProfileDef::getType() const {
     return IfcCenterLineProfileDef::s_type;
 }
 
-bool IfcCenterLineProfileDef::isOfType(Step::ClassType t) {
+bool IfcCenterLineProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcCenterLineProfileDef::s_type == t ? true : IfcArbitraryOpenProfileDef::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcCenterLineProfileDef::getThickness() {
     }
 }
 
-void IfcCenterLineProfileDef::setThickness(IfcPositiveLengthMeasure value) {
-    m_thickness = value;
+const IfcPositiveLengthMeasure IfcCenterLineProfileDef::getThickness() const {
+    IfcCenterLineProfileDef * deConstObject = const_cast< IfcCenterLineProfileDef * > (this);
+    return deConstObject->getThickness();
 }
 
-void IfcCenterLineProfileDef::release() {
-    IfcArbitraryOpenProfileDef::release();
+void IfcCenterLineProfileDef::setThickness(IfcPositiveLengthMeasure value) {
+    m_thickness = value;
 }
 
 bool IfcCenterLineProfileDef::init() {

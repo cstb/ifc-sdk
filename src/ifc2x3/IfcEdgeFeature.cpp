@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcEdgeFeature::IfcEdgeFeature(Step::Id id, Step::SPFData *args) : IfcFeatureEle
 IfcEdgeFeature::~IfcEdgeFeature() {
 }
 
-bool IfcEdgeFeature::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEdgeFeature(this);
+bool IfcEdgeFeature::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEdgeFeature(this);
 }
 
-const std::string &IfcEdgeFeature::type() {
+const std::string &IfcEdgeFeature::type() const {
     return IfcEdgeFeature::s_type.getName();
 }
 
-Step::ClassType IfcEdgeFeature::getClassType() {
+const Step::ClassType &IfcEdgeFeature::getClassType() {
     return IfcEdgeFeature::s_type;
 }
 
-Step::ClassType IfcEdgeFeature::getType() const {
+const Step::ClassType &IfcEdgeFeature::getType() const {
     return IfcEdgeFeature::s_type;
 }
 
-bool IfcEdgeFeature::isOfType(Step::ClassType t) {
+bool IfcEdgeFeature::isOfType(const Step::ClassType &t) const {
     return IfcEdgeFeature::s_type == t ? true : IfcFeatureElementSubtraction::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcPositiveLengthMeasure IfcEdgeFeature::getFeatureLength() {
     }
 }
 
-void IfcEdgeFeature::setFeatureLength(IfcPositiveLengthMeasure value) {
-    m_featureLength = value;
+const IfcPositiveLengthMeasure IfcEdgeFeature::getFeatureLength() const {
+    IfcEdgeFeature * deConstObject = const_cast< IfcEdgeFeature * > (this);
+    return deConstObject->getFeatureLength();
 }
 
-void IfcEdgeFeature::release() {
-    IfcFeatureElementSubtraction::release();
+void IfcEdgeFeature::setFeatureLength(IfcPositiveLengthMeasure value) {
+    m_featureLength = value;
 }
 
 bool IfcEdgeFeature::init() {

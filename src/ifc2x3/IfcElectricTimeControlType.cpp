@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcElectricTimeControlType::IfcElectricTimeControlType(Step::Id id, Step::SPFDat
 IfcElectricTimeControlType::~IfcElectricTimeControlType() {
 }
 
-bool IfcElectricTimeControlType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricTimeControlType(this);
+bool IfcElectricTimeControlType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricTimeControlType(this);
 }
 
-const std::string &IfcElectricTimeControlType::type() {
+const std::string &IfcElectricTimeControlType::type() const {
     return IfcElectricTimeControlType::s_type.getName();
 }
 
-Step::ClassType IfcElectricTimeControlType::getClassType() {
+const Step::ClassType &IfcElectricTimeControlType::getClassType() {
     return IfcElectricTimeControlType::s_type;
 }
 
-Step::ClassType IfcElectricTimeControlType::getType() const {
+const Step::ClassType &IfcElectricTimeControlType::getType() const {
     return IfcElectricTimeControlType::s_type;
 }
 
-bool IfcElectricTimeControlType::isOfType(Step::ClassType t) {
+bool IfcElectricTimeControlType::isOfType(const Step::ClassType &t) const {
     return IfcElectricTimeControlType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcElectricTimeControlTypeEnum IfcElectricTimeControlType::getPredefinedType() {
     }
 }
 
-void IfcElectricTimeControlType::setPredefinedType(IfcElectricTimeControlTypeEnum value) {
-    m_predefinedType = value;
+const IfcElectricTimeControlTypeEnum IfcElectricTimeControlType::getPredefinedType() const {
+    IfcElectricTimeControlType * deConstObject = const_cast< IfcElectricTimeControlType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcElectricTimeControlType::release() {
-    IfcFlowControllerType::release();
+void IfcElectricTimeControlType::setPredefinedType(IfcElectricTimeControlTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcElectricTimeControlType::init() {

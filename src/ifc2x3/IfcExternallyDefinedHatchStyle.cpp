@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcExternallyDefinedHatchStyle::IfcExternallyDefinedHatchStyle(Step::Id id, Step
 IfcExternallyDefinedHatchStyle::~IfcExternallyDefinedHatchStyle() {
 }
 
-bool IfcExternallyDefinedHatchStyle::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExternallyDefinedHatchStyle(this);
+bool IfcExternallyDefinedHatchStyle::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExternallyDefinedHatchStyle(this);
 }
 
-const std::string &IfcExternallyDefinedHatchStyle::type() {
+const std::string &IfcExternallyDefinedHatchStyle::type() const {
     return IfcExternallyDefinedHatchStyle::s_type.getName();
 }
 
-Step::ClassType IfcExternallyDefinedHatchStyle::getClassType() {
+const Step::ClassType &IfcExternallyDefinedHatchStyle::getClassType() {
     return IfcExternallyDefinedHatchStyle::s_type;
 }
 
-Step::ClassType IfcExternallyDefinedHatchStyle::getType() const {
+const Step::ClassType &IfcExternallyDefinedHatchStyle::getType() const {
     return IfcExternallyDefinedHatchStyle::s_type;
 }
 
-bool IfcExternallyDefinedHatchStyle::isOfType(Step::ClassType t) {
+bool IfcExternallyDefinedHatchStyle::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedHatchStyle::s_type == t ? true : IfcExternalReference::isOfType(t);
-}
-
-void IfcExternallyDefinedHatchStyle::release() {
-    IfcExternalReference::release();
 }
 
 bool IfcExternallyDefinedHatchStyle::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -57,23 +58,23 @@ IfcLightSourceGoniometric::IfcLightSourceGoniometric(Step::Id id, Step::SPFData 
 IfcLightSourceGoniometric::~IfcLightSourceGoniometric() {
 }
 
-bool IfcLightSourceGoniometric::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSourceGoniometric(this);
+bool IfcLightSourceGoniometric::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSourceGoniometric(this);
 }
 
-const std::string &IfcLightSourceGoniometric::type() {
+const std::string &IfcLightSourceGoniometric::type() const {
     return IfcLightSourceGoniometric::s_type.getName();
 }
 
-Step::ClassType IfcLightSourceGoniometric::getClassType() {
+const Step::ClassType &IfcLightSourceGoniometric::getClassType() {
     return IfcLightSourceGoniometric::s_type;
 }
 
-Step::ClassType IfcLightSourceGoniometric::getType() const {
+const Step::ClassType &IfcLightSourceGoniometric::getType() const {
     return IfcLightSourceGoniometric::s_type;
 }
 
-bool IfcLightSourceGoniometric::isOfType(Step::ClassType t) {
+bool IfcLightSourceGoniometric::isOfType(const Step::ClassType &t) const {
     return IfcLightSourceGoniometric::s_type == t ? true : IfcLightSource::isOfType(t);
 }
 
@@ -84,6 +85,11 @@ IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() {
     else {
         return NULL;
     }
+}
+
+const IfcAxis2Placement3D *IfcLightSourceGoniometric::getPosition() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getPosition();
 }
 
 void IfcLightSourceGoniometric::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
@@ -99,6 +105,11 @@ IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() {
     }
 }
 
+const IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getColourAppearance();
+}
+
 void IfcLightSourceGoniometric::setColourAppearance(const Step::RefPtr< IfcColourRgb > &value) {
     m_colourAppearance = value;
 }
@@ -110,6 +121,11 @@ IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperatu
     else {
         return Step::getUnset(m_colourTemperature);
     }
+}
+
+const IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getColourTemperature();
 }
 
 void IfcLightSourceGoniometric::setColourTemperature(IfcThermodynamicTemperatureMeasure value) {
@@ -125,6 +141,11 @@ IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() {
     }
 }
 
+const IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getLuminousFlux();
+}
+
 void IfcLightSourceGoniometric::setLuminousFlux(IfcLuminousFluxMeasure value) {
     m_luminousFlux = value;
 }
@@ -136,6 +157,11 @@ IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() {
     else {
         return IfcLightEmissionSourceEnum_UNSET;
     }
+}
+
+const IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getLightEmissionSource();
 }
 
 void IfcLightSourceGoniometric::setLightEmissionSource(IfcLightEmissionSourceEnum value) {
@@ -151,14 +177,13 @@ IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistrib
     }
 }
 
-void IfcLightSourceGoniometric::setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value) {
-    m_lightDistributionDataSource = value;
+const IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource() const {
+    IfcLightSourceGoniometric * deConstObject = const_cast< IfcLightSourceGoniometric * > (this);
+    return deConstObject->getLightDistributionDataSource();
 }
 
-void IfcLightSourceGoniometric::release() {
-    IfcLightSource::release();
-    m_position.release();
-    m_colourAppearance.release();
+void IfcLightSourceGoniometric::setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value) {
+    m_lightDistributionDataSource = value;
 }
 
 bool IfcLightSourceGoniometric::init() {
@@ -172,14 +197,14 @@ bool IfcLightSourceGoniometric::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_colourAppearance = NULL;
     }
     else {
-        m_colourAppearance = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_colourAppearance = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -258,8 +283,8 @@ bool IfcLightSourceGoniometric::init() {
 
 void IfcLightSourceGoniometric::copy(const IfcLightSourceGoniometric &obj, const CopyOp &copyop) {
     IfcLightSource::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
-    setColourAppearance(copyop(obj.m_colourAppearance.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
+    setColourAppearance((IfcColourRgb*)copyop(obj.m_colourAppearance.get()));
     setColourTemperature(obj.m_colourTemperature);
     setLuminousFlux(obj.m_luminousFlux);
     setLightEmissionSource(obj.m_lightEmissionSource);

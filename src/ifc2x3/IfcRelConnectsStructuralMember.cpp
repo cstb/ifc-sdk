@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,8 +38,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -59,23 +59,23 @@ IfcRelConnectsStructuralMember::IfcRelConnectsStructuralMember(Step::Id id, Step
 IfcRelConnectsStructuralMember::~IfcRelConnectsStructuralMember() {
 }
 
-bool IfcRelConnectsStructuralMember::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelConnectsStructuralMember(this);
+bool IfcRelConnectsStructuralMember::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelConnectsStructuralMember(this);
 }
 
-const std::string &IfcRelConnectsStructuralMember::type() {
+const std::string &IfcRelConnectsStructuralMember::type() const {
     return IfcRelConnectsStructuralMember::s_type.getName();
 }
 
-Step::ClassType IfcRelConnectsStructuralMember::getClassType() {
+const Step::ClassType &IfcRelConnectsStructuralMember::getClassType() {
     return IfcRelConnectsStructuralMember::s_type;
 }
 
-Step::ClassType IfcRelConnectsStructuralMember::getType() const {
+const Step::ClassType &IfcRelConnectsStructuralMember::getType() const {
     return IfcRelConnectsStructuralMember::s_type;
 }
 
-bool IfcRelConnectsStructuralMember::isOfType(Step::ClassType t) {
+bool IfcRelConnectsStructuralMember::isOfType(const Step::ClassType &t) const {
     return IfcRelConnectsStructuralMember::s_type == t ? true : IfcRelConnects::isOfType(t);
 }
 
@@ -88,9 +88,19 @@ IfcStructuralMember *IfcRelConnectsStructuralMember::getRelatingStructuralMember
     }
 }
 
+const IfcStructuralMember *IfcRelConnectsStructuralMember::getRelatingStructuralMember() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getRelatingStructuralMember();
+}
+
 void IfcRelConnectsStructuralMember::setRelatingStructuralMember(const Step::RefPtr< IfcStructuralMember > &value) {
+    if (m_relatingStructuralMember.valid()) {
+        m_relatingStructuralMember->m_connectedBy.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectedBy.insert(this);
+    }
     m_relatingStructuralMember = value;
-    m_relatingStructuralMember->m_connectedBy.insert(this);
 }
 
 IfcStructuralConnection *IfcRelConnectsStructuralMember::getRelatedStructuralConnection() {
@@ -102,9 +112,19 @@ IfcStructuralConnection *IfcRelConnectsStructuralMember::getRelatedStructuralCon
     }
 }
 
+const IfcStructuralConnection *IfcRelConnectsStructuralMember::getRelatedStructuralConnection() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getRelatedStructuralConnection();
+}
+
 void IfcRelConnectsStructuralMember::setRelatedStructuralConnection(const Step::RefPtr< IfcStructuralConnection > &value) {
+    if (m_relatedStructuralConnection.valid()) {
+        m_relatedStructuralConnection->m_connectsStructuralMembers.erase(this);
+    }
+    if (value.valid()) {
+        value->m_connectsStructuralMembers.insert(this);
+    }
     m_relatedStructuralConnection = value;
-    m_relatedStructuralConnection->m_connectsStructuralMembers.insert(this);
 }
 
 IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition() {
@@ -114,6 +134,11 @@ IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition() {
     else {
         return NULL;
     }
+}
+
+const IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getAppliedCondition();
 }
 
 void IfcRelConnectsStructuralMember::setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value) {
@@ -129,6 +154,11 @@ IfcStructuralConnectionCondition *IfcRelConnectsStructuralMember::getAdditionalC
     }
 }
 
+const IfcStructuralConnectionCondition *IfcRelConnectsStructuralMember::getAdditionalConditions() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getAdditionalConditions();
+}
+
 void IfcRelConnectsStructuralMember::setAdditionalConditions(const Step::RefPtr< IfcStructuralConnectionCondition > &value) {
     m_additionalConditions = value;
 }
@@ -140,6 +170,11 @@ IfcLengthMeasure IfcRelConnectsStructuralMember::getSupportedLength() {
     else {
         return Step::getUnset(m_supportedLength);
     }
+}
+
+const IfcLengthMeasure IfcRelConnectsStructuralMember::getSupportedLength() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getSupportedLength();
 }
 
 void IfcRelConnectsStructuralMember::setSupportedLength(IfcLengthMeasure value) {
@@ -155,17 +190,13 @@ IfcAxis2Placement3D *IfcRelConnectsStructuralMember::getConditionCoordinateSyste
     }
 }
 
-void IfcRelConnectsStructuralMember::setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_conditionCoordinateSystem = value;
+const IfcAxis2Placement3D *IfcRelConnectsStructuralMember::getConditionCoordinateSystem() const {
+    IfcRelConnectsStructuralMember * deConstObject = const_cast< IfcRelConnectsStructuralMember * > (this);
+    return deConstObject->getConditionCoordinateSystem();
 }
 
-void IfcRelConnectsStructuralMember::release() {
-    IfcRelConnects::release();
-    m_relatingStructuralMember.release();
-    m_relatedStructuralConnection.release();
-    m_appliedCondition.release();
-    m_additionalConditions.release();
-    m_conditionCoordinateSystem.release();
+void IfcRelConnectsStructuralMember::setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value) {
+    m_conditionCoordinateSystem = value;
 }
 
 bool IfcRelConnectsStructuralMember::init() {
@@ -179,28 +210,28 @@ bool IfcRelConnectsStructuralMember::init() {
         m_relatingStructuralMember = NULL;
     }
     else {
-        m_relatingStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingStructuralMember = static_cast< IfcStructuralMember * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedStructuralConnection = NULL;
     }
     else {
-        m_relatedStructuralConnection = static_cast< IfcStructuralConnection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedStructuralConnection = static_cast< IfcStructuralConnection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_appliedCondition = NULL;
     }
     else {
-        m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_appliedCondition = static_cast< IfcBoundaryCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_additionalConditions = NULL;
     }
     else {
-        m_additionalConditions = static_cast< IfcStructuralConnectionCondition * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_additionalConditions = static_cast< IfcStructuralConnectionCondition * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -214,19 +245,19 @@ bool IfcRelConnectsStructuralMember::init() {
         m_conditionCoordinateSystem = NULL;
     }
     else {
-        m_conditionCoordinateSystem = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_conditionCoordinateSystem = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelConnectsStructuralMember::copy(const IfcRelConnectsStructuralMember &obj, const CopyOp &copyop) {
     IfcRelConnects::copy(obj, copyop);
-    setRelatingStructuralMember(copyop(obj.m_relatingStructuralMember.get()));
-    setRelatedStructuralConnection(copyop(obj.m_relatedStructuralConnection.get()));
-    setAppliedCondition(copyop(obj.m_appliedCondition.get()));
-    setAdditionalConditions(copyop(obj.m_additionalConditions.get()));
+    setRelatingStructuralMember((IfcStructuralMember*)copyop(obj.m_relatingStructuralMember.get()));
+    setRelatedStructuralConnection((IfcStructuralConnection*)copyop(obj.m_relatedStructuralConnection.get()));
+    setAppliedCondition((IfcBoundaryCondition*)copyop(obj.m_appliedCondition.get()));
+    setAdditionalConditions((IfcStructuralConnectionCondition*)copyop(obj.m_additionalConditions.get()));
     setSupportedLength(obj.m_supportedLength);
-    setConditionCoordinateSystem(copyop(obj.m_conditionCoordinateSystem.get()));
+    setConditionCoordinateSystem((IfcAxis2Placement3D*)copyop(obj.m_conditionCoordinateSystem.get()));
     return;
 }
 

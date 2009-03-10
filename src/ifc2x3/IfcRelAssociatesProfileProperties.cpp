@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -54,23 +55,23 @@ IfcRelAssociatesProfileProperties::IfcRelAssociatesProfileProperties(Step::Id id
 IfcRelAssociatesProfileProperties::~IfcRelAssociatesProfileProperties() {
 }
 
-bool IfcRelAssociatesProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssociatesProfileProperties(this);
+bool IfcRelAssociatesProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssociatesProfileProperties(this);
 }
 
-const std::string &IfcRelAssociatesProfileProperties::type() {
+const std::string &IfcRelAssociatesProfileProperties::type() const {
     return IfcRelAssociatesProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcRelAssociatesProfileProperties::getClassType() {
+const Step::ClassType &IfcRelAssociatesProfileProperties::getClassType() {
     return IfcRelAssociatesProfileProperties::s_type;
 }
 
-Step::ClassType IfcRelAssociatesProfileProperties::getType() const {
+const Step::ClassType &IfcRelAssociatesProfileProperties::getType() const {
     return IfcRelAssociatesProfileProperties::s_type;
 }
 
-bool IfcRelAssociatesProfileProperties::isOfType(Step::ClassType t) {
+bool IfcRelAssociatesProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcRelAssociatesProfileProperties::s_type == t ? true : IfcRelAssociates::isOfType(t);
 }
 
@@ -81,6 +82,11 @@ IfcProfileProperties *IfcRelAssociatesProfileProperties::getRelatingProfilePrope
     else {
         return NULL;
     }
+}
+
+const IfcProfileProperties *IfcRelAssociatesProfileProperties::getRelatingProfileProperties() const {
+    IfcRelAssociatesProfileProperties * deConstObject = const_cast< IfcRelAssociatesProfileProperties * > (this);
+    return deConstObject->getRelatingProfileProperties();
 }
 
 void IfcRelAssociatesProfileProperties::setRelatingProfileProperties(const Step::RefPtr< IfcProfileProperties > &value) {
@@ -96,6 +102,11 @@ IfcShapeAspect *IfcRelAssociatesProfileProperties::getProfileSectionLocation() {
     }
 }
 
+const IfcShapeAspect *IfcRelAssociatesProfileProperties::getProfileSectionLocation() const {
+    IfcRelAssociatesProfileProperties * deConstObject = const_cast< IfcRelAssociatesProfileProperties * > (this);
+    return deConstObject->getProfileSectionLocation();
+}
+
 void IfcRelAssociatesProfileProperties::setProfileSectionLocation(const Step::RefPtr< IfcShapeAspect > &value) {
     m_profileSectionLocation = value;
 }
@@ -109,14 +120,13 @@ IfcOrientationSelect *IfcRelAssociatesProfileProperties::getProfileOrientation()
     }
 }
 
-void IfcRelAssociatesProfileProperties::setProfileOrientation(const Step::RefPtr< IfcOrientationSelect > &value) {
-    m_profileOrientation = value;
+const IfcOrientationSelect *IfcRelAssociatesProfileProperties::getProfileOrientation() const {
+    IfcRelAssociatesProfileProperties * deConstObject = const_cast< IfcRelAssociatesProfileProperties * > (this);
+    return deConstObject->getProfileOrientation();
 }
 
-void IfcRelAssociatesProfileProperties::release() {
-    IfcRelAssociates::release();
-    m_relatingProfileProperties.release();
-    m_profileSectionLocation.release();
+void IfcRelAssociatesProfileProperties::setProfileOrientation(const Step::RefPtr< IfcOrientationSelect > &value) {
+    m_profileOrientation = value;
 }
 
 bool IfcRelAssociatesProfileProperties::init() {
@@ -130,14 +140,14 @@ bool IfcRelAssociatesProfileProperties::init() {
         m_relatingProfileProperties = NULL;
     }
     else {
-        m_relatingProfileProperties = static_cast< IfcProfileProperties * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingProfileProperties = static_cast< IfcProfileProperties * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_profileSectionLocation = NULL;
     }
     else {
-        m_profileSectionLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_profileSectionLocation = static_cast< IfcShapeAspect * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -168,8 +178,8 @@ bool IfcRelAssociatesProfileProperties::init() {
 
 void IfcRelAssociatesProfileProperties::copy(const IfcRelAssociatesProfileProperties &obj, const CopyOp &copyop) {
     IfcRelAssociates::copy(obj, copyop);
-    setRelatingProfileProperties(copyop(obj.m_relatingProfileProperties.get()));
-    setProfileSectionLocation(copyop(obj.m_profileSectionLocation.get()));
+    setRelatingProfileProperties((IfcProfileProperties*)copyop(obj.m_relatingProfileProperties.get()));
+    setProfileSectionLocation((IfcShapeAspect*)copyop(obj.m_profileSectionLocation.get()));
     m_profileOrientation = new IfcOrientationSelect;
     m_profileOrientation->copy(*(obj.m_profileOrientation.get()), copyop);
     return;

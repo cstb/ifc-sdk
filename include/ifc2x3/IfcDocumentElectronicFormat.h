@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,9 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
 #include <Step/BaseEntity.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
@@ -44,54 +45,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcDocumentElectronicFormat : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'FileExtension'.
+         * 
          */
-        IfcLabel getFileExtension();
+        virtual IfcLabel getFileExtension();
+        /**
+         * (const) Returns the value of the explicit attribute 'FileExtension'.
+         * 
+         * @return the value of the explicit attribute 'FileExtension'
+         */
+        virtual const IfcLabel getFileExtension() const;
         /**
          * Sets the value of the explicit attribute 'FileExtension'.
          * 
          * @param value
          */
-        void setFileExtension(const IfcLabel &value);
+        virtual void setFileExtension(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'MimeContentType'.
+         * 
          */
-        IfcLabel getMimeContentType();
+        virtual IfcLabel getMimeContentType();
+        /**
+         * (const) Returns the value of the explicit attribute 'MimeContentType'.
+         * 
+         * @return the value of the explicit attribute 'MimeContentType'
+         */
+        virtual const IfcLabel getMimeContentType() const;
         /**
          * Sets the value of the explicit attribute 'MimeContentType'.
          * 
          * @param value
          */
-        void setMimeContentType(const IfcLabel &value);
+        virtual void setMimeContentType(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'MimeSubtype'.
+         * 
          */
-        IfcLabel getMimeSubtype();
+        virtual IfcLabel getMimeSubtype();
+        /**
+         * (const) Returns the value of the explicit attribute 'MimeSubtype'.
+         * 
+         * @return the value of the explicit attribute 'MimeSubtype'
+         */
+        virtual const IfcLabel getMimeSubtype() const;
         /**
          * Sets the value of the explicit attribute 'MimeSubtype'.
          * 
          * @param value
          */
-        void setMimeSubtype(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setMimeSubtype(const IfcLabel &value);
         friend class ExpressDataSet;
 
     protected:
@@ -116,13 +146,13 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_fileExtension;
+        Step::String m_fileExtension;
         /**
          */
-        std::string m_mimeContentType;
+        Step::String m_mimeContentType;
         /**
          */
-        std::string m_mimeSubtype;
+        Step::String m_mimeSubtype;
 
     };
 

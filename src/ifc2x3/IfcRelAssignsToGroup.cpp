@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssignsToGroup::IfcRelAssignsToGroup(Step::Id id, Step::SPFData *args) : I
 IfcRelAssignsToGroup::~IfcRelAssignsToGroup() {
 }
 
-bool IfcRelAssignsToGroup::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToGroup(this);
+bool IfcRelAssignsToGroup::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToGroup(this);
 }
 
-const std::string &IfcRelAssignsToGroup::type() {
+const std::string &IfcRelAssignsToGroup::type() const {
     return IfcRelAssignsToGroup::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToGroup::getClassType() {
+const Step::ClassType &IfcRelAssignsToGroup::getClassType() {
     return IfcRelAssignsToGroup::s_type;
 }
 
-Step::ClassType IfcRelAssignsToGroup::getType() const {
+const Step::ClassType &IfcRelAssignsToGroup::getType() const {
     return IfcRelAssignsToGroup::s_type;
 }
 
-bool IfcRelAssignsToGroup::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToGroup::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToGroup::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcGroup *IfcRelAssignsToGroup::getRelatingGroup() {
     }
 }
 
-void IfcRelAssignsToGroup::setRelatingGroup(const Step::RefPtr< IfcGroup > &value) {
-    m_relatingGroup = value;
-    m_relatingGroup->m_isGroupedBy = this;
+const IfcGroup *IfcRelAssignsToGroup::getRelatingGroup() const {
+    IfcRelAssignsToGroup * deConstObject = const_cast< IfcRelAssignsToGroup * > (this);
+    return deConstObject->getRelatingGroup();
 }
 
-void IfcRelAssignsToGroup::release() {
-    IfcRelAssigns::release();
-    m_relatingGroup.release();
+void IfcRelAssignsToGroup::setRelatingGroup(const Step::RefPtr< IfcGroup > &value) {
+    if (m_relatingGroup.valid()) {
+        m_relatingGroup->m_isGroupedBy = NULL;
+    }
+    if (value.valid()) {
+        value->m_isGroupedBy = this;
+    }
+    m_relatingGroup = value;
 }
 
 bool IfcRelAssignsToGroup::init() {
@@ -100,14 +105,14 @@ bool IfcRelAssignsToGroup::init() {
         m_relatingGroup = NULL;
     }
     else {
-        m_relatingGroup = static_cast< IfcGroup * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingGroup = static_cast< IfcGroup * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToGroup::copy(const IfcRelAssignsToGroup &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingGroup(copyop(obj.m_relatingGroup.get()));
+    setRelatingGroup((IfcGroup*)copyop(obj.m_relatingGroup.get()));
     return;
 }
 

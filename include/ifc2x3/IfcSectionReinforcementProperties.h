@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,14 +33,12 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
-    class IfcReinforcementBarProperties;
     class IfcSectionProperties;
 
     /**
@@ -48,81 +46,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSectionReinforcementProperties : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'LongitudinalStartPosition'.
+         * 
          */
-        IfcLengthMeasure getLongitudinalStartPosition();
+        virtual IfcLengthMeasure getLongitudinalStartPosition();
+        /**
+         * (const) Returns the value of the explicit attribute 'LongitudinalStartPosition'.
+         * 
+         * @return the value of the explicit attribute 'LongitudinalStartPosition'
+         */
+        virtual const IfcLengthMeasure getLongitudinalStartPosition() const;
         /**
          * Sets the value of the explicit attribute 'LongitudinalStartPosition'.
          * 
          * @param value
          */
-        void setLongitudinalStartPosition(IfcLengthMeasure value);
+        virtual void setLongitudinalStartPosition(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'LongitudinalEndPosition'.
+         * 
          */
-        IfcLengthMeasure getLongitudinalEndPosition();
+        virtual IfcLengthMeasure getLongitudinalEndPosition();
+        /**
+         * (const) Returns the value of the explicit attribute 'LongitudinalEndPosition'.
+         * 
+         * @return the value of the explicit attribute 'LongitudinalEndPosition'
+         */
+        virtual const IfcLengthMeasure getLongitudinalEndPosition() const;
         /**
          * Sets the value of the explicit attribute 'LongitudinalEndPosition'.
          * 
          * @param value
          */
-        void setLongitudinalEndPosition(IfcLengthMeasure value);
+        virtual void setLongitudinalEndPosition(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TransversePosition'.
+         * 
          */
-        IfcLengthMeasure getTransversePosition();
+        virtual IfcLengthMeasure getTransversePosition();
+        /**
+         * (const) Returns the value of the explicit attribute 'TransversePosition'.
+         * 
+         * @return the value of the explicit attribute 'TransversePosition'
+         */
+        virtual const IfcLengthMeasure getTransversePosition() const;
         /**
          * Sets the value of the explicit attribute 'TransversePosition'.
          * 
          * @param value
          */
-        void setTransversePosition(IfcLengthMeasure value);
+        virtual void setTransversePosition(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ReinforcementRole'.
+         * 
          */
-        IfcReinforcingBarRoleEnum getReinforcementRole();
+        virtual IfcReinforcingBarRoleEnum getReinforcementRole();
+        /**
+         * (const) Returns the value of the explicit attribute 'ReinforcementRole'.
+         * 
+         * @return the value of the explicit attribute 'ReinforcementRole'
+         */
+        virtual const IfcReinforcingBarRoleEnum getReinforcementRole() const;
         /**
          * Sets the value of the explicit attribute 'ReinforcementRole'.
          * 
          * @param value
          */
-        void setReinforcementRole(IfcReinforcingBarRoleEnum value);
+        virtual void setReinforcementRole(IfcReinforcingBarRoleEnum value);
         /**
+         * Gets the value of the explicit attribute 'SectionDefinition'.
+         * 
          */
-        IfcSectionProperties *getSectionDefinition();
+        virtual IfcSectionProperties *getSectionDefinition();
+        /**
+         * (const) Returns the value of the explicit attribute 'SectionDefinition'.
+         * 
+         * @return the value of the explicit attribute 'SectionDefinition'
+         */
+        virtual const IfcSectionProperties *getSectionDefinition() const;
         /**
          * Sets the value of the explicit attribute 'SectionDefinition'.
          * 
          * @param value
          */
-        void setSectionDefinition(const Step::RefPtr< IfcSectionProperties > &value);
+        virtual void setSectionDefinition(const Step::RefPtr< IfcSectionProperties > &value);
         /**
+         * Gets the value of the explicit attribute 'CrossSectionReinforcementDefinitions'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > &getCrossSectionReinforcementDefinitions();
+        virtual Set_IfcReinforcementBarProperties_1_n &getCrossSectionReinforcementDefinitions();
+        /**
+         * (const) Returns the value of the explicit attribute 'CrossSectionReinforcementDefinitions'.
+         * 
+         * @return the value of the explicit attribute 'CrossSectionReinforcementDefinitions'
+         */
+        virtual const Set_IfcReinforcementBarProperties_1_n &getCrossSectionReinforcementDefinitions() const;
         /**
          * Sets the value of the explicit attribute 'CrossSectionReinforcementDefinitions'.
          * 
          * @param value
          */
-        void setCrossSectionReinforcementDefinitions(const Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setCrossSectionReinforcementDefinitions(const Set_IfcReinforcementBarProperties_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -162,7 +213,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcSectionProperties > m_sectionDefinition;
         /**
          */
-        Step::Set< Step::RefPtr< IfcReinforcementBarProperties > > m_crossSectionReinforcementDefinitions;
+        Set_IfcReinforcementBarProperties_1_n m_crossSectionReinforcementDefinitions;
 
     };
 

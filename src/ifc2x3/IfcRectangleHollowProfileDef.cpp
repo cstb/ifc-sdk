@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcRectangleHollowProfileDef::IfcRectangleHollowProfileDef(Step::Id id, Step::SP
 IfcRectangleHollowProfileDef::~IfcRectangleHollowProfileDef() {
 }
 
-bool IfcRectangleHollowProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRectangleHollowProfileDef(this);
+bool IfcRectangleHollowProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRectangleHollowProfileDef(this);
 }
 
-const std::string &IfcRectangleHollowProfileDef::type() {
+const std::string &IfcRectangleHollowProfileDef::type() const {
     return IfcRectangleHollowProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcRectangleHollowProfileDef::getClassType() {
+const Step::ClassType &IfcRectangleHollowProfileDef::getClassType() {
     return IfcRectangleHollowProfileDef::s_type;
 }
 
-Step::ClassType IfcRectangleHollowProfileDef::getType() const {
+const Step::ClassType &IfcRectangleHollowProfileDef::getType() const {
     return IfcRectangleHollowProfileDef::s_type;
 }
 
-bool IfcRectangleHollowProfileDef::isOfType(Step::ClassType t) {
+bool IfcRectangleHollowProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcRectangleHollowProfileDef::s_type == t ? true : IfcRectangleProfileDef::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness() {
     else {
         return Step::getUnset(m_wallThickness);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getWallThickness() const {
+    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
+    return deConstObject->getWallThickness();
 }
 
 void IfcRectangleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value) {
@@ -90,6 +95,11 @@ IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() const {
+    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
+    return deConstObject->getInnerFilletRadius();
+}
+
 void IfcRectangleHollowProfileDef::setInnerFilletRadius(IfcPositiveLengthMeasure value) {
     m_innerFilletRadius = value;
 }
@@ -103,12 +113,13 @@ IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() {
     }
 }
 
-void IfcRectangleHollowProfileDef::setOuterFilletRadius(IfcPositiveLengthMeasure value) {
-    m_outerFilletRadius = value;
+const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() const {
+    IfcRectangleHollowProfileDef * deConstObject = const_cast< IfcRectangleHollowProfileDef * > (this);
+    return deConstObject->getOuterFilletRadius();
 }
 
-void IfcRectangleHollowProfileDef::release() {
-    IfcRectangleProfileDef::release();
+void IfcRectangleHollowProfileDef::setOuterFilletRadius(IfcPositiveLengthMeasure value) {
+    m_outerFilletRadius = value;
 }
 
 bool IfcRectangleHollowProfileDef::init() {

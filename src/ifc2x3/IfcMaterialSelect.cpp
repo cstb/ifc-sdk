@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,51 +52,51 @@ IfcMaterialSelect::~IfcMaterialSelect() {
     deleteUnion();
 }
 
-bool IfcMaterialSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialSelect(this);
+bool IfcMaterialSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialSelect(this);
 }
 
 bool IfcMaterialSelect::init() {
     return false;
 }
 
-const std::string &IfcMaterialSelect::type() {
+const std::string &IfcMaterialSelect::type() const {
     return IfcMaterialSelect::s_type.getName();
 }
 
-Step::ClassType IfcMaterialSelect::getClassType() {
+const Step::ClassType &IfcMaterialSelect::getClassType() {
     return IfcMaterialSelect::s_type;
 }
 
-Step::ClassType IfcMaterialSelect::getType() const {
+const Step::ClassType &IfcMaterialSelect::getType() const {
     return IfcMaterialSelect::s_type;
 }
 
-bool IfcMaterialSelect::isOfType(Step::ClassType t) {
+bool IfcMaterialSelect::isOfType(const Step::ClassType &t) const {
     return IfcMaterialSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcMaterialSelect::copy(const IfcMaterialSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCMATERIAL:
-        setIfcMaterial(copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterial));
+        setIfcMaterial((IfcMaterial *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterial)));
         break;
     case IFCMATERIALLIST:
-        setIfcMaterialList(copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialList));
+        setIfcMaterialList((IfcMaterialList *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialList)));
         break;
     case IFCMATERIALLAYERSETUSAGE:
-        setIfcMaterialLayerSetUsage(copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayerSetUsage));
+        setIfcMaterialLayerSetUsage((IfcMaterialLayerSetUsage *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayerSetUsage)));
         break;
     case IFCMATERIALLAYERSET:
-        setIfcMaterialLayerSet(copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayerSet));
+        setIfcMaterialLayerSet((IfcMaterialLayerSet *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayerSet)));
         break;
     case IFCMATERIALLAYER:
-        setIfcMaterialLayer(copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayer));
+        setIfcMaterialLayer((IfcMaterialLayer *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayer)));
         break;
         }
 }
 
-char *IfcMaterialSelect::currentTypeName() {
+std::string IfcMaterialSelect::currentTypeName() const {
     switch(m_type) {
     case IFCMATERIAL:
         return "IfcMaterial";
@@ -118,7 +118,7 @@ char *IfcMaterialSelect::currentTypeName() {
     }
 }
 
-IfcMaterialSelect::IfcMaterialSelect_select IfcMaterialSelect::currentType() {
+IfcMaterialSelect::IfcMaterialSelect_select IfcMaterialSelect::currentType() const {
     return m_type;
 }
 
@@ -143,12 +143,16 @@ void IfcMaterialSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcMaterial *IfcMaterialSelect::getIfcMaterial() {
-    return m_IfcMaterialSelect_union.m_IfcMaterial;
+IfcMaterial *IfcMaterialSelect::getIfcMaterial() const {
+    if (m_type == IFCMATERIAL) {
+        return m_IfcMaterialSelect_union.m_IfcMaterial;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMaterialSelect::setIfcMaterial(IfcMaterial *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +167,16 @@ void IfcMaterialSelect::setIfcMaterial(IfcMaterial *value) {
     m_type = IFCMATERIAL;
 }
 
-IfcMaterialList *IfcMaterialSelect::getIfcMaterialList() {
-    return m_IfcMaterialSelect_union.m_IfcMaterialList;
+IfcMaterialList *IfcMaterialSelect::getIfcMaterialList() const {
+    if (m_type == IFCMATERIALLIST) {
+        return m_IfcMaterialSelect_union.m_IfcMaterialList;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMaterialSelect::setIfcMaterialList(IfcMaterialList *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -183,12 +191,16 @@ void IfcMaterialSelect::setIfcMaterialList(IfcMaterialList *value) {
     m_type = IFCMATERIALLIST;
 }
 
-IfcMaterialLayerSetUsage *IfcMaterialSelect::getIfcMaterialLayerSetUsage() {
-    return m_IfcMaterialSelect_union.m_IfcMaterialLayerSetUsage;
+IfcMaterialLayerSetUsage *IfcMaterialSelect::getIfcMaterialLayerSetUsage() const {
+    if (m_type == IFCMATERIALLAYERSETUSAGE) {
+        return m_IfcMaterialSelect_union.m_IfcMaterialLayerSetUsage;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMaterialSelect::setIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -203,12 +215,16 @@ void IfcMaterialSelect::setIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *va
     m_type = IFCMATERIALLAYERSETUSAGE;
 }
 
-IfcMaterialLayerSet *IfcMaterialSelect::getIfcMaterialLayerSet() {
-    return m_IfcMaterialSelect_union.m_IfcMaterialLayerSet;
+IfcMaterialLayerSet *IfcMaterialSelect::getIfcMaterialLayerSet() const {
+    if (m_type == IFCMATERIALLAYERSET) {
+        return m_IfcMaterialSelect_union.m_IfcMaterialLayerSet;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMaterialSelect::setIfcMaterialLayerSet(IfcMaterialLayerSet *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -223,12 +239,16 @@ void IfcMaterialSelect::setIfcMaterialLayerSet(IfcMaterialLayerSet *value) {
     m_type = IFCMATERIALLAYERSET;
 }
 
-IfcMaterialLayer *IfcMaterialSelect::getIfcMaterialLayer() {
-    return m_IfcMaterialSelect_union.m_IfcMaterialLayer;
+IfcMaterialLayer *IfcMaterialSelect::getIfcMaterialLayer() const {
+    if (m_type == IFCMATERIALLAYER) {
+        return m_IfcMaterialSelect_union.m_IfcMaterialLayer;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcMaterialSelect::setIfcMaterialLayer(IfcMaterialLayer *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

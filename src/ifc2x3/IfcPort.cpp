@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -27,7 +27,7 @@
 #include "ifc2x3/IfcPort.h"
 
 #include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAlignmentElement.h"
+#include "ifc2x3/IfcProduct.h"
 #include "ifc2x3/IfcRelConnectsPortToElement.h"
 #include "ifc2x3/IfcRelConnectsPorts.h"
 #include "ifc2x3/Visitor.h"
@@ -43,32 +43,30 @@
 #endif
 using namespace ifc2x3;
 
-IfcPort::IfcPort(Step::Id id, Step::SPFData *args) : IfcAlignmentElement(id, args) {
-    m_connectedFrom.setUnset(true);
-    m_connectedTo.setUnset(true);
+IfcPort::IfcPort(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
 }
 
 IfcPort::~IfcPort() {
 }
 
-bool IfcPort::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPort(this);
+bool IfcPort::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPort(this);
 }
 
-const std::string &IfcPort::type() {
+const std::string &IfcPort::type() const {
     return IfcPort::s_type.getName();
 }
 
-Step::ClassType IfcPort::getClassType() {
+const Step::ClassType &IfcPort::getClassType() {
     return IfcPort::s_type;
 }
 
-Step::ClassType IfcPort::getType() const {
+const Step::ClassType &IfcPort::getType() const {
     return IfcPort::s_type;
 }
 
-bool IfcPort::isOfType(Step::ClassType t) {
-    return IfcPort::s_type == t ? true : IfcAlignmentElement::isOfType(t);
+bool IfcPort::isOfType(const Step::ClassType &t) const {
+    return IfcPort::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
 IfcRelConnectsPortToElement *IfcPort::getContainedIn() {
@@ -80,7 +78,12 @@ IfcRelConnectsPortToElement *IfcPort::getContainedIn() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &IfcPort::getConnectedFrom() {
+const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const {
+    IfcPort * deConstObject = const_cast< IfcPort * > (this);
+    return deConstObject->getContainedIn();
+}
+
+Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() {
     if (Step::BaseObject::inited()) {
         return m_connectedFrom;
     }
@@ -90,7 +93,12 @@ Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &IfcPort::getConnectedFrom() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &IfcPort::getConnectedTo() {
+const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const {
+    IfcPort * deConstObject = const_cast< IfcPort * > (this);
+    return deConstObject->getConnectedFrom();
+}
+
+Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
     if (Step::BaseObject::inited()) {
         return m_connectedTo;
     }
@@ -100,12 +108,13 @@ Step::Set< Step::ObsPtr< IfcRelConnectsPorts > > &IfcPort::getConnectedTo() {
     }
 }
 
-void IfcPort::release() {
-    IfcAlignmentElement::release();
+const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const {
+    IfcPort * deConstObject = const_cast< IfcPort * > (this);
+    return deConstObject->getConnectedTo();
 }
 
 bool IfcPort::init() {
-    bool status = IfcAlignmentElement::init();
+    bool status = IfcProduct::init();
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {
@@ -135,7 +144,7 @@ bool IfcPort::init() {
 }
 
 void IfcPort::copy(const IfcPort &obj, const CopyOp &copyop) {
-    IfcAlignmentElement::copy(obj, copyop);
+    IfcProduct::copy(obj, copyop);
     return;
 }
 

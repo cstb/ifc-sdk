@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,12 +31,10 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcTextureCoordinate.h"
-#include "ifc2x3/IfcSimpleValue.h"
-#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
@@ -47,45 +45,66 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcTextureCoordinateGenerator : public IfcTextureCoordinate {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Mode'.
+         * 
          */
-        IfcLabel getMode();
+        virtual IfcLabel getMode();
+        /**
+         * (const) Returns the value of the explicit attribute 'Mode'.
+         * 
+         * @return the value of the explicit attribute 'Mode'
+         */
+        virtual const IfcLabel getMode() const;
         /**
          * Sets the value of the explicit attribute 'Mode'.
          * 
          * @param value
          */
-        void setMode(const IfcLabel &value);
+        virtual void setMode(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Parameter'.
+         * 
          */
-        Step::List< Step::RefPtr< IfcSimpleValue > > &getParameter();
+        virtual List_IfcSimpleValue_1_n &getParameter();
+        /**
+         * (const) Returns the value of the explicit attribute 'Parameter'.
+         * 
+         * @return the value of the explicit attribute 'Parameter'
+         */
+        virtual const List_IfcSimpleValue_1_n &getParameter() const;
         /**
          * Sets the value of the explicit attribute 'Parameter'.
          * 
          * @param value
          */
-        void setParameter(const Step::List< Step::RefPtr< IfcSimpleValue > > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setParameter(const List_IfcSimpleValue_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -110,10 +129,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_mode;
+        Step::String m_mode;
         /**
          */
-        Step::List< Step::RefPtr< IfcSimpleValue > > m_parameter;
+        List_IfcSimpleValue_1_n m_parameter;
 
     };
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcLightSourceAmbient::IfcLightSourceAmbient(Step::Id id, Step::SPFData *args) :
 IfcLightSourceAmbient::~IfcLightSourceAmbient() {
 }
 
-bool IfcLightSourceAmbient::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSourceAmbient(this);
+bool IfcLightSourceAmbient::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSourceAmbient(this);
 }
 
-const std::string &IfcLightSourceAmbient::type() {
+const std::string &IfcLightSourceAmbient::type() const {
     return IfcLightSourceAmbient::s_type.getName();
 }
 
-Step::ClassType IfcLightSourceAmbient::getClassType() {
+const Step::ClassType &IfcLightSourceAmbient::getClassType() {
     return IfcLightSourceAmbient::s_type;
 }
 
-Step::ClassType IfcLightSourceAmbient::getType() const {
+const Step::ClassType &IfcLightSourceAmbient::getType() const {
     return IfcLightSourceAmbient::s_type;
 }
 
-bool IfcLightSourceAmbient::isOfType(Step::ClassType t) {
+bool IfcLightSourceAmbient::isOfType(const Step::ClassType &t) const {
     return IfcLightSourceAmbient::s_type == t ? true : IfcLightSource::isOfType(t);
-}
-
-void IfcLightSourceAmbient::release() {
-    IfcLightSource::release();
 }
 
 bool IfcLightSourceAmbient::init() {

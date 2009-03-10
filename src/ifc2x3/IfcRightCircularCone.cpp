@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcRightCircularCone::IfcRightCircularCone(Step::Id id, Step::SPFData *args) : I
 IfcRightCircularCone::~IfcRightCircularCone() {
 }
 
-bool IfcRightCircularCone::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRightCircularCone(this);
+bool IfcRightCircularCone::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRightCircularCone(this);
 }
 
-const std::string &IfcRightCircularCone::type() {
+const std::string &IfcRightCircularCone::type() const {
     return IfcRightCircularCone::s_type.getName();
 }
 
-Step::ClassType IfcRightCircularCone::getClassType() {
+const Step::ClassType &IfcRightCircularCone::getClassType() {
     return IfcRightCircularCone::s_type;
 }
 
-Step::ClassType IfcRightCircularCone::getType() const {
+const Step::ClassType &IfcRightCircularCone::getType() const {
     return IfcRightCircularCone::s_type;
 }
 
-bool IfcRightCircularCone::isOfType(Step::ClassType t) {
+bool IfcRightCircularCone::isOfType(const Step::ClassType &t) const {
     return IfcRightCircularCone::s_type == t ? true : IfcCsgPrimitive3D::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcRightCircularCone::getHeight() {
     else {
         return Step::getUnset(m_height);
     }
+}
+
+const IfcPositiveLengthMeasure IfcRightCircularCone::getHeight() const {
+    IfcRightCircularCone * deConstObject = const_cast< IfcRightCircularCone * > (this);
+    return deConstObject->getHeight();
 }
 
 void IfcRightCircularCone::setHeight(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() {
     }
 }
 
-void IfcRightCircularCone::setBottomRadius(IfcPositiveLengthMeasure value) {
-    m_bottomRadius = value;
+const IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() const {
+    IfcRightCircularCone * deConstObject = const_cast< IfcRightCircularCone * > (this);
+    return deConstObject->getBottomRadius();
 }
 
-void IfcRightCircularCone::release() {
-    IfcCsgPrimitive3D::release();
+void IfcRightCircularCone::setBottomRadius(IfcPositiveLengthMeasure value) {
+    m_bottomRadius = value;
 }
 
 bool IfcRightCircularCone::init() {

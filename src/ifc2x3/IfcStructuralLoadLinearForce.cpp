@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcStructuralLoadLinearForce::IfcStructuralLoadLinearForce(Step::Id id, Step::SP
 IfcStructuralLoadLinearForce::~IfcStructuralLoadLinearForce() {
 }
 
-bool IfcStructuralLoadLinearForce::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadLinearForce(this);
+bool IfcStructuralLoadLinearForce::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadLinearForce(this);
 }
 
-const std::string &IfcStructuralLoadLinearForce::type() {
+const std::string &IfcStructuralLoadLinearForce::type() const {
     return IfcStructuralLoadLinearForce::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadLinearForce::getClassType() {
+const Step::ClassType &IfcStructuralLoadLinearForce::getClassType() {
     return IfcStructuralLoadLinearForce::s_type;
 }
 
-Step::ClassType IfcStructuralLoadLinearForce::getType() const {
+const Step::ClassType &IfcStructuralLoadLinearForce::getType() const {
     return IfcStructuralLoadLinearForce::s_type;
 }
 
-bool IfcStructuralLoadLinearForce::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadLinearForce::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadLinearForce::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceX() {
     else {
         return Step::getUnset(m_linearForceX);
     }
+}
+
+const IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceX() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearForceX();
 }
 
 void IfcStructuralLoadLinearForce::setLinearForceX(IfcLinearForceMeasure value) {
@@ -93,6 +98,11 @@ IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceY() {
     }
 }
 
+const IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceY() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearForceY();
+}
+
 void IfcStructuralLoadLinearForce::setLinearForceY(IfcLinearForceMeasure value) {
     m_linearForceY = value;
 }
@@ -104,6 +114,11 @@ IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceZ() {
     else {
         return Step::getUnset(m_linearForceZ);
     }
+}
+
+const IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceZ() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearForceZ();
 }
 
 void IfcStructuralLoadLinearForce::setLinearForceZ(IfcLinearForceMeasure value) {
@@ -119,6 +134,11 @@ IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentX() {
     }
 }
 
+const IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentX() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearMomentX();
+}
+
 void IfcStructuralLoadLinearForce::setLinearMomentX(IfcLinearMomentMeasure value) {
     m_linearMomentX = value;
 }
@@ -130,6 +150,11 @@ IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentY() {
     else {
         return Step::getUnset(m_linearMomentY);
     }
+}
+
+const IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentY() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearMomentY();
 }
 
 void IfcStructuralLoadLinearForce::setLinearMomentY(IfcLinearMomentMeasure value) {
@@ -145,12 +170,13 @@ IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentZ() {
     }
 }
 
-void IfcStructuralLoadLinearForce::setLinearMomentZ(IfcLinearMomentMeasure value) {
-    m_linearMomentZ = value;
+const IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentZ() const {
+    IfcStructuralLoadLinearForce * deConstObject = const_cast< IfcStructuralLoadLinearForce * > (this);
+    return deConstObject->getLinearMomentZ();
 }
 
-void IfcStructuralLoadLinearForce::release() {
-    IfcStructuralLoadStatic::release();
+void IfcStructuralLoadLinearForce::setLinearMomentZ(IfcLinearMomentMeasure value) {
+    m_linearMomentZ = value;
 }
 
 bool IfcStructuralLoadLinearForce::init() {

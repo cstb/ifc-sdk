@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,81 +44,134 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcFailureConnectionCondition : public IfcStructuralConnectionCondition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'TensionFailureX'.
+         * 
          */
-        IfcForceMeasure getTensionFailureX();
+        virtual IfcForceMeasure getTensionFailureX();
+        /**
+         * (const) Returns the value of the explicit attribute 'TensionFailureX'.
+         * 
+         * @return the value of the explicit attribute 'TensionFailureX'
+         */
+        virtual const IfcForceMeasure getTensionFailureX() const;
         /**
          * Sets the value of the explicit attribute 'TensionFailureX'.
          * 
          * @param value
          */
-        void setTensionFailureX(IfcForceMeasure value);
+        virtual void setTensionFailureX(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TensionFailureY'.
+         * 
          */
-        IfcForceMeasure getTensionFailureY();
+        virtual IfcForceMeasure getTensionFailureY();
+        /**
+         * (const) Returns the value of the explicit attribute 'TensionFailureY'.
+         * 
+         * @return the value of the explicit attribute 'TensionFailureY'
+         */
+        virtual const IfcForceMeasure getTensionFailureY() const;
         /**
          * Sets the value of the explicit attribute 'TensionFailureY'.
          * 
          * @param value
          */
-        void setTensionFailureY(IfcForceMeasure value);
+        virtual void setTensionFailureY(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TensionFailureZ'.
+         * 
          */
-        IfcForceMeasure getTensionFailureZ();
+        virtual IfcForceMeasure getTensionFailureZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'TensionFailureZ'.
+         * 
+         * @return the value of the explicit attribute 'TensionFailureZ'
+         */
+        virtual const IfcForceMeasure getTensionFailureZ() const;
         /**
          * Sets the value of the explicit attribute 'TensionFailureZ'.
          * 
          * @param value
          */
-        void setTensionFailureZ(IfcForceMeasure value);
+        virtual void setTensionFailureZ(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CompressionFailureX'.
+         * 
          */
-        IfcForceMeasure getCompressionFailureX();
+        virtual IfcForceMeasure getCompressionFailureX();
+        /**
+         * (const) Returns the value of the explicit attribute 'CompressionFailureX'.
+         * 
+         * @return the value of the explicit attribute 'CompressionFailureX'
+         */
+        virtual const IfcForceMeasure getCompressionFailureX() const;
         /**
          * Sets the value of the explicit attribute 'CompressionFailureX'.
          * 
          * @param value
          */
-        void setCompressionFailureX(IfcForceMeasure value);
+        virtual void setCompressionFailureX(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CompressionFailureY'.
+         * 
          */
-        IfcForceMeasure getCompressionFailureY();
+        virtual IfcForceMeasure getCompressionFailureY();
+        /**
+         * (const) Returns the value of the explicit attribute 'CompressionFailureY'.
+         * 
+         * @return the value of the explicit attribute 'CompressionFailureY'
+         */
+        virtual const IfcForceMeasure getCompressionFailureY() const;
         /**
          * Sets the value of the explicit attribute 'CompressionFailureY'.
          * 
          * @param value
          */
-        void setCompressionFailureY(IfcForceMeasure value);
+        virtual void setCompressionFailureY(IfcForceMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CompressionFailureZ'.
+         * 
          */
-        IfcForceMeasure getCompressionFailureZ();
+        virtual IfcForceMeasure getCompressionFailureZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'CompressionFailureZ'.
+         * 
+         * @return the value of the explicit attribute 'CompressionFailureZ'
+         */
+        virtual const IfcForceMeasure getCompressionFailureZ() const;
         /**
          * Sets the value of the explicit attribute 'CompressionFailureZ'.
          * 
          * @param value
          */
-        void setCompressionFailureZ(IfcForceMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setCompressionFailureZ(IfcForceMeasure value);
         friend class ExpressDataSet;
 
     protected:

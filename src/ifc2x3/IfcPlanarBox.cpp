@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcPlanarBox::IfcPlanarBox(Step::Id id, Step::SPFData *args) : IfcPlanarExtent(i
 IfcPlanarBox::~IfcPlanarBox() {
 }
 
-bool IfcPlanarBox::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPlanarBox(this);
+bool IfcPlanarBox::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPlanarBox(this);
 }
 
-const std::string &IfcPlanarBox::type() {
+const std::string &IfcPlanarBox::type() const {
     return IfcPlanarBox::s_type.getName();
 }
 
-Step::ClassType IfcPlanarBox::getClassType() {
+const Step::ClassType &IfcPlanarBox::getClassType() {
     return IfcPlanarBox::s_type;
 }
 
-Step::ClassType IfcPlanarBox::getType() const {
+const Step::ClassType &IfcPlanarBox::getType() const {
     return IfcPlanarBox::s_type;
 }
 
-bool IfcPlanarBox::isOfType(Step::ClassType t) {
+bool IfcPlanarBox::isOfType(const Step::ClassType &t) const {
     return IfcPlanarBox::s_type == t ? true : IfcPlanarExtent::isOfType(t);
 }
 
@@ -78,12 +78,13 @@ IfcAxis2Placement *IfcPlanarBox::getPlacement() {
     }
 }
 
-void IfcPlanarBox::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
-    m_placement = value;
+const IfcAxis2Placement *IfcPlanarBox::getPlacement() const {
+    IfcPlanarBox * deConstObject = const_cast< IfcPlanarBox * > (this);
+    return deConstObject->getPlacement();
 }
 
-void IfcPlanarBox::release() {
-    IfcPlanarExtent::release();
+void IfcPlanarBox::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
+    m_placement = value;
 }
 
 bool IfcPlanarBox::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -55,23 +55,23 @@ IfcTShapeProfileDef::IfcTShapeProfileDef(Step::Id id, Step::SPFData *args) : Ifc
 IfcTShapeProfileDef::~IfcTShapeProfileDef() {
 }
 
-bool IfcTShapeProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTShapeProfileDef(this);
+bool IfcTShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTShapeProfileDef(this);
 }
 
-const std::string &IfcTShapeProfileDef::type() {
+const std::string &IfcTShapeProfileDef::type() const {
     return IfcTShapeProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcTShapeProfileDef::getClassType() {
+const Step::ClassType &IfcTShapeProfileDef::getClassType() {
     return IfcTShapeProfileDef::s_type;
 }
 
-Step::ClassType IfcTShapeProfileDef::getType() const {
+const Step::ClassType &IfcTShapeProfileDef::getType() const {
     return IfcTShapeProfileDef::s_type;
 }
 
-bool IfcTShapeProfileDef::isOfType(Step::ClassType t) {
+bool IfcTShapeProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcTShapeProfileDef::s_type == t ? true : IfcParameterizedProfileDef::isOfType(t);
 }
 
@@ -82,6 +82,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getDepth() {
     else {
         return Step::getUnset(m_depth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getDepth() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getDepth();
 }
 
 void IfcTShapeProfileDef::setDepth(IfcPositiveLengthMeasure value) {
@@ -97,6 +102,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeWidth() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeWidth() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getFlangeWidth();
+}
+
 void IfcTShapeProfileDef::setFlangeWidth(IfcPositiveLengthMeasure value) {
     m_flangeWidth = value;
 }
@@ -108,6 +118,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getWebThickness() {
     else {
         return Step::getUnset(m_webThickness);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getWebThickness() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getWebThickness();
 }
 
 void IfcTShapeProfileDef::setWebThickness(IfcPositiveLengthMeasure value) {
@@ -123,6 +138,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeThickness() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeThickness() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getFlangeThickness();
+}
+
 void IfcTShapeProfileDef::setFlangeThickness(IfcPositiveLengthMeasure value) {
     m_flangeThickness = value;
 }
@@ -134,6 +154,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getFilletRadius() {
     else {
         return Step::getUnset(m_filletRadius);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getFilletRadius() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getFilletRadius();
 }
 
 void IfcTShapeProfileDef::setFilletRadius(IfcPositiveLengthMeasure value) {
@@ -149,6 +174,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeEdgeRadius() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getFlangeEdgeRadius() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getFlangeEdgeRadius();
+}
+
 void IfcTShapeProfileDef::setFlangeEdgeRadius(IfcPositiveLengthMeasure value) {
     m_flangeEdgeRadius = value;
 }
@@ -160,6 +190,11 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getWebEdgeRadius() {
     else {
         return Step::getUnset(m_webEdgeRadius);
     }
+}
+
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getWebEdgeRadius() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getWebEdgeRadius();
 }
 
 void IfcTShapeProfileDef::setWebEdgeRadius(IfcPositiveLengthMeasure value) {
@@ -175,6 +210,11 @@ IfcPlaneAngleMeasure IfcTShapeProfileDef::getWebSlope() {
     }
 }
 
+const IfcPlaneAngleMeasure IfcTShapeProfileDef::getWebSlope() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getWebSlope();
+}
+
 void IfcTShapeProfileDef::setWebSlope(IfcPlaneAngleMeasure value) {
     m_webSlope = value;
 }
@@ -186,6 +226,11 @@ IfcPlaneAngleMeasure IfcTShapeProfileDef::getFlangeSlope() {
     else {
         return Step::getUnset(m_flangeSlope);
     }
+}
+
+const IfcPlaneAngleMeasure IfcTShapeProfileDef::getFlangeSlope() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getFlangeSlope();
 }
 
 void IfcTShapeProfileDef::setFlangeSlope(IfcPlaneAngleMeasure value) {
@@ -201,12 +246,13 @@ IfcPositiveLengthMeasure IfcTShapeProfileDef::getCentreOfGravityInY() {
     }
 }
 
-void IfcTShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInY = value;
+const IfcPositiveLengthMeasure IfcTShapeProfileDef::getCentreOfGravityInY() const {
+    IfcTShapeProfileDef * deConstObject = const_cast< IfcTShapeProfileDef * > (this);
+    return deConstObject->getCentreOfGravityInY();
 }
 
-void IfcTShapeProfileDef::release() {
-    IfcParameterizedProfileDef::release();
+void IfcTShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
+    m_centreOfGravityInY = value;
 }
 
 bool IfcTShapeProfileDef::init() {

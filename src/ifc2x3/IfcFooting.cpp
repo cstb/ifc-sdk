@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcFooting::IfcFooting(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id
 IfcFooting::~IfcFooting() {
 }
 
-bool IfcFooting::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFooting(this);
+bool IfcFooting::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFooting(this);
 }
 
-const std::string &IfcFooting::type() {
+const std::string &IfcFooting::type() const {
     return IfcFooting::s_type.getName();
 }
 
-Step::ClassType IfcFooting::getClassType() {
+const Step::ClassType &IfcFooting::getClassType() {
     return IfcFooting::s_type;
 }
 
-Step::ClassType IfcFooting::getType() const {
+const Step::ClassType &IfcFooting::getType() const {
     return IfcFooting::s_type;
 }
 
-bool IfcFooting::isOfType(Step::ClassType t) {
+bool IfcFooting::isOfType(const Step::ClassType &t) const {
     return IfcFooting::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFootingTypeEnum IfcFooting::getPredefinedType() {
     }
 }
 
-void IfcFooting::setPredefinedType(IfcFootingTypeEnum value) {
-    m_predefinedType = value;
+const IfcFootingTypeEnum IfcFooting::getPredefinedType() const {
+    IfcFooting * deConstObject = const_cast< IfcFooting * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcFooting::release() {
-    IfcBuildingElement::release();
+void IfcFooting::setPredefinedType(IfcFootingTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcFooting::init() {

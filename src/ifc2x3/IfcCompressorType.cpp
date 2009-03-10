@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcCompressorType::IfcCompressorType(Step::Id id, Step::SPFData *args) : IfcFlow
 IfcCompressorType::~IfcCompressorType() {
 }
 
-bool IfcCompressorType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCompressorType(this);
+bool IfcCompressorType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCompressorType(this);
 }
 
-const std::string &IfcCompressorType::type() {
+const std::string &IfcCompressorType::type() const {
     return IfcCompressorType::s_type.getName();
 }
 
-Step::ClassType IfcCompressorType::getClassType() {
+const Step::ClassType &IfcCompressorType::getClassType() {
     return IfcCompressorType::s_type;
 }
 
-Step::ClassType IfcCompressorType::getType() const {
+const Step::ClassType &IfcCompressorType::getType() const {
     return IfcCompressorType::s_type;
 }
 
-bool IfcCompressorType::isOfType(Step::ClassType t) {
+bool IfcCompressorType::isOfType(const Step::ClassType &t) const {
     return IfcCompressorType::s_type == t ? true : IfcFlowMovingDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcCompressorTypeEnum IfcCompressorType::getPredefinedType() {
     }
 }
 
-void IfcCompressorType::setPredefinedType(IfcCompressorTypeEnum value) {
-    m_predefinedType = value;
+const IfcCompressorTypeEnum IfcCompressorType::getPredefinedType() const {
+    IfcCompressorType * deConstObject = const_cast< IfcCompressorType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcCompressorType::release() {
-    IfcFlowMovingDeviceType::release();
+void IfcCompressorType::setPredefinedType(IfcCompressorTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcCompressorType::init() {

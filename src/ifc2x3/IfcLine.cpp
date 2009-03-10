@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcLine::IfcLine(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
 IfcLine::~IfcLine() {
 }
 
-bool IfcLine::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLine(this);
+bool IfcLine::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLine(this);
 }
 
-const std::string &IfcLine::type() {
+const std::string &IfcLine::type() const {
     return IfcLine::s_type.getName();
 }
 
-Step::ClassType IfcLine::getClassType() {
+const Step::ClassType &IfcLine::getClassType() {
     return IfcLine::s_type;
 }
 
-Step::ClassType IfcLine::getType() const {
+const Step::ClassType &IfcLine::getType() const {
     return IfcLine::s_type;
 }
 
-bool IfcLine::isOfType(Step::ClassType t) {
+bool IfcLine::isOfType(const Step::ClassType &t) const {
     return IfcLine::s_type == t ? true : IfcCurve::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcCartesianPoint *IfcLine::getPnt() {
     else {
         return NULL;
     }
+}
+
+const IfcCartesianPoint *IfcLine::getPnt() const {
+    IfcLine * deConstObject = const_cast< IfcLine * > (this);
+    return deConstObject->getPnt();
 }
 
 void IfcLine::setPnt(const Step::RefPtr< IfcCartesianPoint > &value) {
@@ -94,14 +99,13 @@ IfcVector *IfcLine::getDir() {
     }
 }
 
-void IfcLine::setDir(const Step::RefPtr< IfcVector > &value) {
-    m_dir = value;
+const IfcVector *IfcLine::getDir() const {
+    IfcLine * deConstObject = const_cast< IfcLine * > (this);
+    return deConstObject->getDir();
 }
 
-void IfcLine::release() {
-    IfcCurve::release();
-    m_pnt.release();
-    m_dir.release();
+void IfcLine::setDir(const Step::RefPtr< IfcVector > &value) {
+    m_dir = value;
 }
 
 bool IfcLine::init() {
@@ -115,22 +119,22 @@ bool IfcLine::init() {
         m_pnt = NULL;
     }
     else {
-        m_pnt = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_pnt = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_dir = NULL;
     }
     else {
-        m_dir = static_cast< IfcVector * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_dir = static_cast< IfcVector * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcLine::copy(const IfcLine &obj, const CopyOp &copyop) {
     IfcCurve::copy(obj, copyop);
-    setPnt(copyop(obj.m_pnt.get()));
-    setDir(copyop(obj.m_dir.get()));
+    setPnt((IfcCartesianPoint*)copyop(obj.m_pnt.get()));
+    setDir((IfcVector*)copyop(obj.m_dir.get()));
     return;
 }
 

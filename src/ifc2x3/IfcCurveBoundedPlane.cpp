@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -48,29 +47,28 @@ using namespace ifc2x3;
 IfcCurveBoundedPlane::IfcCurveBoundedPlane(Step::Id id, Step::SPFData *args) : IfcBoundedSurface(id, args) {
     m_basisSurface = NULL;
     m_outerBoundary = NULL;
-    m_innerBoundaries.setUnset(true);
 }
 
 IfcCurveBoundedPlane::~IfcCurveBoundedPlane() {
 }
 
-bool IfcCurveBoundedPlane::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveBoundedPlane(this);
+bool IfcCurveBoundedPlane::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveBoundedPlane(this);
 }
 
-const std::string &IfcCurveBoundedPlane::type() {
+const std::string &IfcCurveBoundedPlane::type() const {
     return IfcCurveBoundedPlane::s_type.getName();
 }
 
-Step::ClassType IfcCurveBoundedPlane::getClassType() {
+const Step::ClassType &IfcCurveBoundedPlane::getClassType() {
     return IfcCurveBoundedPlane::s_type;
 }
 
-Step::ClassType IfcCurveBoundedPlane::getType() const {
+const Step::ClassType &IfcCurveBoundedPlane::getType() const {
     return IfcCurveBoundedPlane::s_type;
 }
 
-bool IfcCurveBoundedPlane::isOfType(Step::ClassType t) {
+bool IfcCurveBoundedPlane::isOfType(const Step::ClassType &t) const {
     return IfcCurveBoundedPlane::s_type == t ? true : IfcBoundedSurface::isOfType(t);
 }
 
@@ -81,6 +79,11 @@ IfcPlane *IfcCurveBoundedPlane::getBasisSurface() {
     else {
         return NULL;
     }
+}
+
+const IfcPlane *IfcCurveBoundedPlane::getBasisSurface() const {
+    IfcCurveBoundedPlane * deConstObject = const_cast< IfcCurveBoundedPlane * > (this);
+    return deConstObject->getBasisSurface();
 }
 
 void IfcCurveBoundedPlane::setBasisSurface(const Step::RefPtr< IfcPlane > &value) {
@@ -96,11 +99,16 @@ IfcCurve *IfcCurveBoundedPlane::getOuterBoundary() {
     }
 }
 
+const IfcCurve *IfcCurveBoundedPlane::getOuterBoundary() const {
+    IfcCurveBoundedPlane * deConstObject = const_cast< IfcCurveBoundedPlane * > (this);
+    return deConstObject->getOuterBoundary();
+}
+
 void IfcCurveBoundedPlane::setOuterBoundary(const Step::RefPtr< IfcCurve > &value) {
     m_outerBoundary = value;
 }
 
-Step::Set< Step::RefPtr< IfcCurve > > &IfcCurveBoundedPlane::getInnerBoundaries() {
+Set_IfcCurve_0_n &IfcCurveBoundedPlane::getInnerBoundaries() {
     if (Step::BaseObject::inited()) {
         return m_innerBoundaries;
     }
@@ -110,15 +118,13 @@ Step::Set< Step::RefPtr< IfcCurve > > &IfcCurveBoundedPlane::getInnerBoundaries(
     }
 }
 
-void IfcCurveBoundedPlane::setInnerBoundaries(const Step::Set< Step::RefPtr< IfcCurve > > &value) {
-    m_innerBoundaries = value;
+const Set_IfcCurve_0_n &IfcCurveBoundedPlane::getInnerBoundaries() const {
+    IfcCurveBoundedPlane * deConstObject = const_cast< IfcCurveBoundedPlane * > (this);
+    return deConstObject->getInnerBoundaries();
 }
 
-void IfcCurveBoundedPlane::release() {
-    IfcBoundedSurface::release();
-    m_basisSurface.release();
-    m_outerBoundary.release();
-    m_innerBoundaries.clear();
+void IfcCurveBoundedPlane::setInnerBoundaries(const Set_IfcCurve_0_n &value) {
+    m_innerBoundaries = value;
 }
 
 bool IfcCurveBoundedPlane::init() {
@@ -132,14 +138,14 @@ bool IfcCurveBoundedPlane::init() {
         m_basisSurface = NULL;
     }
     else {
-        m_basisSurface = static_cast< IfcPlane * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisSurface = static_cast< IfcPlane * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_outerBoundary = NULL;
     }
     else {
-        m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_outerBoundary = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -152,7 +158,7 @@ bool IfcCurveBoundedPlane::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCurve > attr2;
-                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_innerBoundaries.insert(attr2);
             }
             else {
@@ -166,10 +172,10 @@ bool IfcCurveBoundedPlane::init() {
 void IfcCurveBoundedPlane::copy(const IfcCurveBoundedPlane &obj, const CopyOp &copyop) {
     Step::Set< Step::RefPtr< IfcCurve > >::const_iterator it_m_innerBoundaries;
     IfcBoundedSurface::copy(obj, copyop);
-    setBasisSurface(copyop(obj.m_basisSurface.get()));
-    setOuterBoundary(copyop(obj.m_outerBoundary.get()));
+    setBasisSurface((IfcPlane*)copyop(obj.m_basisSurface.get()));
+    setOuterBoundary((IfcCurve*)copyop(obj.m_outerBoundary.get()));
     for (it_m_innerBoundaries = obj.m_innerBoundaries.begin(); it_m_innerBoundaries != obj.m_innerBoundaries.end(); ++it_m_innerBoundaries) {
-        Step::RefPtr< IfcCurve > copyTarget = copyop((*it_m_innerBoundaries).get());
+        Step::RefPtr< IfcCurve > copyTarget = (IfcCurve *) (copyop((*it_m_innerBoundaries).get()));
         m_innerBoundaries.insert(copyTarget.get());
     }
     return;

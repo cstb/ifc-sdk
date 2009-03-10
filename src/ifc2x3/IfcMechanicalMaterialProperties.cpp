@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,23 +50,23 @@ IfcMechanicalMaterialProperties::IfcMechanicalMaterialProperties(Step::Id id, St
 IfcMechanicalMaterialProperties::~IfcMechanicalMaterialProperties() {
 }
 
-bool IfcMechanicalMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMechanicalMaterialProperties(this);
+bool IfcMechanicalMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMechanicalMaterialProperties(this);
 }
 
-const std::string &IfcMechanicalMaterialProperties::type() {
+const std::string &IfcMechanicalMaterialProperties::type() const {
     return IfcMechanicalMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcMechanicalMaterialProperties::getClassType() {
+const Step::ClassType &IfcMechanicalMaterialProperties::getClassType() {
     return IfcMechanicalMaterialProperties::s_type;
 }
 
-Step::ClassType IfcMechanicalMaterialProperties::getType() const {
+const Step::ClassType &IfcMechanicalMaterialProperties::getType() const {
     return IfcMechanicalMaterialProperties::s_type;
 }
 
-bool IfcMechanicalMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcMechanicalMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcMechanicalMaterialProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -77,6 +77,11 @@ IfcDynamicViscosityMeasure IfcMechanicalMaterialProperties::getDynamicViscosity(
     else {
         return Step::getUnset(m_dynamicViscosity);
     }
+}
+
+const IfcDynamicViscosityMeasure IfcMechanicalMaterialProperties::getDynamicViscosity() const {
+    IfcMechanicalMaterialProperties * deConstObject = const_cast< IfcMechanicalMaterialProperties * > (this);
+    return deConstObject->getDynamicViscosity();
 }
 
 void IfcMechanicalMaterialProperties::setDynamicViscosity(IfcDynamicViscosityMeasure value) {
@@ -92,6 +97,11 @@ IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getYoungModulus()
     }
 }
 
+const IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getYoungModulus() const {
+    IfcMechanicalMaterialProperties * deConstObject = const_cast< IfcMechanicalMaterialProperties * > (this);
+    return deConstObject->getYoungModulus();
+}
+
 void IfcMechanicalMaterialProperties::setYoungModulus(IfcModulusOfElasticityMeasure value) {
     m_youngModulus = value;
 }
@@ -103,6 +113,11 @@ IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getShearModulus()
     else {
         return Step::getUnset(m_shearModulus);
     }
+}
+
+const IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getShearModulus() const {
+    IfcMechanicalMaterialProperties * deConstObject = const_cast< IfcMechanicalMaterialProperties * > (this);
+    return deConstObject->getShearModulus();
 }
 
 void IfcMechanicalMaterialProperties::setShearModulus(IfcModulusOfElasticityMeasure value) {
@@ -118,6 +133,11 @@ IfcPositiveRatioMeasure IfcMechanicalMaterialProperties::getPoissonRatio() {
     }
 }
 
+const IfcPositiveRatioMeasure IfcMechanicalMaterialProperties::getPoissonRatio() const {
+    IfcMechanicalMaterialProperties * deConstObject = const_cast< IfcMechanicalMaterialProperties * > (this);
+    return deConstObject->getPoissonRatio();
+}
+
 void IfcMechanicalMaterialProperties::setPoissonRatio(IfcPositiveRatioMeasure value) {
     m_poissonRatio = value;
 }
@@ -131,12 +151,13 @@ IfcThermalExpansionCoefficientMeasure IfcMechanicalMaterialProperties::getTherma
     }
 }
 
-void IfcMechanicalMaterialProperties::setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value) {
-    m_thermalExpansionCoefficient = value;
+const IfcThermalExpansionCoefficientMeasure IfcMechanicalMaterialProperties::getThermalExpansionCoefficient() const {
+    IfcMechanicalMaterialProperties * deConstObject = const_cast< IfcMechanicalMaterialProperties * > (this);
+    return deConstObject->getThermalExpansionCoefficient();
 }
 
-void IfcMechanicalMaterialProperties::release() {
-    IfcMaterialProperties::release();
+void IfcMechanicalMaterialProperties::setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value) {
+    m_thermalExpansionCoefficient = value;
 }
 
 bool IfcMechanicalMaterialProperties::init() {

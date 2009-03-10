@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -28,16 +28,48 @@
 #define IFC2X3_IFCPHYSICALCOMPLEXQUANTITY_H
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
+#include <ifc2x3/IfcPhysicalQuantity.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/Aggregation.h>
-#include <Step/SPFData.h>
 #include <string>
-#include "ifc2x3/IfcPhysicalQuantity.h"
-#include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
+
+    class IfcPhysicalComplexQuantity;
+
+    /**
+     */
+    class Inverted_IfcPhysicalComplexQuantity_HasQuantities_type : public Set_IfcPhysicalQuantity_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcPhysicalQuantity_1_n::size_type size_type;
+
+        /**
+         */
+        IfcPhysicalComplexQuantity *mOwner;
+        /**
+         */
+        Inverted_IfcPhysicalComplexQuantity_HasQuantities_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcPhysicalComplexQuantity *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcPhysicalQuantity > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcPhysicalQuantity > &value);
+
+    };
 
     class CopyOp;
 
@@ -46,79 +78,95 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcPhysicalComplexQuantity : public IfcPhysicalQuantity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'HasQuantities'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcPhysicalQuantity > > &getHasQuantities();
+        virtual Set_IfcPhysicalQuantity_1_n &getHasQuantities();
         /**
+         * (const) Returns the value of the explicit attribute 'HasQuantities'.
+         * 
+         * @return the value of the explicit attribute 'HasQuantities'
          */
-        IfcLabel getDiscrimination();
+        virtual const Set_IfcPhysicalQuantity_1_n &getHasQuantities() const;
+        /**
+         * Gets the value of the explicit attribute 'Discrimination'.
+         * 
+         */
+        virtual IfcLabel getDiscrimination();
+        /**
+         * (const) Returns the value of the explicit attribute 'Discrimination'.
+         * 
+         * @return the value of the explicit attribute 'Discrimination'
+         */
+        virtual const IfcLabel getDiscrimination() const;
         /**
          * Sets the value of the explicit attribute 'Discrimination'.
          * 
          * @param value
          */
-        void setDiscrimination(const IfcLabel &value);
+        virtual void setDiscrimination(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Quality'.
+         * 
          */
-        IfcLabel getQuality();
+        virtual IfcLabel getQuality();
+        /**
+         * (const) Returns the value of the explicit attribute 'Quality'.
+         * 
+         * @return the value of the explicit attribute 'Quality'
+         */
+        virtual const IfcLabel getQuality() const;
         /**
          * Sets the value of the explicit attribute 'Quality'.
          * 
          * @param value
          */
-        void setQuality(const IfcLabel &value);
+        virtual void setQuality(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Usage'.
+         * 
          */
-        IfcLabel getUsage();
+        virtual IfcLabel getUsage();
+        /**
+         * (const) Returns the value of the explicit attribute 'Usage'.
+         * 
+         * @return the value of the explicit attribute 'Usage'
+         */
+        virtual const IfcLabel getUsage() const;
         /**
          * Sets the value of the explicit attribute 'Usage'.
          * 
          * @param value
          */
-        void setUsage(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setUsage(const IfcLabel &value);
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_HasQuantities_type : public Step::Set< Step::RefPtr< IfcPhysicalQuantity > > {
-        public:
-            /**
-             */
-            IfcPhysicalComplexQuantity *mOwner;
-            /**
-             */
-            Inverted_HasQuantities_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcPhysicalComplexQuantity *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcPhysicalQuantity > &value);
-
-        };
-
 
     protected:
         /**
@@ -142,16 +190,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverted_HasQuantities_type m_hasQuantities;
+        Inverted_IfcPhysicalComplexQuantity_HasQuantities_type m_hasQuantities;
         /**
          */
-        std::string m_discrimination;
+        Step::String m_discrimination;
         /**
          */
-        std::string m_quality;
+        Step::String m_quality;
         /**
          */
-        std::string m_usage;
+        Step::String m_usage;
 
     };
 

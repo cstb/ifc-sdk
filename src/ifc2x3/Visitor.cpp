@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,7 +37,6 @@
 #include "ifc2x3/IfcAirTerminalType.h"
 #include "ifc2x3/IfcAirToAirHeatRecoveryType.h"
 #include "ifc2x3/IfcAlarmType.h"
-#include "ifc2x3/IfcAlignmentElement.h"
 #include "ifc2x3/IfcAngularDimension.h"
 #include "ifc2x3/IfcAnnotation.h"
 #include "ifc2x3/IfcAnnotationCurveOccurrence.h"
@@ -84,16 +83,9 @@
 #include "ifc2x3/IfcBoundedSurface.h"
 #include "ifc2x3/IfcBoundingBox.h"
 #include "ifc2x3/IfcBoxedHalfSpace.h"
-#include "ifc2x3/IfcBridge.h"
-#include "ifc2x3/IfcBridgeContactElement.h"
-#include "ifc2x3/IfcBridgeElement.h"
-#include "ifc2x3/IfcBridgePart.h"
-#include "ifc2x3/IfcBridgePrismaticElement.h"
-#include "ifc2x3/IfcBridgeSegment.h"
-#include "ifc2x3/IfcBridgeSegmentPart.h"
-#include "ifc2x3/IfcBridgeStructureElement.h"
 #include "ifc2x3/IfcBuilding.h"
 #include "ifc2x3/IfcBuildingElement.h"
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include "ifc2x3/IfcBuildingElementPart.h"
 #include "ifc2x3/IfcBuildingElementProxy.h"
 #include "ifc2x3/IfcBuildingElementProxyType.h"
@@ -117,11 +109,6 @@
 #include "ifc2x3/IfcCircle.h"
 #include "ifc2x3/IfcCircleHollowProfileDef.h"
 #include "ifc2x3/IfcCircleProfileDef.h"
-#include "ifc2x3/IfcCivilElement.h"
-#include "ifc2x3/IfcCivilElementPart.h"
-#include "ifc2x3/IfcCivilSheath.h"
-#include "ifc2x3/IfcCivilStructureElement.h"
-#include "ifc2x3/IfcCivilVoid.h"
 #include "ifc2x3/IfcClassification.h"
 #include "ifc2x3/IfcClassificationItem.h"
 #include "ifc2x3/IfcClassificationItemRelationship.h"
@@ -130,7 +117,6 @@
 #include "ifc2x3/IfcClassificationNotationSelect.h"
 #include "ifc2x3/IfcClassificationReference.h"
 #include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcClothoid.h"
 #include "ifc2x3/IfcCoilType.h"
 #include "ifc2x3/IfcColour.h"
 #include "ifc2x3/IfcColourOrFactor.h"
@@ -257,7 +243,6 @@
 #include "ifc2x3/IfcElementAssembly.h"
 #include "ifc2x3/IfcElementComponent.h"
 #include "ifc2x3/IfcElementComponentType.h"
-#include "ifc2x3/IfcElementPart.h"
 #include "ifc2x3/IfcElementQuantity.h"
 #include "ifc2x3/IfcElementType.h"
 #include "ifc2x3/IfcElementarySurface.h"
@@ -502,14 +487,6 @@
 #include "ifc2x3/IfcRectangleProfileDef.h"
 #include "ifc2x3/IfcRectangularPyramid.h"
 #include "ifc2x3/IfcRectangularTrimmedSurface.h"
-#include "ifc2x3/IfcReferenceCurve.h"
-#include "ifc2x3/IfcReferenceCurve3D.h"
-#include "ifc2x3/IfcReferenceCurveAlignment2D.h"
-#include "ifc2x3/IfcReferenceCurvePlacement.h"
-#include "ifc2x3/IfcReferenceCurvePlacementSystem.h"
-#include "ifc2x3/IfcReferenceElement.h"
-#include "ifc2x3/IfcReferencePlacement.h"
-#include "ifc2x3/IfcReferencedSectionedSpine.h"
 #include "ifc2x3/IfcReferencesValueDocument.h"
 #include "ifc2x3/IfcRegularTimeSeries.h"
 #include "ifc2x3/IfcReinforcementBarProperties.h"
@@ -756,29 +733,6 @@ Visitor::Visitor() {
 
 Visitor::~Visitor() {
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

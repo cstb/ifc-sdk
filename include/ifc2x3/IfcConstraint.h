@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,133 +30,240 @@
 #include <ifc2x3/ifc2x3DLL.h>
 
 #include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include <Step/Referenced.h>
 #include <Step/ClassType.h>
-#include <Step/BaseEntity.h>
 #include <string>
-#include <Step/Aggregation.h>
+#include <Step/SPFData.h>
+#include <Step/BaseEntity.h>
+#include <Step/String.h>
+#include <Step/Referenced.h>
 
 namespace ifc2x3 {
 
     class CopyOp;
     class IfcActorSelect;
-    class IfcConstraintAggregationRelationship;
-    class IfcConstraintClassificationRelationship;
-    class IfcConstraintRelationship;
     class IfcDateTimeSelect;
-    class IfcPropertyConstraintRelationship;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcConstraint : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Name'.
+         * 
          */
-        IfcLabel getName();
+        virtual IfcLabel getName();
+        /**
+         * (const) Returns the value of the explicit attribute 'Name'.
+         * 
+         * @return the value of the explicit attribute 'Name'
+         */
+        virtual const IfcLabel getName() const;
         /**
          * Sets the value of the explicit attribute 'Name'.
          * 
          * @param value
          */
-        void setName(const IfcLabel &value);
+        virtual void setName(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'Description'.
+         * 
          */
-        IfcText getDescription();
+        virtual IfcText getDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'Description'.
+         * 
+         * @return the value of the explicit attribute 'Description'
+         */
+        virtual const IfcText getDescription() const;
         /**
          * Sets the value of the explicit attribute 'Description'.
          * 
          * @param value
          */
-        void setDescription(const IfcText &value);
+        virtual void setDescription(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'ConstraintGrade'.
+         * 
          */
-        IfcConstraintEnum getConstraintGrade();
+        virtual IfcConstraintEnum getConstraintGrade();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConstraintGrade'.
+         * 
+         * @return the value of the explicit attribute 'ConstraintGrade'
+         */
+        virtual const IfcConstraintEnum getConstraintGrade() const;
         /**
          * Sets the value of the explicit attribute 'ConstraintGrade'.
          * 
          * @param value
          */
-        void setConstraintGrade(IfcConstraintEnum value);
+        virtual void setConstraintGrade(IfcConstraintEnum value);
         /**
+         * Gets the value of the explicit attribute 'ConstraintSource'.
+         * 
          */
-        IfcLabel getConstraintSource();
+        virtual IfcLabel getConstraintSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConstraintSource'.
+         * 
+         * @return the value of the explicit attribute 'ConstraintSource'
+         */
+        virtual const IfcLabel getConstraintSource() const;
         /**
          * Sets the value of the explicit attribute 'ConstraintSource'.
          * 
          * @param value
          */
-        void setConstraintSource(const IfcLabel &value);
+        virtual void setConstraintSource(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'CreatingActor'.
+         * 
          */
-        IfcActorSelect *getCreatingActor();
+        virtual IfcActorSelect *getCreatingActor();
+        /**
+         * (const) Returns the value of the explicit attribute 'CreatingActor'.
+         * 
+         * @return the value of the explicit attribute 'CreatingActor'
+         */
+        virtual const IfcActorSelect *getCreatingActor() const;
         /**
          * Sets the value of the explicit attribute 'CreatingActor'.
          * 
          * @param value
          */
-        void setCreatingActor(const Step::RefPtr< IfcActorSelect > &value);
+        virtual void setCreatingActor(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'CreationTime'.
+         * 
          */
-        IfcDateTimeSelect *getCreationTime();
+        virtual IfcDateTimeSelect *getCreationTime();
+        /**
+         * (const) Returns the value of the explicit attribute 'CreationTime'.
+         * 
+         * @return the value of the explicit attribute 'CreationTime'
+         */
+        virtual const IfcDateTimeSelect *getCreationTime() const;
         /**
          * Sets the value of the explicit attribute 'CreationTime'.
          * 
          * @param value
          */
-        void setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        virtual void setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * Gets the value of the explicit attribute 'UserDefinedGrade'.
+         * 
          */
-        IfcLabel getUserDefinedGrade();
+        virtual IfcLabel getUserDefinedGrade();
+        /**
+         * (const) Returns the value of the explicit attribute 'UserDefinedGrade'.
+         * 
+         * @return the value of the explicit attribute 'UserDefinedGrade'
+         */
+        virtual const IfcLabel getUserDefinedGrade() const;
         /**
          * Sets the value of the explicit attribute 'UserDefinedGrade'.
          * 
          * @param value
          */
-        void setUserDefinedGrade(const IfcLabel &value);
+        virtual void setUserDefinedGrade(const IfcLabel &value);
         /**
+         * Gets the value of the inverse attribute 'ClassifiedAs'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcConstraintClassificationRelationship > > &getClassifiedAs();
+        Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs();
         /**
+         * (const) Returns the value of the explicit attribute 'ClassifiedAs'.
+         * 
+         * @return the value of the explicit attribute 'ClassifiedAs'
          */
-        Step::Set< Step::ObsPtr< IfcConstraintRelationship > > &getRelatesConstraints();
+        virtual const Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs() const;
         /**
+         * Gets the value of the inverse attribute 'RelatesConstraints'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcConstraintRelationship > > &getIsRelatedWith();
+        Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints();
         /**
+         * (const) Returns the value of the explicit attribute 'RelatesConstraints'.
+         * 
+         * @return the value of the explicit attribute 'RelatesConstraints'
          */
-        Step::Set< Step::ObsPtr< IfcPropertyConstraintRelationship > > &getPropertiesForConstraint();
+        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints() const;
         /**
+         * Gets the value of the inverse attribute 'IsRelatedWith'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > &getAggregates();
+        Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
         /**
+         * (const) Returns the value of the explicit attribute 'IsRelatedWith'.
+         * 
+         * @return the value of the explicit attribute 'IsRelatedWith'
          */
-        Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > &getIsAggregatedIn();
+        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
         /**
+         * Gets the value of the inverse attribute 'PropertiesForConstraint'.
+         * 
          */
-        virtual void release();
+        Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
+        /**
+         * (const) Returns the value of the explicit attribute 'PropertiesForConstraint'.
+         * 
+         * @return the value of the explicit attribute 'PropertiesForConstraint'
+         */
+        virtual const Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
+        /**
+         * Gets the value of the inverse attribute 'Aggregates'.
+         * 
+         */
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
+        /**
+         * (const) Returns the value of the explicit attribute 'Aggregates'.
+         * 
+         * @return the value of the explicit attribute 'Aggregates'
+         */
+        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
+        /**
+         * Gets the value of the inverse attribute 'IsAggregatedIn'.
+         * 
+         */
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
+        /**
+         * (const) Returns the value of the explicit attribute 'IsAggregatedIn'.
+         * 
+         * @return the value of the explicit attribute 'IsAggregatedIn'
+         */
+        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
         friend class IfcConstraintAggregationRelationship;
         friend class IfcConstraintClassificationRelationship;
         friend class ExpressDataSet;
+        friend class Inverted_IfcConstraintRelationship_RelatedConstraints_type;
+        friend class Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type;
         friend class IfcPropertyConstraintRelationship;
         friend class IfcConstraintRelationship;
 
@@ -182,16 +289,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        std::string m_name;
+        Step::String m_name;
         /**
          */
-        std::string m_description;
+        Step::String m_description;
         /**
          */
         IfcConstraintEnum m_constraintGrade;
         /**
          */
-        std::string m_constraintSource;
+        Step::String m_constraintSource;
         /**
          */
         Step::RefPtr< IfcActorSelect > m_creatingActor;
@@ -200,25 +307,25 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDateTimeSelect > m_creationTime;
         /**
          */
-        std::string m_userDefinedGrade;
+        Step::String m_userDefinedGrade;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcConstraintClassificationRelationship > > m_classifiedAs;
+        Inverse_Set_IfcConstraintClassificationRelationship_0_n m_classifiedAs;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcConstraintRelationship > > m_relatesConstraints;
+        Inverse_Set_IfcConstraintRelationship_0_n m_relatesConstraints;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcConstraintRelationship > > m_isRelatedWith;
+        Inverse_Set_IfcConstraintRelationship_0_n m_isRelatedWith;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcPropertyConstraintRelationship > > m_propertiesForConstraint;
+        Inverse_Set_IfcPropertyConstraintRelationship_0_n m_propertiesForConstraint;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > m_aggregates;
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_aggregates;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcConstraintAggregationRelationship > > m_isAggregatedIn;
+        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_isAggregatedIn;
 
     };
 

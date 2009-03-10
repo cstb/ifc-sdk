@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcStructuralConnectionCondition::IfcStructuralConnectionCondition(Step::Id id, 
 IfcStructuralConnectionCondition::~IfcStructuralConnectionCondition() {
 }
 
-bool IfcStructuralConnectionCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralConnectionCondition(this);
+bool IfcStructuralConnectionCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralConnectionCondition(this);
 }
 
-const std::string &IfcStructuralConnectionCondition::type() {
+const std::string &IfcStructuralConnectionCondition::type() const {
     return IfcStructuralConnectionCondition::s_type.getName();
 }
 
-Step::ClassType IfcStructuralConnectionCondition::getClassType() {
+const Step::ClassType &IfcStructuralConnectionCondition::getClassType() {
     return IfcStructuralConnectionCondition::s_type;
 }
 
-Step::ClassType IfcStructuralConnectionCondition::getType() const {
+const Step::ClassType &IfcStructuralConnectionCondition::getType() const {
     return IfcStructuralConnectionCondition::s_type;
 }
 
-bool IfcStructuralConnectionCondition::isOfType(Step::ClassType t) {
+bool IfcStructuralConnectionCondition::isOfType(const Step::ClassType &t) const {
     return IfcStructuralConnectionCondition::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcStructuralConnectionCondition::getName() {
     }
 }
 
-void IfcStructuralConnectionCondition::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcStructuralConnectionCondition::getName() const {
+    IfcStructuralConnectionCondition * deConstObject = const_cast< IfcStructuralConnectionCondition * > (this);
+    return deConstObject->getName();
 }
 
-void IfcStructuralConnectionCondition::release() {
+void IfcStructuralConnectionCondition::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcStructuralConnectionCondition::init() {
@@ -89,7 +92,7 @@ bool IfcStructuralConnectionCondition::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

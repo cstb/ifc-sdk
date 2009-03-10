@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,17 +26,18 @@
 
 #include "ifc2x3/IfcReferencesValueDocument.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcAppliedValue.h"
 #include "ifc2x3/IfcDocumentSelect.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -45,6 +46,25 @@
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcReferencesValueDocument_ReferencingValues_type::Inverted_IfcReferencesValueDocument_ReferencingValues_type() {
+}
+
+void Inverted_IfcReferencesValueDocument_ReferencingValues_type::setOwner(IfcReferencesValueDocument *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcReferencesValueDocument_ReferencingValues_type::insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range) {
+    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
+    Set_IfcAppliedValue_1_n::insert(value);
+    inverse->m_valuesReferenced.insert(mOwner);
+}
+
+Inverted_IfcReferencesValueDocument_ReferencingValues_type::size_type Inverted_IfcReferencesValueDocument_ReferencingValues_type::erase(const Step::RefPtr< IfcAppliedValue > &value) {
+    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
+    inverse->m_valuesReferenced.erase(mOwner);
+    return Set_IfcAppliedValue_1_n::erase(value);
+}
 
 IfcReferencesValueDocument::IfcReferencesValueDocument(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_referencedDocument = NULL;
@@ -57,23 +77,23 @@ IfcReferencesValueDocument::IfcReferencesValueDocument(Step::Id id, Step::SPFDat
 IfcReferencesValueDocument::~IfcReferencesValueDocument() {
 }
 
-bool IfcReferencesValueDocument::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcReferencesValueDocument(this);
+bool IfcReferencesValueDocument::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcReferencesValueDocument(this);
 }
 
-const std::string &IfcReferencesValueDocument::type() {
+const std::string &IfcReferencesValueDocument::type() const {
     return IfcReferencesValueDocument::s_type.getName();
 }
 
-Step::ClassType IfcReferencesValueDocument::getClassType() {
+const Step::ClassType &IfcReferencesValueDocument::getClassType() {
     return IfcReferencesValueDocument::s_type;
 }
 
-Step::ClassType IfcReferencesValueDocument::getType() const {
+const Step::ClassType &IfcReferencesValueDocument::getType() const {
     return IfcReferencesValueDocument::s_type;
 }
 
-bool IfcReferencesValueDocument::isOfType(Step::ClassType t) {
+bool IfcReferencesValueDocument::isOfType(const Step::ClassType &t) const {
     return IfcReferencesValueDocument::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -86,11 +106,16 @@ IfcDocumentSelect *IfcReferencesValueDocument::getReferencedDocument() {
     }
 }
 
+const IfcDocumentSelect *IfcReferencesValueDocument::getReferencedDocument() const {
+    IfcReferencesValueDocument * deConstObject = const_cast< IfcReferencesValueDocument * > (this);
+    return deConstObject->getReferencedDocument();
+}
+
 void IfcReferencesValueDocument::setReferencedDocument(const Step::RefPtr< IfcDocumentSelect > &value) {
     m_referencedDocument = value;
 }
 
-Step::Set< Step::RefPtr< IfcAppliedValue > > &IfcReferencesValueDocument::getReferencingValues() {
+Set_IfcAppliedValue_1_n &IfcReferencesValueDocument::getReferencingValues() {
     if (Step::BaseObject::inited()) {
         return m_referencingValues;
     }
@@ -100,6 +125,11 @@ Step::Set< Step::RefPtr< IfcAppliedValue > > &IfcReferencesValueDocument::getRef
     }
 }
 
+const Set_IfcAppliedValue_1_n &IfcReferencesValueDocument::getReferencingValues() const {
+    IfcReferencesValueDocument * deConstObject = const_cast< IfcReferencesValueDocument * > (this);
+    return deConstObject->getReferencingValues();
+}
+
 IfcLabel IfcReferencesValueDocument::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -107,6 +137,11 @@ IfcLabel IfcReferencesValueDocument::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcReferencesValueDocument::getName() const {
+    IfcReferencesValueDocument * deConstObject = const_cast< IfcReferencesValueDocument * > (this);
+    return deConstObject->getName();
 }
 
 void IfcReferencesValueDocument::setName(const IfcLabel &value) {
@@ -122,12 +157,13 @@ IfcText IfcReferencesValueDocument::getDescription() {
     }
 }
 
-void IfcReferencesValueDocument::setDescription(const IfcText &value) {
-    m_description = value;
+const IfcText IfcReferencesValueDocument::getDescription() const {
+    IfcReferencesValueDocument * deConstObject = const_cast< IfcReferencesValueDocument * > (this);
+    return deConstObject->getDescription();
 }
 
-void IfcReferencesValueDocument::release() {
-    m_referencingValues.clear();
+void IfcReferencesValueDocument::setDescription(const IfcText &value) {
+    m_description = value;
 }
 
 bool IfcReferencesValueDocument::init() {
@@ -162,7 +198,7 @@ bool IfcReferencesValueDocument::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcAppliedValue > attr2;
-                attr2 = static_cast< IfcAppliedValue * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcAppliedValue * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_referencingValues.insert(attr2);
             }
             else {
@@ -175,25 +211,25 @@ bool IfcReferencesValueDocument::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcReferencesValueDocument::copy(const IfcReferencesValueDocument &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcAppliedValue > >::const_iterator it_m_referencingValues;
+    Step::Set< Step::RefPtr< IfcAppliedValue >, 1 >::const_iterator it_m_referencingValues;
     Step::BaseEntity::copy(obj, copyop);
     m_referencedDocument = new IfcDocumentSelect;
     m_referencedDocument->copy(*(obj.m_referencedDocument.get()), copyop);
     for (it_m_referencingValues = obj.m_referencingValues.begin(); it_m_referencingValues != obj.m_referencingValues.end(); ++it_m_referencingValues) {
-        Step::RefPtr< IfcAppliedValue > copyTarget = copyop((*it_m_referencingValues).get());
+        Step::RefPtr< IfcAppliedValue > copyTarget = (IfcAppliedValue *) (copyop((*it_m_referencingValues).get()));
         m_referencingValues.insert(copyTarget.get());
     }
     setName(obj.m_name);
@@ -202,16 +238,3 @@ void IfcReferencesValueDocument::copy(const IfcReferencesValueDocument &obj, con
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcReferencesValueDocument::s_type("IfcReferencesValueDocument");
-IfcReferencesValueDocument::Inverted_ReferencingValues_type::Inverted_ReferencingValues_type() {
-}
-
-void IfcReferencesValueDocument::Inverted_ReferencingValues_type::setOwner(IfcReferencesValueDocument *owner) {
-    mOwner = owner;
-}
-
-void IfcReferencesValueDocument::Inverted_ReferencingValues_type::insert(const Step::RefPtr< IfcAppliedValue > &value) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
-    Step::Set< Step::RefPtr< IfcAppliedValue > >::insert(value);
-    inverse->m_valuesReferenced.insert(mOwner);
-}
-

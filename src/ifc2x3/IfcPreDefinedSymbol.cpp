@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedSymbol::IfcPreDefinedSymbol(Step::Id id, Step::SPFData *args) : Ifc
 IfcPreDefinedSymbol::~IfcPreDefinedSymbol() {
 }
 
-bool IfcPreDefinedSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedSymbol(this);
+bool IfcPreDefinedSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedSymbol(this);
 }
 
-const std::string &IfcPreDefinedSymbol::type() {
+const std::string &IfcPreDefinedSymbol::type() const {
     return IfcPreDefinedSymbol::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedSymbol::getClassType() {
+const Step::ClassType &IfcPreDefinedSymbol::getClassType() {
     return IfcPreDefinedSymbol::s_type;
 }
 
-Step::ClassType IfcPreDefinedSymbol::getType() const {
+const Step::ClassType &IfcPreDefinedSymbol::getType() const {
     return IfcPreDefinedSymbol::s_type;
 }
 
-bool IfcPreDefinedSymbol::isOfType(Step::ClassType t) {
+bool IfcPreDefinedSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedSymbol::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
-}
-
-void IfcPreDefinedSymbol::release() {
-    IfcPreDefinedItem::release();
 }
 
 bool IfcPreDefinedSymbol::init() {

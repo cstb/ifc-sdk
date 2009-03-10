@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcPreDefinedPointMarkerSymbol::IfcPreDefinedPointMarkerSymbol(Step::Id id, Step
 IfcPreDefinedPointMarkerSymbol::~IfcPreDefinedPointMarkerSymbol() {
 }
 
-bool IfcPreDefinedPointMarkerSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPreDefinedPointMarkerSymbol(this);
+bool IfcPreDefinedPointMarkerSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPreDefinedPointMarkerSymbol(this);
 }
 
-const std::string &IfcPreDefinedPointMarkerSymbol::type() {
+const std::string &IfcPreDefinedPointMarkerSymbol::type() const {
     return IfcPreDefinedPointMarkerSymbol::s_type.getName();
 }
 
-Step::ClassType IfcPreDefinedPointMarkerSymbol::getClassType() {
+const Step::ClassType &IfcPreDefinedPointMarkerSymbol::getClassType() {
     return IfcPreDefinedPointMarkerSymbol::s_type;
 }
 
-Step::ClassType IfcPreDefinedPointMarkerSymbol::getType() const {
+const Step::ClassType &IfcPreDefinedPointMarkerSymbol::getType() const {
     return IfcPreDefinedPointMarkerSymbol::s_type;
 }
 
-bool IfcPreDefinedPointMarkerSymbol::isOfType(Step::ClassType t) {
+bool IfcPreDefinedPointMarkerSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedPointMarkerSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
-}
-
-void IfcPreDefinedPointMarkerSymbol::release() {
-    IfcPreDefinedSymbol::release();
 }
 
 bool IfcPreDefinedPointMarkerSymbol::init() {

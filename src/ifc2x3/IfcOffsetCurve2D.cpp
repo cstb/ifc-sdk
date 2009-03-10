@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,8 +33,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcOffsetCurve2D::IfcOffsetCurve2D(Step::Id id, Step::SPFData *args) : IfcCurve(
 IfcOffsetCurve2D::~IfcOffsetCurve2D() {
 }
 
-bool IfcOffsetCurve2D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcOffsetCurve2D(this);
+bool IfcOffsetCurve2D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcOffsetCurve2D(this);
 }
 
-const std::string &IfcOffsetCurve2D::type() {
+const std::string &IfcOffsetCurve2D::type() const {
     return IfcOffsetCurve2D::s_type.getName();
 }
 
-Step::ClassType IfcOffsetCurve2D::getClassType() {
+const Step::ClassType &IfcOffsetCurve2D::getClassType() {
     return IfcOffsetCurve2D::s_type;
 }
 
-Step::ClassType IfcOffsetCurve2D::getType() const {
+const Step::ClassType &IfcOffsetCurve2D::getType() const {
     return IfcOffsetCurve2D::s_type;
 }
 
-bool IfcOffsetCurve2D::isOfType(Step::ClassType t) {
+bool IfcOffsetCurve2D::isOfType(const Step::ClassType &t) const {
     return IfcOffsetCurve2D::s_type == t ? true : IfcCurve::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcCurve *IfcOffsetCurve2D::getBasisCurve() {
     else {
         return NULL;
     }
+}
+
+const IfcCurve *IfcOffsetCurve2D::getBasisCurve() const {
+    IfcOffsetCurve2D * deConstObject = const_cast< IfcOffsetCurve2D * > (this);
+    return deConstObject->getBasisCurve();
 }
 
 void IfcOffsetCurve2D::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
@@ -93,6 +98,11 @@ IfcLengthMeasure IfcOffsetCurve2D::getDistance() {
     }
 }
 
+const IfcLengthMeasure IfcOffsetCurve2D::getDistance() const {
+    IfcOffsetCurve2D * deConstObject = const_cast< IfcOffsetCurve2D * > (this);
+    return deConstObject->getDistance();
+}
+
 void IfcOffsetCurve2D::setDistance(IfcLengthMeasure value) {
     m_distance = value;
 }
@@ -106,13 +116,13 @@ Step::Logical IfcOffsetCurve2D::getSelfIntersect() {
     }
 }
 
-void IfcOffsetCurve2D::setSelfIntersect(Step::Logical value) {
-    m_selfIntersect = value;
+const Step::Logical IfcOffsetCurve2D::getSelfIntersect() const {
+    IfcOffsetCurve2D * deConstObject = const_cast< IfcOffsetCurve2D * > (this);
+    return deConstObject->getSelfIntersect();
 }
 
-void IfcOffsetCurve2D::release() {
-    IfcCurve::release();
-    m_basisCurve.release();
+void IfcOffsetCurve2D::setSelfIntersect(Step::Logical value) {
+    m_selfIntersect = value;
 }
 
 bool IfcOffsetCurve2D::init() {
@@ -126,7 +136,7 @@ bool IfcOffsetCurve2D::init() {
         m_basisCurve = NULL;
     }
     else {
-        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_basisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -147,7 +157,7 @@ bool IfcOffsetCurve2D::init() {
 
 void IfcOffsetCurve2D::copy(const IfcOffsetCurve2D &obj, const CopyOp &copyop) {
     IfcCurve::copy(obj, copyop);
-    setBasisCurve(copyop(obj.m_basisCurve.get()));
+    setBasisCurve((IfcCurve*)copyop(obj.m_basisCurve.get()));
     setDistance(obj.m_distance);
     setSelfIntersect(obj.m_selfIntersect);
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcAsymmetricIShapeProfileDef::IfcAsymmetricIShapeProfileDef(Step::Id id, Step::
 IfcAsymmetricIShapeProfileDef::~IfcAsymmetricIShapeProfileDef() {
 }
 
-bool IfcAsymmetricIShapeProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcAsymmetricIShapeProfileDef(this);
+bool IfcAsymmetricIShapeProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcAsymmetricIShapeProfileDef(this);
 }
 
-const std::string &IfcAsymmetricIShapeProfileDef::type() {
+const std::string &IfcAsymmetricIShapeProfileDef::type() const {
     return IfcAsymmetricIShapeProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcAsymmetricIShapeProfileDef::getClassType() {
+const Step::ClassType &IfcAsymmetricIShapeProfileDef::getClassType() {
     return IfcAsymmetricIShapeProfileDef::s_type;
 }
 
-Step::ClassType IfcAsymmetricIShapeProfileDef::getType() const {
+const Step::ClassType &IfcAsymmetricIShapeProfileDef::getType() const {
     return IfcAsymmetricIShapeProfileDef::s_type;
 }
 
-bool IfcAsymmetricIShapeProfileDef::isOfType(Step::ClassType t) {
+bool IfcAsymmetricIShapeProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcAsymmetricIShapeProfileDef::s_type == t ? true : IfcIShapeProfileDef::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeWidth() {
     else {
         return Step::getUnset(m_topFlangeWidth);
     }
+}
+
+const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeWidth() const {
+    IfcAsymmetricIShapeProfileDef * deConstObject = const_cast< IfcAsymmetricIShapeProfileDef * > (this);
+    return deConstObject->getTopFlangeWidth();
 }
 
 void IfcAsymmetricIShapeProfileDef::setTopFlangeWidth(IfcPositiveLengthMeasure value) {
@@ -91,6 +96,11 @@ IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeThickness() 
     }
 }
 
+const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeThickness() const {
+    IfcAsymmetricIShapeProfileDef * deConstObject = const_cast< IfcAsymmetricIShapeProfileDef * > (this);
+    return deConstObject->getTopFlangeThickness();
+}
+
 void IfcAsymmetricIShapeProfileDef::setTopFlangeThickness(IfcPositiveLengthMeasure value) {
     m_topFlangeThickness = value;
 }
@@ -102,6 +112,11 @@ IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeFilletRadius
     else {
         return Step::getUnset(m_topFlangeFilletRadius);
     }
+}
+
+const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeFilletRadius() const {
+    IfcAsymmetricIShapeProfileDef * deConstObject = const_cast< IfcAsymmetricIShapeProfileDef * > (this);
+    return deConstObject->getTopFlangeFilletRadius();
 }
 
 void IfcAsymmetricIShapeProfileDef::setTopFlangeFilletRadius(IfcPositiveLengthMeasure value) {
@@ -117,12 +132,13 @@ IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getCentreOfGravityInY() 
     }
 }
 
-void IfcAsymmetricIShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
-    m_centreOfGravityInY = value;
+const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getCentreOfGravityInY() const {
+    IfcAsymmetricIShapeProfileDef * deConstObject = const_cast< IfcAsymmetricIShapeProfileDef * > (this);
+    return deConstObject->getCentreOfGravityInY();
 }
 
-void IfcAsymmetricIShapeProfileDef::release() {
-    IfcIShapeProfileDef::release();
+void IfcAsymmetricIShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
+    m_centreOfGravityInY = value;
 }
 
 bool IfcAsymmetricIShapeProfileDef::init() {

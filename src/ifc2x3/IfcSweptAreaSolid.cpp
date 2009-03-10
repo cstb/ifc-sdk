@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcSweptAreaSolid::IfcSweptAreaSolid(Step::Id id, Step::SPFData *args) : IfcSoli
 IfcSweptAreaSolid::~IfcSweptAreaSolid() {
 }
 
-bool IfcSweptAreaSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSweptAreaSolid(this);
+bool IfcSweptAreaSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSweptAreaSolid(this);
 }
 
-const std::string &IfcSweptAreaSolid::type() {
+const std::string &IfcSweptAreaSolid::type() const {
     return IfcSweptAreaSolid::s_type.getName();
 }
 
-Step::ClassType IfcSweptAreaSolid::getClassType() {
+const Step::ClassType &IfcSweptAreaSolid::getClassType() {
     return IfcSweptAreaSolid::s_type;
 }
 
-Step::ClassType IfcSweptAreaSolid::getType() const {
+const Step::ClassType &IfcSweptAreaSolid::getType() const {
     return IfcSweptAreaSolid::s_type;
 }
 
-bool IfcSweptAreaSolid::isOfType(Step::ClassType t) {
+bool IfcSweptAreaSolid::isOfType(const Step::ClassType &t) const {
     return IfcSweptAreaSolid::s_type == t ? true : IfcSolidModel::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcProfileDef *IfcSweptAreaSolid::getSweptArea() {
     else {
         return NULL;
     }
+}
+
+const IfcProfileDef *IfcSweptAreaSolid::getSweptArea() const {
+    IfcSweptAreaSolid * deConstObject = const_cast< IfcSweptAreaSolid * > (this);
+    return deConstObject->getSweptArea();
 }
 
 void IfcSweptAreaSolid::setSweptArea(const Step::RefPtr< IfcProfileDef > &value) {
@@ -94,14 +99,13 @@ IfcAxis2Placement3D *IfcSweptAreaSolid::getPosition() {
     }
 }
 
-void IfcSweptAreaSolid::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_position = value;
+const IfcAxis2Placement3D *IfcSweptAreaSolid::getPosition() const {
+    IfcSweptAreaSolid * deConstObject = const_cast< IfcSweptAreaSolid * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcSweptAreaSolid::release() {
-    IfcSolidModel::release();
-    m_sweptArea.release();
-    m_position.release();
+void IfcSweptAreaSolid::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
+    m_position = value;
 }
 
 bool IfcSweptAreaSolid::init() {
@@ -115,22 +119,22 @@ bool IfcSweptAreaSolid::init() {
         m_sweptArea = NULL;
     }
     else {
-        m_sweptArea = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_sweptArea = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSweptAreaSolid::copy(const IfcSweptAreaSolid &obj, const CopyOp &copyop) {
     IfcSolidModel::copy(obj, copyop);
-    setSweptArea(copyop(obj.m_sweptArea.get()));
-    setPosition(copyop(obj.m_position.get()));
+    setSweptArea((IfcProfileDef*)copyop(obj.m_sweptArea.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
     return;
 }
 

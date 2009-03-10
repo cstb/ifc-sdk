@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,7 +34,6 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/Referenced.h>
 
 namespace ifc2x3 {
@@ -42,73 +41,117 @@ namespace ifc2x3 {
     class CopyOp;
     class IfcAxis2Placement;
     class IfcDirection;
-    class IfcGeometricRepresentationSubContext;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcGeometricRepresentationContext : public IfcRepresentationContext {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'CoordinateSpaceDimension'.
+         * 
          */
-        IfcDimensionCount getCoordinateSpaceDimension();
+        virtual IfcDimensionCount getCoordinateSpaceDimension();
+        /**
+         * (const) Returns the value of the explicit attribute 'CoordinateSpaceDimension'.
+         * 
+         * @return the value of the explicit attribute 'CoordinateSpaceDimension'
+         */
+        virtual const IfcDimensionCount getCoordinateSpaceDimension() const;
         /**
          * Sets the value of the explicit attribute 'CoordinateSpaceDimension'.
          * 
          * @param value
          */
-        void setCoordinateSpaceDimension(IfcDimensionCount value);
+        virtual void setCoordinateSpaceDimension(IfcDimensionCount value);
         /**
+         * Gets the value of the explicit attribute 'Precision'.
+         * 
          */
-        Step::Real getPrecision();
+        virtual Step::Real getPrecision();
+        /**
+         * (const) Returns the value of the explicit attribute 'Precision'.
+         * 
+         * @return the value of the explicit attribute 'Precision'
+         */
+        virtual const Step::Real getPrecision() const;
         /**
          * Sets the value of the explicit attribute 'Precision'.
          * 
          * @param value
          */
-        void setPrecision(Step::Real value);
+        virtual void setPrecision(Step::Real value);
         /**
+         * Gets the value of the explicit attribute 'WorldCoordinateSystem'.
+         * 
          */
-        IfcAxis2Placement *getWorldCoordinateSystem();
+        virtual IfcAxis2Placement *getWorldCoordinateSystem();
+        /**
+         * (const) Returns the value of the explicit attribute 'WorldCoordinateSystem'.
+         * 
+         * @return the value of the explicit attribute 'WorldCoordinateSystem'
+         */
+        virtual const IfcAxis2Placement *getWorldCoordinateSystem() const;
         /**
          * Sets the value of the explicit attribute 'WorldCoordinateSystem'.
          * 
          * @param value
          */
-        void setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value);
+        virtual void setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * Gets the value of the explicit attribute 'TrueNorth'.
+         * 
          */
-        IfcDirection *getTrueNorth();
+        virtual IfcDirection *getTrueNorth();
+        /**
+         * (const) Returns the value of the explicit attribute 'TrueNorth'.
+         * 
+         * @return the value of the explicit attribute 'TrueNorth'
+         */
+        virtual const IfcDirection *getTrueNorth() const;
         /**
          * Sets the value of the explicit attribute 'TrueNorth'.
          * 
          * @param value
          */
-        void setTrueNorth(const Step::RefPtr< IfcDirection > &value);
+        virtual void setTrueNorth(const Step::RefPtr< IfcDirection > &value);
         /**
+         * Gets the value of the inverse attribute 'HasSubContexts'.
+         * 
          */
-        Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > &getHasSubContexts();
+        Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts();
         /**
+         * (const) Returns the value of the explicit attribute 'HasSubContexts'.
+         * 
+         * @return the value of the explicit attribute 'HasSubContexts'
          */
-        virtual void release();
+        virtual const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts() const;
         friend class IfcGeometricRepresentationSubContext;
         friend class ExpressDataSet;
 
@@ -146,7 +189,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDirection > m_trueNorth;
         /**
          */
-        Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > m_hasSubContexts;
+        Inverse_Set_IfcGeometricRepresentationSubContext_0_n m_hasSubContexts;
 
     };
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,33 +41,32 @@
 using namespace ifc2x3;
 
 IfcTextureVertex::IfcTextureVertex(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_coordinates.setUnset(true);
 }
 
 IfcTextureVertex::~IfcTextureVertex() {
 }
 
-bool IfcTextureVertex::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextureVertex(this);
+bool IfcTextureVertex::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextureVertex(this);
 }
 
-const std::string &IfcTextureVertex::type() {
+const std::string &IfcTextureVertex::type() const {
     return IfcTextureVertex::s_type.getName();
 }
 
-Step::ClassType IfcTextureVertex::getClassType() {
+const Step::ClassType &IfcTextureVertex::getClassType() {
     return IfcTextureVertex::s_type;
 }
 
-Step::ClassType IfcTextureVertex::getType() const {
+const Step::ClassType &IfcTextureVertex::getType() const {
     return IfcTextureVertex::s_type;
 }
 
-bool IfcTextureVertex::isOfType(Step::ClassType t) {
+bool IfcTextureVertex::isOfType(const Step::ClassType &t) const {
     return IfcTextureVertex::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::List< IfcParameterValue > &IfcTextureVertex::getCoordinates() {
+List_IfcParameterValue_2_2 &IfcTextureVertex::getCoordinates() {
     if (Step::BaseObject::inited()) {
         return m_coordinates;
     }
@@ -77,12 +76,13 @@ Step::List< IfcParameterValue > &IfcTextureVertex::getCoordinates() {
     }
 }
 
-void IfcTextureVertex::setCoordinates(const Step::List< IfcParameterValue > &value) {
-    m_coordinates = value;
+const List_IfcParameterValue_2_2 &IfcTextureVertex::getCoordinates() const {
+    IfcTextureVertex * deConstObject = const_cast< IfcTextureVertex * > (this);
+    return deConstObject->getCoordinates();
 }
 
-void IfcTextureVertex::release() {
-    m_coordinates.clear();
+void IfcTextureVertex::setCoordinates(const List_IfcParameterValue_2_2 &value) {
+    m_coordinates = value;
 }
 
 bool IfcTextureVertex::init() {
@@ -110,7 +110,7 @@ bool IfcTextureVertex::init() {
 }
 
 void IfcTextureVertex::copy(const IfcTextureVertex &obj, const CopyOp &copyop) {
-    Step::List< IfcParameterValue >::const_iterator it_m_coordinates;
+    Step::List< IfcParameterValue, 2, 2 >::const_iterator it_m_coordinates;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_coordinates = obj.m_coordinates.begin(); it_m_coordinates != obj.m_coordinates.end(); ++it_m_coordinates) {
         IfcParameterValue copyTarget = (*it_m_coordinates);

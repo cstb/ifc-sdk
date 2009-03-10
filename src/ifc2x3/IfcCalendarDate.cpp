@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcCalendarDate::IfcCalendarDate(Step::Id id, Step::SPFData *args) : Step::BaseE
 IfcCalendarDate::~IfcCalendarDate() {
 }
 
-bool IfcCalendarDate::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCalendarDate(this);
+bool IfcCalendarDate::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCalendarDate(this);
 }
 
-const std::string &IfcCalendarDate::type() {
+const std::string &IfcCalendarDate::type() const {
     return IfcCalendarDate::s_type.getName();
 }
 
-Step::ClassType IfcCalendarDate::getClassType() {
+const Step::ClassType &IfcCalendarDate::getClassType() {
     return IfcCalendarDate::s_type;
 }
 
-Step::ClassType IfcCalendarDate::getType() const {
+const Step::ClassType &IfcCalendarDate::getType() const {
     return IfcCalendarDate::s_type;
 }
 
-bool IfcCalendarDate::isOfType(Step::ClassType t) {
+bool IfcCalendarDate::isOfType(const Step::ClassType &t) const {
     return IfcCalendarDate::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcDayInMonthNumber IfcCalendarDate::getDayComponent() {
     else {
         return Step::getUnset(m_dayComponent);
     }
+}
+
+const IfcDayInMonthNumber IfcCalendarDate::getDayComponent() const {
+    IfcCalendarDate * deConstObject = const_cast< IfcCalendarDate * > (this);
+    return deConstObject->getDayComponent();
 }
 
 void IfcCalendarDate::setDayComponent(IfcDayInMonthNumber value) {
@@ -90,6 +95,11 @@ IfcMonthInYearNumber IfcCalendarDate::getMonthComponent() {
     }
 }
 
+const IfcMonthInYearNumber IfcCalendarDate::getMonthComponent() const {
+    IfcCalendarDate * deConstObject = const_cast< IfcCalendarDate * > (this);
+    return deConstObject->getMonthComponent();
+}
+
 void IfcCalendarDate::setMonthComponent(IfcMonthInYearNumber value) {
     m_monthComponent = value;
 }
@@ -103,11 +113,13 @@ IfcYearNumber IfcCalendarDate::getYearComponent() {
     }
 }
 
-void IfcCalendarDate::setYearComponent(IfcYearNumber value) {
-    m_yearComponent = value;
+const IfcYearNumber IfcCalendarDate::getYearComponent() const {
+    IfcCalendarDate * deConstObject = const_cast< IfcCalendarDate * > (this);
+    return deConstObject->getYearComponent();
 }
 
-void IfcCalendarDate::release() {
+void IfcCalendarDate::setYearComponent(IfcYearNumber value) {
+    m_yearComponent = value;
 }
 
 bool IfcCalendarDate::init() {

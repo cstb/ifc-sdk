@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcHumidifierType::IfcHumidifierType(Step::Id id, Step::SPFData *args) : IfcEner
 IfcHumidifierType::~IfcHumidifierType() {
 }
 
-bool IfcHumidifierType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcHumidifierType(this);
+bool IfcHumidifierType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcHumidifierType(this);
 }
 
-const std::string &IfcHumidifierType::type() {
+const std::string &IfcHumidifierType::type() const {
     return IfcHumidifierType::s_type.getName();
 }
 
-Step::ClassType IfcHumidifierType::getClassType() {
+const Step::ClassType &IfcHumidifierType::getClassType() {
     return IfcHumidifierType::s_type;
 }
 
-Step::ClassType IfcHumidifierType::getType() const {
+const Step::ClassType &IfcHumidifierType::getType() const {
     return IfcHumidifierType::s_type;
 }
 
-bool IfcHumidifierType::isOfType(Step::ClassType t) {
+bool IfcHumidifierType::isOfType(const Step::ClassType &t) const {
     return IfcHumidifierType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcHumidifierTypeEnum IfcHumidifierType::getPredefinedType() {
     }
 }
 
-void IfcHumidifierType::setPredefinedType(IfcHumidifierTypeEnum value) {
-    m_predefinedType = value;
+const IfcHumidifierTypeEnum IfcHumidifierType::getPredefinedType() const {
+    IfcHumidifierType * deConstObject = const_cast< IfcHumidifierType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcHumidifierType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcHumidifierType::setPredefinedType(IfcHumidifierTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcHumidifierType::init() {

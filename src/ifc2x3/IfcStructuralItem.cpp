@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,33 +43,32 @@
 using namespace ifc2x3;
 
 IfcStructuralItem::IfcStructuralItem(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
-    m_assignedStructuralActivity.setUnset(true);
 }
 
 IfcStructuralItem::~IfcStructuralItem() {
 }
 
-bool IfcStructuralItem::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralItem(this);
+bool IfcStructuralItem::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralItem(this);
 }
 
-const std::string &IfcStructuralItem::type() {
+const std::string &IfcStructuralItem::type() const {
     return IfcStructuralItem::s_type.getName();
 }
 
-Step::ClassType IfcStructuralItem::getClassType() {
+const Step::ClassType &IfcStructuralItem::getClassType() {
     return IfcStructuralItem::s_type;
 }
 
-Step::ClassType IfcStructuralItem::getType() const {
+const Step::ClassType &IfcStructuralItem::getType() const {
     return IfcStructuralItem::s_type;
 }
 
-bool IfcStructuralItem::isOfType(Step::ClassType t) {
+bool IfcStructuralItem::isOfType(const Step::ClassType &t) const {
     return IfcStructuralItem::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsStructuralActivity > > &IfcStructuralItem::getAssignedStructuralActivity() {
+Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssignedStructuralActivity() {
     if (Step::BaseObject::inited()) {
         return m_assignedStructuralActivity;
     }
@@ -79,8 +78,9 @@ Step::Set< Step::ObsPtr< IfcRelConnectsStructuralActivity > > &IfcStructuralItem
     }
 }
 
-void IfcStructuralItem::release() {
-    IfcProduct::release();
+const Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssignedStructuralActivity() const {
+    IfcStructuralItem * deConstObject = const_cast< IfcStructuralItem * > (this);
+    return deConstObject->getAssignedStructuralActivity();
 }
 
 bool IfcStructuralItem::init() {

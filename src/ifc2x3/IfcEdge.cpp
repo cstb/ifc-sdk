@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcEdge::IfcEdge(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentatio
 IfcEdge::~IfcEdge() {
 }
 
-bool IfcEdge::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEdge(this);
+bool IfcEdge::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEdge(this);
 }
 
-const std::string &IfcEdge::type() {
+const std::string &IfcEdge::type() const {
     return IfcEdge::s_type.getName();
 }
 
-Step::ClassType IfcEdge::getClassType() {
+const Step::ClassType &IfcEdge::getClassType() {
     return IfcEdge::s_type;
 }
 
-Step::ClassType IfcEdge::getType() const {
+const Step::ClassType &IfcEdge::getType() const {
     return IfcEdge::s_type;
 }
 
-bool IfcEdge::isOfType(Step::ClassType t) {
+bool IfcEdge::isOfType(const Step::ClassType &t) const {
     return IfcEdge::s_type == t ? true : IfcTopologicalRepresentationItem::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcVertex *IfcEdge::getEdgeStart() {
     else {
         return NULL;
     }
+}
+
+const IfcVertex *IfcEdge::getEdgeStart() const {
+    IfcEdge * deConstObject = const_cast< IfcEdge * > (this);
+    return deConstObject->getEdgeStart();
 }
 
 void IfcEdge::setEdgeStart(const Step::RefPtr< IfcVertex > &value) {
@@ -93,14 +98,13 @@ IfcVertex *IfcEdge::getEdgeEnd() {
     }
 }
 
-void IfcEdge::setEdgeEnd(const Step::RefPtr< IfcVertex > &value) {
-    m_edgeEnd = value;
+const IfcVertex *IfcEdge::getEdgeEnd() const {
+    IfcEdge * deConstObject = const_cast< IfcEdge * > (this);
+    return deConstObject->getEdgeEnd();
 }
 
-void IfcEdge::release() {
-    IfcTopologicalRepresentationItem::release();
-    m_edgeStart.release();
-    m_edgeEnd.release();
+void IfcEdge::setEdgeEnd(const Step::RefPtr< IfcVertex > &value) {
+    m_edgeEnd = value;
 }
 
 bool IfcEdge::init() {
@@ -114,22 +118,22 @@ bool IfcEdge::init() {
         m_edgeStart = NULL;
     }
     else {
-        m_edgeStart = static_cast< IfcVertex * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_edgeStart = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_edgeEnd = NULL;
     }
     else {
-        m_edgeEnd = static_cast< IfcVertex * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_edgeEnd = static_cast< IfcVertex * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcEdge::copy(const IfcEdge &obj, const CopyOp &copyop) {
     IfcTopologicalRepresentationItem::copy(obj, copyop);
-    setEdgeStart(copyop(obj.m_edgeStart.get()));
-    setEdgeEnd(copyop(obj.m_edgeEnd.get()));
+    setEdgeStart((IfcVertex*)copyop(obj.m_edgeStart.get()));
+    setEdgeEnd((IfcVertex*)copyop(obj.m_edgeEnd.get()));
     return;
 }
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFurnishingElementType::IfcFurnishingElementType(Step::Id id, Step::SPFData *a
 IfcFurnishingElementType::~IfcFurnishingElementType() {
 }
 
-bool IfcFurnishingElementType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFurnishingElementType(this);
+bool IfcFurnishingElementType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFurnishingElementType(this);
 }
 
-const std::string &IfcFurnishingElementType::type() {
+const std::string &IfcFurnishingElementType::type() const {
     return IfcFurnishingElementType::s_type.getName();
 }
 
-Step::ClassType IfcFurnishingElementType::getClassType() {
+const Step::ClassType &IfcFurnishingElementType::getClassType() {
     return IfcFurnishingElementType::s_type;
 }
 
-Step::ClassType IfcFurnishingElementType::getType() const {
+const Step::ClassType &IfcFurnishingElementType::getType() const {
     return IfcFurnishingElementType::s_type;
 }
 
-bool IfcFurnishingElementType::isOfType(Step::ClassType t) {
+bool IfcFurnishingElementType::isOfType(const Step::ClassType &t) const {
     return IfcFurnishingElementType::s_type == t ? true : IfcElementType::isOfType(t);
-}
-
-void IfcFurnishingElementType::release() {
-    IfcElementType::release();
 }
 
 bool IfcFurnishingElementType::init() {

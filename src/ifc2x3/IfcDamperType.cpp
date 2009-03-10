@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDamperType::IfcDamperType(Step::Id id, Step::SPFData *args) : IfcFlowControll
 IfcDamperType::~IfcDamperType() {
 }
 
-bool IfcDamperType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDamperType(this);
+bool IfcDamperType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDamperType(this);
 }
 
-const std::string &IfcDamperType::type() {
+const std::string &IfcDamperType::type() const {
     return IfcDamperType::s_type.getName();
 }
 
-Step::ClassType IfcDamperType::getClassType() {
+const Step::ClassType &IfcDamperType::getClassType() {
     return IfcDamperType::s_type;
 }
 
-Step::ClassType IfcDamperType::getType() const {
+const Step::ClassType &IfcDamperType::getType() const {
     return IfcDamperType::s_type;
 }
 
-bool IfcDamperType::isOfType(Step::ClassType t) {
+bool IfcDamperType::isOfType(const Step::ClassType &t) const {
     return IfcDamperType::s_type == t ? true : IfcFlowControllerType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcDamperTypeEnum IfcDamperType::getPredefinedType() {
     }
 }
 
-void IfcDamperType::setPredefinedType(IfcDamperTypeEnum value) {
-    m_predefinedType = value;
+const IfcDamperTypeEnum IfcDamperType::getPredefinedType() const {
+    IfcDamperType * deConstObject = const_cast< IfcDamperType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcDamperType::release() {
-    IfcFlowControllerType::release();
+void IfcDamperType::setPredefinedType(IfcDamperTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcDamperType::init() {

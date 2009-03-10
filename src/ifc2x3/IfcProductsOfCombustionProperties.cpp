@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcProductsOfCombustionProperties::IfcProductsOfCombustionProperties(Step::Id id
 IfcProductsOfCombustionProperties::~IfcProductsOfCombustionProperties() {
 }
 
-bool IfcProductsOfCombustionProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProductsOfCombustionProperties(this);
+bool IfcProductsOfCombustionProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProductsOfCombustionProperties(this);
 }
 
-const std::string &IfcProductsOfCombustionProperties::type() {
+const std::string &IfcProductsOfCombustionProperties::type() const {
     return IfcProductsOfCombustionProperties::s_type.getName();
 }
 
-Step::ClassType IfcProductsOfCombustionProperties::getClassType() {
+const Step::ClassType &IfcProductsOfCombustionProperties::getClassType() {
     return IfcProductsOfCombustionProperties::s_type;
 }
 
-Step::ClassType IfcProductsOfCombustionProperties::getType() const {
+const Step::ClassType &IfcProductsOfCombustionProperties::getType() const {
     return IfcProductsOfCombustionProperties::s_type;
 }
 
-bool IfcProductsOfCombustionProperties::isOfType(Step::ClassType t) {
+bool IfcProductsOfCombustionProperties::isOfType(const Step::ClassType &t) const {
     return IfcProductsOfCombustionProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ IfcSpecificHeatCapacityMeasure IfcProductsOfCombustionProperties::getSpecificHea
     else {
         return Step::getUnset(m_specificHeatCapacity);
     }
+}
+
+const IfcSpecificHeatCapacityMeasure IfcProductsOfCombustionProperties::getSpecificHeatCapacity() const {
+    IfcProductsOfCombustionProperties * deConstObject = const_cast< IfcProductsOfCombustionProperties * > (this);
+    return deConstObject->getSpecificHeatCapacity();
 }
 
 void IfcProductsOfCombustionProperties::setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value) {
@@ -91,6 +96,11 @@ IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getN20Content() {
     }
 }
 
+const IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getN20Content() const {
+    IfcProductsOfCombustionProperties * deConstObject = const_cast< IfcProductsOfCombustionProperties * > (this);
+    return deConstObject->getN20Content();
+}
+
 void IfcProductsOfCombustionProperties::setN20Content(IfcPositiveRatioMeasure value) {
     m_n20Content = value;
 }
@@ -102,6 +112,11 @@ IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCOContent() {
     else {
         return Step::getUnset(m_cOContent);
     }
+}
+
+const IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCOContent() const {
+    IfcProductsOfCombustionProperties * deConstObject = const_cast< IfcProductsOfCombustionProperties * > (this);
+    return deConstObject->getCOContent();
 }
 
 void IfcProductsOfCombustionProperties::setCOContent(IfcPositiveRatioMeasure value) {
@@ -117,12 +132,13 @@ IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCO2Content() {
     }
 }
 
-void IfcProductsOfCombustionProperties::setCO2Content(IfcPositiveRatioMeasure value) {
-    m_cO2Content = value;
+const IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCO2Content() const {
+    IfcProductsOfCombustionProperties * deConstObject = const_cast< IfcProductsOfCombustionProperties * > (this);
+    return deConstObject->getCO2Content();
 }
 
-void IfcProductsOfCombustionProperties::release() {
-    IfcMaterialProperties::release();
+void IfcProductsOfCombustionProperties::setCO2Content(IfcPositiveRatioMeasure value) {
+    m_cO2Content = value;
 }
 
 bool IfcProductsOfCombustionProperties::init() {

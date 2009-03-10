@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -50,45 +50,45 @@ IfcActorSelect::~IfcActorSelect() {
     deleteUnion();
 }
 
-bool IfcActorSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcActorSelect(this);
+bool IfcActorSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcActorSelect(this);
 }
 
 bool IfcActorSelect::init() {
     return false;
 }
 
-const std::string &IfcActorSelect::type() {
+const std::string &IfcActorSelect::type() const {
     return IfcActorSelect::s_type.getName();
 }
 
-Step::ClassType IfcActorSelect::getClassType() {
+const Step::ClassType &IfcActorSelect::getClassType() {
     return IfcActorSelect::s_type;
 }
 
-Step::ClassType IfcActorSelect::getType() const {
+const Step::ClassType &IfcActorSelect::getType() const {
     return IfcActorSelect::s_type;
 }
 
-bool IfcActorSelect::isOfType(Step::ClassType t) {
+bool IfcActorSelect::isOfType(const Step::ClassType &t) const {
     return IfcActorSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcActorSelect::copy(const IfcActorSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCORGANIZATION:
-        setIfcOrganization(copyop(obj.m_IfcActorSelect_union.m_IfcOrganization));
+        setIfcOrganization((IfcOrganization *) (copyop(obj.m_IfcActorSelect_union.m_IfcOrganization)));
         break;
     case IFCPERSON:
-        setIfcPerson(copyop(obj.m_IfcActorSelect_union.m_IfcPerson));
+        setIfcPerson((IfcPerson *) (copyop(obj.m_IfcActorSelect_union.m_IfcPerson)));
         break;
     case IFCPERSONANDORGANIZATION:
-        setIfcPersonAndOrganization(copyop(obj.m_IfcActorSelect_union.m_IfcPersonAndOrganization));
+        setIfcPersonAndOrganization((IfcPersonAndOrganization *) (copyop(obj.m_IfcActorSelect_union.m_IfcPersonAndOrganization)));
         break;
         }
 }
 
-char *IfcActorSelect::currentTypeName() {
+std::string IfcActorSelect::currentTypeName() const {
     switch(m_type) {
     case IFCORGANIZATION:
         return "IfcOrganization";
@@ -104,7 +104,7 @@ char *IfcActorSelect::currentTypeName() {
     }
 }
 
-IfcActorSelect::IfcActorSelect_select IfcActorSelect::currentType() {
+IfcActorSelect::IfcActorSelect_select IfcActorSelect::currentType() const {
     return m_type;
 }
 
@@ -123,12 +123,16 @@ void IfcActorSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcOrganization *IfcActorSelect::getIfcOrganization() {
-    return m_IfcActorSelect_union.m_IfcOrganization;
+IfcOrganization *IfcActorSelect::getIfcOrganization() const {
+    if (m_type == IFCORGANIZATION) {
+        return m_IfcActorSelect_union.m_IfcOrganization;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcActorSelect::setIfcOrganization(IfcOrganization *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -143,12 +147,16 @@ void IfcActorSelect::setIfcOrganization(IfcOrganization *value) {
     m_type = IFCORGANIZATION;
 }
 
-IfcPerson *IfcActorSelect::getIfcPerson() {
-    return m_IfcActorSelect_union.m_IfcPerson;
+IfcPerson *IfcActorSelect::getIfcPerson() const {
+    if (m_type == IFCPERSON) {
+        return m_IfcActorSelect_union.m_IfcPerson;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcActorSelect::setIfcPerson(IfcPerson *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -163,12 +171,16 @@ void IfcActorSelect::setIfcPerson(IfcPerson *value) {
     m_type = IFCPERSON;
 }
 
-IfcPersonAndOrganization *IfcActorSelect::getIfcPersonAndOrganization() {
-    return m_IfcActorSelect_union.m_IfcPersonAndOrganization;
+IfcPersonAndOrganization *IfcActorSelect::getIfcPersonAndOrganization() const {
+    if (m_type == IFCPERSONANDORGANIZATION) {
+        return m_IfcActorSelect_union.m_IfcPersonAndOrganization;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcActorSelect::setIfcPersonAndOrganization(IfcPersonAndOrganization *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

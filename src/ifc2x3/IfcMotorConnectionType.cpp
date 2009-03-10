@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcMotorConnectionType::IfcMotorConnectionType(Step::Id id, Step::SPFData *args)
 IfcMotorConnectionType::~IfcMotorConnectionType() {
 }
 
-bool IfcMotorConnectionType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMotorConnectionType(this);
+bool IfcMotorConnectionType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMotorConnectionType(this);
 }
 
-const std::string &IfcMotorConnectionType::type() {
+const std::string &IfcMotorConnectionType::type() const {
     return IfcMotorConnectionType::s_type.getName();
 }
 
-Step::ClassType IfcMotorConnectionType::getClassType() {
+const Step::ClassType &IfcMotorConnectionType::getClassType() {
     return IfcMotorConnectionType::s_type;
 }
 
-Step::ClassType IfcMotorConnectionType::getType() const {
+const Step::ClassType &IfcMotorConnectionType::getType() const {
     return IfcMotorConnectionType::s_type;
 }
 
-bool IfcMotorConnectionType::isOfType(Step::ClassType t) {
+bool IfcMotorConnectionType::isOfType(const Step::ClassType &t) const {
     return IfcMotorConnectionType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcMotorConnectionTypeEnum IfcMotorConnectionType::getPredefinedType() {
     }
 }
 
-void IfcMotorConnectionType::setPredefinedType(IfcMotorConnectionTypeEnum value) {
-    m_predefinedType = value;
+const IfcMotorConnectionTypeEnum IfcMotorConnectionType::getPredefinedType() const {
+    IfcMotorConnectionType * deConstObject = const_cast< IfcMotorConnectionType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcMotorConnectionType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcMotorConnectionType::setPredefinedType(IfcMotorConnectionTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcMotorConnectionType::init() {

@@ -1,1 +1,1 @@
-SUBDIRS(ifc2x3)
+SUBDIRS(Step ifc2x3)

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,23 +49,23 @@ IfcStairFlight::IfcStairFlight(Step::Id id, Step::SPFData *args) : IfcBuildingEl
 IfcStairFlight::~IfcStairFlight() {
 }
 
-bool IfcStairFlight::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStairFlight(this);
+bool IfcStairFlight::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStairFlight(this);
 }
 
-const std::string &IfcStairFlight::type() {
+const std::string &IfcStairFlight::type() const {
     return IfcStairFlight::s_type.getName();
 }
 
-Step::ClassType IfcStairFlight::getClassType() {
+const Step::ClassType &IfcStairFlight::getClassType() {
     return IfcStairFlight::s_type;
 }
 
-Step::ClassType IfcStairFlight::getType() const {
+const Step::ClassType &IfcStairFlight::getType() const {
     return IfcStairFlight::s_type;
 }
 
-bool IfcStairFlight::isOfType(Step::ClassType t) {
+bool IfcStairFlight::isOfType(const Step::ClassType &t) const {
     return IfcStairFlight::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -76,6 +76,11 @@ Step::Integer IfcStairFlight::getNumberOfRiser() {
     else {
         return Step::getUnset(m_numberOfRiser);
     }
+}
+
+const Step::Integer IfcStairFlight::getNumberOfRiser() const {
+    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
+    return deConstObject->getNumberOfRiser();
 }
 
 void IfcStairFlight::setNumberOfRiser(Step::Integer value) {
@@ -91,6 +96,11 @@ Step::Integer IfcStairFlight::getNumberOfTreads() {
     }
 }
 
+const Step::Integer IfcStairFlight::getNumberOfTreads() const {
+    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
+    return deConstObject->getNumberOfTreads();
+}
+
 void IfcStairFlight::setNumberOfTreads(Step::Integer value) {
     m_numberOfTreads = value;
 }
@@ -102,6 +112,11 @@ IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() {
     else {
         return Step::getUnset(m_riserHeight);
     }
+}
+
+const IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() const {
+    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
+    return deConstObject->getRiserHeight();
 }
 
 void IfcStairFlight::setRiserHeight(IfcPositiveLengthMeasure value) {
@@ -117,12 +132,13 @@ IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() {
     }
 }
 
-void IfcStairFlight::setTreadLength(IfcPositiveLengthMeasure value) {
-    m_treadLength = value;
+const IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() const {
+    IfcStairFlight * deConstObject = const_cast< IfcStairFlight * > (this);
+    return deConstObject->getTreadLength();
 }
 
-void IfcStairFlight::release() {
-    IfcBuildingElement::release();
+void IfcStairFlight::setTreadLength(IfcPositiveLengthMeasure value) {
+    m_treadLength = value;
 }
 
 bool IfcStairFlight::init() {

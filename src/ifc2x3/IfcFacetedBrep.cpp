@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFacetedBrep::IfcFacetedBrep(Step::Id id, Step::SPFData *args) : IfcManifoldSo
 IfcFacetedBrep::~IfcFacetedBrep() {
 }
 
-bool IfcFacetedBrep::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFacetedBrep(this);
+bool IfcFacetedBrep::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFacetedBrep(this);
 }
 
-const std::string &IfcFacetedBrep::type() {
+const std::string &IfcFacetedBrep::type() const {
     return IfcFacetedBrep::s_type.getName();
 }
 
-Step::ClassType IfcFacetedBrep::getClassType() {
+const Step::ClassType &IfcFacetedBrep::getClassType() {
     return IfcFacetedBrep::s_type;
 }
 
-Step::ClassType IfcFacetedBrep::getType() const {
+const Step::ClassType &IfcFacetedBrep::getType() const {
     return IfcFacetedBrep::s_type;
 }
 
-bool IfcFacetedBrep::isOfType(Step::ClassType t) {
+bool IfcFacetedBrep::isOfType(const Step::ClassType &t) const {
     return IfcFacetedBrep::s_type == t ? true : IfcManifoldSolidBrep::isOfType(t);
-}
-
-void IfcFacetedBrep::release() {
-    IfcManifoldSolidBrep::release();
 }
 
 bool IfcFacetedBrep::init() {

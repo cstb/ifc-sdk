@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,34 +44,32 @@
 using namespace ifc2x3;
 
 IfcPropertySetDefinition::IfcPropertySetDefinition(Step::Id id, Step::SPFData *args) : IfcPropertyDefinition(id, args) {
-    m_propertyDefinitionOf.setUnset(true);
-    m_definesType.setUnset(true);
 }
 
 IfcPropertySetDefinition::~IfcPropertySetDefinition() {
 }
 
-bool IfcPropertySetDefinition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertySetDefinition(this);
+bool IfcPropertySetDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertySetDefinition(this);
 }
 
-const std::string &IfcPropertySetDefinition::type() {
+const std::string &IfcPropertySetDefinition::type() const {
     return IfcPropertySetDefinition::s_type.getName();
 }
 
-Step::ClassType IfcPropertySetDefinition::getClassType() {
+const Step::ClassType &IfcPropertySetDefinition::getClassType() {
     return IfcPropertySetDefinition::s_type;
 }
 
-Step::ClassType IfcPropertySetDefinition::getType() const {
+const Step::ClassType &IfcPropertySetDefinition::getType() const {
     return IfcPropertySetDefinition::s_type;
 }
 
-bool IfcPropertySetDefinition::isOfType(Step::ClassType t) {
+bool IfcPropertySetDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertySetDefinition::s_type == t ? true : IfcPropertyDefinition::isOfType(t);
 }
 
-Step::Set< Step::ObsPtr< IfcRelDefinesByProperties > > &IfcPropertySetDefinition::getPropertyDefinitionOf() {
+Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPropertyDefinitionOf() {
     if (Step::BaseObject::inited()) {
         return m_propertyDefinitionOf;
     }
@@ -81,7 +79,12 @@ Step::Set< Step::ObsPtr< IfcRelDefinesByProperties > > &IfcPropertySetDefinition
     }
 }
 
-Step::Set< Step::ObsPtr< IfcTypeObject > > &IfcPropertySetDefinition::getDefinesType() {
+const Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPropertyDefinitionOf() const {
+    IfcPropertySetDefinition * deConstObject = const_cast< IfcPropertySetDefinition * > (this);
+    return deConstObject->getPropertyDefinitionOf();
+}
+
+Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
     if (Step::BaseObject::inited()) {
         return m_definesType;
     }
@@ -91,8 +94,9 @@ Step::Set< Step::ObsPtr< IfcTypeObject > > &IfcPropertySetDefinition::getDefines
     }
 }
 
-void IfcPropertySetDefinition::release() {
-    IfcPropertyDefinition::release();
+const Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() const {
+    IfcPropertySetDefinition * deConstObject = const_cast< IfcPropertySetDefinition * > (this);
+    return deConstObject->getDefinesType();
 }
 
 bool IfcPropertySetDefinition::init() {

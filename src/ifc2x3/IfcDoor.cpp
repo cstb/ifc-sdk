@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,23 +47,23 @@ IfcDoor::IfcDoor(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args
 IfcDoor::~IfcDoor() {
 }
 
-bool IfcDoor::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDoor(this);
+bool IfcDoor::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDoor(this);
 }
 
-const std::string &IfcDoor::type() {
+const std::string &IfcDoor::type() const {
     return IfcDoor::s_type.getName();
 }
 
-Step::ClassType IfcDoor::getClassType() {
+const Step::ClassType &IfcDoor::getClassType() {
     return IfcDoor::s_type;
 }
 
-Step::ClassType IfcDoor::getType() const {
+const Step::ClassType &IfcDoor::getType() const {
     return IfcDoor::s_type;
 }
 
-bool IfcDoor::isOfType(Step::ClassType t) {
+bool IfcDoor::isOfType(const Step::ClassType &t) const {
     return IfcDoor::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
@@ -74,6 +74,11 @@ IfcPositiveLengthMeasure IfcDoor::getOverallHeight() {
     else {
         return Step::getUnset(m_overallHeight);
     }
+}
+
+const IfcPositiveLengthMeasure IfcDoor::getOverallHeight() const {
+    IfcDoor * deConstObject = const_cast< IfcDoor * > (this);
+    return deConstObject->getOverallHeight();
 }
 
 void IfcDoor::setOverallHeight(IfcPositiveLengthMeasure value) {
@@ -89,12 +94,13 @@ IfcPositiveLengthMeasure IfcDoor::getOverallWidth() {
     }
 }
 
-void IfcDoor::setOverallWidth(IfcPositiveLengthMeasure value) {
-    m_overallWidth = value;
+const IfcPositiveLengthMeasure IfcDoor::getOverallWidth() const {
+    IfcDoor * deConstObject = const_cast< IfcDoor * > (this);
+    return deConstObject->getOverallWidth();
 }
 
-void IfcDoor::release() {
-    IfcBuildingElement::release();
+void IfcDoor::setOverallWidth(IfcPositiveLengthMeasure value) {
+    m_overallWidth = value;
 }
 
 bool IfcDoor::init() {

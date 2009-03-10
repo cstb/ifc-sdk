@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcFlowTreatmentDevice::IfcFlowTreatmentDevice(Step::Id id, Step::SPFData *args)
 IfcFlowTreatmentDevice::~IfcFlowTreatmentDevice() {
 }
 
-bool IfcFlowTreatmentDevice::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcFlowTreatmentDevice(this);
+bool IfcFlowTreatmentDevice::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcFlowTreatmentDevice(this);
 }
 
-const std::string &IfcFlowTreatmentDevice::type() {
+const std::string &IfcFlowTreatmentDevice::type() const {
     return IfcFlowTreatmentDevice::s_type.getName();
 }
 
-Step::ClassType IfcFlowTreatmentDevice::getClassType() {
+const Step::ClassType &IfcFlowTreatmentDevice::getClassType() {
     return IfcFlowTreatmentDevice::s_type;
 }
 
-Step::ClassType IfcFlowTreatmentDevice::getType() const {
+const Step::ClassType &IfcFlowTreatmentDevice::getType() const {
     return IfcFlowTreatmentDevice::s_type;
 }
 
-bool IfcFlowTreatmentDevice::isOfType(Step::ClassType t) {
+bool IfcFlowTreatmentDevice::isOfType(const Step::ClassType &t) const {
     return IfcFlowTreatmentDevice::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
-}
-
-void IfcFlowTreatmentDevice::release() {
-    IfcDistributionFlowElement::release();
 }
 
 bool IfcFlowTreatmentDevice::init() {

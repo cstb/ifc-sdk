@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcActorRole::IfcActorRole(Step::Id id, Step::SPFData *args) : Step::BaseEntity(
 IfcActorRole::~IfcActorRole() {
 }
 
-bool IfcActorRole::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcActorRole(this);
+bool IfcActorRole::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcActorRole(this);
 }
 
-const std::string &IfcActorRole::type() {
+const std::string &IfcActorRole::type() const {
     return IfcActorRole::s_type.getName();
 }
 
-Step::ClassType IfcActorRole::getClassType() {
+const Step::ClassType &IfcActorRole::getClassType() {
     return IfcActorRole::s_type;
 }
 
-Step::ClassType IfcActorRole::getType() const {
+const Step::ClassType &IfcActorRole::getType() const {
     return IfcActorRole::s_type;
 }
 
-bool IfcActorRole::isOfType(Step::ClassType t) {
+bool IfcActorRole::isOfType(const Step::ClassType &t) const {
     return IfcActorRole::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcRoleEnum IfcActorRole::getRole() {
     else {
         return IfcRoleEnum_UNSET;
     }
+}
+
+const IfcRoleEnum IfcActorRole::getRole() const {
+    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
+    return deConstObject->getRole();
 }
 
 void IfcActorRole::setRole(IfcRoleEnum value) {
@@ -90,6 +96,11 @@ IfcLabel IfcActorRole::getUserDefinedRole() {
     }
 }
 
+const IfcLabel IfcActorRole::getUserDefinedRole() const {
+    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
+    return deConstObject->getUserDefinedRole();
+}
+
 void IfcActorRole::setUserDefinedRole(const IfcLabel &value) {
     m_userDefinedRole = value;
 }
@@ -103,11 +114,13 @@ IfcText IfcActorRole::getDescription() {
     }
 }
 
-void IfcActorRole::setDescription(const IfcText &value) {
-    m_description = value;
+const IfcText IfcActorRole::getDescription() const {
+    IfcActorRole * deConstObject = const_cast< IfcActorRole * > (this);
+    return deConstObject->getDescription();
 }
 
-void IfcActorRole::release() {
+void IfcActorRole::setDescription(const IfcText &value) {
+    m_description = value;
 }
 
 bool IfcActorRole::init() {
@@ -192,14 +205,14 @@ bool IfcActorRole::init() {
         m_userDefinedRole = Step::getUnset(m_userDefinedRole);
     }
     else {
-        m_userDefinedRole = Step::spfToString(arg);
+        m_userDefinedRole = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     return true;
 }

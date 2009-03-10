@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -57,23 +56,23 @@ IfcMechanicalSteelMaterialProperties::IfcMechanicalSteelMaterialProperties(Step:
 IfcMechanicalSteelMaterialProperties::~IfcMechanicalSteelMaterialProperties() {
 }
 
-bool IfcMechanicalSteelMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMechanicalSteelMaterialProperties(this);
+bool IfcMechanicalSteelMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMechanicalSteelMaterialProperties(this);
 }
 
-const std::string &IfcMechanicalSteelMaterialProperties::type() {
+const std::string &IfcMechanicalSteelMaterialProperties::type() const {
     return IfcMechanicalSteelMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcMechanicalSteelMaterialProperties::getClassType() {
+const Step::ClassType &IfcMechanicalSteelMaterialProperties::getClassType() {
     return IfcMechanicalSteelMaterialProperties::s_type;
 }
 
-Step::ClassType IfcMechanicalSteelMaterialProperties::getType() const {
+const Step::ClassType &IfcMechanicalSteelMaterialProperties::getType() const {
     return IfcMechanicalSteelMaterialProperties::s_type;
 }
 
-bool IfcMechanicalSteelMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcMechanicalSteelMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcMechanicalSteelMaterialProperties::s_type == t ? true : IfcMechanicalMaterialProperties::isOfType(t);
 }
 
@@ -84,6 +83,11 @@ IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress() {
     else {
         return Step::getUnset(m_yieldStress);
     }
+}
+
+const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getYieldStress() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getYieldStress();
 }
 
 void IfcMechanicalSteelMaterialProperties::setYieldStress(IfcPressureMeasure value) {
@@ -99,6 +103,11 @@ IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() {
     }
 }
 
+const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getUltimateStress() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getUltimateStress();
+}
+
 void IfcMechanicalSteelMaterialProperties::setUltimateStress(IfcPressureMeasure value) {
     m_ultimateStress = value;
 }
@@ -110,6 +119,11 @@ IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain(
     else {
         return Step::getUnset(m_ultimateStrain);
     }
+}
+
+const IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getUltimateStrain() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getUltimateStrain();
 }
 
 void IfcMechanicalSteelMaterialProperties::setUltimateStrain(IfcPositiveRatioMeasure value) {
@@ -125,6 +139,11 @@ IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardening
     }
 }
 
+const IfcModulusOfElasticityMeasure IfcMechanicalSteelMaterialProperties::getHardeningModule() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getHardeningModule();
+}
+
 void IfcMechanicalSteelMaterialProperties::setHardeningModule(IfcModulusOfElasticityMeasure value) {
     m_hardeningModule = value;
 }
@@ -136,6 +155,11 @@ IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress()
     else {
         return Step::getUnset(m_proportionalStress);
     }
+}
+
+const IfcPressureMeasure IfcMechanicalSteelMaterialProperties::getProportionalStress() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getProportionalStress();
 }
 
 void IfcMechanicalSteelMaterialProperties::setProportionalStress(IfcPressureMeasure value) {
@@ -151,11 +175,16 @@ IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain()
     }
 }
 
+const IfcPositiveRatioMeasure IfcMechanicalSteelMaterialProperties::getPlasticStrain() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getPlasticStrain();
+}
+
 void IfcMechanicalSteelMaterialProperties::setPlasticStrain(IfcPositiveRatioMeasure value) {
     m_plasticStrain = value;
 }
 
-Step::Set< Step::RefPtr< IfcRelaxation > > &IfcMechanicalSteelMaterialProperties::getRelaxations() {
+Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations() {
     if (Step::BaseObject::inited()) {
         return m_relaxations;
     }
@@ -165,13 +194,13 @@ Step::Set< Step::RefPtr< IfcRelaxation > > &IfcMechanicalSteelMaterialProperties
     }
 }
 
-void IfcMechanicalSteelMaterialProperties::setRelaxations(const Step::Set< Step::RefPtr< IfcRelaxation > > &value) {
-    m_relaxations = value;
+const Set_IfcRelaxation_1_n &IfcMechanicalSteelMaterialProperties::getRelaxations() const {
+    IfcMechanicalSteelMaterialProperties * deConstObject = const_cast< IfcMechanicalSteelMaterialProperties * > (this);
+    return deConstObject->getRelaxations();
 }
 
-void IfcMechanicalSteelMaterialProperties::release() {
-    IfcMechanicalMaterialProperties::release();
-    m_relaxations.clear();
+void IfcMechanicalSteelMaterialProperties::setRelaxations(const Set_IfcRelaxation_1_n &value) {
+    m_relaxations = value;
 }
 
 bool IfcMechanicalSteelMaterialProperties::init() {
@@ -233,7 +262,7 @@ bool IfcMechanicalSteelMaterialProperties::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcRelaxation > attr2;
-                attr2 = static_cast< IfcRelaxation * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcRelaxation * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_relaxations.insert(attr2);
             }
             else {
@@ -245,7 +274,7 @@ bool IfcMechanicalSteelMaterialProperties::init() {
 }
 
 void IfcMechanicalSteelMaterialProperties::copy(const IfcMechanicalSteelMaterialProperties &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcRelaxation > >::const_iterator it_m_relaxations;
+    Step::Set< Step::RefPtr< IfcRelaxation >, 1 >::const_iterator it_m_relaxations;
     IfcMechanicalMaterialProperties::copy(obj, copyop);
     setYieldStress(obj.m_yieldStress);
     setUltimateStress(obj.m_ultimateStress);
@@ -254,7 +283,7 @@ void IfcMechanicalSteelMaterialProperties::copy(const IfcMechanicalSteelMaterial
     setProportionalStress(obj.m_proportionalStress);
     setPlasticStrain(obj.m_plasticStrain);
     for (it_m_relaxations = obj.m_relaxations.begin(); it_m_relaxations != obj.m_relaxations.end(); ++it_m_relaxations) {
-        Step::RefPtr< IfcRelaxation > copyTarget = copyop((*it_m_relaxations).get());
+        Step::RefPtr< IfcRelaxation > copyTarget = (IfcRelaxation *) (copyop((*it_m_relaxations).get()));
         m_relaxations.insert(copyTarget.get());
     }
     return;

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcElectricalElement::IfcElectricalElement(Step::Id id, Step::SPFData *args) : I
 IfcElectricalElement::~IfcElectricalElement() {
 }
 
-bool IfcElectricalElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricalElement(this);
+bool IfcElectricalElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricalElement(this);
 }
 
-const std::string &IfcElectricalElement::type() {
+const std::string &IfcElectricalElement::type() const {
     return IfcElectricalElement::s_type.getName();
 }
 
-Step::ClassType IfcElectricalElement::getClassType() {
+const Step::ClassType &IfcElectricalElement::getClassType() {
     return IfcElectricalElement::s_type;
 }
 
-Step::ClassType IfcElectricalElement::getType() const {
+const Step::ClassType &IfcElectricalElement::getType() const {
     return IfcElectricalElement::s_type;
 }
 
-bool IfcElectricalElement::isOfType(Step::ClassType t) {
+bool IfcElectricalElement::isOfType(const Step::ClassType &t) const {
     return IfcElectricalElement::s_type == t ? true : IfcElement::isOfType(t);
-}
-
-void IfcElectricalElement::release() {
-    IfcElement::release();
 }
 
 bool IfcElectricalElement::init() {

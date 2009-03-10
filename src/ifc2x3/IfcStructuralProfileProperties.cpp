@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -61,23 +61,23 @@ IfcStructuralProfileProperties::IfcStructuralProfileProperties(Step::Id id, Step
 IfcStructuralProfileProperties::~IfcStructuralProfileProperties() {
 }
 
-bool IfcStructuralProfileProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralProfileProperties(this);
+bool IfcStructuralProfileProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralProfileProperties(this);
 }
 
-const std::string &IfcStructuralProfileProperties::type() {
+const std::string &IfcStructuralProfileProperties::type() const {
     return IfcStructuralProfileProperties::s_type.getName();
 }
 
-Step::ClassType IfcStructuralProfileProperties::getClassType() {
+const Step::ClassType &IfcStructuralProfileProperties::getClassType() {
     return IfcStructuralProfileProperties::s_type;
 }
 
-Step::ClassType IfcStructuralProfileProperties::getType() const {
+const Step::ClassType &IfcStructuralProfileProperties::getType() const {
     return IfcStructuralProfileProperties::s_type;
 }
 
-bool IfcStructuralProfileProperties::isOfType(Step::ClassType t) {
+bool IfcStructuralProfileProperties::isOfType(const Step::ClassType &t) const {
     return IfcStructuralProfileProperties::s_type == t ? true : IfcGeneralProfileProperties::isOfType(t);
 }
 
@@ -88,6 +88,11 @@ IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX(
     else {
         return Step::getUnset(m_torsionalConstantX);
     }
+}
+
+const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getTorsionalConstantX() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getTorsionalConstantX();
 }
 
 void IfcStructuralProfileProperties::setTorsionalConstantX(IfcMomentOfInertiaMeasure value) {
@@ -103,6 +108,11 @@ IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ()
     }
 }
 
+const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaYZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMomentOfInertiaYZ();
+}
+
 void IfcStructuralProfileProperties::setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value) {
     m_momentOfInertiaYZ = value;
 }
@@ -114,6 +124,11 @@ IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY() 
     else {
         return Step::getUnset(m_momentOfInertiaY);
     }
+}
+
+const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMomentOfInertiaY();
 }
 
 void IfcStructuralProfileProperties::setMomentOfInertiaY(IfcMomentOfInertiaMeasure value) {
@@ -129,6 +144,11 @@ IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ() 
     }
 }
 
+const IfcMomentOfInertiaMeasure IfcStructuralProfileProperties::getMomentOfInertiaZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMomentOfInertiaZ();
+}
+
 void IfcStructuralProfileProperties::setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value) {
     m_momentOfInertiaZ = value;
 }
@@ -140,6 +160,11 @@ IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant() {
     else {
         return Step::getUnset(m_warpingConstant);
     }
+}
+
+const IfcWarpingConstantMeasure IfcStructuralProfileProperties::getWarpingConstant() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getWarpingConstant();
 }
 
 void IfcStructuralProfileProperties::setWarpingConstant(IfcWarpingConstantMeasure value) {
@@ -155,6 +180,11 @@ IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ() {
     }
 }
 
+const IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getShearCentreZ();
+}
+
 void IfcStructuralProfileProperties::setShearCentreZ(IfcLengthMeasure value) {
     m_shearCentreZ = value;
 }
@@ -166,6 +196,11 @@ IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY() {
     else {
         return Step::getUnset(m_shearCentreY);
     }
+}
+
+const IfcLengthMeasure IfcStructuralProfileProperties::getShearCentreY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getShearCentreY();
 }
 
 void IfcStructuralProfileProperties::setShearCentreY(IfcLengthMeasure value) {
@@ -181,6 +216,11 @@ IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ() {
     }
 }
 
+const IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getShearDeformationAreaZ();
+}
+
 void IfcStructuralProfileProperties::setShearDeformationAreaZ(IfcAreaMeasure value) {
     m_shearDeformationAreaZ = value;
 }
@@ -192,6 +232,11 @@ IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY() {
     else {
         return Step::getUnset(m_shearDeformationAreaY);
     }
+}
+
+const IfcAreaMeasure IfcStructuralProfileProperties::getShearDeformationAreaY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getShearDeformationAreaY();
 }
 
 void IfcStructuralProfileProperties::setShearDeformationAreaY(IfcAreaMeasure value) {
@@ -207,6 +252,11 @@ IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulu
     }
 }
 
+const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMaximumSectionModulusY();
+}
+
 void IfcStructuralProfileProperties::setMaximumSectionModulusY(IfcSectionModulusMeasure value) {
     m_maximumSectionModulusY = value;
 }
@@ -218,6 +268,11 @@ IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulu
     else {
         return Step::getUnset(m_minimumSectionModulusY);
     }
+}
+
+const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMinimumSectionModulusY();
 }
 
 void IfcStructuralProfileProperties::setMinimumSectionModulusY(IfcSectionModulusMeasure value) {
@@ -233,6 +288,11 @@ IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulu
     }
 }
 
+const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMaximumSectionModulusZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMaximumSectionModulusZ();
+}
+
 void IfcStructuralProfileProperties::setMaximumSectionModulusZ(IfcSectionModulusMeasure value) {
     m_maximumSectionModulusZ = value;
 }
@@ -244,6 +304,11 @@ IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulu
     else {
         return Step::getUnset(m_minimumSectionModulusZ);
     }
+}
+
+const IfcSectionModulusMeasure IfcStructuralProfileProperties::getMinimumSectionModulusZ() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getMinimumSectionModulusZ();
 }
 
 void IfcStructuralProfileProperties::setMinimumSectionModulusZ(IfcSectionModulusMeasure value) {
@@ -259,6 +324,11 @@ IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModu
     }
 }
 
+const IfcSectionModulusMeasure IfcStructuralProfileProperties::getTorsionalSectionModulus() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getTorsionalSectionModulus();
+}
+
 void IfcStructuralProfileProperties::setTorsionalSectionModulus(IfcSectionModulusMeasure value) {
     m_torsionalSectionModulus = value;
 }
@@ -270,6 +340,11 @@ IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX() {
     else {
         return Step::getUnset(m_centreOfGravityInX);
     }
+}
+
+const IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInX() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getCentreOfGravityInX();
 }
 
 void IfcStructuralProfileProperties::setCentreOfGravityInX(IfcLengthMeasure value) {
@@ -285,12 +360,13 @@ IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY() {
     }
 }
 
-void IfcStructuralProfileProperties::setCentreOfGravityInY(IfcLengthMeasure value) {
-    m_centreOfGravityInY = value;
+const IfcLengthMeasure IfcStructuralProfileProperties::getCentreOfGravityInY() const {
+    IfcStructuralProfileProperties * deConstObject = const_cast< IfcStructuralProfileProperties * > (this);
+    return deConstObject->getCentreOfGravityInY();
 }
 
-void IfcStructuralProfileProperties::release() {
-    IfcGeneralProfileProperties::release();
+void IfcStructuralProfileProperties::setCentreOfGravityInY(IfcLengthMeasure value) {
+    m_centreOfGravityInY = value;
 }
 
 bool IfcStructuralProfileProperties::init() {

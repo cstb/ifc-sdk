@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,79 +29,111 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <stdexcept>
+#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include "ifc2x3/IfcRelConnectsElements.h"
-#include <Step/Aggregation.h>
-#include <Step/SPFData.h>
 #include <string>
-#include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 
 namespace ifc2x3 {
 
-    class CopyOp;
     class IfcElement;
+    class IfcRelConnectsWithRealizingElements;
+
+    /**
+     */
+    class Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type : public Set_IfcElement_1_n {
+    public:
+        /**
+         */
+        typedef Set_IfcElement_1_n::size_type size_type;
+
+        /**
+         */
+        IfcRelConnectsWithRealizingElements *mOwner;
+        /**
+         */
+        Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type();
+        /**
+         * @param owner
+         */
+        void setOwner(IfcRelConnectsWithRealizingElements *owner);
+        /**
+         * @param value
+         */
+        virtual void insert(const Step::RefPtr< IfcElement > &value) throw(std::out_of_range);
+        /**
+         * @param value
+         */
+        virtual size_type erase(const Step::RefPtr< IfcElement > &value);
+
+    };
+
+    class CopyOp;
 
     /**
      */
     class IFC2X3_DLL_DEF IfcRelConnectsWithRealizingElements : public IfcRelConnectsElements {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'RealizingElements'.
+         * 
          */
-        Step::Set< Step::RefPtr< IfcElement > > &getRealizingElements();
+        virtual Set_IfcElement_1_n &getRealizingElements();
         /**
+         * (const) Returns the value of the explicit attribute 'RealizingElements'.
+         * 
+         * @return the value of the explicit attribute 'RealizingElements'
          */
-        IfcLabel getConnectionType();
+        virtual const Set_IfcElement_1_n &getRealizingElements() const;
+        /**
+         * Gets the value of the explicit attribute 'ConnectionType'.
+         * 
+         */
+        virtual IfcLabel getConnectionType();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConnectionType'.
+         * 
+         * @return the value of the explicit attribute 'ConnectionType'
+         */
+        virtual const IfcLabel getConnectionType() const;
         /**
          * Sets the value of the explicit attribute 'ConnectionType'.
          * 
          * @param value
          */
-        void setConnectionType(const IfcLabel &value);
-        /**
-         */
-        virtual void release();
+        virtual void setConnectionType(const IfcLabel &value);
         friend class ExpressDataSet;
-        /**
-         */
-        class Inverted_RealizingElements_type : public Step::Set< Step::RefPtr< IfcElement > > {
-        public:
-            /**
-             */
-            IfcRelConnectsWithRealizingElements *mOwner;
-            /**
-             */
-            Inverted_RealizingElements_type();
-            /**
-             * @param owner
-             */
-            void setOwner(IfcRelConnectsWithRealizingElements *owner);
-            /**
-             * @param value
-             */
-            virtual void insert(const Step::RefPtr< IfcElement > &value);
-
-        };
-
 
     protected:
         /**
@@ -125,10 +157,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverted_RealizingElements_type m_realizingElements;
+        Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type m_realizingElements;
         /**
          */
-        std::string m_connectionType;
+        Step::String m_connectionType;
 
     };
 

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcProjectionElement::IfcProjectionElement(Step::Id id, Step::SPFData *args) : I
 IfcProjectionElement::~IfcProjectionElement() {
 }
 
-bool IfcProjectionElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcProjectionElement(this);
+bool IfcProjectionElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcProjectionElement(this);
 }
 
-const std::string &IfcProjectionElement::type() {
+const std::string &IfcProjectionElement::type() const {
     return IfcProjectionElement::s_type.getName();
 }
 
-Step::ClassType IfcProjectionElement::getClassType() {
+const Step::ClassType &IfcProjectionElement::getClassType() {
     return IfcProjectionElement::s_type;
 }
 
-Step::ClassType IfcProjectionElement::getType() const {
+const Step::ClassType &IfcProjectionElement::getType() const {
     return IfcProjectionElement::s_type;
 }
 
-bool IfcProjectionElement::isOfType(Step::ClassType t) {
+bool IfcProjectionElement::isOfType(const Step::ClassType &t) const {
     return IfcProjectionElement::s_type == t ? true : IfcFeatureElementAddition::isOfType(t);
-}
-
-void IfcProjectionElement::release() {
-    IfcFeatureElementAddition::release();
 }
 
 bool IfcProjectionElement::init() {

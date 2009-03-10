@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -51,30 +52,28 @@ IfcSpaceProgram::IfcSpaceProgram(Step::Id id, Step::SPFData *args) : IfcControl(
     m_minRequiredArea = Step::getUnset(m_minRequiredArea);
     m_requestedLocation = NULL;
     m_standardRequiredArea = Step::getUnset(m_standardRequiredArea);
-    m_hasInteractionReqsFrom.setUnset(true);
-    m_hasInteractionReqsTo.setUnset(true);
 }
 
 IfcSpaceProgram::~IfcSpaceProgram() {
 }
 
-bool IfcSpaceProgram::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSpaceProgram(this);
+bool IfcSpaceProgram::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSpaceProgram(this);
 }
 
-const std::string &IfcSpaceProgram::type() {
+const std::string &IfcSpaceProgram::type() const {
     return IfcSpaceProgram::s_type.getName();
 }
 
-Step::ClassType IfcSpaceProgram::getClassType() {
+const Step::ClassType &IfcSpaceProgram::getClassType() {
     return IfcSpaceProgram::s_type;
 }
 
-Step::ClassType IfcSpaceProgram::getType() const {
+const Step::ClassType &IfcSpaceProgram::getType() const {
     return IfcSpaceProgram::s_type;
 }
 
-bool IfcSpaceProgram::isOfType(Step::ClassType t) {
+bool IfcSpaceProgram::isOfType(const Step::ClassType &t) const {
     return IfcSpaceProgram::s_type == t ? true : IfcControl::isOfType(t);
 }
 
@@ -85,6 +84,11 @@ IfcIdentifier IfcSpaceProgram::getSpaceProgramIdentifier() {
     else {
         return Step::getUnset(m_spaceProgramIdentifier);
     }
+}
+
+const IfcIdentifier IfcSpaceProgram::getSpaceProgramIdentifier() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getSpaceProgramIdentifier();
 }
 
 void IfcSpaceProgram::setSpaceProgramIdentifier(const IfcIdentifier &value) {
@@ -100,6 +104,11 @@ IfcAreaMeasure IfcSpaceProgram::getMaxRequiredArea() {
     }
 }
 
+const IfcAreaMeasure IfcSpaceProgram::getMaxRequiredArea() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getMaxRequiredArea();
+}
+
 void IfcSpaceProgram::setMaxRequiredArea(IfcAreaMeasure value) {
     m_maxRequiredArea = value;
 }
@@ -111,6 +120,11 @@ IfcAreaMeasure IfcSpaceProgram::getMinRequiredArea() {
     else {
         return Step::getUnset(m_minRequiredArea);
     }
+}
+
+const IfcAreaMeasure IfcSpaceProgram::getMinRequiredArea() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getMinRequiredArea();
 }
 
 void IfcSpaceProgram::setMinRequiredArea(IfcAreaMeasure value) {
@@ -126,6 +140,11 @@ IfcSpatialStructureElement *IfcSpaceProgram::getRequestedLocation() {
     }
 }
 
+const IfcSpatialStructureElement *IfcSpaceProgram::getRequestedLocation() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getRequestedLocation();
+}
+
 void IfcSpaceProgram::setRequestedLocation(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     m_requestedLocation = value;
 }
@@ -139,11 +158,16 @@ IfcAreaMeasure IfcSpaceProgram::getStandardRequiredArea() {
     }
 }
 
+const IfcAreaMeasure IfcSpaceProgram::getStandardRequiredArea() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getStandardRequiredArea();
+}
+
 void IfcSpaceProgram::setStandardRequiredArea(IfcAreaMeasure value) {
     m_standardRequiredArea = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &IfcSpaceProgram::getHasInteractionReqsFrom() {
+Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsFrom() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsFrom;
     }
@@ -153,7 +177,12 @@ Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &IfcSpaceProgram::get
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &IfcSpaceProgram::getHasInteractionReqsTo() {
+const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsFrom() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getHasInteractionReqsFrom();
+}
+
+Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsTo;
     }
@@ -163,9 +192,9 @@ Step::Set< Step::ObsPtr< IfcRelInteractionRequirements > > &IfcSpaceProgram::get
     }
 }
 
-void IfcSpaceProgram::release() {
-    IfcControl::release();
-    m_requestedLocation.release();
+const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() const {
+    IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
+    return deConstObject->getHasInteractionReqsTo();
 }
 
 bool IfcSpaceProgram::init() {
@@ -180,7 +209,7 @@ bool IfcSpaceProgram::init() {
         m_spaceProgramIdentifier = Step::getUnset(m_spaceProgramIdentifier);
     }
     else {
-        m_spaceProgramIdentifier = Step::spfToString(arg);
+        m_spaceProgramIdentifier = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -201,7 +230,7 @@ bool IfcSpaceProgram::init() {
         m_requestedLocation = NULL;
     }
     else {
-        m_requestedLocation = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_requestedLocation = static_cast< IfcSpatialStructureElement * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -234,7 +263,7 @@ void IfcSpaceProgram::copy(const IfcSpaceProgram &obj, const CopyOp &copyop) {
     setSpaceProgramIdentifier(obj.m_spaceProgramIdentifier);
     setMaxRequiredArea(obj.m_maxRequiredArea);
     setMinRequiredArea(obj.m_minRequiredArea);
-    setRequestedLocation(copyop(obj.m_requestedLocation.get()));
+    setRequestedLocation((IfcSpatialStructureElement*)copyop(obj.m_requestedLocation.get()));
     setStandardRequiredArea(obj.m_standardRequiredArea);
     return;
 }

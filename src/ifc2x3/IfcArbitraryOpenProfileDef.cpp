@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcArbitraryOpenProfileDef::IfcArbitraryOpenProfileDef(Step::Id id, Step::SPFDat
 IfcArbitraryOpenProfileDef::~IfcArbitraryOpenProfileDef() {
 }
 
-bool IfcArbitraryOpenProfileDef::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcArbitraryOpenProfileDef(this);
+bool IfcArbitraryOpenProfileDef::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcArbitraryOpenProfileDef(this);
 }
 
-const std::string &IfcArbitraryOpenProfileDef::type() {
+const std::string &IfcArbitraryOpenProfileDef::type() const {
     return IfcArbitraryOpenProfileDef::s_type.getName();
 }
 
-Step::ClassType IfcArbitraryOpenProfileDef::getClassType() {
+const Step::ClassType &IfcArbitraryOpenProfileDef::getClassType() {
     return IfcArbitraryOpenProfileDef::s_type;
 }
 
-Step::ClassType IfcArbitraryOpenProfileDef::getType() const {
+const Step::ClassType &IfcArbitraryOpenProfileDef::getType() const {
     return IfcArbitraryOpenProfileDef::s_type;
 }
 
-bool IfcArbitraryOpenProfileDef::isOfType(Step::ClassType t) {
+bool IfcArbitraryOpenProfileDef::isOfType(const Step::ClassType &t) const {
     return IfcArbitraryOpenProfileDef::s_type == t ? true : IfcProfileDef::isOfType(t);
 }
 
@@ -79,13 +79,13 @@ IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() {
     }
 }
 
-void IfcArbitraryOpenProfileDef::setCurve(const Step::RefPtr< IfcBoundedCurve > &value) {
-    m_curve = value;
+const IfcBoundedCurve *IfcArbitraryOpenProfileDef::getCurve() const {
+    IfcArbitraryOpenProfileDef * deConstObject = const_cast< IfcArbitraryOpenProfileDef * > (this);
+    return deConstObject->getCurve();
 }
 
-void IfcArbitraryOpenProfileDef::release() {
-    IfcProfileDef::release();
-    m_curve.release();
+void IfcArbitraryOpenProfileDef::setCurve(const Step::RefPtr< IfcBoundedCurve > &value) {
+    m_curve = value;
 }
 
 bool IfcArbitraryOpenProfileDef::init() {
@@ -99,14 +99,14 @@ bool IfcArbitraryOpenProfileDef::init() {
         m_curve = NULL;
     }
     else {
-        m_curve = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_curve = static_cast< IfcBoundedCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcArbitraryOpenProfileDef::copy(const IfcArbitraryOpenProfileDef &obj, const CopyOp &copyop) {
     IfcProfileDef::copy(obj, copyop);
-    setCurve(copyop(obj.m_curve.get()));
+    setCurve((IfcBoundedCurve*)copyop(obj.m_curve.get()));
     return;
 }
 

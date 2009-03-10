@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcColumn::IfcColumn(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, 
 IfcColumn::~IfcColumn() {
 }
 
-bool IfcColumn::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcColumn(this);
+bool IfcColumn::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcColumn(this);
 }
 
-const std::string &IfcColumn::type() {
+const std::string &IfcColumn::type() const {
     return IfcColumn::s_type.getName();
 }
 
-Step::ClassType IfcColumn::getClassType() {
+const Step::ClassType &IfcColumn::getClassType() {
     return IfcColumn::s_type;
 }
 
-Step::ClassType IfcColumn::getType() const {
+const Step::ClassType &IfcColumn::getType() const {
     return IfcColumn::s_type;
 }
 
-bool IfcColumn::isOfType(Step::ClassType t) {
+bool IfcColumn::isOfType(const Step::ClassType &t) const {
     return IfcColumn::s_type == t ? true : IfcBuildingElement::isOfType(t);
-}
-
-void IfcColumn::release() {
-    IfcBuildingElement::release();
 }
 
 bool IfcColumn::init() {

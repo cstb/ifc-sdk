@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,6 +36,7 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -51,29 +52,28 @@ IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id
     m_precision = Step::getUnset(m_precision);
     m_worldCoordinateSystem = NULL;
     m_trueNorth = NULL;
-    m_hasSubContexts.setUnset(true);
 }
 
 IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext() {
 }
 
-bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGeometricRepresentationContext(this);
+bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGeometricRepresentationContext(this);
 }
 
-const std::string &IfcGeometricRepresentationContext::type() {
+const std::string &IfcGeometricRepresentationContext::type() const {
     return IfcGeometricRepresentationContext::s_type.getName();
 }
 
-Step::ClassType IfcGeometricRepresentationContext::getClassType() {
+const Step::ClassType &IfcGeometricRepresentationContext::getClassType() {
     return IfcGeometricRepresentationContext::s_type;
 }
 
-Step::ClassType IfcGeometricRepresentationContext::getType() const {
+const Step::ClassType &IfcGeometricRepresentationContext::getType() const {
     return IfcGeometricRepresentationContext::s_type;
 }
 
-bool IfcGeometricRepresentationContext::isOfType(Step::ClassType t) {
+bool IfcGeometricRepresentationContext::isOfType(const Step::ClassType &t) const {
     return IfcGeometricRepresentationContext::s_type == t ? true : IfcRepresentationContext::isOfType(t);
 }
 
@@ -84,6 +84,11 @@ IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension
     else {
         return Step::getUnset(m_coordinateSpaceDimension);
     }
+}
+
+const IfcDimensionCount IfcGeometricRepresentationContext::getCoordinateSpaceDimension() const {
+    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
+    return deConstObject->getCoordinateSpaceDimension();
 }
 
 void IfcGeometricRepresentationContext::setCoordinateSpaceDimension(IfcDimensionCount value) {
@@ -99,6 +104,11 @@ Step::Real IfcGeometricRepresentationContext::getPrecision() {
     }
 }
 
+const Step::Real IfcGeometricRepresentationContext::getPrecision() const {
+    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
+    return deConstObject->getPrecision();
+}
+
 void IfcGeometricRepresentationContext::setPrecision(Step::Real value) {
     m_precision = value;
 }
@@ -110,6 +120,11 @@ IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem()
     else {
         return NULL;
     }
+}
+
+const IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem() const {
+    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
+    return deConstObject->getWorldCoordinateSystem();
 }
 
 void IfcGeometricRepresentationContext::setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value) {
@@ -125,11 +140,16 @@ IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() {
     }
 }
 
+const IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() const {
+    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
+    return deConstObject->getTrueNorth();
+}
+
 void IfcGeometricRepresentationContext::setTrueNorth(const Step::RefPtr< IfcDirection > &value) {
     m_trueNorth = value;
 }
 
-Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > &IfcGeometricRepresentationContext::getHasSubContexts() {
+Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() {
     if (Step::BaseObject::inited()) {
         return m_hasSubContexts;
     }
@@ -139,9 +159,9 @@ Step::Set< Step::ObsPtr< IfcGeometricRepresentationSubContext > > &IfcGeometricR
     }
 }
 
-void IfcGeometricRepresentationContext::release() {
-    IfcRepresentationContext::release();
-    m_trueNorth.release();
+const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() const {
+    IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
+    return deConstObject->getHasSubContexts();
 }
 
 bool IfcGeometricRepresentationContext::init() {
@@ -189,7 +209,7 @@ bool IfcGeometricRepresentationContext::init() {
         m_trueNorth = NULL;
     }
     else {
-        m_trueNorth = static_cast< IfcDirection * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_trueNorth = static_cast< IfcDirection * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     inverses = m_args->getInverses(IfcGeometricRepresentationSubContext::getClassType(), 6);
     if (inverses) {
@@ -208,7 +228,7 @@ void IfcGeometricRepresentationContext::copy(const IfcGeometricRepresentationCon
     setPrecision(obj.m_precision);
     m_worldCoordinateSystem = new IfcAxis2Placement;
     m_worldCoordinateSystem->copy(*(obj.m_worldCoordinateSystem.get()), copyop);
-    setTrueNorth(copyop(obj.m_trueNorth.get()));
+    setTrueNorth((IfcDirection*)copyop(obj.m_trueNorth.get()));
     return;
 }
 

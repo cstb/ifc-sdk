@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcDraughtingCalloutRelationship::IfcDraughtingCalloutRelationship(Step::Id id, 
 IfcDraughtingCalloutRelationship::~IfcDraughtingCalloutRelationship() {
 }
 
-bool IfcDraughtingCalloutRelationship::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDraughtingCalloutRelationship(this);
+bool IfcDraughtingCalloutRelationship::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDraughtingCalloutRelationship(this);
 }
 
-const std::string &IfcDraughtingCalloutRelationship::type() {
+const std::string &IfcDraughtingCalloutRelationship::type() const {
     return IfcDraughtingCalloutRelationship::s_type.getName();
 }
 
-Step::ClassType IfcDraughtingCalloutRelationship::getClassType() {
+const Step::ClassType &IfcDraughtingCalloutRelationship::getClassType() {
     return IfcDraughtingCalloutRelationship::s_type;
 }
 
-Step::ClassType IfcDraughtingCalloutRelationship::getType() const {
+const Step::ClassType &IfcDraughtingCalloutRelationship::getType() const {
     return IfcDraughtingCalloutRelationship::s_type;
 }
 
-bool IfcDraughtingCalloutRelationship::isOfType(Step::ClassType t) {
+bool IfcDraughtingCalloutRelationship::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingCalloutRelationship::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcLabel IfcDraughtingCalloutRelationship::getName() {
     else {
         return Step::getUnset(m_name);
     }
+}
+
+const IfcLabel IfcDraughtingCalloutRelationship::getName() const {
+    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
+    return deConstObject->getName();
 }
 
 void IfcDraughtingCalloutRelationship::setName(const IfcLabel &value) {
@@ -95,6 +101,11 @@ IfcText IfcDraughtingCalloutRelationship::getDescription() {
     }
 }
 
+const IfcText IfcDraughtingCalloutRelationship::getDescription() const {
+    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
+    return deConstObject->getDescription();
+}
+
 void IfcDraughtingCalloutRelationship::setDescription(const IfcText &value) {
     m_description = value;
 }
@@ -108,9 +119,19 @@ IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCal
     }
 }
 
+const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout() const {
+    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
+    return deConstObject->getRelatingDraughtingCallout();
+}
+
 void IfcDraughtingCalloutRelationship::setRelatingDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
+    if (m_relatingDraughtingCallout.valid()) {
+        m_relatingDraughtingCallout->m_isRelatedToCallout.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isRelatedToCallout.insert(this);
+    }
     m_relatingDraughtingCallout = value;
-    m_relatingDraughtingCallout->m_isRelatedToCallout.insert(this);
 }
 
 IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() {
@@ -122,14 +143,19 @@ IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCall
     }
 }
 
-void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
-    m_relatedDraughtingCallout = value;
-    m_relatedDraughtingCallout->m_isRelatedFromCallout.insert(this);
+const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() const {
+    IfcDraughtingCalloutRelationship * deConstObject = const_cast< IfcDraughtingCalloutRelationship * > (this);
+    return deConstObject->getRelatedDraughtingCallout();
 }
 
-void IfcDraughtingCalloutRelationship::release() {
-    m_relatingDraughtingCallout.release();
-    m_relatedDraughtingCallout.release();
+void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
+    if (m_relatedDraughtingCallout.valid()) {
+        m_relatedDraughtingCallout->m_isRelatedFromCallout.erase(this);
+    }
+    if (value.valid()) {
+        value->m_isRelatedFromCallout.insert(this);
+    }
+    m_relatedDraughtingCallout = value;
 }
 
 bool IfcDraughtingCalloutRelationship::init() {
@@ -139,28 +165,28 @@ bool IfcDraughtingCalloutRelationship::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_description = Step::getUnset(m_description);
     }
     else {
-        m_description = Step::spfToString(arg);
+        m_description = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatingDraughtingCallout = NULL;
     }
     else {
-        m_relatingDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_relatedDraughtingCallout = NULL;
     }
     else {
-        m_relatedDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatedDraughtingCallout = static_cast< IfcDraughtingCallout * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
@@ -169,8 +195,8 @@ void IfcDraughtingCalloutRelationship::copy(const IfcDraughtingCalloutRelationsh
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     setDescription(obj.m_description);
-    setRelatingDraughtingCallout(copyop(obj.m_relatingDraughtingCallout.get()));
-    setRelatedDraughtingCallout(copyop(obj.m_relatedDraughtingCallout.get()));
+    setRelatingDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_relatingDraughtingCallout.get()));
+    setRelatedDraughtingCallout((IfcDraughtingCallout*)copyop(obj.m_relatedDraughtingCallout.get()));
     return;
 }
 

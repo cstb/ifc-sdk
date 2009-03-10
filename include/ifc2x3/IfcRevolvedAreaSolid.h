@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,45 +46,71 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcRevolvedAreaSolid : public IfcSweptAreaSolid {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'Axis'.
+         * 
          */
-        IfcAxis1Placement *getAxis();
+        virtual IfcAxis1Placement *getAxis();
+        /**
+         * (const) Returns the value of the explicit attribute 'Axis'.
+         * 
+         * @return the value of the explicit attribute 'Axis'
+         */
+        virtual const IfcAxis1Placement *getAxis() const;
         /**
          * Sets the value of the explicit attribute 'Axis'.
          * 
          * @param value
          */
-        void setAxis(const Step::RefPtr< IfcAxis1Placement > &value);
+        virtual void setAxis(const Step::RefPtr< IfcAxis1Placement > &value);
         /**
+         * Gets the value of the explicit attribute 'Angle'.
+         * 
          */
-        IfcPlaneAngleMeasure getAngle();
+        virtual IfcPlaneAngleMeasure getAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'Angle'.
+         * 
+         * @return the value of the explicit attribute 'Angle'
+         */
+        virtual const IfcPlaneAngleMeasure getAngle() const;
         /**
          * Sets the value of the explicit attribute 'Angle'.
          * 
          * @param value
          */
-        void setAngle(IfcPlaneAngleMeasure value);
+        virtual void setAngle(IfcPlaneAngleMeasure value);
         /**
+         * Gets the value of the derived attribute 'AxisLine'.
+         * 
          */
-        virtual void release();
+        virtual IfcLine *getAxisLine() const;
         friend class ExpressDataSet;
 
     protected:

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,171 +44,304 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcStructuralProfileProperties : public IfcGeneralProfileProperties {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'TorsionalConstantX'.
+         * 
          */
-        IfcMomentOfInertiaMeasure getTorsionalConstantX();
+        virtual IfcMomentOfInertiaMeasure getTorsionalConstantX();
+        /**
+         * (const) Returns the value of the explicit attribute 'TorsionalConstantX'.
+         * 
+         * @return the value of the explicit attribute 'TorsionalConstantX'
+         */
+        virtual const IfcMomentOfInertiaMeasure getTorsionalConstantX() const;
         /**
          * Sets the value of the explicit attribute 'TorsionalConstantX'.
          * 
          * @param value
          */
-        void setTorsionalConstantX(IfcMomentOfInertiaMeasure value);
+        virtual void setTorsionalConstantX(IfcMomentOfInertiaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MomentOfInertiaYZ'.
+         * 
          */
-        IfcMomentOfInertiaMeasure getMomentOfInertiaYZ();
+        virtual IfcMomentOfInertiaMeasure getMomentOfInertiaYZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'MomentOfInertiaYZ'.
+         * 
+         * @return the value of the explicit attribute 'MomentOfInertiaYZ'
+         */
+        virtual const IfcMomentOfInertiaMeasure getMomentOfInertiaYZ() const;
         /**
          * Sets the value of the explicit attribute 'MomentOfInertiaYZ'.
          * 
          * @param value
          */
-        void setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value);
+        virtual void setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MomentOfInertiaY'.
+         * 
          */
-        IfcMomentOfInertiaMeasure getMomentOfInertiaY();
+        virtual IfcMomentOfInertiaMeasure getMomentOfInertiaY();
+        /**
+         * (const) Returns the value of the explicit attribute 'MomentOfInertiaY'.
+         * 
+         * @return the value of the explicit attribute 'MomentOfInertiaY'
+         */
+        virtual const IfcMomentOfInertiaMeasure getMomentOfInertiaY() const;
         /**
          * Sets the value of the explicit attribute 'MomentOfInertiaY'.
          * 
          * @param value
          */
-        void setMomentOfInertiaY(IfcMomentOfInertiaMeasure value);
+        virtual void setMomentOfInertiaY(IfcMomentOfInertiaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MomentOfInertiaZ'.
+         * 
          */
-        IfcMomentOfInertiaMeasure getMomentOfInertiaZ();
+        virtual IfcMomentOfInertiaMeasure getMomentOfInertiaZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'MomentOfInertiaZ'.
+         * 
+         * @return the value of the explicit attribute 'MomentOfInertiaZ'
+         */
+        virtual const IfcMomentOfInertiaMeasure getMomentOfInertiaZ() const;
         /**
          * Sets the value of the explicit attribute 'MomentOfInertiaZ'.
          * 
          * @param value
          */
-        void setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value);
+        virtual void setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'WarpingConstant'.
+         * 
          */
-        IfcWarpingConstantMeasure getWarpingConstant();
+        virtual IfcWarpingConstantMeasure getWarpingConstant();
+        /**
+         * (const) Returns the value of the explicit attribute 'WarpingConstant'.
+         * 
+         * @return the value of the explicit attribute 'WarpingConstant'
+         */
+        virtual const IfcWarpingConstantMeasure getWarpingConstant() const;
         /**
          * Sets the value of the explicit attribute 'WarpingConstant'.
          * 
          * @param value
          */
-        void setWarpingConstant(IfcWarpingConstantMeasure value);
+        virtual void setWarpingConstant(IfcWarpingConstantMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShearCentreZ'.
+         * 
          */
-        IfcLengthMeasure getShearCentreZ();
+        virtual IfcLengthMeasure getShearCentreZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShearCentreZ'.
+         * 
+         * @return the value of the explicit attribute 'ShearCentreZ'
+         */
+        virtual const IfcLengthMeasure getShearCentreZ() const;
         /**
          * Sets the value of the explicit attribute 'ShearCentreZ'.
          * 
          * @param value
          */
-        void setShearCentreZ(IfcLengthMeasure value);
+        virtual void setShearCentreZ(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShearCentreY'.
+         * 
          */
-        IfcLengthMeasure getShearCentreY();
+        virtual IfcLengthMeasure getShearCentreY();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShearCentreY'.
+         * 
+         * @return the value of the explicit attribute 'ShearCentreY'
+         */
+        virtual const IfcLengthMeasure getShearCentreY() const;
         /**
          * Sets the value of the explicit attribute 'ShearCentreY'.
          * 
          * @param value
          */
-        void setShearCentreY(IfcLengthMeasure value);
+        virtual void setShearCentreY(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShearDeformationAreaZ'.
+         * 
          */
-        IfcAreaMeasure getShearDeformationAreaZ();
+        virtual IfcAreaMeasure getShearDeformationAreaZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShearDeformationAreaZ'.
+         * 
+         * @return the value of the explicit attribute 'ShearDeformationAreaZ'
+         */
+        virtual const IfcAreaMeasure getShearDeformationAreaZ() const;
         /**
          * Sets the value of the explicit attribute 'ShearDeformationAreaZ'.
          * 
          * @param value
          */
-        void setShearDeformationAreaZ(IfcAreaMeasure value);
+        virtual void setShearDeformationAreaZ(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ShearDeformationAreaY'.
+         * 
          */
-        IfcAreaMeasure getShearDeformationAreaY();
+        virtual IfcAreaMeasure getShearDeformationAreaY();
+        /**
+         * (const) Returns the value of the explicit attribute 'ShearDeformationAreaY'.
+         * 
+         * @return the value of the explicit attribute 'ShearDeformationAreaY'
+         */
+        virtual const IfcAreaMeasure getShearDeformationAreaY() const;
         /**
          * Sets the value of the explicit attribute 'ShearDeformationAreaY'.
          * 
          * @param value
          */
-        void setShearDeformationAreaY(IfcAreaMeasure value);
+        virtual void setShearDeformationAreaY(IfcAreaMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MaximumSectionModulusY'.
+         * 
          */
-        IfcSectionModulusMeasure getMaximumSectionModulusY();
+        virtual IfcSectionModulusMeasure getMaximumSectionModulusY();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaximumSectionModulusY'.
+         * 
+         * @return the value of the explicit attribute 'MaximumSectionModulusY'
+         */
+        virtual const IfcSectionModulusMeasure getMaximumSectionModulusY() const;
         /**
          * Sets the value of the explicit attribute 'MaximumSectionModulusY'.
          * 
          * @param value
          */
-        void setMaximumSectionModulusY(IfcSectionModulusMeasure value);
+        virtual void setMaximumSectionModulusY(IfcSectionModulusMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinimumSectionModulusY'.
+         * 
          */
-        IfcSectionModulusMeasure getMinimumSectionModulusY();
+        virtual IfcSectionModulusMeasure getMinimumSectionModulusY();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinimumSectionModulusY'.
+         * 
+         * @return the value of the explicit attribute 'MinimumSectionModulusY'
+         */
+        virtual const IfcSectionModulusMeasure getMinimumSectionModulusY() const;
         /**
          * Sets the value of the explicit attribute 'MinimumSectionModulusY'.
          * 
          * @param value
          */
-        void setMinimumSectionModulusY(IfcSectionModulusMeasure value);
+        virtual void setMinimumSectionModulusY(IfcSectionModulusMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MaximumSectionModulusZ'.
+         * 
          */
-        IfcSectionModulusMeasure getMaximumSectionModulusZ();
+        virtual IfcSectionModulusMeasure getMaximumSectionModulusZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaximumSectionModulusZ'.
+         * 
+         * @return the value of the explicit attribute 'MaximumSectionModulusZ'
+         */
+        virtual const IfcSectionModulusMeasure getMaximumSectionModulusZ() const;
         /**
          * Sets the value of the explicit attribute 'MaximumSectionModulusZ'.
          * 
          * @param value
          */
-        void setMaximumSectionModulusZ(IfcSectionModulusMeasure value);
+        virtual void setMaximumSectionModulusZ(IfcSectionModulusMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinimumSectionModulusZ'.
+         * 
          */
-        IfcSectionModulusMeasure getMinimumSectionModulusZ();
+        virtual IfcSectionModulusMeasure getMinimumSectionModulusZ();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinimumSectionModulusZ'.
+         * 
+         * @return the value of the explicit attribute 'MinimumSectionModulusZ'
+         */
+        virtual const IfcSectionModulusMeasure getMinimumSectionModulusZ() const;
         /**
          * Sets the value of the explicit attribute 'MinimumSectionModulusZ'.
          * 
          * @param value
          */
-        void setMinimumSectionModulusZ(IfcSectionModulusMeasure value);
+        virtual void setMinimumSectionModulusZ(IfcSectionModulusMeasure value);
         /**
+         * Gets the value of the explicit attribute 'TorsionalSectionModulus'.
+         * 
          */
-        IfcSectionModulusMeasure getTorsionalSectionModulus();
+        virtual IfcSectionModulusMeasure getTorsionalSectionModulus();
+        /**
+         * (const) Returns the value of the explicit attribute 'TorsionalSectionModulus'.
+         * 
+         * @return the value of the explicit attribute 'TorsionalSectionModulus'
+         */
+        virtual const IfcSectionModulusMeasure getTorsionalSectionModulus() const;
         /**
          * Sets the value of the explicit attribute 'TorsionalSectionModulus'.
          * 
          * @param value
          */
-        void setTorsionalSectionModulus(IfcSectionModulusMeasure value);
+        virtual void setTorsionalSectionModulus(IfcSectionModulusMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CentreOfGravityInX'.
+         * 
          */
-        IfcLengthMeasure getCentreOfGravityInX();
+        virtual IfcLengthMeasure getCentreOfGravityInX();
+        /**
+         * (const) Returns the value of the explicit attribute 'CentreOfGravityInX'.
+         * 
+         * @return the value of the explicit attribute 'CentreOfGravityInX'
+         */
+        virtual const IfcLengthMeasure getCentreOfGravityInX() const;
         /**
          * Sets the value of the explicit attribute 'CentreOfGravityInX'.
          * 
          * @param value
          */
-        void setCentreOfGravityInX(IfcLengthMeasure value);
+        virtual void setCentreOfGravityInX(IfcLengthMeasure value);
         /**
+         * Gets the value of the explicit attribute 'CentreOfGravityInY'.
+         * 
          */
-        IfcLengthMeasure getCentreOfGravityInY();
+        virtual IfcLengthMeasure getCentreOfGravityInY();
+        /**
+         * (const) Returns the value of the explicit attribute 'CentreOfGravityInY'.
+         * 
+         * @return the value of the explicit attribute 'CentreOfGravityInY'
+         */
+        virtual const IfcLengthMeasure getCentreOfGravityInY() const;
         /**
          * Sets the value of the explicit attribute 'CentreOfGravityInY'.
          * 
          * @param value
          */
-        void setCentreOfGravityInY(IfcLengthMeasure value);
-        /**
-         */
-        virtual void release();
+        virtual void setCentreOfGravityInY(IfcLengthMeasure value);
         friend class ExpressDataSet;
 
     protected:

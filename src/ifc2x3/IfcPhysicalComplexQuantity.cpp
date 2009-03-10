@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,23 +26,42 @@
 
 #include "ifc2x3/IfcPhysicalComplexQuantity.h"
 
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcPhysicalQuantity.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::Inverted_IfcPhysicalComplexQuantity_HasQuantities_type() {
+}
+
+void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::setOwner(IfcPhysicalComplexQuantity *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::insert(const Step::RefPtr< IfcPhysicalQuantity > &value) throw(std::out_of_range) {
+    IfcPhysicalQuantity *inverse = const_cast< IfcPhysicalQuantity * > (value.get());
+    Set_IfcPhysicalQuantity_1_n::insert(value);
+    inverse->m_partOfComplex.insert(mOwner);
+}
+
+Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::size_type Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::erase(const Step::RefPtr< IfcPhysicalQuantity > &value) {
+    IfcPhysicalQuantity *inverse = const_cast< IfcPhysicalQuantity * > (value.get());
+    inverse->m_partOfComplex.erase(mOwner);
+    return Set_IfcPhysicalQuantity_1_n::erase(value);
+}
 
 IfcPhysicalComplexQuantity::IfcPhysicalComplexQuantity(Step::Id id, Step::SPFData *args) : IfcPhysicalQuantity(id, args) {
     m_hasQuantities.setUnset(true);
@@ -55,27 +74,27 @@ IfcPhysicalComplexQuantity::IfcPhysicalComplexQuantity(Step::Id id, Step::SPFDat
 IfcPhysicalComplexQuantity::~IfcPhysicalComplexQuantity() {
 }
 
-bool IfcPhysicalComplexQuantity::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPhysicalComplexQuantity(this);
+bool IfcPhysicalComplexQuantity::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPhysicalComplexQuantity(this);
 }
 
-const std::string &IfcPhysicalComplexQuantity::type() {
+const std::string &IfcPhysicalComplexQuantity::type() const {
     return IfcPhysicalComplexQuantity::s_type.getName();
 }
 
-Step::ClassType IfcPhysicalComplexQuantity::getClassType() {
+const Step::ClassType &IfcPhysicalComplexQuantity::getClassType() {
     return IfcPhysicalComplexQuantity::s_type;
 }
 
-Step::ClassType IfcPhysicalComplexQuantity::getType() const {
+const Step::ClassType &IfcPhysicalComplexQuantity::getType() const {
     return IfcPhysicalComplexQuantity::s_type;
 }
 
-bool IfcPhysicalComplexQuantity::isOfType(Step::ClassType t) {
+bool IfcPhysicalComplexQuantity::isOfType(const Step::ClassType &t) const {
     return IfcPhysicalComplexQuantity::s_type == t ? true : IfcPhysicalQuantity::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcPhysicalQuantity > > &IfcPhysicalComplexQuantity::getHasQuantities() {
+Set_IfcPhysicalQuantity_1_n &IfcPhysicalComplexQuantity::getHasQuantities() {
     if (Step::BaseObject::inited()) {
         return m_hasQuantities;
     }
@@ -85,6 +104,11 @@ Step::Set< Step::RefPtr< IfcPhysicalQuantity > > &IfcPhysicalComplexQuantity::ge
     }
 }
 
+const Set_IfcPhysicalQuantity_1_n &IfcPhysicalComplexQuantity::getHasQuantities() const {
+    IfcPhysicalComplexQuantity * deConstObject = const_cast< IfcPhysicalComplexQuantity * > (this);
+    return deConstObject->getHasQuantities();
+}
+
 IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() {
     if (Step::BaseObject::inited()) {
         return m_discrimination;
@@ -92,6 +116,11 @@ IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() {
     else {
         return Step::getUnset(m_discrimination);
     }
+}
+
+const IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() const {
+    IfcPhysicalComplexQuantity * deConstObject = const_cast< IfcPhysicalComplexQuantity * > (this);
+    return deConstObject->getDiscrimination();
 }
 
 void IfcPhysicalComplexQuantity::setDiscrimination(const IfcLabel &value) {
@@ -107,6 +136,11 @@ IfcLabel IfcPhysicalComplexQuantity::getQuality() {
     }
 }
 
+const IfcLabel IfcPhysicalComplexQuantity::getQuality() const {
+    IfcPhysicalComplexQuantity * deConstObject = const_cast< IfcPhysicalComplexQuantity * > (this);
+    return deConstObject->getQuality();
+}
+
 void IfcPhysicalComplexQuantity::setQuality(const IfcLabel &value) {
     m_quality = value;
 }
@@ -120,13 +154,13 @@ IfcLabel IfcPhysicalComplexQuantity::getUsage() {
     }
 }
 
-void IfcPhysicalComplexQuantity::setUsage(const IfcLabel &value) {
-    m_usage = value;
+const IfcLabel IfcPhysicalComplexQuantity::getUsage() const {
+    IfcPhysicalComplexQuantity * deConstObject = const_cast< IfcPhysicalComplexQuantity * > (this);
+    return deConstObject->getUsage();
 }
 
-void IfcPhysicalComplexQuantity::release() {
-    IfcPhysicalQuantity::release();
-    m_hasQuantities.clear();
+void IfcPhysicalComplexQuantity::setUsage(const IfcLabel &value) {
+    m_usage = value;
 }
 
 bool IfcPhysicalComplexQuantity::init() {
@@ -146,7 +180,7 @@ bool IfcPhysicalComplexQuantity::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcPhysicalQuantity > attr2;
-                attr2 = static_cast< IfcPhysicalQuantity * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcPhysicalQuantity * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_hasQuantities.insert(attr2);
             }
             else {
@@ -159,30 +193,30 @@ bool IfcPhysicalComplexQuantity::init() {
         m_discrimination = Step::getUnset(m_discrimination);
     }
     else {
-        m_discrimination = Step::spfToString(arg);
+        m_discrimination = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_quality = Step::getUnset(m_quality);
     }
     else {
-        m_quality = Step::spfToString(arg);
+        m_quality = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_usage = Step::getUnset(m_usage);
     }
     else {
-        m_usage = Step::spfToString(arg);
+        m_usage = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcPhysicalComplexQuantity::copy(const IfcPhysicalComplexQuantity &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcPhysicalQuantity > >::const_iterator it_m_hasQuantities;
+    Step::Set< Step::RefPtr< IfcPhysicalQuantity >, 1 >::const_iterator it_m_hasQuantities;
     IfcPhysicalQuantity::copy(obj, copyop);
     for (it_m_hasQuantities = obj.m_hasQuantities.begin(); it_m_hasQuantities != obj.m_hasQuantities.end(); ++it_m_hasQuantities) {
-        Step::RefPtr< IfcPhysicalQuantity > copyTarget = copyop((*it_m_hasQuantities).get());
+        Step::RefPtr< IfcPhysicalQuantity > copyTarget = (IfcPhysicalQuantity *) (copyop((*it_m_hasQuantities).get()));
         m_hasQuantities.insert(copyTarget.get());
     }
     setDiscrimination(obj.m_discrimination);
@@ -192,16 +226,3 @@ void IfcPhysicalComplexQuantity::copy(const IfcPhysicalComplexQuantity &obj, con
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcPhysicalComplexQuantity::s_type("IfcPhysicalComplexQuantity");
-IfcPhysicalComplexQuantity::Inverted_HasQuantities_type::Inverted_HasQuantities_type() {
-}
-
-void IfcPhysicalComplexQuantity::Inverted_HasQuantities_type::setOwner(IfcPhysicalComplexQuantity *owner) {
-    mOwner = owner;
-}
-
-void IfcPhysicalComplexQuantity::Inverted_HasQuantities_type::insert(const Step::RefPtr< IfcPhysicalQuantity > &value) {
-    IfcPhysicalQuantity *inverse = const_cast< IfcPhysicalQuantity * > (value.get());
-    Step::Set< Step::RefPtr< IfcPhysicalQuantity > >::insert(value);
-    inverse->m_partOfComplex.insert(mOwner);
-}
-

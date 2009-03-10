@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcClassificationNotation::IfcClassificationNotation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_notationFacets.setUnset(true);
 }
 
 IfcClassificationNotation::~IfcClassificationNotation() {
 }
 
-bool IfcClassificationNotation::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassificationNotation(this);
+bool IfcClassificationNotation::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassificationNotation(this);
 }
 
-const std::string &IfcClassificationNotation::type() {
+const std::string &IfcClassificationNotation::type() const {
     return IfcClassificationNotation::s_type.getName();
 }
 
-Step::ClassType IfcClassificationNotation::getClassType() {
+const Step::ClassType &IfcClassificationNotation::getClassType() {
     return IfcClassificationNotation::s_type;
 }
 
-Step::ClassType IfcClassificationNotation::getType() const {
+const Step::ClassType &IfcClassificationNotation::getType() const {
     return IfcClassificationNotation::s_type;
 }
 
-bool IfcClassificationNotation::isOfType(Step::ClassType t) {
+bool IfcClassificationNotation::isOfType(const Step::ClassType &t) const {
     return IfcClassificationNotation::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcClassificationNotationFacet > > &IfcClassificationNotation::getNotationFacets() {
+Set_IfcClassificationNotationFacet_1_n &IfcClassificationNotation::getNotationFacets() {
     if (Step::BaseObject::inited()) {
         return m_notationFacets;
     }
@@ -81,12 +79,13 @@ Step::Set< Step::RefPtr< IfcClassificationNotationFacet > > &IfcClassificationNo
     }
 }
 
-void IfcClassificationNotation::setNotationFacets(const Step::Set< Step::RefPtr< IfcClassificationNotationFacet > > &value) {
-    m_notationFacets = value;
+const Set_IfcClassificationNotationFacet_1_n &IfcClassificationNotation::getNotationFacets() const {
+    IfcClassificationNotation * deConstObject = const_cast< IfcClassificationNotation * > (this);
+    return deConstObject->getNotationFacets();
 }
 
-void IfcClassificationNotation::release() {
-    m_notationFacets.clear();
+void IfcClassificationNotation::setNotationFacets(const Set_IfcClassificationNotationFacet_1_n &value) {
+    m_notationFacets = value;
 }
 
 bool IfcClassificationNotation::init() {
@@ -102,7 +101,7 @@ bool IfcClassificationNotation::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcClassificationNotationFacet > attr2;
-                attr2 = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcClassificationNotationFacet * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_notationFacets.insert(attr2);
             }
             else {
@@ -114,10 +113,10 @@ bool IfcClassificationNotation::init() {
 }
 
 void IfcClassificationNotation::copy(const IfcClassificationNotation &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcClassificationNotationFacet > >::const_iterator it_m_notationFacets;
+    Step::Set< Step::RefPtr< IfcClassificationNotationFacet >, 1 >::const_iterator it_m_notationFacets;
     Step::BaseEntity::copy(obj, copyop);
     for (it_m_notationFacets = obj.m_notationFacets.begin(); it_m_notationFacets != obj.m_notationFacets.end(); ++it_m_notationFacets) {
-        Step::RefPtr< IfcClassificationNotationFacet > copyTarget = copyop((*it_m_notationFacets).get());
+        Step::RefPtr< IfcClassificationNotationFacet > copyTarget = (IfcClassificationNotationFacet *) (copyop((*it_m_notationFacets).get()));
         m_notationFacets.insert(copyTarget.get());
     }
     return;

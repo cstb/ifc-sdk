@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,30 +42,28 @@ using namespace ifc2x3;
 
 IfcLightDistributionData::IfcLightDistributionData(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_mainPlaneAngle = Step::getUnset(m_mainPlaneAngle);
-    m_secondaryPlaneAngle.setUnset(true);
-    m_luminousIntensity.setUnset(true);
 }
 
 IfcLightDistributionData::~IfcLightDistributionData() {
 }
 
-bool IfcLightDistributionData::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightDistributionData(this);
+bool IfcLightDistributionData::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightDistributionData(this);
 }
 
-const std::string &IfcLightDistributionData::type() {
+const std::string &IfcLightDistributionData::type() const {
     return IfcLightDistributionData::s_type.getName();
 }
 
-Step::ClassType IfcLightDistributionData::getClassType() {
+const Step::ClassType &IfcLightDistributionData::getClassType() {
     return IfcLightDistributionData::s_type;
 }
 
-Step::ClassType IfcLightDistributionData::getType() const {
+const Step::ClassType &IfcLightDistributionData::getType() const {
     return IfcLightDistributionData::s_type;
 }
 
-bool IfcLightDistributionData::isOfType(Step::ClassType t) {
+bool IfcLightDistributionData::isOfType(const Step::ClassType &t) const {
     return IfcLightDistributionData::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,11 +76,16 @@ IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle() {
     }
 }
 
+const IfcPlaneAngleMeasure IfcLightDistributionData::getMainPlaneAngle() const {
+    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
+    return deConstObject->getMainPlaneAngle();
+}
+
 void IfcLightDistributionData::setMainPlaneAngle(IfcPlaneAngleMeasure value) {
     m_mainPlaneAngle = value;
 }
 
-Step::List< IfcPlaneAngleMeasure > &IfcLightDistributionData::getSecondaryPlaneAngle() {
+List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() {
     if (Step::BaseObject::inited()) {
         return m_secondaryPlaneAngle;
     }
@@ -92,11 +95,16 @@ Step::List< IfcPlaneAngleMeasure > &IfcLightDistributionData::getSecondaryPlaneA
     }
 }
 
-void IfcLightDistributionData::setSecondaryPlaneAngle(const Step::List< IfcPlaneAngleMeasure > &value) {
+const List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() const {
+    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
+    return deConstObject->getSecondaryPlaneAngle();
+}
+
+void IfcLightDistributionData::setSecondaryPlaneAngle(const List_IfcPlaneAngleMeasure_1_n &value) {
     m_secondaryPlaneAngle = value;
 }
 
-Step::List< IfcLuminousIntensityDistributionMeasure > &IfcLightDistributionData::getLuminousIntensity() {
+List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() {
     if (Step::BaseObject::inited()) {
         return m_luminousIntensity;
     }
@@ -106,13 +114,13 @@ Step::List< IfcLuminousIntensityDistributionMeasure > &IfcLightDistributionData:
     }
 }
 
-void IfcLightDistributionData::setLuminousIntensity(const Step::List< IfcLuminousIntensityDistributionMeasure > &value) {
-    m_luminousIntensity = value;
+const List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() const {
+    IfcLightDistributionData * deConstObject = const_cast< IfcLightDistributionData * > (this);
+    return deConstObject->getLuminousIntensity();
 }
 
-void IfcLightDistributionData::release() {
-    m_secondaryPlaneAngle.clear();
-    m_luminousIntensity.clear();
+void IfcLightDistributionData::setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value) {
+    m_luminousIntensity = value;
 }
 
 bool IfcLightDistributionData::init() {
@@ -166,8 +174,8 @@ bool IfcLightDistributionData::init() {
 }
 
 void IfcLightDistributionData::copy(const IfcLightDistributionData &obj, const CopyOp &copyop) {
-    Step::List< IfcPlaneAngleMeasure >::const_iterator it_m_secondaryPlaneAngle;
-    Step::List< IfcLuminousIntensityDistributionMeasure >::const_iterator it_m_luminousIntensity;
+    Step::List< IfcPlaneAngleMeasure, 1 >::const_iterator it_m_secondaryPlaneAngle;
+    Step::List< IfcLuminousIntensityDistributionMeasure, 1 >::const_iterator it_m_luminousIntensity;
     Step::BaseEntity::copy(obj, copyop);
     setMainPlaneAngle(obj.m_mainPlaneAngle);
     for (it_m_secondaryPlaneAngle = obj.m_secondaryPlaneAngle.begin(); it_m_secondaryPlaneAngle != obj.m_secondaryPlaneAngle.end(); ++it_m_secondaryPlaneAngle) {

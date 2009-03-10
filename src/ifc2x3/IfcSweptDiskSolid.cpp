@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcSweptDiskSolid::IfcSweptDiskSolid(Step::Id id, Step::SPFData *args) : IfcSoli
 IfcSweptDiskSolid::~IfcSweptDiskSolid() {
 }
 
-bool IfcSweptDiskSolid::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSweptDiskSolid(this);
+bool IfcSweptDiskSolid::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSweptDiskSolid(this);
 }
 
-const std::string &IfcSweptDiskSolid::type() {
+const std::string &IfcSweptDiskSolid::type() const {
     return IfcSweptDiskSolid::s_type.getName();
 }
 
-Step::ClassType IfcSweptDiskSolid::getClassType() {
+const Step::ClassType &IfcSweptDiskSolid::getClassType() {
     return IfcSweptDiskSolid::s_type;
 }
 
-Step::ClassType IfcSweptDiskSolid::getType() const {
+const Step::ClassType &IfcSweptDiskSolid::getType() const {
     return IfcSweptDiskSolid::s_type;
 }
 
-bool IfcSweptDiskSolid::isOfType(Step::ClassType t) {
+bool IfcSweptDiskSolid::isOfType(const Step::ClassType &t) const {
     return IfcSweptDiskSolid::s_type == t ? true : IfcSolidModel::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcCurve *IfcSweptDiskSolid::getDirectrix() {
     else {
         return NULL;
     }
+}
+
+const IfcCurve *IfcSweptDiskSolid::getDirectrix() const {
+    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
+    return deConstObject->getDirectrix();
 }
 
 void IfcSweptDiskSolid::setDirectrix(const Step::RefPtr< IfcCurve > &value) {
@@ -96,6 +101,11 @@ IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() const {
+    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
+    return deConstObject->getRadius();
+}
+
 void IfcSweptDiskSolid::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
 }
@@ -107,6 +117,11 @@ IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() {
     else {
         return Step::getUnset(m_innerRadius);
     }
+}
+
+const IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() const {
+    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
+    return deConstObject->getInnerRadius();
 }
 
 void IfcSweptDiskSolid::setInnerRadius(IfcPositiveLengthMeasure value) {
@@ -122,6 +137,11 @@ IfcParameterValue IfcSweptDiskSolid::getStartParam() {
     }
 }
 
+const IfcParameterValue IfcSweptDiskSolid::getStartParam() const {
+    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
+    return deConstObject->getStartParam();
+}
+
 void IfcSweptDiskSolid::setStartParam(IfcParameterValue value) {
     m_startParam = value;
 }
@@ -135,13 +155,13 @@ IfcParameterValue IfcSweptDiskSolid::getEndParam() {
     }
 }
 
-void IfcSweptDiskSolid::setEndParam(IfcParameterValue value) {
-    m_endParam = value;
+const IfcParameterValue IfcSweptDiskSolid::getEndParam() const {
+    IfcSweptDiskSolid * deConstObject = const_cast< IfcSweptDiskSolid * > (this);
+    return deConstObject->getEndParam();
 }
 
-void IfcSweptDiskSolid::release() {
-    IfcSolidModel::release();
-    m_directrix.release();
+void IfcSweptDiskSolid::setEndParam(IfcParameterValue value) {
+    m_endParam = value;
 }
 
 bool IfcSweptDiskSolid::init() {
@@ -155,7 +175,7 @@ bool IfcSweptDiskSolid::init() {
         m_directrix = NULL;
     }
     else {
-        m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_directrix = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -190,7 +210,7 @@ bool IfcSweptDiskSolid::init() {
 
 void IfcSweptDiskSolid::copy(const IfcSweptDiskSolid &obj, const CopyOp &copyop) {
     IfcSolidModel::copy(obj, copyop);
-    setDirectrix(copyop(obj.m_directrix.get()));
+    setDirectrix((IfcCurve*)copyop(obj.m_directrix.get()));
     setRadius(obj.m_radius);
     setInnerRadius(obj.m_innerRadius);
     setStartParam(obj.m_startParam);

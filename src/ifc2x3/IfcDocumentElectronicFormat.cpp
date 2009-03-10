@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcDocumentElectronicFormat::IfcDocumentElectronicFormat(Step::Id id, Step::SPFD
 IfcDocumentElectronicFormat::~IfcDocumentElectronicFormat() {
 }
 
-bool IfcDocumentElectronicFormat::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDocumentElectronicFormat(this);
+bool IfcDocumentElectronicFormat::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDocumentElectronicFormat(this);
 }
 
-const std::string &IfcDocumentElectronicFormat::type() {
+const std::string &IfcDocumentElectronicFormat::type() const {
     return IfcDocumentElectronicFormat::s_type.getName();
 }
 
-Step::ClassType IfcDocumentElectronicFormat::getClassType() {
+const Step::ClassType &IfcDocumentElectronicFormat::getClassType() {
     return IfcDocumentElectronicFormat::s_type;
 }
 
-Step::ClassType IfcDocumentElectronicFormat::getType() const {
+const Step::ClassType &IfcDocumentElectronicFormat::getType() const {
     return IfcDocumentElectronicFormat::s_type;
 }
 
-bool IfcDocumentElectronicFormat::isOfType(Step::ClassType t) {
+bool IfcDocumentElectronicFormat::isOfType(const Step::ClassType &t) const {
     return IfcDocumentElectronicFormat::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcLabel IfcDocumentElectronicFormat::getFileExtension() {
     else {
         return Step::getUnset(m_fileExtension);
     }
+}
+
+const IfcLabel IfcDocumentElectronicFormat::getFileExtension() const {
+    IfcDocumentElectronicFormat * deConstObject = const_cast< IfcDocumentElectronicFormat * > (this);
+    return deConstObject->getFileExtension();
 }
 
 void IfcDocumentElectronicFormat::setFileExtension(const IfcLabel &value) {
@@ -90,6 +96,11 @@ IfcLabel IfcDocumentElectronicFormat::getMimeContentType() {
     }
 }
 
+const IfcLabel IfcDocumentElectronicFormat::getMimeContentType() const {
+    IfcDocumentElectronicFormat * deConstObject = const_cast< IfcDocumentElectronicFormat * > (this);
+    return deConstObject->getMimeContentType();
+}
+
 void IfcDocumentElectronicFormat::setMimeContentType(const IfcLabel &value) {
     m_mimeContentType = value;
 }
@@ -103,11 +114,13 @@ IfcLabel IfcDocumentElectronicFormat::getMimeSubtype() {
     }
 }
 
-void IfcDocumentElectronicFormat::setMimeSubtype(const IfcLabel &value) {
-    m_mimeSubtype = value;
+const IfcLabel IfcDocumentElectronicFormat::getMimeSubtype() const {
+    IfcDocumentElectronicFormat * deConstObject = const_cast< IfcDocumentElectronicFormat * > (this);
+    return deConstObject->getMimeSubtype();
 }
 
-void IfcDocumentElectronicFormat::release() {
+void IfcDocumentElectronicFormat::setMimeSubtype(const IfcLabel &value) {
+    m_mimeSubtype = value;
 }
 
 bool IfcDocumentElectronicFormat::init() {
@@ -117,21 +130,21 @@ bool IfcDocumentElectronicFormat::init() {
         m_fileExtension = Step::getUnset(m_fileExtension);
     }
     else {
-        m_fileExtension = Step::spfToString(arg);
+        m_fileExtension = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_mimeContentType = Step::getUnset(m_mimeContentType);
     }
     else {
-        m_mimeContentType = Step::spfToString(arg);
+        m_mimeContentType = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_mimeSubtype = Step::getUnset(m_mimeSubtype);
     }
     else {
-        m_mimeSubtype = Step::spfToString(arg);
+        m_mimeSubtype = Step::String::fromSPF(arg);
     }
     return true;
 }

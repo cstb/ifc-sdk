@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcTextStyleSelect::~IfcTextStyleSelect() {
     deleteUnion();
 }
 
-bool IfcTextStyleSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcTextStyleSelect(this);
+bool IfcTextStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcTextStyleSelect(this);
 }
 
 bool IfcTextStyleSelect::init() {
     return false;
 }
 
-const std::string &IfcTextStyleSelect::type() {
+const std::string &IfcTextStyleSelect::type() const {
     return IfcTextStyleSelect::s_type.getName();
 }
 
-Step::ClassType IfcTextStyleSelect::getClassType() {
+const Step::ClassType &IfcTextStyleSelect::getClassType() {
     return IfcTextStyleSelect::s_type;
 }
 
-Step::ClassType IfcTextStyleSelect::getType() const {
+const Step::ClassType &IfcTextStyleSelect::getType() const {
     return IfcTextStyleSelect::s_type;
 }
 
-bool IfcTextStyleSelect::isOfType(Step::ClassType t) {
+bool IfcTextStyleSelect::isOfType(const Step::ClassType &t) const {
     return IfcTextStyleSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcTextStyleSelect::copy(const IfcTextStyleSelect &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCTEXTSTYLEWITHBOXCHARACTERISTICS:
-        setIfcTextStyleWithBoxCharacteristics(copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics));
+        setIfcTextStyleWithBoxCharacteristics((IfcTextStyleWithBoxCharacteristics *) (copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics)));
         break;
     case IFCTEXTSTYLETEXTMODEL:
-        setIfcTextStyleTextModel(copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel));
+        setIfcTextStyleTextModel((IfcTextStyleTextModel *) (copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel)));
         break;
         }
 }
 
-char *IfcTextStyleSelect::currentTypeName() {
+std::string IfcTextStyleSelect::currentTypeName() const {
     switch(m_type) {
     case IFCTEXTSTYLEWITHBOXCHARACTERISTICS:
         return "IfcTextStyleWithBoxCharacteristics";
@@ -97,7 +97,7 @@ char *IfcTextStyleSelect::currentTypeName() {
     }
 }
 
-IfcTextStyleSelect::IfcTextStyleSelect_select IfcTextStyleSelect::currentType() {
+IfcTextStyleSelect::IfcTextStyleSelect_select IfcTextStyleSelect::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcTextStyleSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcTextStyleWithBoxCharacteristics *IfcTextStyleSelect::getIfcTextStyleWithBoxCharacteristics() {
-    return m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics;
+IfcTextStyleWithBoxCharacteristics *IfcTextStyleSelect::getIfcTextStyleWithBoxCharacteristics() const {
+    if (m_type == IFCTEXTSTYLEWITHBOXCHARACTERISTICS) {
+        return m_IfcTextStyleSelect_union.m_IfcTextStyleWithBoxCharacteristics;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcTextStyleSelect::setIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcTextStyleSelect::setIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithB
     m_type = IFCTEXTSTYLEWITHBOXCHARACTERISTICS;
 }
 
-IfcTextStyleTextModel *IfcTextStyleSelect::getIfcTextStyleTextModel() {
-    return m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel;
+IfcTextStyleTextModel *IfcTextStyleSelect::getIfcTextStyleTextModel() const {
+    if (m_type == IFCTEXTSTYLETEXTMODEL) {
+        return m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcTextStyleSelect::setIfcTextStyleTextModel(IfcTextStyleTextModel *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

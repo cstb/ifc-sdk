@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelDefinesByType::IfcRelDefinesByType(Step::Id id, Step::SPFData *args) : Ifc
 IfcRelDefinesByType::~IfcRelDefinesByType() {
 }
 
-bool IfcRelDefinesByType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelDefinesByType(this);
+bool IfcRelDefinesByType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelDefinesByType(this);
 }
 
-const std::string &IfcRelDefinesByType::type() {
+const std::string &IfcRelDefinesByType::type() const {
     return IfcRelDefinesByType::s_type.getName();
 }
 
-Step::ClassType IfcRelDefinesByType::getClassType() {
+const Step::ClassType &IfcRelDefinesByType::getClassType() {
     return IfcRelDefinesByType::s_type;
 }
 
-Step::ClassType IfcRelDefinesByType::getType() const {
+const Step::ClassType &IfcRelDefinesByType::getType() const {
     return IfcRelDefinesByType::s_type;
 }
 
-bool IfcRelDefinesByType::isOfType(Step::ClassType t) {
+bool IfcRelDefinesByType::isOfType(const Step::ClassType &t) const {
     return IfcRelDefinesByType::s_type == t ? true : IfcRelDefines::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcTypeObject *IfcRelDefinesByType::getRelatingType() {
     }
 }
 
-void IfcRelDefinesByType::setRelatingType(const Step::RefPtr< IfcTypeObject > &value) {
-    m_relatingType = value;
-    m_relatingType->m_objectTypeOf.insert(this);
+const IfcTypeObject *IfcRelDefinesByType::getRelatingType() const {
+    IfcRelDefinesByType * deConstObject = const_cast< IfcRelDefinesByType * > (this);
+    return deConstObject->getRelatingType();
 }
 
-void IfcRelDefinesByType::release() {
-    IfcRelDefines::release();
-    m_relatingType.release();
+void IfcRelDefinesByType::setRelatingType(const Step::RefPtr< IfcTypeObject > &value) {
+    if (m_relatingType.valid()) {
+        m_relatingType->m_objectTypeOf.erase(this);
+    }
+    if (value.valid()) {
+        value->m_objectTypeOf.insert(this);
+    }
+    m_relatingType = value;
 }
 
 bool IfcRelDefinesByType::init() {
@@ -100,14 +105,14 @@ bool IfcRelDefinesByType::init() {
         m_relatingType = NULL;
     }
     else {
-        m_relatingType = static_cast< IfcTypeObject * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingType = static_cast< IfcTypeObject * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelDefinesByType::copy(const IfcRelDefinesByType &obj, const CopyOp &copyop) {
     IfcRelDefines::copy(obj, copyop);
-    setRelatingType(copyop(obj.m_relatingType.get()));
+    setRelatingType((IfcTypeObject*)copyop(obj.m_relatingType.get()));
     return;
 }
 

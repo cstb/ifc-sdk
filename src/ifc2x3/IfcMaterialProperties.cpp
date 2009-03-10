@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcMaterialProperties::IfcMaterialProperties(Step::Id id, Step::SPFData *args) :
 IfcMaterialProperties::~IfcMaterialProperties() {
 }
 
-bool IfcMaterialProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcMaterialProperties(this);
+bool IfcMaterialProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcMaterialProperties(this);
 }
 
-const std::string &IfcMaterialProperties::type() {
+const std::string &IfcMaterialProperties::type() const {
     return IfcMaterialProperties::s_type.getName();
 }
 
-Step::ClassType IfcMaterialProperties::getClassType() {
+const Step::ClassType &IfcMaterialProperties::getClassType() {
     return IfcMaterialProperties::s_type;
 }
 
-Step::ClassType IfcMaterialProperties::getType() const {
+const Step::ClassType &IfcMaterialProperties::getType() const {
     return IfcMaterialProperties::s_type;
 }
 
-bool IfcMaterialProperties::isOfType(Step::ClassType t) {
+bool IfcMaterialProperties::isOfType(const Step::ClassType &t) const {
     return IfcMaterialProperties::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -79,12 +79,13 @@ IfcMaterial *IfcMaterialProperties::getMaterial() {
     }
 }
 
-void IfcMaterialProperties::setMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    m_material = value;
+const IfcMaterial *IfcMaterialProperties::getMaterial() const {
+    IfcMaterialProperties * deConstObject = const_cast< IfcMaterialProperties * > (this);
+    return deConstObject->getMaterial();
 }
 
-void IfcMaterialProperties::release() {
-    m_material.release();
+void IfcMaterialProperties::setMaterial(const Step::RefPtr< IfcMaterial > &value) {
+    m_material = value;
 }
 
 bool IfcMaterialProperties::init() {
@@ -94,14 +95,14 @@ bool IfcMaterialProperties::init() {
         m_material = NULL;
     }
     else {
-        m_material = static_cast< IfcMaterial * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_material = static_cast< IfcMaterial * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcMaterialProperties::copy(const IfcMaterialProperties &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setMaterial(copyop(obj.m_material.get()));
+    setMaterial((IfcMaterial*)copyop(obj.m_material.get()));
     return;
 }
 

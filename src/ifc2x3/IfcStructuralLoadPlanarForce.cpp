@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -48,23 +48,23 @@ IfcStructuralLoadPlanarForce::IfcStructuralLoadPlanarForce(Step::Id id, Step::SP
 IfcStructuralLoadPlanarForce::~IfcStructuralLoadPlanarForce() {
 }
 
-bool IfcStructuralLoadPlanarForce::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralLoadPlanarForce(this);
+bool IfcStructuralLoadPlanarForce::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralLoadPlanarForce(this);
 }
 
-const std::string &IfcStructuralLoadPlanarForce::type() {
+const std::string &IfcStructuralLoadPlanarForce::type() const {
     return IfcStructuralLoadPlanarForce::s_type.getName();
 }
 
-Step::ClassType IfcStructuralLoadPlanarForce::getClassType() {
+const Step::ClassType &IfcStructuralLoadPlanarForce::getClassType() {
     return IfcStructuralLoadPlanarForce::s_type;
 }
 
-Step::ClassType IfcStructuralLoadPlanarForce::getType() const {
+const Step::ClassType &IfcStructuralLoadPlanarForce::getType() const {
     return IfcStructuralLoadPlanarForce::s_type;
 }
 
-bool IfcStructuralLoadPlanarForce::isOfType(Step::ClassType t) {
+bool IfcStructuralLoadPlanarForce::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadPlanarForce::s_type == t ? true : IfcStructuralLoadStatic::isOfType(t);
 }
 
@@ -75,6 +75,11 @@ IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceX() {
     else {
         return Step::getUnset(m_planarForceX);
     }
+}
+
+const IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceX() const {
+    IfcStructuralLoadPlanarForce * deConstObject = const_cast< IfcStructuralLoadPlanarForce * > (this);
+    return deConstObject->getPlanarForceX();
 }
 
 void IfcStructuralLoadPlanarForce::setPlanarForceX(IfcPlanarForceMeasure value) {
@@ -90,6 +95,11 @@ IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceY() {
     }
 }
 
+const IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceY() const {
+    IfcStructuralLoadPlanarForce * deConstObject = const_cast< IfcStructuralLoadPlanarForce * > (this);
+    return deConstObject->getPlanarForceY();
+}
+
 void IfcStructuralLoadPlanarForce::setPlanarForceY(IfcPlanarForceMeasure value) {
     m_planarForceY = value;
 }
@@ -103,12 +113,13 @@ IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceZ() {
     }
 }
 
-void IfcStructuralLoadPlanarForce::setPlanarForceZ(IfcPlanarForceMeasure value) {
-    m_planarForceZ = value;
+const IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceZ() const {
+    IfcStructuralLoadPlanarForce * deConstObject = const_cast< IfcStructuralLoadPlanarForce * > (this);
+    return deConstObject->getPlanarForceZ();
 }
 
-void IfcStructuralLoadPlanarForce::release() {
-    IfcStructuralLoadStatic::release();
+void IfcStructuralLoadPlanarForce::setPlanarForceZ(IfcPlanarForceMeasure value) {
+    m_planarForceZ = value;
 }
 
 bool IfcStructuralLoadPlanarForce::init() {

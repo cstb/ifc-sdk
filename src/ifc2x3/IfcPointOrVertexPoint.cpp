@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -49,42 +49,42 @@ IfcPointOrVertexPoint::~IfcPointOrVertexPoint() {
     deleteUnion();
 }
 
-bool IfcPointOrVertexPoint::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPointOrVertexPoint(this);
+bool IfcPointOrVertexPoint::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPointOrVertexPoint(this);
 }
 
 bool IfcPointOrVertexPoint::init() {
     return false;
 }
 
-const std::string &IfcPointOrVertexPoint::type() {
+const std::string &IfcPointOrVertexPoint::type() const {
     return IfcPointOrVertexPoint::s_type.getName();
 }
 
-Step::ClassType IfcPointOrVertexPoint::getClassType() {
+const Step::ClassType &IfcPointOrVertexPoint::getClassType() {
     return IfcPointOrVertexPoint::s_type;
 }
 
-Step::ClassType IfcPointOrVertexPoint::getType() const {
+const Step::ClassType &IfcPointOrVertexPoint::getType() const {
     return IfcPointOrVertexPoint::s_type;
 }
 
-bool IfcPointOrVertexPoint::isOfType(Step::ClassType t) {
+bool IfcPointOrVertexPoint::isOfType(const Step::ClassType &t) const {
     return IfcPointOrVertexPoint::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
 void IfcPointOrVertexPoint::copy(const IfcPointOrVertexPoint &obj, const CopyOp &copyop) {
     switch(obj.m_type) {
     case IFCPOINT:
-        setIfcPoint(copyop(obj.m_IfcPointOrVertexPoint_union.m_IfcPoint));
+        setIfcPoint((IfcPoint *) (copyop(obj.m_IfcPointOrVertexPoint_union.m_IfcPoint)));
         break;
     case IFCVERTEXPOINT:
-        setIfcVertexPoint(copyop(obj.m_IfcPointOrVertexPoint_union.m_IfcVertexPoint));
+        setIfcVertexPoint((IfcVertexPoint *) (copyop(obj.m_IfcPointOrVertexPoint_union.m_IfcVertexPoint)));
         break;
         }
 }
 
-char *IfcPointOrVertexPoint::currentTypeName() {
+std::string IfcPointOrVertexPoint::currentTypeName() const {
     switch(m_type) {
     case IFCPOINT:
         return "IfcPoint";
@@ -97,7 +97,7 @@ char *IfcPointOrVertexPoint::currentTypeName() {
     }
 }
 
-IfcPointOrVertexPoint::IfcPointOrVertexPoint_select IfcPointOrVertexPoint::currentType() {
+IfcPointOrVertexPoint::IfcPointOrVertexPoint_select IfcPointOrVertexPoint::currentType() const {
     return m_type;
 }
 
@@ -113,12 +113,16 @@ void IfcPointOrVertexPoint::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcPoint *IfcPointOrVertexPoint::getIfcPoint() {
-    return m_IfcPointOrVertexPoint_union.m_IfcPoint;
+IfcPoint *IfcPointOrVertexPoint::getIfcPoint() const {
+    if (m_type == IFCPOINT) {
+        return m_IfcPointOrVertexPoint_union.m_IfcPoint;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPointOrVertexPoint::setIfcPoint(IfcPoint *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }
@@ -133,12 +137,16 @@ void IfcPointOrVertexPoint::setIfcPoint(IfcPoint *value) {
     m_type = IFCPOINT;
 }
 
-IfcVertexPoint *IfcPointOrVertexPoint::getIfcVertexPoint() {
-    return m_IfcPointOrVertexPoint_union.m_IfcVertexPoint;
+IfcVertexPoint *IfcPointOrVertexPoint::getIfcVertexPoint() const {
+    if (m_type == IFCVERTEXPOINT) {
+        return m_IfcPointOrVertexPoint_union.m_IfcVertexPoint;
+    }
+    else {
+        return NULL;
+    }
 }
 
 void IfcPointOrVertexPoint::setIfcVertexPoint(IfcVertexPoint *value) {
-    deleteUnion();
     if (m_type != UNSET) {
         deleteUnion();
     }

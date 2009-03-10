@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,63 +44,100 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcDoorStyle : public IfcTypeProduct {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'OperationType'.
+         * 
          */
-        IfcDoorStyleOperationEnum getOperationType();
+        virtual IfcDoorStyleOperationEnum getOperationType();
+        /**
+         * (const) Returns the value of the explicit attribute 'OperationType'.
+         * 
+         * @return the value of the explicit attribute 'OperationType'
+         */
+        virtual const IfcDoorStyleOperationEnum getOperationType() const;
         /**
          * Sets the value of the explicit attribute 'OperationType'.
          * 
          * @param value
          */
-        void setOperationType(IfcDoorStyleOperationEnum value);
+        virtual void setOperationType(IfcDoorStyleOperationEnum value);
         /**
+         * Gets the value of the explicit attribute 'ConstructionType'.
+         * 
          */
-        IfcDoorStyleConstructionEnum getConstructionType();
+        virtual IfcDoorStyleConstructionEnum getConstructionType();
+        /**
+         * (const) Returns the value of the explicit attribute 'ConstructionType'.
+         * 
+         * @return the value of the explicit attribute 'ConstructionType'
+         */
+        virtual const IfcDoorStyleConstructionEnum getConstructionType() const;
         /**
          * Sets the value of the explicit attribute 'ConstructionType'.
          * 
          * @param value
          */
-        void setConstructionType(IfcDoorStyleConstructionEnum value);
+        virtual void setConstructionType(IfcDoorStyleConstructionEnum value);
         /**
+         * Gets the value of the explicit attribute 'ParameterTakesPrecedence'.
+         * 
          */
-        Step::Bool getParameterTakesPrecedence();
+        virtual Step::Boolean getParameterTakesPrecedence();
+        /**
+         * (const) Returns the value of the explicit attribute 'ParameterTakesPrecedence'.
+         * 
+         * @return the value of the explicit attribute 'ParameterTakesPrecedence'
+         */
+        virtual const Step::Boolean getParameterTakesPrecedence() const;
         /**
          * Sets the value of the explicit attribute 'ParameterTakesPrecedence'.
          * 
          * @param value
          */
-        void setParameterTakesPrecedence(Step::Bool value);
+        virtual void setParameterTakesPrecedence(Step::Boolean value);
         /**
+         * Gets the value of the explicit attribute 'Sizeable'.
+         * 
          */
-        Step::Bool getSizeable();
+        virtual Step::Boolean getSizeable();
+        /**
+         * (const) Returns the value of the explicit attribute 'Sizeable'.
+         * 
+         * @return the value of the explicit attribute 'Sizeable'
+         */
+        virtual const Step::Boolean getSizeable() const;
         /**
          * Sets the value of the explicit attribute 'Sizeable'.
          * 
          * @param value
          */
-        void setSizeable(Step::Bool value);
-        /**
-         */
-        virtual void release();
+        virtual void setSizeable(Step::Boolean value);
         friend class ExpressDataSet;
 
     protected:
@@ -131,10 +168,10 @@ namespace ifc2x3 {
         IfcDoorStyleConstructionEnum m_constructionType;
         /**
          */
-        Step::Bool m_parameterTakesPrecedence;
+        Step::Boolean m_parameterTakesPrecedence;
         /**
          */
-        Step::Bool m_sizeable;
+        Step::Boolean m_sizeable;
 
     };
 

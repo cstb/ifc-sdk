@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,8 +36,9 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 #include <vector>
 
@@ -50,32 +51,28 @@ IfcGridAxis::IfcGridAxis(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id
     m_axisTag = Step::getUnset(m_axisTag);
     m_axisCurve = NULL;
     m_sameSense = Step::getUnset(m_sameSense);
-    m_partOfW.setUnset(true);
-    m_partOfV.setUnset(true);
-    m_partOfU.setUnset(true);
-    m_hasIntersections.setUnset(true);
 }
 
 IfcGridAxis::~IfcGridAxis() {
 }
 
-bool IfcGridAxis::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcGridAxis(this);
+bool IfcGridAxis::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcGridAxis(this);
 }
 
-const std::string &IfcGridAxis::type() {
+const std::string &IfcGridAxis::type() const {
     return IfcGridAxis::s_type.getName();
 }
 
-Step::ClassType IfcGridAxis::getClassType() {
+const Step::ClassType &IfcGridAxis::getClassType() {
     return IfcGridAxis::s_type;
 }
 
-Step::ClassType IfcGridAxis::getType() const {
+const Step::ClassType &IfcGridAxis::getType() const {
     return IfcGridAxis::s_type;
 }
 
-bool IfcGridAxis::isOfType(Step::ClassType t) {
+bool IfcGridAxis::isOfType(const Step::ClassType &t) const {
     return IfcGridAxis::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -86,6 +83,11 @@ IfcLabel IfcGridAxis::getAxisTag() {
     else {
         return Step::getUnset(m_axisTag);
     }
+}
+
+const IfcLabel IfcGridAxis::getAxisTag() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getAxisTag();
 }
 
 void IfcGridAxis::setAxisTag(const IfcLabel &value) {
@@ -101,6 +103,11 @@ IfcCurve *IfcGridAxis::getAxisCurve() {
     }
 }
 
+const IfcCurve *IfcGridAxis::getAxisCurve() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getAxisCurve();
+}
+
 void IfcGridAxis::setAxisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_axisCurve = value;
 }
@@ -114,11 +121,16 @@ IfcBoolean IfcGridAxis::getSameSense() {
     }
 }
 
+const IfcBoolean IfcGridAxis::getSameSense() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getSameSense();
+}
+
 void IfcGridAxis::setSameSense(IfcBoolean value) {
     m_sameSense = value;
 }
 
-Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfW() {
+Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() {
     if (Step::BaseObject::inited()) {
         return m_partOfW;
     }
@@ -128,7 +140,12 @@ Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfW() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfV() {
+const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getPartOfW();
+}
+
+Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() {
     if (Step::BaseObject::inited()) {
         return m_partOfV;
     }
@@ -138,7 +155,12 @@ Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfV() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfU() {
+const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getPartOfV();
+}
+
+Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() {
     if (Step::BaseObject::inited()) {
         return m_partOfU;
     }
@@ -148,7 +170,12 @@ Step::Set< Step::ObsPtr< IfcGrid > > &IfcGridAxis::getPartOfU() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > &IfcGridAxis::getHasIntersections() {
+const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getPartOfU();
+}
+
+Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
     if (Step::BaseObject::inited()) {
         return m_hasIntersections;
     }
@@ -158,8 +185,9 @@ Step::Set< Step::ObsPtr< IfcVirtualGridIntersection > > &IfcGridAxis::getHasInte
     }
 }
 
-void IfcGridAxis::release() {
-    m_axisCurve.release();
+const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() const {
+    IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
+    return deConstObject->getHasIntersections();
 }
 
 bool IfcGridAxis::init() {
@@ -170,21 +198,21 @@ bool IfcGridAxis::init() {
         m_axisTag = Step::getUnset(m_axisTag);
     }
     else {
-        m_axisTag = Step::spfToString(arg);
+        m_axisTag = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_axisCurve = NULL;
     }
     else {
-        m_axisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_axisCurve = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_sameSense = Step::getUnset(m_sameSense);
     }
     else {
-        m_sameSense = Step::spfToBool(arg);
+        m_sameSense = Step::spfToBoolean(arg);
     }
     inverses = m_args->getInverses(IfcGrid::getClassType(), 9);
     if (inverses) {
@@ -224,7 +252,7 @@ bool IfcGridAxis::init() {
 void IfcGridAxis::copy(const IfcGridAxis &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
     setAxisTag(obj.m_axisTag);
-    setAxisCurve(copyop(obj.m_axisCurve.get()));
+    setAxisCurve((IfcCurve*)copyop(obj.m_axisCurve.get()));
     setSameSense(obj.m_sameSense);
     return;
 }

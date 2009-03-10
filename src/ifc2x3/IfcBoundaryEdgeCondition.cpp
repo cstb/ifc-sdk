@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -51,23 +51,23 @@ IfcBoundaryEdgeCondition::IfcBoundaryEdgeCondition(Step::Id id, Step::SPFData *a
 IfcBoundaryEdgeCondition::~IfcBoundaryEdgeCondition() {
 }
 
-bool IfcBoundaryEdgeCondition::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcBoundaryEdgeCondition(this);
+bool IfcBoundaryEdgeCondition::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcBoundaryEdgeCondition(this);
 }
 
-const std::string &IfcBoundaryEdgeCondition::type() {
+const std::string &IfcBoundaryEdgeCondition::type() const {
     return IfcBoundaryEdgeCondition::s_type.getName();
 }
 
-Step::ClassType IfcBoundaryEdgeCondition::getClassType() {
+const Step::ClassType &IfcBoundaryEdgeCondition::getClassType() {
     return IfcBoundaryEdgeCondition::s_type;
 }
 
-Step::ClassType IfcBoundaryEdgeCondition::getType() const {
+const Step::ClassType &IfcBoundaryEdgeCondition::getType() const {
     return IfcBoundaryEdgeCondition::s_type;
 }
 
-bool IfcBoundaryEdgeCondition::isOfType(Step::ClassType t) {
+bool IfcBoundaryEdgeCondition::isOfType(const Step::ClassType &t) const {
     return IfcBoundaryEdgeCondition::s_type == t ? true : IfcBoundaryCondition::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearSti
     else {
         return Step::getUnset(m_linearStiffnessByLengthX);
     }
+}
+
+const IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearStiffnessByLengthX() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getLinearStiffnessByLengthX();
 }
 
 void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthX(IfcModulusOfLinearSubgradeReactionMeasure value) {
@@ -93,6 +98,11 @@ IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearSti
     }
 }
 
+const IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearStiffnessByLengthY() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getLinearStiffnessByLengthY();
+}
+
 void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthY(IfcModulusOfLinearSubgradeReactionMeasure value) {
     m_linearStiffnessByLengthY = value;
 }
@@ -104,6 +114,11 @@ IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearSti
     else {
         return Step::getUnset(m_linearStiffnessByLengthZ);
     }
+}
+
+const IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearStiffnessByLengthZ() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getLinearStiffnessByLengthZ();
 }
 
 void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthZ(IfcModulusOfLinearSubgradeReactionMeasure value) {
@@ -119,6 +134,11 @@ IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotat
     }
 }
 
+const IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthX() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getRotationalStiffnessByLengthX();
+}
+
 void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthX(IfcModulusOfRotationalSubgradeReactionMeasure value) {
     m_rotationalStiffnessByLengthX = value;
 }
@@ -130,6 +150,11 @@ IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotat
     else {
         return Step::getUnset(m_rotationalStiffnessByLengthY);
     }
+}
+
+const IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthY() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getRotationalStiffnessByLengthY();
 }
 
 void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthY(IfcModulusOfRotationalSubgradeReactionMeasure value) {
@@ -145,12 +170,13 @@ IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotat
     }
 }
 
-void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value) {
-    m_rotationalStiffnessByLengthZ = value;
+const IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthZ() const {
+    IfcBoundaryEdgeCondition * deConstObject = const_cast< IfcBoundaryEdgeCondition * > (this);
+    return deConstObject->getRotationalStiffnessByLengthZ();
 }
 
-void IfcBoundaryEdgeCondition::release() {
-    IfcBoundaryCondition::release();
+void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value) {
+    m_rotationalStiffnessByLengthZ = value;
 }
 
 bool IfcBoundaryEdgeCondition::init() {

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,9 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -53,23 +54,23 @@ IfcObjective::IfcObjective(Step::Id id, Step::SPFData *args) : IfcConstraint(id,
 IfcObjective::~IfcObjective() {
 }
 
-bool IfcObjective::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcObjective(this);
+bool IfcObjective::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcObjective(this);
 }
 
-const std::string &IfcObjective::type() {
+const std::string &IfcObjective::type() const {
     return IfcObjective::s_type.getName();
 }
 
-Step::ClassType IfcObjective::getClassType() {
+const Step::ClassType &IfcObjective::getClassType() {
     return IfcObjective::s_type;
 }
 
-Step::ClassType IfcObjective::getType() const {
+const Step::ClassType &IfcObjective::getType() const {
     return IfcObjective::s_type;
 }
 
-bool IfcObjective::isOfType(Step::ClassType t) {
+bool IfcObjective::isOfType(const Step::ClassType &t) const {
     return IfcObjective::s_type == t ? true : IfcConstraint::isOfType(t);
 }
 
@@ -80,6 +81,11 @@ IfcMetric *IfcObjective::getBenchmarkValues() {
     else {
         return NULL;
     }
+}
+
+const IfcMetric *IfcObjective::getBenchmarkValues() const {
+    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
+    return deConstObject->getBenchmarkValues();
 }
 
 void IfcObjective::setBenchmarkValues(const Step::RefPtr< IfcMetric > &value) {
@@ -95,6 +101,11 @@ IfcMetric *IfcObjective::getResultValues() {
     }
 }
 
+const IfcMetric *IfcObjective::getResultValues() const {
+    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
+    return deConstObject->getResultValues();
+}
+
 void IfcObjective::setResultValues(const Step::RefPtr< IfcMetric > &value) {
     m_resultValues = value;
 }
@@ -106,6 +117,11 @@ IfcObjectiveEnum IfcObjective::getObjectiveQualifier() {
     else {
         return IfcObjectiveEnum_UNSET;
     }
+}
+
+const IfcObjectiveEnum IfcObjective::getObjectiveQualifier() const {
+    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
+    return deConstObject->getObjectiveQualifier();
 }
 
 void IfcObjective::setObjectiveQualifier(IfcObjectiveEnum value) {
@@ -121,14 +137,13 @@ IfcLabel IfcObjective::getUserDefinedQualifier() {
     }
 }
 
-void IfcObjective::setUserDefinedQualifier(const IfcLabel &value) {
-    m_userDefinedQualifier = value;
+const IfcLabel IfcObjective::getUserDefinedQualifier() const {
+    IfcObjective * deConstObject = const_cast< IfcObjective * > (this);
+    return deConstObject->getUserDefinedQualifier();
 }
 
-void IfcObjective::release() {
-    IfcConstraint::release();
-    m_benchmarkValues.release();
-    m_resultValues.release();
+void IfcObjective::setUserDefinedQualifier(const IfcLabel &value) {
+    m_userDefinedQualifier = value;
 }
 
 bool IfcObjective::init() {
@@ -142,14 +157,14 @@ bool IfcObjective::init() {
         m_benchmarkValues = NULL;
     }
     else {
-        m_benchmarkValues = static_cast< IfcMetric * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_benchmarkValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_resultValues = NULL;
     }
     else {
-        m_resultValues = static_cast< IfcMetric * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_resultValues = static_cast< IfcMetric * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -186,15 +201,15 @@ bool IfcObjective::init() {
         m_userDefinedQualifier = Step::getUnset(m_userDefinedQualifier);
     }
     else {
-        m_userDefinedQualifier = Step::spfToString(arg);
+        m_userDefinedQualifier = Step::String::fromSPF(arg);
     }
     return true;
 }
 
 void IfcObjective::copy(const IfcObjective &obj, const CopyOp &copyop) {
     IfcConstraint::copy(obj, copyop);
-    setBenchmarkValues(copyop(obj.m_benchmarkValues.get()));
-    setResultValues(copyop(obj.m_resultValues.get()));
+    setBenchmarkValues((IfcMetric*)copyop(obj.m_benchmarkValues.get()));
+    setResultValues((IfcMetric*)copyop(obj.m_resultValues.get()));
     setObjectiveQualifier(obj.m_objectiveQualifier);
     setUserDefinedQualifier(obj.m_userDefinedQualifier);
     return;

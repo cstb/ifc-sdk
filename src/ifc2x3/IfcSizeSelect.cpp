@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -47,27 +47,27 @@ IfcSizeSelect::~IfcSizeSelect() {
     deleteUnion();
 }
 
-bool IfcSizeSelect::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSizeSelect(this);
+bool IfcSizeSelect::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSizeSelect(this);
 }
 
 bool IfcSizeSelect::init() {
     return false;
 }
 
-const std::string &IfcSizeSelect::type() {
+const std::string &IfcSizeSelect::type() const {
     return IfcSizeSelect::s_type.getName();
 }
 
-Step::ClassType IfcSizeSelect::getClassType() {
+const Step::ClassType &IfcSizeSelect::getClassType() {
     return IfcSizeSelect::s_type;
 }
 
-Step::ClassType IfcSizeSelect::getType() const {
+const Step::ClassType &IfcSizeSelect::getType() const {
     return IfcSizeSelect::s_type;
 }
 
-bool IfcSizeSelect::isOfType(Step::ClassType t) {
+bool IfcSizeSelect::isOfType(const Step::ClassType &t) const {
     return IfcSizeSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -94,7 +94,7 @@ void IfcSizeSelect::copy(const IfcSizeSelect &obj, const CopyOp &copyop) {
         }
 }
 
-char *IfcSizeSelect::currentTypeName() {
+std::string IfcSizeSelect::currentTypeName() const {
     switch(m_type) {
     case IFCRATIOMEASURE:
         return "IfcRatioMeasure";
@@ -119,7 +119,7 @@ char *IfcSizeSelect::currentTypeName() {
     }
 }
 
-IfcSizeSelect::IfcSizeSelect_select IfcSizeSelect::currentType() {
+IfcSizeSelect::IfcSizeSelect_select IfcSizeSelect::currentType() const {
     return m_type;
 }
 
@@ -132,62 +132,86 @@ void IfcSizeSelect::deleteUnion() {
     m_type = UNSET;
 }
 
-IfcRatioMeasure IfcSizeSelect::getIfcRatioMeasure() {
-    return m_IfcSizeSelect_union.m_IfcRatioMeasure;
+IfcRatioMeasure IfcSizeSelect::getIfcRatioMeasure() const {
+    if (m_type == IFCRATIOMEASURE) {
+        return m_IfcSizeSelect_union.m_IfcRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcSizeSelect_union.m_IfcRatioMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcRatioMeasure(IfcRatioMeasure value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcRatioMeasure = value;
     m_type = IFCRATIOMEASURE;
 }
 
-IfcLengthMeasure IfcSizeSelect::getIfcLengthMeasure() {
-    return m_IfcSizeSelect_union.m_IfcLengthMeasure;
+IfcLengthMeasure IfcSizeSelect::getIfcLengthMeasure() const {
+    if (m_type == IFCLENGTHMEASURE) {
+        return m_IfcSizeSelect_union.m_IfcLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcSizeSelect_union.m_IfcLengthMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcLengthMeasure(IfcLengthMeasure value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcLengthMeasure = value;
     m_type = IFCLENGTHMEASURE;
 }
 
-IfcDescriptiveMeasure IfcSizeSelect::getIfcDescriptiveMeasure() {
-    return *m_IfcSizeSelect_union.m_IfcDescriptiveMeasure;
+IfcDescriptiveMeasure IfcSizeSelect::getIfcDescriptiveMeasure() const {
+    if (m_type == IFCDESCRIPTIVEMEASURE) {
+        return *m_IfcSizeSelect_union.m_IfcDescriptiveMeasure;
+    }
+    else {
+        return Step::getUnset(*m_IfcSizeSelect_union.m_IfcDescriptiveMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcDescriptiveMeasure(const IfcDescriptiveMeasure &value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcDescriptiveMeasure = new IfcDescriptiveMeasure(value);
     m_type = IFCDESCRIPTIVEMEASURE;
 }
 
-IfcPositiveLengthMeasure IfcSizeSelect::getIfcPositiveLengthMeasure() {
-    return m_IfcSizeSelect_union.m_IfcPositiveLengthMeasure;
+IfcPositiveLengthMeasure IfcSizeSelect::getIfcPositiveLengthMeasure() const {
+    if (m_type == IFCPOSITIVELENGTHMEASURE) {
+        return m_IfcSizeSelect_union.m_IfcPositiveLengthMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcSizeSelect_union.m_IfcPositiveLengthMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcPositiveLengthMeasure(IfcPositiveLengthMeasure value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcPositiveLengthMeasure = value;
     m_type = IFCPOSITIVELENGTHMEASURE;
 }
 
-IfcNormalisedRatioMeasure IfcSizeSelect::getIfcNormalisedRatioMeasure() {
-    return m_IfcSizeSelect_union.m_IfcNormalisedRatioMeasure;
+IfcNormalisedRatioMeasure IfcSizeSelect::getIfcNormalisedRatioMeasure() const {
+    if (m_type == IFCNORMALISEDRATIOMEASURE) {
+        return m_IfcSizeSelect_union.m_IfcNormalisedRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcSizeSelect_union.m_IfcNormalisedRatioMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcNormalisedRatioMeasure(IfcNormalisedRatioMeasure value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcNormalisedRatioMeasure = value;
     m_type = IFCNORMALISEDRATIOMEASURE;
 }
 
-IfcPositiveRatioMeasure IfcSizeSelect::getIfcPositiveRatioMeasure() {
-    return m_IfcSizeSelect_union.m_IfcPositiveRatioMeasure;
+IfcPositiveRatioMeasure IfcSizeSelect::getIfcPositiveRatioMeasure() const {
+    if (m_type == IFCPOSITIVERATIOMEASURE) {
+        return m_IfcSizeSelect_union.m_IfcPositiveRatioMeasure;
+    }
+    else {
+        return Step::getUnset(m_IfcSizeSelect_union.m_IfcPositiveRatioMeasure);
+    }
 }
 
 void IfcSizeSelect::setIfcPositiveRatioMeasure(IfcPositiveRatioMeasure value) {
-    deleteUnion();
     m_IfcSizeSelect_union.m_IfcPositiveRatioMeasure = value;
     m_type = IFCPOSITIVERATIOMEASURE;
 }

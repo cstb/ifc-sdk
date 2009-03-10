@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcSurfaceStyleShading::IfcSurfaceStyleShading(Step::Id id, Step::SPFData *args)
 IfcSurfaceStyleShading::~IfcSurfaceStyleShading() {
 }
 
-bool IfcSurfaceStyleShading::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSurfaceStyleShading(this);
+bool IfcSurfaceStyleShading::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleShading(this);
 }
 
-const std::string &IfcSurfaceStyleShading::type() {
+const std::string &IfcSurfaceStyleShading::type() const {
     return IfcSurfaceStyleShading::s_type.getName();
 }
 
-Step::ClassType IfcSurfaceStyleShading::getClassType() {
+const Step::ClassType &IfcSurfaceStyleShading::getClassType() {
     return IfcSurfaceStyleShading::s_type;
 }
 
-Step::ClassType IfcSurfaceStyleShading::getType() const {
+const Step::ClassType &IfcSurfaceStyleShading::getType() const {
     return IfcSurfaceStyleShading::s_type;
 }
 
-bool IfcSurfaceStyleShading::isOfType(Step::ClassType t) {
+bool IfcSurfaceStyleShading::isOfType(const Step::ClassType &t) const {
     return IfcSurfaceStyleShading::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -79,12 +79,13 @@ IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() {
     }
 }
 
-void IfcSurfaceStyleShading::setSurfaceColour(const Step::RefPtr< IfcColourRgb > &value) {
-    m_surfaceColour = value;
+const IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() const {
+    IfcSurfaceStyleShading * deConstObject = const_cast< IfcSurfaceStyleShading * > (this);
+    return deConstObject->getSurfaceColour();
 }
 
-void IfcSurfaceStyleShading::release() {
-    m_surfaceColour.release();
+void IfcSurfaceStyleShading::setSurfaceColour(const Step::RefPtr< IfcColourRgb > &value) {
+    m_surfaceColour = value;
 }
 
 bool IfcSurfaceStyleShading::init() {
@@ -94,14 +95,14 @@ bool IfcSurfaceStyleShading::init() {
         m_surfaceColour = NULL;
     }
     else {
-        m_surfaceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_surfaceColour = static_cast< IfcColourRgb * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSurfaceStyleShading::copy(const IfcSurfaceStyleShading &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setSurfaceColour(copyop(obj.m_surfaceColour.get()));
+    setSurfaceColour((IfcColourRgb*)copyop(obj.m_surfaceColour.get()));
     return;
 }
 

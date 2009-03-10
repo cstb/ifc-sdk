@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcNamedUnit::IfcNamedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(
 IfcNamedUnit::~IfcNamedUnit() {
 }
 
-bool IfcNamedUnit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcNamedUnit(this);
+bool IfcNamedUnit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcNamedUnit(this);
 }
 
-const std::string &IfcNamedUnit::type() {
+const std::string &IfcNamedUnit::type() const {
     return IfcNamedUnit::s_type.getName();
 }
 
-Step::ClassType IfcNamedUnit::getClassType() {
+const Step::ClassType &IfcNamedUnit::getClassType() {
     return IfcNamedUnit::s_type;
 }
 
-Step::ClassType IfcNamedUnit::getType() const {
+const Step::ClassType &IfcNamedUnit::getType() const {
     return IfcNamedUnit::s_type;
 }
 
-bool IfcNamedUnit::isOfType(Step::ClassType t) {
+bool IfcNamedUnit::isOfType(const Step::ClassType &t) const {
     return IfcNamedUnit::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -78,6 +78,11 @@ IfcDimensionalExponents *IfcNamedUnit::getDimensions() {
     else {
         return NULL;
     }
+}
+
+const IfcDimensionalExponents *IfcNamedUnit::getDimensions() const {
+    IfcNamedUnit * deConstObject = const_cast< IfcNamedUnit * > (this);
+    return deConstObject->getDimensions();
 }
 
 void IfcNamedUnit::setDimensions(const Step::RefPtr< IfcDimensionalExponents > &value) {
@@ -93,12 +98,13 @@ IfcUnitEnum IfcNamedUnit::getUnitType() {
     }
 }
 
-void IfcNamedUnit::setUnitType(IfcUnitEnum value) {
-    m_unitType = value;
+const IfcUnitEnum IfcNamedUnit::getUnitType() const {
+    IfcNamedUnit * deConstObject = const_cast< IfcNamedUnit * > (this);
+    return deConstObject->getUnitType();
 }
 
-void IfcNamedUnit::release() {
-    m_dimensions.release();
+void IfcNamedUnit::setUnitType(IfcUnitEnum value) {
+    m_unitType = value;
 }
 
 bool IfcNamedUnit::init() {
@@ -108,7 +114,7 @@ bool IfcNamedUnit::init() {
         m_dimensions = NULL;
     }
     else {
-        m_dimensions = static_cast< IfcDimensionalExponents * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_dimensions = static_cast< IfcDimensionalExponents * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -211,7 +217,7 @@ bool IfcNamedUnit::init() {
 
 void IfcNamedUnit::copy(const IfcNamedUnit &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setDimensions(copyop(obj.m_dimensions.get()));
+    setDimensions((IfcDimensionalExponents*)copyop(obj.m_dimensions.get()));
     setUnitType(obj.m_unitType);
     return;
 }

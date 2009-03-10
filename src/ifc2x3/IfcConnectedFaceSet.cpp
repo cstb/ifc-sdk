@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,7 +36,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -45,33 +44,32 @@
 using namespace ifc2x3;
 
 IfcConnectedFaceSet::IfcConnectedFaceSet(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
-    m_cfsFaces.setUnset(true);
 }
 
 IfcConnectedFaceSet::~IfcConnectedFaceSet() {
 }
 
-bool IfcConnectedFaceSet::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcConnectedFaceSet(this);
+bool IfcConnectedFaceSet::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcConnectedFaceSet(this);
 }
 
-const std::string &IfcConnectedFaceSet::type() {
+const std::string &IfcConnectedFaceSet::type() const {
     return IfcConnectedFaceSet::s_type.getName();
 }
 
-Step::ClassType IfcConnectedFaceSet::getClassType() {
+const Step::ClassType &IfcConnectedFaceSet::getClassType() {
     return IfcConnectedFaceSet::s_type;
 }
 
-Step::ClassType IfcConnectedFaceSet::getType() const {
+const Step::ClassType &IfcConnectedFaceSet::getType() const {
     return IfcConnectedFaceSet::s_type;
 }
 
-bool IfcConnectedFaceSet::isOfType(Step::ClassType t) {
+bool IfcConnectedFaceSet::isOfType(const Step::ClassType &t) const {
     return IfcConnectedFaceSet::s_type == t ? true : IfcTopologicalRepresentationItem::isOfType(t);
 }
 
-Step::Set< Step::RefPtr< IfcFace > > &IfcConnectedFaceSet::getCfsFaces() {
+Set_IfcFace_1_n &IfcConnectedFaceSet::getCfsFaces() {
     if (Step::BaseObject::inited()) {
         return m_cfsFaces;
     }
@@ -81,13 +79,13 @@ Step::Set< Step::RefPtr< IfcFace > > &IfcConnectedFaceSet::getCfsFaces() {
     }
 }
 
-void IfcConnectedFaceSet::setCfsFaces(const Step::Set< Step::RefPtr< IfcFace > > &value) {
-    m_cfsFaces = value;
+const Set_IfcFace_1_n &IfcConnectedFaceSet::getCfsFaces() const {
+    IfcConnectedFaceSet * deConstObject = const_cast< IfcConnectedFaceSet * > (this);
+    return deConstObject->getCfsFaces();
 }
 
-void IfcConnectedFaceSet::release() {
-    IfcTopologicalRepresentationItem::release();
-    m_cfsFaces.clear();
+void IfcConnectedFaceSet::setCfsFaces(const Set_IfcFace_1_n &value) {
+    m_cfsFaces = value;
 }
 
 bool IfcConnectedFaceSet::init() {
@@ -107,7 +105,7 @@ bool IfcConnectedFaceSet::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcFace > attr2;
-                attr2 = static_cast< IfcFace * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcFace * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_cfsFaces.insert(attr2);
             }
             else {
@@ -119,10 +117,10 @@ bool IfcConnectedFaceSet::init() {
 }
 
 void IfcConnectedFaceSet::copy(const IfcConnectedFaceSet &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcFace > >::const_iterator it_m_cfsFaces;
+    Step::Set< Step::RefPtr< IfcFace >, 1 >::const_iterator it_m_cfsFaces;
     IfcTopologicalRepresentationItem::copy(obj, copyop);
     for (it_m_cfsFaces = obj.m_cfsFaces.begin(); it_m_cfsFaces != obj.m_cfsFaces.end(); ++it_m_cfsFaces) {
-        Step::RefPtr< IfcFace > copyTarget = copyop((*it_m_cfsFaces).get());
+        Step::RefPtr< IfcFace > copyTarget = (IfcFace *) (copyop((*it_m_cfsFaces).get()));
         m_cfsFaces.insert(copyTarget.get());
     }
     return;

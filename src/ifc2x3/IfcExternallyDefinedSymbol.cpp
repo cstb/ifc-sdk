@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcExternallyDefinedSymbol::IfcExternallyDefinedSymbol(Step::Id id, Step::SPFDat
 IfcExternallyDefinedSymbol::~IfcExternallyDefinedSymbol() {
 }
 
-bool IfcExternallyDefinedSymbol::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExternallyDefinedSymbol(this);
+bool IfcExternallyDefinedSymbol::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExternallyDefinedSymbol(this);
 }
 
-const std::string &IfcExternallyDefinedSymbol::type() {
+const std::string &IfcExternallyDefinedSymbol::type() const {
     return IfcExternallyDefinedSymbol::s_type.getName();
 }
 
-Step::ClassType IfcExternallyDefinedSymbol::getClassType() {
+const Step::ClassType &IfcExternallyDefinedSymbol::getClassType() {
     return IfcExternallyDefinedSymbol::s_type;
 }
 
-Step::ClassType IfcExternallyDefinedSymbol::getType() const {
+const Step::ClassType &IfcExternallyDefinedSymbol::getType() const {
     return IfcExternallyDefinedSymbol::s_type;
 }
 
-bool IfcExternallyDefinedSymbol::isOfType(Step::ClassType t) {
+bool IfcExternallyDefinedSymbol::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedSymbol::s_type == t ? true : IfcExternalReference::isOfType(t);
-}
-
-void IfcExternallyDefinedSymbol::release() {
-    IfcExternalReference::release();
 }
 
 bool IfcExternallyDefinedSymbol::init() {

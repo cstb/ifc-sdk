@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,24 +41,20 @@ namespace ifc2x3 {
     class IfcActorRole;
     class IfcActorSelect;
     class IfcActuatorType;
-    class IfcAddress;
     class IfcAirTerminalBoxType;
     class IfcAirTerminalType;
     class IfcAirToAirHeatRecoveryType;
     class IfcAlarmType;
-    class IfcAlignmentElement;
     class IfcAngularDimension;
     class IfcAnnotation;
     class IfcAnnotationCurveOccurrence;
     class IfcAnnotationFillArea;
     class IfcAnnotationFillAreaOccurrence;
-    class IfcAnnotationOccurrence;
     class IfcAnnotationSurface;
     class IfcAnnotationSurfaceOccurrence;
     class IfcAnnotationSymbolOccurrence;
     class IfcAnnotationTextOccurrence;
     class IfcApplication;
-    class IfcAppliedValue;
     class IfcAppliedValueRelationship;
     class IfcAppliedValueSelect;
     class IfcApproval;
@@ -74,7 +70,6 @@ namespace ifc2x3 {
     class IfcAxis2Placement;
     class IfcAxis2Placement2D;
     class IfcAxis2Placement3D;
-    class IfcBSplineCurve;
     class IfcBeam;
     class IfcBeamType;
     class IfcBezierCurve;
@@ -84,29 +79,17 @@ namespace ifc2x3 {
     class IfcBooleanClippingResult;
     class IfcBooleanOperand;
     class IfcBooleanResult;
-    class IfcBoundaryCondition;
     class IfcBoundaryEdgeCondition;
     class IfcBoundaryFaceCondition;
     class IfcBoundaryNodeCondition;
     class IfcBoundaryNodeConditionWarping;
-    class IfcBoundedCurve;
     class IfcBoundedSurface;
     class IfcBoundingBox;
     class IfcBoxedHalfSpace;
-    class IfcBridge;
-    class IfcBridgeContactElement;
-    class IfcBridgeElement;
-    class IfcBridgePart;
-    class IfcBridgePrismaticElement;
-    class IfcBridgeSegment;
-    class IfcBridgeSegmentPart;
-    class IfcBridgeStructureElement;
     class IfcBuilding;
-    class IfcBuildingElement;
     class IfcBuildingElementPart;
     class IfcBuildingElementProxy;
     class IfcBuildingElementProxyType;
-    class IfcBuildingElementType;
     class IfcBuildingStorey;
     class IfcCShapeProfileDef;
     class IfcCableCarrierFittingType;
@@ -114,7 +97,6 @@ namespace ifc2x3 {
     class IfcCableSegmentType;
     class IfcCalendarDate;
     class IfcCartesianPoint;
-    class IfcCartesianTransformationOperator;
     class IfcCartesianTransformationOperator2D;
     class IfcCartesianTransformationOperator2DnonUniform;
     class IfcCartesianTransformationOperator3D;
@@ -126,11 +108,6 @@ namespace ifc2x3 {
     class IfcCircle;
     class IfcCircleHollowProfileDef;
     class IfcCircleProfileDef;
-    class IfcCivilElement;
-    class IfcCivilElementPart;
-    class IfcCivilSheath;
-    class IfcCivilStructureElement;
-    class IfcCivilVoid;
     class IfcClassification;
     class IfcClassificationItem;
     class IfcClassificationItemRelationship;
@@ -139,12 +116,10 @@ namespace ifc2x3 {
     class IfcClassificationNotationSelect;
     class IfcClassificationReference;
     class IfcClosedShell;
-    class IfcClothoid;
     class IfcCoilType;
     class IfcColour;
     class IfcColourOrFactor;
     class IfcColourRgb;
-    class IfcColourSpecification;
     class IfcColumn;
     class IfcColumnType;
     class IfcComplexProperty;
@@ -156,24 +131,19 @@ namespace ifc2x3 {
     class IfcCondition;
     class IfcConditionCriterion;
     class IfcConditionCriterionSelect;
-    class IfcConic;
     class IfcConnectedFaceSet;
     class IfcConnectionCurveGeometry;
-    class IfcConnectionGeometry;
     class IfcConnectionPointEccentricity;
     class IfcConnectionPointGeometry;
     class IfcConnectionPortGeometry;
     class IfcConnectionSurfaceGeometry;
-    class IfcConstraint;
     class IfcConstraintAggregationRelationship;
     class IfcConstraintClassificationRelationship;
     class IfcConstraintRelationship;
     class IfcConstructionEquipmentResource;
     class IfcConstructionMaterialResource;
     class IfcConstructionProductResource;
-    class IfcConstructionResource;
     class IfcContextDependentUnit;
-    class IfcControl;
     class IfcControllerType;
     class IfcConversionBasedUnit;
     class IfcCooledBeamType;
@@ -187,13 +157,11 @@ namespace ifc2x3 {
     class IfcCraneRailAShapeProfileDef;
     class IfcCraneRailFShapeProfileDef;
     class IfcCrewResource;
-    class IfcCsgPrimitive3D;
     class IfcCsgSelect;
     class IfcCsgSolid;
     class IfcCurrencyRelationship;
     class IfcCurtainWall;
     class IfcCurtainWallType;
-    class IfcCurve;
     class IfcCurveBoundedPlane;
     class IfcCurveFontOrScaledCurveFontSelect;
     class IfcCurveOrEdgeCurve;
@@ -224,11 +192,9 @@ namespace ifc2x3 {
     class IfcDistributionChamberElement;
     class IfcDistributionChamberElementType;
     class IfcDistributionControlElement;
-    class IfcDistributionControlElementType;
     class IfcDistributionElement;
     class IfcDistributionElementType;
     class IfcDistributionFlowElement;
-    class IfcDistributionFlowElementType;
     class IfcDistributionPort;
     class IfcDocumentElectronicFormat;
     class IfcDocumentInformation;
@@ -250,7 +216,6 @@ namespace ifc2x3 {
     class IfcDuctSilencerType;
     class IfcEdge;
     class IfcEdgeCurve;
-    class IfcEdgeFeature;
     class IfcEdgeLoop;
     class IfcElectricApplianceType;
     class IfcElectricDistributionPoint;
@@ -262,18 +227,11 @@ namespace ifc2x3 {
     class IfcElectricalBaseProperties;
     class IfcElectricalCircuit;
     class IfcElectricalElement;
-    class IfcElement;
     class IfcElementAssembly;
-    class IfcElementComponent;
-    class IfcElementComponentType;
-    class IfcElementPart;
     class IfcElementQuantity;
-    class IfcElementType;
-    class IfcElementarySurface;
     class IfcEllipse;
     class IfcEllipseProfileDef;
     class IfcEnergyConversionDevice;
-    class IfcEnergyConversionDeviceType;
     class IfcEnergyProperties;
     class IfcEnvironmentalImpactValue;
     class IfcEquipmentElement;
@@ -281,7 +239,6 @@ namespace ifc2x3 {
     class IfcEvaporativeCoolerType;
     class IfcEvaporatorType;
     class IfcExtendedMaterialProperties;
-    class IfcExternalReference;
     class IfcExternallyDefinedHatchStyle;
     class IfcExternallyDefinedSurfaceStyle;
     class IfcExternallyDefinedSymbol;
@@ -298,9 +255,6 @@ namespace ifc2x3 {
     class IfcFanType;
     class IfcFastener;
     class IfcFastenerType;
-    class IfcFeatureElement;
-    class IfcFeatureElementAddition;
-    class IfcFeatureElementSubtraction;
     class IfcFillAreaStyle;
     class IfcFillAreaStyleHatching;
     class IfcFillAreaStyleTileShapeSelect;
@@ -310,21 +264,14 @@ namespace ifc2x3 {
     class IfcFilterType;
     class IfcFireSuppressionTerminalType;
     class IfcFlowController;
-    class IfcFlowControllerType;
     class IfcFlowFitting;
-    class IfcFlowFittingType;
     class IfcFlowInstrumentType;
     class IfcFlowMeterType;
     class IfcFlowMovingDevice;
-    class IfcFlowMovingDeviceType;
     class IfcFlowSegment;
-    class IfcFlowSegmentType;
     class IfcFlowStorageDevice;
-    class IfcFlowStorageDeviceType;
     class IfcFlowTerminal;
-    class IfcFlowTerminalType;
     class IfcFlowTreatmentDevice;
-    class IfcFlowTreatmentDeviceType;
     class IfcFluidFlowProperties;
     class IfcFooting;
     class IfcFuelProperties;
@@ -337,7 +284,6 @@ namespace ifc2x3 {
     class IfcGeneralProfileProperties;
     class IfcGeometricCurveSet;
     class IfcGeometricRepresentationContext;
-    class IfcGeometricRepresentationItem;
     class IfcGeometricRepresentationSubContext;
     class IfcGeometricSet;
     class IfcGeometricSetSelect;
@@ -367,7 +313,6 @@ namespace ifc2x3 {
     class IfcLightDistributionDataSourceSelect;
     class IfcLightFixtureType;
     class IfcLightIntensityDistribution;
-    class IfcLightSource;
     class IfcLightSourceAmbient;
     class IfcLightSourceDirectional;
     class IfcLightSourceGoniometric;
@@ -378,7 +323,6 @@ namespace ifc2x3 {
     class IfcLocalPlacement;
     class IfcLocalTime;
     class IfcLoop;
-    class IfcManifoldSolidBrep;
     class IfcMappedItem;
     class IfcMaterial;
     class IfcMaterialClassificationRelationship;
@@ -387,7 +331,6 @@ namespace ifc2x3 {
     class IfcMaterialLayerSet;
     class IfcMaterialLayerSetUsage;
     class IfcMaterialList;
-    class IfcMaterialProperties;
     class IfcMaterialSelect;
     class IfcMeasureValue;
     class IfcMeasureWithUnit;
@@ -403,10 +346,6 @@ namespace ifc2x3 {
     class IfcMonetaryUnit;
     class IfcMotorConnectionType;
     class IfcMove;
-    class IfcNamedUnit;
-    class IfcObject;
-    class IfcObjectDefinition;
-    class IfcObjectPlacement;
     class IfcObjectReferenceSelect;
     class IfcObjective;
     class IfcOccupant;
@@ -423,7 +362,6 @@ namespace ifc2x3 {
     class IfcOrientedEdge;
     class IfcOutletType;
     class IfcOwnerHistory;
-    class IfcParameterizedProfileDef;
     class IfcPath;
     class IfcPerformanceHistory;
     class IfcPermeableCoveringProperties;
@@ -431,64 +369,46 @@ namespace ifc2x3 {
     class IfcPerson;
     class IfcPersonAndOrganization;
     class IfcPhysicalComplexQuantity;
-    class IfcPhysicalQuantity;
-    class IfcPhysicalSimpleQuantity;
     class IfcPile;
     class IfcPipeFittingType;
     class IfcPipeSegmentType;
     class IfcPixelTexture;
-    class IfcPlacement;
     class IfcPlanarBox;
     class IfcPlanarExtent;
     class IfcPlane;
     class IfcPlate;
     class IfcPlateType;
-    class IfcPoint;
     class IfcPointOnCurve;
     class IfcPointOnSurface;
     class IfcPointOrVertexPoint;
     class IfcPolyLoop;
     class IfcPolygonalBoundedHalfSpace;
     class IfcPolyline;
-    class IfcPort;
     class IfcPostalAddress;
-    class IfcPreDefinedColour;
-    class IfcPreDefinedCurveFont;
     class IfcPreDefinedDimensionSymbol;
-    class IfcPreDefinedItem;
     class IfcPreDefinedPointMarkerSymbol;
-    class IfcPreDefinedSymbol;
     class IfcPreDefinedTerminatorSymbol;
-    class IfcPreDefinedTextFont;
     class IfcPresentationLayerAssignment;
     class IfcPresentationLayerWithStyle;
-    class IfcPresentationStyle;
     class IfcPresentationStyleAssignment;
     class IfcPresentationStyleSelect;
     class IfcProcedure;
-    class IfcProcess;
-    class IfcProduct;
     class IfcProductDefinitionShape;
     class IfcProductRepresentation;
     class IfcProductsOfCombustionProperties;
-    class IfcProfileDef;
-    class IfcProfileProperties;
     class IfcProject;
     class IfcProjectOrder;
     class IfcProjectOrderRecord;
     class IfcProjectionCurve;
     class IfcProjectionElement;
-    class IfcProperty;
     class IfcPropertyBoundedValue;
     class IfcPropertyConstraintRelationship;
-    class IfcPropertyDefinition;
     class IfcPropertyDependencyRelationship;
     class IfcPropertyEnumeratedValue;
     class IfcPropertyEnumeration;
     class IfcPropertyListValue;
     class IfcPropertyReferenceValue;
     class IfcPropertySet;
-    class IfcPropertySetDefinition;
     class IfcPropertySingleValue;
     class IfcPropertyTableValue;
     class IfcProtectiveDeviceType;
@@ -511,23 +431,13 @@ namespace ifc2x3 {
     class IfcRectangleProfileDef;
     class IfcRectangularPyramid;
     class IfcRectangularTrimmedSurface;
-    class IfcReferenceCurve;
-    class IfcReferenceCurve3D;
-    class IfcReferenceCurveAlignment2D;
-    class IfcReferenceCurvePlacement;
-    class IfcReferenceCurvePlacementSystem;
-    class IfcReferenceElement;
-    class IfcReferencePlacement;
-    class IfcReferencedSectionedSpine;
     class IfcReferencesValueDocument;
     class IfcRegularTimeSeries;
     class IfcReinforcementBarProperties;
     class IfcReinforcementDefinitionProperties;
     class IfcReinforcingBar;
-    class IfcReinforcingElement;
     class IfcReinforcingMesh;
     class IfcRelAggregates;
-    class IfcRelAssigns;
     class IfcRelAssignsTasks;
     class IfcRelAssignsToActor;
     class IfcRelAssignsToControl;
@@ -545,7 +455,6 @@ namespace ifc2x3 {
     class IfcRelAssociatesLibrary;
     class IfcRelAssociatesMaterial;
     class IfcRelAssociatesProfileProperties;
-    class IfcRelConnects;
     class IfcRelConnectsElements;
     class IfcRelConnectsPathElements;
     class IfcRelConnectsPortToElement;
@@ -558,8 +467,6 @@ namespace ifc2x3 {
     class IfcRelContainedInSpatialStructure;
     class IfcRelCoversBldgElements;
     class IfcRelCoversSpaces;
-    class IfcRelDecomposes;
-    class IfcRelDefines;
     class IfcRelDefinesByProperties;
     class IfcRelDefinesByType;
     class IfcRelFillsElement;
@@ -575,19 +482,15 @@ namespace ifc2x3 {
     class IfcRelServicesBuildings;
     class IfcRelSpaceBoundary;
     class IfcRelVoidsElement;
-    class IfcRelationship;
     class IfcRelaxation;
     class IfcRepresentation;
     class IfcRepresentationContext;
-    class IfcRepresentationItem;
     class IfcRepresentationMap;
-    class IfcResource;
     class IfcRevolvedAreaSolid;
     class IfcRibPlateProfileProperties;
     class IfcRightCircularCone;
     class IfcRightCircularCylinder;
     class IfcRoof;
-    class IfcRoot;
     class IfcRoundedEdgeFeature;
     class IfcRoundedRectangleProfileDef;
     class IfcSIUnit;
@@ -600,18 +503,15 @@ namespace ifc2x3 {
     class IfcServiceLife;
     class IfcServiceLifeFactor;
     class IfcShapeAspect;
-    class IfcShapeModel;
     class IfcShapeRepresentation;
     class IfcShell;
     class IfcShellBasedSurfaceModel;
-    class IfcSimpleProperty;
     class IfcSimpleValue;
     class IfcSite;
     class IfcSizeSelect;
     class IfcSlab;
     class IfcSlabType;
     class IfcSlippageConnectionCondition;
-    class IfcSolidModel;
     class IfcSoundProperties;
     class IfcSoundValue;
     class IfcSpace;
@@ -619,27 +519,19 @@ namespace ifc2x3 {
     class IfcSpaceProgram;
     class IfcSpaceThermalLoadProperties;
     class IfcSpaceType;
-    class IfcSpatialStructureElement;
-    class IfcSpatialStructureElementType;
     class IfcSpecularHighlightSelect;
     class IfcSphere;
     class IfcStackTerminalType;
     class IfcStair;
     class IfcStairFlight;
     class IfcStairFlightType;
-    class IfcStructuralAction;
-    class IfcStructuralActivity;
     class IfcStructuralActivityAssignmentSelect;
     class IfcStructuralAnalysisModel;
-    class IfcStructuralConnection;
-    class IfcStructuralConnectionCondition;
     class IfcStructuralCurveConnection;
     class IfcStructuralCurveMember;
     class IfcStructuralCurveMemberVarying;
-    class IfcStructuralItem;
     class IfcStructuralLinearAction;
     class IfcStructuralLinearActionVarying;
-    class IfcStructuralLoad;
     class IfcStructuralLoadGroup;
     class IfcStructuralLoadLinearForce;
     class IfcStructuralLoadPlanarForce;
@@ -647,28 +539,23 @@ namespace ifc2x3 {
     class IfcStructuralLoadSingleDisplacementDistortion;
     class IfcStructuralLoadSingleForce;
     class IfcStructuralLoadSingleForceWarping;
-    class IfcStructuralLoadStatic;
     class IfcStructuralLoadTemperature;
-    class IfcStructuralMember;
     class IfcStructuralPlanarAction;
     class IfcStructuralPlanarActionVarying;
     class IfcStructuralPointAction;
     class IfcStructuralPointConnection;
     class IfcStructuralPointReaction;
     class IfcStructuralProfileProperties;
-    class IfcStructuralReaction;
     class IfcStructuralResultGroup;
     class IfcStructuralSteelProfileProperties;
     class IfcStructuralSurfaceConnection;
     class IfcStructuralSurfaceMember;
     class IfcStructuralSurfaceMemberVarying;
     class IfcStructuredDimensionCallout;
-    class IfcStyleModel;
     class IfcStyledItem;
     class IfcStyledRepresentation;
     class IfcSubContractResource;
     class IfcSubedge;
-    class IfcSurface;
     class IfcSurfaceCurveSweptAreaSolid;
     class IfcSurfaceOfLinearExtrusion;
     class IfcSurfaceOfRevolution;
@@ -680,10 +567,7 @@ namespace ifc2x3 {
     class IfcSurfaceStyleRendering;
     class IfcSurfaceStyleShading;
     class IfcSurfaceStyleWithTextures;
-    class IfcSurfaceTexture;
-    class IfcSweptAreaSolid;
     class IfcSweptDiskSolid;
-    class IfcSweptSurface;
     class IfcSwitchingDeviceType;
     class IfcSymbolStyle;
     class IfcSymbolStyleSelect;
@@ -707,16 +591,13 @@ namespace ifc2x3 {
     class IfcTextStyleSelect;
     class IfcTextStyleTextModel;
     class IfcTextStyleWithBoxCharacteristics;
-    class IfcTextureCoordinate;
     class IfcTextureCoordinateGenerator;
     class IfcTextureMap;
     class IfcTextureVertex;
     class IfcThermalMaterialProperties;
-    class IfcTimeSeries;
     class IfcTimeSeriesReferenceRelationship;
     class IfcTimeSeriesSchedule;
     class IfcTimeSeriesValue;
-    class IfcTopologicalRepresentationItem;
     class IfcTopologyRepresentation;
     class IfcTransformerType;
     class IfcTransportElement;
@@ -751,7 +632,6 @@ namespace ifc2x3 {
     class IfcWindowLiningProperties;
     class IfcWindowPanelProperties;
     class IfcWindowStyle;
-    class IfcWorkControl;
     class IfcWorkPlan;
     class IfcWorkSchedule;
     class IfcZShapeProfileDef;
@@ -802,14 +682,6 @@ namespace ifc2x3 {
          * @param enumData
          */
         void writeIfcActuatorTypeEnum(IfcActuatorTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcAddress(IfcAddress *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData);
         /**
          * @param ptr
          */
@@ -873,10 +745,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcAnnotationOccurrence(IfcAnnotationOccurrence *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcAnnotationSurface(IfcAnnotationSurface *ptr);
         /**
          * @param ptr
@@ -897,18 +765,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcAppliedValue(IfcAppliedValue *ptr);
-        /**
-         * @param selectData
-         */
-        void writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData);
-        /**
-         * @param selectData
-         */
-        void writeIfcDateTimeSelect(IfcDateTimeSelect *selectData);
-        /**
-         * @param ptr
-         */
         void writeIfcAppliedValueRelationship(IfcAppliedValueRelationship *ptr);
         /**
          * @param enumData
@@ -918,6 +774,10 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcApproval(IfcApproval *ptr);
+        /**
+         * @param selectData
+         */
+        void writeIfcDateTimeSelect(IfcDateTimeSelect *selectData);
         /**
          * @param ptr
          */
@@ -969,14 +829,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcBSplineCurve(IfcBSplineCurve *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData);
-        /**
-         * @param ptr
-         */
         void writeIfcBeam(IfcBeam *ptr);
         /**
          * @param ptr
@@ -990,6 +842,10 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcBezierCurve(IfcBezierCurve *ptr);
+        /**
+         * @param enumData
+         */
+        void writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData);
         /**
          * @param ptr
          */
@@ -1029,10 +885,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcBoundaryCondition(IfcBoundaryCondition *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcBoundaryEdgeCondition(IfcBoundaryEdgeCondition *ptr);
         /**
          * @param ptr
@@ -1046,10 +898,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcBoundaryNodeConditionWarping(IfcBoundaryNodeConditionWarping *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcBoundedCurve(IfcBoundedCurve *ptr);
         /**
          * @param ptr
          */
@@ -1073,10 +921,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcBuildingElement(IfcBuildingElement *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcBuildingElementPart(IfcBuildingElementPart *ptr);
         /**
          * @param ptr
@@ -1090,10 +934,6 @@ namespace ifc2x3 {
          * @param enumData
          */
         void writeIfcBuildingElementProxyTypeEnum(IfcBuildingElementProxyTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBuildingElementType(IfcBuildingElementType *ptr);
         /**
          * @param ptr
          */
@@ -1134,10 +974,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcCartesianPoint(IfcCartesianPoint *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcCartesianTransformationOperator(IfcCartesianTransformationOperator *ptr);
         /**
          * @param ptr
          */
@@ -1229,10 +1065,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcColourSpecification(IfcColourSpecification *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcColumn(IfcColumn *ptr);
         /**
          * @param ptr
@@ -1293,10 +1125,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcConic(IfcConic *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcConnectedFaceSet(IfcConnectedFaceSet *ptr);
         /**
          * @param ptr
@@ -1306,10 +1134,6 @@ namespace ifc2x3 {
          * @param selectData
          */
         void writeIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *selectData);
-        /**
-         * @param ptr
-         */
-        void writeIfcConnectionGeometry(IfcConnectionGeometry *ptr);
         /**
          * @param ptr
          */
@@ -1334,14 +1158,6 @@ namespace ifc2x3 {
          * @param selectData
          */
         void writeIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *selectData);
-        /**
-         * @param ptr
-         */
-        void writeIfcConstraint(IfcConstraint *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcConstraintEnum(IfcConstraintEnum enumData);
         /**
          * @param ptr
          */
@@ -1381,19 +1197,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcConstructionResource(IfcConstructionResource *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcContextDependentUnit(IfcContextDependentUnit *ptr);
         /**
          * @param enumData
          */
         void writeIfcUnitEnum(IfcUnitEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcControl(IfcControl *ptr);
         /**
          * @param ptr
          */
@@ -1447,6 +1255,10 @@ namespace ifc2x3 {
          */
         void writeIfcCostValue(IfcCostValue *ptr);
         /**
+         * @param selectData
+         */
+        void writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData);
+        /**
          * @param ptr
          */
         void writeIfcCovering(IfcCovering *ptr);
@@ -1473,10 +1285,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcCsgPrimitive3D(IfcCsgPrimitive3D *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcCsgSolid(IfcCsgSolid *ptr);
         /**
          * @param selectData
@@ -1498,10 +1306,6 @@ namespace ifc2x3 {
          * @param enumData
          */
         void writeIfcCurtainWallTypeEnum(IfcCurtainWallTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcCurve(IfcCurve *ptr);
         /**
          * @param ptr
          */
@@ -1637,10 +1441,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcDistributionControlElementType(IfcDistributionControlElementType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcDistributionElement(IfcDistributionElement *ptr);
         /**
          * @param ptr
@@ -1650,10 +1450,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcDistributionFlowElement(IfcDistributionFlowElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcDistributionFlowElementType(IfcDistributionFlowElementType *ptr);
         /**
          * @param ptr
          */
@@ -1773,10 +1569,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcEdgeFeature(IfcEdgeFeature *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcEdgeLoop(IfcEdgeLoop *ptr);
         /**
          * @param ptr
@@ -1857,10 +1649,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcElement(IfcElement *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcElementAssembly(IfcElementAssembly *ptr);
         /**
          * @param enumData
@@ -1873,23 +1661,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcElementComponent(IfcElementComponent *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcElementComponentType(IfcElementComponentType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcElementQuantity(IfcElementQuantity *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcElementType(IfcElementType *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcElementarySurface(IfcElementarySurface *ptr);
         /**
          * @param ptr
          */
@@ -1902,10 +1674,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcEnergyConversionDevice(IfcEnergyConversionDevice *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType *ptr);
         /**
          * @param ptr
          */
@@ -1946,10 +1714,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcExtendedMaterialProperties(IfcExtendedMaterialProperties *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcExternalReference(IfcExternalReference *ptr);
         /**
          * @param ptr
          */
@@ -2021,18 +1785,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcFeatureElement(IfcFeatureElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcFeatureElementAddition(IfcFeatureElementAddition *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcFeatureElementSubtraction(IfcFeatureElementSubtraction *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcFillAreaStyle(IfcFillAreaStyle *ptr);
         /**
          * @param selectData
@@ -2081,15 +1833,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcFlowControllerType(IfcFlowControllerType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcFlowFitting(IfcFlowFitting *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcFlowFittingType(IfcFlowFittingType *ptr);
         /**
          * @param ptr
          */
@@ -2113,15 +1857,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcFlowSegment(IfcFlowSegment *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcFlowSegmentType(IfcFlowSegmentType *ptr);
         /**
          * @param ptr
          */
@@ -2129,23 +1865,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcFlowTerminal(IfcFlowTerminal *ptr);
         /**
          * @param ptr
          */
-        void writeIfcFlowTerminalType(IfcFlowTerminalType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcFlowTreatmentDevice(IfcFlowTreatmentDevice *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *ptr);
         /**
          * @param ptr
          */
@@ -2214,10 +1938,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcGeometricRepresentationContext(IfcGeometricRepresentationContext *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcGeometricRepresentationItem(IfcGeometricRepresentationItem *ptr);
         /**
          * @param ptr
          */
@@ -2365,10 +2085,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcLightSource(IfcLightSource *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcLightSourceAmbient(IfcLightSourceAmbient *ptr);
         /**
          * @param ptr
@@ -2417,10 +2133,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcManifoldSolidBrep(IfcManifoldSolidBrep *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcMappedItem(IfcMappedItem *ptr);
         /**
          * @param ptr
@@ -2458,10 +2170,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcMaterialList(IfcMaterialList *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcMaterialProperties(IfcMaterialProperties *ptr);
         /**
          * @param ptr
          */
@@ -2505,6 +2213,10 @@ namespace ifc2x3 {
         /**
          * @param enumData
          */
+        void writeIfcConstraintEnum(IfcConstraintEnum enumData);
+        /**
+         * @param enumData
+         */
         void writeIfcBenchmarkEnum(IfcBenchmarkEnum enumData);
         /**
          * @param selectData
@@ -2530,22 +2242,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcMove(IfcMove *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcNamedUnit(IfcNamedUnit *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcObject(IfcObject *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcObjectDefinition(IfcObjectDefinition *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcObjectPlacement(IfcObjectPlacement *ptr);
         /**
          * @param ptr
          */
@@ -2625,10 +2321,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcParameterizedProfileDef(IfcParameterizedProfileDef *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPath(IfcPath *ptr);
         /**
          * @param ptr
@@ -2665,14 +2357,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPhysicalQuantity(IfcPhysicalQuantity *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcPhysicalSimpleQuantity(IfcPhysicalSimpleQuantity *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPile(IfcPile *ptr);
         /**
          * @param enumData
@@ -2705,10 +2389,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPlacement(IfcPlacement *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPlanarBox(IfcPlanarBox *ptr);
         /**
          * @param ptr
@@ -2733,10 +2413,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPoint(IfcPoint *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPointOnCurve(IfcPointOnCurve *ptr);
         /**
          * @param ptr
@@ -2757,19 +2433,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPort(IfcPort *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPostalAddress(IfcPostalAddress *ptr);
         /**
-         * @param ptr
+         * @param enumData
          */
-        void writeIfcPreDefinedColour(IfcPreDefinedColour *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcPreDefinedCurveFont(IfcPreDefinedCurveFont *ptr);
+        void writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData);
         /**
          * @param ptr
          */
@@ -2777,23 +2445,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPreDefinedItem(IfcPreDefinedItem *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPreDefinedPointMarkerSymbol(IfcPreDefinedPointMarkerSymbol *ptr);
         /**
          * @param ptr
          */
-        void writeIfcPreDefinedSymbol(IfcPreDefinedSymbol *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPreDefinedTerminatorSymbol(IfcPreDefinedTerminatorSymbol *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcPreDefinedTextFont(IfcPreDefinedTextFont *ptr);
         /**
          * @param ptr
          */
@@ -2817,10 +2473,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcPresentationStyle(IfcPresentationStyle *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *ptr);
         /**
          * @param ptr
@@ -2833,14 +2485,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcProcess(IfcProcess *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcProduct(IfcProduct *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcProductDefinitionShape(IfcProductDefinitionShape *ptr);
         /**
          * @param ptr
@@ -2850,14 +2494,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcProductsOfCombustionProperties(IfcProductsOfCombustionProperties *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcProfileDef(IfcProfileDef *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcProfileProperties(IfcProfileProperties *ptr);
         /**
          * @param ptr
          */
@@ -2889,19 +2525,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcProperty(IfcProperty *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcPropertyBoundedValue(IfcPropertyBoundedValue *ptr);
         /**
          * @param ptr
          */
         void writeIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcPropertyDefinition(IfcPropertyDefinition *ptr);
         /**
          * @param ptr
          */
@@ -2930,10 +2558,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcPropertySet(IfcPropertySet *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcPropertySetDefinition(IfcPropertySetDefinition *ptr);
         /**
          * @param ptr
          */
@@ -3081,19 +2705,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcReinforcingElement(IfcReinforcingElement *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcReinforcingMesh(IfcReinforcingMesh *ptr);
         /**
          * @param ptr
          */
         void writeIfcRelAggregates(IfcRelAggregates *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcRelAssigns(IfcRelAssigns *ptr);
         /**
          * @param ptr
          */
@@ -3177,10 +2793,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcRelConnects(IfcRelConnects *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcRelConnectsElements(IfcRelConnectsElements *ptr);
         /**
          * @param ptr
@@ -3234,14 +2846,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcRelCoversSpaces(IfcRelCoversSpaces *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcRelDecomposes(IfcRelDecomposes *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcRelDefines(IfcRelDefines *ptr);
         /**
          * @param ptr
          */
@@ -3317,10 +2921,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcRelationship(IfcRelationship *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcRelaxation(IfcRelaxation *ptr);
         /**
          * @param ptr
@@ -3333,15 +2933,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcRepresentationItem(IfcRepresentationItem *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcRepresentationMap(IfcRepresentationMap *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcResource(IfcResource *ptr);
         /**
          * @param ptr
          */
@@ -3370,10 +2962,6 @@ namespace ifc2x3 {
          * @param enumData
          */
         void writeIfcRoofTypeEnum(IfcRoofTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcRoot(IfcRoot *ptr);
         /**
          * @param ptr
          */
@@ -3457,10 +3045,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcShapeModel(IfcShapeModel *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcShapeRepresentation(IfcShapeRepresentation *ptr);
         /**
          * @param ptr
@@ -3470,10 +3054,6 @@ namespace ifc2x3 {
          * @param selectData
          */
         void writeIfcShell(IfcShell *selectData);
-        /**
-         * @param ptr
-         */
-        void writeIfcSimpleProperty(IfcSimpleProperty *ptr);
         /**
          * @param ptr
          */
@@ -3494,10 +3074,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcSlippageConnectionCondition(IfcSlippageConnectionCondition *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcSolidModel(IfcSolidModel *ptr);
         /**
          * @param ptr
          */
@@ -3549,14 +3125,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcSpatialStructureElement(IfcSpatialStructureElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcSpatialStructureElementType(IfcSpatialStructureElementType *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcSphere(IfcSphere *ptr);
         /**
          * @param ptr
@@ -3589,27 +3157,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcStructuralAction(IfcStructuralAction *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralActivity(IfcStructuralActivity *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *ptr);
         /**
          * @param enumData
          */
         void writeIfcAnalysisModelTypeEnum(IfcAnalysisModelTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralConnection(IfcStructuralConnection *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *ptr);
         /**
          * @param ptr
          */
@@ -3629,10 +3181,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcStructuralItem(IfcStructuralItem *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcStructuralLinearAction(IfcStructuralLinearAction *ptr);
         /**
          * @param enumData
@@ -3642,10 +3190,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcStructuralLinearActionVarying(IfcStructuralLinearActionVarying *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralLoad(IfcStructuralLoad *ptr);
         /**
          * @param ptr
          */
@@ -3689,15 +3233,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcStructuralLoadStatic(IfcStructuralLoadStatic *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcStructuralLoadTemperature(IfcStructuralLoadTemperature *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralMember(IfcStructuralMember *ptr);
         /**
          * @param ptr
          */
@@ -3722,10 +3258,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcStructuralProfileProperties(IfcStructuralProfileProperties *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcStructuralReaction(IfcStructuralReaction *ptr);
         /**
          * @param ptr
          */
@@ -3761,10 +3293,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcStyleModel(IfcStyleModel *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcStyledItem(IfcStyledItem *ptr);
         /**
          * @param ptr
@@ -3778,10 +3306,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcSubedge(IfcSubedge *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcSurface(IfcSurface *ptr);
         /**
          * @param ptr
          */
@@ -3841,19 +3365,7 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcSurfaceTexture(IfcSurfaceTexture *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcSweptAreaSolid(IfcSweptAreaSolid *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcSweptDiskSolid(IfcSweptDiskSolid *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcSweptSurface(IfcSweptSurface *ptr);
         /**
          * @param ptr
          */
@@ -3969,10 +3481,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcTextureCoordinate(IfcTextureCoordinate *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *ptr);
         /**
          * @param selectData
@@ -3993,10 +3501,6 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcTimeSeries(IfcTimeSeries *ptr);
-        /**
-         * @param ptr
-         */
         void writeIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *ptr);
         /**
          * @param ptr
@@ -4010,10 +3514,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcTimeSeriesValue(IfcTimeSeriesValue *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcTopologicalRepresentationItem(IfcTopologicalRepresentationItem *ptr);
         /**
          * @param ptr
          */
@@ -4193,15 +3693,11 @@ namespace ifc2x3 {
         /**
          * @param ptr
          */
-        void writeIfcWorkControl(IfcWorkControl *ptr);
+        void writeIfcWorkPlan(IfcWorkPlan *ptr);
         /**
          * @param enumData
          */
         void writeIfcWorkControlTypeEnum(IfcWorkControlTypeEnum enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcWorkPlan(IfcWorkPlan *ptr);
         /**
          * @param ptr
          */
@@ -4214,138 +3710,6 @@ namespace ifc2x3 {
          * @param ptr
          */
         void writeIfcZone(IfcZone *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcCivilStructureElement(IfcCivilStructureElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgeStructureElement(IfcBridgeStructureElement *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeStructureIndicator(IfcBridgeStructureIndicator enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridge(IfcBridge *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeStructureType(IfcBridgeStructureType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgePart(IfcBridgePart *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeStructureElementType(IfcBridgeStructureElementType enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeTechnologicalElementType(IfcBridgeTechnologicalElementType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcCivilElement(IfcCivilElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgeElement(IfcBridgeElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgeSegment(IfcBridgeSegment *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeSegmentType(IfcBridgeSegmentType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgeSegmentPart(IfcBridgeSegmentPart *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeSubPartType(IfcBridgeSubPartType enumData);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeMechanicalRoleType(IfcBridgeMechanicalRoleType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgeContactElement(IfcBridgeContactElement *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgeContactType(IfcBridgeContactType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcBridgePrismaticElement(IfcBridgePrismaticElement *ptr);
-        /**
-         * @param enumData
-         */
-        void writeIfcBridgePrismaticElementType(IfcBridgePrismaticElementType enumData);
-        /**
-         * @param ptr
-         */
-        void writeIfcAlignmentElement(IfcAlignmentElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceElement(IfcReferenceElement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceCurve(IfcReferenceCurve *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceCurve3D(IfcReferenceCurve3D *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceCurveAlignment2D(IfcReferenceCurveAlignment2D *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferencePlacement(IfcReferencePlacement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceCurvePlacement(IfcReferenceCurvePlacement *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferenceCurvePlacementSystem(IfcReferenceCurvePlacementSystem *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcElementPart(IfcElementPart *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcCivilElementPart(IfcCivilElementPart *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcCivilSheath(IfcCivilSheath *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcCivilVoid(IfcCivilVoid *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcClothoid(IfcClothoid *ptr);
-        /**
-         * @param ptr
-         */
-        void writeIfcReferencedSectionedSpine(IfcReferencedSectionedSpine *ptr);
 
     };
 

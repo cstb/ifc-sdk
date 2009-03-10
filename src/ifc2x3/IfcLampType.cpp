@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcLampType::IfcLampType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType
 IfcLampType::~IfcLampType() {
 }
 
-bool IfcLampType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLampType(this);
+bool IfcLampType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLampType(this);
 }
 
-const std::string &IfcLampType::type() {
+const std::string &IfcLampType::type() const {
     return IfcLampType::s_type.getName();
 }
 
-Step::ClassType IfcLampType::getClassType() {
+const Step::ClassType &IfcLampType::getClassType() {
     return IfcLampType::s_type;
 }
 
-Step::ClassType IfcLampType::getType() const {
+const Step::ClassType &IfcLampType::getType() const {
     return IfcLampType::s_type;
 }
 
-bool IfcLampType::isOfType(Step::ClassType t) {
+bool IfcLampType::isOfType(const Step::ClassType &t) const {
     return IfcLampType::s_type == t ? true : IfcFlowTerminalType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcLampTypeEnum IfcLampType::getPredefinedType() {
     }
 }
 
-void IfcLampType::setPredefinedType(IfcLampTypeEnum value) {
-    m_predefinedType = value;
+const IfcLampTypeEnum IfcLampType::getPredefinedType() const {
+    IfcLampType * deConstObject = const_cast< IfcLampType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcLampType::release() {
-    IfcFlowTerminalType::release();
+void IfcLampType::setPredefinedType(IfcLampTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcLampType::init() {

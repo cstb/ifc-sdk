@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcElectricalCircuit::IfcElectricalCircuit(Step::Id id, Step::SPFData *args) : I
 IfcElectricalCircuit::~IfcElectricalCircuit() {
 }
 
-bool IfcElectricalCircuit::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElectricalCircuit(this);
+bool IfcElectricalCircuit::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElectricalCircuit(this);
 }
 
-const std::string &IfcElectricalCircuit::type() {
+const std::string &IfcElectricalCircuit::type() const {
     return IfcElectricalCircuit::s_type.getName();
 }
 
-Step::ClassType IfcElectricalCircuit::getClassType() {
+const Step::ClassType &IfcElectricalCircuit::getClassType() {
     return IfcElectricalCircuit::s_type;
 }
 
-Step::ClassType IfcElectricalCircuit::getType() const {
+const Step::ClassType &IfcElectricalCircuit::getType() const {
     return IfcElectricalCircuit::s_type;
 }
 
-bool IfcElectricalCircuit::isOfType(Step::ClassType t) {
+bool IfcElectricalCircuit::isOfType(const Step::ClassType &t) const {
     return IfcElectricalCircuit::s_type == t ? true : IfcSystem::isOfType(t);
-}
-
-void IfcElectricalCircuit::release() {
-    IfcSystem::release();
 }
 
 bool IfcElectricalCircuit::init() {

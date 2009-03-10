@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -50,23 +50,23 @@ IfcRelAssignsToControl::IfcRelAssignsToControl(Step::Id id, Step::SPFData *args)
 IfcRelAssignsToControl::~IfcRelAssignsToControl() {
 }
 
-bool IfcRelAssignsToControl::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcRelAssignsToControl(this);
+bool IfcRelAssignsToControl::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcRelAssignsToControl(this);
 }
 
-const std::string &IfcRelAssignsToControl::type() {
+const std::string &IfcRelAssignsToControl::type() const {
     return IfcRelAssignsToControl::s_type.getName();
 }
 
-Step::ClassType IfcRelAssignsToControl::getClassType() {
+const Step::ClassType &IfcRelAssignsToControl::getClassType() {
     return IfcRelAssignsToControl::s_type;
 }
 
-Step::ClassType IfcRelAssignsToControl::getType() const {
+const Step::ClassType &IfcRelAssignsToControl::getType() const {
     return IfcRelAssignsToControl::s_type;
 }
 
-bool IfcRelAssignsToControl::isOfType(Step::ClassType t) {
+bool IfcRelAssignsToControl::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToControl::s_type == t ? true : IfcRelAssigns::isOfType(t);
 }
 
@@ -79,14 +79,19 @@ IfcControl *IfcRelAssignsToControl::getRelatingControl() {
     }
 }
 
-void IfcRelAssignsToControl::setRelatingControl(const Step::RefPtr< IfcControl > &value) {
-    m_relatingControl = value;
-    m_relatingControl->m_controls.insert(this);
+const IfcControl *IfcRelAssignsToControl::getRelatingControl() const {
+    IfcRelAssignsToControl * deConstObject = const_cast< IfcRelAssignsToControl * > (this);
+    return deConstObject->getRelatingControl();
 }
 
-void IfcRelAssignsToControl::release() {
-    IfcRelAssigns::release();
-    m_relatingControl.release();
+void IfcRelAssignsToControl::setRelatingControl(const Step::RefPtr< IfcControl > &value) {
+    if (m_relatingControl.valid()) {
+        m_relatingControl->m_controls.erase(this);
+    }
+    if (value.valid()) {
+        value->m_controls.insert(this);
+    }
+    m_relatingControl = value;
 }
 
 bool IfcRelAssignsToControl::init() {
@@ -100,14 +105,14 @@ bool IfcRelAssignsToControl::init() {
         m_relatingControl = NULL;
     }
     else {
-        m_relatingControl = static_cast< IfcControl * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_relatingControl = static_cast< IfcControl * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcRelAssignsToControl::copy(const IfcRelAssignsToControl &obj, const CopyOp &copyop) {
     IfcRelAssigns::copy(obj, copyop);
-    setRelatingControl(copyop(obj.m_relatingControl.get()));
+    setRelatingControl((IfcControl*)copyop(obj.m_relatingControl.get()));
     return;
 }
 

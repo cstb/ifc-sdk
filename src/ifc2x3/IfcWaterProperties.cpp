@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,27 +52,27 @@ IfcWaterProperties::IfcWaterProperties(Step::Id id, Step::SPFData *args) : IfcMa
 IfcWaterProperties::~IfcWaterProperties() {
 }
 
-bool IfcWaterProperties::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcWaterProperties(this);
+bool IfcWaterProperties::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcWaterProperties(this);
 }
 
-const std::string &IfcWaterProperties::type() {
+const std::string &IfcWaterProperties::type() const {
     return IfcWaterProperties::s_type.getName();
 }
 
-Step::ClassType IfcWaterProperties::getClassType() {
+const Step::ClassType &IfcWaterProperties::getClassType() {
     return IfcWaterProperties::s_type;
 }
 
-Step::ClassType IfcWaterProperties::getType() const {
+const Step::ClassType &IfcWaterProperties::getType() const {
     return IfcWaterProperties::s_type;
 }
 
-bool IfcWaterProperties::isOfType(Step::ClassType t) {
+bool IfcWaterProperties::isOfType(const Step::ClassType &t) const {
     return IfcWaterProperties::s_type == t ? true : IfcMaterialProperties::isOfType(t);
 }
 
-Step::Bool IfcWaterProperties::getIsPotable() {
+Step::Boolean IfcWaterProperties::getIsPotable() {
     if (Step::BaseObject::inited()) {
         return m_isPotable;
     }
@@ -81,7 +81,12 @@ Step::Bool IfcWaterProperties::getIsPotable() {
     }
 }
 
-void IfcWaterProperties::setIsPotable(Step::Bool value) {
+const Step::Boolean IfcWaterProperties::getIsPotable() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getIsPotable();
+}
+
+void IfcWaterProperties::setIsPotable(Step::Boolean value) {
     m_isPotable = value;
 }
 
@@ -92,6 +97,11 @@ IfcIonConcentrationMeasure IfcWaterProperties::getHardness() {
     else {
         return Step::getUnset(m_hardness);
     }
+}
+
+const IfcIonConcentrationMeasure IfcWaterProperties::getHardness() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getHardness();
 }
 
 void IfcWaterProperties::setHardness(IfcIonConcentrationMeasure value) {
@@ -107,6 +117,11 @@ IfcIonConcentrationMeasure IfcWaterProperties::getAlkalinityConcentration() {
     }
 }
 
+const IfcIonConcentrationMeasure IfcWaterProperties::getAlkalinityConcentration() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getAlkalinityConcentration();
+}
+
 void IfcWaterProperties::setAlkalinityConcentration(IfcIonConcentrationMeasure value) {
     m_alkalinityConcentration = value;
 }
@@ -118,6 +133,11 @@ IfcIonConcentrationMeasure IfcWaterProperties::getAcidityConcentration() {
     else {
         return Step::getUnset(m_acidityConcentration);
     }
+}
+
+const IfcIonConcentrationMeasure IfcWaterProperties::getAcidityConcentration() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getAcidityConcentration();
 }
 
 void IfcWaterProperties::setAcidityConcentration(IfcIonConcentrationMeasure value) {
@@ -133,6 +153,11 @@ IfcNormalisedRatioMeasure IfcWaterProperties::getImpuritiesContent() {
     }
 }
 
+const IfcNormalisedRatioMeasure IfcWaterProperties::getImpuritiesContent() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getImpuritiesContent();
+}
+
 void IfcWaterProperties::setImpuritiesContent(IfcNormalisedRatioMeasure value) {
     m_impuritiesContent = value;
 }
@@ -144,6 +169,11 @@ IfcPHMeasure IfcWaterProperties::getPHLevel() {
     else {
         return Step::getUnset(m_pHLevel);
     }
+}
+
+const IfcPHMeasure IfcWaterProperties::getPHLevel() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getPHLevel();
 }
 
 void IfcWaterProperties::setPHLevel(IfcPHMeasure value) {
@@ -159,12 +189,13 @@ IfcNormalisedRatioMeasure IfcWaterProperties::getDissolvedSolidsContent() {
     }
 }
 
-void IfcWaterProperties::setDissolvedSolidsContent(IfcNormalisedRatioMeasure value) {
-    m_dissolvedSolidsContent = value;
+const IfcNormalisedRatioMeasure IfcWaterProperties::getDissolvedSolidsContent() const {
+    IfcWaterProperties * deConstObject = const_cast< IfcWaterProperties * > (this);
+    return deConstObject->getDissolvedSolidsContent();
 }
 
-void IfcWaterProperties::release() {
-    IfcMaterialProperties::release();
+void IfcWaterProperties::setDissolvedSolidsContent(IfcNormalisedRatioMeasure value) {
+    m_dissolvedSolidsContent = value;
 }
 
 bool IfcWaterProperties::init() {
@@ -178,7 +209,7 @@ bool IfcWaterProperties::init() {
         m_isPotable = Step::getUnset(m_isPotable);
     }
     else {
-        m_isPotable = Step::spfToBool(arg);
+        m_isPotable = Step::spfToBoolean(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

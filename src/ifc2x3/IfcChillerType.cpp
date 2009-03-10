@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcChillerType::IfcChillerType(Step::Id id, Step::SPFData *args) : IfcEnergyConv
 IfcChillerType::~IfcChillerType() {
 }
 
-bool IfcChillerType::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcChillerType(this);
+bool IfcChillerType::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcChillerType(this);
 }
 
-const std::string &IfcChillerType::type() {
+const std::string &IfcChillerType::type() const {
     return IfcChillerType::s_type.getName();
 }
 
-Step::ClassType IfcChillerType::getClassType() {
+const Step::ClassType &IfcChillerType::getClassType() {
     return IfcChillerType::s_type;
 }
 
-Step::ClassType IfcChillerType::getType() const {
+const Step::ClassType &IfcChillerType::getType() const {
     return IfcChillerType::s_type;
 }
 
-bool IfcChillerType::isOfType(Step::ClassType t) {
+bool IfcChillerType::isOfType(const Step::ClassType &t) const {
     return IfcChillerType::s_type == t ? true : IfcEnergyConversionDeviceType::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcChillerTypeEnum IfcChillerType::getPredefinedType() {
     }
 }
 
-void IfcChillerType::setPredefinedType(IfcChillerTypeEnum value) {
-    m_predefinedType = value;
+const IfcChillerTypeEnum IfcChillerType::getPredefinedType() const {
+    IfcChillerType * deConstObject = const_cast< IfcChillerType * > (this);
+    return deConstObject->getPredefinedType();
 }
 
-void IfcChillerType::release() {
-    IfcEnergyConversionDeviceType::release();
+void IfcChillerType::setPredefinedType(IfcChillerTypeEnum value) {
+    m_predefinedType = value;
 }
 
 bool IfcChillerType::init() {

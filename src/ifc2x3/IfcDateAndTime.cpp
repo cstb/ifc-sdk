@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcDateAndTime::IfcDateAndTime(Step::Id id, Step::SPFData *args) : Step::BaseEnt
 IfcDateAndTime::~IfcDateAndTime() {
 }
 
-bool IfcDateAndTime::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDateAndTime(this);
+bool IfcDateAndTime::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDateAndTime(this);
 }
 
-const std::string &IfcDateAndTime::type() {
+const std::string &IfcDateAndTime::type() const {
     return IfcDateAndTime::s_type.getName();
 }
 
-Step::ClassType IfcDateAndTime::getClassType() {
+const Step::ClassType &IfcDateAndTime::getClassType() {
     return IfcDateAndTime::s_type;
 }
 
-Step::ClassType IfcDateAndTime::getType() const {
+const Step::ClassType &IfcDateAndTime::getType() const {
     return IfcDateAndTime::s_type;
 }
 
-bool IfcDateAndTime::isOfType(Step::ClassType t) {
+bool IfcDateAndTime::isOfType(const Step::ClassType &t) const {
     return IfcDateAndTime::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcCalendarDate *IfcDateAndTime::getDateComponent() {
     else {
         return NULL;
     }
+}
+
+const IfcCalendarDate *IfcDateAndTime::getDateComponent() const {
+    IfcDateAndTime * deConstObject = const_cast< IfcDateAndTime * > (this);
+    return deConstObject->getDateComponent();
 }
 
 void IfcDateAndTime::setDateComponent(const Step::RefPtr< IfcCalendarDate > &value) {
@@ -94,13 +99,13 @@ IfcLocalTime *IfcDateAndTime::getTimeComponent() {
     }
 }
 
-void IfcDateAndTime::setTimeComponent(const Step::RefPtr< IfcLocalTime > &value) {
-    m_timeComponent = value;
+const IfcLocalTime *IfcDateAndTime::getTimeComponent() const {
+    IfcDateAndTime * deConstObject = const_cast< IfcDateAndTime * > (this);
+    return deConstObject->getTimeComponent();
 }
 
-void IfcDateAndTime::release() {
-    m_dateComponent.release();
-    m_timeComponent.release();
+void IfcDateAndTime::setTimeComponent(const Step::RefPtr< IfcLocalTime > &value) {
+    m_timeComponent = value;
 }
 
 bool IfcDateAndTime::init() {
@@ -110,22 +115,22 @@ bool IfcDateAndTime::init() {
         m_dateComponent = NULL;
     }
     else {
-        m_dateComponent = static_cast< IfcCalendarDate * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_dateComponent = static_cast< IfcCalendarDate * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_timeComponent = NULL;
     }
     else {
-        m_timeComponent = static_cast< IfcLocalTime * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_timeComponent = static_cast< IfcLocalTime * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcDateAndTime::copy(const IfcDateAndTime &obj, const CopyOp &copyop) {
     Step::BaseEntity::copy(obj, copyop);
-    setDateComponent(copyop(obj.m_dateComponent.get()));
-    setTimeComponent(copyop(obj.m_timeComponent.get()));
+    setDateComponent((IfcCalendarDate*)copyop(obj.m_dateComponent.get()));
+    setTimeComponent((IfcLocalTime*)copyop(obj.m_timeComponent.get()));
     return;
 }
 

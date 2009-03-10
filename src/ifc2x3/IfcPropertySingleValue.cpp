@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,11 +31,11 @@
 #include "ifc2x3/IfcUnit.h"
 #include "ifc2x3/IfcValue.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <stdlib.h>
 #include <string>
@@ -53,23 +53,23 @@ IfcPropertySingleValue::IfcPropertySingleValue(Step::Id id, Step::SPFData *args)
 IfcPropertySingleValue::~IfcPropertySingleValue() {
 }
 
-bool IfcPropertySingleValue::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcPropertySingleValue(this);
+bool IfcPropertySingleValue::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcPropertySingleValue(this);
 }
 
-const std::string &IfcPropertySingleValue::type() {
+const std::string &IfcPropertySingleValue::type() const {
     return IfcPropertySingleValue::s_type.getName();
 }
 
-Step::ClassType IfcPropertySingleValue::getClassType() {
+const Step::ClassType &IfcPropertySingleValue::getClassType() {
     return IfcPropertySingleValue::s_type;
 }
 
-Step::ClassType IfcPropertySingleValue::getType() const {
+const Step::ClassType &IfcPropertySingleValue::getType() const {
     return IfcPropertySingleValue::s_type;
 }
 
-bool IfcPropertySingleValue::isOfType(Step::ClassType t) {
+bool IfcPropertySingleValue::isOfType(const Step::ClassType &t) const {
     return IfcPropertySingleValue::s_type == t ? true : IfcSimpleProperty::isOfType(t);
 }
 
@@ -80,6 +80,11 @@ IfcValue *IfcPropertySingleValue::getNominalValue() {
     else {
         return NULL;
     }
+}
+
+const IfcValue *IfcPropertySingleValue::getNominalValue() const {
+    IfcPropertySingleValue * deConstObject = const_cast< IfcPropertySingleValue * > (this);
+    return deConstObject->getNominalValue();
 }
 
 void IfcPropertySingleValue::setNominalValue(const Step::RefPtr< IfcValue > &value) {
@@ -95,12 +100,13 @@ IfcUnit *IfcPropertySingleValue::getUnit() {
     }
 }
 
-void IfcPropertySingleValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
-    m_unit = value;
+const IfcUnit *IfcPropertySingleValue::getUnit() const {
+    IfcPropertySingleValue * deConstObject = const_cast< IfcPropertySingleValue * > (this);
+    return deConstObject->getUnit();
 }
 
-void IfcPropertySingleValue::release() {
-    IfcSimpleProperty::release();
+void IfcPropertySingleValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
+    m_unit = value;
 }
 
 bool IfcPropertySingleValue::init() {
@@ -171,7 +177,7 @@ bool IfcPropertySingleValue::init() {
                     m_nominalValue->setIfcParameterValue(tmp_attr1);
                 }
                 if (type1 == "IFCNUMERICMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_nominalValue->setIfcNumericMeasure(tmp_attr1);
                 }
@@ -196,12 +202,12 @@ bool IfcPropertySingleValue::init() {
                     m_nominalValue->setIfcElectricCurrentMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCDESCRIPTIVEMEASURE") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_nominalValue->setIfcDescriptiveMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOUNTMEASURE") {
-                    Step::Integer tmp_attr1;
+                    Step::Number tmp_attr1;
                     tmp_attr1 = Step::spfToInteger(arg);
                     m_nominalValue->setIfcCountMeasure(tmp_attr1);
                 }
@@ -231,7 +237,8 @@ bool IfcPropertySingleValue::init() {
                     m_nominalValue->setIfcNormalisedRatioMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPLEXNUMBER") {
-                    Step::Array< Step::Real > tmp_attr1;
+                    Array_Real_1_2 tmp_attr1;
+                    Array_Real_1_2::iterator it_tmp_attr1 = tmp_attr1.begin();
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;
@@ -239,7 +246,7 @@ bool IfcPropertySingleValue::init() {
                         if (str2 != "") {
                             Step::Real attr3;
                             attr3 = Step::spfToReal(str2);
-                            tmp_attr1.push_back(attr3);
+                            *(it_tmp_attr1++) = attr3;
                         }
                         else {
                             break;
@@ -258,23 +265,23 @@ bool IfcPropertySingleValue::init() {
                     m_nominalValue->setIfcReal(tmp_attr1);
                 }
                 if (type1 == "IFCBOOLEAN") {
-                    Step::Bool tmp_attr1;
-                    tmp_attr1 = Step::spfToBool(arg);
+                    Step::Boolean tmp_attr1;
+                    tmp_attr1 = Step::spfToBoolean(arg);
                     m_nominalValue->setIfcBoolean(tmp_attr1);
                 }
                 if (type1 == "IFCIDENTIFIER") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_nominalValue->setIfcIdentifier(tmp_attr1);
                 }
                 if (type1 == "IFCTEXT") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_nominalValue->setIfcText(tmp_attr1);
                 }
                 if (type1 == "IFCLABEL") {
-                    std::string tmp_attr1;
-                    tmp_attr1 = Step::spfToString(arg);
+                    Step::String tmp_attr1;
+                    tmp_attr1 = Step::String::fromSPF(arg);
                     m_nominalValue->setIfcLabel(tmp_attr1);
                 }
                 if (type1 == "IFCLOGICAL") {
@@ -368,7 +375,7 @@ bool IfcPropertySingleValue::init() {
                     m_nominalValue->setIfcDynamicViscosityMeasure(tmp_attr1);
                 }
                 if (type1 == "IFCCOMPOUNDPLANEANGLEMEASURE") {
-                    Step::List< Step::Integer > tmp_attr1;
+                    List_Integer_3_4 tmp_attr1;
                     tmp_attr1.setUnset(false);
                     while (true) {
                         std::string str2;

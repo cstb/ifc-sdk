@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -26,26 +26,64 @@
 
 #include "ifc2x3/IfcStructuralAnalysisModel.h"
 
+
+
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcAxis2Placement3D.h"
 #include "ifc2x3/IfcStructuralLoadGroup.h"
 #include "ifc2x3/IfcStructuralResultGroup.h"
 #include "ifc2x3/IfcSystem.h"
 #include "ifc2x3/Visitor.h"
-#include <Step/Aggregation.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
 #include <Tools/MemoryManager/mmgr.h>
 #endif
 using namespace ifc2x3;
+
+Inverted_IfcStructuralAnalysisModel_LoadedBy_type::Inverted_IfcStructuralAnalysisModel_LoadedBy_type() {
+}
+
+void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::setOwner(IfcStructuralAnalysisModel *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::insert(const Step::RefPtr< IfcStructuralLoadGroup > &value) throw(std::out_of_range) {
+    IfcStructuralLoadGroup *inverse = const_cast< IfcStructuralLoadGroup * > (value.get());
+    Set_IfcStructuralLoadGroup_1_n::insert(value);
+    inverse->m_loadGroupFor.insert(mOwner);
+}
+
+Inverted_IfcStructuralAnalysisModel_LoadedBy_type::size_type Inverted_IfcStructuralAnalysisModel_LoadedBy_type::erase(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
+    IfcStructuralLoadGroup *inverse = const_cast< IfcStructuralLoadGroup * > (value.get());
+    inverse->m_loadGroupFor.erase(mOwner);
+    return Set_IfcStructuralLoadGroup_1_n::erase(value);
+}
+
+Inverted_IfcStructuralAnalysisModel_HasResults_type::Inverted_IfcStructuralAnalysisModel_HasResults_type() {
+}
+
+void Inverted_IfcStructuralAnalysisModel_HasResults_type::setOwner(IfcStructuralAnalysisModel *owner) {
+    mOwner = owner;
+}
+
+void Inverted_IfcStructuralAnalysisModel_HasResults_type::insert(const Step::RefPtr< IfcStructuralResultGroup > &value) throw(std::out_of_range) {
+    IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
+    Set_IfcStructuralResultGroup_1_n::insert(value);
+    inverse->m_resultGroupFor.insert(mOwner);
+}
+
+Inverted_IfcStructuralAnalysisModel_HasResults_type::size_type Inverted_IfcStructuralAnalysisModel_HasResults_type::erase(const Step::RefPtr< IfcStructuralResultGroup > &value) {
+    IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
+    inverse->m_resultGroupFor.erase(mOwner);
+    return Set_IfcStructuralResultGroup_1_n::erase(value);
+}
 
 IfcStructuralAnalysisModel::IfcStructuralAnalysisModel(Step::Id id, Step::SPFData *args) : IfcSystem(id, args) {
     m_predefinedType = IfcAnalysisModelTypeEnum_UNSET;
@@ -59,23 +97,23 @@ IfcStructuralAnalysisModel::IfcStructuralAnalysisModel(Step::Id id, Step::SPFDat
 IfcStructuralAnalysisModel::~IfcStructuralAnalysisModel() {
 }
 
-bool IfcStructuralAnalysisModel::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcStructuralAnalysisModel(this);
+bool IfcStructuralAnalysisModel::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcStructuralAnalysisModel(this);
 }
 
-const std::string &IfcStructuralAnalysisModel::type() {
+const std::string &IfcStructuralAnalysisModel::type() const {
     return IfcStructuralAnalysisModel::s_type.getName();
 }
 
-Step::ClassType IfcStructuralAnalysisModel::getClassType() {
+const Step::ClassType &IfcStructuralAnalysisModel::getClassType() {
     return IfcStructuralAnalysisModel::s_type;
 }
 
-Step::ClassType IfcStructuralAnalysisModel::getType() const {
+const Step::ClassType &IfcStructuralAnalysisModel::getType() const {
     return IfcStructuralAnalysisModel::s_type;
 }
 
-bool IfcStructuralAnalysisModel::isOfType(Step::ClassType t) {
+bool IfcStructuralAnalysisModel::isOfType(const Step::ClassType &t) const {
     return IfcStructuralAnalysisModel::s_type == t ? true : IfcSystem::isOfType(t);
 }
 
@@ -86,6 +124,11 @@ IfcAnalysisModelTypeEnum IfcStructuralAnalysisModel::getPredefinedType() {
     else {
         return IfcAnalysisModelTypeEnum_UNSET;
     }
+}
+
+const IfcAnalysisModelTypeEnum IfcStructuralAnalysisModel::getPredefinedType() const {
+    IfcStructuralAnalysisModel * deConstObject = const_cast< IfcStructuralAnalysisModel * > (this);
+    return deConstObject->getPredefinedType();
 }
 
 void IfcStructuralAnalysisModel::setPredefinedType(IfcAnalysisModelTypeEnum value) {
@@ -101,11 +144,16 @@ IfcAxis2Placement3D *IfcStructuralAnalysisModel::getOrientationOf2DPlane() {
     }
 }
 
+const IfcAxis2Placement3D *IfcStructuralAnalysisModel::getOrientationOf2DPlane() const {
+    IfcStructuralAnalysisModel * deConstObject = const_cast< IfcStructuralAnalysisModel * > (this);
+    return deConstObject->getOrientationOf2DPlane();
+}
+
 void IfcStructuralAnalysisModel::setOrientationOf2DPlane(const Step::RefPtr< IfcAxis2Placement3D > &value) {
     m_orientationOf2DPlane = value;
 }
 
-Step::Set< Step::RefPtr< IfcStructuralLoadGroup > > &IfcStructuralAnalysisModel::getLoadedBy() {
+Set_IfcStructuralLoadGroup_1_n &IfcStructuralAnalysisModel::getLoadedBy() {
     if (Step::BaseObject::inited()) {
         return m_loadedBy;
     }
@@ -115,7 +163,12 @@ Step::Set< Step::RefPtr< IfcStructuralLoadGroup > > &IfcStructuralAnalysisModel:
     }
 }
 
-Step::Set< Step::RefPtr< IfcStructuralResultGroup > > &IfcStructuralAnalysisModel::getHasResults() {
+const Set_IfcStructuralLoadGroup_1_n &IfcStructuralAnalysisModel::getLoadedBy() const {
+    IfcStructuralAnalysisModel * deConstObject = const_cast< IfcStructuralAnalysisModel * > (this);
+    return deConstObject->getLoadedBy();
+}
+
+Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() {
     if (Step::BaseObject::inited()) {
         return m_hasResults;
     }
@@ -125,11 +178,9 @@ Step::Set< Step::RefPtr< IfcStructuralResultGroup > > &IfcStructuralAnalysisMode
     }
 }
 
-void IfcStructuralAnalysisModel::release() {
-    IfcSystem::release();
-    m_orientationOf2DPlane.release();
-    m_loadedBy.clear();
-    m_hasResults.clear();
+const Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() const {
+    IfcStructuralAnalysisModel * deConstObject = const_cast< IfcStructuralAnalysisModel * > (this);
+    return deConstObject->getHasResults();
 }
 
 bool IfcStructuralAnalysisModel::init() {
@@ -164,7 +215,7 @@ bool IfcStructuralAnalysisModel::init() {
         m_orientationOf2DPlane = NULL;
     }
     else {
-        m_orientationOf2DPlane = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_orientationOf2DPlane = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -177,7 +228,7 @@ bool IfcStructuralAnalysisModel::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcStructuralLoadGroup > attr2;
-                attr2 = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcStructuralLoadGroup * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_loadedBy.insert(attr2);
             }
             else {
@@ -196,7 +247,7 @@ bool IfcStructuralAnalysisModel::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcStructuralResultGroup > attr2;
-                attr2 = static_cast< IfcStructuralResultGroup * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcStructuralResultGroup * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_hasResults.insert(attr2);
             }
             else {
@@ -208,46 +259,20 @@ bool IfcStructuralAnalysisModel::init() {
 }
 
 void IfcStructuralAnalysisModel::copy(const IfcStructuralAnalysisModel &obj, const CopyOp &copyop) {
-    Step::Set< Step::RefPtr< IfcStructuralLoadGroup > >::const_iterator it_m_loadedBy;
-    Step::Set< Step::RefPtr< IfcStructuralResultGroup > >::const_iterator it_m_hasResults;
+    Step::Set< Step::RefPtr< IfcStructuralLoadGroup >, 1 >::const_iterator it_m_loadedBy;
+    Step::Set< Step::RefPtr< IfcStructuralResultGroup >, 1 >::const_iterator it_m_hasResults;
     IfcSystem::copy(obj, copyop);
     setPredefinedType(obj.m_predefinedType);
-    setOrientationOf2DPlane(copyop(obj.m_orientationOf2DPlane.get()));
+    setOrientationOf2DPlane((IfcAxis2Placement3D*)copyop(obj.m_orientationOf2DPlane.get()));
     for (it_m_loadedBy = obj.m_loadedBy.begin(); it_m_loadedBy != obj.m_loadedBy.end(); ++it_m_loadedBy) {
-        Step::RefPtr< IfcStructuralLoadGroup > copyTarget = copyop((*it_m_loadedBy).get());
+        Step::RefPtr< IfcStructuralLoadGroup > copyTarget = (IfcStructuralLoadGroup *) (copyop((*it_m_loadedBy).get()));
         m_loadedBy.insert(copyTarget.get());
     }
     for (it_m_hasResults = obj.m_hasResults.begin(); it_m_hasResults != obj.m_hasResults.end(); ++it_m_hasResults) {
-        Step::RefPtr< IfcStructuralResultGroup > copyTarget = copyop((*it_m_hasResults).get());
+        Step::RefPtr< IfcStructuralResultGroup > copyTarget = (IfcStructuralResultGroup *) (copyop((*it_m_hasResults).get()));
         m_hasResults.insert(copyTarget.get());
     }
     return;
 }
 
 IFC2X3_DLL_DEF Step::ClassType IfcStructuralAnalysisModel::s_type("IfcStructuralAnalysisModel");
-IfcStructuralAnalysisModel::Inverted_HasResults_type::Inverted_HasResults_type() {
-}
-
-void IfcStructuralAnalysisModel::Inverted_HasResults_type::setOwner(IfcStructuralAnalysisModel *owner) {
-    mOwner = owner;
-}
-
-void IfcStructuralAnalysisModel::Inverted_HasResults_type::insert(const Step::RefPtr< IfcStructuralResultGroup > &value) {
-    IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
-    Step::Set< Step::RefPtr< IfcStructuralResultGroup > >::insert(value);
-    inverse->m_resultGroupFor.insert(mOwner);
-}
-
-IfcStructuralAnalysisModel::Inverted_LoadedBy_type::Inverted_LoadedBy_type() {
-}
-
-void IfcStructuralAnalysisModel::Inverted_LoadedBy_type::setOwner(IfcStructuralAnalysisModel *owner) {
-    mOwner = owner;
-}
-
-void IfcStructuralAnalysisModel::Inverted_LoadedBy_type::insert(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
-    IfcStructuralLoadGroup *inverse = const_cast< IfcStructuralLoadGroup * > (value.get());
-    Step::Set< Step::RefPtr< IfcStructuralLoadGroup > >::insert(value);
-    inverse->m_loadGroupFor.insert(mOwner);
-}
-

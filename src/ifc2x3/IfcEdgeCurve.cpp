@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -51,23 +51,23 @@ IfcEdgeCurve::IfcEdgeCurve(Step::Id id, Step::SPFData *args) : IfcEdge(id, args)
 IfcEdgeCurve::~IfcEdgeCurve() {
 }
 
-bool IfcEdgeCurve::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcEdgeCurve(this);
+bool IfcEdgeCurve::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcEdgeCurve(this);
 }
 
-const std::string &IfcEdgeCurve::type() {
+const std::string &IfcEdgeCurve::type() const {
     return IfcEdgeCurve::s_type.getName();
 }
 
-Step::ClassType IfcEdgeCurve::getClassType() {
+const Step::ClassType &IfcEdgeCurve::getClassType() {
     return IfcEdgeCurve::s_type;
 }
 
-Step::ClassType IfcEdgeCurve::getType() const {
+const Step::ClassType &IfcEdgeCurve::getType() const {
     return IfcEdgeCurve::s_type;
 }
 
-bool IfcEdgeCurve::isOfType(Step::ClassType t) {
+bool IfcEdgeCurve::isOfType(const Step::ClassType &t) const {
     return IfcEdgeCurve::s_type == t ? true : IfcEdge::isOfType(t);
 }
 
@@ -80,11 +80,16 @@ IfcCurve *IfcEdgeCurve::getEdgeGeometry() {
     }
 }
 
+const IfcCurve *IfcEdgeCurve::getEdgeGeometry() const {
+    IfcEdgeCurve * deConstObject = const_cast< IfcEdgeCurve * > (this);
+    return deConstObject->getEdgeGeometry();
+}
+
 void IfcEdgeCurve::setEdgeGeometry(const Step::RefPtr< IfcCurve > &value) {
     m_edgeGeometry = value;
 }
 
-Step::Bool IfcEdgeCurve::getSameSense() {
+Step::Boolean IfcEdgeCurve::getSameSense() {
     if (Step::BaseObject::inited()) {
         return m_sameSense;
     }
@@ -93,13 +98,13 @@ Step::Bool IfcEdgeCurve::getSameSense() {
     }
 }
 
-void IfcEdgeCurve::setSameSense(Step::Bool value) {
-    m_sameSense = value;
+const Step::Boolean IfcEdgeCurve::getSameSense() const {
+    IfcEdgeCurve * deConstObject = const_cast< IfcEdgeCurve * > (this);
+    return deConstObject->getSameSense();
 }
 
-void IfcEdgeCurve::release() {
-    IfcEdge::release();
-    m_edgeGeometry.release();
+void IfcEdgeCurve::setSameSense(Step::Boolean value) {
+    m_sameSense = value;
 }
 
 bool IfcEdgeCurve::init() {
@@ -113,21 +118,21 @@ bool IfcEdgeCurve::init() {
         m_edgeGeometry = NULL;
     }
     else {
-        m_edgeGeometry = static_cast< IfcCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_edgeGeometry = static_cast< IfcCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_sameSense = Step::getUnset(m_sameSense);
     }
     else {
-        m_sameSense = Step::spfToBool(arg);
+        m_sameSense = Step::spfToBoolean(arg);
     }
     return true;
 }
 
 void IfcEdgeCurve::copy(const IfcEdgeCurve &obj, const CopyOp &copyop) {
     IfcEdge::copy(obj, copyop);
-    setEdgeGeometry(copyop(obj.m_edgeGeometry.get()));
+    setEdgeGeometry((IfcCurve*)copyop(obj.m_edgeGeometry.get()));
     setSameSense(obj.m_sameSense);
     return;
 }

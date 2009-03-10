@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -52,23 +52,23 @@ IfcDimensionalExponents::IfcDimensionalExponents(Step::Id id, Step::SPFData *arg
 IfcDimensionalExponents::~IfcDimensionalExponents() {
 }
 
-bool IfcDimensionalExponents::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDimensionalExponents(this);
+bool IfcDimensionalExponents::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDimensionalExponents(this);
 }
 
-const std::string &IfcDimensionalExponents::type() {
+const std::string &IfcDimensionalExponents::type() const {
     return IfcDimensionalExponents::s_type.getName();
 }
 
-Step::ClassType IfcDimensionalExponents::getClassType() {
+const Step::ClassType &IfcDimensionalExponents::getClassType() {
     return IfcDimensionalExponents::s_type;
 }
 
-Step::ClassType IfcDimensionalExponents::getType() const {
+const Step::ClassType &IfcDimensionalExponents::getType() const {
     return IfcDimensionalExponents::s_type;
 }
 
-bool IfcDimensionalExponents::isOfType(Step::ClassType t) {
+bool IfcDimensionalExponents::isOfType(const Step::ClassType &t) const {
     return IfcDimensionalExponents::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ Step::Integer IfcDimensionalExponents::getLengthExponent() {
     else {
         return Step::getUnset(m_lengthExponent);
     }
+}
+
+const Step::Integer IfcDimensionalExponents::getLengthExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getLengthExponent();
 }
 
 void IfcDimensionalExponents::setLengthExponent(Step::Integer value) {
@@ -94,6 +99,11 @@ Step::Integer IfcDimensionalExponents::getMassExponent() {
     }
 }
 
+const Step::Integer IfcDimensionalExponents::getMassExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getMassExponent();
+}
+
 void IfcDimensionalExponents::setMassExponent(Step::Integer value) {
     m_massExponent = value;
 }
@@ -105,6 +115,11 @@ Step::Integer IfcDimensionalExponents::getTimeExponent() {
     else {
         return Step::getUnset(m_timeExponent);
     }
+}
+
+const Step::Integer IfcDimensionalExponents::getTimeExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getTimeExponent();
 }
 
 void IfcDimensionalExponents::setTimeExponent(Step::Integer value) {
@@ -120,6 +135,11 @@ Step::Integer IfcDimensionalExponents::getElectricCurrentExponent() {
     }
 }
 
+const Step::Integer IfcDimensionalExponents::getElectricCurrentExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getElectricCurrentExponent();
+}
+
 void IfcDimensionalExponents::setElectricCurrentExponent(Step::Integer value) {
     m_electricCurrentExponent = value;
 }
@@ -131,6 +151,11 @@ Step::Integer IfcDimensionalExponents::getThermodynamicTemperatureExponent() {
     else {
         return Step::getUnset(m_thermodynamicTemperatureExponent);
     }
+}
+
+const Step::Integer IfcDimensionalExponents::getThermodynamicTemperatureExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getThermodynamicTemperatureExponent();
 }
 
 void IfcDimensionalExponents::setThermodynamicTemperatureExponent(Step::Integer value) {
@@ -146,6 +171,11 @@ Step::Integer IfcDimensionalExponents::getAmountOfSubstanceExponent() {
     }
 }
 
+const Step::Integer IfcDimensionalExponents::getAmountOfSubstanceExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getAmountOfSubstanceExponent();
+}
+
 void IfcDimensionalExponents::setAmountOfSubstanceExponent(Step::Integer value) {
     m_amountOfSubstanceExponent = value;
 }
@@ -159,11 +189,13 @@ Step::Integer IfcDimensionalExponents::getLuminousIntensityExponent() {
     }
 }
 
-void IfcDimensionalExponents::setLuminousIntensityExponent(Step::Integer value) {
-    m_luminousIntensityExponent = value;
+const Step::Integer IfcDimensionalExponents::getLuminousIntensityExponent() const {
+    IfcDimensionalExponents * deConstObject = const_cast< IfcDimensionalExponents * > (this);
+    return deConstObject->getLuminousIntensityExponent();
 }
 
-void IfcDimensionalExponents::release() {
+void IfcDimensionalExponents::setLuminousIntensityExponent(Step::Integer value) {
+    m_luminousIntensityExponent = value;
 }
 
 bool IfcDimensionalExponents::init() {

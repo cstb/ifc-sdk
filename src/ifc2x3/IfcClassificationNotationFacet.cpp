@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -46,23 +47,23 @@ IfcClassificationNotationFacet::IfcClassificationNotationFacet(Step::Id id, Step
 IfcClassificationNotationFacet::~IfcClassificationNotationFacet() {
 }
 
-bool IfcClassificationNotationFacet::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcClassificationNotationFacet(this);
+bool IfcClassificationNotationFacet::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcClassificationNotationFacet(this);
 }
 
-const std::string &IfcClassificationNotationFacet::type() {
+const std::string &IfcClassificationNotationFacet::type() const {
     return IfcClassificationNotationFacet::s_type.getName();
 }
 
-Step::ClassType IfcClassificationNotationFacet::getClassType() {
+const Step::ClassType &IfcClassificationNotationFacet::getClassType() {
     return IfcClassificationNotationFacet::s_type;
 }
 
-Step::ClassType IfcClassificationNotationFacet::getType() const {
+const Step::ClassType &IfcClassificationNotationFacet::getType() const {
     return IfcClassificationNotationFacet::s_type;
 }
 
-bool IfcClassificationNotationFacet::isOfType(Step::ClassType t) {
+bool IfcClassificationNotationFacet::isOfType(const Step::ClassType &t) const {
     return IfcClassificationNotationFacet::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,11 +76,13 @@ IfcLabel IfcClassificationNotationFacet::getNotationValue() {
     }
 }
 
-void IfcClassificationNotationFacet::setNotationValue(const IfcLabel &value) {
-    m_notationValue = value;
+const IfcLabel IfcClassificationNotationFacet::getNotationValue() const {
+    IfcClassificationNotationFacet * deConstObject = const_cast< IfcClassificationNotationFacet * > (this);
+    return deConstObject->getNotationValue();
 }
 
-void IfcClassificationNotationFacet::release() {
+void IfcClassificationNotationFacet::setNotationValue(const IfcLabel &value) {
+    m_notationValue = value;
 }
 
 bool IfcClassificationNotationFacet::init() {
@@ -89,7 +92,7 @@ bool IfcClassificationNotationFacet::init() {
         m_notationValue = Step::getUnset(m_notationValue);
     }
     else {
-        m_notationValue = Step::spfToString(arg);
+        m_notationValue = Step::String::fromSPF(arg);
     }
     return true;
 }

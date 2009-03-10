@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,6 +31,7 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 
@@ -48,23 +49,23 @@ IfcExternalReference::IfcExternalReference(Step::Id id, Step::SPFData *args) : S
 IfcExternalReference::~IfcExternalReference() {
 }
 
-bool IfcExternalReference::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcExternalReference(this);
+bool IfcExternalReference::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcExternalReference(this);
 }
 
-const std::string &IfcExternalReference::type() {
+const std::string &IfcExternalReference::type() const {
     return IfcExternalReference::s_type.getName();
 }
 
-Step::ClassType IfcExternalReference::getClassType() {
+const Step::ClassType &IfcExternalReference::getClassType() {
     return IfcExternalReference::s_type;
 }
 
-Step::ClassType IfcExternalReference::getType() const {
+const Step::ClassType &IfcExternalReference::getType() const {
     return IfcExternalReference::s_type;
 }
 
-bool IfcExternalReference::isOfType(Step::ClassType t) {
+bool IfcExternalReference::isOfType(const Step::ClassType &t) const {
     return IfcExternalReference::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -75,6 +76,11 @@ IfcLabel IfcExternalReference::getLocation() {
     else {
         return Step::getUnset(m_location);
     }
+}
+
+const IfcLabel IfcExternalReference::getLocation() const {
+    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
+    return deConstObject->getLocation();
 }
 
 void IfcExternalReference::setLocation(const IfcLabel &value) {
@@ -90,6 +96,11 @@ IfcIdentifier IfcExternalReference::getItemReference() {
     }
 }
 
+const IfcIdentifier IfcExternalReference::getItemReference() const {
+    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
+    return deConstObject->getItemReference();
+}
+
 void IfcExternalReference::setItemReference(const IfcIdentifier &value) {
     m_itemReference = value;
 }
@@ -103,11 +114,13 @@ IfcLabel IfcExternalReference::getName() {
     }
 }
 
-void IfcExternalReference::setName(const IfcLabel &value) {
-    m_name = value;
+const IfcLabel IfcExternalReference::getName() const {
+    IfcExternalReference * deConstObject = const_cast< IfcExternalReference * > (this);
+    return deConstObject->getName();
 }
 
-void IfcExternalReference::release() {
+void IfcExternalReference::setName(const IfcLabel &value) {
+    m_name = value;
 }
 
 bool IfcExternalReference::init() {
@@ -117,21 +130,21 @@ bool IfcExternalReference::init() {
         m_location = Step::getUnset(m_location);
     }
     else {
-        m_location = Step::spfToString(arg);
+        m_location = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_itemReference = Step::getUnset(m_itemReference);
     }
     else {
-        m_itemReference = Step::spfToString(arg);
+        m_itemReference = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     return true;
 }

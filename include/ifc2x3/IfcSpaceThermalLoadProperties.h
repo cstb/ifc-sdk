@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -31,8 +31,9 @@
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <Step/SPFData.h>
 #include <string>
+#include <Step/SPFData.h>
+#include <Step/String.h>
 #include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/Referenced.h>
 
@@ -46,117 +47,202 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcSpaceThermalLoadProperties : public IfcPropertySetDefinition {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'ApplicableValueRatio'.
+         * 
          */
-        IfcPositiveRatioMeasure getApplicableValueRatio();
+        virtual IfcPositiveRatioMeasure getApplicableValueRatio();
+        /**
+         * (const) Returns the value of the explicit attribute 'ApplicableValueRatio'.
+         * 
+         * @return the value of the explicit attribute 'ApplicableValueRatio'
+         */
+        virtual const IfcPositiveRatioMeasure getApplicableValueRatio() const;
         /**
          * Sets the value of the explicit attribute 'ApplicableValueRatio'.
          * 
          * @param value
          */
-        void setApplicableValueRatio(IfcPositiveRatioMeasure value);
+        virtual void setApplicableValueRatio(IfcPositiveRatioMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThermalLoadSource'.
+         * 
          */
-        IfcThermalLoadSourceEnum getThermalLoadSource();
+        virtual IfcThermalLoadSourceEnum getThermalLoadSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermalLoadSource'.
+         * 
+         * @return the value of the explicit attribute 'ThermalLoadSource'
+         */
+        virtual const IfcThermalLoadSourceEnum getThermalLoadSource() const;
         /**
          * Sets the value of the explicit attribute 'ThermalLoadSource'.
          * 
          * @param value
          */
-        void setThermalLoadSource(IfcThermalLoadSourceEnum value);
+        virtual void setThermalLoadSource(IfcThermalLoadSourceEnum value);
         /**
+         * Gets the value of the explicit attribute 'PropertySource'.
+         * 
          */
-        IfcPropertySourceEnum getPropertySource();
+        virtual IfcPropertySourceEnum getPropertySource();
+        /**
+         * (const) Returns the value of the explicit attribute 'PropertySource'.
+         * 
+         * @return the value of the explicit attribute 'PropertySource'
+         */
+        virtual const IfcPropertySourceEnum getPropertySource() const;
         /**
          * Sets the value of the explicit attribute 'PropertySource'.
          * 
          * @param value
          */
-        void setPropertySource(IfcPropertySourceEnum value);
+        virtual void setPropertySource(IfcPropertySourceEnum value);
         /**
+         * Gets the value of the explicit attribute 'SourceDescription'.
+         * 
          */
-        IfcText getSourceDescription();
+        virtual IfcText getSourceDescription();
+        /**
+         * (const) Returns the value of the explicit attribute 'SourceDescription'.
+         * 
+         * @return the value of the explicit attribute 'SourceDescription'
+         */
+        virtual const IfcText getSourceDescription() const;
         /**
          * Sets the value of the explicit attribute 'SourceDescription'.
          * 
          * @param value
          */
-        void setSourceDescription(const IfcText &value);
+        virtual void setSourceDescription(const IfcText &value);
         /**
+         * Gets the value of the explicit attribute 'MaximumValue'.
+         * 
          */
-        IfcPowerMeasure getMaximumValue();
+        virtual IfcPowerMeasure getMaximumValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'MaximumValue'.
+         * 
+         * @return the value of the explicit attribute 'MaximumValue'
+         */
+        virtual const IfcPowerMeasure getMaximumValue() const;
         /**
          * Sets the value of the explicit attribute 'MaximumValue'.
          * 
          * @param value
          */
-        void setMaximumValue(IfcPowerMeasure value);
+        virtual void setMaximumValue(IfcPowerMeasure value);
         /**
+         * Gets the value of the explicit attribute 'MinimumValue'.
+         * 
          */
-        IfcPowerMeasure getMinimumValue();
+        virtual IfcPowerMeasure getMinimumValue();
+        /**
+         * (const) Returns the value of the explicit attribute 'MinimumValue'.
+         * 
+         * @return the value of the explicit attribute 'MinimumValue'
+         */
+        virtual const IfcPowerMeasure getMinimumValue() const;
         /**
          * Sets the value of the explicit attribute 'MinimumValue'.
          * 
          * @param value
          */
-        void setMinimumValue(IfcPowerMeasure value);
+        virtual void setMinimumValue(IfcPowerMeasure value);
         /**
+         * Gets the value of the explicit attribute 'ThermalLoadTimeSeriesValues'.
+         * 
          */
-        IfcTimeSeries *getThermalLoadTimeSeriesValues();
+        virtual IfcTimeSeries *getThermalLoadTimeSeriesValues();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermalLoadTimeSeriesValues'.
+         * 
+         * @return the value of the explicit attribute 'ThermalLoadTimeSeriesValues'
+         */
+        virtual const IfcTimeSeries *getThermalLoadTimeSeriesValues() const;
         /**
          * Sets the value of the explicit attribute 'ThermalLoadTimeSeriesValues'.
          * 
          * @param value
          */
-        void setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value);
+        virtual void setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * Gets the value of the explicit attribute 'UserDefinedThermalLoadSource'.
+         * 
          */
-        IfcLabel getUserDefinedThermalLoadSource();
+        virtual IfcLabel getUserDefinedThermalLoadSource();
+        /**
+         * (const) Returns the value of the explicit attribute 'UserDefinedThermalLoadSource'.
+         * 
+         * @return the value of the explicit attribute 'UserDefinedThermalLoadSource'
+         */
+        virtual const IfcLabel getUserDefinedThermalLoadSource() const;
         /**
          * Sets the value of the explicit attribute 'UserDefinedThermalLoadSource'.
          * 
          * @param value
          */
-        void setUserDefinedThermalLoadSource(const IfcLabel &value);
+        virtual void setUserDefinedThermalLoadSource(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'UserDefinedPropertySource'.
+         * 
          */
-        IfcLabel getUserDefinedPropertySource();
+        virtual IfcLabel getUserDefinedPropertySource();
+        /**
+         * (const) Returns the value of the explicit attribute 'UserDefinedPropertySource'.
+         * 
+         * @return the value of the explicit attribute 'UserDefinedPropertySource'
+         */
+        virtual const IfcLabel getUserDefinedPropertySource() const;
         /**
          * Sets the value of the explicit attribute 'UserDefinedPropertySource'.
          * 
          * @param value
          */
-        void setUserDefinedPropertySource(const IfcLabel &value);
+        virtual void setUserDefinedPropertySource(const IfcLabel &value);
         /**
+         * Gets the value of the explicit attribute 'ThermalLoadType'.
+         * 
          */
-        IfcThermalLoadTypeEnum getThermalLoadType();
+        virtual IfcThermalLoadTypeEnum getThermalLoadType();
+        /**
+         * (const) Returns the value of the explicit attribute 'ThermalLoadType'.
+         * 
+         * @return the value of the explicit attribute 'ThermalLoadType'
+         */
+        virtual const IfcThermalLoadTypeEnum getThermalLoadType() const;
         /**
          * Sets the value of the explicit attribute 'ThermalLoadType'.
          * 
          * @param value
          */
-        void setThermalLoadType(IfcThermalLoadTypeEnum value);
-        /**
-         */
-        virtual void release();
+        virtual void setThermalLoadType(IfcThermalLoadTypeEnum value);
         friend class ExpressDataSet;
 
     protected:
@@ -190,7 +276,7 @@ namespace ifc2x3 {
         IfcPropertySourceEnum m_propertySource;
         /**
          */
-        std::string m_sourceDescription;
+        Step::String m_sourceDescription;
         /**
          */
         Step::Real m_maximumValue;
@@ -202,10 +288,10 @@ namespace ifc2x3 {
         Step::RefPtr< IfcTimeSeries > m_thermalLoadTimeSeriesValues;
         /**
          */
-        std::string m_userDefinedThermalLoadSource;
+        Step::String m_userDefinedThermalLoadSource;
         /**
          */
-        std::string m_userDefinedPropertySource;
+        Step::String m_userDefinedPropertySource;
         /**
          */
         IfcThermalLoadTypeEnum m_thermalLoadType;

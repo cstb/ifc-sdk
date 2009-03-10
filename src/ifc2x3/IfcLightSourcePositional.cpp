@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcLightSourcePositional::IfcLightSourcePositional(Step::Id id, Step::SPFData *a
 IfcLightSourcePositional::~IfcLightSourcePositional() {
 }
 
-bool IfcLightSourcePositional::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLightSourcePositional(this);
+bool IfcLightSourcePositional::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLightSourcePositional(this);
 }
 
-const std::string &IfcLightSourcePositional::type() {
+const std::string &IfcLightSourcePositional::type() const {
     return IfcLightSourcePositional::s_type.getName();
 }
 
-Step::ClassType IfcLightSourcePositional::getClassType() {
+const Step::ClassType &IfcLightSourcePositional::getClassType() {
     return IfcLightSourcePositional::s_type;
 }
 
-Step::ClassType IfcLightSourcePositional::getType() const {
+const Step::ClassType &IfcLightSourcePositional::getType() const {
     return IfcLightSourcePositional::s_type;
 }
 
-bool IfcLightSourcePositional::isOfType(Step::ClassType t) {
+bool IfcLightSourcePositional::isOfType(const Step::ClassType &t) const {
     return IfcLightSourcePositional::s_type == t ? true : IfcLightSource::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcCartesianPoint *IfcLightSourcePositional::getPosition() {
     else {
         return NULL;
     }
+}
+
+const IfcCartesianPoint *IfcLightSourcePositional::getPosition() const {
+    IfcLightSourcePositional * deConstObject = const_cast< IfcLightSourcePositional * > (this);
+    return deConstObject->getPosition();
 }
 
 void IfcLightSourcePositional::setPosition(const Step::RefPtr< IfcCartesianPoint > &value) {
@@ -96,6 +101,11 @@ IfcPositiveLengthMeasure IfcLightSourcePositional::getRadius() {
     }
 }
 
+const IfcPositiveLengthMeasure IfcLightSourcePositional::getRadius() const {
+    IfcLightSourcePositional * deConstObject = const_cast< IfcLightSourcePositional * > (this);
+    return deConstObject->getRadius();
+}
+
 void IfcLightSourcePositional::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
 }
@@ -107,6 +117,11 @@ IfcReal IfcLightSourcePositional::getConstantAttenuation() {
     else {
         return Step::getUnset(m_constantAttenuation);
     }
+}
+
+const IfcReal IfcLightSourcePositional::getConstantAttenuation() const {
+    IfcLightSourcePositional * deConstObject = const_cast< IfcLightSourcePositional * > (this);
+    return deConstObject->getConstantAttenuation();
 }
 
 void IfcLightSourcePositional::setConstantAttenuation(IfcReal value) {
@@ -122,6 +137,11 @@ IfcReal IfcLightSourcePositional::getDistanceAttenuation() {
     }
 }
 
+const IfcReal IfcLightSourcePositional::getDistanceAttenuation() const {
+    IfcLightSourcePositional * deConstObject = const_cast< IfcLightSourcePositional * > (this);
+    return deConstObject->getDistanceAttenuation();
+}
+
 void IfcLightSourcePositional::setDistanceAttenuation(IfcReal value) {
     m_distanceAttenuation = value;
 }
@@ -135,13 +155,13 @@ IfcReal IfcLightSourcePositional::getQuadricAttenuation() {
     }
 }
 
-void IfcLightSourcePositional::setQuadricAttenuation(IfcReal value) {
-    m_quadricAttenuation = value;
+const IfcReal IfcLightSourcePositional::getQuadricAttenuation() const {
+    IfcLightSourcePositional * deConstObject = const_cast< IfcLightSourcePositional * > (this);
+    return deConstObject->getQuadricAttenuation();
 }
 
-void IfcLightSourcePositional::release() {
-    IfcLightSource::release();
-    m_position.release();
+void IfcLightSourcePositional::setQuadricAttenuation(IfcReal value) {
+    m_quadricAttenuation = value;
 }
 
 bool IfcLightSourcePositional::init() {
@@ -155,7 +175,7 @@ bool IfcLightSourcePositional::init() {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcCartesianPoint * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -190,7 +210,7 @@ bool IfcLightSourcePositional::init() {
 
 void IfcLightSourcePositional::copy(const IfcLightSourcePositional &obj, const CopyOp &copyop) {
     IfcLightSource::copy(obj, copyop);
-    setPosition(copyop(obj.m_position.get()));
+    setPosition((IfcCartesianPoint*)copyop(obj.m_position.get()));
     setRadius(obj.m_radius);
     setConstantAttenuation(obj.m_constantAttenuation);
     setDistanceAttenuation(obj.m_distanceAttenuation);

@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
+#include <Step/String.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -46,29 +46,28 @@ using namespace ifc2x3;
 
 IfcCurveStyleFont::IfcCurveStyleFont(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_patternList.setUnset(true);
 }
 
 IfcCurveStyleFont::~IfcCurveStyleFont() {
 }
 
-bool IfcCurveStyleFont::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCurveStyleFont(this);
+bool IfcCurveStyleFont::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCurveStyleFont(this);
 }
 
-const std::string &IfcCurveStyleFont::type() {
+const std::string &IfcCurveStyleFont::type() const {
     return IfcCurveStyleFont::s_type.getName();
 }
 
-Step::ClassType IfcCurveStyleFont::getClassType() {
+const Step::ClassType &IfcCurveStyleFont::getClassType() {
     return IfcCurveStyleFont::s_type;
 }
 
-Step::ClassType IfcCurveStyleFont::getType() const {
+const Step::ClassType &IfcCurveStyleFont::getType() const {
     return IfcCurveStyleFont::s_type;
 }
 
-bool IfcCurveStyleFont::isOfType(Step::ClassType t) {
+bool IfcCurveStyleFont::isOfType(const Step::ClassType &t) const {
     return IfcCurveStyleFont::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,11 +80,16 @@ IfcLabel IfcCurveStyleFont::getName() {
     }
 }
 
+const IfcLabel IfcCurveStyleFont::getName() const {
+    IfcCurveStyleFont * deConstObject = const_cast< IfcCurveStyleFont * > (this);
+    return deConstObject->getName();
+}
+
 void IfcCurveStyleFont::setName(const IfcLabel &value) {
     m_name = value;
 }
 
-Step::List< Step::RefPtr< IfcCurveStyleFontPattern > > &IfcCurveStyleFont::getPatternList() {
+List_IfcCurveStyleFontPattern_1_n &IfcCurveStyleFont::getPatternList() {
     if (Step::BaseObject::inited()) {
         return m_patternList;
     }
@@ -95,12 +99,13 @@ Step::List< Step::RefPtr< IfcCurveStyleFontPattern > > &IfcCurveStyleFont::getPa
     }
 }
 
-void IfcCurveStyleFont::setPatternList(const Step::List< Step::RefPtr< IfcCurveStyleFontPattern > > &value) {
-    m_patternList = value;
+const List_IfcCurveStyleFontPattern_1_n &IfcCurveStyleFont::getPatternList() const {
+    IfcCurveStyleFont * deConstObject = const_cast< IfcCurveStyleFont * > (this);
+    return deConstObject->getPatternList();
 }
 
-void IfcCurveStyleFont::release() {
-    m_patternList.clear();
+void IfcCurveStyleFont::setPatternList(const List_IfcCurveStyleFontPattern_1_n &value) {
+    m_patternList = value;
 }
 
 bool IfcCurveStyleFont::init() {
@@ -110,7 +115,7 @@ bool IfcCurveStyleFont::init() {
         m_name = Step::getUnset(m_name);
     }
     else {
-        m_name = Step::spfToString(arg);
+        m_name = Step::String::fromSPF(arg);
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -123,7 +128,7 @@ bool IfcCurveStyleFont::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcCurveStyleFontPattern > attr2;
-                attr2 = static_cast< IfcCurveStyleFontPattern * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcCurveStyleFontPattern * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_patternList.push_back(attr2);
             }
             else {
@@ -135,11 +140,11 @@ bool IfcCurveStyleFont::init() {
 }
 
 void IfcCurveStyleFont::copy(const IfcCurveStyleFont &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcCurveStyleFontPattern > >::const_iterator it_m_patternList;
+    Step::List< Step::RefPtr< IfcCurveStyleFontPattern >, 1 >::const_iterator it_m_patternList;
     Step::BaseEntity::copy(obj, copyop);
     setName(obj.m_name);
     for (it_m_patternList = obj.m_patternList.begin(); it_m_patternList != obj.m_patternList.end(); ++it_m_patternList) {
-        Step::RefPtr< IfcCurveStyleFontPattern > copyTarget = copyop((*it_m_patternList).get());
+        Step::RefPtr< IfcCurveStyleFontPattern > copyTarget = (IfcCurveStyleFontPattern *) (copyop((*it_m_patternList).get()));
         m_patternList.push_back(copyTarget.get());
     }
     return;

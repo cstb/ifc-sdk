@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -33,7 +33,6 @@
 #include <Step/ClassType.h>
 #include <string>
 #include <Step/SPFData.h>
-#include <Step/Aggregation.h>
 #include <Step/BaseEntity.h>
 
 namespace ifc2x3 {
@@ -45,54 +44,83 @@ namespace ifc2x3 {
     class IFC2X3_DLL_DEF IfcLightDistributionData : public Step::BaseEntity {
     public:
         /**
-         * Accepts a read/write DatatypeVisitor.
+         * Accepts a read/write Step::BaseVisitor.
          * 
-         * @param v the read/write DatatypeVisitor to accept
+         * @param visitor the read/write Step::BaseVisitor to accept
          */
-        virtual bool acceptVisitor(Step::BaseVisitor *v);
+        virtual bool acceptVisitor(Step::BaseVisitor *visitor);
         /**
+         * Returns the class type as a human readable std::string.
+         * 
          */
-        virtual const std::string &type();
+        virtual const std::string &type() const;
         /**
+         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
+         * 
          */
-        static Step::ClassType getClassType();
+        static const Step::ClassType &getClassType();
         /**
+         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
+         * 
          */
-        virtual Step::ClassType getType() const;
+        virtual const Step::ClassType &getType() const;
         /**
+         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
+         * 
          * @param t
          */
-        virtual bool isOfType(Step::ClassType t);
+        virtual bool isOfType(const Step::ClassType &t) const;
         /**
+         * Gets the value of the explicit attribute 'MainPlaneAngle'.
+         * 
          */
-        IfcPlaneAngleMeasure getMainPlaneAngle();
+        virtual IfcPlaneAngleMeasure getMainPlaneAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'MainPlaneAngle'.
+         * 
+         * @return the value of the explicit attribute 'MainPlaneAngle'
+         */
+        virtual const IfcPlaneAngleMeasure getMainPlaneAngle() const;
         /**
          * Sets the value of the explicit attribute 'MainPlaneAngle'.
          * 
          * @param value
          */
-        void setMainPlaneAngle(IfcPlaneAngleMeasure value);
+        virtual void setMainPlaneAngle(IfcPlaneAngleMeasure value);
         /**
+         * Gets the value of the explicit attribute 'SecondaryPlaneAngle'.
+         * 
          */
-        Step::List< IfcPlaneAngleMeasure > &getSecondaryPlaneAngle();
+        virtual List_IfcPlaneAngleMeasure_1_n &getSecondaryPlaneAngle();
+        /**
+         * (const) Returns the value of the explicit attribute 'SecondaryPlaneAngle'.
+         * 
+         * @return the value of the explicit attribute 'SecondaryPlaneAngle'
+         */
+        virtual const List_IfcPlaneAngleMeasure_1_n &getSecondaryPlaneAngle() const;
         /**
          * Sets the value of the explicit attribute 'SecondaryPlaneAngle'.
          * 
          * @param value
          */
-        void setSecondaryPlaneAngle(const Step::List< IfcPlaneAngleMeasure > &value);
+        virtual void setSecondaryPlaneAngle(const List_IfcPlaneAngleMeasure_1_n &value);
         /**
+         * Gets the value of the explicit attribute 'LuminousIntensity'.
+         * 
          */
-        Step::List< IfcLuminousIntensityDistributionMeasure > &getLuminousIntensity();
+        virtual List_IfcLuminousIntensityDistributionMeasure_1_n &getLuminousIntensity();
+        /**
+         * (const) Returns the value of the explicit attribute 'LuminousIntensity'.
+         * 
+         * @return the value of the explicit attribute 'LuminousIntensity'
+         */
+        virtual const List_IfcLuminousIntensityDistributionMeasure_1_n &getLuminousIntensity() const;
         /**
          * Sets the value of the explicit attribute 'LuminousIntensity'.
          * 
          * @param value
          */
-        void setLuminousIntensity(const Step::List< IfcLuminousIntensityDistributionMeasure > &value);
-        /**
-         */
-        virtual void release();
+        virtual void setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value);
         friend class ExpressDataSet;
 
     protected:
@@ -120,10 +148,10 @@ namespace ifc2x3 {
         Step::Real m_mainPlaneAngle;
         /**
          */
-        Step::List< IfcPlaneAngleMeasure > m_secondaryPlaneAngle;
+        List_IfcPlaneAngleMeasure_1_n m_secondaryPlaneAngle;
         /**
          */
-        Step::List< IfcLuminousIntensityDistributionMeasure > m_luminousIntensity;
+        List_IfcLuminousIntensityDistributionMeasure_1_n m_luminousIntensity;
 
     };
 

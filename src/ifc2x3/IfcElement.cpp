@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,6 +43,7 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
+#include <Step/String.h>
 #include <Step/logger.h>
 #include <string>
 #include <vector>
@@ -54,40 +55,28 @@ using namespace ifc2x3;
 
 IfcElement::IfcElement(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
     m_tag = Step::getUnset(m_tag);
-    m_fillsVoids.setUnset(true);
-    m_connectedTo.setUnset(true);
-    m_hasCoverings.setUnset(true);
-    m_hasProjections.setUnset(true);
-    m_hasStructuralMember.setUnset(true);
-    m_referencedInStructures.setUnset(true);
-    m_hasPorts.setUnset(true);
-    m_hasOpenings.setUnset(true);
-    m_isConnectionRealization.setUnset(true);
-    m_providesBoundaries.setUnset(true);
-    m_connectedFrom.setUnset(true);
-    m_containedInStructure.setUnset(true);
 }
 
 IfcElement::~IfcElement() {
 }
 
-bool IfcElement::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcElement(this);
+bool IfcElement::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcElement(this);
 }
 
-const std::string &IfcElement::type() {
+const std::string &IfcElement::type() const {
     return IfcElement::s_type.getName();
 }
 
-Step::ClassType IfcElement::getClassType() {
+const Step::ClassType &IfcElement::getClassType() {
     return IfcElement::s_type;
 }
 
-Step::ClassType IfcElement::getType() const {
+const Step::ClassType &IfcElement::getType() const {
     return IfcElement::s_type;
 }
 
-bool IfcElement::isOfType(Step::ClassType t) {
+bool IfcElement::isOfType(const Step::ClassType &t) const {
     return IfcElement::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
@@ -100,51 +89,16 @@ IfcIdentifier IfcElement::getTag() {
     }
 }
 
+const IfcIdentifier IfcElement::getTag() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getTag();
+}
+
 void IfcElement::setTag(const IfcIdentifier &value) {
     m_tag = value;
 }
 
-Step::Set< Step::ObsPtr< IfcRelFillsElement > > &IfcElement::getFillsVoids() {
-    if (Step::BaseObject::inited()) {
-        return m_fillsVoids;
-    }
-    else {
-        m_fillsVoids.setUnset(true);
-        return m_fillsVoids;
-    }
-}
-
-Step::Set< Step::ObsPtr< IfcRelConnectsElements > > &IfcElement::getConnectedTo() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedTo;
-    }
-    else {
-        m_connectedTo.setUnset(true);
-        return m_connectedTo;
-    }
-}
-
-Step::Set< Step::ObsPtr< IfcRelCoversBldgElements > > &IfcElement::getHasCoverings() {
-    if (Step::BaseObject::inited()) {
-        return m_hasCoverings;
-    }
-    else {
-        m_hasCoverings.setUnset(true);
-        return m_hasCoverings;
-    }
-}
-
-Step::Set< Step::ObsPtr< IfcRelProjectsElement > > &IfcElement::getHasProjections() {
-    if (Step::BaseObject::inited()) {
-        return m_hasProjections;
-    }
-    else {
-        m_hasProjections.setUnset(true);
-        return m_hasProjections;
-    }
-}
-
-Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > &IfcElement::getHasStructuralMember() {
+Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcElement::getHasStructuralMember() {
     if (Step::BaseObject::inited()) {
         return m_hasStructuralMember;
     }
@@ -154,7 +108,72 @@ Step::Set< Step::ObsPtr< IfcRelConnectsStructuralElement > > &IfcElement::getHas
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > &IfcElement::getReferencedInStructures() {
+const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcElement::getHasStructuralMember() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getHasStructuralMember();
+}
+
+Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() {
+    if (Step::BaseObject::inited()) {
+        return m_fillsVoids;
+    }
+    else {
+        m_fillsVoids.setUnset(true);
+        return m_fillsVoids;
+    }
+}
+
+const Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getFillsVoids();
+}
+
+Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() {
+    if (Step::BaseObject::inited()) {
+        return m_connectedTo;
+    }
+    else {
+        m_connectedTo.setUnset(true);
+        return m_connectedTo;
+    }
+}
+
+const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getConnectedTo();
+}
+
+Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() {
+    if (Step::BaseObject::inited()) {
+        return m_hasCoverings;
+    }
+    else {
+        m_hasCoverings.setUnset(true);
+        return m_hasCoverings;
+    }
+}
+
+const Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getHasCoverings();
+}
+
+Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() {
+    if (Step::BaseObject::inited()) {
+        return m_hasProjections;
+    }
+    else {
+        m_hasProjections.setUnset(true);
+        return m_hasProjections;
+    }
+}
+
+const Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getHasProjections();
+}
+
+Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferencedInStructures() {
     if (Step::BaseObject::inited()) {
         return m_referencedInStructures;
     }
@@ -164,7 +183,12 @@ Step::Set< Step::ObsPtr< IfcRelReferencedInSpatialStructure > > &IfcElement::get
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > &IfcElement::getHasPorts() {
+const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferencedInStructures() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getReferencedInStructures();
+}
+
+Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() {
     if (Step::BaseObject::inited()) {
         return m_hasPorts;
     }
@@ -174,7 +198,12 @@ Step::Set< Step::ObsPtr< IfcRelConnectsPortToElement > > &IfcElement::getHasPort
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelVoidsElement > > &IfcElement::getHasOpenings() {
+const Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getHasPorts();
+}
+
+Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() {
     if (Step::BaseObject::inited()) {
         return m_hasOpenings;
     }
@@ -184,7 +213,12 @@ Step::Set< Step::ObsPtr< IfcRelVoidsElement > > &IfcElement::getHasOpenings() {
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > &IfcElement::getIsConnectionRealization() {
+const Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getHasOpenings();
+}
+
+Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConnectionRealization() {
     if (Step::BaseObject::inited()) {
         return m_isConnectionRealization;
     }
@@ -194,7 +228,12 @@ Step::Set< Step::ObsPtr< IfcRelConnectsWithRealizingElements > > &IfcElement::ge
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &IfcElement::getProvidesBoundaries() {
+const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConnectionRealization() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getIsConnectionRealization();
+}
+
+Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() {
     if (Step::BaseObject::inited()) {
         return m_providesBoundaries;
     }
@@ -204,7 +243,12 @@ Step::Set< Step::ObsPtr< IfcRelSpaceBoundary > > &IfcElement::getProvidesBoundar
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelConnectsElements > > &IfcElement::getConnectedFrom() {
+const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getProvidesBoundaries();
+}
+
+Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() {
     if (Step::BaseObject::inited()) {
         return m_connectedFrom;
     }
@@ -214,7 +258,12 @@ Step::Set< Step::ObsPtr< IfcRelConnectsElements > > &IfcElement::getConnectedFro
     }
 }
 
-Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcElement::getContainedInStructure() {
+const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getConnectedFrom();
+}
+
+Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
     }
@@ -224,8 +273,9 @@ Step::Set< Step::ObsPtr< IfcRelContainedInSpatialStructure > > &IfcElement::getC
     }
 }
 
-void IfcElement::release() {
-    IfcProduct::release();
+const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContainedInStructure() const {
+    IfcElement * deConstObject = const_cast< IfcElement * > (this);
+    return deConstObject->getContainedInStructure();
 }
 
 bool IfcElement::init() {
@@ -240,7 +290,15 @@ bool IfcElement::init() {
         m_tag = Step::getUnset(m_tag);
     }
     else {
-        m_tag = Step::spfToString(arg);
+        m_tag = Step::String::fromSPF(arg);
+    }
+    inverses = m_args->getInverses(IfcRelConnectsStructuralElement::getClassType(), 4);
+    if (inverses) {
+        unsigned int i;
+        m_hasStructuralMember.setUnset(false);
+        for (i = 0; i < inverses->size(); i++) {
+            m_hasStructuralMember.insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
+        }
     }
     inverses = m_args->getInverses(IfcRelFillsElement::getClassType(), 5);
     if (inverses) {
@@ -272,14 +330,6 @@ bool IfcElement::init() {
         m_hasProjections.setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
             m_hasProjections.insert(static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[i])));
-        }
-    }
-    inverses = m_args->getInverses(IfcRelConnectsStructuralElement::getClassType(), 4);
-    if (inverses) {
-        unsigned int i;
-        m_hasStructuralMember.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasStructuralMember.insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelReferencedInSpatialStructure::getClassType(), 4);

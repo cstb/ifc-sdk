@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,8 +35,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -52,23 +52,23 @@ IfcSweptSurface::IfcSweptSurface(Step::Id id, Step::SPFData *args) : IfcSurface(
 IfcSweptSurface::~IfcSweptSurface() {
 }
 
-bool IfcSweptSurface::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSweptSurface(this);
+bool IfcSweptSurface::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSweptSurface(this);
 }
 
-const std::string &IfcSweptSurface::type() {
+const std::string &IfcSweptSurface::type() const {
     return IfcSweptSurface::s_type.getName();
 }
 
-Step::ClassType IfcSweptSurface::getClassType() {
+const Step::ClassType &IfcSweptSurface::getClassType() {
     return IfcSweptSurface::s_type;
 }
 
-Step::ClassType IfcSweptSurface::getType() const {
+const Step::ClassType &IfcSweptSurface::getType() const {
     return IfcSweptSurface::s_type;
 }
 
-bool IfcSweptSurface::isOfType(Step::ClassType t) {
+bool IfcSweptSurface::isOfType(const Step::ClassType &t) const {
     return IfcSweptSurface::s_type == t ? true : IfcSurface::isOfType(t);
 }
 
@@ -79,6 +79,11 @@ IfcProfileDef *IfcSweptSurface::getSweptCurve() {
     else {
         return NULL;
     }
+}
+
+const IfcProfileDef *IfcSweptSurface::getSweptCurve() const {
+    IfcSweptSurface * deConstObject = const_cast< IfcSweptSurface * > (this);
+    return deConstObject->getSweptCurve();
 }
 
 void IfcSweptSurface::setSweptCurve(const Step::RefPtr< IfcProfileDef > &value) {
@@ -94,14 +99,13 @@ IfcAxis2Placement3D *IfcSweptSurface::getPosition() {
     }
 }
 
-void IfcSweptSurface::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
-    m_position = value;
+const IfcAxis2Placement3D *IfcSweptSurface::getPosition() const {
+    IfcSweptSurface * deConstObject = const_cast< IfcSweptSurface * > (this);
+    return deConstObject->getPosition();
 }
 
-void IfcSweptSurface::release() {
-    IfcSurface::release();
-    m_sweptCurve.release();
-    m_position.release();
+void IfcSweptSurface::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
+    m_position = value;
 }
 
 bool IfcSweptSurface::init() {
@@ -115,22 +119,22 @@ bool IfcSweptSurface::init() {
         m_sweptCurve = NULL;
     }
     else {
-        m_sweptCurve = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_sweptCurve = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
         m_position = NULL;
     }
     else {
-        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_position = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     return true;
 }
 
 void IfcSweptSurface::copy(const IfcSweptSurface &obj, const CopyOp &copyop) {
     IfcSurface::copy(obj, copyop);
-    setSweptCurve(copyop(obj.m_sweptCurve.get()));
-    setPosition(copyop(obj.m_position.get()));
+    setSweptCurve((IfcProfileDef*)copyop(obj.m_sweptCurve.get()));
+    setPosition((IfcAxis2Placement3D*)copyop(obj.m_position.get()));
     return;
 }
 

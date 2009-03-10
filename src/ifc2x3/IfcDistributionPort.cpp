@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcDistributionPort::IfcDistributionPort(Step::Id id, Step::SPFData *args) : Ifc
 IfcDistributionPort::~IfcDistributionPort() {
 }
 
-bool IfcDistributionPort::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcDistributionPort(this);
+bool IfcDistributionPort::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcDistributionPort(this);
 }
 
-const std::string &IfcDistributionPort::type() {
+const std::string &IfcDistributionPort::type() const {
     return IfcDistributionPort::s_type.getName();
 }
 
-Step::ClassType IfcDistributionPort::getClassType() {
+const Step::ClassType &IfcDistributionPort::getClassType() {
     return IfcDistributionPort::s_type;
 }
 
-Step::ClassType IfcDistributionPort::getType() const {
+const Step::ClassType &IfcDistributionPort::getType() const {
     return IfcDistributionPort::s_type;
 }
 
-bool IfcDistributionPort::isOfType(Step::ClassType t) {
+bool IfcDistributionPort::isOfType(const Step::ClassType &t) const {
     return IfcDistributionPort::s_type == t ? true : IfcPort::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcFlowDirectionEnum IfcDistributionPort::getFlowDirection() {
     }
 }
 
-void IfcDistributionPort::setFlowDirection(IfcFlowDirectionEnum value) {
-    m_flowDirection = value;
+const IfcFlowDirectionEnum IfcDistributionPort::getFlowDirection() const {
+    IfcDistributionPort * deConstObject = const_cast< IfcDistributionPort * > (this);
+    return deConstObject->getFlowDirection();
 }
 
-void IfcDistributionPort::release() {
-    IfcPort::release();
+void IfcDistributionPort::setFlowDirection(IfcFlowDirectionEnum value) {
+    m_flowDirection = value;
 }
 
 bool IfcDistributionPort::init() {

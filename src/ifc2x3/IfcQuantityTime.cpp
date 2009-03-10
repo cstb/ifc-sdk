@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -46,23 +46,23 @@ IfcQuantityTime::IfcQuantityTime(Step::Id id, Step::SPFData *args) : IfcPhysical
 IfcQuantityTime::~IfcQuantityTime() {
 }
 
-bool IfcQuantityTime::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcQuantityTime(this);
+bool IfcQuantityTime::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcQuantityTime(this);
 }
 
-const std::string &IfcQuantityTime::type() {
+const std::string &IfcQuantityTime::type() const {
     return IfcQuantityTime::s_type.getName();
 }
 
-Step::ClassType IfcQuantityTime::getClassType() {
+const Step::ClassType &IfcQuantityTime::getClassType() {
     return IfcQuantityTime::s_type;
 }
 
-Step::ClassType IfcQuantityTime::getType() const {
+const Step::ClassType &IfcQuantityTime::getType() const {
     return IfcQuantityTime::s_type;
 }
 
-bool IfcQuantityTime::isOfType(Step::ClassType t) {
+bool IfcQuantityTime::isOfType(const Step::ClassType &t) const {
     return IfcQuantityTime::s_type == t ? true : IfcPhysicalSimpleQuantity::isOfType(t);
 }
 
@@ -75,12 +75,13 @@ IfcTimeMeasure IfcQuantityTime::getTimeValue() {
     }
 }
 
-void IfcQuantityTime::setTimeValue(IfcTimeMeasure value) {
-    m_timeValue = value;
+const IfcTimeMeasure IfcQuantityTime::getTimeValue() const {
+    IfcQuantityTime * deConstObject = const_cast< IfcQuantityTime * > (this);
+    return deConstObject->getTimeValue();
 }
 
-void IfcQuantityTime::release() {
-    IfcPhysicalSimpleQuantity::release();
+void IfcQuantityTime::setTimeValue(IfcTimeMeasure value) {
+    m_timeValue = value;
 }
 
 bool IfcQuantityTime::init() {

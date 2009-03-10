@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,7 +38,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -48,30 +47,28 @@ using namespace ifc2x3;
 
 IfcSectionedSpine::IfcSectionedSpine(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
     m_spineCurve = NULL;
-    m_crossSections.setUnset(true);
-    m_crossSectionPositions.setUnset(true);
 }
 
 IfcSectionedSpine::~IfcSectionedSpine() {
 }
 
-bool IfcSectionedSpine::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcSectionedSpine(this);
+bool IfcSectionedSpine::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcSectionedSpine(this);
 }
 
-const std::string &IfcSectionedSpine::type() {
+const std::string &IfcSectionedSpine::type() const {
     return IfcSectionedSpine::s_type.getName();
 }
 
-Step::ClassType IfcSectionedSpine::getClassType() {
+const Step::ClassType &IfcSectionedSpine::getClassType() {
     return IfcSectionedSpine::s_type;
 }
 
-Step::ClassType IfcSectionedSpine::getType() const {
+const Step::ClassType &IfcSectionedSpine::getType() const {
     return IfcSectionedSpine::s_type;
 }
 
-bool IfcSectionedSpine::isOfType(Step::ClassType t) {
+bool IfcSectionedSpine::isOfType(const Step::ClassType &t) const {
     return IfcSectionedSpine::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
@@ -84,11 +81,16 @@ IfcCompositeCurve *IfcSectionedSpine::getSpineCurve() {
     }
 }
 
+const IfcCompositeCurve *IfcSectionedSpine::getSpineCurve() const {
+    IfcSectionedSpine * deConstObject = const_cast< IfcSectionedSpine * > (this);
+    return deConstObject->getSpineCurve();
+}
+
 void IfcSectionedSpine::setSpineCurve(const Step::RefPtr< IfcCompositeCurve > &value) {
     m_spineCurve = value;
 }
 
-Step::List< Step::RefPtr< IfcProfileDef > > &IfcSectionedSpine::getCrossSections() {
+List_IfcProfileDef_2_n &IfcSectionedSpine::getCrossSections() {
     if (Step::BaseObject::inited()) {
         return m_crossSections;
     }
@@ -98,11 +100,16 @@ Step::List< Step::RefPtr< IfcProfileDef > > &IfcSectionedSpine::getCrossSections
     }
 }
 
-void IfcSectionedSpine::setCrossSections(const Step::List< Step::RefPtr< IfcProfileDef > > &value) {
+const List_IfcProfileDef_2_n &IfcSectionedSpine::getCrossSections() const {
+    IfcSectionedSpine * deConstObject = const_cast< IfcSectionedSpine * > (this);
+    return deConstObject->getCrossSections();
+}
+
+void IfcSectionedSpine::setCrossSections(const List_IfcProfileDef_2_n &value) {
     m_crossSections = value;
 }
 
-Step::List< Step::RefPtr< IfcAxis2Placement3D > > &IfcSectionedSpine::getCrossSectionPositions() {
+List_IfcAxis2Placement3D_2_n &IfcSectionedSpine::getCrossSectionPositions() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionPositions;
     }
@@ -112,15 +119,13 @@ Step::List< Step::RefPtr< IfcAxis2Placement3D > > &IfcSectionedSpine::getCrossSe
     }
 }
 
-void IfcSectionedSpine::setCrossSectionPositions(const Step::List< Step::RefPtr< IfcAxis2Placement3D > > &value) {
-    m_crossSectionPositions = value;
+const List_IfcAxis2Placement3D_2_n &IfcSectionedSpine::getCrossSectionPositions() const {
+    IfcSectionedSpine * deConstObject = const_cast< IfcSectionedSpine * > (this);
+    return deConstObject->getCrossSectionPositions();
 }
 
-void IfcSectionedSpine::release() {
-    IfcGeometricRepresentationItem::release();
-    m_spineCurve.release();
-    m_crossSections.clear();
-    m_crossSectionPositions.clear();
+void IfcSectionedSpine::setCrossSectionPositions(const List_IfcAxis2Placement3D_2_n &value) {
+    m_crossSectionPositions = value;
 }
 
 bool IfcSectionedSpine::init() {
@@ -134,7 +139,7 @@ bool IfcSectionedSpine::init() {
         m_spineCurve = NULL;
     }
     else {
-        m_spineCurve = static_cast< IfcCompositeCurve * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_spineCurve = static_cast< IfcCompositeCurve * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -147,7 +152,7 @@ bool IfcSectionedSpine::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcProfileDef > attr2;
-                attr2 = static_cast< IfcProfileDef * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcProfileDef * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_crossSections.push_back(attr2);
             }
             else {
@@ -166,7 +171,7 @@ bool IfcSectionedSpine::init() {
             Step::getSubParameter(arg, str1);
             if (str1 != "") {
                 Step::RefPtr< IfcAxis2Placement3D > attr2;
-                attr2 = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                attr2 = static_cast< IfcAxis2Placement3D * > (m_expressDataSet->get(Step::getIdParam(str1)));
                 m_crossSectionPositions.push_back(attr2);
             }
             else {
@@ -178,16 +183,16 @@ bool IfcSectionedSpine::init() {
 }
 
 void IfcSectionedSpine::copy(const IfcSectionedSpine &obj, const CopyOp &copyop) {
-    Step::List< Step::RefPtr< IfcProfileDef > >::const_iterator it_m_crossSections;
-    Step::List< Step::RefPtr< IfcAxis2Placement3D > >::const_iterator it_m_crossSectionPositions;
+    Step::List< Step::RefPtr< IfcProfileDef >, 2 >::const_iterator it_m_crossSections;
+    Step::List< Step::RefPtr< IfcAxis2Placement3D >, 2 >::const_iterator it_m_crossSectionPositions;
     IfcGeometricRepresentationItem::copy(obj, copyop);
-    setSpineCurve(copyop(obj.m_spineCurve.get()));
+    setSpineCurve((IfcCompositeCurve*)copyop(obj.m_spineCurve.get()));
     for (it_m_crossSections = obj.m_crossSections.begin(); it_m_crossSections != obj.m_crossSections.end(); ++it_m_crossSections) {
-        Step::RefPtr< IfcProfileDef > copyTarget = copyop((*it_m_crossSections).get());
+        Step::RefPtr< IfcProfileDef > copyTarget = (IfcProfileDef *) (copyop((*it_m_crossSections).get()));
         m_crossSections.push_back(copyTarget.get());
     }
     for (it_m_crossSectionPositions = obj.m_crossSectionPositions.begin(); it_m_crossSectionPositions != obj.m_crossSectionPositions.end(); ++it_m_crossSectionPositions) {
-        Step::RefPtr< IfcAxis2Placement3D > copyTarget = copyop((*it_m_crossSectionPositions).get());
+        Step::RefPtr< IfcAxis2Placement3D > copyTarget = (IfcAxis2Placement3D *) (copyop((*it_m_crossSectionPositions).get()));
         m_crossSectionPositions.push_back(copyTarget.get());
     }
     return;

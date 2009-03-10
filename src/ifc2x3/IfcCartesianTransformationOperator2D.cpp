@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,28 +44,24 @@ IfcCartesianTransformationOperator2D::IfcCartesianTransformationOperator2D(Step:
 IfcCartesianTransformationOperator2D::~IfcCartesianTransformationOperator2D() {
 }
 
-bool IfcCartesianTransformationOperator2D::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcCartesianTransformationOperator2D(this);
+bool IfcCartesianTransformationOperator2D::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcCartesianTransformationOperator2D(this);
 }
 
-const std::string &IfcCartesianTransformationOperator2D::type() {
+const std::string &IfcCartesianTransformationOperator2D::type() const {
     return IfcCartesianTransformationOperator2D::s_type.getName();
 }
 
-Step::ClassType IfcCartesianTransformationOperator2D::getClassType() {
+const Step::ClassType &IfcCartesianTransformationOperator2D::getClassType() {
     return IfcCartesianTransformationOperator2D::s_type;
 }
 
-Step::ClassType IfcCartesianTransformationOperator2D::getType() const {
+const Step::ClassType &IfcCartesianTransformationOperator2D::getType() const {
     return IfcCartesianTransformationOperator2D::s_type;
 }
 
-bool IfcCartesianTransformationOperator2D::isOfType(Step::ClassType t) {
+bool IfcCartesianTransformationOperator2D::isOfType(const Step::ClassType &t) const {
     return IfcCartesianTransformationOperator2D::s_type == t ? true : IfcCartesianTransformationOperator::isOfType(t);
-}
-
-void IfcCartesianTransformationOperator2D::release() {
-    IfcCartesianTransformationOperator::release();
 }
 
 bool IfcCartesianTransformationOperator2D::init() {

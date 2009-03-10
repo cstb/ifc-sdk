@@ -1,15 +1,15 @@
 /*
-///////////////////////////////////////////////
-// This File has been generated automaticaly //
-// by Expressik generator                    //
-//  Powered by : Eve CSTB                    //
-///////////////////////////////////////////////
+//////////////////////////////////
+// This File has been generated //
+// by Expressik light generator //
+//  Powered by : Eve CSTB       //
+//////////////////////////////////
 
  * *************************************************************************
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2007 CSTB                                             *
+ *     Copyright (C) 2008 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,8 +34,8 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
+#include <Step/SPFFunctions.h>
 #include <Step/logger.h>
-#include <stdlib.h>
 #include <string>
 
 #ifdef USE_MEMORYMANAGER
@@ -54,23 +54,23 @@ IfcLocalTime::IfcLocalTime(Step::Id id, Step::SPFData *args) : Step::BaseEntity(
 IfcLocalTime::~IfcLocalTime() {
 }
 
-bool IfcLocalTime::acceptVisitor(Step::BaseVisitor *v) {
-    return static_cast< Visitor * > (v)->visitIfcLocalTime(this);
+bool IfcLocalTime::acceptVisitor(Step::BaseVisitor *visitor) {
+    return static_cast< Visitor * > (visitor)->visitIfcLocalTime(this);
 }
 
-const std::string &IfcLocalTime::type() {
+const std::string &IfcLocalTime::type() const {
     return IfcLocalTime::s_type.getName();
 }
 
-Step::ClassType IfcLocalTime::getClassType() {
+const Step::ClassType &IfcLocalTime::getClassType() {
     return IfcLocalTime::s_type;
 }
 
-Step::ClassType IfcLocalTime::getType() const {
+const Step::ClassType &IfcLocalTime::getType() const {
     return IfcLocalTime::s_type;
 }
 
-bool IfcLocalTime::isOfType(Step::ClassType t) {
+bool IfcLocalTime::isOfType(const Step::ClassType &t) const {
     return IfcLocalTime::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
@@ -81,6 +81,11 @@ IfcHourInDay IfcLocalTime::getHourComponent() {
     else {
         return Step::getUnset(m_hourComponent);
     }
+}
+
+const IfcHourInDay IfcLocalTime::getHourComponent() const {
+    IfcLocalTime * deConstObject = const_cast< IfcLocalTime * > (this);
+    return deConstObject->getHourComponent();
 }
 
 void IfcLocalTime::setHourComponent(IfcHourInDay value) {
@@ -96,6 +101,11 @@ IfcMinuteInHour IfcLocalTime::getMinuteComponent() {
     }
 }
 
+const IfcMinuteInHour IfcLocalTime::getMinuteComponent() const {
+    IfcLocalTime * deConstObject = const_cast< IfcLocalTime * > (this);
+    return deConstObject->getMinuteComponent();
+}
+
 void IfcLocalTime::setMinuteComponent(IfcMinuteInHour value) {
     m_minuteComponent = value;
 }
@@ -107,6 +117,11 @@ IfcSecondInMinute IfcLocalTime::getSecondComponent() {
     else {
         return Step::getUnset(m_secondComponent);
     }
+}
+
+const IfcSecondInMinute IfcLocalTime::getSecondComponent() const {
+    IfcLocalTime * deConstObject = const_cast< IfcLocalTime * > (this);
+    return deConstObject->getSecondComponent();
 }
 
 void IfcLocalTime::setSecondComponent(IfcSecondInMinute value) {
@@ -122,6 +137,11 @@ IfcCoordinatedUniversalTimeOffset *IfcLocalTime::getZone() {
     }
 }
 
+const IfcCoordinatedUniversalTimeOffset *IfcLocalTime::getZone() const {
+    IfcLocalTime * deConstObject = const_cast< IfcLocalTime * > (this);
+    return deConstObject->getZone();
+}
+
 void IfcLocalTime::setZone(const Step::RefPtr< IfcCoordinatedUniversalTimeOffset > &value) {
     m_zone = value;
 }
@@ -135,12 +155,13 @@ IfcDaylightSavingHour IfcLocalTime::getDaylightSavingOffset() {
     }
 }
 
-void IfcLocalTime::setDaylightSavingOffset(IfcDaylightSavingHour value) {
-    m_daylightSavingOffset = value;
+const IfcDaylightSavingHour IfcLocalTime::getDaylightSavingOffset() const {
+    IfcLocalTime * deConstObject = const_cast< IfcLocalTime * > (this);
+    return deConstObject->getDaylightSavingOffset();
 }
 
-void IfcLocalTime::release() {
-    m_zone.release();
+void IfcLocalTime::setDaylightSavingOffset(IfcDaylightSavingHour value) {
+    m_daylightSavingOffset = value;
 }
 
 bool IfcLocalTime::init() {
@@ -171,7 +192,7 @@ bool IfcLocalTime::init() {
         m_zone = NULL;
     }
     else {
-        m_zone = static_cast< IfcCoordinatedUniversalTimeOffset * > (m_expressDataSet->get(atoi(arg.c_str() + 1)));
+        m_zone = static_cast< IfcCoordinatedUniversalTimeOffset * > (m_expressDataSet->get(Step::getIdParam(arg)));
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
@@ -188,7 +209,7 @@ void IfcLocalTime::copy(const IfcLocalTime &obj, const CopyOp &copyop) {
     setHourComponent(obj.m_hourComponent);
     setMinuteComponent(obj.m_minuteComponent);
     setSecondComponent(obj.m_secondComponent);
-    setZone(copyop(obj.m_zone.get()));
+    setZone((IfcCoordinatedUniversalTimeOffset*)copyop(obj.m_zone.get()));
     setDaylightSavingOffset(obj.m_daylightSavingOffset);
     return;
 }
