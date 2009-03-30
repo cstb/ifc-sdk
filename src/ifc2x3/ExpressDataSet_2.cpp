@@ -423,7 +423,7 @@
 #include "ifc2x3/IfcRelConnectsStructuralElement.h"
 #include "ifc2x3/IfcRelConnectsStructuralMember.h"
 #include "ifc2x3/IfcRelConnectsWithEccentricity.h"
-#include "ifc2x3/IfcRelConnectsWithRealizingElements.hIfcPhysicalQuantity"
+#include "ifc2x3/IfcRelConnectsWithRealizingElements.h"
 #include "ifc2x3/IfcRelContainedInSpatialStructure.h"
 #include "ifc2x3/IfcRelCoversBldgElements.h"
 #include "ifc2x3/IfcRelCoversSpaces.h"
