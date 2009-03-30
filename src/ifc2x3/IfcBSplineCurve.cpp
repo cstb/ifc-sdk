@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBSplineCurve::IfcBSplineCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
@@ -91,6 +88,14 @@ void IfcBSplineCurve::setDegree(Step::Integer value) {
     m_degree = value;
 }
 
+void IfcBSplineCurve::unsetDegree() {
+    m_degree = Step::getUnset(getDegree());
+}
+
+bool IfcBSplineCurve::testDegree() const {
+    return !Step::isUnset(getDegree());
+}
+
 List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() {
     if (Step::BaseObject::inited()) {
         return m_controlPointsList;
@@ -108,6 +113,15 @@ const List_IfcCartesianPoint_2_n &IfcBSplineCurve::getControlPointsList() const 
 
 void IfcBSplineCurve::setControlPointsList(const List_IfcCartesianPoint_2_n &value) {
     m_controlPointsList = value;
+}
+
+void IfcBSplineCurve::unsetControlPointsList() {
+    m_controlPointsList.clear();
+    m_controlPointsList.setUnset(true);
+}
+
+bool IfcBSplineCurve::testControlPointsList() const {
+    return !Step::isUnset(getControlPointsList());
 }
 
 IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() {
@@ -128,6 +142,14 @@ void IfcBSplineCurve::setCurveForm(IfcBSplineCurveForm value) {
     m_curveForm = value;
 }
 
+void IfcBSplineCurve::unsetCurveForm() {
+    m_curveForm = IfcBSplineCurveForm_UNSET;
+}
+
+bool IfcBSplineCurve::testCurveForm() const {
+    return getCurveForm() != IfcBSplineCurveForm_UNSET;
+}
+
 Step::Logical IfcBSplineCurve::getClosedCurve() {
     if (Step::BaseObject::inited()) {
         return m_closedCurve;
@@ -146,6 +168,14 @@ void IfcBSplineCurve::setClosedCurve(Step::Logical value) {
     m_closedCurve = value;
 }
 
+void IfcBSplineCurve::unsetClosedCurve() {
+    m_closedCurve = Step::getUnset(getClosedCurve());
+}
+
+bool IfcBSplineCurve::testClosedCurve() const {
+    return !Step::isUnset(getClosedCurve());
+}
+
 Step::Logical IfcBSplineCurve::getSelfIntersect() {
     if (Step::BaseObject::inited()) {
         return m_selfIntersect;
@@ -162,6 +192,14 @@ const Step::Logical IfcBSplineCurve::getSelfIntersect() const {
 
 void IfcBSplineCurve::setSelfIntersect(Step::Logical value) {
     m_selfIntersect = value;
+}
+
+void IfcBSplineCurve::unsetSelfIntersect() {
+    m_selfIntersect = Step::getUnset(getSelfIntersect());
+}
+
+bool IfcBSplineCurve::testSelfIntersect() const {
+    return !Step::isUnset(getSelfIntersect());
 }
 
 bool IfcBSplineCurve::init() {

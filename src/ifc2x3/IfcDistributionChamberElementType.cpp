@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDistributionChamberElementType::IfcDistributionChamberElementType(Step::Id id, Step::SPFData *args) : IfcDistributionFlowElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcDistributionChamberElementTypeEnum IfcDistributionChamberElementType::g
 
 void IfcDistributionChamberElementType::setPredefinedType(IfcDistributionChamberElementTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcDistributionChamberElementType::unsetPredefinedType() {
+    m_predefinedType = IfcDistributionChamberElementTypeEnum_UNSET;
+}
+
+bool IfcDistributionChamberElementType::testPredefinedType() const {
+    return getPredefinedType() != IfcDistributionChamberElementTypeEnum_UNSET;
 }
 
 bool IfcDistributionChamberElementType::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcConstraintAggregationRelationship;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type : public List_IfcConstraint_1_n {
     public:
@@ -54,29 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcConstraintAggregationRelationship *mOwner;
-        /**
-         */
         Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcConstraintAggregationRelationship *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcConstraint > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcConstraint > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcConstraintAggregationRelationship;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcConstraintAggregationRelationship *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcConstraintAggregationRelationship *owner);
 
     };
 
     class CopyOp;
-    class IfcConstraint;
 
     /**
+     * Generated class for the IfcConstraintAggregationRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConstraintAggregationRelationship : public Step::BaseEntity {
     public:
@@ -125,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -141,6 +168,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'RelatingConstraint'.
          * 
@@ -159,6 +197,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value);
         /**
+         * unset the attribute 'RelatingConstraint'.
+         * 
+         */
+        virtual void unsetRelatingConstraint();
+        /**
+         * Test if the attribute 'RelatingConstraint' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingConstraint() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedConstraints'.
          * 
          */
@@ -169,6 +218,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedConstraints'
          */
         virtual const List_IfcConstraint_1_n &getRelatedConstraints() const;
+        /**
+         * unset the attribute 'RelatedConstraints'.
+         * 
+         */
+        virtual void unsetRelatedConstraints();
+        /**
+         * Test if the attribute 'RelatedConstraints' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedConstraints() const;
         /**
          * Gets the value of the explicit attribute 'LogicalAggregator'.
          * 
@@ -186,6 +246,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLogicalAggregator(IfcLogicalOperatorEnum value);
+        /**
+         * unset the attribute 'LogicalAggregator'.
+         * 
+         */
+        virtual void unsetLogicalAggregator();
+        /**
+         * Test if the attribute 'LogicalAggregator' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLogicalAggregator() const;
         friend class ExpressDataSet;
 
     protected:

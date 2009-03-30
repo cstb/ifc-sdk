@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCoordinatedUniversalTimeOffset::IfcCoordinatedUniversalTimeOffset(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,14 @@ void IfcCoordinatedUniversalTimeOffset::setHourOffset(IfcHourInDay value) {
     m_hourOffset = value;
 }
 
+void IfcCoordinatedUniversalTimeOffset::unsetHourOffset() {
+    m_hourOffset = Step::getUnset(getHourOffset());
+}
+
+bool IfcCoordinatedUniversalTimeOffset::testHourOffset() const {
+    return !Step::isUnset(getHourOffset());
+}
+
 IfcMinuteInHour IfcCoordinatedUniversalTimeOffset::getMinuteOffset() {
     if (Step::BaseObject::inited()) {
         return m_minuteOffset;
@@ -104,6 +109,14 @@ void IfcCoordinatedUniversalTimeOffset::setMinuteOffset(IfcMinuteInHour value) {
     m_minuteOffset = value;
 }
 
+void IfcCoordinatedUniversalTimeOffset::unsetMinuteOffset() {
+    m_minuteOffset = Step::getUnset(getMinuteOffset());
+}
+
+bool IfcCoordinatedUniversalTimeOffset::testMinuteOffset() const {
+    return !Step::isUnset(getMinuteOffset());
+}
+
 IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() {
     if (Step::BaseObject::inited()) {
         return m_sense;
@@ -120,6 +133,14 @@ const IfcAheadOrBehind IfcCoordinatedUniversalTimeOffset::getSense() const {
 
 void IfcCoordinatedUniversalTimeOffset::setSense(IfcAheadOrBehind value) {
     m_sense = value;
+}
+
+void IfcCoordinatedUniversalTimeOffset::unsetSense() {
+    m_sense = IfcAheadOrBehind_UNSET;
+}
+
+bool IfcCoordinatedUniversalTimeOffset::testSense() const {
+    return getSense() != IfcAheadOrBehind_UNSET;
 }
 
 bool IfcCoordinatedUniversalTimeOffset::init() {

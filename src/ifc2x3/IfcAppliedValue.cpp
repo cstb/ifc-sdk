@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -45,9 +45,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAppliedValue::IfcAppliedValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -100,6 +97,14 @@ void IfcAppliedValue::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcAppliedValue::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcAppliedValue::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcAppliedValue::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -116,6 +121,14 @@ const IfcText IfcAppliedValue::getDescription() const {
 
 void IfcAppliedValue::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcAppliedValue::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcAppliedValue::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcAppliedValueSelect *IfcAppliedValue::getAppliedValue() {
@@ -136,6 +149,14 @@ void IfcAppliedValue::setAppliedValue(const Step::RefPtr< IfcAppliedValueSelect 
     m_appliedValue = value;
 }
 
+void IfcAppliedValue::unsetAppliedValue() {
+    m_appliedValue = Step::getUnset(getAppliedValue());
+}
+
+bool IfcAppliedValue::testAppliedValue() const {
+    return !Step::isUnset(getAppliedValue());
+}
+
 IfcMeasureWithUnit *IfcAppliedValue::getUnitBasis() {
     if (Step::BaseObject::inited()) {
         return m_unitBasis.get();
@@ -152,6 +173,14 @@ const IfcMeasureWithUnit *IfcAppliedValue::getUnitBasis() const {
 
 void IfcAppliedValue::setUnitBasis(const Step::RefPtr< IfcMeasureWithUnit > &value) {
     m_unitBasis = value;
+}
+
+void IfcAppliedValue::unsetUnitBasis() {
+    m_unitBasis = Step::getUnset(getUnitBasis());
+}
+
+bool IfcAppliedValue::testUnitBasis() const {
+    return !Step::isUnset(getUnitBasis());
 }
 
 IfcDateTimeSelect *IfcAppliedValue::getApplicableDate() {
@@ -172,6 +201,14 @@ void IfcAppliedValue::setApplicableDate(const Step::RefPtr< IfcDateTimeSelect > 
     m_applicableDate = value;
 }
 
+void IfcAppliedValue::unsetApplicableDate() {
+    m_applicableDate = Step::getUnset(getApplicableDate());
+}
+
+bool IfcAppliedValue::testApplicableDate() const {
+    return !Step::isUnset(getApplicableDate());
+}
+
 IfcDateTimeSelect *IfcAppliedValue::getFixedUntilDate() {
     if (Step::BaseObject::inited()) {
         return m_fixedUntilDate.get();
@@ -190,6 +227,14 @@ void IfcAppliedValue::setFixedUntilDate(const Step::RefPtr< IfcDateTimeSelect > 
     m_fixedUntilDate = value;
 }
 
+void IfcAppliedValue::unsetFixedUntilDate() {
+    m_fixedUntilDate = Step::getUnset(getFixedUntilDate());
+}
+
+bool IfcAppliedValue::testFixedUntilDate() const {
+    return !Step::isUnset(getFixedUntilDate());
+}
+
 Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() {
     if (Step::BaseObject::inited()) {
         return m_valuesReferenced;
@@ -203,6 +248,10 @@ Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced
 const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() const {
     IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
     return deConstObject->getValuesReferenced();
+}
+
+bool IfcAppliedValue::testValuesReferenced() const {
+    return !Step::isUnset(getValuesReferenced());
 }
 
 Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() {
@@ -220,6 +269,10 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfCo
     return deConstObject->getValueOfComponents();
 }
 
+bool IfcAppliedValue::testValueOfComponents() const {
+    return !Step::isUnset(getValueOfComponents());
+}
+
 Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() {
     if (Step::BaseObject::inited()) {
         return m_isComponentIn;
@@ -233,6 +286,10 @@ Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn()
 const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() const {
     IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
     return deConstObject->getIsComponentIn();
+}
+
+bool IfcAppliedValue::testIsComponentIn() const {
+    return !Step::isUnset(getIsComponentIn());
 }
 
 bool IfcAppliedValue::init() {

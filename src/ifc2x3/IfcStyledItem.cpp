@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStyledItem::IfcStyledItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
@@ -96,6 +93,14 @@ void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) 
     m_item = value;
 }
 
+void IfcStyledItem::unsetItem() {
+    m_item = Step::getUnset(getItem());
+}
+
+bool IfcStyledItem::testItem() const {
+    return !Step::isUnset(getItem());
+}
+
 Set_IfcPresentationStyleAssignment_1_n &IfcStyledItem::getStyles() {
     if (Step::BaseObject::inited()) {
         return m_styles;
@@ -115,6 +120,15 @@ void IfcStyledItem::setStyles(const Set_IfcPresentationStyleAssignment_1_n &valu
     m_styles = value;
 }
 
+void IfcStyledItem::unsetStyles() {
+    m_styles.clear();
+    m_styles.setUnset(true);
+}
+
+bool IfcStyledItem::testStyles() const {
+    return !Step::isUnset(getStyles());
+}
+
 IfcLabel IfcStyledItem::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -131,6 +145,14 @@ const IfcLabel IfcStyledItem::getName() const {
 
 void IfcStyledItem::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcStyledItem::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcStyledItem::testName() const {
+    return !Step::isUnset(getName());
 }
 
 bool IfcStyledItem::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOrientedEdge::IfcOrientedEdge(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
@@ -88,6 +85,14 @@ void IfcOrientedEdge::setEdgeElement(const Step::RefPtr< IfcEdge > &value) {
     m_edgeElement = value;
 }
 
+void IfcOrientedEdge::unsetEdgeElement() {
+    m_edgeElement = Step::getUnset(getEdgeElement());
+}
+
+bool IfcOrientedEdge::testEdgeElement() const {
+    return !Step::isUnset(getEdgeElement());
+}
+
 Step::Boolean IfcOrientedEdge::getOrientation() {
     if (Step::BaseObject::inited()) {
         return m_orientation;
@@ -104,6 +109,14 @@ const Step::Boolean IfcOrientedEdge::getOrientation() const {
 
 void IfcOrientedEdge::setOrientation(Step::Boolean value) {
     m_orientation = value;
+}
+
+void IfcOrientedEdge::unsetOrientation() {
+    m_orientation = Step::getUnset(getOrientation());
+}
+
+bool IfcOrientedEdge::testOrientation() const {
+    return !Step::isUnset(getOrientation());
 }
 
 bool IfcOrientedEdge::init() {

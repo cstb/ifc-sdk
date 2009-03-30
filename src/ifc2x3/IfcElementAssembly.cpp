@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElementAssembly::IfcElementAssembly(Step::Id id, Step::SPFData *args) : IfcElement(id, args) {
@@ -85,6 +82,14 @@ void IfcElementAssembly::setAssemblyPlace(IfcAssemblyPlaceEnum value) {
     m_assemblyPlace = value;
 }
 
+void IfcElementAssembly::unsetAssemblyPlace() {
+    m_assemblyPlace = IfcAssemblyPlaceEnum_UNSET;
+}
+
+bool IfcElementAssembly::testAssemblyPlace() const {
+    return getAssemblyPlace() != IfcAssemblyPlaceEnum_UNSET;
+}
+
 IfcElementAssemblyTypeEnum IfcElementAssembly::getPredefinedType() {
     if (Step::BaseObject::inited()) {
         return m_predefinedType;
@@ -101,6 +106,14 @@ const IfcElementAssemblyTypeEnum IfcElementAssembly::getPredefinedType() const {
 
 void IfcElementAssembly::setPredefinedType(IfcElementAssemblyTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcElementAssembly::unsetPredefinedType() {
+    m_predefinedType = IfcElementAssemblyTypeEnum_UNSET;
+}
+
+bool IfcElementAssembly::testPredefinedType() const {
+    return getPredefinedType() != IfcElementAssemblyTypeEnum_UNSET;
 }
 
 bool IfcElementAssembly::init() {

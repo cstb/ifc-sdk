@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsTasks::IfcRelAssignsTasks(Step::Id id, Step::SPFData *args) : IfcRelAssignsToControl(id, args) {
@@ -92,6 +89,14 @@ void IfcRelAssignsTasks::setTimeForTask(const Step::RefPtr< IfcScheduleTimeContr
         value->m_scheduleTimeControlAssigned = this;
     }
     m_timeForTask = value;
+}
+
+void IfcRelAssignsTasks::unsetTimeForTask() {
+    m_timeForTask = Step::getUnset(getTimeForTask());
+}
+
+bool IfcRelAssignsTasks::testTimeForTask() const {
+    return !Step::isUnset(getTimeForTask());
 }
 
 bool IfcRelAssignsTasks::init() {

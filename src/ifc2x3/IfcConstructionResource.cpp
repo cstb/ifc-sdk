@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConstructionResource::IfcConstructionResource(Step::Id id, Step::SPFData *args) : IfcResource(id, args) {
@@ -92,6 +89,14 @@ void IfcConstructionResource::setResourceIdentifier(const IfcIdentifier &value) 
     m_resourceIdentifier = value;
 }
 
+void IfcConstructionResource::unsetResourceIdentifier() {
+    m_resourceIdentifier = Step::getUnset(getResourceIdentifier());
+}
+
+bool IfcConstructionResource::testResourceIdentifier() const {
+    return !Step::isUnset(getResourceIdentifier());
+}
+
 IfcLabel IfcConstructionResource::getResourceGroup() {
     if (Step::BaseObject::inited()) {
         return m_resourceGroup;
@@ -108,6 +113,14 @@ const IfcLabel IfcConstructionResource::getResourceGroup() const {
 
 void IfcConstructionResource::setResourceGroup(const IfcLabel &value) {
     m_resourceGroup = value;
+}
+
+void IfcConstructionResource::unsetResourceGroup() {
+    m_resourceGroup = Step::getUnset(getResourceGroup());
+}
+
+bool IfcConstructionResource::testResourceGroup() const {
+    return !Step::isUnset(getResourceGroup());
 }
 
 IfcResourceConsumptionEnum IfcConstructionResource::getResourceConsumption() {
@@ -128,6 +141,14 @@ void IfcConstructionResource::setResourceConsumption(IfcResourceConsumptionEnum 
     m_resourceConsumption = value;
 }
 
+void IfcConstructionResource::unsetResourceConsumption() {
+    m_resourceConsumption = IfcResourceConsumptionEnum_UNSET;
+}
+
+bool IfcConstructionResource::testResourceConsumption() const {
+    return getResourceConsumption() != IfcResourceConsumptionEnum_UNSET;
+}
+
 IfcMeasureWithUnit *IfcConstructionResource::getBaseQuantity() {
     if (Step::BaseObject::inited()) {
         return m_baseQuantity.get();
@@ -144,6 +165,14 @@ const IfcMeasureWithUnit *IfcConstructionResource::getBaseQuantity() const {
 
 void IfcConstructionResource::setBaseQuantity(const Step::RefPtr< IfcMeasureWithUnit > &value) {
     m_baseQuantity = value;
+}
+
+void IfcConstructionResource::unsetBaseQuantity() {
+    m_baseQuantity = Step::getUnset(getBaseQuantity());
+}
+
+bool IfcConstructionResource::testBaseQuantity() const {
+    return !Step::isUnset(getBaseQuantity());
 }
 
 bool IfcConstructionResource::init() {

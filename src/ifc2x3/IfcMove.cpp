@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMove::IfcMove(Step::Id id, Step::SPFData *args) : IfcTask(id, args) {
@@ -91,6 +88,14 @@ void IfcMove::setMoveFrom(const Step::RefPtr< IfcSpatialStructureElement > &valu
     m_moveFrom = value;
 }
 
+void IfcMove::unsetMoveFrom() {
+    m_moveFrom = Step::getUnset(getMoveFrom());
+}
+
+bool IfcMove::testMoveFrom() const {
+    return !Step::isUnset(getMoveFrom());
+}
+
 IfcSpatialStructureElement *IfcMove::getMoveTo() {
     if (Step::BaseObject::inited()) {
         return m_moveTo.get();
@@ -107,6 +112,14 @@ const IfcSpatialStructureElement *IfcMove::getMoveTo() const {
 
 void IfcMove::setMoveTo(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     m_moveTo = value;
+}
+
+void IfcMove::unsetMoveTo() {
+    m_moveTo = Step::getUnset(getMoveTo());
+}
+
+bool IfcMove::testMoveTo() const {
+    return !Step::isUnset(getMoveTo());
 }
 
 List_IfcText_1_n &IfcMove::getPunchList() {
@@ -126,6 +139,15 @@ const List_IfcText_1_n &IfcMove::getPunchList() const {
 
 void IfcMove::setPunchList(const List_IfcText_1_n &value) {
     m_punchList = value;
+}
+
+void IfcMove::unsetPunchList() {
+    m_punchList.clear();
+    m_punchList.setUnset(true);
+}
+
+bool IfcMove::testPunchList() const {
+    return !Step::isUnset(getPunchList());
 }
 
 bool IfcMove::init() {

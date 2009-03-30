@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcCartesianTransformationOperator3D.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcCartesianTransformationOperator3D.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCartesianTransformationOperator3DnonUniform Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCartesianTransformationOperator3DnonUniform : public IfcCartesianTransformationOperator3D {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setScale2(Step::Real value);
         /**
+         * unset the attribute 'Scale2'.
+         * 
+         */
+        virtual void unsetScale2();
+        /**
+         * Test if the attribute 'Scale2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScale2() const;
+        /**
          * Gets the value of the explicit attribute 'Scale3'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setScale3(Step::Real value);
+        /**
+         * unset the attribute 'Scale3'.
+         * 
+         */
+        virtual void unsetScale3();
+        /**
+         * Test if the attribute 'Scale3' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScale3() const;
         /**
          * Gets the value of the derived attribute 'Scl2'.
          * 

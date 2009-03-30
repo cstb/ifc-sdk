@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertySetDefinition::IfcPropertySetDefinition(Step::Id id, Step::SPFData *args) : IfcPropertyDefinition(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPr
     return deConstObject->getPropertyDefinitionOf();
 }
 
+bool IfcPropertySetDefinition::testPropertyDefinitionOf() const {
+    return !Step::isUnset(getPropertyDefinitionOf());
+}
+
 Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
     if (Step::BaseObject::inited()) {
         return m_definesType;
@@ -97,6 +98,10 @@ Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
 const Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() const {
     IfcPropertySetDefinition * deConstObject = const_cast< IfcPropertySetDefinition * > (this);
     return deConstObject->getDefinesType();
+}
+
+bool IfcPropertySetDefinition::testDefinesType() const {
+    return !Step::isUnset(getDefinesType());
 }
 
 bool IfcPropertySetDefinition::init() {

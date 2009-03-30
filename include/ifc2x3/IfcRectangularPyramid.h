@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcCsgPrimitive3D.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRectangularPyramid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRectangularPyramid : public IfcCsgPrimitive3D {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setXLength(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'XLength'.
+         * 
+         */
+        virtual void unsetXLength();
+        /**
+         * Test if the attribute 'XLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testXLength() const;
+        /**
          * Gets the value of the explicit attribute 'YLength'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setYLength(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'YLength'.
+         * 
+         */
+        virtual void unsetYLength();
+        /**
+         * Test if the attribute 'YLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYLength() const;
+        /**
          * Gets the value of the explicit attribute 'Height'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHeight(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Height'.
+         * 
+         */
+        virtual void unsetHeight();
+        /**
+         * Test if the attribute 'Height' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHeight() const;
         friend class ExpressDataSet;
 
     protected:

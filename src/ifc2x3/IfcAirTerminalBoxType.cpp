@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAirTerminalBoxType::IfcAirTerminalBoxType(Step::Id id, Step::SPFData *args) : IfcFlowControllerType(id, args) {
@@ -82,6 +79,14 @@ const IfcAirTerminalBoxTypeEnum IfcAirTerminalBoxType::getPredefinedType() const
 
 void IfcAirTerminalBoxType::setPredefinedType(IfcAirTerminalBoxTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcAirTerminalBoxType::unsetPredefinedType() {
+    m_predefinedType = IfcAirTerminalBoxTypeEnum_UNSET;
+}
+
+bool IfcAirTerminalBoxType::testPredefinedType() const {
+    return getPredefinedType() != IfcAirTerminalBoxTypeEnum_UNSET;
 }
 
 bool IfcAirTerminalBoxType::init() {

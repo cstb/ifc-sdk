@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSolidModel.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcSolidModel.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcSweptDiskSolid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSweptDiskSolid : public IfcSolidModel {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setDirectrix(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'Directrix'.
+         * 
+         */
+        virtual void unsetDirectrix();
+        /**
+         * Test if the attribute 'Directrix' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDirectrix() const;
+        /**
          * Gets the value of the explicit attribute 'Radius'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Radius'.
+         * 
+         */
+        virtual void unsetRadius();
+        /**
+         * Test if the attribute 'Radius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRadius() const;
         /**
          * Gets the value of the explicit attribute 'InnerRadius'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setInnerRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'InnerRadius'.
+         * 
+         */
+        virtual void unsetInnerRadius();
+        /**
+         * Test if the attribute 'InnerRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInnerRadius() const;
+        /**
          * Gets the value of the explicit attribute 'StartParam'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setStartParam(IfcParameterValue value);
         /**
+         * unset the attribute 'StartParam'.
+         * 
+         */
+        virtual void unsetStartParam();
+        /**
+         * Test if the attribute 'StartParam' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStartParam() const;
+        /**
          * Gets the value of the explicit attribute 'EndParam'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEndParam(IfcParameterValue value);
+        /**
+         * unset the attribute 'EndParam'.
+         * 
+         */
+        virtual void unsetEndParam();
+        /**
+         * Test if the attribute 'EndParam' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEndParam() const;
         friend class ExpressDataSet;
 
     protected:

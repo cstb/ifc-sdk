@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcProfileDef;
 
     /**
+     * Generated class for the IfcProfileProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProfileProperties : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setProfileName(const IfcLabel &value);
         /**
+         * unset the attribute 'ProfileName'.
+         * 
+         */
+        virtual void unsetProfileName();
+        /**
+         * Test if the attribute 'ProfileName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfileName() const;
+        /**
          * Gets the value of the explicit attribute 'ProfileDefinition'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value);
+        /**
+         * unset the attribute 'ProfileDefinition'.
+         * 
+         */
+        virtual void unsetProfileDefinition();
+        /**
+         * Test if the attribute 'ProfileDefinition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfileDefinition() const;
         friend class ExpressDataSet;
 
     protected:

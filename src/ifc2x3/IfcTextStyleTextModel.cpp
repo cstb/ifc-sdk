@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextStyleTextModel::IfcTextStyleTextModel(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -94,6 +91,14 @@ void IfcTextStyleTextModel::setTextIndent(const Step::RefPtr< IfcSizeSelect > &v
     m_textIndent = value;
 }
 
+void IfcTextStyleTextModel::unsetTextIndent() {
+    m_textIndent = Step::getUnset(getTextIndent());
+}
+
+bool IfcTextStyleTextModel::testTextIndent() const {
+    return !Step::isUnset(getTextIndent());
+}
+
 IfcTextAlignment IfcTextStyleTextModel::getTextAlign() {
     if (Step::BaseObject::inited()) {
         return m_textAlign;
@@ -110,6 +115,14 @@ const IfcTextAlignment IfcTextStyleTextModel::getTextAlign() const {
 
 void IfcTextStyleTextModel::setTextAlign(const IfcTextAlignment &value) {
     m_textAlign = value;
+}
+
+void IfcTextStyleTextModel::unsetTextAlign() {
+    m_textAlign = Step::getUnset(getTextAlign());
+}
+
+bool IfcTextStyleTextModel::testTextAlign() const {
+    return !Step::isUnset(getTextAlign());
 }
 
 IfcTextDecoration IfcTextStyleTextModel::getTextDecoration() {
@@ -130,6 +143,14 @@ void IfcTextStyleTextModel::setTextDecoration(const IfcTextDecoration &value) {
     m_textDecoration = value;
 }
 
+void IfcTextStyleTextModel::unsetTextDecoration() {
+    m_textDecoration = Step::getUnset(getTextDecoration());
+}
+
+bool IfcTextStyleTextModel::testTextDecoration() const {
+    return !Step::isUnset(getTextDecoration());
+}
+
 IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() {
     if (Step::BaseObject::inited()) {
         return m_letterSpacing.get();
@@ -146,6 +167,14 @@ const IfcSizeSelect *IfcTextStyleTextModel::getLetterSpacing() const {
 
 void IfcTextStyleTextModel::setLetterSpacing(const Step::RefPtr< IfcSizeSelect > &value) {
     m_letterSpacing = value;
+}
+
+void IfcTextStyleTextModel::unsetLetterSpacing() {
+    m_letterSpacing = Step::getUnset(getLetterSpacing());
+}
+
+bool IfcTextStyleTextModel::testLetterSpacing() const {
+    return !Step::isUnset(getLetterSpacing());
 }
 
 IfcSizeSelect *IfcTextStyleTextModel::getWordSpacing() {
@@ -166,6 +195,14 @@ void IfcTextStyleTextModel::setWordSpacing(const Step::RefPtr< IfcSizeSelect > &
     m_wordSpacing = value;
 }
 
+void IfcTextStyleTextModel::unsetWordSpacing() {
+    m_wordSpacing = Step::getUnset(getWordSpacing());
+}
+
+bool IfcTextStyleTextModel::testWordSpacing() const {
+    return !Step::isUnset(getWordSpacing());
+}
+
 IfcTextTransformation IfcTextStyleTextModel::getTextTransform() {
     if (Step::BaseObject::inited()) {
         return m_textTransform;
@@ -184,6 +221,14 @@ void IfcTextStyleTextModel::setTextTransform(const IfcTextTransformation &value)
     m_textTransform = value;
 }
 
+void IfcTextStyleTextModel::unsetTextTransform() {
+    m_textTransform = Step::getUnset(getTextTransform());
+}
+
+bool IfcTextStyleTextModel::testTextTransform() const {
+    return !Step::isUnset(getTextTransform());
+}
+
 IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() {
     if (Step::BaseObject::inited()) {
         return m_lineHeight.get();
@@ -200,6 +245,14 @@ const IfcSizeSelect *IfcTextStyleTextModel::getLineHeight() const {
 
 void IfcTextStyleTextModel::setLineHeight(const Step::RefPtr< IfcSizeSelect > &value) {
     m_lineHeight = value;
+}
+
+void IfcTextStyleTextModel::unsetLineHeight() {
+    m_lineHeight = Step::getUnset(getLineHeight());
+}
+
+bool IfcTextStyleTextModel::testLineHeight() const {
+    return !Step::isUnset(getLineHeight());
 }
 
 bool IfcTextStyleTextModel::init() {

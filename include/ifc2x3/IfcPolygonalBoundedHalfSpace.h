@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcHalfSpaceSolid.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcBoundedCurve;
 
     /**
+     * Generated class for the IfcPolygonalBoundedHalfSpace Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPolygonalBoundedHalfSpace : public IfcHalfSpaceSolid {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value);
         /**
+         * unset the attribute 'Position'.
+         * 
+         */
+        virtual void unsetPosition();
+        /**
+         * Test if the attribute 'Position' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPosition() const;
+        /**
          * Gets the value of the explicit attribute 'PolygonalBoundary'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPolygonalBoundary(const Step::RefPtr< IfcBoundedCurve > &value);
+        /**
+         * unset the attribute 'PolygonalBoundary'.
+         * 
+         */
+        virtual void unsetPolygonalBoundary();
+        /**
+         * Test if the attribute 'PolygonalBoundary' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPolygonalBoundary() const;
         friend class ExpressDataSet;
 
     protected:

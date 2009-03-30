@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcObject.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcActorSelect;
 
     /**
+     * Generated class for the IfcActor Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcActor : public IfcObject {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setTheActor(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'TheActor'.
+         * 
+         */
+        virtual void unsetTheActor();
+        /**
+         * Test if the attribute 'TheActor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTheActor() const;
+        /**
          * Gets the value of the inverse attribute 'IsActingUpon'.
          * 
          */
@@ -100,6 +113,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsActingUpon'
          */
         virtual const Inverse_Set_IfcRelAssignsToActor_0_n &getIsActingUpon() const;
+        /**
+         * Test if the attribute 'IsActingUpon' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsActingUpon() const;
         friend class IfcRelAssignsToActor;
         friend class ExpressDataSet;
 

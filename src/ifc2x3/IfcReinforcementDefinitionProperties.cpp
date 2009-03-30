@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcReinforcementDefinitionProperties::IfcReinforcementDefinitionProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -89,6 +86,14 @@ void IfcReinforcementDefinitionProperties::setDefinitionType(const IfcLabel &val
     m_definitionType = value;
 }
 
+void IfcReinforcementDefinitionProperties::unsetDefinitionType() {
+    m_definitionType = Step::getUnset(getDefinitionType());
+}
+
+bool IfcReinforcementDefinitionProperties::testDefinitionType() const {
+    return !Step::isUnset(getDefinitionType());
+}
+
 List_IfcSectionReinforcementProperties_1_n &IfcReinforcementDefinitionProperties::getReinforcementSectionDefinitions() {
     if (Step::BaseObject::inited()) {
         return m_reinforcementSectionDefinitions;
@@ -106,6 +111,15 @@ const List_IfcSectionReinforcementProperties_1_n &IfcReinforcementDefinitionProp
 
 void IfcReinforcementDefinitionProperties::setReinforcementSectionDefinitions(const List_IfcSectionReinforcementProperties_1_n &value) {
     m_reinforcementSectionDefinitions = value;
+}
+
+void IfcReinforcementDefinitionProperties::unsetReinforcementSectionDefinitions() {
+    m_reinforcementSectionDefinitions.clear();
+    m_reinforcementSectionDefinitions.setUnset(true);
+}
+
+bool IfcReinforcementDefinitionProperties::testReinforcementSectionDefinitions() const {
+    return !Step::isUnset(getReinforcementSectionDefinitions());
 }
 
 bool IfcReinforcementDefinitionProperties::init() {

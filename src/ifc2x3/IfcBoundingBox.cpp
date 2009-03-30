@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBoundingBox::IfcBoundingBox(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -91,6 +88,14 @@ void IfcBoundingBox::setCorner(const Step::RefPtr< IfcCartesianPoint > &value) {
     m_corner = value;
 }
 
+void IfcBoundingBox::unsetCorner() {
+    m_corner = Step::getUnset(getCorner());
+}
+
+bool IfcBoundingBox::testCorner() const {
+    return !Step::isUnset(getCorner());
+}
+
 IfcPositiveLengthMeasure IfcBoundingBox::getXDim() {
     if (Step::BaseObject::inited()) {
         return m_xDim;
@@ -107,6 +112,14 @@ const IfcPositiveLengthMeasure IfcBoundingBox::getXDim() const {
 
 void IfcBoundingBox::setXDim(IfcPositiveLengthMeasure value) {
     m_xDim = value;
+}
+
+void IfcBoundingBox::unsetXDim() {
+    m_xDim = Step::getUnset(getXDim());
+}
+
+bool IfcBoundingBox::testXDim() const {
+    return !Step::isUnset(getXDim());
 }
 
 IfcPositiveLengthMeasure IfcBoundingBox::getYDim() {
@@ -127,6 +140,14 @@ void IfcBoundingBox::setYDim(IfcPositiveLengthMeasure value) {
     m_yDim = value;
 }
 
+void IfcBoundingBox::unsetYDim() {
+    m_yDim = Step::getUnset(getYDim());
+}
+
+bool IfcBoundingBox::testYDim() const {
+    return !Step::isUnset(getYDim());
+}
+
 IfcPositiveLengthMeasure IfcBoundingBox::getZDim() {
     if (Step::BaseObject::inited()) {
         return m_zDim;
@@ -143,6 +164,14 @@ const IfcPositiveLengthMeasure IfcBoundingBox::getZDim() const {
 
 void IfcBoundingBox::setZDim(IfcPositiveLengthMeasure value) {
     m_zDim = value;
+}
+
+void IfcBoundingBox::unsetZDim() {
+    m_zDim = Step::getUnset(getZDim());
+}
+
+bool IfcBoundingBox::testZDim() const {
+    return !Step::isUnset(getZDim());
 }
 
 bool IfcBoundingBox::init() {

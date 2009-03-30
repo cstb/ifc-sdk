@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSpatialStructureElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcSpatialStructureElement.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcPostalAddress;
 
     /**
+     * Generated class for the IfcBuilding Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBuilding : public IfcSpatialStructureElement {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setElevationOfRefHeight(IfcLengthMeasure value);
         /**
+         * unset the attribute 'ElevationOfRefHeight'.
+         * 
+         */
+        virtual void unsetElevationOfRefHeight();
+        /**
+         * Test if the attribute 'ElevationOfRefHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElevationOfRefHeight() const;
+        /**
          * Gets the value of the explicit attribute 'ElevationOfTerrain'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setElevationOfTerrain(IfcLengthMeasure value);
         /**
+         * unset the attribute 'ElevationOfTerrain'.
+         * 
+         */
+        virtual void unsetElevationOfTerrain();
+        /**
+         * Test if the attribute 'ElevationOfTerrain' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElevationOfTerrain() const;
+        /**
          * Gets the value of the explicit attribute 'BuildingAddress'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBuildingAddress(const Step::RefPtr< IfcPostalAddress > &value);
+        /**
+         * unset the attribute 'BuildingAddress'.
+         * 
+         */
+        virtual void unsetBuildingAddress();
+        /**
+         * Test if the attribute 'BuildingAddress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBuildingAddress() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsPortToElement::IfcRelConnectsPortToElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -96,6 +93,14 @@ void IfcRelConnectsPortToElement::setRelatingPort(const Step::RefPtr< IfcPort > 
     m_relatingPort = value;
 }
 
+void IfcRelConnectsPortToElement::unsetRelatingPort() {
+    m_relatingPort = Step::getUnset(getRelatingPort());
+}
+
+bool IfcRelConnectsPortToElement::testRelatingPort() const {
+    return !Step::isUnset(getRelatingPort());
+}
+
 IfcElement *IfcRelConnectsPortToElement::getRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_relatedElement.get();
@@ -118,6 +123,14 @@ void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcEleme
         value->m_hasPorts.insert(this);
     }
     m_relatedElement = value;
+}
+
+void IfcRelConnectsPortToElement::unsetRelatedElement() {
+    m_relatedElement = Step::getUnset(getRelatedElement());
+}
+
+bool IfcRelConnectsPortToElement::testRelatedElement() const {
+    return !Step::isUnset(getRelatedElement());
 }
 
 bool IfcRelConnectsPortToElement::init() {

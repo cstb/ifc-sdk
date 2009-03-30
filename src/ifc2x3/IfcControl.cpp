@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcControl::IfcControl(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() {
 const Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() const {
     IfcControl * deConstObject = const_cast< IfcControl * > (this);
     return deConstObject->getControls();
+}
+
+bool IfcControl::testControls() const {
+    return !Step::isUnset(getControls());
 }
 
 bool IfcControl::init() {

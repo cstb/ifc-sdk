@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesLibrary::IfcRelAssociatesLibrary(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -85,6 +82,14 @@ const IfcLibrarySelect *IfcRelAssociatesLibrary::getRelatingLibrary() const {
 
 void IfcRelAssociatesLibrary::setRelatingLibrary(const Step::RefPtr< IfcLibrarySelect > &value) {
     m_relatingLibrary = value;
+}
+
+void IfcRelAssociatesLibrary::unsetRelatingLibrary() {
+    m_relatingLibrary = Step::getUnset(getRelatingLibrary());
+}
+
+bool IfcRelAssociatesLibrary::testRelatingLibrary() const {
+    return !Step::isUnset(getRelatingLibrary());
 }
 
 bool IfcRelAssociatesLibrary::init() {

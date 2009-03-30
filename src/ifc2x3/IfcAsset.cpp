@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,9 +43,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAsset::IfcAsset(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
@@ -101,6 +98,14 @@ void IfcAsset::setAssetID(const IfcIdentifier &value) {
     m_assetID = value;
 }
 
+void IfcAsset::unsetAssetID() {
+    m_assetID = Step::getUnset(getAssetID());
+}
+
+bool IfcAsset::testAssetID() const {
+    return !Step::isUnset(getAssetID());
+}
+
 IfcCostValue *IfcAsset::getOriginalValue() {
     if (Step::BaseObject::inited()) {
         return m_originalValue.get();
@@ -117,6 +122,14 @@ const IfcCostValue *IfcAsset::getOriginalValue() const {
 
 void IfcAsset::setOriginalValue(const Step::RefPtr< IfcCostValue > &value) {
     m_originalValue = value;
+}
+
+void IfcAsset::unsetOriginalValue() {
+    m_originalValue = Step::getUnset(getOriginalValue());
+}
+
+bool IfcAsset::testOriginalValue() const {
+    return !Step::isUnset(getOriginalValue());
 }
 
 IfcCostValue *IfcAsset::getCurrentValue() {
@@ -137,6 +150,14 @@ void IfcAsset::setCurrentValue(const Step::RefPtr< IfcCostValue > &value) {
     m_currentValue = value;
 }
 
+void IfcAsset::unsetCurrentValue() {
+    m_currentValue = Step::getUnset(getCurrentValue());
+}
+
+bool IfcAsset::testCurrentValue() const {
+    return !Step::isUnset(getCurrentValue());
+}
+
 IfcCostValue *IfcAsset::getTotalReplacementCost() {
     if (Step::BaseObject::inited()) {
         return m_totalReplacementCost.get();
@@ -153,6 +174,14 @@ const IfcCostValue *IfcAsset::getTotalReplacementCost() const {
 
 void IfcAsset::setTotalReplacementCost(const Step::RefPtr< IfcCostValue > &value) {
     m_totalReplacementCost = value;
+}
+
+void IfcAsset::unsetTotalReplacementCost() {
+    m_totalReplacementCost = Step::getUnset(getTotalReplacementCost());
+}
+
+bool IfcAsset::testTotalReplacementCost() const {
+    return !Step::isUnset(getTotalReplacementCost());
 }
 
 IfcActorSelect *IfcAsset::getOwner() {
@@ -173,6 +202,14 @@ void IfcAsset::setOwner(const Step::RefPtr< IfcActorSelect > &value) {
     m_owner = value;
 }
 
+void IfcAsset::unsetOwner() {
+    m_owner = Step::getUnset(getOwner());
+}
+
+bool IfcAsset::testOwner() const {
+    return !Step::isUnset(getOwner());
+}
+
 IfcActorSelect *IfcAsset::getUser() {
     if (Step::BaseObject::inited()) {
         return m_user.get();
@@ -189,6 +226,14 @@ const IfcActorSelect *IfcAsset::getUser() const {
 
 void IfcAsset::setUser(const Step::RefPtr< IfcActorSelect > &value) {
     m_user = value;
+}
+
+void IfcAsset::unsetUser() {
+    m_user = Step::getUnset(getUser());
+}
+
+bool IfcAsset::testUser() const {
+    return !Step::isUnset(getUser());
 }
 
 IfcPerson *IfcAsset::getResponsiblePerson() {
@@ -209,6 +254,14 @@ void IfcAsset::setResponsiblePerson(const Step::RefPtr< IfcPerson > &value) {
     m_responsiblePerson = value;
 }
 
+void IfcAsset::unsetResponsiblePerson() {
+    m_responsiblePerson = Step::getUnset(getResponsiblePerson());
+}
+
+bool IfcAsset::testResponsiblePerson() const {
+    return !Step::isUnset(getResponsiblePerson());
+}
+
 IfcCalendarDate *IfcAsset::getIncorporationDate() {
     if (Step::BaseObject::inited()) {
         return m_incorporationDate.get();
@@ -227,6 +280,14 @@ void IfcAsset::setIncorporationDate(const Step::RefPtr< IfcCalendarDate > &value
     m_incorporationDate = value;
 }
 
+void IfcAsset::unsetIncorporationDate() {
+    m_incorporationDate = Step::getUnset(getIncorporationDate());
+}
+
+bool IfcAsset::testIncorporationDate() const {
+    return !Step::isUnset(getIncorporationDate());
+}
+
 IfcCostValue *IfcAsset::getDepreciatedValue() {
     if (Step::BaseObject::inited()) {
         return m_depreciatedValue.get();
@@ -243,6 +304,14 @@ const IfcCostValue *IfcAsset::getDepreciatedValue() const {
 
 void IfcAsset::setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value) {
     m_depreciatedValue = value;
+}
+
+void IfcAsset::unsetDepreciatedValue() {
+    m_depreciatedValue = Step::getUnset(getDepreciatedValue());
+}
+
+bool IfcAsset::testDepreciatedValue() const {
+    return !Step::isUnset(getDepreciatedValue());
 }
 
 bool IfcAsset::init() {

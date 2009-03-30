@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcColourSpecification.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcColourSpecification.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcColourRgb Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcColourRgb : public IfcColourSpecification {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setRed(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'Red'.
+         * 
+         */
+        virtual void unsetRed();
+        /**
+         * Test if the attribute 'Red' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRed() const;
+        /**
          * Gets the value of the explicit attribute 'Green'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setGreen(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'Green'.
+         * 
+         */
+        virtual void unsetGreen();
+        /**
+         * Test if the attribute 'Green' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testGreen() const;
+        /**
          * Gets the value of the explicit attribute 'Blue'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBlue(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'Blue'.
+         * 
+         */
+        virtual void unsetBlue();
+        /**
+         * Test if the attribute 'Blue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBlue() const;
         friend class ExpressDataSet;
 
     protected:

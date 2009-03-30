@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralItem.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralMember Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralMember : public IfcStructuralItem {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getReferencesElement() const;
         /**
+         * Test if the attribute 'ReferencesElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencesElement() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectedBy'.
          * 
          */
@@ -92,9 +100,15 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ConnectedBy'
          */
         virtual const Inverse_Set_IfcRelConnectsStructuralMember_0_n &getConnectedBy() const;
-        friend class IfcRelConnectsStructuralElement;
+        /**
+         * Test if the attribute 'ConnectedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectedBy() const;
         friend class IfcRelConnectsStructuralMember;
         friend class ExpressDataSet;
+        friend class IfcRelConnectsStructuralElement;
 
     protected:
         /**

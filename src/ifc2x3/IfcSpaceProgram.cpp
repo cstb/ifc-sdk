@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSpaceProgram::IfcSpaceProgram(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -95,6 +92,14 @@ void IfcSpaceProgram::setSpaceProgramIdentifier(const IfcIdentifier &value) {
     m_spaceProgramIdentifier = value;
 }
 
+void IfcSpaceProgram::unsetSpaceProgramIdentifier() {
+    m_spaceProgramIdentifier = Step::getUnset(getSpaceProgramIdentifier());
+}
+
+bool IfcSpaceProgram::testSpaceProgramIdentifier() const {
+    return !Step::isUnset(getSpaceProgramIdentifier());
+}
+
 IfcAreaMeasure IfcSpaceProgram::getMaxRequiredArea() {
     if (Step::BaseObject::inited()) {
         return m_maxRequiredArea;
@@ -111,6 +116,14 @@ const IfcAreaMeasure IfcSpaceProgram::getMaxRequiredArea() const {
 
 void IfcSpaceProgram::setMaxRequiredArea(IfcAreaMeasure value) {
     m_maxRequiredArea = value;
+}
+
+void IfcSpaceProgram::unsetMaxRequiredArea() {
+    m_maxRequiredArea = Step::getUnset(getMaxRequiredArea());
+}
+
+bool IfcSpaceProgram::testMaxRequiredArea() const {
+    return !Step::isUnset(getMaxRequiredArea());
 }
 
 IfcAreaMeasure IfcSpaceProgram::getMinRequiredArea() {
@@ -131,6 +144,14 @@ void IfcSpaceProgram::setMinRequiredArea(IfcAreaMeasure value) {
     m_minRequiredArea = value;
 }
 
+void IfcSpaceProgram::unsetMinRequiredArea() {
+    m_minRequiredArea = Step::getUnset(getMinRequiredArea());
+}
+
+bool IfcSpaceProgram::testMinRequiredArea() const {
+    return !Step::isUnset(getMinRequiredArea());
+}
+
 IfcSpatialStructureElement *IfcSpaceProgram::getRequestedLocation() {
     if (Step::BaseObject::inited()) {
         return m_requestedLocation.get();
@@ -147,6 +168,14 @@ const IfcSpatialStructureElement *IfcSpaceProgram::getRequestedLocation() const 
 
 void IfcSpaceProgram::setRequestedLocation(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     m_requestedLocation = value;
+}
+
+void IfcSpaceProgram::unsetRequestedLocation() {
+    m_requestedLocation = Step::getUnset(getRequestedLocation());
+}
+
+bool IfcSpaceProgram::testRequestedLocation() const {
+    return !Step::isUnset(getRequestedLocation());
 }
 
 IfcAreaMeasure IfcSpaceProgram::getStandardRequiredArea() {
@@ -167,6 +196,14 @@ void IfcSpaceProgram::setStandardRequiredArea(IfcAreaMeasure value) {
     m_standardRequiredArea = value;
 }
 
+void IfcSpaceProgram::unsetStandardRequiredArea() {
+    m_standardRequiredArea = Step::getUnset(getStandardRequiredArea());
+}
+
+bool IfcSpaceProgram::testStandardRequiredArea() const {
+    return !Step::isUnset(getStandardRequiredArea());
+}
+
 Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsFrom() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsFrom;
@@ -182,6 +219,10 @@ const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInte
     return deConstObject->getHasInteractionReqsFrom();
 }
 
+bool IfcSpaceProgram::testHasInteractionReqsFrom() const {
+    return !Step::isUnset(getHasInteractionReqsFrom());
+}
+
 Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsTo;
@@ -195,6 +236,10 @@ Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractio
 const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() const {
     IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
     return deConstObject->getHasInteractionReqsTo();
+}
+
+bool IfcSpaceProgram::testHasInteractionReqsTo() const {
+    return !Step::isUnset(getHasInteractionReqsTo());
 }
 
 bool IfcSpaceProgram::init() {

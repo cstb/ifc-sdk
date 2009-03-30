@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcExternalReference.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcExternalReference.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDocumentReference Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDocumentReference : public IfcExternalReference {
     public:
@@ -81,9 +83,15 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ReferenceToDocument'
          */
         virtual const Inverse_Set_IfcDocumentInformation_0_1 &getReferenceToDocument() const;
+        /**
+         * Test if the attribute 'ReferenceToDocument' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferenceToDocument() const;
         friend class IfcDocumentInformation;
-        friend class Inverted_IfcDocumentInformation_DocumentReferences_type;
         friend class ExpressDataSet;
+        friend class Inverted_IfcDocumentInformation_DocumentReferences_type;
 
     protected:
         /**

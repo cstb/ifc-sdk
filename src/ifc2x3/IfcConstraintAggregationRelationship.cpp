@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type() {
@@ -64,11 +61,16 @@ Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::iterator 
     return List_IfcConstraint_1_n::erase(value);
 }
 
+void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcConstraintAggregationRelationship::IfcConstraintAggregationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
     m_relatingConstraint = NULL;
-    m_relatedConstraints.setUnset(true);
     m_relatedConstraints.setOwner(this);
     m_logicalAggregator = IfcLogicalOperatorEnum_UNSET;
 }
@@ -114,6 +116,14 @@ void IfcConstraintAggregationRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcConstraintAggregationRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcConstraintAggregationRelationship::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcConstraintAggregationRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -130,6 +140,14 @@ const IfcText IfcConstraintAggregationRelationship::getDescription() const {
 
 void IfcConstraintAggregationRelationship::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcConstraintAggregationRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcConstraintAggregationRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint() {
@@ -156,6 +174,14 @@ void IfcConstraintAggregationRelationship::setRelatingConstraint(const Step::Ref
     m_relatingConstraint = value;
 }
 
+void IfcConstraintAggregationRelationship::unsetRelatingConstraint() {
+    m_relatingConstraint = Step::getUnset(getRelatingConstraint());
+}
+
+bool IfcConstraintAggregationRelationship::testRelatingConstraint() const {
+    return !Step::isUnset(getRelatingConstraint());
+}
+
 List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints() {
     if (Step::BaseObject::inited()) {
         return m_relatedConstraints;
@@ -169,6 +195,15 @@ List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstrai
 const List_IfcConstraint_1_n &IfcConstraintAggregationRelationship::getRelatedConstraints() const {
     IfcConstraintAggregationRelationship * deConstObject = const_cast< IfcConstraintAggregationRelationship * > (this);
     return deConstObject->getRelatedConstraints();
+}
+
+void IfcConstraintAggregationRelationship::unsetRelatedConstraints() {
+    m_relatedConstraints.clear();
+    m_relatedConstraints.setUnset(true);
+}
+
+bool IfcConstraintAggregationRelationship::testRelatedConstraints() const {
+    return !Step::isUnset(getRelatedConstraints());
 }
 
 IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator() {
@@ -187,6 +222,14 @@ const IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAgg
 
 void IfcConstraintAggregationRelationship::setLogicalAggregator(IfcLogicalOperatorEnum value) {
     m_logicalAggregator = value;
+}
+
+void IfcConstraintAggregationRelationship::unsetLogicalAggregator() {
+    m_logicalAggregator = IfcLogicalOperatorEnum_UNSET;
+}
+
+bool IfcConstraintAggregationRelationship::testLogicalAggregator() const {
+    return getLogicalAggregator() != IfcLogicalOperatorEnum_UNSET;
 }
 
 bool IfcConstraintAggregationRelationship::init() {

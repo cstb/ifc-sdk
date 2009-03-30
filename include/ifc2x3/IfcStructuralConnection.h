@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralItem.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcBoundaryCondition;
 
     /**
+     * Generated class for the IfcStructuralConnection Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralConnection : public IfcStructuralItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value);
         /**
+         * unset the attribute 'AppliedCondition'.
+         * 
+         */
+        virtual void unsetAppliedCondition();
+        /**
+         * Test if the attribute 'AppliedCondition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAppliedCondition() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectsStructuralMembers'.
          * 
          */
@@ -100,6 +113,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ConnectsStructuralMembers'
          */
         virtual const Inverse_Set_IfcRelConnectsStructuralMember_1_n &getConnectsStructuralMembers() const;
+        /**
+         * Test if the attribute 'ConnectsStructuralMembers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectsStructuralMembers() const;
         friend class IfcRelConnectsStructuralMember;
         friend class ExpressDataSet;
 

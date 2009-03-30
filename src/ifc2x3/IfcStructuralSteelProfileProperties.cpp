@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralSteelProfileProperties::IfcStructuralSteelProfileProperties(Step::Id id, Step::SPFData *args) : IfcStructuralProfileProperties(id, args) {
@@ -87,6 +84,14 @@ void IfcStructuralSteelProfileProperties::setShearAreaZ(IfcAreaMeasure value) {
     m_shearAreaZ = value;
 }
 
+void IfcStructuralSteelProfileProperties::unsetShearAreaZ() {
+    m_shearAreaZ = Step::getUnset(getShearAreaZ());
+}
+
+bool IfcStructuralSteelProfileProperties::testShearAreaZ() const {
+    return !Step::isUnset(getShearAreaZ());
+}
+
 IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() {
     if (Step::BaseObject::inited()) {
         return m_shearAreaY;
@@ -103,6 +108,14 @@ const IfcAreaMeasure IfcStructuralSteelProfileProperties::getShearAreaY() const 
 
 void IfcStructuralSteelProfileProperties::setShearAreaY(IfcAreaMeasure value) {
     m_shearAreaY = value;
+}
+
+void IfcStructuralSteelProfileProperties::unsetShearAreaY() {
+    m_shearAreaY = Step::getUnset(getShearAreaY());
+}
+
+bool IfcStructuralSteelProfileProperties::testShearAreaY() const {
+    return !Step::isUnset(getShearAreaY());
 }
 
 IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorY() {
@@ -123,6 +136,14 @@ void IfcStructuralSteelProfileProperties::setPlasticShapeFactorY(IfcPositiveRati
     m_plasticShapeFactorY = value;
 }
 
+void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorY() {
+    m_plasticShapeFactorY = Step::getUnset(getPlasticShapeFactorY());
+}
+
+bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorY() const {
+    return !Step::isUnset(getPlasticShapeFactorY());
+}
+
 IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticShapeFactorZ() {
     if (Step::BaseObject::inited()) {
         return m_plasticShapeFactorZ;
@@ -139,6 +160,14 @@ const IfcPositiveRatioMeasure IfcStructuralSteelProfileProperties::getPlasticSha
 
 void IfcStructuralSteelProfileProperties::setPlasticShapeFactorZ(IfcPositiveRatioMeasure value) {
     m_plasticShapeFactorZ = value;
+}
+
+void IfcStructuralSteelProfileProperties::unsetPlasticShapeFactorZ() {
+    m_plasticShapeFactorZ = Step::getUnset(getPlasticShapeFactorZ());
+}
+
+bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorZ() const {
+    return !Step::isUnset(getPlasticShapeFactorZ());
 }
 
 bool IfcStructuralSteelProfileProperties::init() {

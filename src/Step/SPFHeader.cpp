@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,73 +22,107 @@
  *                                                                         *
  ***************************************************************************
 */
+#include "Step/SPFHeader.h"
+#include "Step/SPFFunctions.h"
+#include "Step/BaseExpressDataSet.h"
 
-#include <Step/SPFHeader.h>
-#include <Step/SPFFunctions.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/logger.h>
-
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+#include "Step/logger.h"
 
 using namespace std;
+using namespace Step;
 
-bool Step::SPFHeader::parse(std::istream& data, unsigned int& counter)
+
+SPFHeader::SPFHeader()
+{
+}
+
+SPFHeader::~SPFHeader()
+{
+}
+
+SPFHeader::FileDescription& SPFHeader::getFileDescription()
+{
+    return m_fileDescription;
+}
+
+SPFHeader::FileName& SPFHeader::getFileName()
+{
+    return m_fileName;
+}
+
+SPFHeader::FileSchema& SPFHeader::getFileSchema()
+{
+    return m_fileSchema;
+}
+
+String& SPFHeader::getOtherFields()
+{
+    return m_otherFields;
+}
+
+bool SPFHeader::parse(std::istream& ifs, unsigned int& counter)
 {
     unsigned long bufferLength = 256000;
     char* buffer = new char[bufferLength];
     string::size_type i;
     string str;
     // ISO-10303-21
-    if (!Step::getLine(data, counter, buffer, bufferLength, str) || str != "ISO-10303-21") {
-        LOG_ERROR("SPFHeader : Bad data type, should be ISO-10303-21.");
-        delete []buffer;
+    if (!getLine(ifs, counter, buffer, bufferLength, str) || str
+            != "ISO-10303-21")
+    {
+        LOG_ERROR("SPFHeader : Bad file type, should be ISO-10303-21.");
+        delete[] buffer;
         return false;
     }
 
     // HEADER
-    if (!Step::getLine(data, counter, buffer, bufferLength, str) || str != "HEADER") {
+    if (!getLine(ifs, counter, buffer, bufferLength, str) || str != "HEADER")
+    {
         LOG_ERROR("SPFHeader : Can't find the HEADER section.");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
     // FILE_DESCRIPTION(...,...)
-    Step::getLine(data, counter, buffer, bufferLength, str);
+    getLine(ifs, counter, buffer, bufferLength, str);
     i = str.find('(');
-    if (i == string::npos
-            || str.substr(0,i) != "FILE_DESCRIPTION") {
+    if (i == string::npos || str.substr(0, i) != "FILE_DESCRIPTION")
+    {
         LOG_ERROR("SPFHeader : Can't find the FILE_DESCRIPTION argument.");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
     // FILE_DESCRIPTION arguments
     vector<string> currentParam;
-    if (!Step::parseList(str.substr(i+1,str.length()-i-2).c_str(), currentParam)
-            || currentParam.size() != 2) {
+    if (!parseList(str.substr(i + 1, str.length() - i - 2).c_str(),
+            currentParam) || currentParam.size() != 2)
+    {
         LOG_ERROR(
-            "SPFHeader : Bad number of arguments for FILE_DESCRIPTION, should be 2 instead of "
-            << currentParam.size());
-        delete []buffer;
+                "SPFHeader : Bad number of arguments for FILE_DESCRIPTION, should be 2 instead of "
+                        << currentParam.size());
+        delete[] buffer;
         return false;
     }
     // FILE_DESCRIPTION arguments
     // arg 1
     vector<string> vec;
-    if (!parseList(currentParam[0].substr(1,currentParam[0].length()-2).c_str(),vec)) {
+    if (!parseList(
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
+            vec))
+    {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_DESCRIPTION");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
-    for (unsigned int k = 0; k < vec.size(); k++) {
-//  if(!removeQuotes(m_fileDescription.description[k])) {
-//   LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_DESCRIPTION");
-//   delete []buffer;
-//   return false;
-//  }
+    for (unsigned int k = 0; k < vec.size(); k++)
+    {
+        //  if(!removeQuotes(m_fileDescription.description[k])) {
+        //   LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_DESCRIPTION");
+        //   delete []buffer;
+        //   return false;
+        //  }
         m_fileDescription.description.push_back(String::fromSPF(vec[k]));
     }
 
@@ -97,20 +131,22 @@ bool Step::SPFHeader::parse(std::istream& data, unsigned int& counter)
     m_fileDescription.implementationLevel = String::fromSPF(currentParam[1]);
 
     // FILE_NAME arguments
-    getLine(data, counter, buffer, bufferLength,str);
+    getLine(ifs, counter, buffer, bufferLength, str);
     i = str.find('(');
-    if (i == string::npos || str.substr(0,i) != "FILE_NAME") {
+    if (i == string::npos || str.substr(0, i) != "FILE_NAME")
+    {
         LOG_ERROR("SPFHeader : Can't find the FILE_NAME argument.");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
-    if (!Step::parseList(str.substr(i+1,str.length()-i-2).c_str(), currentParam)
-            || currentParam.size() != 7) {
+    if (!parseList(str.substr(i + 1, str.length() - i - 2).c_str(),
+            currentParam) || currentParam.size() != 7)
+    {
         LOG_ERROR(
-            "SPFHeader : Bad number of arguments for FILE_DESCRIPTION, should be 7 instead of "
-            << currentParam.size());
-        delete []buffer;
+                "SPFHeader : Bad number of arguments for FILE_DESCRIPTION, should be 7 instead of "
+                        << currentParam.size());
+        delete[] buffer;
         return false;
     }
 
@@ -121,24 +157,32 @@ bool Step::SPFHeader::parse(std::istream& data, unsigned int& counter)
     m_fileName.timeStamp = String::fromSPF(currentParam[1]);
 
     // arg 3
-    if (!parseList(currentParam[2].substr(1,currentParam[2].length()-2).c_str(), vec)) {
+    if (!parseList(
+            currentParam[2].substr(1, currentParam[2].length() - 2).c_str(),
+            vec))
+    {
         LOG_ERROR("SPFHeader : Syntax Error in arg 3 of FILE_NAME");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
-    for (unsigned int k = 0; k < vec.size(); k++) {
+    for (unsigned int k = 0; k < vec.size(); k++)
+    {
         m_fileName.author.push_back(String::fromSPF(vec[k]));
     }
 
     // arg 4
-    if (!parseList(currentParam[3].substr(1,currentParam[3].length()-2).c_str(), vec)) {
+    if (!parseList(
+            currentParam[3].substr(1, currentParam[3].length() - 2).c_str(),
+            vec))
+    {
         LOG_ERROR("SPFHeader : Syntax Error in arg 4 of FILE_NAME");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
-    for (unsigned int k = 0; k < vec.size(); k++) {
+    for (unsigned int k = 0; k < vec.size(); k++)
+    {
         m_fileName.organization.push_back(String::fromSPF(vec[k]));
     }
 
@@ -151,51 +195,60 @@ bool Step::SPFHeader::parse(std::istream& data, unsigned int& counter)
     // arg 7
     m_fileName.authorization = String::fromSPF(currentParam[6]);
 
-    Step::getLine(data, counter, buffer, bufferLength, str);
+    getLine(ifs, counter, buffer, bufferLength, str);
     i = str.find('(');
-    if (i == string::npos || str.substr(0,i) != "FILE_SCHEMA") {
+    if (i == string::npos || str.substr(0, i) != "FILE_SCHEMA")
+    {
         LOG_ERROR("SPFHeader : Can't find the FILE_SCHEMA argument.");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
 
-    if (!Step::parseList(str.substr(i+1,str.length()-i-2).c_str(), currentParam)
-            || currentParam.size() != 1) {
+    if (!parseList(str.substr(i + 1, str.length() - i - 2).c_str(),
+            currentParam) || currentParam.size() != 1)
+    {
         LOG_ERROR(
-            "SPFHeader : Bad number of arguments for FILE_SCHEMA, should be 1 instead of "
-            << currentParam.size());
-        delete []buffer;
+                "SPFHeader : Bad number of arguments for FILE_SCHEMA, should be 1 instead of "
+                        << currentParam.size());
+        delete[] buffer;
         return false;
     }
 
-
-    if (!parseList(currentParam[0].substr(1,currentParam[0].length()-2).c_str(),vec)) {
+    if (!parseList(
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
+            vec))
+    {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_SCHEMA");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
-    for (unsigned int k = 0; k < vec.size(); k++) {
+    for (unsigned int k = 0; k < vec.size(); k++)
+    {
         m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(vec[k]));
     }
 
     m_otherFields = "";
-    bool found=false;
-    for (unsigned int k = 0; k <6 ; k++) {
-        if (!Step::getLine(data, counter, buffer, bufferLength, str)) {
-            delete []buffer;
+    bool found = false;
+    for (unsigned int k = 0; k < 6; k++)
+    {
+        if (!getLine(ifs, counter, buffer, bufferLength, str))
+        {
+            delete[] buffer;
             return false;
         }
-        if ( str =="ENDSEC") {
+        if (str == "ENDSEC")
+        {
             found = true;
             break;
         }
         m_otherFields = m_otherFields + String::fromSPF(str);
     }
-    if (!found) {
+    if (!found)
+    {
         LOG_ERROR("SPFHeader : Can't find ENDSEC");
-        delete []buffer;
+        delete[] buffer;
         return false;
     }
-    delete []buffer;
+    delete[] buffer;
     return true;
 }

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterialList::IfcMaterialList(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,15 @@ const List_IfcMaterial_1_n &IfcMaterialList::getMaterials() const {
 
 void IfcMaterialList::setMaterials(const List_IfcMaterial_1_n &value) {
     m_materials = value;
+}
+
+void IfcMaterialList::unsetMaterials() {
+    m_materials.clear();
+    m_materials.setUnset(true);
+}
+
+bool IfcMaterialList::testMaterials() const {
+    return !Step::isUnset(getMaterials());
 }
 
 bool IfcMaterialList::init() {

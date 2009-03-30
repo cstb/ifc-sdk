@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCompositeProfileDef::IfcCompositeProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
@@ -89,6 +86,15 @@ void IfcCompositeProfileDef::setProfiles(const Set_IfcProfileDef_2_n &value) {
     m_profiles = value;
 }
 
+void IfcCompositeProfileDef::unsetProfiles() {
+    m_profiles.clear();
+    m_profiles.setUnset(true);
+}
+
+bool IfcCompositeProfileDef::testProfiles() const {
+    return !Step::isUnset(getProfiles());
+}
+
 IfcLabel IfcCompositeProfileDef::getLabel() {
     if (Step::BaseObject::inited()) {
         return m_label;
@@ -105,6 +111,14 @@ const IfcLabel IfcCompositeProfileDef::getLabel() const {
 
 void IfcCompositeProfileDef::setLabel(const IfcLabel &value) {
     m_label = value;
+}
+
+void IfcCompositeProfileDef::unsetLabel() {
+    m_label = Step::getUnset(getLabel());
+}
+
+bool IfcCompositeProfileDef::testLabel() const {
+    return !Step::isUnset(getLabel());
 }
 
 bool IfcCompositeProfileDef::init() {

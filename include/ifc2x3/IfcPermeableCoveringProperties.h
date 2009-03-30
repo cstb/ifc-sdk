@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcShapeAspect;
 
     /**
+     * Generated class for the IfcPermeableCoveringProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPermeableCoveringProperties : public IfcPropertySetDefinition {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setOperationType(IfcPermeableCoveringOperationEnum value);
         /**
+         * unset the attribute 'OperationType'.
+         * 
+         */
+        virtual void unsetOperationType();
+        /**
+         * Test if the attribute 'OperationType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOperationType() const;
+        /**
          * Gets the value of the explicit attribute 'PanelPosition'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPanelPosition(IfcWindowPanelPositionEnum value);
+        /**
+         * unset the attribute 'PanelPosition'.
+         * 
+         */
+        virtual void unsetPanelPosition();
+        /**
+         * Test if the attribute 'PanelPosition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPanelPosition() const;
         /**
          * Gets the value of the explicit attribute 'FrameDepth'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setFrameDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'FrameDepth'.
+         * 
+         */
+        virtual void unsetFrameDepth();
+        /**
+         * Test if the attribute 'FrameDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFrameDepth() const;
+        /**
          * Gets the value of the explicit attribute 'FrameThickness'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setFrameThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'FrameThickness'.
+         * 
+         */
+        virtual void unsetFrameThickness();
+        /**
+         * Test if the attribute 'FrameThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFrameThickness() const;
+        /**
          * Gets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
+        /**
+         * unset the attribute 'ShapeAspectStyle'.
+         * 
+         */
+        virtual void unsetShapeAspectStyle();
+        /**
+         * Test if the attribute 'ShapeAspectStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShapeAspectStyle() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFace::IfcFace(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcFaceBound_1_n &IfcFace::getBounds() const {
 
 void IfcFace::setBounds(const Set_IfcFaceBound_1_n &value) {
     m_bounds = value;
+}
+
+void IfcFace::unsetBounds() {
+    m_bounds.clear();
+    m_bounds.setUnset(true);
+}
+
+bool IfcFace::testBounds() const {
+    return !Step::isUnset(getBounds());
 }
 
 bool IfcFace::init() {

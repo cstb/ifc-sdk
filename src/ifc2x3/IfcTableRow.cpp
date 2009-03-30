@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTableRow::IfcTableRow(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -93,6 +90,15 @@ void IfcTableRow::setRowCells(const List_IfcValue_1_n &value) {
     m_rowCells = value;
 }
 
+void IfcTableRow::unsetRowCells() {
+    m_rowCells.clear();
+    m_rowCells.setUnset(true);
+}
+
+bool IfcTableRow::testRowCells() const {
+    return !Step::isUnset(getRowCells());
+}
+
 Step::Boolean IfcTableRow::getIsHeading() {
     if (Step::BaseObject::inited()) {
         return m_isHeading;
@@ -111,6 +117,14 @@ void IfcTableRow::setIsHeading(Step::Boolean value) {
     m_isHeading = value;
 }
 
+void IfcTableRow::unsetIsHeading() {
+    m_isHeading = Step::getUnset(getIsHeading());
+}
+
+bool IfcTableRow::testIsHeading() const {
+    return !Step::isUnset(getIsHeading());
+}
+
 IfcTable *IfcTableRow::getOfTable() {
     if (Step::BaseObject::inited()) {
         return m_ofTable.get();
@@ -123,6 +137,10 @@ IfcTable *IfcTableRow::getOfTable() {
 const IfcTable *IfcTableRow::getOfTable() const {
     IfcTableRow * deConstObject = const_cast< IfcTableRow * > (this);
     return deConstObject->getOfTable();
+}
+
+bool IfcTableRow::testOfTable() const {
+    return !Step::isUnset(getOfTable());
 }
 
 bool IfcTableRow::init() {

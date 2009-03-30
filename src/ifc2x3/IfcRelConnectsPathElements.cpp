@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsPathElements::IfcRelConnectsPathElements(Step::Id id, Step::SPFData *args) : IfcRelConnectsElements(id, args) {
@@ -87,6 +84,15 @@ void IfcRelConnectsPathElements::setRelatingPriorities(const List_Integer_0_n &v
     m_relatingPriorities = value;
 }
 
+void IfcRelConnectsPathElements::unsetRelatingPriorities() {
+    m_relatingPriorities.clear();
+    m_relatingPriorities.setUnset(true);
+}
+
+bool IfcRelConnectsPathElements::testRelatingPriorities() const {
+    return !Step::isUnset(getRelatingPriorities());
+}
+
 List_Integer_0_n &IfcRelConnectsPathElements::getRelatedPriorities() {
     if (Step::BaseObject::inited()) {
         return m_relatedPriorities;
@@ -104,6 +110,15 @@ const List_Integer_0_n &IfcRelConnectsPathElements::getRelatedPriorities() const
 
 void IfcRelConnectsPathElements::setRelatedPriorities(const List_Integer_0_n &value) {
     m_relatedPriorities = value;
+}
+
+void IfcRelConnectsPathElements::unsetRelatedPriorities() {
+    m_relatedPriorities.clear();
+    m_relatedPriorities.setUnset(true);
+}
+
+bool IfcRelConnectsPathElements::testRelatedPriorities() const {
+    return !Step::isUnset(getRelatedPriorities());
 }
 
 IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatedConnectionType() {
@@ -124,6 +139,14 @@ void IfcRelConnectsPathElements::setRelatedConnectionType(IfcConnectionTypeEnum 
     m_relatedConnectionType = value;
 }
 
+void IfcRelConnectsPathElements::unsetRelatedConnectionType() {
+    m_relatedConnectionType = IfcConnectionTypeEnum_UNSET;
+}
+
+bool IfcRelConnectsPathElements::testRelatedConnectionType() const {
+    return getRelatedConnectionType() != IfcConnectionTypeEnum_UNSET;
+}
+
 IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatingConnectionType() {
     if (Step::BaseObject::inited()) {
         return m_relatingConnectionType;
@@ -140,6 +163,14 @@ const IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatingConnectionTyp
 
 void IfcRelConnectsPathElements::setRelatingConnectionType(IfcConnectionTypeEnum value) {
     m_relatingConnectionType = value;
+}
+
+void IfcRelConnectsPathElements::unsetRelatingConnectionType() {
+    m_relatingConnectionType = IfcConnectionTypeEnum_UNSET;
+}
+
+bool IfcRelConnectsPathElements::testRelatingConnectionType() const {
+    return getRelatingConnectionType() != IfcConnectionTypeEnum_UNSET;
 }
 
 bool IfcRelConnectsPathElements::init() {

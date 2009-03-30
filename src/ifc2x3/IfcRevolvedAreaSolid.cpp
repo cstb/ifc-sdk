@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRevolvedAreaSolid::IfcRevolvedAreaSolid(Step::Id id, Step::SPFData *args) : IfcSweptAreaSolid(id, args) {
@@ -89,6 +86,14 @@ void IfcRevolvedAreaSolid::setAxis(const Step::RefPtr< IfcAxis1Placement > &valu
     m_axis = value;
 }
 
+void IfcRevolvedAreaSolid::unsetAxis() {
+    m_axis = Step::getUnset(getAxis());
+}
+
+bool IfcRevolvedAreaSolid::testAxis() const {
+    return !Step::isUnset(getAxis());
+}
+
 IfcPlaneAngleMeasure IfcRevolvedAreaSolid::getAngle() {
     if (Step::BaseObject::inited()) {
         return m_angle;
@@ -105,6 +110,14 @@ const IfcPlaneAngleMeasure IfcRevolvedAreaSolid::getAngle() const {
 
 void IfcRevolvedAreaSolid::setAngle(IfcPlaneAngleMeasure value) {
     m_angle = value;
+}
+
+void IfcRevolvedAreaSolid::unsetAngle() {
+    m_angle = Step::getUnset(getAngle());
+}
+
+bool IfcRevolvedAreaSolid::testAngle() const {
+    return !Step::isUnset(getAngle());
 }
 
 bool IfcRevolvedAreaSolid::init() {

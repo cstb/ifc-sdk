@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConditionCriterion::IfcConditionCriterion(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -90,6 +87,14 @@ void IfcConditionCriterion::setCriterion(const Step::RefPtr< IfcConditionCriteri
     m_criterion = value;
 }
 
+void IfcConditionCriterion::unsetCriterion() {
+    m_criterion = Step::getUnset(getCriterion());
+}
+
+bool IfcConditionCriterion::testCriterion() const {
+    return !Step::isUnset(getCriterion());
+}
+
 IfcDateTimeSelect *IfcConditionCriterion::getCriterionDateTime() {
     if (Step::BaseObject::inited()) {
         return m_criterionDateTime.get();
@@ -106,6 +111,14 @@ const IfcDateTimeSelect *IfcConditionCriterion::getCriterionDateTime() const {
 
 void IfcConditionCriterion::setCriterionDateTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_criterionDateTime = value;
+}
+
+void IfcConditionCriterion::unsetCriterionDateTime() {
+    m_criterionDateTime = Step::getUnset(getCriterionDateTime());
+}
+
+bool IfcConditionCriterion::testCriterionDateTime() const {
+    return !Step::isUnset(getCriterionDateTime());
 }
 
 bool IfcConditionCriterion::init() {

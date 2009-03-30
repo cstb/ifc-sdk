@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcValue;
 
     /**
+     * Generated class for the IfcMeasureWithUnit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMeasureWithUnit : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setValueComponent(const Step::RefPtr< IfcValue > &value);
         /**
+         * unset the attribute 'ValueComponent'.
+         * 
+         */
+        virtual void unsetValueComponent();
+        /**
+         * Test if the attribute 'ValueComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValueComponent() const;
+        /**
          * Gets the value of the explicit attribute 'UnitComponent'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUnitComponent(const Step::RefPtr< IfcUnit > &value);
+        /**
+         * unset the attribute 'UnitComponent'.
+         * 
+         */
+        virtual void unsetUnitComponent();
+        /**
+         * Test if the attribute 'UnitComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnitComponent() const;
         friend class ExpressDataSet;
 
     protected:

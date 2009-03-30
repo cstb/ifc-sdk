@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFireSuppressionTerminalType::IfcFireSuppressionTerminalType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
@@ -82,6 +79,14 @@ const IfcFireSuppressionTerminalTypeEnum IfcFireSuppressionTerminalType::getPred
 
 void IfcFireSuppressionTerminalType::setPredefinedType(IfcFireSuppressionTerminalTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcFireSuppressionTerminalType::unsetPredefinedType() {
+    m_predefinedType = IfcFireSuppressionTerminalTypeEnum_UNSET;
+}
+
+bool IfcFireSuppressionTerminalType::testPredefinedType() const {
+    return getPredefinedType() != IfcFireSuppressionTerminalTypeEnum_UNSET;
 }
 
 bool IfcFireSuppressionTerminalType::init() {

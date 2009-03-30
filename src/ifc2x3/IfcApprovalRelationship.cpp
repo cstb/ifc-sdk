@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcApprovalRelationship::IfcApprovalRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -98,6 +95,14 @@ void IfcApprovalRelationship::setRelatedApproval(const Step::RefPtr< IfcApproval
     m_relatedApproval = value;
 }
 
+void IfcApprovalRelationship::unsetRelatedApproval() {
+    m_relatedApproval = Step::getUnset(getRelatedApproval());
+}
+
+bool IfcApprovalRelationship::testRelatedApproval() const {
+    return !Step::isUnset(getRelatedApproval());
+}
+
 IfcApproval *IfcApprovalRelationship::getRelatingApproval() {
     if (Step::BaseObject::inited()) {
         return m_relatingApproval.get();
@@ -122,6 +127,14 @@ void IfcApprovalRelationship::setRelatingApproval(const Step::RefPtr< IfcApprova
     m_relatingApproval = value;
 }
 
+void IfcApprovalRelationship::unsetRelatingApproval() {
+    m_relatingApproval = Step::getUnset(getRelatingApproval());
+}
+
+bool IfcApprovalRelationship::testRelatingApproval() const {
+    return !Step::isUnset(getRelatingApproval());
+}
+
 IfcText IfcApprovalRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -140,6 +153,14 @@ void IfcApprovalRelationship::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcApprovalRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcApprovalRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 IfcLabel IfcApprovalRelationship::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -156,6 +177,14 @@ const IfcLabel IfcApprovalRelationship::getName() const {
 
 void IfcApprovalRelationship::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcApprovalRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcApprovalRelationship::testName() const {
+    return !Step::isUnset(getName());
 }
 
 bool IfcApprovalRelationship::init() {

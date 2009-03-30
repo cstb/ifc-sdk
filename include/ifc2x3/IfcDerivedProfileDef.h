@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,10 +32,10 @@
 #include "ifc2x3/IfcProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcCartesianTransformationOperator2D;
 
     /**
+     * Generated class for the IfcDerivedProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDerivedProfileDef : public IfcProfileDef {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setParentProfile(const Step::RefPtr< IfcProfileDef > &value);
         /**
+         * unset the attribute 'ParentProfile'.
+         * 
+         */
+        virtual void unsetParentProfile();
+        /**
+         * Test if the attribute 'ParentProfile' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testParentProfile() const;
+        /**
          * Gets the value of the explicit attribute 'Operator'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setOperator(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value);
         /**
+         * unset the attribute 'Operator'.
+         * 
+         */
+        virtual void unsetOperator();
+        /**
+         * Test if the attribute 'Operator' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOperator() const;
+        /**
          * Gets the value of the explicit attribute 'Label'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLabel(const IfcLabel &value);
+        /**
+         * unset the attribute 'Label'.
+         * 
+         */
+        virtual void unsetLabel();
+        /**
+         * Test if the attribute 'Label' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLabel() const;
         friend class ExpressDataSet;
 
     protected:

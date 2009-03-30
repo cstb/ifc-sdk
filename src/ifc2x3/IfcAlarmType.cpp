@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAlarmType::IfcAlarmType(Step::Id id, Step::SPFData *args) : IfcDistributionControlElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcAlarmTypeEnum IfcAlarmType::getPredefinedType() const {
 
 void IfcAlarmType::setPredefinedType(IfcAlarmTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcAlarmType::unsetPredefinedType() {
+    m_predefinedType = IfcAlarmTypeEnum_UNSET;
+}
+
+bool IfcAlarmType::testPredefinedType() const {
+    return getPredefinedType() != IfcAlarmTypeEnum_UNSET;
 }
 
 bool IfcAlarmType::init() {

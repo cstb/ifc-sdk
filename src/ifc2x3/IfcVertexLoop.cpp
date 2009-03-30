@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcVertexLoop::IfcVertexLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, args) {
@@ -86,6 +83,14 @@ const IfcVertex *IfcVertexLoop::getLoopVertex() const {
 
 void IfcVertexLoop::setLoopVertex(const Step::RefPtr< IfcVertex > &value) {
     m_loopVertex = value;
+}
+
+void IfcVertexLoop::unsetLoopVertex() {
+    m_loopVertex = Step::getUnset(getLoopVertex());
+}
+
+bool IfcVertexLoop::testLoopVertex() const {
+    return !Step::isUnset(getLoopVertex());
 }
 
 bool IfcVertexLoop::init() {

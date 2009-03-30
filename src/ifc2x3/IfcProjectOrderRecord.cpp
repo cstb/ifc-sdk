@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProjectOrderRecord::IfcProjectOrderRecord(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -89,6 +86,15 @@ void IfcProjectOrderRecord::setRecords(const List_IfcRelAssignsToProjectOrder_1_
     m_records = value;
 }
 
+void IfcProjectOrderRecord::unsetRecords() {
+    m_records.clear();
+    m_records.setUnset(true);
+}
+
+bool IfcProjectOrderRecord::testRecords() const {
+    return !Step::isUnset(getRecords());
+}
+
 IfcProjectOrderRecordTypeEnum IfcProjectOrderRecord::getPredefinedType() {
     if (Step::BaseObject::inited()) {
         return m_predefinedType;
@@ -105,6 +111,14 @@ const IfcProjectOrderRecordTypeEnum IfcProjectOrderRecord::getPredefinedType() c
 
 void IfcProjectOrderRecord::setPredefinedType(IfcProjectOrderRecordTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcProjectOrderRecord::unsetPredefinedType() {
+    m_predefinedType = IfcProjectOrderRecordTypeEnum_UNSET;
+}
+
+bool IfcProjectOrderRecord::testPredefinedType() const {
+    return getPredefinedType() != IfcProjectOrderRecordTypeEnum_UNSET;
 }
 
 bool IfcProjectOrderRecord::init() {

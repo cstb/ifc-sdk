@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,9 +36,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPixelTexture::IfcPixelTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTexture(id, args) {
@@ -88,6 +85,14 @@ void IfcPixelTexture::setWidth(IfcInteger value) {
     m_width = value;
 }
 
+void IfcPixelTexture::unsetWidth() {
+    m_width = Step::getUnset(getWidth());
+}
+
+bool IfcPixelTexture::testWidth() const {
+    return !Step::isUnset(getWidth());
+}
+
 IfcInteger IfcPixelTexture::getHeight() {
     if (Step::BaseObject::inited()) {
         return m_height;
@@ -104,6 +109,14 @@ const IfcInteger IfcPixelTexture::getHeight() const {
 
 void IfcPixelTexture::setHeight(IfcInteger value) {
     m_height = value;
+}
+
+void IfcPixelTexture::unsetHeight() {
+    m_height = Step::getUnset(getHeight());
+}
+
+bool IfcPixelTexture::testHeight() const {
+    return !Step::isUnset(getHeight());
 }
 
 IfcInteger IfcPixelTexture::getColourComponents() {
@@ -124,6 +137,14 @@ void IfcPixelTexture::setColourComponents(IfcInteger value) {
     m_colourComponents = value;
 }
 
+void IfcPixelTexture::unsetColourComponents() {
+    m_colourComponents = Step::getUnset(getColourComponents());
+}
+
+bool IfcPixelTexture::testColourComponents() const {
+    return !Step::isUnset(getColourComponents());
+}
+
 List_32_1_n &IfcPixelTexture::getPixel() {
     if (Step::BaseObject::inited()) {
         return m_pixel;
@@ -141,6 +162,15 @@ const List_32_1_n &IfcPixelTexture::getPixel() const {
 
 void IfcPixelTexture::setPixel(const List_32_1_n &value) {
     m_pixel = value;
+}
+
+void IfcPixelTexture::unsetPixel() {
+    m_pixel.clear();
+    m_pixel.setUnset(true);
+}
+
+bool IfcPixelTexture::testPixel() const {
+    return !Step::isUnset(getPixel());
 }
 
 bool IfcPixelTexture::init() {

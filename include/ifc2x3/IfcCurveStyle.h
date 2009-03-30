@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcSizeSelect;
 
     /**
+     * Generated class for the IfcCurveStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurveStyle : public IfcPresentationStyle {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setCurveFont(const Step::RefPtr< IfcCurveFontOrScaledCurveFontSelect > &value);
         /**
+         * unset the attribute 'CurveFont'.
+         * 
+         */
+        virtual void unsetCurveFont();
+        /**
+         * Test if the attribute 'CurveFont' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveFont() const;
+        /**
          * Gets the value of the explicit attribute 'CurveWidth'.
          * 
          */
@@ -109,6 +122,17 @@ namespace ifc2x3 {
          */
         virtual void setCurveWidth(const Step::RefPtr< IfcSizeSelect > &value);
         /**
+         * unset the attribute 'CurveWidth'.
+         * 
+         */
+        virtual void unsetCurveWidth();
+        /**
+         * Test if the attribute 'CurveWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveWidth() const;
+        /**
          * Gets the value of the explicit attribute 'CurveColour'.
          * 
          */
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCurveColour(const Step::RefPtr< IfcColour > &value);
+        /**
+         * unset the attribute 'CurveColour'.
+         * 
+         */
+        virtual void unsetCurveColour();
+        /**
+         * Test if the attribute 'CurveColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveColour() const;
         friend class ExpressDataSet;
 
     protected:

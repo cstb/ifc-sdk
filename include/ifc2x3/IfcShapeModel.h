@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcRepresentation.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcShapeModel Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcShapeModel : public IfcRepresentation {
     public:
@@ -81,8 +83,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'OfShapeAspect'
          */
         virtual const Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect() const;
-        friend class Inverted_IfcShapeAspect_ShapeRepresentations_type;
+        /**
+         * Test if the attribute 'OfShapeAspect' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOfShapeAspect() const;
         friend class IfcShapeAspect;
+        friend class Inverted_IfcShapeAspect_ShapeRepresentations_type;
         friend class ExpressDataSet;
 
     protected:

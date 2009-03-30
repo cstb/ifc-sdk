@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcSurfaceStyleShading.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcSpecularHighlightSelect;
 
     /**
+     * Generated class for the IfcSurfaceStyleRendering Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSurfaceStyleRendering : public IfcSurfaceStyleShading {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setTransparency(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'Transparency'.
+         * 
+         */
+        virtual void unsetTransparency();
+        /**
+         * Test if the attribute 'Transparency' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransparency() const;
+        /**
          * Gets the value of the explicit attribute 'DiffuseColour'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        /**
+         * unset the attribute 'DiffuseColour'.
+         * 
+         */
+        virtual void unsetDiffuseColour();
+        /**
+         * Test if the attribute 'DiffuseColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDiffuseColour() const;
         /**
          * Gets the value of the explicit attribute 'TransmissionColour'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * unset the attribute 'TransmissionColour'.
+         * 
+         */
+        virtual void unsetTransmissionColour();
+        /**
+         * Test if the attribute 'TransmissionColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransmissionColour() const;
+        /**
          * Gets the value of the explicit attribute 'DiffuseTransmissionColour'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        /**
+         * unset the attribute 'DiffuseTransmissionColour'.
+         * 
+         */
+        virtual void unsetDiffuseTransmissionColour();
+        /**
+         * Test if the attribute 'DiffuseTransmissionColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDiffuseTransmissionColour() const;
         /**
          * Gets the value of the explicit attribute 'ReflectionColour'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setReflectionColour(const Step::RefPtr< IfcColourOrFactor > &value);
         /**
+         * unset the attribute 'ReflectionColour'.
+         * 
+         */
+        virtual void unsetReflectionColour();
+        /**
+         * Test if the attribute 'ReflectionColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReflectionColour() const;
+        /**
          * Gets the value of the explicit attribute 'SpecularColour'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value);
+        /**
+         * unset the attribute 'SpecularColour'.
+         * 
+         */
+        virtual void unsetSpecularColour();
+        /**
+         * Test if the attribute 'SpecularColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpecularColour() const;
         /**
          * Gets the value of the explicit attribute 'SpecularHighlight'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setSpecularHighlight(const Step::RefPtr< IfcSpecularHighlightSelect > &value);
         /**
+         * unset the attribute 'SpecularHighlight'.
+         * 
+         */
+        virtual void unsetSpecularHighlight();
+        /**
+         * Test if the attribute 'SpecularHighlight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpecularHighlight() const;
+        /**
          * Gets the value of the explicit attribute 'ReflectanceMethod'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setReflectanceMethod(IfcReflectanceMethodEnum value);
+        /**
+         * unset the attribute 'ReflectanceMethod'.
+         * 
+         */
+        virtual void unsetReflectanceMethod();
+        /**
+         * Test if the attribute 'ReflectanceMethod' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReflectanceMethod() const;
         friend class ExpressDataSet;
 
     protected:

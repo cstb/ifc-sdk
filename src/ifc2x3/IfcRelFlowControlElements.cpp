@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelFlowControlElements_RelatedControlElements_type::Inverted_IfcRelFlowControlElements_RelatedControlElements_type() {
@@ -64,8 +61,13 @@ Inverted_IfcRelFlowControlElements_RelatedControlElements_type::size_type Invert
     return Set_IfcDistributionControlElement_1_n::erase(value);
 }
 
+void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelFlowControlElements::IfcRelFlowControlElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatedControlElements.setUnset(true);
     m_relatedControlElements.setOwner(this);
     m_relatingFlowElement = NULL;
 }
@@ -108,6 +110,15 @@ const Set_IfcDistributionControlElement_1_n &IfcRelFlowControlElements::getRelat
     return deConstObject->getRelatedControlElements();
 }
 
+void IfcRelFlowControlElements::unsetRelatedControlElements() {
+    m_relatedControlElements.clear();
+    m_relatedControlElements.setUnset(true);
+}
+
+bool IfcRelFlowControlElements::testRelatedControlElements() const {
+    return !Step::isUnset(getRelatedControlElements());
+}
+
 IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() {
     if (Step::BaseObject::inited()) {
         return m_relatingFlowElement.get();
@@ -130,6 +141,14 @@ void IfcRelFlowControlElements::setRelatingFlowElement(const Step::RefPtr< IfcDi
         value->m_hasControlElements.insert(this);
     }
     m_relatingFlowElement = value;
+}
+
+void IfcRelFlowControlElements::unsetRelatingFlowElement() {
+    m_relatingFlowElement = Step::getUnset(getRelatingFlowElement());
+}
+
+bool IfcRelFlowControlElements::testRelatingFlowElement() const {
+    return !Step::isUnset(getRelatingFlowElement());
 }
 
 bool IfcRelFlowControlElements::init() {

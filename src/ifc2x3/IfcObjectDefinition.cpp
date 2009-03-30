@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
@@ -85,6 +82,10 @@ const Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() co
     return deConstObject->getHasAssignments();
 }
 
+bool IfcObjectDefinition::testHasAssignments() const {
+    return !Step::isUnset(getHasAssignments());
+}
+
 Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() {
     if (Step::BaseObject::inited()) {
         return m_isDecomposedBy;
@@ -98,6 +99,10 @@ Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() {
 const Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() const {
     IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
     return deConstObject->getIsDecomposedBy();
+}
+
+bool IfcObjectDefinition::testIsDecomposedBy() const {
+    return !Step::isUnset(getIsDecomposedBy());
 }
 
 Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() {
@@ -115,6 +120,10 @@ const Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() con
     return deConstObject->getDecomposes();
 }
 
+bool IfcObjectDefinition::testDecomposes() const {
+    return !Step::isUnset(getDecomposes());
+}
+
 Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() {
     if (Step::BaseObject::inited()) {
         return m_hasAssociations;
@@ -128,6 +137,10 @@ Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() {
 const Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() const {
     IfcObjectDefinition * deConstObject = const_cast< IfcObjectDefinition * > (this);
     return deConstObject->getHasAssociations();
+}
+
+bool IfcObjectDefinition::testHasAssociations() const {
+    return !Step::isUnset(getHasAssociations());
 }
 
 bool IfcObjectDefinition::init() {

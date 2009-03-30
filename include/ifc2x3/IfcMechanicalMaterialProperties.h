@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMechanicalMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMechanicalMaterialProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDynamicViscosity(IfcDynamicViscosityMeasure value);
         /**
+         * unset the attribute 'DynamicViscosity'.
+         * 
+         */
+        virtual void unsetDynamicViscosity();
+        /**
+         * Test if the attribute 'DynamicViscosity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDynamicViscosity() const;
+        /**
          * Gets the value of the explicit attribute 'YoungModulus'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setYoungModulus(IfcModulusOfElasticityMeasure value);
+        /**
+         * unset the attribute 'YoungModulus'.
+         * 
+         */
+        virtual void unsetYoungModulus();
+        /**
+         * Test if the attribute 'YoungModulus' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYoungModulus() const;
         /**
          * Gets the value of the explicit attribute 'ShearModulus'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setShearModulus(IfcModulusOfElasticityMeasure value);
         /**
+         * unset the attribute 'ShearModulus'.
+         * 
+         */
+        virtual void unsetShearModulus();
+        /**
+         * Test if the attribute 'ShearModulus' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearModulus() const;
+        /**
          * Gets the value of the explicit attribute 'PoissonRatio'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setPoissonRatio(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'PoissonRatio'.
+         * 
+         */
+        virtual void unsetPoissonRatio();
+        /**
+         * Test if the attribute 'PoissonRatio' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPoissonRatio() const;
+        /**
          * Gets the value of the explicit attribute 'ThermalExpansionCoefficient'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value);
+        /**
+         * unset the attribute 'ThermalExpansionCoefficient'.
+         * 
+         */
+        virtual void unsetThermalExpansionCoefficient();
+        /**
+         * Test if the attribute 'ThermalExpansionCoefficient' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalExpansionCoefficient() const;
         friend class ExpressDataSet;
 
     protected:

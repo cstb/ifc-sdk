@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcShapeAspect_ShapeRepresentations_type::Inverted_IfcShapeAspect_ShapeRepresentations_type() {
@@ -65,8 +62,13 @@ Inverted_IfcShapeAspect_ShapeRepresentations_type::iterator Inverted_IfcShapeAsp
     return List_IfcShapeModel_1_n::erase(value);
 }
 
+void Inverted_IfcShapeAspect_ShapeRepresentations_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcShapeAspect::IfcShapeAspect(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_shapeRepresentations.setUnset(true);
     m_shapeRepresentations.setOwner(this);
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
@@ -112,6 +114,15 @@ const List_IfcShapeModel_1_n &IfcShapeAspect::getShapeRepresentations() const {
     return deConstObject->getShapeRepresentations();
 }
 
+void IfcShapeAspect::unsetShapeRepresentations() {
+    m_shapeRepresentations.clear();
+    m_shapeRepresentations.setUnset(true);
+}
+
+bool IfcShapeAspect::testShapeRepresentations() const {
+    return !Step::isUnset(getShapeRepresentations());
+}
+
 IfcLabel IfcShapeAspect::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -128,6 +139,14 @@ const IfcLabel IfcShapeAspect::getName() const {
 
 void IfcShapeAspect::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcShapeAspect::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcShapeAspect::testName() const {
+    return !Step::isUnset(getName());
 }
 
 IfcText IfcShapeAspect::getDescription() {
@@ -148,6 +167,14 @@ void IfcShapeAspect::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcShapeAspect::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcShapeAspect::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 Step::Logical IfcShapeAspect::getProductDefinitional() {
     if (Step::BaseObject::inited()) {
         return m_productDefinitional;
@@ -164,6 +191,14 @@ const Step::Logical IfcShapeAspect::getProductDefinitional() const {
 
 void IfcShapeAspect::setProductDefinitional(Step::Logical value) {
     m_productDefinitional = value;
+}
+
+void IfcShapeAspect::unsetProductDefinitional() {
+    m_productDefinitional = Step::getUnset(getProductDefinitional());
+}
+
+bool IfcShapeAspect::testProductDefinitional() const {
+    return !Step::isUnset(getProductDefinitional());
 }
 
 IfcProductDefinitionShape *IfcShapeAspect::getPartOfProductDefinitionShape() {
@@ -188,6 +223,14 @@ void IfcShapeAspect::setPartOfProductDefinitionShape(const Step::RefPtr< IfcProd
         value->m_hasShapeAspects.insert(this);
     }
     m_partOfProductDefinitionShape = value;
+}
+
+void IfcShapeAspect::unsetPartOfProductDefinitionShape() {
+    m_partOfProductDefinitionShape = Step::getUnset(getPartOfProductDefinitionShape());
+}
+
+bool IfcShapeAspect::testPartOfProductDefinitionShape() const {
+    return !Step::isUnset(getPartOfProductDefinitionShape());
 }
 
 bool IfcShapeAspect::init() {

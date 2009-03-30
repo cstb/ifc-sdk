@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcConic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcEllipse Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcEllipse : public IfcConic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSemiAxis1(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'SemiAxis1'.
+         * 
+         */
+        virtual void unsetSemiAxis1();
+        /**
+         * Test if the attribute 'SemiAxis1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSemiAxis1() const;
+        /**
          * Gets the value of the explicit attribute 'SemiAxis2'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSemiAxis2(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'SemiAxis2'.
+         * 
+         */
+        virtual void unsetSemiAxis2();
+        /**
+         * Test if the attribute 'SemiAxis2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSemiAxis2() const;
         friend class ExpressDataSet;
 
     protected:

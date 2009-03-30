@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcDateTimeSelect;
 
     /**
+     * Generated class for the IfcCostSchedule Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCostSchedule : public IfcControl {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'SubmittedBy'.
+         * 
+         */
+        virtual void unsetSubmittedBy();
+        /**
+         * Test if the attribute 'SubmittedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSubmittedBy() const;
+        /**
          * Gets the value of the explicit attribute 'PreparedBy'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPreparedBy(const Step::RefPtr< IfcActorSelect > &value);
+        /**
+         * unset the attribute 'PreparedBy'.
+         * 
+         */
+        virtual void unsetPreparedBy();
+        /**
+         * Test if the attribute 'PreparedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPreparedBy() const;
         /**
          * Gets the value of the explicit attribute 'SubmittedOn'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'SubmittedOn'.
+         * 
+         */
+        virtual void unsetSubmittedOn();
+        /**
+         * Test if the attribute 'SubmittedOn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSubmittedOn() const;
+        /**
          * Gets the value of the explicit attribute 'Status'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStatus(const IfcLabel &value);
+        /**
+         * unset the attribute 'Status'.
+         * 
+         */
+        virtual void unsetStatus();
+        /**
+         * Test if the attribute 'Status' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStatus() const;
         /**
          * Gets the value of the explicit attribute 'TargetUsers'.
          * 
@@ -160,6 +206,17 @@ namespace ifc2x3 {
          */
         virtual void setTargetUsers(const Set_IfcActorSelect_1_n &value);
         /**
+         * unset the attribute 'TargetUsers'.
+         * 
+         */
+        virtual void unsetTargetUsers();
+        /**
+         * Test if the attribute 'TargetUsers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTargetUsers() const;
+        /**
          * Gets the value of the explicit attribute 'UpdateDate'.
          * 
          */
@@ -176,6 +233,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'UpdateDate'.
+         * 
+         */
+        virtual void unsetUpdateDate();
+        /**
+         * Test if the attribute 'UpdateDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUpdateDate() const;
         /**
          * Gets the value of the explicit attribute 'ID'.
          * 
@@ -194,6 +262,17 @@ namespace ifc2x3 {
          */
         virtual void setID(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ID'.
+         * 
+         */
+        virtual void unsetID();
+        /**
+         * Test if the attribute 'ID' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testID() const;
+        /**
          * Gets the value of the explicit attribute 'PredefinedType'.
          * 
          */
@@ -210,6 +289,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPredefinedType(IfcCostScheduleTypeEnum value);
+        /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
         friend class ExpressDataSet;
 
     protected:

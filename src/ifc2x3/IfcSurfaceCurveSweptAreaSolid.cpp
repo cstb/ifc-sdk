@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceCurveSweptAreaSolid::IfcSurfaceCurveSweptAreaSolid(Step::Id id, Step::SPFData *args) : IfcSweptAreaSolid(id, args) {
@@ -92,6 +89,14 @@ void IfcSurfaceCurveSweptAreaSolid::setDirectrix(const Step::RefPtr< IfcCurve > 
     m_directrix = value;
 }
 
+void IfcSurfaceCurveSweptAreaSolid::unsetDirectrix() {
+    m_directrix = Step::getUnset(getDirectrix());
+}
+
+bool IfcSurfaceCurveSweptAreaSolid::testDirectrix() const {
+    return !Step::isUnset(getDirectrix());
+}
+
 IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getStartParam() {
     if (Step::BaseObject::inited()) {
         return m_startParam;
@@ -108,6 +113,14 @@ const IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getStartParam() const {
 
 void IfcSurfaceCurveSweptAreaSolid::setStartParam(IfcParameterValue value) {
     m_startParam = value;
+}
+
+void IfcSurfaceCurveSweptAreaSolid::unsetStartParam() {
+    m_startParam = Step::getUnset(getStartParam());
+}
+
+bool IfcSurfaceCurveSweptAreaSolid::testStartParam() const {
+    return !Step::isUnset(getStartParam());
 }
 
 IfcParameterValue IfcSurfaceCurveSweptAreaSolid::getEndParam() {
@@ -128,6 +141,14 @@ void IfcSurfaceCurveSweptAreaSolid::setEndParam(IfcParameterValue value) {
     m_endParam = value;
 }
 
+void IfcSurfaceCurveSweptAreaSolid::unsetEndParam() {
+    m_endParam = Step::getUnset(getEndParam());
+}
+
+bool IfcSurfaceCurveSweptAreaSolid::testEndParam() const {
+    return !Step::isUnset(getEndParam());
+}
+
 IfcSurface *IfcSurfaceCurveSweptAreaSolid::getReferenceSurface() {
     if (Step::BaseObject::inited()) {
         return m_referenceSurface.get();
@@ -144,6 +165,14 @@ const IfcSurface *IfcSurfaceCurveSweptAreaSolid::getReferenceSurface() const {
 
 void IfcSurfaceCurveSweptAreaSolid::setReferenceSurface(const Step::RefPtr< IfcSurface > &value) {
     m_referenceSurface = value;
+}
+
+void IfcSurfaceCurveSweptAreaSolid::unsetReferenceSurface() {
+    m_referenceSurface = Step::getUnset(getReferenceSurface());
+}
+
+bool IfcSurfaceCurveSweptAreaSolid::testReferenceSurface() const {
+    return !Step::isUnset(getReferenceSurface());
 }
 
 bool IfcSurfaceCurveSweptAreaSolid::init() {

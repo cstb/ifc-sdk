@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelOverridesProperties::IfcRelOverridesProperties(Step::Id id, Step::SPFData *args) : IfcRelDefinesByProperties(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcProperty_1_n &IfcRelOverridesProperties::getOverridingProperties() 
 
 void IfcRelOverridesProperties::setOverridingProperties(const Set_IfcProperty_1_n &value) {
     m_overridingProperties = value;
+}
+
+void IfcRelOverridesProperties::unsetOverridingProperties() {
+    m_overridingProperties.clear();
+    m_overridingProperties.setUnset(true);
+}
+
+bool IfcRelOverridesProperties::testOverridingProperties() const {
+    return !Step::isUnset(getOverridingProperties());
 }
 
 bool IfcRelOverridesProperties::init() {

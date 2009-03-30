@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBooleanResult::IfcBooleanResult(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcBooleanResult::setOperator(IfcBooleanOperator value) {
     m_operator = value;
 }
 
+void IfcBooleanResult::unsetOperator() {
+    m_operator = IfcBooleanOperator_UNSET;
+}
+
+bool IfcBooleanResult::testOperator() const {
+    return getOperator() != IfcBooleanOperator_UNSET;
+}
+
 IfcBooleanOperand *IfcBooleanResult::getFirstOperand() {
     if (Step::BaseObject::inited()) {
         return m_firstOperand.get();
@@ -107,6 +112,14 @@ void IfcBooleanResult::setFirstOperand(const Step::RefPtr< IfcBooleanOperand > &
     m_firstOperand = value;
 }
 
+void IfcBooleanResult::unsetFirstOperand() {
+    m_firstOperand = Step::getUnset(getFirstOperand());
+}
+
+bool IfcBooleanResult::testFirstOperand() const {
+    return !Step::isUnset(getFirstOperand());
+}
+
 IfcBooleanOperand *IfcBooleanResult::getSecondOperand() {
     if (Step::BaseObject::inited()) {
         return m_secondOperand.get();
@@ -123,6 +136,14 @@ const IfcBooleanOperand *IfcBooleanResult::getSecondOperand() const {
 
 void IfcBooleanResult::setSecondOperand(const Step::RefPtr< IfcBooleanOperand > &value) {
     m_secondOperand = value;
+}
+
+void IfcBooleanResult::unsetSecondOperand() {
+    m_secondOperand = Step::getUnset(getSecondOperand());
+}
+
+bool IfcBooleanResult::testSecondOperand() const {
+    return !Step::isUnset(getSecondOperand());
 }
 
 bool IfcBooleanResult::init() {

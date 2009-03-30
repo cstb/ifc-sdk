@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElementType::IfcElementType(Step::Id id, Step::SPFData *args) : IfcTypeProduct(id, args) {
@@ -83,6 +80,14 @@ const IfcLabel IfcElementType::getElementType() const {
 
 void IfcElementType::setElementType(const IfcLabel &value) {
     m_elementType = value;
+}
+
+void IfcElementType::unsetElementType() {
+    m_elementType = Step::getUnset(getElementType());
+}
+
+bool IfcElementType::testElementType() const {
+    return !Step::isUnset(getElementType());
 }
 
 bool IfcElementType::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcRelAssignsTasks;
 
     /**
+     * Generated class for the IfcScheduleTimeControl Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcScheduleTimeControl : public IfcControl {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setActualStart(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'ActualStart'.
+         * 
+         */
+        virtual void unsetActualStart();
+        /**
+         * Test if the attribute 'ActualStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActualStart() const;
+        /**
          * Gets the value of the explicit attribute 'EarlyStart'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEarlyStart(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'EarlyStart'.
+         * 
+         */
+        virtual void unsetEarlyStart();
+        /**
+         * Test if the attribute 'EarlyStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEarlyStart() const;
         /**
          * Gets the value of the explicit attribute 'LateStart'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setLateStart(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'LateStart'.
+         * 
+         */
+        virtual void unsetLateStart();
+        /**
+         * Test if the attribute 'LateStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLateStart() const;
+        /**
          * Gets the value of the explicit attribute 'ScheduleStart'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setScheduleStart(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'ScheduleStart'.
+         * 
+         */
+        virtual void unsetScheduleStart();
+        /**
+         * Test if the attribute 'ScheduleStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScheduleStart() const;
         /**
          * Gets the value of the explicit attribute 'ActualFinish'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setActualFinish(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'ActualFinish'.
+         * 
+         */
+        virtual void unsetActualFinish();
+        /**
+         * Test if the attribute 'ActualFinish' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActualFinish() const;
+        /**
          * Gets the value of the explicit attribute 'EarlyFinish'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEarlyFinish(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'EarlyFinish'.
+         * 
+         */
+        virtual void unsetEarlyFinish();
+        /**
+         * Test if the attribute 'EarlyFinish' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEarlyFinish() const;
         /**
          * Gets the value of the explicit attribute 'LateFinish'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setLateFinish(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'LateFinish'.
+         * 
+         */
+        virtual void unsetLateFinish();
+        /**
+         * Test if the attribute 'LateFinish' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLateFinish() const;
+        /**
          * Gets the value of the explicit attribute 'ScheduleFinish'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setScheduleFinish(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'ScheduleFinish'.
+         * 
+         */
+        virtual void unsetScheduleFinish();
+        /**
+         * Test if the attribute 'ScheduleFinish' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScheduleFinish() const;
         /**
          * Gets the value of the explicit attribute 'ScheduleDuration'.
          * 
@@ -227,6 +317,17 @@ namespace ifc2x3 {
          */
         virtual void setScheduleDuration(IfcTimeMeasure value);
         /**
+         * unset the attribute 'ScheduleDuration'.
+         * 
+         */
+        virtual void unsetScheduleDuration();
+        /**
+         * Test if the attribute 'ScheduleDuration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScheduleDuration() const;
+        /**
          * Gets the value of the explicit attribute 'ActualDuration'.
          * 
          */
@@ -243,6 +344,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setActualDuration(IfcTimeMeasure value);
+        /**
+         * unset the attribute 'ActualDuration'.
+         * 
+         */
+        virtual void unsetActualDuration();
+        /**
+         * Test if the attribute 'ActualDuration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActualDuration() const;
         /**
          * Gets the value of the explicit attribute 'RemainingTime'.
          * 
@@ -261,6 +373,17 @@ namespace ifc2x3 {
          */
         virtual void setRemainingTime(IfcTimeMeasure value);
         /**
+         * unset the attribute 'RemainingTime'.
+         * 
+         */
+        virtual void unsetRemainingTime();
+        /**
+         * Test if the attribute 'RemainingTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRemainingTime() const;
+        /**
          * Gets the value of the explicit attribute 'FreeFloat'.
          * 
          */
@@ -277,6 +400,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFreeFloat(IfcTimeMeasure value);
+        /**
+         * unset the attribute 'FreeFloat'.
+         * 
+         */
+        virtual void unsetFreeFloat();
+        /**
+         * Test if the attribute 'FreeFloat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFreeFloat() const;
         /**
          * Gets the value of the explicit attribute 'TotalFloat'.
          * 
@@ -295,6 +429,17 @@ namespace ifc2x3 {
          */
         virtual void setTotalFloat(IfcTimeMeasure value);
         /**
+         * unset the attribute 'TotalFloat'.
+         * 
+         */
+        virtual void unsetTotalFloat();
+        /**
+         * Test if the attribute 'TotalFloat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTotalFloat() const;
+        /**
          * Gets the value of the explicit attribute 'IsCritical'.
          * 
          */
@@ -311,6 +456,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setIsCritical(Step::Boolean value);
+        /**
+         * unset the attribute 'IsCritical'.
+         * 
+         */
+        virtual void unsetIsCritical();
+        /**
+         * Test if the attribute 'IsCritical' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsCritical() const;
         /**
          * Gets the value of the explicit attribute 'StatusTime'.
          * 
@@ -329,6 +485,17 @@ namespace ifc2x3 {
          */
         virtual void setStatusTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'StatusTime'.
+         * 
+         */
+        virtual void unsetStatusTime();
+        /**
+         * Test if the attribute 'StatusTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStatusTime() const;
+        /**
          * Gets the value of the explicit attribute 'StartFloat'.
          * 
          */
@@ -345,6 +512,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStartFloat(IfcTimeMeasure value);
+        /**
+         * unset the attribute 'StartFloat'.
+         * 
+         */
+        virtual void unsetStartFloat();
+        /**
+         * Test if the attribute 'StartFloat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStartFloat() const;
         /**
          * Gets the value of the explicit attribute 'FinishFloat'.
          * 
@@ -363,6 +541,17 @@ namespace ifc2x3 {
          */
         virtual void setFinishFloat(IfcTimeMeasure value);
         /**
+         * unset the attribute 'FinishFloat'.
+         * 
+         */
+        virtual void unsetFinishFloat();
+        /**
+         * Test if the attribute 'FinishFloat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFinishFloat() const;
+        /**
          * Gets the value of the explicit attribute 'Completion'.
          * 
          */
@@ -380,6 +569,17 @@ namespace ifc2x3 {
          */
         virtual void setCompletion(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'Completion'.
+         * 
+         */
+        virtual void unsetCompletion();
+        /**
+         * Test if the attribute 'Completion' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompletion() const;
+        /**
          * Gets the value of the inverse attribute 'ScheduleTimeControlAssigned'.
          * 
          */
@@ -390,8 +590,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ScheduleTimeControlAssigned'
          */
         virtual const IfcRelAssignsTasks *getScheduleTimeControlAssigned() const;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'ScheduleTimeControlAssigned' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScheduleTimeControlAssigned() const;
         friend class IfcRelAssignsTasks;
+        friend class ExpressDataSet;
 
     protected:
         /**

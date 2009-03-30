@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcVertexPoint::IfcVertexPoint(Step::Id id, Step::SPFData *args) : IfcVertex(id, args) {
@@ -86,6 +83,14 @@ const IfcPoint *IfcVertexPoint::getVertexGeometry() const {
 
 void IfcVertexPoint::setVertexGeometry(const Step::RefPtr< IfcPoint > &value) {
     m_vertexGeometry = value;
+}
+
+void IfcVertexPoint::unsetVertexGeometry() {
+    m_vertexGeometry = Step::getUnset(getVertexGeometry());
+}
+
+bool IfcVertexPoint::testVertexGeometry() const {
+    return !Step::isUnset(getVertexGeometry());
 }
 
 bool IfcVertexPoint::init() {

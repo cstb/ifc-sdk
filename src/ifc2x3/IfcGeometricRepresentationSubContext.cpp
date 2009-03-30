@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGeometricRepresentationSubContext::IfcGeometricRepresentationSubContext(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationContext(id, args) {
@@ -97,6 +94,14 @@ void IfcGeometricRepresentationSubContext::setParentContext(const Step::RefPtr< 
     m_parentContext = value;
 }
 
+void IfcGeometricRepresentationSubContext::unsetParentContext() {
+    m_parentContext = Step::getUnset(getParentContext());
+}
+
+bool IfcGeometricRepresentationSubContext::testParentContext() const {
+    return !Step::isUnset(getParentContext());
+}
+
 IfcPositiveRatioMeasure IfcGeometricRepresentationSubContext::getTargetScale() {
     if (Step::BaseObject::inited()) {
         return m_targetScale;
@@ -113,6 +118,14 @@ const IfcPositiveRatioMeasure IfcGeometricRepresentationSubContext::getTargetSca
 
 void IfcGeometricRepresentationSubContext::setTargetScale(IfcPositiveRatioMeasure value) {
     m_targetScale = value;
+}
+
+void IfcGeometricRepresentationSubContext::unsetTargetScale() {
+    m_targetScale = Step::getUnset(getTargetScale());
+}
+
+bool IfcGeometricRepresentationSubContext::testTargetScale() const {
+    return !Step::isUnset(getTargetScale());
 }
 
 IfcGeometricProjectionEnum IfcGeometricRepresentationSubContext::getTargetView() {
@@ -133,6 +146,14 @@ void IfcGeometricRepresentationSubContext::setTargetView(IfcGeometricProjectionE
     m_targetView = value;
 }
 
+void IfcGeometricRepresentationSubContext::unsetTargetView() {
+    m_targetView = IfcGeometricProjectionEnum_UNSET;
+}
+
+bool IfcGeometricRepresentationSubContext::testTargetView() const {
+    return getTargetView() != IfcGeometricProjectionEnum_UNSET;
+}
+
 IfcLabel IfcGeometricRepresentationSubContext::getUserDefinedTargetView() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedTargetView;
@@ -149,6 +170,14 @@ const IfcLabel IfcGeometricRepresentationSubContext::getUserDefinedTargetView() 
 
 void IfcGeometricRepresentationSubContext::setUserDefinedTargetView(const IfcLabel &value) {
     m_userDefinedTargetView = value;
+}
+
+void IfcGeometricRepresentationSubContext::unsetUserDefinedTargetView() {
+    m_userDefinedTargetView = Step::getUnset(getUserDefinedTargetView());
+}
+
+bool IfcGeometricRepresentationSubContext::testUserDefinedTargetView() const {
+    return !Step::isUnset(getUserDefinedTargetView());
 }
 
 bool IfcGeometricRepresentationSubContext::init() {

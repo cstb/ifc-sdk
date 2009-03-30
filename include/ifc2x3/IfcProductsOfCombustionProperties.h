@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProductsOfCombustionProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProductsOfCombustionProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value);
         /**
+         * unset the attribute 'SpecificHeatCapacity'.
+         * 
+         */
+        virtual void unsetSpecificHeatCapacity();
+        /**
+         * Test if the attribute 'SpecificHeatCapacity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpecificHeatCapacity() const;
+        /**
          * Gets the value of the explicit attribute 'N20Content'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setN20Content(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'N20Content'.
+         * 
+         */
+        virtual void unsetN20Content();
+        /**
+         * Test if the attribute 'N20Content' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testN20Content() const;
         /**
          * Gets the value of the explicit attribute 'COContent'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setCOContent(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'COContent'.
+         * 
+         */
+        virtual void unsetCOContent();
+        /**
+         * Test if the attribute 'COContent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCOContent() const;
+        /**
          * Gets the value of the explicit attribute 'CO2Content'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCO2Content(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'CO2Content'.
+         * 
+         */
+        virtual void unsetCO2Content();
+        /**
+         * Test if the attribute 'CO2Content' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCO2Content() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMaterial Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMaterial : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the inverse attribute 'HasRepresentation'.
          * 
          */
@@ -100,6 +113,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &getHasRepresentation() const;
         /**
+         * Test if the attribute 'HasRepresentation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasRepresentation() const;
+        /**
          * Gets the value of the inverse attribute 'ClassifiedAs'.
          * 
          */
@@ -110,6 +129,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ClassifiedAs'
          */
         virtual const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs() const;
+        /**
+         * Test if the attribute 'ClassifiedAs' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testClassifiedAs() const;
         friend class IfcMaterialDefinitionRepresentation;
         friend class ExpressDataSet;
         friend class IfcMaterialClassificationRelationship;

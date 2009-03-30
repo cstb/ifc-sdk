@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcReinforcingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcReinforcingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcReinforcingBar Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcReinforcingBar : public IfcReinforcingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setNominalDiameter(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'NominalDiameter'.
+         * 
+         */
+        virtual void unsetNominalDiameter();
+        /**
+         * Test if the attribute 'NominalDiameter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNominalDiameter() const;
+        /**
          * Gets the value of the explicit attribute 'CrossSectionArea'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCrossSectionArea(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'CrossSectionArea'.
+         * 
+         */
+        virtual void unsetCrossSectionArea();
+        /**
+         * Test if the attribute 'CrossSectionArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSectionArea() const;
         /**
          * Gets the value of the explicit attribute 'BarLength'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setBarLength(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'BarLength'.
+         * 
+         */
+        virtual void unsetBarLength();
+        /**
+         * Test if the attribute 'BarLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBarLength() const;
+        /**
          * Gets the value of the explicit attribute 'BarRole'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setBarRole(IfcReinforcingBarRoleEnum value);
         /**
+         * unset the attribute 'BarRole'.
+         * 
+         */
+        virtual void unsetBarRole();
+        /**
+         * Test if the attribute 'BarRole' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBarRole() const;
+        /**
          * Gets the value of the explicit attribute 'BarSurface'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBarSurface(IfcReinforcingBarSurfaceEnum value);
+        /**
+         * unset the attribute 'BarSurface'.
+         * 
+         */
+        virtual void unsetBarSurface();
+        /**
+         * Test if the attribute 'BarSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBarSurface() const;
         friend class ExpressDataSet;
 
     protected:

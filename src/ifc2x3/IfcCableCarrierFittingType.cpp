@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCableCarrierFittingType::IfcCableCarrierFittingType(Step::Id id, Step::SPFData *args) : IfcFlowFittingType(id, args) {
@@ -82,6 +79,14 @@ const IfcCableCarrierFittingTypeEnum IfcCableCarrierFittingType::getPredefinedTy
 
 void IfcCableCarrierFittingType::setPredefinedType(IfcCableCarrierFittingTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcCableCarrierFittingType::unsetPredefinedType() {
+    m_predefinedType = IfcCableCarrierFittingTypeEnum_UNSET;
+}
+
+bool IfcCableCarrierFittingType::testPredefinedType() const {
+    return getPredefinedType() != IfcCableCarrierFittingTypeEnum_UNSET;
 }
 
 bool IfcCableCarrierFittingType::init() {

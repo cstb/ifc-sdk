@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralElement::IfcRelConnectsStructuralElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -96,6 +93,14 @@ void IfcRelConnectsStructuralElement::setRelatingElement(const Step::RefPtr< Ifc
     m_relatingElement = value;
 }
 
+void IfcRelConnectsStructuralElement::unsetRelatingElement() {
+    m_relatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelConnectsStructuralElement::testRelatingElement() const {
+    return !Step::isUnset(getRelatingElement());
+}
+
 IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructuralMember() {
     if (Step::BaseObject::inited()) {
         return m_relatedStructuralMember.get();
@@ -118,6 +123,14 @@ void IfcRelConnectsStructuralElement::setRelatedStructuralMember(const Step::Ref
         value->m_referencesElement.insert(this);
     }
     m_relatedStructuralMember = value;
+}
+
+void IfcRelConnectsStructuralElement::unsetRelatedStructuralMember() {
+    m_relatedStructuralMember = Step::getUnset(getRelatedStructuralMember());
+}
+
+bool IfcRelConnectsStructuralElement::testRelatedStructuralMember() const {
+    return !Step::isUnset(getRelatedStructuralMember());
 }
 
 bool IfcRelConnectsStructuralElement::init() {

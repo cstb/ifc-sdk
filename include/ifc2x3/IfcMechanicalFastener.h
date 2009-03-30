@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcFastener.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMechanicalFastener Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMechanicalFastener : public IfcFastener {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setNominalDiameter(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'NominalDiameter'.
+         * 
+         */
+        virtual void unsetNominalDiameter();
+        /**
+         * Test if the attribute 'NominalDiameter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNominalDiameter() const;
+        /**
          * Gets the value of the explicit attribute 'NominalLength'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setNominalLength(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'NominalLength'.
+         * 
+         */
+        virtual void unsetNominalLength();
+        /**
+         * Test if the attribute 'NominalLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNominalLength() const;
         friend class ExpressDataSet;
 
     protected:

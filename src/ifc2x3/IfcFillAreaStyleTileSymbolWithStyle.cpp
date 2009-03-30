@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFillAreaStyleTileSymbolWithStyle::IfcFillAreaStyleTileSymbolWithStyle(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -86,6 +83,14 @@ const IfcAnnotationSymbolOccurrence *IfcFillAreaStyleTileSymbolWithStyle::getSym
 
 void IfcFillAreaStyleTileSymbolWithStyle::setSymbol(const Step::RefPtr< IfcAnnotationSymbolOccurrence > &value) {
     m_symbol = value;
+}
+
+void IfcFillAreaStyleTileSymbolWithStyle::unsetSymbol() {
+    m_symbol = Step::getUnset(getSymbol());
+}
+
+bool IfcFillAreaStyleTileSymbolWithStyle::testSymbol() const {
+    return !Step::isUnset(getSymbol());
 }
 
 bool IfcFillAreaStyleTileSymbolWithStyle::init() {

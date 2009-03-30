@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPoint.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPoint.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcPointOnCurve Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPointOnCurve : public IfcPoint {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'BasisCurve'.
+         * 
+         */
+        virtual void unsetBasisCurve();
+        /**
+         * Test if the attribute 'BasisCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisCurve() const;
+        /**
          * Gets the value of the explicit attribute 'PointParameter'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPointParameter(IfcParameterValue value);
+        /**
+         * unset the attribute 'PointParameter'.
+         * 
+         */
+        virtual void unsetPointParameter();
+        /**
+         * Test if the attribute 'PointParameter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPointParameter() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

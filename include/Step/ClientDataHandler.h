@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,25 +22,24 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_CLIENTDATA_HANDLER_H
-#define STEP_CLIENTDATA_HANDLER_H
+#ifndef Step_ClientDataHandler_h
+#define Step_ClientDataHandler_h
 
 #include "StepDLL.h"
 #include "Types.h"
 
 #include <map>
 
-namespace Step
-{
+namespace Step {
 
     class ClientData;
     class BaseCopyOp;
     /*!
      * \short A handler of ClientData
      */
-    class STEP_DLL_DEF ClientDataHandler : public Referenced
+    class STEP_DLL_DEF ClientDataHandler: public Referenced
     {
-
+        ClassType_definitions();
     public:
 
         /*!
@@ -52,33 +51,6 @@ namespace Step
          \short Destructor, delete every ClientData
          */
         ~ClientDataHandler();
-
-        /*!
-         \short Get the type identifier of this class (static)
-         @return The ClassType value from this class
-        */
-        static const Step::ClassType& getClassType();
-
-
-        /*!
-         \short Get the type identifier of this instance
-         @return The ClassType value of this instance
-        */
-        virtual const Step::ClassType& getType() const;
-
-        /*!
-         \short Check if this instance is of type t
-         @param t the reference type
-         @return true if this instance is of type t or inherits from t
-        */
-        virtual bool isOfType(const Step::ClassType& t) const;
-
-
-        /*!
-         \short Returns the name of the instance type
-         @return the type name of this instance
-        */
-        virtual const std::string & type() const;
 
         /*!
          \short Get a pointer to a ClientData from an Id (an unsigned int)
@@ -115,16 +87,15 @@ namespace Step
         /*!
          \short Copy, copies every ClientData
          */
-        void copy(const ClientDataHandler& obj,const BaseCopyOp& copyop);
+        void copy(const ClientDataHandler& obj, const BaseCopyOp& copyop);
         friend class BaseCopyOp;
 
     private:
-        static ClassType s_type;
 
         /*!
          \short Map of ClientData, the key is an unsigned int
          */
-        std::map< ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
+        std::map<ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
     };
 }
 #endif

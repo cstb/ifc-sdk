@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAddress::IfcAddress(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcAddress::setPurpose(IfcAddressTypeEnum value) {
     m_purpose = value;
 }
 
+void IfcAddress::unsetPurpose() {
+    m_purpose = IfcAddressTypeEnum_UNSET;
+}
+
+bool IfcAddress::testPurpose() const {
+    return getPurpose() != IfcAddressTypeEnum_UNSET;
+}
+
 IfcText IfcAddress::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -107,6 +112,14 @@ const IfcText IfcAddress::getDescription() const {
 
 void IfcAddress::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcAddress::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcAddress::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcLabel IfcAddress::getUserDefinedPurpose() {
@@ -127,6 +140,14 @@ void IfcAddress::setUserDefinedPurpose(const IfcLabel &value) {
     m_userDefinedPurpose = value;
 }
 
+void IfcAddress::unsetUserDefinedPurpose() {
+    m_userDefinedPurpose = Step::getUnset(getUserDefinedPurpose());
+}
+
+bool IfcAddress::testUserDefinedPurpose() const {
+    return !Step::isUnset(getUserDefinedPurpose());
+}
+
 Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() {
     if (Step::BaseObject::inited()) {
         return m_ofPerson;
@@ -142,6 +163,10 @@ const Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() const {
     return deConstObject->getOfPerson();
 }
 
+bool IfcAddress::testOfPerson() const {
+    return !Step::isUnset(getOfPerson());
+}
+
 Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
     if (Step::BaseObject::inited()) {
         return m_ofOrganization;
@@ -155,6 +180,10 @@ Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
 const Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() const {
     IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
     return deConstObject->getOfOrganization();
+}
+
+bool IfcAddress::testOfOrganization() const {
+    return !Step::isUnset(getOfOrganization());
 }
 
 bool IfcAddress::init() {

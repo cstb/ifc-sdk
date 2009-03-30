@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDocumentReference::IfcDocumentReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocu
 const Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocument() const {
     IfcDocumentReference * deConstObject = const_cast< IfcDocumentReference * > (this);
     return deConstObject->getReferenceToDocument();
+}
+
+bool IfcDocumentReference::testReferenceToDocument() const {
+    return !Step::isUnset(getReferenceToDocument());
 }
 
 bool IfcDocumentReference::init() {

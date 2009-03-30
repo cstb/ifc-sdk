@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPreDefinedTextFont.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcPreDefinedTextFont.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcSizeSelect;
 
     /**
+     * Generated class for the IfcTextStyleFontModel Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextStyleFontModel : public IfcPreDefinedTextFont {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setFontFamily(const List_IfcTextFontName_1_n &value);
         /**
+         * unset the attribute 'FontFamily'.
+         * 
+         */
+        virtual void unsetFontFamily();
+        /**
+         * Test if the attribute 'FontFamily' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFontFamily() const;
+        /**
          * Gets the value of the explicit attribute 'FontStyle'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFontStyle(const IfcFontStyle &value);
+        /**
+         * unset the attribute 'FontStyle'.
+         * 
+         */
+        virtual void unsetFontStyle();
+        /**
+         * Test if the attribute 'FontStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFontStyle() const;
         /**
          * Gets the value of the explicit attribute 'FontVariant'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setFontVariant(const IfcFontVariant &value);
         /**
+         * unset the attribute 'FontVariant'.
+         * 
+         */
+        virtual void unsetFontVariant();
+        /**
+         * Test if the attribute 'FontVariant' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFontVariant() const;
+        /**
          * Gets the value of the explicit attribute 'FontWeight'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setFontWeight(const IfcFontWeight &value);
         /**
+         * unset the attribute 'FontWeight'.
+         * 
+         */
+        virtual void unsetFontWeight();
+        /**
+         * Test if the attribute 'FontWeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFontWeight() const;
+        /**
          * Gets the value of the explicit attribute 'FontSize'.
          * 
          */
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFontSize(const Step::RefPtr< IfcSizeSelect > &value);
+        /**
+         * unset the attribute 'FontSize'.
+         * 
+         */
+        virtual void unsetFontSize();
+        /**
+         * Test if the attribute 'FontSize' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFontSize() const;
         friend class ExpressDataSet;
 
     protected:

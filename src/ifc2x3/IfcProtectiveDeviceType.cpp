@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProtectiveDeviceType::IfcProtectiveDeviceType(Step::Id id, Step::SPFData *args) : IfcFlowControllerType(id, args) {
@@ -82,6 +79,14 @@ const IfcProtectiveDeviceTypeEnum IfcProtectiveDeviceType::getPredefinedType() c
 
 void IfcProtectiveDeviceType::setPredefinedType(IfcProtectiveDeviceTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcProtectiveDeviceType::unsetPredefinedType() {
+    m_predefinedType = IfcProtectiveDeviceTypeEnum_UNSET;
+}
+
+bool IfcProtectiveDeviceType::testPredefinedType() const {
+    return getPredefinedType() != IfcProtectiveDeviceTypeEnum_UNSET;
 }
 
 bool IfcProtectiveDeviceType::init() {

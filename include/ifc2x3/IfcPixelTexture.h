@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSurfaceTexture.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcSurfaceTexture.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPixelTexture Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPixelTexture : public IfcSurfaceTexture {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setWidth(IfcInteger value);
         /**
+         * unset the attribute 'Width'.
+         * 
+         */
+        virtual void unsetWidth();
+        /**
+         * Test if the attribute 'Width' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWidth() const;
+        /**
          * Gets the value of the explicit attribute 'Height'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHeight(IfcInteger value);
+        /**
+         * unset the attribute 'Height'.
+         * 
+         */
+        virtual void unsetHeight();
+        /**
+         * Test if the attribute 'Height' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHeight() const;
         /**
          * Gets the value of the explicit attribute 'ColourComponents'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setColourComponents(IfcInteger value);
         /**
+         * unset the attribute 'ColourComponents'.
+         * 
+         */
+        virtual void unsetColourComponents();
+        /**
+         * Test if the attribute 'ColourComponents' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testColourComponents() const;
+        /**
          * Gets the value of the explicit attribute 'Pixel'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPixel(const List_32_1_n &value);
+        /**
+         * unset the attribute 'Pixel'.
+         * 
+         */
+        virtual void unsetPixel();
+        /**
+         * Test if the attribute 'Pixel' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPixel() const;
         friend class ExpressDataSet;
 
     protected:

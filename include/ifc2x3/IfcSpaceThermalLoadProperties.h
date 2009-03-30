@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcTimeSeries;
 
     /**
+     * Generated class for the IfcSpaceThermalLoadProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSpaceThermalLoadProperties : public IfcPropertySetDefinition {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicableValueRatio(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'ApplicableValueRatio'.
+         * 
+         */
+        virtual void unsetApplicableValueRatio();
+        /**
+         * Test if the attribute 'ApplicableValueRatio' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicableValueRatio() const;
+        /**
          * Gets the value of the explicit attribute 'ThermalLoadSource'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThermalLoadSource(IfcThermalLoadSourceEnum value);
+        /**
+         * unset the attribute 'ThermalLoadSource'.
+         * 
+         */
+        virtual void unsetThermalLoadSource();
+        /**
+         * Test if the attribute 'ThermalLoadSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalLoadSource() const;
         /**
          * Gets the value of the explicit attribute 'PropertySource'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setPropertySource(IfcPropertySourceEnum value);
         /**
+         * unset the attribute 'PropertySource'.
+         * 
+         */
+        virtual void unsetPropertySource();
+        /**
+         * Test if the attribute 'PropertySource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPropertySource() const;
+        /**
          * Gets the value of the explicit attribute 'SourceDescription'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSourceDescription(const IfcText &value);
+        /**
+         * unset the attribute 'SourceDescription'.
+         * 
+         */
+        virtual void unsetSourceDescription();
+        /**
+         * Test if the attribute 'SourceDescription' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSourceDescription() const;
         /**
          * Gets the value of the explicit attribute 'MaximumValue'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setMaximumValue(IfcPowerMeasure value);
         /**
+         * unset the attribute 'MaximumValue'.
+         * 
+         */
+        virtual void unsetMaximumValue();
+        /**
+         * Test if the attribute 'MaximumValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaximumValue() const;
+        /**
          * Gets the value of the explicit attribute 'MinimumValue'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMinimumValue(IfcPowerMeasure value);
+        /**
+         * unset the attribute 'MinimumValue'.
+         * 
+         */
+        virtual void unsetMinimumValue();
+        /**
+         * Test if the attribute 'MinimumValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinimumValue() const;
         /**
          * Gets the value of the explicit attribute 'ThermalLoadTimeSeriesValues'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setThermalLoadTimeSeriesValues(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * unset the attribute 'ThermalLoadTimeSeriesValues'.
+         * 
+         */
+        virtual void unsetThermalLoadTimeSeriesValues();
+        /**
+         * Test if the attribute 'ThermalLoadTimeSeriesValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalLoadTimeSeriesValues() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedThermalLoadSource'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedThermalLoadSource(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedThermalLoadSource'.
+         * 
+         */
+        virtual void unsetUserDefinedThermalLoadSource();
+        /**
+         * Test if the attribute 'UserDefinedThermalLoadSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedThermalLoadSource() const;
         /**
          * Gets the value of the explicit attribute 'UserDefinedPropertySource'.
          * 
@@ -227,6 +317,17 @@ namespace ifc2x3 {
          */
         virtual void setUserDefinedPropertySource(const IfcLabel &value);
         /**
+         * unset the attribute 'UserDefinedPropertySource'.
+         * 
+         */
+        virtual void unsetUserDefinedPropertySource();
+        /**
+         * Test if the attribute 'UserDefinedPropertySource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedPropertySource() const;
+        /**
          * Gets the value of the explicit attribute 'ThermalLoadType'.
          * 
          */
@@ -243,6 +344,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThermalLoadType(IfcThermalLoadTypeEnum value);
+        /**
+         * unset the attribute 'ThermalLoadType'.
+         * 
+         */
+        virtual void unsetThermalLoadType();
+        /**
+         * Test if the attribute 'ThermalLoadType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalLoadType() const;
         friend class ExpressDataSet;
 
     protected:

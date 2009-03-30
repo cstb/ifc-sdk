@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcClassificationNotation::IfcClassificationNotation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcClassificationNotationFacet_1_n &IfcClassificationNotation::getNota
 
 void IfcClassificationNotation::setNotationFacets(const Set_IfcClassificationNotationFacet_1_n &value) {
     m_notationFacets = value;
+}
+
+void IfcClassificationNotation::unsetNotationFacets() {
+    m_notationFacets.clear();
+    m_notationFacets.setUnset(true);
+}
+
+bool IfcClassificationNotation::testNotationFacets() const {
+    return !Step::isUnset(getNotationFacets());
 }
 
 bool IfcClassificationNotation::init() {

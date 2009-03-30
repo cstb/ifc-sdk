@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertySet::IfcPropertySet(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcProperty_1_n &IfcPropertySet::getHasProperties() const {
 
 void IfcPropertySet::setHasProperties(const Set_IfcProperty_1_n &value) {
     m_hasProperties = value;
+}
+
+void IfcPropertySet::unsetHasProperties() {
+    m_hasProperties.clear();
+    m_hasProperties.setUnset(true);
+}
+
+bool IfcPropertySet::testHasProperties() const {
+    return !Step::isUnset(getHasProperties());
 }
 
 bool IfcPropertySet::init() {

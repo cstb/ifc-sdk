@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBoxedHalfSpace::IfcBoxedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalfSpaceSolid(id, args) {
@@ -86,6 +83,14 @@ const IfcBoundingBox *IfcBoxedHalfSpace::getEnclosure() const {
 
 void IfcBoxedHalfSpace::setEnclosure(const Step::RefPtr< IfcBoundingBox > &value) {
     m_enclosure = value;
+}
+
+void IfcBoxedHalfSpace::unsetEnclosure() {
+    m_enclosure = Step::getUnset(getEnclosure());
+}
+
+bool IfcBoxedHalfSpace::testEnclosure() const {
+    return !Step::isUnset(getEnclosure());
 }
 
 bool IfcBoxedHalfSpace::init() {

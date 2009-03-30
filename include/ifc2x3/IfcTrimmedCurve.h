@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundedCurve.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundedCurve.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcTrimmedCurve Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTrimmedCurve : public IfcBoundedCurve {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'BasisCurve'.
+         * 
+         */
+        virtual void unsetBasisCurve();
+        /**
+         * Test if the attribute 'BasisCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisCurve() const;
+        /**
          * Gets the value of the explicit attribute 'Trim1'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTrim1(const Set_IfcTrimmingSelect_1_2 &value);
+        /**
+         * unset the attribute 'Trim1'.
+         * 
+         */
+        virtual void unsetTrim1();
+        /**
+         * Test if the attribute 'Trim1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTrim1() const;
         /**
          * Gets the value of the explicit attribute 'Trim2'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTrim2(const Set_IfcTrimmingSelect_1_2 &value);
         /**
+         * unset the attribute 'Trim2'.
+         * 
+         */
+        virtual void unsetTrim2();
+        /**
+         * Test if the attribute 'Trim2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTrim2() const;
+        /**
          * Gets the value of the explicit attribute 'SenseAgreement'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setSenseAgreement(Step::Boolean value);
         /**
+         * unset the attribute 'SenseAgreement'.
+         * 
+         */
+        virtual void unsetSenseAgreement();
+        /**
+         * Test if the attribute 'SenseAgreement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSenseAgreement() const;
+        /**
          * Gets the value of the explicit attribute 'MasterRepresentation'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMasterRepresentation(IfcTrimmingPreference value);
+        /**
+         * unset the attribute 'MasterRepresentation'.
+         * 
+         */
+        virtual void unsetMasterRepresentation();
+        /**
+         * Test if the attribute 'MasterRepresentation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMasterRepresentation() const;
         friend class ExpressDataSet;
 
     protected:

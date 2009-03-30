@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAnnotation::IfcAnnotation(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedIn
 const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedInStructure() const {
     IfcAnnotation * deConstObject = const_cast< IfcAnnotation * > (this);
     return deConstObject->getContainedInStructure();
+}
+
+bool IfcAnnotation::testContainedInStructure() const {
+    return !Step::isUnset(getContainedInStructure());
 }
 
 bool IfcAnnotation::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSite::IfcSite(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
@@ -94,6 +91,14 @@ void IfcSite::setRefLatitude(const IfcCompoundPlaneAngleMeasure &value) {
     m_refLatitude = value;
 }
 
+void IfcSite::unsetRefLatitude() {
+    m_refLatitude = Step::getUnset(getRefLatitude());
+}
+
+bool IfcSite::testRefLatitude() const {
+    return !Step::isUnset(getRefLatitude());
+}
+
 IfcCompoundPlaneAngleMeasure &IfcSite::getRefLongitude() {
     if (Step::BaseObject::inited()) {
         return m_refLongitude;
@@ -111,6 +116,14 @@ const IfcCompoundPlaneAngleMeasure &IfcSite::getRefLongitude() const {
 
 void IfcSite::setRefLongitude(const IfcCompoundPlaneAngleMeasure &value) {
     m_refLongitude = value;
+}
+
+void IfcSite::unsetRefLongitude() {
+    m_refLongitude = Step::getUnset(getRefLongitude());
+}
+
+bool IfcSite::testRefLongitude() const {
+    return !Step::isUnset(getRefLongitude());
 }
 
 IfcLengthMeasure IfcSite::getRefElevation() {
@@ -131,6 +144,14 @@ void IfcSite::setRefElevation(IfcLengthMeasure value) {
     m_refElevation = value;
 }
 
+void IfcSite::unsetRefElevation() {
+    m_refElevation = Step::getUnset(getRefElevation());
+}
+
+bool IfcSite::testRefElevation() const {
+    return !Step::isUnset(getRefElevation());
+}
+
 IfcLabel IfcSite::getLandTitleNumber() {
     if (Step::BaseObject::inited()) {
         return m_landTitleNumber;
@@ -149,6 +170,14 @@ void IfcSite::setLandTitleNumber(const IfcLabel &value) {
     m_landTitleNumber = value;
 }
 
+void IfcSite::unsetLandTitleNumber() {
+    m_landTitleNumber = Step::getUnset(getLandTitleNumber());
+}
+
+bool IfcSite::testLandTitleNumber() const {
+    return !Step::isUnset(getLandTitleNumber());
+}
+
 IfcPostalAddress *IfcSite::getSiteAddress() {
     if (Step::BaseObject::inited()) {
         return m_siteAddress.get();
@@ -165,6 +194,14 @@ const IfcPostalAddress *IfcSite::getSiteAddress() const {
 
 void IfcSite::setSiteAddress(const Step::RefPtr< IfcPostalAddress > &value) {
     m_siteAddress = value;
+}
+
+void IfcSite::unsetSiteAddress() {
+    m_siteAddress = Step::getUnset(getSiteAddress());
+}
+
+bool IfcSite::testSiteAddress() const {
+    return !Step::isUnset(getSiteAddress());
 }
 
 bool IfcSite::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcApproval;
 
     /**
+     * Generated class for the IfcApprovalPropertyRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcApprovalPropertyRelationship : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setApprovedProperties(const Set_IfcProperty_1_n &value);
         /**
+         * unset the attribute 'ApprovedProperties'.
+         * 
+         */
+        virtual void unsetApprovedProperties();
+        /**
+         * Test if the attribute 'ApprovedProperties' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApprovedProperties() const;
+        /**
          * Gets the value of the explicit attribute 'Approval'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setApproval(const Step::RefPtr< IfcApproval > &value);
+        /**
+         * unset the attribute 'Approval'.
+         * 
+         */
+        virtual void unsetApproval();
+        /**
+         * Test if the attribute 'Approval' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApproval() const;
         friend class ExpressDataSet;
 
     protected:

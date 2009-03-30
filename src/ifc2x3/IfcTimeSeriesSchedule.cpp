@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTimeSeriesSchedule::IfcTimeSeriesSchedule(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -93,6 +90,15 @@ void IfcTimeSeriesSchedule::setApplicableDates(const List_IfcDateTimeSelect_1_n 
     m_applicableDates = value;
 }
 
+void IfcTimeSeriesSchedule::unsetApplicableDates() {
+    m_applicableDates.clear();
+    m_applicableDates.setUnset(true);
+}
+
+bool IfcTimeSeriesSchedule::testApplicableDates() const {
+    return !Step::isUnset(getApplicableDates());
+}
+
 IfcTimeSeriesScheduleTypeEnum IfcTimeSeriesSchedule::getTimeSeriesScheduleType() {
     if (Step::BaseObject::inited()) {
         return m_timeSeriesScheduleType;
@@ -111,6 +117,14 @@ void IfcTimeSeriesSchedule::setTimeSeriesScheduleType(IfcTimeSeriesScheduleTypeE
     m_timeSeriesScheduleType = value;
 }
 
+void IfcTimeSeriesSchedule::unsetTimeSeriesScheduleType() {
+    m_timeSeriesScheduleType = IfcTimeSeriesScheduleTypeEnum_UNSET;
+}
+
+bool IfcTimeSeriesSchedule::testTimeSeriesScheduleType() const {
+    return getTimeSeriesScheduleType() != IfcTimeSeriesScheduleTypeEnum_UNSET;
+}
+
 IfcTimeSeries *IfcTimeSeriesSchedule::getTimeSeries() {
     if (Step::BaseObject::inited()) {
         return m_timeSeries.get();
@@ -127,6 +141,14 @@ const IfcTimeSeries *IfcTimeSeriesSchedule::getTimeSeries() const {
 
 void IfcTimeSeriesSchedule::setTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
     m_timeSeries = value;
+}
+
+void IfcTimeSeriesSchedule::unsetTimeSeries() {
+    m_timeSeries = Step::getUnset(getTimeSeries());
+}
+
+bool IfcTimeSeriesSchedule::testTimeSeries() const {
+    return !Step::isUnset(getTimeSeries());
 }
 
 bool IfcTimeSeriesSchedule::init() {

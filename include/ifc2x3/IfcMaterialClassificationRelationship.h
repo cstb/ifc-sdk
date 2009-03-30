@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcMaterial;
 
     /**
+     * Generated class for the IfcMaterialClassificationRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMaterialClassificationRelationship : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setMaterialClassifications(const Set_IfcClassificationNotationSelect_1_n &value);
         /**
+         * unset the attribute 'MaterialClassifications'.
+         * 
+         */
+        virtual void unsetMaterialClassifications();
+        /**
+         * Test if the attribute 'MaterialClassifications' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaterialClassifications() const;
+        /**
          * Gets the value of the explicit attribute 'ClassifiedMaterial'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value);
+        /**
+         * unset the attribute 'ClassifiedMaterial'.
+         * 
+         */
+        virtual void unsetClassifiedMaterial();
+        /**
+         * Test if the attribute 'ClassifiedMaterial' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testClassifiedMaterial() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcDistributionElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcDistributionElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDistributionControlElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDistributionControlElement : public IfcDistributionElement {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setControlElementId(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ControlElementId'.
+         * 
+         */
+        virtual void unsetControlElementId();
+        /**
+         * Test if the attribute 'ControlElementId' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testControlElementId() const;
+        /**
          * Gets the value of the inverse attribute 'AssignedToFlowElement'.
          * 
          */
@@ -99,6 +112,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'AssignedToFlowElement'
          */
         virtual const Inverse_Set_IfcRelFlowControlElements_0_1 &getAssignedToFlowElement() const;
+        /**
+         * Test if the attribute 'AssignedToFlowElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAssignedToFlowElement() const;
         friend class Inverted_IfcRelFlowControlElements_RelatedControlElements_type;
         friend class IfcRelFlowControlElements;
         friend class ExpressDataSet;

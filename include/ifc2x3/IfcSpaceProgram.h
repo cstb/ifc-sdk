@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcSpatialStructureElement;
 
     /**
+     * Generated class for the IfcSpaceProgram Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSpaceProgram : public IfcControl {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setSpaceProgramIdentifier(const IfcIdentifier &value);
         /**
+         * unset the attribute 'SpaceProgramIdentifier'.
+         * 
+         */
+        virtual void unsetSpaceProgramIdentifier();
+        /**
+         * Test if the attribute 'SpaceProgramIdentifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpaceProgramIdentifier() const;
+        /**
          * Gets the value of the explicit attribute 'MaxRequiredArea'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMaxRequiredArea(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'MaxRequiredArea'.
+         * 
+         */
+        virtual void unsetMaxRequiredArea();
+        /**
+         * Test if the attribute 'MaxRequiredArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaxRequiredArea() const;
         /**
          * Gets the value of the explicit attribute 'MinRequiredArea'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setMinRequiredArea(IfcAreaMeasure value);
         /**
+         * unset the attribute 'MinRequiredArea'.
+         * 
+         */
+        virtual void unsetMinRequiredArea();
+        /**
+         * Test if the attribute 'MinRequiredArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinRequiredArea() const;
+        /**
          * Gets the value of the explicit attribute 'RequestedLocation'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRequestedLocation(const Step::RefPtr< IfcSpatialStructureElement > &value);
+        /**
+         * unset the attribute 'RequestedLocation'.
+         * 
+         */
+        virtual void unsetRequestedLocation();
+        /**
+         * Test if the attribute 'RequestedLocation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRequestedLocation() const;
         /**
          * Gets the value of the explicit attribute 'StandardRequiredArea'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setStandardRequiredArea(IfcAreaMeasure value);
         /**
+         * unset the attribute 'StandardRequiredArea'.
+         * 
+         */
+        virtual void unsetStandardRequiredArea();
+        /**
+         * Test if the attribute 'StandardRequiredArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStandardRequiredArea() const;
+        /**
          * Gets the value of the inverse attribute 'HasInteractionReqsFrom'.
          * 
          */
@@ -170,6 +227,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom() const;
         /**
+         * Test if the attribute 'HasInteractionReqsFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasInteractionReqsFrom() const;
+        /**
          * Gets the value of the inverse attribute 'HasInteractionReqsTo'.
          * 
          */
@@ -180,6 +243,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasInteractionReqsTo'
          */
         virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo() const;
+        /**
+         * Test if the attribute 'HasInteractionReqsTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasInteractionReqsTo() const;
         friend class IfcRelInteractionRequirements;
         friend class ExpressDataSet;
 

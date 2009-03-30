@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurveStyle::IfcCurveStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
@@ -92,6 +89,14 @@ void IfcCurveStyle::setCurveFont(const Step::RefPtr< IfcCurveFontOrScaledCurveFo
     m_curveFont = value;
 }
 
+void IfcCurveStyle::unsetCurveFont() {
+    m_curveFont = Step::getUnset(getCurveFont());
+}
+
+bool IfcCurveStyle::testCurveFont() const {
+    return !Step::isUnset(getCurveFont());
+}
+
 IfcSizeSelect *IfcCurveStyle::getCurveWidth() {
     if (Step::BaseObject::inited()) {
         return m_curveWidth.get();
@@ -110,6 +115,14 @@ void IfcCurveStyle::setCurveWidth(const Step::RefPtr< IfcSizeSelect > &value) {
     m_curveWidth = value;
 }
 
+void IfcCurveStyle::unsetCurveWidth() {
+    m_curveWidth = Step::getUnset(getCurveWidth());
+}
+
+bool IfcCurveStyle::testCurveWidth() const {
+    return !Step::isUnset(getCurveWidth());
+}
+
 IfcColour *IfcCurveStyle::getCurveColour() {
     if (Step::BaseObject::inited()) {
         return m_curveColour.get();
@@ -126,6 +139,14 @@ const IfcColour *IfcCurveStyle::getCurveColour() const {
 
 void IfcCurveStyle::setCurveColour(const Step::RefPtr< IfcColour > &value) {
     m_curveColour = value;
+}
+
+void IfcCurveStyle::unsetCurveColour() {
+    m_curveColour = Step::getUnset(getCurveColour());
+}
+
+bool IfcCurveStyle::testCurveColour() const {
+    return !Step::isUnset(getCurveColour());
 }
 
 bool IfcCurveStyle::init() {

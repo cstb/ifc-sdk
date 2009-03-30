@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator2DnonUniform::IfcCartesianTransformationOperator2DnonUniform(Step::Id id, Step::SPFData *args) : IfcCartesianTransformationOperator2D(id, args) {
@@ -82,6 +79,14 @@ const Step::Real IfcCartesianTransformationOperator2DnonUniform::getScale2() con
 
 void IfcCartesianTransformationOperator2DnonUniform::setScale2(Step::Real value) {
     m_scale2 = value;
+}
+
+void IfcCartesianTransformationOperator2DnonUniform::unsetScale2() {
+    m_scale2 = Step::getUnset(getScale2());
+}
+
+bool IfcCartesianTransformationOperator2DnonUniform::testScale2() const {
+    return !Step::isUnset(getScale2());
 }
 
 bool IfcCartesianTransformationOperator2DnonUniform::init() {

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,15 +22,12 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/ClassType.h>
-
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+#include "Step/ClassType.h"
 
 using namespace Step;
 
 static long s_id = 0;
+
 ClassType ClassType::sUndefined("Undefined");
 
 ClassType::ClassType(const std::string &name)
@@ -52,5 +49,32 @@ ClassType &ClassType::operator =(const ClassType &ref)
 
     return *this;
 }
-ClassType::~ClassType() {
+
+ClassType::~ClassType()
+{
+}
+
+const std::string & ClassType::getName() const
+{
+    return m_name;
+}
+
+bool ClassType::operator ==(const ClassType & ref) const
+{
+    return m_id == ref.m_id;
+}
+
+bool ClassType::operator <(const ClassType & ref) const
+{
+    return m_id < ref.m_id;
+}
+
+bool ClassType::operator !=(const ClassType & ref) const
+{
+    return m_id != ref.m_id;
+}
+
+const ClassType &ClassType::Undefined()
+{
+    return sUndefined;
 }

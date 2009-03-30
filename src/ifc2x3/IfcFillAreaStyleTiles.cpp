@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFillAreaStyleTiles::IfcFillAreaStyleTiles(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -91,6 +88,14 @@ void IfcFillAreaStyleTiles::setTilingPattern(const Step::RefPtr< IfcOneDirection
     m_tilingPattern = value;
 }
 
+void IfcFillAreaStyleTiles::unsetTilingPattern() {
+    m_tilingPattern = Step::getUnset(getTilingPattern());
+}
+
+bool IfcFillAreaStyleTiles::testTilingPattern() const {
+    return !Step::isUnset(getTilingPattern());
+}
+
 Set_IfcFillAreaStyleTileShapeSelect_1_n &IfcFillAreaStyleTiles::getTiles() {
     if (Step::BaseObject::inited()) {
         return m_tiles;
@@ -110,6 +115,15 @@ void IfcFillAreaStyleTiles::setTiles(const Set_IfcFillAreaStyleTileShapeSelect_1
     m_tiles = value;
 }
 
+void IfcFillAreaStyleTiles::unsetTiles() {
+    m_tiles.clear();
+    m_tiles.setUnset(true);
+}
+
+bool IfcFillAreaStyleTiles::testTiles() const {
+    return !Step::isUnset(getTiles());
+}
+
 IfcPositiveRatioMeasure IfcFillAreaStyleTiles::getTilingScale() {
     if (Step::BaseObject::inited()) {
         return m_tilingScale;
@@ -126,6 +140,14 @@ const IfcPositiveRatioMeasure IfcFillAreaStyleTiles::getTilingScale() const {
 
 void IfcFillAreaStyleTiles::setTilingScale(IfcPositiveRatioMeasure value) {
     m_tilingScale = value;
+}
+
+void IfcFillAreaStyleTiles::unsetTilingScale() {
+    m_tilingScale = Step::getUnset(getTilingScale());
+}
+
+bool IfcFillAreaStyleTiles::testTilingScale() const {
+    return !Step::isUnset(getTilingScale());
 }
 
 bool IfcFillAreaStyleTiles::init() {

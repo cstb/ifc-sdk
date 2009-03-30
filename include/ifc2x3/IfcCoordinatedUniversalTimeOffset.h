@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCoordinatedUniversalTimeOffset Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCoordinatedUniversalTimeOffset : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setHourOffset(IfcHourInDay value);
         /**
+         * unset the attribute 'HourOffset'.
+         * 
+         */
+        virtual void unsetHourOffset();
+        /**
+         * Test if the attribute 'HourOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHourOffset() const;
+        /**
          * Gets the value of the explicit attribute 'MinuteOffset'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setMinuteOffset(IfcMinuteInHour value);
         /**
+         * unset the attribute 'MinuteOffset'.
+         * 
+         */
+        virtual void unsetMinuteOffset();
+        /**
+         * Test if the attribute 'MinuteOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinuteOffset() const;
+        /**
          * Gets the value of the explicit attribute 'Sense'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSense(IfcAheadOrBehind value);
+        /**
+         * unset the attribute 'Sense'.
+         * 
+         */
+        virtual void unsetSense();
+        /**
+         * Test if the attribute 'Sense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSense() const;
         friend class ExpressDataSet;
 
     protected:

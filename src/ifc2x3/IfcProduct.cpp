@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProduct::IfcProduct(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -99,6 +96,14 @@ void IfcProduct::setObjectPlacement(const Step::RefPtr< IfcObjectPlacement > &va
     m_objectPlacement = value;
 }
 
+void IfcProduct::unsetObjectPlacement() {
+    m_objectPlacement = Step::getUnset(getObjectPlacement());
+}
+
+bool IfcProduct::testObjectPlacement() const {
+    return !Step::isUnset(getObjectPlacement());
+}
+
 IfcProductRepresentation *IfcProduct::getRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_representation.get();
@@ -114,16 +119,17 @@ const IfcProductRepresentation *IfcProduct::getRepresentation() const {
 }
 
 void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
-	// If we already had a representation, remove it from Inverse relation
-	if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
-		((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.erase(this);
-	}
-	// Add new representation to the Inverse relation
-	if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != NULL) {
-		((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct.insert(this);
-	}
-	// Set the new representation
-	m_representation = value;
+    if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
+        ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.insert(this);
+    }
+}
+
+void IfcProduct::unsetRepresentation() {
+    m_representation = Step::getUnset(getRepresentation());
+}
+
+bool IfcProduct::testRepresentation() const {
+    return !Step::isUnset(getRepresentation());
 }
 
 Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() {
@@ -139,6 +145,10 @@ Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() {
 const Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() const {
     IfcProduct * deConstObject = const_cast< IfcProduct * > (this);
     return deConstObject->getReferencedBy();
+}
+
+bool IfcProduct::testReferencedBy() const {
+    return !Step::isUnset(getReferencedBy());
 }
 
 bool IfcProduct::init() {

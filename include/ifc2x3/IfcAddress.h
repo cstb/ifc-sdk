@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcAddress Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAddress : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setPurpose(IfcAddressTypeEnum value);
         /**
+         * unset the attribute 'Purpose'.
+         * 
+         */
+        virtual void unsetPurpose();
+        /**
+         * Test if the attribute 'Purpose' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPurpose() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'UserDefinedPurpose'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setUserDefinedPurpose(const IfcLabel &value);
         /**
+         * unset the attribute 'UserDefinedPurpose'.
+         * 
+         */
+        virtual void unsetUserDefinedPurpose();
+        /**
+         * Test if the attribute 'UserDefinedPurpose' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedPurpose() const;
+        /**
          * Gets the value of the inverse attribute 'OfPerson'.
          * 
          */
@@ -134,6 +169,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcPerson_0_n &getOfPerson() const;
         /**
+         * Test if the attribute 'OfPerson' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOfPerson() const;
+        /**
          * Gets the value of the inverse attribute 'OfOrganization'.
          * 
          */
@@ -144,10 +185,16 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'OfOrganization'
          */
         virtual const Inverse_Set_IfcOrganization_0_n &getOfOrganization() const;
+        /**
+         * Test if the attribute 'OfOrganization' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOfOrganization() const;
         friend class IfcPerson;
-        friend class Inverted_IfcOrganization_Addresses_type;
-        friend class Inverted_IfcPerson_Addresses_type;
         friend class ExpressDataSet;
+        friend class Inverted_IfcPerson_Addresses_type;
+        friend class Inverted_IfcOrganization_Addresses_type;
         friend class IfcOrganization;
 
     protected:

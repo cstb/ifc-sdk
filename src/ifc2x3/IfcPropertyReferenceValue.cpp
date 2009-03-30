@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyReferenceValue::IfcPropertyReferenceValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -89,6 +86,14 @@ void IfcPropertyReferenceValue::setUsageName(const IfcLabel &value) {
     m_usageName = value;
 }
 
+void IfcPropertyReferenceValue::unsetUsageName() {
+    m_usageName = Step::getUnset(getUsageName());
+}
+
+bool IfcPropertyReferenceValue::testUsageName() const {
+    return !Step::isUnset(getUsageName());
+}
+
 IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference() {
     if (Step::BaseObject::inited()) {
         return m_propertyReference.get();
@@ -105,6 +110,14 @@ const IfcObjectReferenceSelect *IfcPropertyReferenceValue::getPropertyReference(
 
 void IfcPropertyReferenceValue::setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value) {
     m_propertyReference = value;
+}
+
+void IfcPropertyReferenceValue::unsetPropertyReference() {
+    m_propertyReference = Step::getUnset(getPropertyReference());
+}
+
+bool IfcPropertyReferenceValue::testPropertyReference() const {
+    return !Step::isUnset(getPropertyReference());
 }
 
 bool IfcPropertyReferenceValue::init() {

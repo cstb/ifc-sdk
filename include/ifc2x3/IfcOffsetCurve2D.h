@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcCurve.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcOffsetCurve2D Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOffsetCurve2D : public IfcCurve {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'BasisCurve'.
+         * 
+         */
+        virtual void unsetBasisCurve();
+        /**
+         * Test if the attribute 'BasisCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisCurve() const;
+        /**
          * Gets the value of the explicit attribute 'Distance'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setDistance(IfcLengthMeasure value);
         /**
+         * unset the attribute 'Distance'.
+         * 
+         */
+        virtual void unsetDistance();
+        /**
+         * Test if the attribute 'Distance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDistance() const;
+        /**
          * Gets the value of the explicit attribute 'SelfIntersect'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSelfIntersect(Step::Logical value);
+        /**
+         * unset the attribute 'SelfIntersect'.
+         * 
+         */
+        virtual void unsetSelfIntersect();
+        /**
+         * Test if the attribute 'SelfIntersect' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSelfIntersect() const;
         friend class ExpressDataSet;
 
     protected:

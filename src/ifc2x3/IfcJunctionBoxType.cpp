@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcJunctionBoxType::IfcJunctionBoxType(Step::Id id, Step::SPFData *args) : IfcFlowFittingType(id, args) {
@@ -82,6 +79,14 @@ const IfcJunctionBoxTypeEnum IfcJunctionBoxType::getPredefinedType() const {
 
 void IfcJunctionBoxType::setPredefinedType(IfcJunctionBoxTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcJunctionBoxType::unsetPredefinedType() {
+    m_predefinedType = IfcJunctionBoxTypeEnum_UNSET;
+}
+
+bool IfcJunctionBoxType::testPredefinedType() const {
+    return getPredefinedType() != IfcJunctionBoxTypeEnum_UNSET;
 }
 
 bool IfcJunctionBoxType::init() {

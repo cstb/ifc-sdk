@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,9 +32,9 @@
 #include "ifc2x3/IfcRelAssignsToControl.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcScheduleTimeControl;
 
     /**
+     * Generated class for the IfcRelAssignsTasks Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelAssignsTasks : public IfcRelAssignsToControl {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTimeForTask(const Step::RefPtr< IfcScheduleTimeControl > &value);
+        /**
+         * unset the attribute 'TimeForTask'.
+         * 
+         */
+        virtual void unsetTimeForTask();
+        /**
+         * Test if the attribute 'TimeForTask' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeForTask() const;
         friend class ExpressDataSet;
 
     protected:

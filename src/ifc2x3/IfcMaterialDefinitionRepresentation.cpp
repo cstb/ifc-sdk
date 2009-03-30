@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterialDefinitionRepresentation::IfcMaterialDefinitionRepresentation(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
@@ -92,6 +89,14 @@ void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::Ref
         value->m_hasRepresentation.insert(this);
     }
     m_representedMaterial = value;
+}
+
+void IfcMaterialDefinitionRepresentation::unsetRepresentedMaterial() {
+    m_representedMaterial = Step::getUnset(getRepresentedMaterial());
+}
+
+bool IfcMaterialDefinitionRepresentation::testRepresentedMaterial() const {
+    return !Step::isUnset(getRepresentedMaterial());
 }
 
 bool IfcMaterialDefinitionRepresentation::init() {

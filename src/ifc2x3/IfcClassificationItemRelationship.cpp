@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcClassificationItemRelationship_RelatedItems_type::Inverted_IfcClassificationItemRelationship_RelatedItems_type() {
@@ -63,9 +60,14 @@ Inverted_IfcClassificationItemRelationship_RelatedItems_type::size_type Inverted
     return Set_IfcClassificationItem_1_n::erase(value);
 }
 
+void Inverted_IfcClassificationItemRelationship_RelatedItems_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcClassificationItemRelationship::IfcClassificationItemRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_relatingItem = NULL;
-    m_relatedItems.setUnset(true);
     m_relatedItems.setOwner(this);
 }
 
@@ -116,6 +118,14 @@ void IfcClassificationItemRelationship::setRelatingItem(const Step::RefPtr< IfcC
     m_relatingItem = value;
 }
 
+void IfcClassificationItemRelationship::unsetRelatingItem() {
+    m_relatingItem = Step::getUnset(getRelatingItem());
+}
+
+bool IfcClassificationItemRelationship::testRelatingItem() const {
+    return !Step::isUnset(getRelatingItem());
+}
+
 Set_IfcClassificationItem_1_n &IfcClassificationItemRelationship::getRelatedItems() {
     if (Step::BaseObject::inited()) {
         return m_relatedItems;
@@ -129,6 +139,15 @@ Set_IfcClassificationItem_1_n &IfcClassificationItemRelationship::getRelatedItem
 const Set_IfcClassificationItem_1_n &IfcClassificationItemRelationship::getRelatedItems() const {
     IfcClassificationItemRelationship * deConstObject = const_cast< IfcClassificationItemRelationship * > (this);
     return deConstObject->getRelatedItems();
+}
+
+void IfcClassificationItemRelationship::unsetRelatedItems() {
+    m_relatedItems.clear();
+    m_relatedItems.setUnset(true);
+}
+
+bool IfcClassificationItemRelationship::testRelatedItems() const {
+    return !Step::isUnset(getRelatedItems());
 }
 
 bool IfcClassificationItemRelationship::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObjectPlacement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcObjectPlacement.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcVirtualGridIntersection;
 
     /**
+     * Generated class for the IfcGridPlacement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGridPlacement : public IfcObjectPlacement {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setPlacementLocation(const Step::RefPtr< IfcVirtualGridIntersection > &value);
         /**
+         * unset the attribute 'PlacementLocation'.
+         * 
+         */
+        virtual void unsetPlacementLocation();
+        /**
+         * Test if the attribute 'PlacementLocation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlacementLocation() const;
+        /**
          * Gets the value of the explicit attribute 'PlacementRefDirection'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPlacementRefDirection(const Step::RefPtr< IfcVirtualGridIntersection > &value);
+        /**
+         * unset the attribute 'PlacementRefDirection'.
+         * 
+         */
+        virtual void unsetPlacementRefDirection();
+        /**
+         * Test if the attribute 'PlacementRefDirection' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlacementRefDirection() const;
         friend class ExpressDataSet;
 
     protected:

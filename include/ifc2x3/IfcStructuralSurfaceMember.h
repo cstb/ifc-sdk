@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralMember.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralMember.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralSurfaceMember Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralSurfaceMember : public IfcStructuralMember {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcStructuralSurfaceTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'Thickness'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Thickness'.
+         * 
+         */
+        virtual void unsetThickness();
+        /**
+         * Test if the attribute 'Thickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThickness() const;
         friend class ExpressDataSet;
 
     protected:

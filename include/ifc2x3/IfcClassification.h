@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcCalendarDate;
 
     /**
+     * Generated class for the IfcClassification Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcClassification : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setSource(const IfcLabel &value);
         /**
+         * unset the attribute 'Source'.
+         * 
+         */
+        virtual void unsetSource();
+        /**
+         * Test if the attribute 'Source' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSource() const;
+        /**
          * Gets the value of the explicit attribute 'Edition'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEdition(const IfcLabel &value);
+        /**
+         * unset the attribute 'Edition'.
+         * 
+         */
+        virtual void unsetEdition();
+        /**
+         * Test if the attribute 'Edition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdition() const;
         /**
          * Gets the value of the explicit attribute 'EditionDate'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setEditionDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * unset the attribute 'EditionDate'.
+         * 
+         */
+        virtual void unsetEditionDate();
+        /**
+         * Test if the attribute 'EditionDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEditionDate() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the inverse attribute 'Contains'.
          * 
          */
@@ -152,6 +198,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Contains'
          */
         virtual const Inverse_Set_IfcClassificationItem_0_n &getContains() const;
+        /**
+         * Test if the attribute 'Contains' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContains() const;
         friend class IfcClassificationItem;
         friend class ExpressDataSet;
 

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRectangleHollowProfileDef::IfcRectangleHollowProfileDef(Step::Id id, Step::SPFData *args) : IfcRectangleProfileDef(id, args) {
@@ -86,6 +83,14 @@ void IfcRectangleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure val
     m_wallThickness = value;
 }
 
+void IfcRectangleHollowProfileDef::unsetWallThickness() {
+    m_wallThickness = Step::getUnset(getWallThickness());
+}
+
+bool IfcRectangleHollowProfileDef::testWallThickness() const {
+    return !Step::isUnset(getWallThickness());
+}
+
 IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getInnerFilletRadius() {
     if (Step::BaseObject::inited()) {
         return m_innerFilletRadius;
@@ -104,6 +109,14 @@ void IfcRectangleHollowProfileDef::setInnerFilletRadius(IfcPositiveLengthMeasure
     m_innerFilletRadius = value;
 }
 
+void IfcRectangleHollowProfileDef::unsetInnerFilletRadius() {
+    m_innerFilletRadius = Step::getUnset(getInnerFilletRadius());
+}
+
+bool IfcRectangleHollowProfileDef::testInnerFilletRadius() const {
+    return !Step::isUnset(getInnerFilletRadius());
+}
+
 IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadius() {
     if (Step::BaseObject::inited()) {
         return m_outerFilletRadius;
@@ -120,6 +133,14 @@ const IfcPositiveLengthMeasure IfcRectangleHollowProfileDef::getOuterFilletRadiu
 
 void IfcRectangleHollowProfileDef::setOuterFilletRadius(IfcPositiveLengthMeasure value) {
     m_outerFilletRadius = value;
+}
+
+void IfcRectangleHollowProfileDef::unsetOuterFilletRadius() {
+    m_outerFilletRadius = Step::getUnset(getOuterFilletRadius());
+}
+
+bool IfcRectangleHollowProfileDef::testOuterFilletRadius() const {
+    return !Step::isUnset(getOuterFilletRadius());
 }
 
 bool IfcRectangleHollowProfileDef::init() {

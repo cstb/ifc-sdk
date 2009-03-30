@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcPersonAndOrganization;
 
     /**
+     * Generated class for the IfcOwnerHistory Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOwnerHistory : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setOwningUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
         /**
+         * unset the attribute 'OwningUser'.
+         * 
+         */
+        virtual void unsetOwningUser();
+        /**
+         * Test if the attribute 'OwningUser' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOwningUser() const;
+        /**
          * Gets the value of the explicit attribute 'OwningApplication'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOwningApplication(const Step::RefPtr< IfcApplication > &value);
+        /**
+         * unset the attribute 'OwningApplication'.
+         * 
+         */
+        virtual void unsetOwningApplication();
+        /**
+         * Test if the attribute 'OwningApplication' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOwningApplication() const;
         /**
          * Gets the value of the explicit attribute 'State'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setState(IfcStateEnum value);
         /**
+         * unset the attribute 'State'.
+         * 
+         */
+        virtual void unsetState();
+        /**
+         * Test if the attribute 'State' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testState() const;
+        /**
          * Gets the value of the explicit attribute 'ChangeAction'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setChangeAction(IfcChangeActionEnum value);
+        /**
+         * unset the attribute 'ChangeAction'.
+         * 
+         */
+        virtual void unsetChangeAction();
+        /**
+         * Test if the attribute 'ChangeAction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testChangeAction() const;
         /**
          * Gets the value of the explicit attribute 'LastModifiedDate'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setLastModifiedDate(IfcTimeStamp value);
         /**
+         * unset the attribute 'LastModifiedDate'.
+         * 
+         */
+        virtual void unsetLastModifiedDate();
+        /**
+         * Test if the attribute 'LastModifiedDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLastModifiedDate() const;
+        /**
          * Gets the value of the explicit attribute 'LastModifyingUser'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value);
+        /**
+         * unset the attribute 'LastModifyingUser'.
+         * 
+         */
+        virtual void unsetLastModifyingUser();
+        /**
+         * Test if the attribute 'LastModifyingUser' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLastModifyingUser() const;
         /**
          * Gets the value of the explicit attribute 'LastModifyingApplication'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setLastModifyingApplication(const Step::RefPtr< IfcApplication > &value);
         /**
+         * unset the attribute 'LastModifyingApplication'.
+         * 
+         */
+        virtual void unsetLastModifyingApplication();
+        /**
+         * Test if the attribute 'LastModifyingApplication' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLastModifyingApplication() const;
+        /**
          * Gets the value of the explicit attribute 'CreationDate'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCreationDate(IfcTimeStamp value);
+        /**
+         * unset the attribute 'CreationDate'.
+         * 
+         */
+        virtual void unsetCreationDate();
+        /**
+         * Test if the attribute 'CreationDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreationDate() const;
         friend class ExpressDataSet;
 
     protected:

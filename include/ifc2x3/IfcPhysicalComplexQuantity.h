@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -30,19 +30,21 @@
 #include <ifc2x3/ifc2x3DLL.h>
 #include <ifc2x3/IfcPhysicalQuantity.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
     class IfcPhysicalComplexQuantity;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcPhysicalComplexQuantity_HasQuantities_type : public Set_IfcPhysicalQuantity_1_n {
     public:
@@ -52,28 +54,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcPhysicalComplexQuantity *mOwner;
-        /**
-         */
         Inverted_IfcPhysicalComplexQuantity_HasQuantities_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcPhysicalComplexQuantity *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcPhysicalQuantity > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcPhysicalQuantity > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcPhysicalComplexQuantity;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcPhysicalComplexQuantity *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcPhysicalComplexQuantity *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPhysicalComplexQuantity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPhysicalComplexQuantity : public IfcPhysicalQuantity {
     public:
@@ -116,6 +134,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcPhysicalQuantity_1_n &getHasQuantities() const;
         /**
+         * unset the attribute 'HasQuantities'.
+         * 
+         */
+        virtual void unsetHasQuantities();
+        /**
+         * Test if the attribute 'HasQuantities' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasQuantities() const;
+        /**
          * Gets the value of the explicit attribute 'Discrimination'.
          * 
          */
@@ -132,6 +161,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDiscrimination(const IfcLabel &value);
+        /**
+         * unset the attribute 'Discrimination'.
+         * 
+         */
+        virtual void unsetDiscrimination();
+        /**
+         * Test if the attribute 'Discrimination' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDiscrimination() const;
         /**
          * Gets the value of the explicit attribute 'Quality'.
          * 
@@ -150,6 +190,17 @@ namespace ifc2x3 {
          */
         virtual void setQuality(const IfcLabel &value);
         /**
+         * unset the attribute 'Quality'.
+         * 
+         */
+        virtual void unsetQuality();
+        /**
+         * Test if the attribute 'Quality' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testQuality() const;
+        /**
          * Gets the value of the explicit attribute 'Usage'.
          * 
          */
@@ -166,6 +217,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUsage(const IfcLabel &value);
+        /**
+         * unset the attribute 'Usage'.
+         * 
+         */
+        virtual void unsetUsage();
+        /**
+         * Test if the attribute 'Usage' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsage() const;
         friend class ExpressDataSet;
 
     protected:

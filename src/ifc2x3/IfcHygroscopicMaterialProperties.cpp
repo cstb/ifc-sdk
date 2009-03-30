@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcHygroscopicMaterialProperties::IfcHygroscopicMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -88,6 +85,14 @@ void IfcHygroscopicMaterialProperties::setUpperVaporResistanceFactor(IfcPositive
     m_upperVaporResistanceFactor = value;
 }
 
+void IfcHygroscopicMaterialProperties::unsetUpperVaporResistanceFactor() {
+    m_upperVaporResistanceFactor = Step::getUnset(getUpperVaporResistanceFactor());
+}
+
+bool IfcHygroscopicMaterialProperties::testUpperVaporResistanceFactor() const {
+    return !Step::isUnset(getUpperVaporResistanceFactor());
+}
+
 IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getLowerVaporResistanceFactor() {
     if (Step::BaseObject::inited()) {
         return m_lowerVaporResistanceFactor;
@@ -104,6 +109,14 @@ const IfcPositiveRatioMeasure IfcHygroscopicMaterialProperties::getLowerVaporRes
 
 void IfcHygroscopicMaterialProperties::setLowerVaporResistanceFactor(IfcPositiveRatioMeasure value) {
     m_lowerVaporResistanceFactor = value;
+}
+
+void IfcHygroscopicMaterialProperties::unsetLowerVaporResistanceFactor() {
+    m_lowerVaporResistanceFactor = Step::getUnset(getLowerVaporResistanceFactor());
+}
+
+bool IfcHygroscopicMaterialProperties::testLowerVaporResistanceFactor() const {
+    return !Step::isUnset(getLowerVaporResistanceFactor());
 }
 
 IfcIsothermalMoistureCapacityMeasure IfcHygroscopicMaterialProperties::getIsothermalMoistureCapacity() {
@@ -124,6 +137,14 @@ void IfcHygroscopicMaterialProperties::setIsothermalMoistureCapacity(IfcIsotherm
     m_isothermalMoistureCapacity = value;
 }
 
+void IfcHygroscopicMaterialProperties::unsetIsothermalMoistureCapacity() {
+    m_isothermalMoistureCapacity = Step::getUnset(getIsothermalMoistureCapacity());
+}
+
+bool IfcHygroscopicMaterialProperties::testIsothermalMoistureCapacity() const {
+    return !Step::isUnset(getIsothermalMoistureCapacity());
+}
+
 IfcVaporPermeabilityMeasure IfcHygroscopicMaterialProperties::getVaporPermeability() {
     if (Step::BaseObject::inited()) {
         return m_vaporPermeability;
@@ -142,6 +163,14 @@ void IfcHygroscopicMaterialProperties::setVaporPermeability(IfcVaporPermeability
     m_vaporPermeability = value;
 }
 
+void IfcHygroscopicMaterialProperties::unsetVaporPermeability() {
+    m_vaporPermeability = Step::getUnset(getVaporPermeability());
+}
+
+bool IfcHygroscopicMaterialProperties::testVaporPermeability() const {
+    return !Step::isUnset(getVaporPermeability());
+}
+
 IfcMoistureDiffusivityMeasure IfcHygroscopicMaterialProperties::getMoistureDiffusivity() {
     if (Step::BaseObject::inited()) {
         return m_moistureDiffusivity;
@@ -158,6 +187,14 @@ const IfcMoistureDiffusivityMeasure IfcHygroscopicMaterialProperties::getMoistur
 
 void IfcHygroscopicMaterialProperties::setMoistureDiffusivity(IfcMoistureDiffusivityMeasure value) {
     m_moistureDiffusivity = value;
+}
+
+void IfcHygroscopicMaterialProperties::unsetMoistureDiffusivity() {
+    m_moistureDiffusivity = Step::getUnset(getMoistureDiffusivity());
+}
+
+bool IfcHygroscopicMaterialProperties::testMoistureDiffusivity() const {
+    return !Step::isUnset(getMoistureDiffusivity());
 }
 
 bool IfcHygroscopicMaterialProperties::init() {

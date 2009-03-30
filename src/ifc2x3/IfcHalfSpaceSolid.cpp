@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcHalfSpaceSolid::IfcHalfSpaceSolid(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcHalfSpaceSolid::setBaseSurface(const Step::RefPtr< IfcSurface > &value) 
     m_baseSurface = value;
 }
 
+void IfcHalfSpaceSolid::unsetBaseSurface() {
+    m_baseSurface = Step::getUnset(getBaseSurface());
+}
+
+bool IfcHalfSpaceSolid::testBaseSurface() const {
+    return !Step::isUnset(getBaseSurface());
+}
+
 Step::Boolean IfcHalfSpaceSolid::getAgreementFlag() {
     if (Step::BaseObject::inited()) {
         return m_agreementFlag;
@@ -105,6 +110,14 @@ const Step::Boolean IfcHalfSpaceSolid::getAgreementFlag() const {
 
 void IfcHalfSpaceSolid::setAgreementFlag(Step::Boolean value) {
     m_agreementFlag = value;
+}
+
+void IfcHalfSpaceSolid::unsetAgreementFlag() {
+    m_agreementFlag = Step::getUnset(getAgreementFlag());
+}
+
+bool IfcHalfSpaceSolid::testAgreementFlag() const {
+    return !Step::isUnset(getAgreementFlag());
 }
 
 bool IfcHalfSpaceSolid::init() {

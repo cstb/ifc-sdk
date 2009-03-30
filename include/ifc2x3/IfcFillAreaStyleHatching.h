@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcHatchLineDistanceSelect;
 
     /**
+     * Generated class for the IfcFillAreaStyleHatching Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFillAreaStyleHatching : public IfcGeometricRepresentationItem {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setHatchLineAppearance(const Step::RefPtr< IfcCurveStyle > &value);
         /**
+         * unset the attribute 'HatchLineAppearance'.
+         * 
+         */
+        virtual void unsetHatchLineAppearance();
+        /**
+         * Test if the attribute 'HatchLineAppearance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHatchLineAppearance() const;
+        /**
          * Gets the value of the explicit attribute 'StartOfNextHatchLine'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStartOfNextHatchLine(const Step::RefPtr< IfcHatchLineDistanceSelect > &value);
+        /**
+         * unset the attribute 'StartOfNextHatchLine'.
+         * 
+         */
+        virtual void unsetStartOfNextHatchLine();
+        /**
+         * Test if the attribute 'StartOfNextHatchLine' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStartOfNextHatchLine() const;
         /**
          * Gets the value of the explicit attribute 'PointOfReferenceHatchLine'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setPointOfReferenceHatchLine(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'PointOfReferenceHatchLine'.
+         * 
+         */
+        virtual void unsetPointOfReferenceHatchLine();
+        /**
+         * Test if the attribute 'PointOfReferenceHatchLine' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPointOfReferenceHatchLine() const;
+        /**
          * Gets the value of the explicit attribute 'PatternStart'.
          * 
          */
@@ -143,6 +178,17 @@ namespace ifc2x3 {
          */
         virtual void setPatternStart(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'PatternStart'.
+         * 
+         */
+        virtual void unsetPatternStart();
+        /**
+         * Test if the attribute 'PatternStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPatternStart() const;
+        /**
          * Gets the value of the explicit attribute 'HatchLineAngle'.
          * 
          */
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHatchLineAngle(IfcPlaneAngleMeasure value);
+        /**
+         * unset the attribute 'HatchLineAngle'.
+         * 
+         */
+        virtual void unsetHatchLineAngle();
+        /**
+         * Test if the attribute 'HatchLineAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHatchLineAngle() const;
         friend class ExpressDataSet;
 
     protected:

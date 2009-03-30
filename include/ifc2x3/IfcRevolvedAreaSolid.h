@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSweptAreaSolid.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcSweptAreaSolid.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcAxis1Placement;
 
     /**
+     * Generated class for the IfcRevolvedAreaSolid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRevolvedAreaSolid : public IfcSweptAreaSolid {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setAxis(const Step::RefPtr< IfcAxis1Placement > &value);
         /**
+         * unset the attribute 'Axis'.
+         * 
+         */
+        virtual void unsetAxis();
+        /**
+         * Test if the attribute 'Axis' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAxis() const;
+        /**
          * Gets the value of the explicit attribute 'Angle'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAngle(IfcPlaneAngleMeasure value);
+        /**
+         * unset the attribute 'Angle'.
+         * 
+         */
+        virtual void unsetAngle();
+        /**
+         * Test if the attribute 'Angle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAngle() const;
         /**
          * Gets the value of the derived attribute 'AxisLine'.
          * 

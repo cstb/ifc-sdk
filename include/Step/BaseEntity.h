@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,18 +22,19 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEPBASEENTITY_H
-#define STEPBASEENTITY_H
+#ifndef Step_BaseEntity_h
+#define Step_BaseEntity_h
 
 #include "BaseObject.h"
 
 namespace Step {
 
-    /**
-    * Base Class for every entity from the STEP data model
-    */
-    class STEP_DLL_DEF BaseEntity : public BaseObject
+    /*!
+     ** Base Class for every entity from the STEP data model
+     */
+    class STEP_DLL_DEF BaseEntity: public BaseObject
     {
+        ClassType_definitions();
     public:
 
         /**
@@ -42,87 +43,51 @@ namespace Step {
          * @param visitor the read/write Step::BaseVisitor to accept
          */
         virtual bool acceptVisitor(BaseVisitor *visitor);
-        /**
-         * Returns the class type as a human readable std::string.
-         *
-         */
-        virtual const std::string &type() const;
-        /**
-         * Returns the Step::ClassType of this specific class. Useful to compare with the isOfType method for example.
-         *
-         */
-        static const ClassType &getClassType();
-        /**
-         * Returns the Step::ClassType of the instance of this class. (might be a subtype since it is virtual and overloaded).
-         *
-         */
-        virtual const ClassType &getType() const;
-        /**
-         * Compares this instance's Step::ClassType with the one passed as parameter. Checks the type recursively (to the mother classes).
-         *
-         * @param t
-         */
-        virtual bool isOfType(const ClassType& t) const;
 
         /**
          * Destructor (virtual)
          */
-        virtual ~BaseEntity() {}
+        virtual ~BaseEntity();
 
         /**
-        Gets the Step ID of the entity
-        */
-        Id getKey() const {
-            return mId;
-        }
-
-
-
+         Gets the Step ID of the entity
+         */
+        Id getKey() const;
     protected:
 
         /**
-        The type identifier of this class (static)
-        */
-        static ClassType s_type;
-
-        /**
-        Protected constructor from an id and a SPFData
-        @param id the Step ID
-        @param data the data from Step-21 file
-        */
-        BaseEntity(Id id, SPFData* data)
-                : BaseObject(data), mId(id) {}
-
-        /**
+         Protected constructor from an id and a SPFData
+         @param id the Step ID
+         @param data the data from Step-21 file
          */
-        virtual void copy(const BaseEntity &obj, const BaseCopyOp& copyop)
-        {
-            BaseObject::copy(obj,copyop);
-        }
+        BaseEntity(Id id, SPFData* data);
 
         /**
-        Sets the Step ID of the entity
-        @param id the Step Id
-        */
-        void setKey(Id id) {
-            mId = id;
-        }
-
+         * copy the entity obj into this one using the copyop Copy Operator
+         * \param obj the object to copy
+         * \param copyop the copy operator to use
+         */
+        virtual void copy(const BaseEntity &obj, const BaseCopyOp& copyop);
 
         /**
-        The Step ID property
-        */
+         Sets the Step ID of the entity
+         @param id the Step Id
+         */
+        void setKey(Id id);
+
+        /**
+         The Step ID property
+         */
         Id mId;
 
-
-
 #ifdef STEP_THREAD_SAFE
-        mutable OpenThreads::Mutex   m_mutex;
+        mutable OpenThreads::Mutex m_mutex;
 #endif
 
         friend class BaseExpressDataSet;
     };
 
+    bool STEP_DLL_DEF keySort(Step::BaseEntity* i, Step::BaseEntity* j);
 }
 
 #endif

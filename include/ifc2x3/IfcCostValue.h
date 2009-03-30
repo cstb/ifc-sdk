@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcAppliedValue.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcAppliedValue.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCostValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCostValue : public IfcAppliedValue {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setCostType(const IfcLabel &value);
         /**
+         * unset the attribute 'CostType'.
+         * 
+         */
+        virtual void unsetCostType();
+        /**
+         * Test if the attribute 'CostType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCostType() const;
+        /**
          * Gets the value of the explicit attribute 'Condition'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCondition(const IfcText &value);
+        /**
+         * unset the attribute 'Condition'.
+         * 
+         */
+        virtual void unsetCondition();
+        /**
+         * Test if the attribute 'Condition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCondition() const;
         friend class ExpressDataSet;
 
     protected:

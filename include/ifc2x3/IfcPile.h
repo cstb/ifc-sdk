@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBuildingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBuildingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPile Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPile : public IfcBuildingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcPileTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'ConstructionType'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConstructionType(IfcPileConstructionEnum value);
+        /**
+         * unset the attribute 'ConstructionType'.
+         * 
+         */
+        virtual void unsetConstructionType();
+        /**
+         * Test if the attribute 'ConstructionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConstructionType() const;
         friend class ExpressDataSet;
 
     protected:

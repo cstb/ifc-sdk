@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -734,6 +734,8 @@ namespace ifc2x3 {
     class IfcZone;
 
     /**
+     * Base Visitor (pure virtual) fot this generated schema.
+     * 
      */
     class IFC2X3_DLL_DEF Visitor : public Step::BaseVisitor {
     public:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProjectOrderRecord Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProjectOrderRecord : public IfcControl {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setRecords(const List_IfcRelAssignsToProjectOrder_1_n &value);
         /**
+         * unset the attribute 'Records'.
+         * 
+         */
+        virtual void unsetRecords();
+        /**
+         * Test if the attribute 'Records' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRecords() const;
+        /**
          * Gets the value of the explicit attribute 'PredefinedType'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPredefinedType(IfcProjectOrderRecordTypeEnum value);
+        /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
         friend class ExpressDataSet;
 
     protected:

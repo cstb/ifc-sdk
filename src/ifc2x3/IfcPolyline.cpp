@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPolyline::IfcPolyline(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
@@ -86,6 +83,15 @@ const List_IfcCartesianPoint_2_n &IfcPolyline::getPoints() const {
 
 void IfcPolyline::setPoints(const List_IfcCartesianPoint_2_n &value) {
     m_points = value;
+}
+
+void IfcPolyline::unsetPoints() {
+    m_points.clear();
+    m_points.setUnset(true);
+}
+
+bool IfcPolyline::testPoints() const {
+    return !Step::isUnset(getPoints());
 }
 
 bool IfcPolyline::init() {

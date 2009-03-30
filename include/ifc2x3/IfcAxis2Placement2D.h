@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPlacement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcPlacement.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcDirection;
 
     /**
+     * Generated class for the IfcAxis2Placement2D Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAxis2Placement2D : public IfcPlacement {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRefDirection(const Step::RefPtr< IfcDirection > &value);
+        /**
+         * unset the attribute 'RefDirection'.
+         * 
+         */
+        virtual void unsetRefDirection();
+        /**
+         * Test if the attribute 'RefDirection' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRefDirection() const;
         /**
          * Gets the value of the derived attribute 'P'.
          * 

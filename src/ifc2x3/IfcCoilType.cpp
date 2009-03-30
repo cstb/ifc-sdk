@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCoilType::IfcCoilType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcCoilTypeEnum IfcCoilType::getPredefinedType() const {
 
 void IfcCoilType::setPredefinedType(IfcCoilTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcCoilType::unsetPredefinedType() {
+    m_predefinedType = IfcCoilTypeEnum_UNSET;
+}
+
+bool IfcCoilType::testPredefinedType() const {
+    return getPredefinedType() != IfcCoilTypeEnum_UNSET;
 }
 
 bool IfcCoilType::init() {

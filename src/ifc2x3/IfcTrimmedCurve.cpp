@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTrimmedCurve::IfcTrimmedCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
@@ -92,6 +89,14 @@ void IfcTrimmedCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_basisCurve = value;
 }
 
+void IfcTrimmedCurve::unsetBasisCurve() {
+    m_basisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcTrimmedCurve::testBasisCurve() const {
+    return !Step::isUnset(getBasisCurve());
+}
+
 Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim1() {
     if (Step::BaseObject::inited()) {
         return m_trim1;
@@ -109,6 +114,15 @@ const Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim1() const {
 
 void IfcTrimmedCurve::setTrim1(const Set_IfcTrimmingSelect_1_2 &value) {
     m_trim1 = value;
+}
+
+void IfcTrimmedCurve::unsetTrim1() {
+    m_trim1.clear();
+    m_trim1.setUnset(true);
+}
+
+bool IfcTrimmedCurve::testTrim1() const {
+    return !Step::isUnset(getTrim1());
 }
 
 Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim2() {
@@ -130,6 +144,15 @@ void IfcTrimmedCurve::setTrim2(const Set_IfcTrimmingSelect_1_2 &value) {
     m_trim2 = value;
 }
 
+void IfcTrimmedCurve::unsetTrim2() {
+    m_trim2.clear();
+    m_trim2.setUnset(true);
+}
+
+bool IfcTrimmedCurve::testTrim2() const {
+    return !Step::isUnset(getTrim2());
+}
+
 Step::Boolean IfcTrimmedCurve::getSenseAgreement() {
     if (Step::BaseObject::inited()) {
         return m_senseAgreement;
@@ -148,6 +171,14 @@ void IfcTrimmedCurve::setSenseAgreement(Step::Boolean value) {
     m_senseAgreement = value;
 }
 
+void IfcTrimmedCurve::unsetSenseAgreement() {
+    m_senseAgreement = Step::getUnset(getSenseAgreement());
+}
+
+bool IfcTrimmedCurve::testSenseAgreement() const {
+    return !Step::isUnset(getSenseAgreement());
+}
+
 IfcTrimmingPreference IfcTrimmedCurve::getMasterRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_masterRepresentation;
@@ -164,6 +195,14 @@ const IfcTrimmingPreference IfcTrimmedCurve::getMasterRepresentation() const {
 
 void IfcTrimmedCurve::setMasterRepresentation(IfcTrimmingPreference value) {
     m_masterRepresentation = value;
+}
+
+void IfcTrimmedCurve::unsetMasterRepresentation() {
+    m_masterRepresentation = IfcTrimmingPreference_UNSET;
+}
+
+bool IfcTrimmedCurve::testMasterRepresentation() const {
+    return getMasterRepresentation() != IfcTrimmingPreference_UNSET;
 }
 
 bool IfcTrimmedCurve::init() {

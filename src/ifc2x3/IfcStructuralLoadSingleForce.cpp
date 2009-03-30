@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadSingleForce::IfcStructuralLoadSingleForce(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
@@ -89,6 +86,14 @@ void IfcStructuralLoadSingleForce::setForceX(IfcForceMeasure value) {
     m_forceX = value;
 }
 
+void IfcStructuralLoadSingleForce::unsetForceX() {
+    m_forceX = Step::getUnset(getForceX());
+}
+
+bool IfcStructuralLoadSingleForce::testForceX() const {
+    return !Step::isUnset(getForceX());
+}
+
 IfcForceMeasure IfcStructuralLoadSingleForce::getForceY() {
     if (Step::BaseObject::inited()) {
         return m_forceY;
@@ -105,6 +110,14 @@ const IfcForceMeasure IfcStructuralLoadSingleForce::getForceY() const {
 
 void IfcStructuralLoadSingleForce::setForceY(IfcForceMeasure value) {
     m_forceY = value;
+}
+
+void IfcStructuralLoadSingleForce::unsetForceY() {
+    m_forceY = Step::getUnset(getForceY());
+}
+
+bool IfcStructuralLoadSingleForce::testForceY() const {
+    return !Step::isUnset(getForceY());
 }
 
 IfcForceMeasure IfcStructuralLoadSingleForce::getForceZ() {
@@ -125,6 +138,14 @@ void IfcStructuralLoadSingleForce::setForceZ(IfcForceMeasure value) {
     m_forceZ = value;
 }
 
+void IfcStructuralLoadSingleForce::unsetForceZ() {
+    m_forceZ = Step::getUnset(getForceZ());
+}
+
+bool IfcStructuralLoadSingleForce::testForceZ() const {
+    return !Step::isUnset(getForceZ());
+}
+
 IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentX() {
     if (Step::BaseObject::inited()) {
         return m_momentX;
@@ -141,6 +162,14 @@ const IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentX() const {
 
 void IfcStructuralLoadSingleForce::setMomentX(IfcTorqueMeasure value) {
     m_momentX = value;
+}
+
+void IfcStructuralLoadSingleForce::unsetMomentX() {
+    m_momentX = Step::getUnset(getMomentX());
+}
+
+bool IfcStructuralLoadSingleForce::testMomentX() const {
+    return !Step::isUnset(getMomentX());
 }
 
 IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentY() {
@@ -161,6 +190,14 @@ void IfcStructuralLoadSingleForce::setMomentY(IfcTorqueMeasure value) {
     m_momentY = value;
 }
 
+void IfcStructuralLoadSingleForce::unsetMomentY() {
+    m_momentY = Step::getUnset(getMomentY());
+}
+
+bool IfcStructuralLoadSingleForce::testMomentY() const {
+    return !Step::isUnset(getMomentY());
+}
+
 IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentZ() {
     if (Step::BaseObject::inited()) {
         return m_momentZ;
@@ -177,6 +214,14 @@ const IfcTorqueMeasure IfcStructuralLoadSingleForce::getMomentZ() const {
 
 void IfcStructuralLoadSingleForce::setMomentZ(IfcTorqueMeasure value) {
     m_momentZ = value;
+}
+
+void IfcStructuralLoadSingleForce::unsetMomentZ() {
+    m_momentZ = Step::getUnset(getMomentZ());
+}
+
+bool IfcStructuralLoadSingleForce::testMomentZ() const {
+    return !Step::isUnset(getMomentZ());
 }
 
 bool IfcStructuralLoadSingleForce::init() {

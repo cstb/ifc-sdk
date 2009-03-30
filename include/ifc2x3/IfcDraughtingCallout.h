@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDraughtingCallout Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDraughtingCallout : public IfcGeometricRepresentationItem {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setContents(const Set_IfcDraughtingCalloutElement_1_n &value);
         /**
+         * unset the attribute 'Contents'.
+         * 
+         */
+        virtual void unsetContents();
+        /**
+         * Test if the attribute 'Contents' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContents() const;
+        /**
          * Gets the value of the inverse attribute 'IsRelatedFromCallout'.
          * 
          */
@@ -99,6 +112,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout() const;
         /**
+         * Test if the attribute 'IsRelatedFromCallout' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsRelatedFromCallout() const;
+        /**
          * Gets the value of the inverse attribute 'IsRelatedToCallout'.
          * 
          */
@@ -109,6 +128,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsRelatedToCallout'
          */
         virtual const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedToCallout() const;
+        /**
+         * Test if the attribute 'IsRelatedToCallout' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsRelatedToCallout() const;
         friend class ExpressDataSet;
         friend class IfcDraughtingCalloutRelationship;
 

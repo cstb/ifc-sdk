@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type() {
@@ -64,9 +61,14 @@ Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::size_type Inv
     return Set_IfcDocumentInformation_1_n::erase(value);
 }
 
+void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcDocumentInformationRelationship::IfcDocumentInformationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_relatingDocument = NULL;
-    m_relatedDocuments.setUnset(true);
     m_relatedDocuments.setOwner(this);
     m_relationshipType = Step::getUnset(m_relationshipType);
 }
@@ -118,6 +120,14 @@ void IfcDocumentInformationRelationship::setRelatingDocument(const Step::RefPtr<
     m_relatingDocument = value;
 }
 
+void IfcDocumentInformationRelationship::unsetRelatingDocument() {
+    m_relatingDocument = Step::getUnset(getRelatingDocument());
+}
+
+bool IfcDocumentInformationRelationship::testRelatingDocument() const {
+    return !Step::isUnset(getRelatingDocument());
+}
+
 Set_IfcDocumentInformation_1_n &IfcDocumentInformationRelationship::getRelatedDocuments() {
     if (Step::BaseObject::inited()) {
         return m_relatedDocuments;
@@ -131,6 +141,15 @@ Set_IfcDocumentInformation_1_n &IfcDocumentInformationRelationship::getRelatedDo
 const Set_IfcDocumentInformation_1_n &IfcDocumentInformationRelationship::getRelatedDocuments() const {
     IfcDocumentInformationRelationship * deConstObject = const_cast< IfcDocumentInformationRelationship * > (this);
     return deConstObject->getRelatedDocuments();
+}
+
+void IfcDocumentInformationRelationship::unsetRelatedDocuments() {
+    m_relatedDocuments.clear();
+    m_relatedDocuments.setUnset(true);
+}
+
+bool IfcDocumentInformationRelationship::testRelatedDocuments() const {
+    return !Step::isUnset(getRelatedDocuments());
 }
 
 IfcLabel IfcDocumentInformationRelationship::getRelationshipType() {
@@ -149,6 +168,14 @@ const IfcLabel IfcDocumentInformationRelationship::getRelationshipType() const {
 
 void IfcDocumentInformationRelationship::setRelationshipType(const IfcLabel &value) {
     m_relationshipType = value;
+}
+
+void IfcDocumentInformationRelationship::unsetRelationshipType() {
+    m_relationshipType = Step::getUnset(getRelationshipType());
+}
+
+bool IfcDocumentInformationRelationship::testRelationshipType() const {
+    return !Step::isUnset(getRelationshipType());
 }
 
 bool IfcDocumentInformationRelationship::init() {

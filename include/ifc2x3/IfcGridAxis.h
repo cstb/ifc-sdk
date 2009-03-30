@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcGridAxis Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGridAxis : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setAxisTag(const IfcLabel &value);
         /**
+         * unset the attribute 'AxisTag'.
+         * 
+         */
+        virtual void unsetAxisTag();
+        /**
+         * Test if the attribute 'AxisTag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAxisTag() const;
+        /**
          * Gets the value of the explicit attribute 'AxisCurve'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAxisCurve(const Step::RefPtr< IfcCurve > &value);
+        /**
+         * unset the attribute 'AxisCurve'.
+         * 
+         */
+        virtual void unsetAxisCurve();
+        /**
+         * Test if the attribute 'AxisCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAxisCurve() const;
         /**
          * Gets the value of the explicit attribute 'SameSense'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setSameSense(IfcBoolean value);
         /**
+         * unset the attribute 'SameSense'.
+         * 
+         */
+        virtual void unsetSameSense();
+        /**
+         * Test if the attribute 'SameSense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSameSense() const;
+        /**
          * Gets the value of the inverse attribute 'PartOfW'.
          * 
          */
@@ -135,6 +170,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'PartOfW'
          */
         virtual const Inverse_Set_IfcGrid_0_1 &getPartOfW() const;
+        /**
+         * Test if the attribute 'PartOfW' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfW() const;
         /**
          * Gets the value of the inverse attribute 'PartOfV'.
          * 
@@ -147,6 +188,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcGrid_0_1 &getPartOfV() const;
         /**
+         * Test if the attribute 'PartOfV' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfV() const;
+        /**
          * Gets the value of the inverse attribute 'PartOfU'.
          * 
          */
@@ -158,6 +205,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcGrid_0_1 &getPartOfU() const;
         /**
+         * Test if the attribute 'PartOfU' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfU() const;
+        /**
          * Gets the value of the inverse attribute 'HasIntersections'.
          * 
          */
@@ -168,12 +221,18 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasIntersections'
          */
         virtual const Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections() const;
-        friend class Inverted_IfcGrid_UAxes_type;
+        /**
+         * Test if the attribute 'HasIntersections' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasIntersections() const;
         friend class IfcVirtualGridIntersection;
-        friend class IfcGrid;
+        friend class Inverted_IfcGrid_WAxes_type;
+        friend class Inverted_IfcGrid_UAxes_type;
         friend class ExpressDataSet;
         friend class Inverted_IfcVirtualGridIntersection_IntersectingAxes_type;
-        friend class Inverted_IfcGrid_WAxes_type;
+        friend class IfcGrid;
         friend class Inverted_IfcGrid_VAxes_type;
 
     protected:

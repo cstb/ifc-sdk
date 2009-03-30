@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSoundProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSoundProperties : public IfcPropertySetDefinition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setIsAttenuating(IfcBoolean value);
         /**
+         * unset the attribute 'IsAttenuating'.
+         * 
+         */
+        virtual void unsetIsAttenuating();
+        /**
+         * Test if the attribute 'IsAttenuating' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsAttenuating() const;
+        /**
          * Gets the value of the explicit attribute 'SoundScale'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setSoundScale(IfcSoundScaleEnum value);
         /**
+         * unset the attribute 'SoundScale'.
+         * 
+         */
+        virtual void unsetSoundScale();
+        /**
+         * Test if the attribute 'SoundScale' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSoundScale() const;
+        /**
          * Gets the value of the explicit attribute 'SoundValues'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSoundValues(const List_IfcSoundValue_1_8 &value);
+        /**
+         * unset the attribute 'SoundValues'.
+         * 
+         */
+        virtual void unsetSoundValues();
+        /**
+         * Test if the attribute 'SoundValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSoundValues() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConnectionCurveGeometry::IfcConnectionCurveGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
@@ -88,6 +85,14 @@ void IfcConnectionCurveGeometry::setCurveOnRelatingElement(const Step::RefPtr< I
     m_curveOnRelatingElement = value;
 }
 
+void IfcConnectionCurveGeometry::unsetCurveOnRelatingElement() {
+    m_curveOnRelatingElement = Step::getUnset(getCurveOnRelatingElement());
+}
+
+bool IfcConnectionCurveGeometry::testCurveOnRelatingElement() const {
+    return !Step::isUnset(getCurveOnRelatingElement());
+}
+
 IfcCurveOrEdgeCurve *IfcConnectionCurveGeometry::getCurveOnRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_curveOnRelatedElement.get();
@@ -104,6 +109,14 @@ const IfcCurveOrEdgeCurve *IfcConnectionCurveGeometry::getCurveOnRelatedElement(
 
 void IfcConnectionCurveGeometry::setCurveOnRelatedElement(const Step::RefPtr< IfcCurveOrEdgeCurve > &value) {
     m_curveOnRelatedElement = value;
+}
+
+void IfcConnectionCurveGeometry::unsetCurveOnRelatedElement() {
+    m_curveOnRelatedElement = Step::getUnset(getCurveOnRelatedElement());
+}
+
+bool IfcConnectionCurveGeometry::testCurveOnRelatedElement() const {
+    return !Step::isUnset(getCurveOnRelatedElement());
 }
 
 bool IfcConnectionCurveGeometry::init() {

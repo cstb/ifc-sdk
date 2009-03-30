@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLampType::IfcLampType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
@@ -82,6 +79,14 @@ const IfcLampTypeEnum IfcLampType::getPredefinedType() const {
 
 void IfcLampType::setPredefinedType(IfcLampTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcLampType::unsetPredefinedType() {
+    m_predefinedType = IfcLampTypeEnum_UNSET;
+}
+
+bool IfcLampType::testPredefinedType() const {
+    return getPredefinedType() != IfcLampTypeEnum_UNSET;
 }
 
 bool IfcLampType::init() {

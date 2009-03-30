@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAxis2Placement3D::IfcAxis2Placement3D(Step::Id id, Step::SPFData *args) : IfcPlacement(id, args) {
@@ -89,6 +86,14 @@ void IfcAxis2Placement3D::setAxis(const Step::RefPtr< IfcDirection > &value) {
     m_axis = value;
 }
 
+void IfcAxis2Placement3D::unsetAxis() {
+    m_axis = Step::getUnset(getAxis());
+}
+
+bool IfcAxis2Placement3D::testAxis() const {
+    return !Step::isUnset(getAxis());
+}
+
 IfcDirection *IfcAxis2Placement3D::getRefDirection() {
     if (Step::BaseObject::inited()) {
         return m_refDirection.get();
@@ -105,6 +110,14 @@ const IfcDirection *IfcAxis2Placement3D::getRefDirection() const {
 
 void IfcAxis2Placement3D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
     m_refDirection = value;
+}
+
+void IfcAxis2Placement3D::unsetRefDirection() {
+    m_refDirection = Step::getUnset(getRefDirection());
+}
+
+bool IfcAxis2Placement3D::testRefDirection() const {
+    return !Step::isUnset(getRefDirection());
 }
 
 bool IfcAxis2Placement3D::init() {

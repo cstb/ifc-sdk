@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcTopologicalRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcFace Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFace : public IfcTopologicalRepresentationItem {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBounds(const Set_IfcFaceBound_1_n &value);
+        /**
+         * unset the attribute 'Bounds'.
+         * 
+         */
+        virtual void unsetBounds();
+        /**
+         * Test if the attribute 'Bounds' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBounds() const;
         friend class ExpressDataSet;
 
     protected:

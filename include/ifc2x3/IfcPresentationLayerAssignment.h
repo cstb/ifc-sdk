@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcPresentationLayerAssignment;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcPresentationLayerAssignment_AssignedItems_type : public Set_IfcLayeredItem_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcPresentationLayerAssignment *mOwner;
-        /**
-         */
         Inverted_IfcPresentationLayerAssignment_AssignedItems_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcPresentationLayerAssignment *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcLayeredItem > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcLayeredItem > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcPresentationLayerAssignment;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcPresentationLayerAssignment *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcPresentationLayerAssignment *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPresentationLayerAssignment Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPresentationLayerAssignment : public Step::BaseEntity {
     public:
@@ -123,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -140,6 +169,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the explicit attribute 'AssignedItems'.
          * 
          */
@@ -150,6 +190,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'AssignedItems'
          */
         virtual const Set_IfcLayeredItem_1_n &getAssignedItems() const;
+        /**
+         * unset the attribute 'AssignedItems'.
+         * 
+         */
+        virtual void unsetAssignedItems();
+        /**
+         * Test if the attribute 'AssignedItems' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAssignedItems() const;
         /**
          * Gets the value of the explicit attribute 'Identifier'.
          * 
@@ -167,6 +218,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setIdentifier(const IfcIdentifier &value);
+        /**
+         * unset the attribute 'Identifier'.
+         * 
+         */
+        virtual void unsetIdentifier();
+        /**
+         * Test if the attribute 'Identifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIdentifier() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPointOnSurface::IfcPointOnSurface(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
@@ -90,6 +87,14 @@ void IfcPointOnSurface::setBasisSurface(const Step::RefPtr< IfcSurface > &value)
     m_basisSurface = value;
 }
 
+void IfcPointOnSurface::unsetBasisSurface() {
+    m_basisSurface = Step::getUnset(getBasisSurface());
+}
+
+bool IfcPointOnSurface::testBasisSurface() const {
+    return !Step::isUnset(getBasisSurface());
+}
+
 IfcParameterValue IfcPointOnSurface::getPointParameterU() {
     if (Step::BaseObject::inited()) {
         return m_pointParameterU;
@@ -108,6 +113,14 @@ void IfcPointOnSurface::setPointParameterU(IfcParameterValue value) {
     m_pointParameterU = value;
 }
 
+void IfcPointOnSurface::unsetPointParameterU() {
+    m_pointParameterU = Step::getUnset(getPointParameterU());
+}
+
+bool IfcPointOnSurface::testPointParameterU() const {
+    return !Step::isUnset(getPointParameterU());
+}
+
 IfcParameterValue IfcPointOnSurface::getPointParameterV() {
     if (Step::BaseObject::inited()) {
         return m_pointParameterV;
@@ -124,6 +137,14 @@ const IfcParameterValue IfcPointOnSurface::getPointParameterV() const {
 
 void IfcPointOnSurface::setPointParameterV(IfcParameterValue value) {
     m_pointParameterV = value;
+}
+
+void IfcPointOnSurface::unsetPointParameterV() {
+    m_pointParameterV = Step::getUnset(getPointParameterV());
+}
+
+bool IfcPointOnSurface::testPointParameterV() const {
+    return !Step::isUnset(getPointParameterV());
 }
 
 bool IfcPointOnSurface::init() {

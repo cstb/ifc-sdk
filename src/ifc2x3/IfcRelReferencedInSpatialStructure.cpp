@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type() {
@@ -66,8 +63,13 @@ Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::size_type Inve
     return Set_IfcProduct_1_n::erase(value);
 }
 
+void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelReferencedInSpatialStructure::IfcRelReferencedInSpatialStructure(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
-    m_relatedElements.setUnset(true);
     m_relatedElements.setOwner(this);
     m_relatingStructure = NULL;
 }
@@ -110,6 +112,15 @@ const Set_IfcProduct_1_n &IfcRelReferencedInSpatialStructure::getRelatedElements
     return deConstObject->getRelatedElements();
 }
 
+void IfcRelReferencedInSpatialStructure::unsetRelatedElements() {
+    m_relatedElements.clear();
+    m_relatedElements.setUnset(true);
+}
+
+bool IfcRelReferencedInSpatialStructure::testRelatedElements() const {
+    return !Step::isUnset(getRelatedElements());
+}
+
 IfcSpatialStructureElement *IfcRelReferencedInSpatialStructure::getRelatingStructure() {
     if (Step::BaseObject::inited()) {
         return m_relatingStructure.get();
@@ -132,6 +143,14 @@ void IfcRelReferencedInSpatialStructure::setRelatingStructure(const Step::RefPtr
         value->m_referencesElements.insert(this);
     }
     m_relatingStructure = value;
+}
+
+void IfcRelReferencedInSpatialStructure::unsetRelatingStructure() {
+    m_relatingStructure = Step::getUnset(getRelatingStructure());
+}
+
+bool IfcRelReferencedInSpatialStructure::testRelatingStructure() const {
+    return !Step::isUnset(getRelatingStructure());
 }
 
 bool IfcRelReferencedInSpatialStructure::init() {

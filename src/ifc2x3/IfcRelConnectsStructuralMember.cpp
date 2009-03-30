@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralMember::IfcRelConnectsStructuralMember(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -103,6 +100,14 @@ void IfcRelConnectsStructuralMember::setRelatingStructuralMember(const Step::Ref
     m_relatingStructuralMember = value;
 }
 
+void IfcRelConnectsStructuralMember::unsetRelatingStructuralMember() {
+    m_relatingStructuralMember = Step::getUnset(getRelatingStructuralMember());
+}
+
+bool IfcRelConnectsStructuralMember::testRelatingStructuralMember() const {
+    return !Step::isUnset(getRelatingStructuralMember());
+}
+
 IfcStructuralConnection *IfcRelConnectsStructuralMember::getRelatedStructuralConnection() {
     if (Step::BaseObject::inited()) {
         return m_relatedStructuralConnection.get();
@@ -127,6 +132,14 @@ void IfcRelConnectsStructuralMember::setRelatedStructuralConnection(const Step::
     m_relatedStructuralConnection = value;
 }
 
+void IfcRelConnectsStructuralMember::unsetRelatedStructuralConnection() {
+    m_relatedStructuralConnection = Step::getUnset(getRelatedStructuralConnection());
+}
+
+bool IfcRelConnectsStructuralMember::testRelatedStructuralConnection() const {
+    return !Step::isUnset(getRelatedStructuralConnection());
+}
+
 IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition() {
     if (Step::BaseObject::inited()) {
         return m_appliedCondition.get();
@@ -143,6 +156,14 @@ const IfcBoundaryCondition *IfcRelConnectsStructuralMember::getAppliedCondition(
 
 void IfcRelConnectsStructuralMember::setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value) {
     m_appliedCondition = value;
+}
+
+void IfcRelConnectsStructuralMember::unsetAppliedCondition() {
+    m_appliedCondition = Step::getUnset(getAppliedCondition());
+}
+
+bool IfcRelConnectsStructuralMember::testAppliedCondition() const {
+    return !Step::isUnset(getAppliedCondition());
 }
 
 IfcStructuralConnectionCondition *IfcRelConnectsStructuralMember::getAdditionalConditions() {
@@ -163,6 +184,14 @@ void IfcRelConnectsStructuralMember::setAdditionalConditions(const Step::RefPtr<
     m_additionalConditions = value;
 }
 
+void IfcRelConnectsStructuralMember::unsetAdditionalConditions() {
+    m_additionalConditions = Step::getUnset(getAdditionalConditions());
+}
+
+bool IfcRelConnectsStructuralMember::testAdditionalConditions() const {
+    return !Step::isUnset(getAdditionalConditions());
+}
+
 IfcLengthMeasure IfcRelConnectsStructuralMember::getSupportedLength() {
     if (Step::BaseObject::inited()) {
         return m_supportedLength;
@@ -181,6 +210,14 @@ void IfcRelConnectsStructuralMember::setSupportedLength(IfcLengthMeasure value) 
     m_supportedLength = value;
 }
 
+void IfcRelConnectsStructuralMember::unsetSupportedLength() {
+    m_supportedLength = Step::getUnset(getSupportedLength());
+}
+
+bool IfcRelConnectsStructuralMember::testSupportedLength() const {
+    return !Step::isUnset(getSupportedLength());
+}
+
 IfcAxis2Placement3D *IfcRelConnectsStructuralMember::getConditionCoordinateSystem() {
     if (Step::BaseObject::inited()) {
         return m_conditionCoordinateSystem.get();
@@ -197,6 +234,14 @@ const IfcAxis2Placement3D *IfcRelConnectsStructuralMember::getConditionCoordinat
 
 void IfcRelConnectsStructuralMember::setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value) {
     m_conditionCoordinateSystem = value;
+}
+
+void IfcRelConnectsStructuralMember::unsetConditionCoordinateSystem() {
+    m_conditionCoordinateSystem = Step::getUnset(getConditionCoordinateSystem());
+}
+
+bool IfcRelConnectsStructuralMember::testConditionCoordinateSystem() const {
+    return !Step::isUnset(getConditionCoordinateSystem());
 }
 
 bool IfcRelConnectsStructuralMember::init() {

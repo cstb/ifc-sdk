@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDerivedUnitElement::IfcDerivedUnitElement(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcDerivedUnitElement::setUnit(const Step::RefPtr< IfcNamedUnit > &value) {
     m_unit = value;
 }
 
+void IfcDerivedUnitElement::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcDerivedUnitElement::testUnit() const {
+    return !Step::isUnset(getUnit());
+}
+
 Step::Integer IfcDerivedUnitElement::getExponent() {
     if (Step::BaseObject::inited()) {
         return m_exponent;
@@ -105,6 +110,14 @@ const Step::Integer IfcDerivedUnitElement::getExponent() const {
 
 void IfcDerivedUnitElement::setExponent(Step::Integer value) {
     m_exponent = value;
+}
+
+void IfcDerivedUnitElement::unsetExponent() {
+    m_exponent = Step::getUnset(getExponent());
+}
+
+bool IfcDerivedUnitElement::testExponent() const {
+    return !Step::isUnset(getExponent());
 }
 
 bool IfcDerivedUnitElement::init() {

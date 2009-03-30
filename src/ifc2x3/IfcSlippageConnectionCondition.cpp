@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSlippageConnectionCondition::IfcSlippageConnectionCondition(Step::Id id, Step::SPFData *args) : IfcStructuralConnectionCondition(id, args) {
@@ -86,6 +83,14 @@ void IfcSlippageConnectionCondition::setSlippageX(IfcLengthMeasure value) {
     m_slippageX = value;
 }
 
+void IfcSlippageConnectionCondition::unsetSlippageX() {
+    m_slippageX = Step::getUnset(getSlippageX());
+}
+
+bool IfcSlippageConnectionCondition::testSlippageX() const {
+    return !Step::isUnset(getSlippageX());
+}
+
 IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageY() {
     if (Step::BaseObject::inited()) {
         return m_slippageY;
@@ -104,6 +109,14 @@ void IfcSlippageConnectionCondition::setSlippageY(IfcLengthMeasure value) {
     m_slippageY = value;
 }
 
+void IfcSlippageConnectionCondition::unsetSlippageY() {
+    m_slippageY = Step::getUnset(getSlippageY());
+}
+
+bool IfcSlippageConnectionCondition::testSlippageY() const {
+    return !Step::isUnset(getSlippageY());
+}
+
 IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() {
     if (Step::BaseObject::inited()) {
         return m_slippageZ;
@@ -120,6 +133,14 @@ const IfcLengthMeasure IfcSlippageConnectionCondition::getSlippageZ() const {
 
 void IfcSlippageConnectionCondition::setSlippageZ(IfcLengthMeasure value) {
     m_slippageZ = value;
+}
+
+void IfcSlippageConnectionCondition::unsetSlippageZ() {
+    m_slippageZ = Step::getUnset(getSlippageZ());
+}
+
+bool IfcSlippageConnectionCondition::testSlippageZ() const {
+    return !Step::isUnset(getSlippageZ());
 }
 
 bool IfcSlippageConnectionCondition::init() {

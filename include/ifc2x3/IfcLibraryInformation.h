@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcLibraryReference;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcLibraryInformation_LibraryReference_type : public Set_IfcLibraryReference_1_n {
     public:
@@ -54,22 +55,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcLibraryInformation *mOwner;
-        /**
-         */
         Inverted_IfcLibraryInformation_LibraryReference_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcLibraryInformation *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcLibraryReference > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcLibraryReference > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcLibraryInformation;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcLibraryInformation *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcLibraryInformation *owner);
 
     };
 
@@ -78,6 +93,8 @@ namespace ifc2x3 {
     class IfcOrganization;
 
     /**
+     * Generated class for the IfcLibraryInformation Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLibraryInformation : public Step::BaseEntity {
     public:
@@ -126,6 +143,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Version'.
          * 
          */
@@ -142,6 +170,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setVersion(const IfcLabel &value);
+        /**
+         * unset the attribute 'Version'.
+         * 
+         */
+        virtual void unsetVersion();
+        /**
+         * Test if the attribute 'Version' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVersion() const;
         /**
          * Gets the value of the explicit attribute 'Publisher'.
          * 
@@ -160,6 +199,17 @@ namespace ifc2x3 {
          */
         virtual void setPublisher(const Step::RefPtr< IfcOrganization > &value);
         /**
+         * unset the attribute 'Publisher'.
+         * 
+         */
+        virtual void unsetPublisher();
+        /**
+         * Test if the attribute 'Publisher' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPublisher() const;
+        /**
          * Gets the value of the explicit attribute 'VersionDate'.
          * 
          */
@@ -177,6 +227,17 @@ namespace ifc2x3 {
          */
         virtual void setVersionDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * unset the attribute 'VersionDate'.
+         * 
+         */
+        virtual void unsetVersionDate();
+        /**
+         * Test if the attribute 'VersionDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVersionDate() const;
+        /**
          * Gets the value of the explicit attribute 'LibraryReference'.
          * 
          */
@@ -187,6 +248,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'LibraryReference'
          */
         virtual const Set_IfcLibraryReference_1_n &getLibraryReference() const;
+        /**
+         * unset the attribute 'LibraryReference'.
+         * 
+         */
+        virtual void unsetLibraryReference();
+        /**
+         * Test if the attribute 'LibraryReference' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLibraryReference() const;
         friend class ExpressDataSet;
 
     protected:

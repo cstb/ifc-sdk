@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcEdge.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcEdge.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcOrientedEdge Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOrientedEdge : public IfcEdge {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setEdgeElement(const Step::RefPtr< IfcEdge > &value);
         /**
+         * unset the attribute 'EdgeElement'.
+         * 
+         */
+        virtual void unsetEdgeElement();
+        /**
+         * Test if the attribute 'EdgeElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdgeElement() const;
+        /**
          * Gets the value of the explicit attribute 'Orientation'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOrientation(Step::Boolean value);
+        /**
+         * unset the attribute 'Orientation'.
+         * 
+         */
+        virtual void unsetOrientation();
+        /**
+         * Test if the attribute 'Orientation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOrientation() const;
         /**
          * Gets the value of the derived attribute redeclaration 'EdgeStart'.
          * 

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcShapeAspect;
 
     /**
+     * Generated class for the IfcWindowLiningProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcWindowLiningProperties : public IfcPropertySetDefinition {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setLiningDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'LiningDepth'.
+         * 
+         */
+        virtual void unsetLiningDepth();
+        /**
+         * Test if the attribute 'LiningDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiningDepth() const;
+        /**
          * Gets the value of the explicit attribute 'LiningThickness'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLiningThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'LiningThickness'.
+         * 
+         */
+        virtual void unsetLiningThickness();
+        /**
+         * Test if the attribute 'LiningThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiningThickness() const;
         /**
          * Gets the value of the explicit attribute 'TransomThickness'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTransomThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'TransomThickness'.
+         * 
+         */
+        virtual void unsetTransomThickness();
+        /**
+         * Test if the attribute 'TransomThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransomThickness() const;
+        /**
          * Gets the value of the explicit attribute 'MullionThickness'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMullionThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'MullionThickness'.
+         * 
+         */
+        virtual void unsetMullionThickness();
+        /**
+         * Test if the attribute 'MullionThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMullionThickness() const;
         /**
          * Gets the value of the explicit attribute 'FirstTransomOffset'.
          * 
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          */
         virtual void setFirstTransomOffset(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'FirstTransomOffset'.
+         * 
+         */
+        virtual void unsetFirstTransomOffset();
+        /**
+         * Test if the attribute 'FirstTransomOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFirstTransomOffset() const;
+        /**
          * Gets the value of the explicit attribute 'SecondTransomOffset'.
          * 
          */
@@ -174,6 +231,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSecondTransomOffset(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'SecondTransomOffset'.
+         * 
+         */
+        virtual void unsetSecondTransomOffset();
+        /**
+         * Test if the attribute 'SecondTransomOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSecondTransomOffset() const;
         /**
          * Gets the value of the explicit attribute 'FirstMullionOffset'.
          * 
@@ -192,6 +260,17 @@ namespace ifc2x3 {
          */
         virtual void setFirstMullionOffset(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'FirstMullionOffset'.
+         * 
+         */
+        virtual void unsetFirstMullionOffset();
+        /**
+         * Test if the attribute 'FirstMullionOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFirstMullionOffset() const;
+        /**
          * Gets the value of the explicit attribute 'SecondMullionOffset'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          */
         virtual void setSecondMullionOffset(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'SecondMullionOffset'.
+         * 
+         */
+        virtual void unsetSecondMullionOffset();
+        /**
+         * Test if the attribute 'SecondMullionOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSecondMullionOffset() const;
+        /**
          * Gets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          */
@@ -225,6 +315,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
+        /**
+         * unset the attribute 'ShapeAspectStyle'.
+         * 
+         */
+        virtual void unsetShapeAspectStyle();
+        /**
+         * Test if the attribute 'ShapeAspectStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShapeAspectStyle() const;
         friend class ExpressDataSet;
 
     protected:

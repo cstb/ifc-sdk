@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPermit::IfcPermit(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -83,6 +80,14 @@ const IfcIdentifier IfcPermit::getPermitID() const {
 
 void IfcPermit::setPermitID(const IfcIdentifier &value) {
     m_permitID = value;
+}
+
+void IfcPermit::unsetPermitID() {
+    m_permitID = Step::getUnset(getPermitID());
+}
+
+bool IfcPermit::testPermitID() const {
+    return !Step::isUnset(getPermitID());
 }
 
 bool IfcPermit::init() {

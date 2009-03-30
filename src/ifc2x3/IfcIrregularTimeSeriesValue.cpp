@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcIrregularTimeSeriesValue::IfcIrregularTimeSeriesValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcIrregularTimeSeriesValue::setTimeStamp(const Step::RefPtr< IfcDateTimeSe
     m_timeStamp = value;
 }
 
+void IfcIrregularTimeSeriesValue::unsetTimeStamp() {
+    m_timeStamp = Step::getUnset(getTimeStamp());
+}
+
+bool IfcIrregularTimeSeriesValue::testTimeStamp() const {
+    return !Step::isUnset(getTimeStamp());
+}
+
 List_IfcValue_1_n &IfcIrregularTimeSeriesValue::getListValues() {
     if (Step::BaseObject::inited()) {
         return m_listValues;
@@ -108,6 +113,15 @@ const List_IfcValue_1_n &IfcIrregularTimeSeriesValue::getListValues() const {
 
 void IfcIrregularTimeSeriesValue::setListValues(const List_IfcValue_1_n &value) {
     m_listValues = value;
+}
+
+void IfcIrregularTimeSeriesValue::unsetListValues() {
+    m_listValues.clear();
+    m_listValues.setUnset(true);
+}
+
+bool IfcIrregularTimeSeriesValue::testListValues() const {
+    return !Step::isUnset(getListValues());
 }
 
 bool IfcIrregularTimeSeriesValue::init() {

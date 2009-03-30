@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +45,8 @@ namespace ifc2x3 {
     class IfcTimeSeries;
 
     /**
+     * Generated class for the IfcFluidFlowProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFluidFlowProperties : public IfcPropertySetDefinition {
     public:
@@ -93,6 +95,17 @@ namespace ifc2x3 {
          */
         virtual void setPropertySource(IfcPropertySourceEnum value);
         /**
+         * unset the attribute 'PropertySource'.
+         * 
+         */
+        virtual void unsetPropertySource();
+        /**
+         * Test if the attribute 'PropertySource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPropertySource() const;
+        /**
          * Gets the value of the explicit attribute 'FlowConditionTimeSeries'.
          * 
          */
@@ -109,6 +122,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFlowConditionTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        /**
+         * unset the attribute 'FlowConditionTimeSeries'.
+         * 
+         */
+        virtual void unsetFlowConditionTimeSeries();
+        /**
+         * Test if the attribute 'FlowConditionTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlowConditionTimeSeries() const;
         /**
          * Gets the value of the explicit attribute 'VelocityTimeSeries'.
          * 
@@ -127,6 +151,17 @@ namespace ifc2x3 {
          */
         virtual void setVelocityTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * unset the attribute 'VelocityTimeSeries'.
+         * 
+         */
+        virtual void unsetVelocityTimeSeries();
+        /**
+         * Test if the attribute 'VelocityTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVelocityTimeSeries() const;
+        /**
          * Gets the value of the explicit attribute 'FlowrateTimeSeries'.
          * 
          */
@@ -143,6 +178,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFlowrateTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        /**
+         * unset the attribute 'FlowrateTimeSeries'.
+         * 
+         */
+        virtual void unsetFlowrateTimeSeries();
+        /**
+         * Test if the attribute 'FlowrateTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlowrateTimeSeries() const;
         /**
          * Gets the value of the explicit attribute 'Fluid'.
          * 
@@ -161,6 +207,17 @@ namespace ifc2x3 {
          */
         virtual void setFluid(const Step::RefPtr< IfcMaterial > &value);
         /**
+         * unset the attribute 'Fluid'.
+         * 
+         */
+        virtual void unsetFluid();
+        /**
+         * Test if the attribute 'Fluid' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFluid() const;
+        /**
          * Gets the value of the explicit attribute 'PressureTimeSeries'.
          * 
          */
@@ -177,6 +234,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPressureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        /**
+         * unset the attribute 'PressureTimeSeries'.
+         * 
+         */
+        virtual void unsetPressureTimeSeries();
+        /**
+         * Test if the attribute 'PressureTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPressureTimeSeries() const;
         /**
          * Gets the value of the explicit attribute 'UserDefinedPropertySource'.
          * 
@@ -195,6 +263,17 @@ namespace ifc2x3 {
          */
         virtual void setUserDefinedPropertySource(const IfcLabel &value);
         /**
+         * unset the attribute 'UserDefinedPropertySource'.
+         * 
+         */
+        virtual void unsetUserDefinedPropertySource();
+        /**
+         * Test if the attribute 'UserDefinedPropertySource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedPropertySource() const;
+        /**
          * Gets the value of the explicit attribute 'TemperatureSingleValue'.
          * 
          */
@@ -211,6 +290,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
+        /**
+         * unset the attribute 'TemperatureSingleValue'.
+         * 
+         */
+        virtual void unsetTemperatureSingleValue();
+        /**
+         * Test if the attribute 'TemperatureSingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTemperatureSingleValue() const;
         /**
          * Gets the value of the explicit attribute 'WetBulbTemperatureSingleValue'.
          * 
@@ -229,6 +319,17 @@ namespace ifc2x3 {
          */
         virtual void setWetBulbTemperatureSingleValue(IfcThermodynamicTemperatureMeasure value);
         /**
+         * unset the attribute 'WetBulbTemperatureSingleValue'.
+         * 
+         */
+        virtual void unsetWetBulbTemperatureSingleValue();
+        /**
+         * Test if the attribute 'WetBulbTemperatureSingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWetBulbTemperatureSingleValue() const;
+        /**
          * Gets the value of the explicit attribute 'WetBulbTemperatureTimeSeries'.
          * 
          */
@@ -245,6 +346,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWetBulbTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        /**
+         * unset the attribute 'WetBulbTemperatureTimeSeries'.
+         * 
+         */
+        virtual void unsetWetBulbTemperatureTimeSeries();
+        /**
+         * Test if the attribute 'WetBulbTemperatureTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWetBulbTemperatureTimeSeries() const;
         /**
          * Gets the value of the explicit attribute 'TemperatureTimeSeries'.
          * 
@@ -263,6 +375,17 @@ namespace ifc2x3 {
          */
         virtual void setTemperatureTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * unset the attribute 'TemperatureTimeSeries'.
+         * 
+         */
+        virtual void unsetTemperatureTimeSeries();
+        /**
+         * Test if the attribute 'TemperatureTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTemperatureTimeSeries() const;
+        /**
          * Gets the value of the explicit attribute 'FlowrateSingleValue'.
          * 
          */
@@ -279,6 +402,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFlowrateSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value);
+        /**
+         * unset the attribute 'FlowrateSingleValue'.
+         * 
+         */
+        virtual void unsetFlowrateSingleValue();
+        /**
+         * Test if the attribute 'FlowrateSingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlowrateSingleValue() const;
         /**
          * Gets the value of the explicit attribute 'FlowConditionSingleValue'.
          * 
@@ -297,6 +431,17 @@ namespace ifc2x3 {
          */
         virtual void setFlowConditionSingleValue(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'FlowConditionSingleValue'.
+         * 
+         */
+        virtual void unsetFlowConditionSingleValue();
+        /**
+         * Test if the attribute 'FlowConditionSingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlowConditionSingleValue() const;
+        /**
          * Gets the value of the explicit attribute 'VelocitySingleValue'.
          * 
          */
@@ -314,6 +459,17 @@ namespace ifc2x3 {
          */
         virtual void setVelocitySingleValue(IfcLinearVelocityMeasure value);
         /**
+         * unset the attribute 'VelocitySingleValue'.
+         * 
+         */
+        virtual void unsetVelocitySingleValue();
+        /**
+         * Test if the attribute 'VelocitySingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVelocitySingleValue() const;
+        /**
          * Gets the value of the explicit attribute 'PressureSingleValue'.
          * 
          */
@@ -330,6 +486,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPressureSingleValue(IfcPressureMeasure value);
+        /**
+         * unset the attribute 'PressureSingleValue'.
+         * 
+         */
+        virtual void unsetPressureSingleValue();
+        /**
+         * Test if the attribute 'PressureSingleValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPressureSingleValue() const;
         friend class ExpressDataSet;
 
     protected:

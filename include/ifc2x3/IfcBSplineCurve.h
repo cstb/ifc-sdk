@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundedCurve.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundedCurve.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcBSplineCurve Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBSplineCurve : public IfcBoundedCurve {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDegree(Step::Integer value);
         /**
+         * unset the attribute 'Degree'.
+         * 
+         */
+        virtual void unsetDegree();
+        /**
+         * Test if the attribute 'Degree' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDegree() const;
+        /**
          * Gets the value of the explicit attribute 'ControlPointsList'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setControlPointsList(const List_IfcCartesianPoint_2_n &value);
+        /**
+         * unset the attribute 'ControlPointsList'.
+         * 
+         */
+        virtual void unsetControlPointsList();
+        /**
+         * Test if the attribute 'ControlPointsList' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testControlPointsList() const;
         /**
          * Gets the value of the explicit attribute 'CurveForm'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setCurveForm(IfcBSplineCurveForm value);
         /**
+         * unset the attribute 'CurveForm'.
+         * 
+         */
+        virtual void unsetCurveForm();
+        /**
+         * Test if the attribute 'CurveForm' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveForm() const;
+        /**
          * Gets the value of the explicit attribute 'ClosedCurve'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setClosedCurve(Step::Logical value);
         /**
+         * unset the attribute 'ClosedCurve'.
+         * 
+         */
+        virtual void unsetClosedCurve();
+        /**
+         * Test if the attribute 'ClosedCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testClosedCurve() const;
+        /**
          * Gets the value of the explicit attribute 'SelfIntersect'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSelfIntersect(Step::Logical value);
+        /**
+         * unset the attribute 'SelfIntersect'.
+         * 
+         */
+        virtual void unsetSelfIntersect();
+        /**
+         * Test if the attribute 'SelfIntersect' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSelfIntersect() const;
         /**
          * Gets the value of the derived attribute 'ControlPoints'.
          * 

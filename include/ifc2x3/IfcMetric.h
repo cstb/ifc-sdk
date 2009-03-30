@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcConstraint.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcConstraint.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcMetricValueSelect;
 
     /**
+     * Generated class for the IfcMetric Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMetric : public IfcConstraint {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setBenchmark(IfcBenchmarkEnum value);
         /**
+         * unset the attribute 'Benchmark'.
+         * 
+         */
+        virtual void unsetBenchmark();
+        /**
+         * Test if the attribute 'Benchmark' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBenchmark() const;
+        /**
          * Gets the value of the explicit attribute 'ValueSource'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setValueSource(const IfcLabel &value);
         /**
+         * unset the attribute 'ValueSource'.
+         * 
+         */
+        virtual void unsetValueSource();
+        /**
+         * Test if the attribute 'ValueSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValueSource() const;
+        /**
          * Gets the value of the explicit attribute 'DataValue'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDataValue(const Step::RefPtr< IfcMetricValueSelect > &value);
+        /**
+         * unset the attribute 'DataValue'.
+         * 
+         */
+        virtual void unsetDataValue();
+        /**
+         * Test if the attribute 'DataValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDataValue() const;
         friend class ExpressDataSet;
 
     protected:

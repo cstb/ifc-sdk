@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCostValue::IfcCostValue(Step::Id id, Step::SPFData *args) : IfcAppliedValue(id, args) {
@@ -86,6 +83,14 @@ void IfcCostValue::setCostType(const IfcLabel &value) {
     m_costType = value;
 }
 
+void IfcCostValue::unsetCostType() {
+    m_costType = Step::getUnset(getCostType());
+}
+
+bool IfcCostValue::testCostType() const {
+    return !Step::isUnset(getCostType());
+}
+
 IfcText IfcCostValue::getCondition() {
     if (Step::BaseObject::inited()) {
         return m_condition;
@@ -102,6 +107,14 @@ const IfcText IfcCostValue::getCondition() const {
 
 void IfcCostValue::setCondition(const IfcText &value) {
     m_condition = value;
+}
+
+void IfcCostValue::unsetCondition() {
+    m_condition = Step::getUnset(getCondition());
+}
+
+bool IfcCostValue::testCondition() const {
+    return !Step::isUnset(getCondition());
 }
 
 bool IfcCostValue::init() {

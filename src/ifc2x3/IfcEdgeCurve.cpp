@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEdgeCurve::IfcEdgeCurve(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
@@ -89,6 +86,14 @@ void IfcEdgeCurve::setEdgeGeometry(const Step::RefPtr< IfcCurve > &value) {
     m_edgeGeometry = value;
 }
 
+void IfcEdgeCurve::unsetEdgeGeometry() {
+    m_edgeGeometry = Step::getUnset(getEdgeGeometry());
+}
+
+bool IfcEdgeCurve::testEdgeGeometry() const {
+    return !Step::isUnset(getEdgeGeometry());
+}
+
 Step::Boolean IfcEdgeCurve::getSameSense() {
     if (Step::BaseObject::inited()) {
         return m_sameSense;
@@ -105,6 +110,14 @@ const Step::Boolean IfcEdgeCurve::getSameSense() const {
 
 void IfcEdgeCurve::setSameSense(Step::Boolean value) {
     m_sameSense = value;
+}
+
+void IfcEdgeCurve::unsetSameSense() {
+    m_sameSense = Step::getUnset(getSameSense());
+}
+
+bool IfcEdgeCurve::testSameSense() const {
+    return !Step::isUnset(getSameSense());
 }
 
 bool IfcEdgeCurve::init() {

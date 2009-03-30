@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSlabType::IfcSlabType(Step::Id id, Step::SPFData *args) : IfcBuildingElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcSlabTypeEnum IfcSlabType::getPredefinedType() const {
 
 void IfcSlabType::setPredefinedType(IfcSlabTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcSlabType::unsetPredefinedType() {
+    m_predefinedType = IfcSlabTypeEnum_UNSET;
+}
+
+bool IfcSlabType::testPredefinedType() const {
+    return getPredefinedType() != IfcSlabTypeEnum_UNSET;
 }
 
 bool IfcSlabType::init() {

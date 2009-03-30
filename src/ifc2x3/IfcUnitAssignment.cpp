@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcUnitAssignment::IfcUnitAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -87,6 +84,15 @@ const Set_IfcUnit_1_n &IfcUnitAssignment::getUnits() const {
 
 void IfcUnitAssignment::setUnits(const Set_IfcUnit_1_n &value) {
     m_units = value;
+}
+
+void IfcUnitAssignment::unsetUnits() {
+    m_units.clear();
+    m_units.setUnset(true);
+}
+
+bool IfcUnitAssignment::testUnits() const {
+    return !Step::isUnset(getUnits());
 }
 
 bool IfcUnitAssignment::init() {

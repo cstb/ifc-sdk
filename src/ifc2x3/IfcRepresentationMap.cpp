@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -93,6 +90,14 @@ void IfcRepresentationMap::setMappingOrigin(const Step::RefPtr< IfcAxis2Placemen
     m_mappingOrigin = value;
 }
 
+void IfcRepresentationMap::unsetMappingOrigin() {
+    m_mappingOrigin = Step::getUnset(getMappingOrigin());
+}
+
+bool IfcRepresentationMap::testMappingOrigin() const {
+    return !Step::isUnset(getMappingOrigin());
+}
+
 IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_mappedRepresentation.get();
@@ -117,6 +122,14 @@ void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepres
     m_mappedRepresentation = value;
 }
 
+void IfcRepresentationMap::unsetMappedRepresentation() {
+    m_mappedRepresentation = Step::getUnset(getMappedRepresentation());
+}
+
+bool IfcRepresentationMap::testMappedRepresentation() const {
+    return !Step::isUnset(getMappedRepresentation());
+}
+
 Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
     if (Step::BaseObject::inited()) {
         return m_mapUsage;
@@ -130,6 +143,10 @@ Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
 const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const {
     IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
     return deConstObject->getMapUsage();
+}
+
+bool IfcRepresentationMap::testMapUsage() const {
+    return !Step::isUnset(getMapUsage());
 }
 
 bool IfcRepresentationMap::init() {

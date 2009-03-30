@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPlanarExtent.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPlanarExtent.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcAxis2Placement;
 
     /**
+     * Generated class for the IfcPlanarBox Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPlanarBox : public IfcPlanarExtent {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPlacement(const Step::RefPtr< IfcAxis2Placement > &value);
+        /**
+         * unset the attribute 'Placement'.
+         * 
+         */
+        virtual void unsetPlacement();
+        /**
+         * Test if the attribute 'Placement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlacement() const;
         friend class ExpressDataSet;
 
     protected:

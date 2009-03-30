@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRoot.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcRoot.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcObjectDefinition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcObjectDefinition : public IfcRoot {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
         /**
+         * Test if the attribute 'HasAssignments' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasAssignments() const;
+        /**
          * Gets the value of the inverse attribute 'IsDecomposedBy'.
          * 
          */
@@ -92,6 +100,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsDecomposedBy'
          */
         virtual const Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
+        /**
+         * Test if the attribute 'IsDecomposedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsDecomposedBy() const;
         /**
          * Gets the value of the inverse attribute 'Decomposes'.
          * 
@@ -104,6 +118,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
         /**
+         * Test if the attribute 'Decomposes' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDecomposes() const;
+        /**
          * Gets the value of the inverse attribute 'HasAssociations'.
          * 
          */
@@ -114,13 +134,19 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasAssociations'
          */
         virtual const Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
-        friend class IfcRelDecomposes;
-        friend class IfcRelAssociates;
+        /**
+         * Test if the attribute 'HasAssociations' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasAssociations() const;
         friend class Inverted_IfcRelAssociates_RelatedObjects_type;
+        friend class IfcRelDecomposes;
+        friend class Inverted_IfcRelDecomposes_RelatedObjects_type;
+        friend class IfcRelAssociates;
         friend class Inverted_IfcRelAssigns_RelatedObjects_type;
         friend class ExpressDataSet;
         friend class IfcRelAssigns;
-        friend class Inverted_IfcRelDecomposes_RelatedObjects_type;
 
     protected:
         /**

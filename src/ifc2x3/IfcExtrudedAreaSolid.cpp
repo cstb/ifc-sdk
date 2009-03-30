@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcExtrudedAreaSolid::IfcExtrudedAreaSolid(Step::Id id, Step::SPFData *args) : IfcSweptAreaSolid(id, args) {
@@ -89,6 +86,14 @@ void IfcExtrudedAreaSolid::setExtrudedDirection(const Step::RefPtr< IfcDirection
     m_extrudedDirection = value;
 }
 
+void IfcExtrudedAreaSolid::unsetExtrudedDirection() {
+    m_extrudedDirection = Step::getUnset(getExtrudedDirection());
+}
+
+bool IfcExtrudedAreaSolid::testExtrudedDirection() const {
+    return !Step::isUnset(getExtrudedDirection());
+}
+
 IfcPositiveLengthMeasure IfcExtrudedAreaSolid::getDepth() {
     if (Step::BaseObject::inited()) {
         return m_depth;
@@ -105,6 +110,14 @@ const IfcPositiveLengthMeasure IfcExtrudedAreaSolid::getDepth() const {
 
 void IfcExtrudedAreaSolid::setDepth(IfcPositiveLengthMeasure value) {
     m_depth = value;
+}
+
+void IfcExtrudedAreaSolid::unsetDepth() {
+    m_depth = Step::getUnset(getDepth());
+}
+
+bool IfcExtrudedAreaSolid::testDepth() const {
+    return !Step::isUnset(getDepth());
 }
 
 bool IfcExtrudedAreaSolid::init() {

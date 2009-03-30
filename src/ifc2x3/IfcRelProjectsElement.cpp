@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelProjectsElement::IfcRelProjectsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -96,6 +93,14 @@ void IfcRelProjectsElement::setRelatingElement(const Step::RefPtr< IfcElement > 
     m_relatingElement = value;
 }
 
+void IfcRelProjectsElement::unsetRelatingElement() {
+    m_relatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelProjectsElement::testRelatingElement() const {
+    return !Step::isUnset(getRelatingElement());
+}
+
 IfcFeatureElementAddition *IfcRelProjectsElement::getRelatedFeatureElement() {
     if (Step::BaseObject::inited()) {
         return m_relatedFeatureElement.get();
@@ -118,6 +123,14 @@ void IfcRelProjectsElement::setRelatedFeatureElement(const Step::RefPtr< IfcFeat
         value->m_projectsElements = this;
     }
     m_relatedFeatureElement = value;
+}
+
+void IfcRelProjectsElement::unsetRelatedFeatureElement() {
+    m_relatedFeatureElement = Step::getUnset(getRelatedFeatureElement());
+}
+
+bool IfcRelProjectsElement::testRelatedFeatureElement() const {
+    return !Step::isUnset(getRelatedFeatureElement());
 }
 
 bool IfcRelProjectsElement::init() {

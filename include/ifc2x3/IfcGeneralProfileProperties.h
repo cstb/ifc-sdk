@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProfileProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcProfileProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcGeneralProfileProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGeneralProfileProperties : public IfcProfileProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPhysicalWeight(IfcMassPerLengthMeasure value);
         /**
+         * unset the attribute 'PhysicalWeight'.
+         * 
+         */
+        virtual void unsetPhysicalWeight();
+        /**
+         * Test if the attribute 'PhysicalWeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPhysicalWeight() const;
+        /**
          * Gets the value of the explicit attribute 'Perimeter'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPerimeter(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Perimeter'.
+         * 
+         */
+        virtual void unsetPerimeter();
+        /**
+         * Test if the attribute 'Perimeter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPerimeter() const;
         /**
          * Gets the value of the explicit attribute 'MinimumPlateThickness'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setMinimumPlateThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'MinimumPlateThickness'.
+         * 
+         */
+        virtual void unsetMinimumPlateThickness();
+        /**
+         * Test if the attribute 'MinimumPlateThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinimumPlateThickness() const;
+        /**
          * Gets the value of the explicit attribute 'MaximumPlateThickness'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setMaximumPlateThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'MaximumPlateThickness'.
+         * 
+         */
+        virtual void unsetMaximumPlateThickness();
+        /**
+         * Test if the attribute 'MaximumPlateThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaximumPlateThickness() const;
+        /**
          * Gets the value of the explicit attribute 'CrossSectionArea'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCrossSectionArea(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'CrossSectionArea'.
+         * 
+         */
+        virtual void unsetCrossSectionArea();
+        /**
+         * Test if the attribute 'CrossSectionArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSectionArea() const;
         friend class ExpressDataSet;
 
     protected:

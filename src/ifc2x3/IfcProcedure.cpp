@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProcedure::IfcProcedure(Step::Id id, Step::SPFData *args) : IfcProcess(id, args) {
@@ -87,6 +84,14 @@ void IfcProcedure::setProcedureID(const IfcIdentifier &value) {
     m_procedureID = value;
 }
 
+void IfcProcedure::unsetProcedureID() {
+    m_procedureID = Step::getUnset(getProcedureID());
+}
+
+bool IfcProcedure::testProcedureID() const {
+    return !Step::isUnset(getProcedureID());
+}
+
 IfcProcedureTypeEnum IfcProcedure::getProcedureType() {
     if (Step::BaseObject::inited()) {
         return m_procedureType;
@@ -105,6 +110,14 @@ void IfcProcedure::setProcedureType(IfcProcedureTypeEnum value) {
     m_procedureType = value;
 }
 
+void IfcProcedure::unsetProcedureType() {
+    m_procedureType = IfcProcedureTypeEnum_UNSET;
+}
+
+bool IfcProcedure::testProcedureType() const {
+    return getProcedureType() != IfcProcedureTypeEnum_UNSET;
+}
+
 IfcLabel IfcProcedure::getUserDefinedProcedureType() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedProcedureType;
@@ -121,6 +134,14 @@ const IfcLabel IfcProcedure::getUserDefinedProcedureType() const {
 
 void IfcProcedure::setUserDefinedProcedureType(const IfcLabel &value) {
     m_userDefinedProcedureType = value;
+}
+
+void IfcProcedure::unsetUserDefinedProcedureType() {
+    m_userDefinedProcedureType = Step::getUnset(getUserDefinedProcedureType());
+}
+
+bool IfcProcedure::testUserDefinedProcedureType() const {
+    return !Step::isUnset(getUserDefinedProcedureType());
 }
 
 bool IfcProcedure::init() {

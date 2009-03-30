@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGridAxis::IfcGridAxis(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -94,6 +91,14 @@ void IfcGridAxis::setAxisTag(const IfcLabel &value) {
     m_axisTag = value;
 }
 
+void IfcGridAxis::unsetAxisTag() {
+    m_axisTag = Step::getUnset(getAxisTag());
+}
+
+bool IfcGridAxis::testAxisTag() const {
+    return !Step::isUnset(getAxisTag());
+}
+
 IfcCurve *IfcGridAxis::getAxisCurve() {
     if (Step::BaseObject::inited()) {
         return m_axisCurve.get();
@@ -110,6 +115,14 @@ const IfcCurve *IfcGridAxis::getAxisCurve() const {
 
 void IfcGridAxis::setAxisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_axisCurve = value;
+}
+
+void IfcGridAxis::unsetAxisCurve() {
+    m_axisCurve = Step::getUnset(getAxisCurve());
+}
+
+bool IfcGridAxis::testAxisCurve() const {
+    return !Step::isUnset(getAxisCurve());
 }
 
 IfcBoolean IfcGridAxis::getSameSense() {
@@ -130,6 +143,14 @@ void IfcGridAxis::setSameSense(IfcBoolean value) {
     m_sameSense = value;
 }
 
+void IfcGridAxis::unsetSameSense() {
+    m_sameSense = Step::getUnset(getSameSense());
+}
+
+bool IfcGridAxis::testSameSense() const {
+    return !Step::isUnset(getSameSense());
+}
+
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() {
     if (Step::BaseObject::inited()) {
         return m_partOfW;
@@ -143,6 +164,10 @@ Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() {
 const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getPartOfW();
+}
+
+bool IfcGridAxis::testPartOfW() const {
+    return !Step::isUnset(getPartOfW());
 }
 
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() {
@@ -160,6 +185,10 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const {
     return deConstObject->getPartOfV();
 }
 
+bool IfcGridAxis::testPartOfV() const {
+    return !Step::isUnset(getPartOfV());
+}
+
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() {
     if (Step::BaseObject::inited()) {
         return m_partOfU;
@@ -175,6 +204,10 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() const {
     return deConstObject->getPartOfU();
 }
 
+bool IfcGridAxis::testPartOfU() const {
+    return !Step::isUnset(getPartOfU());
+}
+
 Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
     if (Step::BaseObject::inited()) {
         return m_hasIntersections;
@@ -188,6 +221,10 @@ Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
 const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getHasIntersections();
+}
+
+bool IfcGridAxis::testHasIntersections() const {
+    return !Step::isUnset(getHasIntersections());
 }
 
 bool IfcGridAxis::init() {

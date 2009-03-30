@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMotorConnectionType::IfcMotorConnectionType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcMotorConnectionTypeEnum IfcMotorConnectionType::getPredefinedType() con
 
 void IfcMotorConnectionType::setPredefinedType(IfcMotorConnectionTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcMotorConnectionType::unsetPredefinedType() {
+    m_predefinedType = IfcMotorConnectionTypeEnum_UNSET;
+}
+
+bool IfcMotorConnectionType::testPredefinedType() const {
+    return getPredefinedType() != IfcMotorConnectionTypeEnum_UNSET;
 }
 
 bool IfcMotorConnectionType::init() {

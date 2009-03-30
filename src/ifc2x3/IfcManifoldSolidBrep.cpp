@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcManifoldSolidBrep::IfcManifoldSolidBrep(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
@@ -86,6 +83,14 @@ const IfcClosedShell *IfcManifoldSolidBrep::getOuter() const {
 
 void IfcManifoldSolidBrep::setOuter(const Step::RefPtr< IfcClosedShell > &value) {
     m_outer = value;
+}
+
+void IfcManifoldSolidBrep::unsetOuter() {
+    m_outer = Step::getUnset(getOuter());
+}
+
+bool IfcManifoldSolidBrep::testOuter() const {
+    return !Step::isUnset(getOuter());
 }
 
 bool IfcManifoldSolidBrep::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralAction::IfcStructuralAction(Step::Id id, Step::SPFData *args) : IfcStructuralActivity(id, args) {
@@ -89,6 +86,14 @@ void IfcStructuralAction::setDestabilizingLoad(Step::Boolean value) {
     m_destabilizingLoad = value;
 }
 
+void IfcStructuralAction::unsetDestabilizingLoad() {
+    m_destabilizingLoad = Step::getUnset(getDestabilizingLoad());
+}
+
+bool IfcStructuralAction::testDestabilizingLoad() const {
+    return !Step::isUnset(getDestabilizingLoad());
+}
+
 IfcStructuralReaction *IfcStructuralAction::getCausedBy() {
     if (Step::BaseObject::inited()) {
         return m_causedBy.get();
@@ -111,6 +116,14 @@ void IfcStructuralAction::setCausedBy(const Step::RefPtr< IfcStructuralReaction 
         value->m_causes.insert(this);
     }
     m_causedBy = value;
+}
+
+void IfcStructuralAction::unsetCausedBy() {
+    m_causedBy = Step::getUnset(getCausedBy());
+}
+
+bool IfcStructuralAction::testCausedBy() const {
+    return !Step::isUnset(getCausedBy());
 }
 
 bool IfcStructuralAction::init() {

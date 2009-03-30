@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type() {
@@ -64,6 +61,12 @@ Inverted_IfcTypeObject_HasPropertySets_type::size_type Inverted_IfcTypeObject_Ha
     IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
     inverse->m_definesType.erase(mOwner);
     return Set_IfcPropertySetDefinition_1_n::erase(value);
+}
+
+void Inverted_IfcTypeObject_HasPropertySets_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 IfcTypeObject::IfcTypeObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
@@ -113,6 +116,14 @@ void IfcTypeObject::setApplicableOccurrence(const IfcLabel &value) {
     m_applicableOccurrence = value;
 }
 
+void IfcTypeObject::unsetApplicableOccurrence() {
+    m_applicableOccurrence = Step::getUnset(getApplicableOccurrence());
+}
+
+bool IfcTypeObject::testApplicableOccurrence() const {
+    return !Step::isUnset(getApplicableOccurrence());
+}
+
 Set_IfcPropertySetDefinition_1_n &IfcTypeObject::getHasPropertySets() {
     if (Step::BaseObject::inited()) {
         return m_hasPropertySets;
@@ -128,6 +139,15 @@ const Set_IfcPropertySetDefinition_1_n &IfcTypeObject::getHasPropertySets() cons
     return deConstObject->getHasPropertySets();
 }
 
+void IfcTypeObject::unsetHasPropertySets() {
+    m_hasPropertySets.clear();
+    m_hasPropertySets.setUnset(true);
+}
+
+bool IfcTypeObject::testHasPropertySets() const {
+    return !Step::isUnset(getHasPropertySets());
+}
+
 Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
     if (Step::BaseObject::inited()) {
         return m_objectTypeOf;
@@ -141,6 +161,10 @@ Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
 const Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() const {
     IfcTypeObject * deConstObject = const_cast< IfcTypeObject * > (this);
     return deConstObject->getObjectTypeOf();
+}
+
+bool IfcTypeObject::testObjectTypeOf() const {
+    return !Step::isUnset(getObjectTypeOf());
 }
 
 bool IfcTypeObject::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcMaterialLayerSet;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcMaterialLayerSet_MaterialLayers_type : public List_IfcMaterialLayer_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcMaterialLayerSet *mOwner;
-        /**
-         */
         Inverted_IfcMaterialLayerSet_MaterialLayers_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcMaterialLayerSet *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcMaterialLayer > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcMaterialLayer > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcMaterialLayerSet;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcMaterialLayerSet *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcMaterialLayerSet *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMaterialLayerSet Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMaterialLayerSet : public Step::BaseEntity {
     public:
@@ -117,6 +135,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcMaterialLayer_1_n &getMaterialLayers() const;
         /**
+         * unset the attribute 'MaterialLayers'.
+         * 
+         */
+        virtual void unsetMaterialLayers();
+        /**
+         * Test if the attribute 'MaterialLayers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaterialLayers() const;
+        /**
          * Gets the value of the explicit attribute 'LayerSetName'.
          * 
          */
@@ -133,6 +162,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLayerSetName(const IfcLabel &value);
+        /**
+         * unset the attribute 'LayerSetName'.
+         * 
+         */
+        virtual void unsetLayerSetName();
+        /**
+         * Test if the attribute 'LayerSetName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerSetName() const;
         /**
          * Gets the value of the derived attribute 'TotalThickness'.
          * 

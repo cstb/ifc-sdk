@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcShapeModel;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcShapeAspect_ShapeRepresentations_type : public List_IfcShapeModel_1_n {
     public:
@@ -54,22 +55,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcShapeAspect *mOwner;
-        /**
-         */
         Inverted_IfcShapeAspect_ShapeRepresentations_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcShapeAspect *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcShapeModel > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcShapeModel > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcShapeAspect;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcShapeAspect *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcShapeAspect *owner);
 
     };
 
@@ -77,6 +92,8 @@ namespace ifc2x3 {
     class IfcProductDefinitionShape;
 
     /**
+     * Generated class for the IfcShapeAspect Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcShapeAspect : public Step::BaseEntity {
     public:
@@ -119,6 +136,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcShapeModel_1_n &getShapeRepresentations() const;
         /**
+         * unset the attribute 'ShapeRepresentations'.
+         * 
+         */
+        virtual void unsetShapeRepresentations();
+        /**
+         * Test if the attribute 'ShapeRepresentations' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShapeRepresentations() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -135,6 +163,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         /**
          * Gets the value of the explicit attribute 'Description'.
          * 
@@ -153,6 +192,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the explicit attribute 'ProductDefinitional'.
          * 
          */
@@ -170,6 +220,17 @@ namespace ifc2x3 {
          */
         virtual void setProductDefinitional(Step::Logical value);
         /**
+         * unset the attribute 'ProductDefinitional'.
+         * 
+         */
+        virtual void unsetProductDefinitional();
+        /**
+         * Test if the attribute 'ProductDefinitional' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProductDefinitional() const;
+        /**
          * Gets the value of the explicit attribute 'PartOfProductDefinitionShape'.
          * 
          */
@@ -186,6 +247,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPartOfProductDefinitionShape(const Step::RefPtr< IfcProductDefinitionShape > &value);
+        /**
+         * unset the attribute 'PartOfProductDefinitionShape'.
+         * 
+         */
+        virtual void unsetPartOfProductDefinitionShape();
+        /**
+         * Test if the attribute 'PartOfProductDefinitionShape' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfProductDefinitionShape() const;
         friend class ExpressDataSet;
 
     protected:

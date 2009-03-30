@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator3D::IfcCartesianTransformationOperator3D(Step::Id id, Step::SPFData *args) : IfcCartesianTransformationOperator(id, args) {
@@ -86,6 +83,14 @@ const IfcDirection *IfcCartesianTransformationOperator3D::getAxis3() const {
 
 void IfcCartesianTransformationOperator3D::setAxis3(const Step::RefPtr< IfcDirection > &value) {
     m_axis3 = value;
+}
+
+void IfcCartesianTransformationOperator3D::unsetAxis3() {
+    m_axis3 = Step::getUnset(getAxis3());
+}
+
+bool IfcCartesianTransformationOperator3D::testAxis3() const {
+    return !Step::isUnset(getAxis3());
 }
 
 bool IfcCartesianTransformationOperator3D::init() {

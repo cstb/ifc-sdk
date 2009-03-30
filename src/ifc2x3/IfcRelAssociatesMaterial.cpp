@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesMaterial::IfcRelAssociatesMaterial(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -85,6 +82,14 @@ const IfcMaterialSelect *IfcRelAssociatesMaterial::getRelatingMaterial() const {
 
 void IfcRelAssociatesMaterial::setRelatingMaterial(const Step::RefPtr< IfcMaterialSelect > &value) {
     m_relatingMaterial = value;
+}
+
+void IfcRelAssociatesMaterial::unsetRelatingMaterial() {
+    m_relatingMaterial = Step::getUnset(getRelatingMaterial());
+}
+
+bool IfcRelAssociatesMaterial::testRelatingMaterial() const {
+    return !Step::isUnset(getRelatingMaterial());
 }
 
 bool IfcRelAssociatesMaterial::init() {

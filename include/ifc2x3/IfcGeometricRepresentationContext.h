@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,9 +32,9 @@
 #include "ifc2x3/IfcRepresentationContext.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcDirection;
 
     /**
+     * Generated class for the IfcGeometricRepresentationContext Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGeometricRepresentationContext : public IfcRepresentationContext {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setCoordinateSpaceDimension(IfcDimensionCount value);
         /**
+         * unset the attribute 'CoordinateSpaceDimension'.
+         * 
+         */
+        virtual void unsetCoordinateSpaceDimension();
+        /**
+         * Test if the attribute 'CoordinateSpaceDimension' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCoordinateSpaceDimension() const;
+        /**
          * Gets the value of the explicit attribute 'Precision'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPrecision(Step::Real value);
+        /**
+         * unset the attribute 'Precision'.
+         * 
+         */
+        virtual void unsetPrecision();
+        /**
+         * Test if the attribute 'Precision' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPrecision() const;
         /**
          * Gets the value of the explicit attribute 'WorldCoordinateSystem'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setWorldCoordinateSystem(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * unset the attribute 'WorldCoordinateSystem'.
+         * 
+         */
+        virtual void unsetWorldCoordinateSystem();
+        /**
+         * Test if the attribute 'WorldCoordinateSystem' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWorldCoordinateSystem() const;
+        /**
          * Gets the value of the explicit attribute 'TrueNorth'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setTrueNorth(const Step::RefPtr< IfcDirection > &value);
         /**
+         * unset the attribute 'TrueNorth'.
+         * 
+         */
+        virtual void unsetTrueNorth();
+        /**
+         * Test if the attribute 'TrueNorth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTrueNorth() const;
+        /**
          * Gets the value of the inverse attribute 'HasSubContexts'.
          * 
          */
@@ -152,6 +198,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasSubContexts'
          */
         virtual const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts() const;
+        /**
+         * Test if the attribute 'HasSubContexts' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasSubContexts() const;
         friend class IfcGeometricRepresentationSubContext;
         friend class ExpressDataSet;
 

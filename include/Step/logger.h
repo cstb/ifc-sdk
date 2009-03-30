@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,8 +22,8 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_LOGGER
-#define STEP_LOGGER
+#ifndef Step_logger_h
+#define Step_logger_h
 
 // Using log4cplus
 #ifdef USE_LOG4CPLUS

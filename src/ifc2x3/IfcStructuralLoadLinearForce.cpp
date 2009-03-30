@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadLinearForce::IfcStructuralLoadLinearForce(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
@@ -89,6 +86,14 @@ void IfcStructuralLoadLinearForce::setLinearForceX(IfcLinearForceMeasure value) 
     m_linearForceX = value;
 }
 
+void IfcStructuralLoadLinearForce::unsetLinearForceX() {
+    m_linearForceX = Step::getUnset(getLinearForceX());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearForceX() const {
+    return !Step::isUnset(getLinearForceX());
+}
+
 IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceY() {
     if (Step::BaseObject::inited()) {
         return m_linearForceY;
@@ -105,6 +110,14 @@ const IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceY() cons
 
 void IfcStructuralLoadLinearForce::setLinearForceY(IfcLinearForceMeasure value) {
     m_linearForceY = value;
+}
+
+void IfcStructuralLoadLinearForce::unsetLinearForceY() {
+    m_linearForceY = Step::getUnset(getLinearForceY());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearForceY() const {
+    return !Step::isUnset(getLinearForceY());
 }
 
 IfcLinearForceMeasure IfcStructuralLoadLinearForce::getLinearForceZ() {
@@ -125,6 +138,14 @@ void IfcStructuralLoadLinearForce::setLinearForceZ(IfcLinearForceMeasure value) 
     m_linearForceZ = value;
 }
 
+void IfcStructuralLoadLinearForce::unsetLinearForceZ() {
+    m_linearForceZ = Step::getUnset(getLinearForceZ());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearForceZ() const {
+    return !Step::isUnset(getLinearForceZ());
+}
+
 IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentX() {
     if (Step::BaseObject::inited()) {
         return m_linearMomentX;
@@ -141,6 +162,14 @@ const IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentX() co
 
 void IfcStructuralLoadLinearForce::setLinearMomentX(IfcLinearMomentMeasure value) {
     m_linearMomentX = value;
+}
+
+void IfcStructuralLoadLinearForce::unsetLinearMomentX() {
+    m_linearMomentX = Step::getUnset(getLinearMomentX());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearMomentX() const {
+    return !Step::isUnset(getLinearMomentX());
 }
 
 IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentY() {
@@ -161,6 +190,14 @@ void IfcStructuralLoadLinearForce::setLinearMomentY(IfcLinearMomentMeasure value
     m_linearMomentY = value;
 }
 
+void IfcStructuralLoadLinearForce::unsetLinearMomentY() {
+    m_linearMomentY = Step::getUnset(getLinearMomentY());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearMomentY() const {
+    return !Step::isUnset(getLinearMomentY());
+}
+
 IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentZ() {
     if (Step::BaseObject::inited()) {
         return m_linearMomentZ;
@@ -177,6 +214,14 @@ const IfcLinearMomentMeasure IfcStructuralLoadLinearForce::getLinearMomentZ() co
 
 void IfcStructuralLoadLinearForce::setLinearMomentZ(IfcLinearMomentMeasure value) {
     m_linearMomentZ = value;
+}
+
+void IfcStructuralLoadLinearForce::unsetLinearMomentZ() {
+    m_linearMomentZ = Step::getUnset(getLinearMomentZ());
+}
+
+bool IfcStructuralLoadLinearForce::testLinearMomentZ() const {
+    return !Step::isUnset(getLinearMomentZ());
 }
 
 bool IfcStructuralLoadLinearForce::init() {

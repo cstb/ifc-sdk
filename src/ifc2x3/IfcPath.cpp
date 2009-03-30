@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPath::IfcPath(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
@@ -86,6 +83,15 @@ const List_IfcOrientedEdge_1_n &IfcPath::getEdgeList() const {
 
 void IfcPath::setEdgeList(const List_IfcOrientedEdge_1_n &value) {
     m_edgeList = value;
+}
+
+void IfcPath::unsetEdgeList() {
+    m_edgeList.clear();
+    m_edgeList.setUnset(true);
+}
+
+bool IfcPath::testEdgeList() const {
+    return !Step::isUnset(getEdgeList());
 }
 
 bool IfcPath::init() {

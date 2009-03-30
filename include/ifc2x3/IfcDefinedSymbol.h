@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcDefinedSymbolSelect;
 
     /**
+     * Generated class for the IfcDefinedSymbol Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDefinedSymbol : public IfcGeometricRepresentationItem {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setDefinition(const Step::RefPtr< IfcDefinedSymbolSelect > &value);
         /**
+         * unset the attribute 'Definition'.
+         * 
+         */
+        virtual void unsetDefinition();
+        /**
+         * Test if the attribute 'Definition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefinition() const;
+        /**
          * Gets the value of the explicit attribute 'Target'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTarget(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value);
+        /**
+         * unset the attribute 'Target'.
+         * 
+         */
+        virtual void unsetTarget();
+        /**
+         * Test if the attribute 'Target' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTarget() const;
         friend class ExpressDataSet;
 
     protected:

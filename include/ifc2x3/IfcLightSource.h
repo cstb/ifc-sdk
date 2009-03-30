@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcColourRgb;
 
     /**
+     * Generated class for the IfcLightSource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLightSource : public IfcGeometricRepresentationItem {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'LightColour'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLightColour(const Step::RefPtr< IfcColourRgb > &value);
+        /**
+         * unset the attribute 'LightColour'.
+         * 
+         */
+        virtual void unsetLightColour();
+        /**
+         * Test if the attribute 'LightColour' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLightColour() const;
         /**
          * Gets the value of the explicit attribute 'AmbientIntensity'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setAmbientIntensity(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'AmbientIntensity'.
+         * 
+         */
+        virtual void unsetAmbientIntensity();
+        /**
+         * Test if the attribute 'AmbientIntensity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAmbientIntensity() const;
+        /**
          * Gets the value of the explicit attribute 'Intensity'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setIntensity(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'Intensity'.
+         * 
+         */
+        virtual void unsetIntensity();
+        /**
+         * Test if the attribute 'Intensity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIntensity() const;
         friend class ExpressDataSet;
 
     protected:

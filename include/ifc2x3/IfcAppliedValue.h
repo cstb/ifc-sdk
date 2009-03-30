@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +45,8 @@ namespace ifc2x3 {
     class IfcMeasureWithUnit;
 
     /**
+     * Generated class for the IfcAppliedValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAppliedValue : public Step::BaseEntity {
     public:
@@ -93,6 +95,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -109,6 +122,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'AppliedValue'.
          * 
@@ -127,6 +151,17 @@ namespace ifc2x3 {
          */
         virtual void setAppliedValue(const Step::RefPtr< IfcAppliedValueSelect > &value);
         /**
+         * unset the attribute 'AppliedValue'.
+         * 
+         */
+        virtual void unsetAppliedValue();
+        /**
+         * Test if the attribute 'AppliedValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAppliedValue() const;
+        /**
          * Gets the value of the explicit attribute 'UnitBasis'.
          * 
          */
@@ -143,6 +178,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUnitBasis(const Step::RefPtr< IfcMeasureWithUnit > &value);
+        /**
+         * unset the attribute 'UnitBasis'.
+         * 
+         */
+        virtual void unsetUnitBasis();
+        /**
+         * Test if the attribute 'UnitBasis' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnitBasis() const;
         /**
          * Gets the value of the explicit attribute 'ApplicableDate'.
          * 
@@ -161,6 +207,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicableDate(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'ApplicableDate'.
+         * 
+         */
+        virtual void unsetApplicableDate();
+        /**
+         * Test if the attribute 'ApplicableDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicableDate() const;
+        /**
          * Gets the value of the explicit attribute 'FixedUntilDate'.
          * 
          */
@@ -178,6 +235,17 @@ namespace ifc2x3 {
          */
         virtual void setFixedUntilDate(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'FixedUntilDate'.
+         * 
+         */
+        virtual void unsetFixedUntilDate();
+        /**
+         * Test if the attribute 'FixedUntilDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFixedUntilDate() const;
+        /**
          * Gets the value of the inverse attribute 'ValuesReferenced'.
          * 
          */
@@ -188,6 +256,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ValuesReferenced'
          */
         virtual const Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced() const;
+        /**
+         * Test if the attribute 'ValuesReferenced' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValuesReferenced() const;
         /**
          * Gets the value of the inverse attribute 'ValueOfComponents'.
          * 
@@ -200,6 +274,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcAppliedValueRelationship_0_n &getValueOfComponents() const;
         /**
+         * Test if the attribute 'ValueOfComponents' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValueOfComponents() const;
+        /**
          * Gets the value of the inverse attribute 'IsComponentIn'.
          * 
          */
@@ -210,11 +290,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsComponentIn'
          */
         virtual const Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn() const;
+        /**
+         * Test if the attribute 'IsComponentIn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsComponentIn() const;
         friend class IfcReferencesValueDocument;
-        friend class Inverted_IfcReferencesValueDocument_ReferencingValues_type;
         friend class IfcAppliedValueRelationship;
-        friend class Inverted_IfcAppliedValueRelationship_Components_type;
         friend class ExpressDataSet;
+        friend class Inverted_IfcAppliedValueRelationship_Components_type;
+        friend class Inverted_IfcReferencesValueDocument_ReferencingValues_type;
 
     protected:
         /**

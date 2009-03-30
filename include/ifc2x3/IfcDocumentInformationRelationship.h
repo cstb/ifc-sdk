@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcDocumentInformationRelationship;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type : public Set_IfcDocumentInformation_1_n {
     public:
@@ -54,29 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcDocumentInformationRelationship *mOwner;
-        /**
-         */
         Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcDocumentInformationRelationship *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcDocumentInformation > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcDocumentInformation > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcDocumentInformationRelationship;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcDocumentInformationRelationship *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcDocumentInformationRelationship *owner);
 
     };
 
     class CopyOp;
-    class IfcDocumentInformation;
 
     /**
+     * Generated class for the IfcDocumentInformationRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDocumentInformationRelationship : public Step::BaseEntity {
     public:
@@ -125,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value);
         /**
+         * unset the attribute 'RelatingDocument'.
+         * 
+         */
+        virtual void unsetRelatingDocument();
+        /**
+         * Test if the attribute 'RelatingDocument' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingDocument() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedDocuments'.
          * 
          */
@@ -135,6 +162,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedDocuments'
          */
         virtual const Set_IfcDocumentInformation_1_n &getRelatedDocuments() const;
+        /**
+         * unset the attribute 'RelatedDocuments'.
+         * 
+         */
+        virtual void unsetRelatedDocuments();
+        /**
+         * Test if the attribute 'RelatedDocuments' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedDocuments() const;
         /**
          * Gets the value of the explicit attribute 'RelationshipType'.
          * 
@@ -152,6 +190,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelationshipType(const IfcLabel &value);
+        /**
+         * unset the attribute 'RelationshipType'.
+         * 
+         */
+        virtual void unsetRelationshipType();
+        /**
+         * Test if the attribute 'RelationshipType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelationshipType() const;
         friend class ExpressDataSet;
 
     protected:

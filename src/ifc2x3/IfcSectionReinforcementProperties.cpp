@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSectionReinforcementProperties::IfcSectionReinforcementProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -93,6 +90,14 @@ void IfcSectionReinforcementProperties::setLongitudinalStartPosition(IfcLengthMe
     m_longitudinalStartPosition = value;
 }
 
+void IfcSectionReinforcementProperties::unsetLongitudinalStartPosition() {
+    m_longitudinalStartPosition = Step::getUnset(getLongitudinalStartPosition());
+}
+
+bool IfcSectionReinforcementProperties::testLongitudinalStartPosition() const {
+    return !Step::isUnset(getLongitudinalStartPosition());
+}
+
 IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalEndPosition() {
     if (Step::BaseObject::inited()) {
         return m_longitudinalEndPosition;
@@ -109,6 +114,14 @@ const IfcLengthMeasure IfcSectionReinforcementProperties::getLongitudinalEndPosi
 
 void IfcSectionReinforcementProperties::setLongitudinalEndPosition(IfcLengthMeasure value) {
     m_longitudinalEndPosition = value;
+}
+
+void IfcSectionReinforcementProperties::unsetLongitudinalEndPosition() {
+    m_longitudinalEndPosition = Step::getUnset(getLongitudinalEndPosition());
+}
+
+bool IfcSectionReinforcementProperties::testLongitudinalEndPosition() const {
+    return !Step::isUnset(getLongitudinalEndPosition());
 }
 
 IfcLengthMeasure IfcSectionReinforcementProperties::getTransversePosition() {
@@ -129,6 +142,14 @@ void IfcSectionReinforcementProperties::setTransversePosition(IfcLengthMeasure v
     m_transversePosition = value;
 }
 
+void IfcSectionReinforcementProperties::unsetTransversePosition() {
+    m_transversePosition = Step::getUnset(getTransversePosition());
+}
+
+bool IfcSectionReinforcementProperties::testTransversePosition() const {
+    return !Step::isUnset(getTransversePosition());
+}
+
 IfcReinforcingBarRoleEnum IfcSectionReinforcementProperties::getReinforcementRole() {
     if (Step::BaseObject::inited()) {
         return m_reinforcementRole;
@@ -145,6 +166,14 @@ const IfcReinforcingBarRoleEnum IfcSectionReinforcementProperties::getReinforcem
 
 void IfcSectionReinforcementProperties::setReinforcementRole(IfcReinforcingBarRoleEnum value) {
     m_reinforcementRole = value;
+}
+
+void IfcSectionReinforcementProperties::unsetReinforcementRole() {
+    m_reinforcementRole = IfcReinforcingBarRoleEnum_UNSET;
+}
+
+bool IfcSectionReinforcementProperties::testReinforcementRole() const {
+    return getReinforcementRole() != IfcReinforcingBarRoleEnum_UNSET;
 }
 
 IfcSectionProperties *IfcSectionReinforcementProperties::getSectionDefinition() {
@@ -165,6 +194,14 @@ void IfcSectionReinforcementProperties::setSectionDefinition(const Step::RefPtr<
     m_sectionDefinition = value;
 }
 
+void IfcSectionReinforcementProperties::unsetSectionDefinition() {
+    m_sectionDefinition = Step::getUnset(getSectionDefinition());
+}
+
+bool IfcSectionReinforcementProperties::testSectionDefinition() const {
+    return !Step::isUnset(getSectionDefinition());
+}
+
 Set_IfcReinforcementBarProperties_1_n &IfcSectionReinforcementProperties::getCrossSectionReinforcementDefinitions() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionReinforcementDefinitions;
@@ -182,6 +219,15 @@ const Set_IfcReinforcementBarProperties_1_n &IfcSectionReinforcementProperties::
 
 void IfcSectionReinforcementProperties::setCrossSectionReinforcementDefinitions(const Set_IfcReinforcementBarProperties_1_n &value) {
     m_crossSectionReinforcementDefinitions = value;
+}
+
+void IfcSectionReinforcementProperties::unsetCrossSectionReinforcementDefinitions() {
+    m_crossSectionReinforcementDefinitions.clear();
+    m_crossSectionReinforcementDefinitions.setUnset(true);
+}
+
+bool IfcSectionReinforcementProperties::testCrossSectionReinforcementDefinitions() const {
+    return !Step::isUnset(getCrossSectionReinforcementDefinitions());
 }
 
 bool IfcSectionReinforcementProperties::init() {

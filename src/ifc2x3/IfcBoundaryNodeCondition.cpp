@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBoundaryNodeCondition::IfcBoundaryNodeCondition(Step::Id id, Step::SPFData *args) : IfcBoundaryCondition(id, args) {
@@ -89,6 +86,14 @@ void IfcBoundaryNodeCondition::setLinearStiffnessX(IfcLinearStiffnessMeasure val
     m_linearStiffnessX = value;
 }
 
+void IfcBoundaryNodeCondition::unsetLinearStiffnessX() {
+    m_linearStiffnessX = Step::getUnset(getLinearStiffnessX());
+}
+
+bool IfcBoundaryNodeCondition::testLinearStiffnessX() const {
+    return !Step::isUnset(getLinearStiffnessX());
+}
+
 IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessY() {
     if (Step::BaseObject::inited()) {
         return m_linearStiffnessY;
@@ -105,6 +110,14 @@ const IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessY() 
 
 void IfcBoundaryNodeCondition::setLinearStiffnessY(IfcLinearStiffnessMeasure value) {
     m_linearStiffnessY = value;
+}
+
+void IfcBoundaryNodeCondition::unsetLinearStiffnessY() {
+    m_linearStiffnessY = Step::getUnset(getLinearStiffnessY());
+}
+
+bool IfcBoundaryNodeCondition::testLinearStiffnessY() const {
+    return !Step::isUnset(getLinearStiffnessY());
 }
 
 IfcLinearStiffnessMeasure IfcBoundaryNodeCondition::getLinearStiffnessZ() {
@@ -125,6 +138,14 @@ void IfcBoundaryNodeCondition::setLinearStiffnessZ(IfcLinearStiffnessMeasure val
     m_linearStiffnessZ = value;
 }
 
+void IfcBoundaryNodeCondition::unsetLinearStiffnessZ() {
+    m_linearStiffnessZ = Step::getUnset(getLinearStiffnessZ());
+}
+
+bool IfcBoundaryNodeCondition::testLinearStiffnessZ() const {
+    return !Step::isUnset(getLinearStiffnessZ());
+}
+
 IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessX() {
     if (Step::BaseObject::inited()) {
         return m_rotationalStiffnessX;
@@ -141,6 +162,14 @@ const IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiff
 
 void IfcBoundaryNodeCondition::setRotationalStiffnessX(IfcRotationalStiffnessMeasure value) {
     m_rotationalStiffnessX = value;
+}
+
+void IfcBoundaryNodeCondition::unsetRotationalStiffnessX() {
+    m_rotationalStiffnessX = Step::getUnset(getRotationalStiffnessX());
+}
+
+bool IfcBoundaryNodeCondition::testRotationalStiffnessX() const {
+    return !Step::isUnset(getRotationalStiffnessX());
 }
 
 IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessY() {
@@ -161,6 +190,14 @@ void IfcBoundaryNodeCondition::setRotationalStiffnessY(IfcRotationalStiffnessMea
     m_rotationalStiffnessY = value;
 }
 
+void IfcBoundaryNodeCondition::unsetRotationalStiffnessY() {
+    m_rotationalStiffnessY = Step::getUnset(getRotationalStiffnessY());
+}
+
+bool IfcBoundaryNodeCondition::testRotationalStiffnessY() const {
+    return !Step::isUnset(getRotationalStiffnessY());
+}
+
 IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiffnessZ() {
     if (Step::BaseObject::inited()) {
         return m_rotationalStiffnessZ;
@@ -177,6 +214,14 @@ const IfcRotationalStiffnessMeasure IfcBoundaryNodeCondition::getRotationalStiff
 
 void IfcBoundaryNodeCondition::setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value) {
     m_rotationalStiffnessZ = value;
+}
+
+void IfcBoundaryNodeCondition::unsetRotationalStiffnessZ() {
+    m_rotationalStiffnessZ = Step::getUnset(getRotationalStiffnessZ());
+}
+
+bool IfcBoundaryNodeCondition::testRotationalStiffnessZ() const {
+    return !Step::isUnset(getRotationalStiffnessZ());
 }
 
 bool IfcBoundaryNodeCondition::init() {

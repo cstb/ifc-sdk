@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurveStyleFontPattern::IfcCurveStyleFontPattern(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -85,6 +82,14 @@ void IfcCurveStyleFontPattern::setVisibleSegmentLength(IfcLengthMeasure value) {
     m_visibleSegmentLength = value;
 }
 
+void IfcCurveStyleFontPattern::unsetVisibleSegmentLength() {
+    m_visibleSegmentLength = Step::getUnset(getVisibleSegmentLength());
+}
+
+bool IfcCurveStyleFontPattern::testVisibleSegmentLength() const {
+    return !Step::isUnset(getVisibleSegmentLength());
+}
+
 IfcPositiveLengthMeasure IfcCurveStyleFontPattern::getInvisibleSegmentLength() {
     if (Step::BaseObject::inited()) {
         return m_invisibleSegmentLength;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcCurveStyleFontPattern::getInvisibleSegmentLeng
 
 void IfcCurveStyleFontPattern::setInvisibleSegmentLength(IfcPositiveLengthMeasure value) {
     m_invisibleSegmentLength = value;
+}
+
+void IfcCurveStyleFontPattern::unsetInvisibleSegmentLength() {
+    m_invisibleSegmentLength = Step::getUnset(getInvisibleSegmentLength());
+}
+
+bool IfcCurveStyleFontPattern::testInvisibleSegmentLength() const {
+    return !Step::isUnset(getInvisibleSegmentLength());
 }
 
 bool IfcCurveStyleFontPattern::init() {

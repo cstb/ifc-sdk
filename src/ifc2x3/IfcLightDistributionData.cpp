@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightDistributionData::IfcLightDistributionData(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -85,6 +82,14 @@ void IfcLightDistributionData::setMainPlaneAngle(IfcPlaneAngleMeasure value) {
     m_mainPlaneAngle = value;
 }
 
+void IfcLightDistributionData::unsetMainPlaneAngle() {
+    m_mainPlaneAngle = Step::getUnset(getMainPlaneAngle());
+}
+
+bool IfcLightDistributionData::testMainPlaneAngle() const {
+    return !Step::isUnset(getMainPlaneAngle());
+}
+
 List_IfcPlaneAngleMeasure_1_n &IfcLightDistributionData::getSecondaryPlaneAngle() {
     if (Step::BaseObject::inited()) {
         return m_secondaryPlaneAngle;
@@ -104,6 +109,15 @@ void IfcLightDistributionData::setSecondaryPlaneAngle(const List_IfcPlaneAngleMe
     m_secondaryPlaneAngle = value;
 }
 
+void IfcLightDistributionData::unsetSecondaryPlaneAngle() {
+    m_secondaryPlaneAngle.clear();
+    m_secondaryPlaneAngle.setUnset(true);
+}
+
+bool IfcLightDistributionData::testSecondaryPlaneAngle() const {
+    return !Step::isUnset(getSecondaryPlaneAngle());
+}
+
 List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() {
     if (Step::BaseObject::inited()) {
         return m_luminousIntensity;
@@ -121,6 +135,15 @@ const List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData
 
 void IfcLightDistributionData::setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value) {
     m_luminousIntensity = value;
+}
+
+void IfcLightDistributionData::unsetLuminousIntensity() {
+    m_luminousIntensity.clear();
+    m_luminousIntensity.setUnset(true);
+}
+
+bool IfcLightDistributionData::testLuminousIntensity() const {
+    return !Step::isUnset(getLuminousIntensity());
 }
 
 bool IfcLightDistributionData::init() {

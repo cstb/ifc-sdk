@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcChamferEdgeFeature::IfcChamferEdgeFeature(Step::Id id, Step::SPFData *args) : IfcEdgeFeature(id, args) {
@@ -85,6 +82,14 @@ void IfcChamferEdgeFeature::setWidth(IfcPositiveLengthMeasure value) {
     m_width = value;
 }
 
+void IfcChamferEdgeFeature::unsetWidth() {
+    m_width = Step::getUnset(getWidth());
+}
+
+bool IfcChamferEdgeFeature::testWidth() const {
+    return !Step::isUnset(getWidth());
+}
+
 IfcPositiveLengthMeasure IfcChamferEdgeFeature::getHeight() {
     if (Step::BaseObject::inited()) {
         return m_height;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcChamferEdgeFeature::getHeight() const {
 
 void IfcChamferEdgeFeature::setHeight(IfcPositiveLengthMeasure value) {
     m_height = value;
+}
+
+void IfcChamferEdgeFeature::unsetHeight() {
+    m_height = Step::getUnset(getHeight());
+}
+
+bool IfcChamferEdgeFeature::testHeight() const {
+    return !Step::isUnset(getHeight());
 }
 
 bool IfcChamferEdgeFeature::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDimensionalExponents Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDimensionalExponents : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLengthExponent(Step::Integer value);
         /**
+         * unset the attribute 'LengthExponent'.
+         * 
+         */
+        virtual void unsetLengthExponent();
+        /**
+         * Test if the attribute 'LengthExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLengthExponent() const;
+        /**
          * Gets the value of the explicit attribute 'MassExponent'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMassExponent(Step::Integer value);
+        /**
+         * unset the attribute 'MassExponent'.
+         * 
+         */
+        virtual void unsetMassExponent();
+        /**
+         * Test if the attribute 'MassExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMassExponent() const;
         /**
          * Gets the value of the explicit attribute 'TimeExponent'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setTimeExponent(Step::Integer value);
         /**
+         * unset the attribute 'TimeExponent'.
+         * 
+         */
+        virtual void unsetTimeExponent();
+        /**
+         * Test if the attribute 'TimeExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeExponent() const;
+        /**
          * Gets the value of the explicit attribute 'ElectricCurrentExponent'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setElectricCurrentExponent(Step::Integer value);
+        /**
+         * unset the attribute 'ElectricCurrentExponent'.
+         * 
+         */
+        virtual void unsetElectricCurrentExponent();
+        /**
+         * Test if the attribute 'ElectricCurrentExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElectricCurrentExponent() const;
         /**
          * Gets the value of the explicit attribute 'ThermodynamicTemperatureExponent'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setThermodynamicTemperatureExponent(Step::Integer value);
         /**
+         * unset the attribute 'ThermodynamicTemperatureExponent'.
+         * 
+         */
+        virtual void unsetThermodynamicTemperatureExponent();
+        /**
+         * Test if the attribute 'ThermodynamicTemperatureExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermodynamicTemperatureExponent() const;
+        /**
          * Gets the value of the explicit attribute 'AmountOfSubstanceExponent'.
          * 
          */
@@ -173,6 +230,17 @@ namespace ifc2x3 {
          */
         virtual void setAmountOfSubstanceExponent(Step::Integer value);
         /**
+         * unset the attribute 'AmountOfSubstanceExponent'.
+         * 
+         */
+        virtual void unsetAmountOfSubstanceExponent();
+        /**
+         * Test if the attribute 'AmountOfSubstanceExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAmountOfSubstanceExponent() const;
+        /**
          * Gets the value of the explicit attribute 'LuminousIntensityExponent'.
          * 
          */
@@ -189,6 +257,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLuminousIntensityExponent(Step::Integer value);
+        /**
+         * unset the attribute 'LuminousIntensityExponent'.
+         * 
+         */
+        virtual void unsetLuminousIntensityExponent();
+        /**
+         * Test if the attribute 'LuminousIntensityExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLuminousIntensityExponent() const;
         friend class ExpressDataSet;
 
     protected:

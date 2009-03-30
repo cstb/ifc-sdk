@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcAnnotationFillArea Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAnnotationFillArea : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setOuterBoundary(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'OuterBoundary'.
+         * 
+         */
+        virtual void unsetOuterBoundary();
+        /**
+         * Test if the attribute 'OuterBoundary' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOuterBoundary() const;
+        /**
          * Gets the value of the explicit attribute 'InnerBoundaries'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInnerBoundaries(const Set_IfcCurve_1_n &value);
+        /**
+         * unset the attribute 'InnerBoundaries'.
+         * 
+         */
+        virtual void unsetInnerBoundaries();
+        /**
+         * Test if the attribute 'InnerBoundaries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInnerBoundaries() const;
         friend class ExpressDataSet;
 
     protected:

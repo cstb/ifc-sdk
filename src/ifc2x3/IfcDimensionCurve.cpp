@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args) : IfcAnnotationCurveOccurrence(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() 
 const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() const {
     IfcDimensionCurve * deConstObject = const_cast< IfcDimensionCurve * > (this);
     return deConstObject->getAnnotatedBySymbols();
+}
+
+bool IfcDimensionCurve::testAnnotatedBySymbols() const {
+    return !Step::isUnset(getAnnotatedBySymbols());
 }
 
 bool IfcDimensionCurve::init() {

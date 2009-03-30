@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcHygroscopicMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcHygroscopicMaterialProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setUpperVaporResistanceFactor(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'UpperVaporResistanceFactor'.
+         * 
+         */
+        virtual void unsetUpperVaporResistanceFactor();
+        /**
+         * Test if the attribute 'UpperVaporResistanceFactor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUpperVaporResistanceFactor() const;
+        /**
          * Gets the value of the explicit attribute 'LowerVaporResistanceFactor'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLowerVaporResistanceFactor(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'LowerVaporResistanceFactor'.
+         * 
+         */
+        virtual void unsetLowerVaporResistanceFactor();
+        /**
+         * Test if the attribute 'LowerVaporResistanceFactor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLowerVaporResistanceFactor() const;
         /**
          * Gets the value of the explicit attribute 'IsothermalMoistureCapacity'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setIsothermalMoistureCapacity(IfcIsothermalMoistureCapacityMeasure value);
         /**
+         * unset the attribute 'IsothermalMoistureCapacity'.
+         * 
+         */
+        virtual void unsetIsothermalMoistureCapacity();
+        /**
+         * Test if the attribute 'IsothermalMoistureCapacity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsothermalMoistureCapacity() const;
+        /**
          * Gets the value of the explicit attribute 'VaporPermeability'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setVaporPermeability(IfcVaporPermeabilityMeasure value);
         /**
+         * unset the attribute 'VaporPermeability'.
+         * 
+         */
+        virtual void unsetVaporPermeability();
+        /**
+         * Test if the attribute 'VaporPermeability' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVaporPermeability() const;
+        /**
          * Gets the value of the explicit attribute 'MoistureDiffusivity'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMoistureDiffusivity(IfcMoistureDiffusivityMeasure value);
+        /**
+         * unset the attribute 'MoistureDiffusivity'.
+         * 
+         */
+        virtual void unsetMoistureDiffusivity();
+        /**
+         * Test if the attribute 'MoistureDiffusivity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMoistureDiffusivity() const;
         friend class ExpressDataSet;
 
     protected:

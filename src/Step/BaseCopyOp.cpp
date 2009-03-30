@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,11 +22,7 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/BaseCopyOp.h>
-
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+#include "Step/BaseCopyOp.h"
 
 using namespace Step;
 

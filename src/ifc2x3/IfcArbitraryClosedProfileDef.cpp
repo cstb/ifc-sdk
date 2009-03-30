@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcArbitraryClosedProfileDef::IfcArbitraryClosedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
@@ -86,6 +83,14 @@ const IfcCurve *IfcArbitraryClosedProfileDef::getOuterCurve() const {
 
 void IfcArbitraryClosedProfileDef::setOuterCurve(const Step::RefPtr< IfcCurve > &value) {
     m_outerCurve = value;
+}
+
+void IfcArbitraryClosedProfileDef::unsetOuterCurve() {
+    m_outerCurve = Step::getUnset(getOuterCurve());
+}
+
+bool IfcArbitraryClosedProfileDef::testOuterCurve() const {
+    return !Step::isUnset(getOuterCurve());
 }
 
 bool IfcArbitraryClosedProfileDef::init() {

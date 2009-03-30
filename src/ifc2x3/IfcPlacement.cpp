@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPlacement::IfcPlacement(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -86,6 +83,14 @@ const IfcCartesianPoint *IfcPlacement::getLocation() const {
 
 void IfcPlacement::setLocation(const Step::RefPtr< IfcCartesianPoint > &value) {
     m_location = value;
+}
+
+void IfcPlacement::unsetLocation() {
+    m_location = Step::getUnset(getLocation());
+}
+
+bool IfcPlacement::testLocation() const {
+    return !Step::isUnset(getLocation());
 }
 
 bool IfcPlacement::init() {

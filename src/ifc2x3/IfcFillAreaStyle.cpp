@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFillAreaStyle::IfcFillAreaStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
@@ -87,6 +84,15 @@ const Set_IfcFillStyleSelect_1_n &IfcFillAreaStyle::getFillStyles() const {
 
 void IfcFillAreaStyle::setFillStyles(const Set_IfcFillStyleSelect_1_n &value) {
     m_fillStyles = value;
+}
+
+void IfcFillAreaStyle::unsetFillStyles() {
+    m_fillStyles.clear();
+    m_fillStyles.setUnset(true);
+}
+
+bool IfcFillAreaStyle::testFillStyles() const {
+    return !Step::isUnset(getFillStyles());
 }
 
 bool IfcFillAreaStyle::init() {

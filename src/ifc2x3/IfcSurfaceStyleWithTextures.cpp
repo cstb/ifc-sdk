@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyleWithTextures::IfcSurfaceStyleWithTextures(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,15 @@ const List_IfcSurfaceTexture_1_n &IfcSurfaceStyleWithTextures::getTextures() con
 
 void IfcSurfaceStyleWithTextures::setTextures(const List_IfcSurfaceTexture_1_n &value) {
     m_textures = value;
+}
+
+void IfcSurfaceStyleWithTextures::unsetTextures() {
+    m_textures.clear();
+    m_textures.setUnset(true);
+}
+
+bool IfcSurfaceStyleWithTextures::testTextures() const {
+    return !Step::isUnset(getTextures());
 }
 
 bool IfcSurfaceStyleWithTextures::init() {

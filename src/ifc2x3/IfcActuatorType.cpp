@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcActuatorType::IfcActuatorType(Step::Id id, Step::SPFData *args) : IfcDistributionControlElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcActuatorTypeEnum IfcActuatorType::getPredefinedType() const {
 
 void IfcActuatorType::setPredefinedType(IfcActuatorTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcActuatorType::unsetPredefinedType() {
+    m_predefinedType = IfcActuatorTypeEnum_UNSET;
+}
+
+bool IfcActuatorType::testPredefinedType() const {
+    return getPredefinedType() != IfcActuatorTypeEnum_UNSET;
 }
 
 bool IfcActuatorType::init() {

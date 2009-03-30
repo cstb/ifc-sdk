@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcCartesianTransformationOperator2D.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcCartesianTransformationOperator2D.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCartesianTransformationOperator2DnonUniform Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCartesianTransformationOperator2DnonUniform : public IfcCartesianTransformationOperator2D {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setScale2(Step::Real value);
+        /**
+         * unset the attribute 'Scale2'.
+         * 
+         */
+        virtual void unsetScale2();
+        /**
+         * Test if the attribute 'Scale2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScale2() const;
         /**
          * Gets the value of the derived attribute 'Scl2'.
          * 

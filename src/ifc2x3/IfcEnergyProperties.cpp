@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEnergyProperties::IfcEnergyProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -86,6 +83,14 @@ void IfcEnergyProperties::setEnergySequence(IfcEnergySequenceEnum value) {
     m_energySequence = value;
 }
 
+void IfcEnergyProperties::unsetEnergySequence() {
+    m_energySequence = IfcEnergySequenceEnum_UNSET;
+}
+
+bool IfcEnergyProperties::testEnergySequence() const {
+    return getEnergySequence() != IfcEnergySequenceEnum_UNSET;
+}
+
 IfcLabel IfcEnergyProperties::getUserDefinedEnergySequence() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedEnergySequence;
@@ -102,6 +107,14 @@ const IfcLabel IfcEnergyProperties::getUserDefinedEnergySequence() const {
 
 void IfcEnergyProperties::setUserDefinedEnergySequence(const IfcLabel &value) {
     m_userDefinedEnergySequence = value;
+}
+
+void IfcEnergyProperties::unsetUserDefinedEnergySequence() {
+    m_userDefinedEnergySequence = Step::getUnset(getUserDefinedEnergySequence());
+}
+
+bool IfcEnergyProperties::testUserDefinedEnergySequence() const {
+    return !Step::isUnset(getUserDefinedEnergySequence());
 }
 
 bool IfcEnergyProperties::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundedSurface.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundedSurface.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSurface;
 
     /**
+     * Generated class for the IfcRectangularTrimmedSurface Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRectangularTrimmedSurface : public IfcBoundedSurface {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisSurface(const Step::RefPtr< IfcSurface > &value);
         /**
+         * unset the attribute 'BasisSurface'.
+         * 
+         */
+        virtual void unsetBasisSurface();
+        /**
+         * Test if the attribute 'BasisSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisSurface() const;
+        /**
          * Gets the value of the explicit attribute 'U1'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setU1(IfcParameterValue value);
+        /**
+         * unset the attribute 'U1'.
+         * 
+         */
+        virtual void unsetU1();
+        /**
+         * Test if the attribute 'U1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testU1() const;
         /**
          * Gets the value of the explicit attribute 'V1'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setV1(IfcParameterValue value);
         /**
+         * unset the attribute 'V1'.
+         * 
+         */
+        virtual void unsetV1();
+        /**
+         * Test if the attribute 'V1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testV1() const;
+        /**
          * Gets the value of the explicit attribute 'U2'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setU2(IfcParameterValue value);
+        /**
+         * unset the attribute 'U2'.
+         * 
+         */
+        virtual void unsetU2();
+        /**
+         * Test if the attribute 'U2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testU2() const;
         /**
          * Gets the value of the explicit attribute 'V2'.
          * 
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          */
         virtual void setV2(IfcParameterValue value);
         /**
+         * unset the attribute 'V2'.
+         * 
+         */
+        virtual void unsetV2();
+        /**
+         * Test if the attribute 'V2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testV2() const;
+        /**
          * Gets the value of the explicit attribute 'Usense'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          */
         virtual void setUsense(Step::Boolean value);
         /**
+         * unset the attribute 'Usense'.
+         * 
+         */
+        virtual void unsetUsense();
+        /**
+         * Test if the attribute 'Usense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsense() const;
+        /**
          * Gets the value of the explicit attribute 'Vsense'.
          * 
          */
@@ -191,6 +259,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setVsense(Step::Boolean value);
+        /**
+         * unset the attribute 'Vsense'.
+         * 
+         */
+        virtual void unsetVsense();
+        /**
+         * Test if the attribute 'Vsense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVsense() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

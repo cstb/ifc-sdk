@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcRepresentation;
 
     /**
+     * Generated class for the IfcRepresentationMap Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRepresentationMap : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setMappingOrigin(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * unset the attribute 'MappingOrigin'.
+         * 
+         */
+        virtual void unsetMappingOrigin();
+        /**
+         * Test if the attribute 'MappingOrigin' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMappingOrigin() const;
+        /**
          * Gets the value of the explicit attribute 'MappedRepresentation'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value);
         /**
+         * unset the attribute 'MappedRepresentation'.
+         * 
+         */
+        virtual void unsetMappedRepresentation();
+        /**
+         * Test if the attribute 'MappedRepresentation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMappedRepresentation() const;
+        /**
          * Gets the value of the inverse attribute 'MapUsage'.
          * 
          */
@@ -118,6 +142,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'MapUsage'
          */
         virtual const Inverse_Set_IfcMappedItem_0_n &getMapUsage() const;
+        /**
+         * Test if the attribute 'MapUsage' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMapUsage() const;
         friend class IfcMappedItem;
         friend class ExpressDataSet;
 

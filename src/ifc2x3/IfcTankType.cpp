@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTankType::IfcTankType(Step::Id id, Step::SPFData *args) : IfcFlowStorageDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcTankTypeEnum IfcTankType::getPredefinedType() const {
 
 void IfcTankType::setPredefinedType(IfcTankTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcTankType::unsetPredefinedType() {
+    m_predefinedType = IfcTankTypeEnum_UNSET;
+}
+
+bool IfcTankType::testPredefinedType() const {
+    return getPredefinedType() != IfcTankTypeEnum_UNSET;
 }
 
 bool IfcTankType::init() {

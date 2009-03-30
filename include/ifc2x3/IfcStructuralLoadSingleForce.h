@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadSingleForce Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadSingleForce : public IfcStructuralLoadStatic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setForceX(IfcForceMeasure value);
         /**
+         * unset the attribute 'ForceX'.
+         * 
+         */
+        virtual void unsetForceX();
+        /**
+         * Test if the attribute 'ForceX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testForceX() const;
+        /**
          * Gets the value of the explicit attribute 'ForceY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setForceY(IfcForceMeasure value);
+        /**
+         * unset the attribute 'ForceY'.
+         * 
+         */
+        virtual void unsetForceY();
+        /**
+         * Test if the attribute 'ForceY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testForceY() const;
         /**
          * Gets the value of the explicit attribute 'ForceZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setForceZ(IfcForceMeasure value);
         /**
+         * unset the attribute 'ForceZ'.
+         * 
+         */
+        virtual void unsetForceZ();
+        /**
+         * Test if the attribute 'ForceZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testForceZ() const;
+        /**
          * Gets the value of the explicit attribute 'MomentX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMomentX(IfcTorqueMeasure value);
+        /**
+         * unset the attribute 'MomentX'.
+         * 
+         */
+        virtual void unsetMomentX();
+        /**
+         * Test if the attribute 'MomentX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentX() const;
         /**
          * Gets the value of the explicit attribute 'MomentY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setMomentY(IfcTorqueMeasure value);
         /**
+         * unset the attribute 'MomentY'.
+         * 
+         */
+        virtual void unsetMomentY();
+        /**
+         * Test if the attribute 'MomentY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentY() const;
+        /**
          * Gets the value of the explicit attribute 'MomentZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMomentZ(IfcTorqueMeasure value);
+        /**
+         * unset the attribute 'MomentZ'.
+         * 
+         */
+        virtual void unsetMomentZ();
+        /**
+         * Test if the attribute 'MomentZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentZ() const;
         friend class ExpressDataSet;
 
     protected:

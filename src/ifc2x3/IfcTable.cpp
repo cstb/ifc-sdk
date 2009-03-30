@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcTable_Rows_type::Inverted_IfcTable_Rows_type() {
@@ -64,9 +61,14 @@ Inverted_IfcTable_Rows_type::iterator Inverted_IfcTable_Rows_type::erase(const S
     return List_IfcTableRow_1_n::erase(value);
 }
 
+void Inverted_IfcTable_Rows_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcTable::IfcTable(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
-    m_rows.setUnset(true);
     m_rows.setOwner(this);
 }
 
@@ -111,6 +113,14 @@ void IfcTable::setName(const Step::String &value) {
     m_name = value;
 }
 
+void IfcTable::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcTable::testName() const {
+    return !Step::isUnset(getName());
+}
+
 List_IfcTableRow_1_n &IfcTable::getRows() {
     if (Step::BaseObject::inited()) {
         return m_rows;
@@ -124,6 +134,15 @@ List_IfcTableRow_1_n &IfcTable::getRows() {
 const List_IfcTableRow_1_n &IfcTable::getRows() const {
     IfcTable * deConstObject = const_cast< IfcTable * > (this);
     return deConstObject->getRows();
+}
+
+void IfcTable::unsetRows() {
+    m_rows.clear();
+    m_rows.setUnset(true);
+}
+
+bool IfcTable::testRows() const {
+    return !Step::isUnset(getRows());
 }
 
 bool IfcTable::init() {

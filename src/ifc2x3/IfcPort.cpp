@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPort::IfcPort(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -83,6 +80,10 @@ const IfcRelConnectsPortToElement *IfcPort::getContainedIn() const {
     return deConstObject->getContainedIn();
 }
 
+bool IfcPort::testContainedIn() const {
+    return !Step::isUnset(getContainedIn());
+}
+
 Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() {
     if (Step::BaseObject::inited()) {
         return m_connectedFrom;
@@ -98,6 +99,10 @@ const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const {
     return deConstObject->getConnectedFrom();
 }
 
+bool IfcPort::testConnectedFrom() const {
+    return !Step::isUnset(getConnectedFrom());
+}
+
 Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
     if (Step::BaseObject::inited()) {
         return m_connectedTo;
@@ -111,6 +116,10 @@ Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
 const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const {
     IfcPort * deConstObject = const_cast< IfcPort * > (this);
     return deConstObject->getConnectedTo();
+}
+
+bool IfcPort::testConnectedTo() const {
+    return !Step::isUnset(getConnectedTo());
 }
 
 bool IfcPort::init() {

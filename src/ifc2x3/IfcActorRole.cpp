@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcActorRole::IfcActorRole(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -87,6 +84,14 @@ void IfcActorRole::setRole(IfcRoleEnum value) {
     m_role = value;
 }
 
+void IfcActorRole::unsetRole() {
+    m_role = IfcRoleEnum_UNSET;
+}
+
+bool IfcActorRole::testRole() const {
+    return getRole() != IfcRoleEnum_UNSET;
+}
+
 IfcLabel IfcActorRole::getUserDefinedRole() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedRole;
@@ -105,6 +110,14 @@ void IfcActorRole::setUserDefinedRole(const IfcLabel &value) {
     m_userDefinedRole = value;
 }
 
+void IfcActorRole::unsetUserDefinedRole() {
+    m_userDefinedRole = Step::getUnset(getUserDefinedRole());
+}
+
+bool IfcActorRole::testUserDefinedRole() const {
+    return !Step::isUnset(getUserDefinedRole());
+}
+
 IfcText IfcActorRole::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -121,6 +134,14 @@ const IfcText IfcActorRole::getDescription() const {
 
 void IfcActorRole::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcActorRole::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcActorRole::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 bool IfcActorRole::init() {

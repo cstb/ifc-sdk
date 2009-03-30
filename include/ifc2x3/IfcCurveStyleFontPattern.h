@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCurveStyleFontPattern Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurveStyleFontPattern : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setVisibleSegmentLength(IfcLengthMeasure value);
         /**
+         * unset the attribute 'VisibleSegmentLength'.
+         * 
+         */
+        virtual void unsetVisibleSegmentLength();
+        /**
+         * Test if the attribute 'VisibleSegmentLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVisibleSegmentLength() const;
+        /**
          * Gets the value of the explicit attribute 'InvisibleSegmentLength'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInvisibleSegmentLength(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'InvisibleSegmentLength'.
+         * 
+         */
+        virtual void unsetInvisibleSegmentLength();
+        /**
+         * Test if the attribute 'InvisibleSegmentLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInvisibleSegmentLength() const;
         friend class ExpressDataSet;
 
     protected:

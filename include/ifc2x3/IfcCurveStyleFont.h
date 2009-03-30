@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCurveStyleFont Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurveStyleFont : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'PatternList'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPatternList(const List_IfcCurveStyleFontPattern_1_n &value);
+        /**
+         * unset the attribute 'PatternList'.
+         * 
+         */
+        virtual void unsetPatternList();
+        /**
+         * Test if the attribute 'PatternList' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPatternList() const;
         friend class ExpressDataSet;
 
     protected:

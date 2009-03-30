@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelAssociates.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcRelAssociates.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcApproval;
 
     /**
+     * Generated class for the IfcRelAssociatesApproval Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelAssociatesApproval : public IfcRelAssociates {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatingApproval(const Step::RefPtr< IfcApproval > &value);
+        /**
+         * unset the attribute 'RelatingApproval'.
+         * 
+         */
+        virtual void unsetRelatingApproval();
+        /**
+         * Test if the attribute 'RelatingApproval' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingApproval() const;
         friend class ExpressDataSet;
 
     protected:

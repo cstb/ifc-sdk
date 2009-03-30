@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSpatialStructureElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcSpatialStructureElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSpace Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSpace : public IfcSpatialStructureElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value);
         /**
+         * unset the attribute 'InteriorOrExteriorSpace'.
+         * 
+         */
+        virtual void unsetInteriorOrExteriorSpace();
+        /**
+         * Test if the attribute 'InteriorOrExteriorSpace' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInteriorOrExteriorSpace() const;
+        /**
          * Gets the value of the explicit attribute 'ElevationWithFlooring'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setElevationWithFlooring(IfcLengthMeasure value);
         /**
+         * unset the attribute 'ElevationWithFlooring'.
+         * 
+         */
+        virtual void unsetElevationWithFlooring();
+        /**
+         * Test if the attribute 'ElevationWithFlooring' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElevationWithFlooring() const;
+        /**
          * Gets the value of the inverse attribute 'HasCoverings'.
          * 
          */
@@ -116,6 +140,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings() const;
         /**
+         * Test if the attribute 'HasCoverings' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasCoverings() const;
+        /**
          * Gets the value of the inverse attribute 'BoundedBy'.
          * 
          */
@@ -126,8 +156,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'BoundedBy'
          */
         virtual const Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy() const;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'BoundedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoundedBy() const;
         friend class IfcRelCoversSpaces;
+        friend class ExpressDataSet;
         friend class IfcRelSpaceBoundary;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPipeSegmentType::IfcPipeSegmentType(Step::Id id, Step::SPFData *args) : IfcFlowSegmentType(id, args) {
@@ -82,6 +79,14 @@ const IfcPipeSegmentTypeEnum IfcPipeSegmentType::getPredefinedType() const {
 
 void IfcPipeSegmentType::setPredefinedType(IfcPipeSegmentTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcPipeSegmentType::unsetPredefinedType() {
+    m_predefinedType = IfcPipeSegmentTypeEnum_UNSET;
+}
+
+bool IfcPipeSegmentType::testPredefinedType() const {
+    return getPredefinedType() != IfcPipeSegmentTypeEnum_UNSET;
 }
 
 bool IfcPipeSegmentType::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConnectionPointEccentricity::IfcConnectionPointEccentricity(Step::Id id, Step::SPFData *args) : IfcConnectionPointGeometry(id, args) {
@@ -86,6 +83,14 @@ void IfcConnectionPointEccentricity::setEccentricityInX(IfcLengthMeasure value) 
     m_eccentricityInX = value;
 }
 
+void IfcConnectionPointEccentricity::unsetEccentricityInX() {
+    m_eccentricityInX = Step::getUnset(getEccentricityInX());
+}
+
+bool IfcConnectionPointEccentricity::testEccentricityInX() const {
+    return !Step::isUnset(getEccentricityInX());
+}
+
 IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInY() {
     if (Step::BaseObject::inited()) {
         return m_eccentricityInY;
@@ -104,6 +109,14 @@ void IfcConnectionPointEccentricity::setEccentricityInY(IfcLengthMeasure value) 
     m_eccentricityInY = value;
 }
 
+void IfcConnectionPointEccentricity::unsetEccentricityInY() {
+    m_eccentricityInY = Step::getUnset(getEccentricityInY());
+}
+
+bool IfcConnectionPointEccentricity::testEccentricityInY() const {
+    return !Step::isUnset(getEccentricityInY());
+}
+
 IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() {
     if (Step::BaseObject::inited()) {
         return m_eccentricityInZ;
@@ -120,6 +133,14 @@ const IfcLengthMeasure IfcConnectionPointEccentricity::getEccentricityInZ() cons
 
 void IfcConnectionPointEccentricity::setEccentricityInZ(IfcLengthMeasure value) {
     m_eccentricityInZ = value;
+}
+
+void IfcConnectionPointEccentricity::unsetEccentricityInZ() {
+    m_eccentricityInZ = Step::getUnset(getEccentricityInZ());
+}
+
+bool IfcConnectionPointEccentricity::testEccentricityInZ() const {
+    return !Step::isUnset(getEccentricityInZ());
 }
 
 bool IfcConnectionPointEccentricity::init() {

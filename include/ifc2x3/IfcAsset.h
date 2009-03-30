@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include <Step/Referenced.h>
 #include "ifc2x3/IfcGroup.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
+#include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -46,6 +46,8 @@ namespace ifc2x3 {
     class IfcPerson;
 
     /**
+     * Generated class for the IfcAsset Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAsset : public IfcGroup {
     public:
@@ -94,6 +96,17 @@ namespace ifc2x3 {
          */
         virtual void setAssetID(const IfcIdentifier &value);
         /**
+         * unset the attribute 'AssetID'.
+         * 
+         */
+        virtual void unsetAssetID();
+        /**
+         * Test if the attribute 'AssetID' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAssetID() const;
+        /**
          * Gets the value of the explicit attribute 'OriginalValue'.
          * 
          */
@@ -110,6 +123,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
+        /**
+         * unset the attribute 'OriginalValue'.
+         * 
+         */
+        virtual void unsetOriginalValue();
+        /**
+         * Test if the attribute 'OriginalValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOriginalValue() const;
         /**
          * Gets the value of the explicit attribute 'CurrentValue'.
          * 
@@ -128,6 +152,17 @@ namespace ifc2x3 {
          */
         virtual void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * unset the attribute 'CurrentValue'.
+         * 
+         */
+        virtual void unsetCurrentValue();
+        /**
+         * Test if the attribute 'CurrentValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurrentValue() const;
+        /**
          * Gets the value of the explicit attribute 'TotalReplacementCost'.
          * 
          */
@@ -144,6 +179,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTotalReplacementCost(const Step::RefPtr< IfcCostValue > &value);
+        /**
+         * unset the attribute 'TotalReplacementCost'.
+         * 
+         */
+        virtual void unsetTotalReplacementCost();
+        /**
+         * Test if the attribute 'TotalReplacementCost' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTotalReplacementCost() const;
         /**
          * Gets the value of the explicit attribute 'Owner'.
          * 
@@ -162,6 +208,17 @@ namespace ifc2x3 {
          */
         virtual void setOwner(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'Owner'.
+         * 
+         */
+        virtual void unsetOwner();
+        /**
+         * Test if the attribute 'Owner' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOwner() const;
+        /**
          * Gets the value of the explicit attribute 'User'.
          * 
          */
@@ -178,6 +235,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUser(const Step::RefPtr< IfcActorSelect > &value);
+        /**
+         * unset the attribute 'User'.
+         * 
+         */
+        virtual void unsetUser();
+        /**
+         * Test if the attribute 'User' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUser() const;
         /**
          * Gets the value of the explicit attribute 'ResponsiblePerson'.
          * 
@@ -196,6 +264,17 @@ namespace ifc2x3 {
          */
         virtual void setResponsiblePerson(const Step::RefPtr< IfcPerson > &value);
         /**
+         * unset the attribute 'ResponsiblePerson'.
+         * 
+         */
+        virtual void unsetResponsiblePerson();
+        /**
+         * Test if the attribute 'ResponsiblePerson' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResponsiblePerson() const;
+        /**
          * Gets the value of the explicit attribute 'IncorporationDate'.
          * 
          */
@@ -213,6 +292,17 @@ namespace ifc2x3 {
          */
         virtual void setIncorporationDate(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * unset the attribute 'IncorporationDate'.
+         * 
+         */
+        virtual void unsetIncorporationDate();
+        /**
+         * Test if the attribute 'IncorporationDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIncorporationDate() const;
+        /**
          * Gets the value of the explicit attribute 'DepreciatedValue'.
          * 
          */
@@ -229,6 +319,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDepreciatedValue(const Step::RefPtr< IfcCostValue > &value);
+        /**
+         * unset the attribute 'DepreciatedValue'.
+         * 
+         */
+        virtual void unsetDepreciatedValue();
+        /**
+         * Test if the attribute 'DepreciatedValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDepreciatedValue() const;
         friend class ExpressDataSet;
 
     protected:

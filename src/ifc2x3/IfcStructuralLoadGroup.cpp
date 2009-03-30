@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadGroup::IfcStructuralLoadGroup(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
@@ -93,6 +90,14 @@ void IfcStructuralLoadGroup::setPredefinedType(IfcLoadGroupTypeEnum value) {
     m_predefinedType = value;
 }
 
+void IfcStructuralLoadGroup::unsetPredefinedType() {
+    m_predefinedType = IfcLoadGroupTypeEnum_UNSET;
+}
+
+bool IfcStructuralLoadGroup::testPredefinedType() const {
+    return getPredefinedType() != IfcLoadGroupTypeEnum_UNSET;
+}
+
 IfcActionTypeEnum IfcStructuralLoadGroup::getActionType() {
     if (Step::BaseObject::inited()) {
         return m_actionType;
@@ -109,6 +114,14 @@ const IfcActionTypeEnum IfcStructuralLoadGroup::getActionType() const {
 
 void IfcStructuralLoadGroup::setActionType(IfcActionTypeEnum value) {
     m_actionType = value;
+}
+
+void IfcStructuralLoadGroup::unsetActionType() {
+    m_actionType = IfcActionTypeEnum_UNSET;
+}
+
+bool IfcStructuralLoadGroup::testActionType() const {
+    return getActionType() != IfcActionTypeEnum_UNSET;
 }
 
 IfcActionSourceTypeEnum IfcStructuralLoadGroup::getActionSource() {
@@ -129,6 +142,14 @@ void IfcStructuralLoadGroup::setActionSource(IfcActionSourceTypeEnum value) {
     m_actionSource = value;
 }
 
+void IfcStructuralLoadGroup::unsetActionSource() {
+    m_actionSource = IfcActionSourceTypeEnum_UNSET;
+}
+
+bool IfcStructuralLoadGroup::testActionSource() const {
+    return getActionSource() != IfcActionSourceTypeEnum_UNSET;
+}
+
 IfcRatioMeasure IfcStructuralLoadGroup::getCoefficient() {
     if (Step::BaseObject::inited()) {
         return m_coefficient;
@@ -145,6 +166,14 @@ const IfcRatioMeasure IfcStructuralLoadGroup::getCoefficient() const {
 
 void IfcStructuralLoadGroup::setCoefficient(IfcRatioMeasure value) {
     m_coefficient = value;
+}
+
+void IfcStructuralLoadGroup::unsetCoefficient() {
+    m_coefficient = Step::getUnset(getCoefficient());
+}
+
+bool IfcStructuralLoadGroup::testCoefficient() const {
+    return !Step::isUnset(getCoefficient());
 }
 
 IfcLabel IfcStructuralLoadGroup::getPurpose() {
@@ -165,6 +194,14 @@ void IfcStructuralLoadGroup::setPurpose(const IfcLabel &value) {
     m_purpose = value;
 }
 
+void IfcStructuralLoadGroup::unsetPurpose() {
+    m_purpose = Step::getUnset(getPurpose());
+}
+
+bool IfcStructuralLoadGroup::testPurpose() const {
+    return !Step::isUnset(getPurpose());
+}
+
 Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourceOfResultGroup() {
     if (Step::BaseObject::inited()) {
         return m_sourceOfResultGroup;
@@ -180,6 +217,10 @@ const Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourc
     return deConstObject->getSourceOfResultGroup();
 }
 
+bool IfcStructuralLoadGroup::testSourceOfResultGroup() const {
+    return !Step::isUnset(getSourceOfResultGroup());
+}
+
 Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroupFor() {
     if (Step::BaseObject::inited()) {
         return m_loadGroupFor;
@@ -193,6 +234,10 @@ Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroup
 const Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroupFor() const {
     IfcStructuralLoadGroup * deConstObject = const_cast< IfcStructuralLoadGroup * > (this);
     return deConstObject->getLoadGroupFor();
+}
+
+bool IfcStructuralLoadGroup::testLoadGroupFor() const {
+    return !Step::isUnset(getLoadGroupFor());
 }
 
 bool IfcStructuralLoadGroup::init() {

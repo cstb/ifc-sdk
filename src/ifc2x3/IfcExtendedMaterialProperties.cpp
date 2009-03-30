@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcExtendedMaterialProperties::IfcExtendedMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -91,6 +88,15 @@ void IfcExtendedMaterialProperties::setExtendedProperties(const Set_IfcProperty_
     m_extendedProperties = value;
 }
 
+void IfcExtendedMaterialProperties::unsetExtendedProperties() {
+    m_extendedProperties.clear();
+    m_extendedProperties.setUnset(true);
+}
+
+bool IfcExtendedMaterialProperties::testExtendedProperties() const {
+    return !Step::isUnset(getExtendedProperties());
+}
+
 IfcText IfcExtendedMaterialProperties::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -109,6 +115,14 @@ void IfcExtendedMaterialProperties::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcExtendedMaterialProperties::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcExtendedMaterialProperties::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 IfcLabel IfcExtendedMaterialProperties::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -125,6 +139,14 @@ const IfcLabel IfcExtendedMaterialProperties::getName() const {
 
 void IfcExtendedMaterialProperties::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcExtendedMaterialProperties::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcExtendedMaterialProperties::testName() const {
+    return !Step::isUnset(getName());
 }
 
 bool IfcExtendedMaterialProperties::init() {

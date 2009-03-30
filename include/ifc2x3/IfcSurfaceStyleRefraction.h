@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSurfaceStyleRefraction Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSurfaceStyleRefraction : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setRefractionIndex(IfcReal value);
         /**
+         * unset the attribute 'RefractionIndex'.
+         * 
+         */
+        virtual void unsetRefractionIndex();
+        /**
+         * Test if the attribute 'RefractionIndex' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRefractionIndex() const;
+        /**
          * Gets the value of the explicit attribute 'DispersionFactor'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDispersionFactor(IfcReal value);
+        /**
+         * unset the attribute 'DispersionFactor'.
+         * 
+         */
+        virtual void unsetDispersionFactor();
+        /**
+         * Test if the attribute 'DispersionFactor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDispersionFactor() const;
         friend class ExpressDataSet;
 
     protected:

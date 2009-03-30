@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWindowStyle::IfcWindowStyle(Step::Id id, Step::SPFData *args) : IfcTypeProduct(id, args) {
@@ -87,6 +84,14 @@ void IfcWindowStyle::setConstructionType(IfcWindowStyleConstructionEnum value) {
     m_constructionType = value;
 }
 
+void IfcWindowStyle::unsetConstructionType() {
+    m_constructionType = IfcWindowStyleConstructionEnum_UNSET;
+}
+
+bool IfcWindowStyle::testConstructionType() const {
+    return getConstructionType() != IfcWindowStyleConstructionEnum_UNSET;
+}
+
 IfcWindowStyleOperationEnum IfcWindowStyle::getOperationType() {
     if (Step::BaseObject::inited()) {
         return m_operationType;
@@ -103,6 +108,14 @@ const IfcWindowStyleOperationEnum IfcWindowStyle::getOperationType() const {
 
 void IfcWindowStyle::setOperationType(IfcWindowStyleOperationEnum value) {
     m_operationType = value;
+}
+
+void IfcWindowStyle::unsetOperationType() {
+    m_operationType = IfcWindowStyleOperationEnum_UNSET;
+}
+
+bool IfcWindowStyle::testOperationType() const {
+    return getOperationType() != IfcWindowStyleOperationEnum_UNSET;
 }
 
 Step::Boolean IfcWindowStyle::getParameterTakesPrecedence() {
@@ -123,6 +136,14 @@ void IfcWindowStyle::setParameterTakesPrecedence(Step::Boolean value) {
     m_parameterTakesPrecedence = value;
 }
 
+void IfcWindowStyle::unsetParameterTakesPrecedence() {
+    m_parameterTakesPrecedence = Step::getUnset(getParameterTakesPrecedence());
+}
+
+bool IfcWindowStyle::testParameterTakesPrecedence() const {
+    return !Step::isUnset(getParameterTakesPrecedence());
+}
+
 Step::Boolean IfcWindowStyle::getSizeable() {
     if (Step::BaseObject::inited()) {
         return m_sizeable;
@@ -139,6 +160,14 @@ const Step::Boolean IfcWindowStyle::getSizeable() const {
 
 void IfcWindowStyle::setSizeable(Step::Boolean value) {
     m_sizeable = value;
+}
+
+void IfcWindowStyle::unsetSizeable() {
+    m_sizeable = Step::getUnset(getSizeable());
+}
+
+bool IfcWindowStyle::testSizeable() const {
+    return !Step::isUnset(getSizeable());
 }
 
 bool IfcWindowStyle::init() {

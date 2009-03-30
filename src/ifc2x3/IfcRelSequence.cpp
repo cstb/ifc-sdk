@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelSequence::IfcRelSequence(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -97,6 +94,14 @@ void IfcRelSequence::setRelatingProcess(const Step::RefPtr< IfcProcess > &value)
     m_relatingProcess = value;
 }
 
+void IfcRelSequence::unsetRelatingProcess() {
+    m_relatingProcess = Step::getUnset(getRelatingProcess());
+}
+
+bool IfcRelSequence::testRelatingProcess() const {
+    return !Step::isUnset(getRelatingProcess());
+}
+
 IfcProcess *IfcRelSequence::getRelatedProcess() {
     if (Step::BaseObject::inited()) {
         return m_relatedProcess.get();
@@ -121,6 +126,14 @@ void IfcRelSequence::setRelatedProcess(const Step::RefPtr< IfcProcess > &value) 
     m_relatedProcess = value;
 }
 
+void IfcRelSequence::unsetRelatedProcess() {
+    m_relatedProcess = Step::getUnset(getRelatedProcess());
+}
+
+bool IfcRelSequence::testRelatedProcess() const {
+    return !Step::isUnset(getRelatedProcess());
+}
+
 IfcTimeMeasure IfcRelSequence::getTimeLag() {
     if (Step::BaseObject::inited()) {
         return m_timeLag;
@@ -139,6 +152,14 @@ void IfcRelSequence::setTimeLag(IfcTimeMeasure value) {
     m_timeLag = value;
 }
 
+void IfcRelSequence::unsetTimeLag() {
+    m_timeLag = Step::getUnset(getTimeLag());
+}
+
+bool IfcRelSequence::testTimeLag() const {
+    return !Step::isUnset(getTimeLag());
+}
+
 IfcSequenceEnum IfcRelSequence::getSequenceType() {
     if (Step::BaseObject::inited()) {
         return m_sequenceType;
@@ -155,6 +176,14 @@ const IfcSequenceEnum IfcRelSequence::getSequenceType() const {
 
 void IfcRelSequence::setSequenceType(IfcSequenceEnum value) {
     m_sequenceType = value;
+}
+
+void IfcRelSequence::unsetSequenceType() {
+    m_sequenceType = IfcSequenceEnum_UNSET;
+}
+
+bool IfcRelSequence::testSequenceType() const {
+    return getSequenceType() != IfcSequenceEnum_UNSET;
 }
 
 bool IfcRelSequence::init() {

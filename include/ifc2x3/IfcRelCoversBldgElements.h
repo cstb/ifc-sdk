@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +43,8 @@ namespace ifc2x3 {
     class IfcRelCoversBldgElements;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelCoversBldgElements_RelatedCoverings_type : public Set_IfcCovering_1_n {
     public:
@@ -53,22 +54,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelCoversBldgElements *mOwner;
-        /**
-         */
         Inverted_IfcRelCoversBldgElements_RelatedCoverings_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelCoversBldgElements *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcCovering > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcCovering > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelCoversBldgElements;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelCoversBldgElements *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelCoversBldgElements *owner);
 
     };
 
@@ -76,6 +91,8 @@ namespace ifc2x3 {
     class IfcElement;
 
     /**
+     * Generated class for the IfcRelCoversBldgElements Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelCoversBldgElements : public IfcRelConnects {
     public:
@@ -124,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value);
         /**
+         * unset the attribute 'RelatingBuildingElement'.
+         * 
+         */
+        virtual void unsetRelatingBuildingElement();
+        /**
+         * Test if the attribute 'RelatingBuildingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingBuildingElement() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedCoverings'.
          * 
          */
@@ -134,6 +162,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedCoverings'
          */
         virtual const Set_IfcCovering_1_n &getRelatedCoverings() const;
+        /**
+         * unset the attribute 'RelatedCoverings'.
+         * 
+         */
+        virtual void unsetRelatedCoverings();
+        /**
+         * Test if the attribute 'RelatedCoverings' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedCoverings() const;
         friend class ExpressDataSet;
 
     protected:

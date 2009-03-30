@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcTypeObject.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTypeProduct Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTypeProduct : public IfcTypeObject {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setRepresentationMaps(const List_IfcRepresentationMap_1_n &value);
         /**
+         * unset the attribute 'RepresentationMaps'.
+         * 
+         */
+        virtual void unsetRepresentationMaps();
+        /**
+         * Test if the attribute 'RepresentationMaps' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationMaps() const;
+        /**
          * Gets the value of the explicit attribute 'Tag'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTag(const IfcLabel &value);
+        /**
+         * unset the attribute 'Tag'.
+         * 
+         */
+        virtual void unsetTag();
+        /**
+         * Test if the attribute 'Tag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTag() const;
         friend class ExpressDataSet;
 
     protected:

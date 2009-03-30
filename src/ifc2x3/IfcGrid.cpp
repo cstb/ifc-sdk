@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,9 +43,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcGrid_UAxes_type::Inverted_IfcGrid_UAxes_type() {
@@ -67,6 +64,12 @@ Inverted_IfcGrid_UAxes_type::iterator Inverted_IfcGrid_UAxes_type::erase(const S
     return List_IfcGridAxis_1_n::erase(value);
 }
 
+void Inverted_IfcGrid_UAxes_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 Inverted_IfcGrid_VAxes_type::Inverted_IfcGrid_VAxes_type() {
 }
 
@@ -84,6 +87,12 @@ Inverted_IfcGrid_VAxes_type::iterator Inverted_IfcGrid_VAxes_type::erase(const S
     IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
     inverse->m_partOfV.erase(mOwner);
     return List_IfcGridAxis_1_n::erase(value);
+}
+
+void Inverted_IfcGrid_VAxes_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 Inverted_IfcGrid_WAxes_type::Inverted_IfcGrid_WAxes_type() {
@@ -105,10 +114,14 @@ Inverted_IfcGrid_WAxes_type::iterator Inverted_IfcGrid_WAxes_type::erase(const S
     return List_IfcGridAxis_1_n::erase(value);
 }
 
+void Inverted_IfcGrid_WAxes_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcGrid::IfcGrid(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
-    m_uAxes.setUnset(true);
     m_uAxes.setOwner(this);
-    m_vAxes.setUnset(true);
     m_vAxes.setOwner(this);
     m_wAxes.setUnset(true);
     m_wAxes.setOwner(this);
@@ -152,6 +165,15 @@ const List_IfcGridAxis_1_n &IfcGrid::getUAxes() const {
     return deConstObject->getUAxes();
 }
 
+void IfcGrid::unsetUAxes() {
+    m_uAxes.clear();
+    m_uAxes.setUnset(true);
+}
+
+bool IfcGrid::testUAxes() const {
+    return !Step::isUnset(getUAxes());
+}
+
 List_IfcGridAxis_1_n &IfcGrid::getVAxes() {
     if (Step::BaseObject::inited()) {
         return m_vAxes;
@@ -165,6 +187,15 @@ List_IfcGridAxis_1_n &IfcGrid::getVAxes() {
 const List_IfcGridAxis_1_n &IfcGrid::getVAxes() const {
     IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
     return deConstObject->getVAxes();
+}
+
+void IfcGrid::unsetVAxes() {
+    m_vAxes.clear();
+    m_vAxes.setUnset(true);
+}
+
+bool IfcGrid::testVAxes() const {
+    return !Step::isUnset(getVAxes());
 }
 
 List_IfcGridAxis_1_n &IfcGrid::getWAxes() {
@@ -182,6 +213,15 @@ const List_IfcGridAxis_1_n &IfcGrid::getWAxes() const {
     return deConstObject->getWAxes();
 }
 
+void IfcGrid::unsetWAxes() {
+    m_wAxes.clear();
+    m_wAxes.setUnset(true);
+}
+
+bool IfcGrid::testWAxes() const {
+    return !Step::isUnset(getWAxes());
+}
+
 Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
@@ -195,6 +235,10 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStruct
 const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() const {
     IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
     return deConstObject->getContainedInStructure();
+}
+
+bool IfcGrid::testContainedInStructure() const {
+    return !Step::isUnset(getContainedInStructure());
 }
 
 bool IfcGrid::init() {

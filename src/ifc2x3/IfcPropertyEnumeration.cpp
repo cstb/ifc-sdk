@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyEnumeration::IfcPropertyEnumeration(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcPropertyEnumeration::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcPropertyEnumeration::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcPropertyEnumeration::testName() const {
+    return !Step::isUnset(getName());
+}
+
 List_IfcValue_1_n &IfcPropertyEnumeration::getEnumerationValues() {
     if (Step::BaseObject::inited()) {
         return m_enumerationValues;
@@ -111,6 +116,15 @@ void IfcPropertyEnumeration::setEnumerationValues(const List_IfcValue_1_n &value
     m_enumerationValues = value;
 }
 
+void IfcPropertyEnumeration::unsetEnumerationValues() {
+    m_enumerationValues.clear();
+    m_enumerationValues.setUnset(true);
+}
+
+bool IfcPropertyEnumeration::testEnumerationValues() const {
+    return !Step::isUnset(getEnumerationValues());
+}
+
 IfcUnit *IfcPropertyEnumeration::getUnit() {
     if (Step::BaseObject::inited()) {
         return m_unit.get();
@@ -127,6 +141,14 @@ const IfcUnit *IfcPropertyEnumeration::getUnit() const {
 
 void IfcPropertyEnumeration::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
+}
+
+void IfcPropertyEnumeration::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcPropertyEnumeration::testUnit() const {
+    return !Step::isUnset(getUnit());
 }
 
 bool IfcPropertyEnumeration::init() {

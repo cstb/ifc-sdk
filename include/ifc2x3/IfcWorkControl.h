@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcDateTimeSelect;
 
     /**
+     * Generated class for the IfcWorkControl Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcWorkControl : public IfcControl {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setIdentifier(const IfcIdentifier &value);
         /**
+         * unset the attribute 'Identifier'.
+         * 
+         */
+        virtual void unsetIdentifier();
+        /**
+         * Test if the attribute 'Identifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIdentifier() const;
+        /**
          * Gets the value of the explicit attribute 'CreationDate'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'CreationDate'.
+         * 
+         */
+        virtual void unsetCreationDate();
+        /**
+         * Test if the attribute 'CreationDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreationDate() const;
         /**
          * Gets the value of the explicit attribute 'Creators'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setCreators(const Set_IfcPerson_1_n &value);
         /**
+         * unset the attribute 'Creators'.
+         * 
+         */
+        virtual void unsetCreators();
+        /**
+         * Test if the attribute 'Creators' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreators() const;
+        /**
          * Gets the value of the explicit attribute 'Purpose'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPurpose(const IfcLabel &value);
+        /**
+         * unset the attribute 'Purpose'.
+         * 
+         */
+        virtual void unsetPurpose();
+        /**
+         * Test if the attribute 'Purpose' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPurpose() const;
         /**
          * Gets the value of the explicit attribute 'Duration'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setDuration(IfcTimeMeasure value);
         /**
+         * unset the attribute 'Duration'.
+         * 
+         */
+        virtual void unsetDuration();
+        /**
+         * Test if the attribute 'Duration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDuration() const;
+        /**
          * Gets the value of the explicit attribute 'TotalFloat'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTotalFloat(IfcTimeMeasure value);
+        /**
+         * unset the attribute 'TotalFloat'.
+         * 
+         */
+        virtual void unsetTotalFloat();
+        /**
+         * Test if the attribute 'TotalFloat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTotalFloat() const;
         /**
          * Gets the value of the explicit attribute 'StartTime'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'StartTime'.
+         * 
+         */
+        virtual void unsetStartTime();
+        /**
+         * Test if the attribute 'StartTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStartTime() const;
+        /**
          * Gets the value of the explicit attribute 'FinishTime'.
          * 
          */
@@ -209,6 +288,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'FinishTime'.
+         * 
+         */
+        virtual void unsetFinishTime();
+        /**
+         * Test if the attribute 'FinishTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFinishTime() const;
         /**
          * Gets the value of the explicit attribute 'WorkControlType'.
          * 
@@ -227,6 +317,17 @@ namespace ifc2x3 {
          */
         virtual void setWorkControlType(IfcWorkControlTypeEnum value);
         /**
+         * unset the attribute 'WorkControlType'.
+         * 
+         */
+        virtual void unsetWorkControlType();
+        /**
+         * Test if the attribute 'WorkControlType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWorkControlType() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedControlType'.
          * 
          */
@@ -243,6 +344,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedControlType(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedControlType'.
+         * 
+         */
+        virtual void unsetUserDefinedControlType();
+        /**
+         * Test if the attribute 'UserDefinedControlType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedControlType() const;
         friend class ExpressDataSet;
 
     protected:

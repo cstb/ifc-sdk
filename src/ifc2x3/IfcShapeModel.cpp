@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args) : IfcRepresentation(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
 const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const {
     IfcShapeModel * deConstObject = const_cast< IfcShapeModel * > (this);
     return deConstObject->getOfShapeAspect();
+}
+
+bool IfcShapeModel::testOfShapeAspect() const {
+    return !Step::isUnset(getOfShapeAspect());
 }
 
 bool IfcShapeModel::init() {

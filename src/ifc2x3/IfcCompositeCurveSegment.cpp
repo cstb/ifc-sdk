@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -92,6 +89,14 @@ void IfcCompositeCurveSegment::setTransition(IfcTransitionCode value) {
     m_transition = value;
 }
 
+void IfcCompositeCurveSegment::unsetTransition() {
+    m_transition = IfcTransitionCode_UNSET;
+}
+
+bool IfcCompositeCurveSegment::testTransition() const {
+    return getTransition() != IfcTransitionCode_UNSET;
+}
+
 Step::Boolean IfcCompositeCurveSegment::getSameSense() {
     if (Step::BaseObject::inited()) {
         return m_sameSense;
@@ -108,6 +113,14 @@ const Step::Boolean IfcCompositeCurveSegment::getSameSense() const {
 
 void IfcCompositeCurveSegment::setSameSense(Step::Boolean value) {
     m_sameSense = value;
+}
+
+void IfcCompositeCurveSegment::unsetSameSense() {
+    m_sameSense = Step::getUnset(getSameSense());
+}
+
+bool IfcCompositeCurveSegment::testSameSense() const {
+    return !Step::isUnset(getSameSense());
 }
 
 IfcCurve *IfcCompositeCurveSegment::getParentCurve() {
@@ -128,6 +141,14 @@ void IfcCompositeCurveSegment::setParentCurve(const Step::RefPtr< IfcCurve > &va
     m_parentCurve = value;
 }
 
+void IfcCompositeCurveSegment::unsetParentCurve() {
+    m_parentCurve = Step::getUnset(getParentCurve());
+}
+
+bool IfcCompositeCurveSegment::testParentCurve() const {
+    return !Step::isUnset(getParentCurve());
+}
+
 Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
     if (Step::BaseObject::inited()) {
         return m_usingCurves;
@@ -141,6 +162,10 @@ Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
 const Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() const {
     IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
     return deConstObject->getUsingCurves();
+}
+
+bool IfcCompositeCurveSegment::testUsingCurves() const {
+    return !Step::isUnset(getUsingCurves());
 }
 
 bool IfcCompositeCurveSegment::init() {

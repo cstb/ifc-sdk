@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcAnnotationCurveOccurrence.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDimensionCurve Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDimensionCurve : public IfcAnnotationCurveOccurrence {
     public:
@@ -81,6 +83,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'AnnotatedBySymbols'
          */
         virtual const Inverse_Set_IfcTerminatorSymbol_0_2 &getAnnotatedBySymbols() const;
+        /**
+         * Test if the attribute 'AnnotatedBySymbols' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAnnotatedBySymbols() const;
         friend class ExpressDataSet;
         friend class IfcTerminatorSymbol;
 

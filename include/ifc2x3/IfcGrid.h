@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
-#include <stdexcept>
-#include <Step/Referenced.h>
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcProduct.h"
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -47,6 +43,8 @@ namespace ifc2x3 {
     class IfcGridAxis;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcGrid_UAxes_type : public List_IfcGridAxis_1_n {
     public:
@@ -56,29 +54,42 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcGrid *mOwner;
-        /**
-         */
         Inverted_IfcGrid_UAxes_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcGrid *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcGridAxis > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcGrid;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcGrid *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcGrid *owner);
 
     };
 
-    class IfcGrid;
-    class IfcGridAxis;
-
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcGrid_VAxes_type : public List_IfcGridAxis_1_n {
     public:
@@ -88,29 +99,42 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcGrid *mOwner;
-        /**
-         */
         Inverted_IfcGrid_VAxes_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcGrid *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcGridAxis > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcGrid;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcGrid *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcGrid *owner);
 
     };
 
-    class IfcGrid;
-    class IfcGridAxis;
-
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcGrid_WAxes_type : public List_IfcGridAxis_1_n {
     public:
@@ -120,28 +144,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcGrid *mOwner;
-        /**
-         */
         Inverted_IfcGrid_WAxes_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcGrid *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcGridAxis > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcGrid;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcGrid *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcGrid *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcGrid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGrid : public IfcProduct {
     public:
@@ -184,6 +224,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcGridAxis_1_n &getUAxes() const;
         /**
+         * unset the attribute 'UAxes'.
+         * 
+         */
+        virtual void unsetUAxes();
+        /**
+         * Test if the attribute 'UAxes' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUAxes() const;
+        /**
          * Gets the value of the explicit attribute 'VAxes'.
          * 
          */
@@ -194,6 +245,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'VAxes'
          */
         virtual const List_IfcGridAxis_1_n &getVAxes() const;
+        /**
+         * unset the attribute 'VAxes'.
+         * 
+         */
+        virtual void unsetVAxes();
+        /**
+         * Test if the attribute 'VAxes' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVAxes() const;
         /**
          * Gets the value of the explicit attribute 'WAxes'.
          * 
@@ -206,6 +268,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcGridAxis_1_n &getWAxes() const;
         /**
+         * unset the attribute 'WAxes'.
+         * 
+         */
+        virtual void unsetWAxes();
+        /**
+         * Test if the attribute 'WAxes' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWAxes() const;
+        /**
          * Gets the value of the inverse attribute 'ContainedInStructure'.
          * 
          */
@@ -216,6 +289,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ContainedInStructure'
          */
         virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
+        /**
+         * Test if the attribute 'ContainedInStructure' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContainedInStructure() const;
         friend class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type;
         friend class ExpressDataSet;
         friend class IfcRelContainedInSpatialStructure;

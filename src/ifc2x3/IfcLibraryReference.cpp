@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLibraryReference::IfcLibraryReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibr
 const Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibrary() const {
     IfcLibraryReference * deConstObject = const_cast< IfcLibraryReference * > (this);
     return deConstObject->getReferenceIntoLibrary();
+}
+
+bool IfcLibraryReference::testReferenceIntoLibrary() const {
+    return !Step::isUnset(getReferenceIntoLibrary());
 }
 
 bool IfcLibraryReference::init() {

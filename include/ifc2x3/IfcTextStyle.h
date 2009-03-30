@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcTextStyleSelect;
 
     /**
+     * Generated class for the IfcTextStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextStyle : public IfcPresentationStyle {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setTextCharacterAppearance(const Step::RefPtr< IfcCharacterStyleSelect > &value);
         /**
+         * unset the attribute 'TextCharacterAppearance'.
+         * 
+         */
+        virtual void unsetTextCharacterAppearance();
+        /**
+         * Test if the attribute 'TextCharacterAppearance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextCharacterAppearance() const;
+        /**
          * Gets the value of the explicit attribute 'TextStyle'.
          * 
          */
@@ -109,6 +122,17 @@ namespace ifc2x3 {
          */
         virtual void setTextStyle(const Step::RefPtr< IfcTextStyleSelect > &value);
         /**
+         * unset the attribute 'TextStyle'.
+         * 
+         */
+        virtual void unsetTextStyle();
+        /**
+         * Test if the attribute 'TextStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextStyle() const;
+        /**
          * Gets the value of the explicit attribute 'TextFontStyle'.
          * 
          */
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value);
+        /**
+         * unset the attribute 'TextFontStyle'.
+         * 
+         */
+        virtual void unsetTextFontStyle();
+        /**
+         * Test if the attribute 'TextFontStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextFontStyle() const;
         friend class ExpressDataSet;
 
     protected:

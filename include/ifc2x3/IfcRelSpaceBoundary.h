@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcSpace;
 
     /**
+     * Generated class for the IfcRelSpaceBoundary Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelSpaceBoundary : public IfcRelConnects {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingSpace(const Step::RefPtr< IfcSpace > &value);
         /**
+         * unset the attribute 'RelatingSpace'.
+         * 
+         */
+        virtual void unsetRelatingSpace();
+        /**
+         * Test if the attribute 'RelatingSpace' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingSpace() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedBuildingElement'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value);
+        /**
+         * unset the attribute 'RelatedBuildingElement'.
+         * 
+         */
+        virtual void unsetRelatedBuildingElement();
+        /**
+         * Test if the attribute 'RelatedBuildingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedBuildingElement() const;
         /**
          * Gets the value of the explicit attribute 'ConnectionGeometry'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setConnectionGeometry(const Step::RefPtr< IfcConnectionGeometry > &value);
         /**
+         * unset the attribute 'ConnectionGeometry'.
+         * 
+         */
+        virtual void unsetConnectionGeometry();
+        /**
+         * Test if the attribute 'ConnectionGeometry' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectionGeometry() const;
+        /**
          * Gets the value of the explicit attribute 'PhysicalOrVirtualBoundary'.
          * 
          */
@@ -143,6 +178,17 @@ namespace ifc2x3 {
          */
         virtual void setPhysicalOrVirtualBoundary(IfcPhysicalOrVirtualEnum value);
         /**
+         * unset the attribute 'PhysicalOrVirtualBoundary'.
+         * 
+         */
+        virtual void unsetPhysicalOrVirtualBoundary();
+        /**
+         * Test if the attribute 'PhysicalOrVirtualBoundary' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPhysicalOrVirtualBoundary() const;
+        /**
          * Gets the value of the explicit attribute 'InternalOrExternalBoundary'.
          * 
          */
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInternalOrExternalBoundary(IfcInternalOrExternalEnum value);
+        /**
+         * unset the attribute 'InternalOrExternalBoundary'.
+         * 
+         */
+        virtual void unsetInternalOrExternalBoundary();
+        /**
+         * Test if the attribute 'InternalOrExternalBoundary' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInternalOrExternalBoundary() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcReinforcingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcReinforcingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTendon Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTendon : public IfcReinforcingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcTendonTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'NominalDiameter'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setNominalDiameter(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'NominalDiameter'.
+         * 
+         */
+        virtual void unsetNominalDiameter();
+        /**
+         * Test if the attribute 'NominalDiameter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNominalDiameter() const;
         /**
          * Gets the value of the explicit attribute 'CrossSectionArea'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setCrossSectionArea(IfcAreaMeasure value);
         /**
+         * unset the attribute 'CrossSectionArea'.
+         * 
+         */
+        virtual void unsetCrossSectionArea();
+        /**
+         * Test if the attribute 'CrossSectionArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSectionArea() const;
+        /**
          * Gets the value of the explicit attribute 'TensionForce'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTensionForce(IfcForceMeasure value);
+        /**
+         * unset the attribute 'TensionForce'.
+         * 
+         */
+        virtual void unsetTensionForce();
+        /**
+         * Test if the attribute 'TensionForce' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTensionForce() const;
         /**
          * Gets the value of the explicit attribute 'PreStress'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setPreStress(IfcPressureMeasure value);
         /**
+         * unset the attribute 'PreStress'.
+         * 
+         */
+        virtual void unsetPreStress();
+        /**
+         * Test if the attribute 'PreStress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPreStress() const;
+        /**
          * Gets the value of the explicit attribute 'FrictionCoefficient'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFrictionCoefficient(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'FrictionCoefficient'.
+         * 
+         */
+        virtual void unsetFrictionCoefficient();
+        /**
+         * Test if the attribute 'FrictionCoefficient' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFrictionCoefficient() const;
         /**
          * Gets the value of the explicit attribute 'AnchorageSlip'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setAnchorageSlip(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'AnchorageSlip'.
+         * 
+         */
+        virtual void unsetAnchorageSlip();
+        /**
+         * Test if the attribute 'AnchorageSlip' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAnchorageSlip() const;
+        /**
          * Gets the value of the explicit attribute 'MinCurvatureRadius'.
          * 
          */
@@ -206,6 +285,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMinCurvatureRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'MinCurvatureRadius'.
+         * 
+         */
+        virtual void unsetMinCurvatureRadius();
+        /**
+         * Test if the attribute 'MinCurvatureRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinCurvatureRadius() const;
         friend class ExpressDataSet;
 
     protected:

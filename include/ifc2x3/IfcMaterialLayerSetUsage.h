@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcMaterialLayerSet;
 
     /**
+     * Generated class for the IfcMaterialLayerSetUsage Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMaterialLayerSetUsage : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setForLayerSet(const Step::RefPtr< IfcMaterialLayerSet > &value);
         /**
+         * unset the attribute 'ForLayerSet'.
+         * 
+         */
+        virtual void unsetForLayerSet();
+        /**
+         * Test if the attribute 'ForLayerSet' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testForLayerSet() const;
+        /**
          * Gets the value of the explicit attribute 'LayerSetDirection'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLayerSetDirection(IfcLayerSetDirectionEnum value);
+        /**
+         * unset the attribute 'LayerSetDirection'.
+         * 
+         */
+        virtual void unsetLayerSetDirection();
+        /**
+         * Test if the attribute 'LayerSetDirection' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerSetDirection() const;
         /**
          * Gets the value of the explicit attribute 'DirectionSense'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setDirectionSense(IfcDirectionSenseEnum value);
         /**
+         * unset the attribute 'DirectionSense'.
+         * 
+         */
+        virtual void unsetDirectionSense();
+        /**
+         * Test if the attribute 'DirectionSense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDirectionSense() const;
+        /**
          * Gets the value of the explicit attribute 'OffsetFromReferenceLine'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOffsetFromReferenceLine(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'OffsetFromReferenceLine'.
+         * 
+         */
+        virtual void unsetOffsetFromReferenceLine();
+        /**
+         * Test if the attribute 'OffsetFromReferenceLine' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOffsetFromReferenceLine() const;
         friend class ExpressDataSet;
 
     protected:

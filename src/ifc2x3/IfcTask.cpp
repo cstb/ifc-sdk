@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTask::IfcTask(Step::Id id, Step::SPFData *args) : IfcProcess(id, args) {
@@ -89,6 +86,14 @@ void IfcTask::setTaskId(const IfcIdentifier &value) {
     m_taskId = value;
 }
 
+void IfcTask::unsetTaskId() {
+    m_taskId = Step::getUnset(getTaskId());
+}
+
+bool IfcTask::testTaskId() const {
+    return !Step::isUnset(getTaskId());
+}
+
 IfcLabel IfcTask::getStatus() {
     if (Step::BaseObject::inited()) {
         return m_status;
@@ -105,6 +110,14 @@ const IfcLabel IfcTask::getStatus() const {
 
 void IfcTask::setStatus(const IfcLabel &value) {
     m_status = value;
+}
+
+void IfcTask::unsetStatus() {
+    m_status = Step::getUnset(getStatus());
+}
+
+bool IfcTask::testStatus() const {
+    return !Step::isUnset(getStatus());
 }
 
 IfcLabel IfcTask::getWorkMethod() {
@@ -125,6 +138,14 @@ void IfcTask::setWorkMethod(const IfcLabel &value) {
     m_workMethod = value;
 }
 
+void IfcTask::unsetWorkMethod() {
+    m_workMethod = Step::getUnset(getWorkMethod());
+}
+
+bool IfcTask::testWorkMethod() const {
+    return !Step::isUnset(getWorkMethod());
+}
+
 Step::Boolean IfcTask::getIsMilestone() {
     if (Step::BaseObject::inited()) {
         return m_isMilestone;
@@ -143,6 +164,14 @@ void IfcTask::setIsMilestone(Step::Boolean value) {
     m_isMilestone = value;
 }
 
+void IfcTask::unsetIsMilestone() {
+    m_isMilestone = Step::getUnset(getIsMilestone());
+}
+
+bool IfcTask::testIsMilestone() const {
+    return !Step::isUnset(getIsMilestone());
+}
+
 Step::Integer IfcTask::getPriority() {
     if (Step::BaseObject::inited()) {
         return m_priority;
@@ -159,6 +188,14 @@ const Step::Integer IfcTask::getPriority() const {
 
 void IfcTask::setPriority(Step::Integer value) {
     m_priority = value;
+}
+
+void IfcTask::unsetPriority() {
+    m_priority = Step::getUnset(getPriority());
+}
+
+bool IfcTask::testPriority() const {
+    return !Step::isUnset(getPriority());
 }
 
 bool IfcTask::init() {

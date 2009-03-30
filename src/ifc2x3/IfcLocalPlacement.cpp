@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLocalPlacement::IfcLocalPlacement(Step::Id id, Step::SPFData *args) : IfcObjectPlacement(id, args) {
@@ -96,6 +93,14 @@ void IfcLocalPlacement::setPlacementRelTo(const Step::RefPtr< IfcObjectPlacement
     m_placementRelTo = value;
 }
 
+void IfcLocalPlacement::unsetPlacementRelTo() {
+    m_placementRelTo = Step::getUnset(getPlacementRelTo());
+}
+
+bool IfcLocalPlacement::testPlacementRelTo() const {
+    return !Step::isUnset(getPlacementRelTo());
+}
+
 IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() {
     if (Step::BaseObject::inited()) {
         return m_relativePlacement.get();
@@ -112,6 +117,14 @@ const IfcAxis2Placement *IfcLocalPlacement::getRelativePlacement() const {
 
 void IfcLocalPlacement::setRelativePlacement(const Step::RefPtr< IfcAxis2Placement > &value) {
     m_relativePlacement = value;
+}
+
+void IfcLocalPlacement::unsetRelativePlacement() {
+    m_relativePlacement = Step::getUnset(getRelativePlacement());
+}
+
+bool IfcLocalPlacement::testRelativePlacement() const {
+    return !Step::isUnset(getRelativePlacement());
 }
 
 bool IfcLocalPlacement::init() {

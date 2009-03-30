@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcTask.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcTask.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSpatialStructureElement;
 
     /**
+     * Generated class for the IfcMove Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMove : public IfcTask {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setMoveFrom(const Step::RefPtr< IfcSpatialStructureElement > &value);
         /**
+         * unset the attribute 'MoveFrom'.
+         * 
+         */
+        virtual void unsetMoveFrom();
+        /**
+         * Test if the attribute 'MoveFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMoveFrom() const;
+        /**
          * Gets the value of the explicit attribute 'MoveTo'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setMoveTo(const Step::RefPtr< IfcSpatialStructureElement > &value);
         /**
+         * unset the attribute 'MoveTo'.
+         * 
+         */
+        virtual void unsetMoveTo();
+        /**
+         * Test if the attribute 'MoveTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMoveTo() const;
+        /**
          * Gets the value of the explicit attribute 'PunchList'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPunchList(const List_IfcText_1_n &value);
+        /**
+         * unset the attribute 'PunchList'.
+         * 
+         */
+        virtual void unsetPunchList();
+        /**
+         * Test if the attribute 'PunchList' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPunchList() const;
         friend class ExpressDataSet;
 
     protected:

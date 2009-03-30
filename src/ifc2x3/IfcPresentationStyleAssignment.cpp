@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPresentationStyleAssignment::IfcPresentationStyleAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -87,6 +84,15 @@ const Set_IfcPresentationStyleSelect_1_n &IfcPresentationStyleAssignment::getSty
 
 void IfcPresentationStyleAssignment::setStyles(const Set_IfcPresentationStyleSelect_1_n &value) {
     m_styles = value;
+}
+
+void IfcPresentationStyleAssignment::unsetStyles() {
+    m_styles.clear();
+    m_styles.setUnset(true);
+}
+
+bool IfcPresentationStyleAssignment::testStyles() const {
+    return !Step::isUnset(getStyles());
 }
 
 bool IfcPresentationStyleAssignment::init() {

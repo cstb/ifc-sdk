@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcAppliedValueRelationship_Components_type::Inverted_IfcAppliedValueRelationship_Components_type() {
@@ -64,9 +61,14 @@ Inverted_IfcAppliedValueRelationship_Components_type::size_type Inverted_IfcAppl
     return Set_IfcAppliedValue_1_n::erase(value);
 }
 
+void Inverted_IfcAppliedValueRelationship_Components_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcAppliedValueRelationship::IfcAppliedValueRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_componentOfTotal = NULL;
-    m_components.setUnset(true);
     m_components.setOwner(this);
     m_arithmeticOperator = IfcArithmeticOperatorEnum_UNSET;
     m_name = Step::getUnset(m_name);
@@ -120,6 +122,14 @@ void IfcAppliedValueRelationship::setComponentOfTotal(const Step::RefPtr< IfcApp
     m_componentOfTotal = value;
 }
 
+void IfcAppliedValueRelationship::unsetComponentOfTotal() {
+    m_componentOfTotal = Step::getUnset(getComponentOfTotal());
+}
+
+bool IfcAppliedValueRelationship::testComponentOfTotal() const {
+    return !Step::isUnset(getComponentOfTotal());
+}
+
 Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() {
     if (Step::BaseObject::inited()) {
         return m_components;
@@ -133,6 +143,15 @@ Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() {
 const Set_IfcAppliedValue_1_n &IfcAppliedValueRelationship::getComponents() const {
     IfcAppliedValueRelationship * deConstObject = const_cast< IfcAppliedValueRelationship * > (this);
     return deConstObject->getComponents();
+}
+
+void IfcAppliedValueRelationship::unsetComponents() {
+    m_components.clear();
+    m_components.setUnset(true);
+}
+
+bool IfcAppliedValueRelationship::testComponents() const {
+    return !Step::isUnset(getComponents());
 }
 
 IfcArithmeticOperatorEnum IfcAppliedValueRelationship::getArithmeticOperator() {
@@ -153,6 +172,14 @@ void IfcAppliedValueRelationship::setArithmeticOperator(IfcArithmeticOperatorEnu
     m_arithmeticOperator = value;
 }
 
+void IfcAppliedValueRelationship::unsetArithmeticOperator() {
+    m_arithmeticOperator = IfcArithmeticOperatorEnum_UNSET;
+}
+
+bool IfcAppliedValueRelationship::testArithmeticOperator() const {
+    return getArithmeticOperator() != IfcArithmeticOperatorEnum_UNSET;
+}
+
 IfcLabel IfcAppliedValueRelationship::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -171,6 +198,14 @@ void IfcAppliedValueRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcAppliedValueRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcAppliedValueRelationship::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcAppliedValueRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -187,6 +222,14 @@ const IfcText IfcAppliedValueRelationship::getDescription() const {
 
 void IfcAppliedValueRelationship::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcAppliedValueRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcAppliedValueRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 bool IfcAppliedValueRelationship::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextLiteralWithExtent::IfcTextLiteralWithExtent(Step::Id id, Step::SPFData *args) : IfcTextLiteral(id, args) {
@@ -90,6 +87,14 @@ void IfcTextLiteralWithExtent::setExtent(const Step::RefPtr< IfcPlanarExtent > &
     m_extent = value;
 }
 
+void IfcTextLiteralWithExtent::unsetExtent() {
+    m_extent = Step::getUnset(getExtent());
+}
+
+bool IfcTextLiteralWithExtent::testExtent() const {
+    return !Step::isUnset(getExtent());
+}
+
 IfcBoxAlignment IfcTextLiteralWithExtent::getBoxAlignment() {
     if (Step::BaseObject::inited()) {
         return m_boxAlignment;
@@ -106,6 +111,14 @@ const IfcBoxAlignment IfcTextLiteralWithExtent::getBoxAlignment() const {
 
 void IfcTextLiteralWithExtent::setBoxAlignment(const IfcBoxAlignment &value) {
     m_boxAlignment = value;
+}
+
+void IfcTextLiteralWithExtent::unsetBoxAlignment() {
+    m_boxAlignment = Step::getUnset(getBoxAlignment());
+}
+
+bool IfcTextLiteralWithExtent::testBoxAlignment() const {
+    return !Step::isUnset(getBoxAlignment());
 }
 
 bool IfcTextLiteralWithExtent::init() {

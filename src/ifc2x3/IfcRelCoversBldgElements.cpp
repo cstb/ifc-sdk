@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::Inverted_IfcRelCoversBldgElements_RelatedCoverings_type() {
@@ -64,9 +61,14 @@ Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::size_type Inverted_IfcR
     return Set_IfcCovering_1_n::erase(value);
 }
 
+void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelCoversBldgElements::IfcRelCoversBldgElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatingBuildingElement = NULL;
-    m_relatedCoverings.setUnset(true);
     m_relatedCoverings.setOwner(this);
 }
 
@@ -117,6 +119,14 @@ void IfcRelCoversBldgElements::setRelatingBuildingElement(const Step::RefPtr< If
     m_relatingBuildingElement = value;
 }
 
+void IfcRelCoversBldgElements::unsetRelatingBuildingElement() {
+    m_relatingBuildingElement = Step::getUnset(getRelatingBuildingElement());
+}
+
+bool IfcRelCoversBldgElements::testRelatingBuildingElement() const {
+    return !Step::isUnset(getRelatingBuildingElement());
+}
+
 Set_IfcCovering_1_n &IfcRelCoversBldgElements::getRelatedCoverings() {
     if (Step::BaseObject::inited()) {
         return m_relatedCoverings;
@@ -130,6 +140,15 @@ Set_IfcCovering_1_n &IfcRelCoversBldgElements::getRelatedCoverings() {
 const Set_IfcCovering_1_n &IfcRelCoversBldgElements::getRelatedCoverings() const {
     IfcRelCoversBldgElements * deConstObject = const_cast< IfcRelCoversBldgElements * > (this);
     return deConstObject->getRelatedCoverings();
+}
+
+void IfcRelCoversBldgElements::unsetRelatedCoverings() {
+    m_relatedCoverings.clear();
+    m_relatedCoverings.setUnset(true);
+}
+
+bool IfcRelCoversBldgElements::testRelatedCoverings() const {
+    return !Step::isUnset(getRelatedCoverings());
 }
 
 bool IfcRelCoversBldgElements::init() {

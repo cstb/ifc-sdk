@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcQuantityArea::IfcQuantityArea(Step::Id id, Step::SPFData *args) : IfcPhysicalSimpleQuantity(id, args) {
@@ -82,6 +79,14 @@ const IfcAreaMeasure IfcQuantityArea::getAreaValue() const {
 
 void IfcQuantityArea::setAreaValue(IfcAreaMeasure value) {
     m_areaValue = value;
+}
+
+void IfcQuantityArea::unsetAreaValue() {
+    m_areaValue = Step::getUnset(getAreaValue());
+}
+
+bool IfcQuantityArea::testAreaValue() const {
+    return !Step::isUnset(getAreaValue());
 }
 
 bool IfcQuantityArea::init() {

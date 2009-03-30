@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::Inverted_IfcOrganizationRelationship_RelatedOrganizations_type() {
@@ -64,11 +61,16 @@ Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::size_type Invert
     return Set_IfcOrganization_1_n::erase(value);
 }
 
+void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcOrganizationRelationship::IfcOrganizationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
     m_relatingOrganization = NULL;
-    m_relatedOrganizations.setUnset(true);
     m_relatedOrganizations.setOwner(this);
 }
 
@@ -113,6 +115,14 @@ void IfcOrganizationRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcOrganizationRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcOrganizationRelationship::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcOrganizationRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -129,6 +139,14 @@ const IfcText IfcOrganizationRelationship::getDescription() const {
 
 void IfcOrganizationRelationship::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcOrganizationRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcOrganizationRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization() {
@@ -155,6 +173,14 @@ void IfcOrganizationRelationship::setRelatingOrganization(const Step::RefPtr< If
     m_relatingOrganization = value;
 }
 
+void IfcOrganizationRelationship::unsetRelatingOrganization() {
+    m_relatingOrganization = Step::getUnset(getRelatingOrganization());
+}
+
+bool IfcOrganizationRelationship::testRelatingOrganization() const {
+    return !Step::isUnset(getRelatingOrganization());
+}
+
 Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() {
     if (Step::BaseObject::inited()) {
         return m_relatedOrganizations;
@@ -168,6 +194,15 @@ Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() 
 const Set_IfcOrganization_1_n &IfcOrganizationRelationship::getRelatedOrganizations() const {
     IfcOrganizationRelationship * deConstObject = const_cast< IfcOrganizationRelationship * > (this);
     return deConstObject->getRelatedOrganizations();
+}
+
+void IfcOrganizationRelationship::unsetRelatedOrganizations() {
+    m_relatedOrganizations.clear();
+    m_relatedOrganizations.setUnset(true);
+}
+
+bool IfcOrganizationRelationship::testRelatedOrganizations() const {
+    return !Step::isUnset(getRelatedOrganizations());
 }
 
 bool IfcOrganizationRelationship::init() {

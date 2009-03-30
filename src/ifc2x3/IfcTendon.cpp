@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTendon::IfcTendon(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
@@ -91,6 +88,14 @@ void IfcTendon::setPredefinedType(IfcTendonTypeEnum value) {
     m_predefinedType = value;
 }
 
+void IfcTendon::unsetPredefinedType() {
+    m_predefinedType = IfcTendonTypeEnum_UNSET;
+}
+
+bool IfcTendon::testPredefinedType() const {
+    return getPredefinedType() != IfcTendonTypeEnum_UNSET;
+}
+
 IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() {
     if (Step::BaseObject::inited()) {
         return m_nominalDiameter;
@@ -107,6 +112,14 @@ const IfcPositiveLengthMeasure IfcTendon::getNominalDiameter() const {
 
 void IfcTendon::setNominalDiameter(IfcPositiveLengthMeasure value) {
     m_nominalDiameter = value;
+}
+
+void IfcTendon::unsetNominalDiameter() {
+    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+}
+
+bool IfcTendon::testNominalDiameter() const {
+    return !Step::isUnset(getNominalDiameter());
 }
 
 IfcAreaMeasure IfcTendon::getCrossSectionArea() {
@@ -127,6 +140,14 @@ void IfcTendon::setCrossSectionArea(IfcAreaMeasure value) {
     m_crossSectionArea = value;
 }
 
+void IfcTendon::unsetCrossSectionArea() {
+    m_crossSectionArea = Step::getUnset(getCrossSectionArea());
+}
+
+bool IfcTendon::testCrossSectionArea() const {
+    return !Step::isUnset(getCrossSectionArea());
+}
+
 IfcForceMeasure IfcTendon::getTensionForce() {
     if (Step::BaseObject::inited()) {
         return m_tensionForce;
@@ -143,6 +164,14 @@ const IfcForceMeasure IfcTendon::getTensionForce() const {
 
 void IfcTendon::setTensionForce(IfcForceMeasure value) {
     m_tensionForce = value;
+}
+
+void IfcTendon::unsetTensionForce() {
+    m_tensionForce = Step::getUnset(getTensionForce());
+}
+
+bool IfcTendon::testTensionForce() const {
+    return !Step::isUnset(getTensionForce());
 }
 
 IfcPressureMeasure IfcTendon::getPreStress() {
@@ -163,6 +192,14 @@ void IfcTendon::setPreStress(IfcPressureMeasure value) {
     m_preStress = value;
 }
 
+void IfcTendon::unsetPreStress() {
+    m_preStress = Step::getUnset(getPreStress());
+}
+
+bool IfcTendon::testPreStress() const {
+    return !Step::isUnset(getPreStress());
+}
+
 IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() {
     if (Step::BaseObject::inited()) {
         return m_frictionCoefficient;
@@ -179,6 +216,14 @@ const IfcNormalisedRatioMeasure IfcTendon::getFrictionCoefficient() const {
 
 void IfcTendon::setFrictionCoefficient(IfcNormalisedRatioMeasure value) {
     m_frictionCoefficient = value;
+}
+
+void IfcTendon::unsetFrictionCoefficient() {
+    m_frictionCoefficient = Step::getUnset(getFrictionCoefficient());
+}
+
+bool IfcTendon::testFrictionCoefficient() const {
+    return !Step::isUnset(getFrictionCoefficient());
 }
 
 IfcPositiveLengthMeasure IfcTendon::getAnchorageSlip() {
@@ -199,6 +244,14 @@ void IfcTendon::setAnchorageSlip(IfcPositiveLengthMeasure value) {
     m_anchorageSlip = value;
 }
 
+void IfcTendon::unsetAnchorageSlip() {
+    m_anchorageSlip = Step::getUnset(getAnchorageSlip());
+}
+
+bool IfcTendon::testAnchorageSlip() const {
+    return !Step::isUnset(getAnchorageSlip());
+}
+
 IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() {
     if (Step::BaseObject::inited()) {
         return m_minCurvatureRadius;
@@ -215,6 +268,14 @@ const IfcPositiveLengthMeasure IfcTendon::getMinCurvatureRadius() const {
 
 void IfcTendon::setMinCurvatureRadius(IfcPositiveLengthMeasure value) {
     m_minCurvatureRadius = value;
+}
+
+void IfcTendon::unsetMinCurvatureRadius() {
+    m_minCurvatureRadius = Step::getUnset(getMinCurvatureRadius());
+}
+
+bool IfcTendon::testMinCurvatureRadius() const {
+    return !Step::isUnset(getMinCurvatureRadius());
 }
 
 bool IfcTendon::init() {

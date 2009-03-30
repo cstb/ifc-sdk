@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcApprovalPropertyRelationship::IfcApprovalPropertyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,15 @@ void IfcApprovalPropertyRelationship::setApprovedProperties(const Set_IfcPropert
     m_approvedProperties = value;
 }
 
+void IfcApprovalPropertyRelationship::unsetApprovedProperties() {
+    m_approvedProperties.clear();
+    m_approvedProperties.setUnset(true);
+}
+
+bool IfcApprovalPropertyRelationship::testApprovedProperties() const {
+    return !Step::isUnset(getApprovedProperties());
+}
+
 IfcApproval *IfcApprovalPropertyRelationship::getApproval() {
     if (Step::BaseObject::inited()) {
         return m_approval.get();
@@ -106,6 +112,14 @@ const IfcApproval *IfcApprovalPropertyRelationship::getApproval() const {
 
 void IfcApprovalPropertyRelationship::setApproval(const Step::RefPtr< IfcApproval > &value) {
     m_approval = value;
+}
+
+void IfcApprovalPropertyRelationship::unsetApproval() {
+    m_approval = Step::getUnset(getApproval());
+}
+
+bool IfcApprovalPropertyRelationship::testApproval() const {
+    return !Step::isUnset(getApproval());
 }
 
 bool IfcApprovalPropertyRelationship::init() {

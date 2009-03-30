@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMechanicalConcreteMaterialProperties::IfcMechanicalConcreteMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMechanicalMaterialProperties(id, args) {
@@ -90,6 +87,14 @@ void IfcMechanicalConcreteMaterialProperties::setCompressiveStrength(IfcPressure
     m_compressiveStrength = value;
 }
 
+void IfcMechanicalConcreteMaterialProperties::unsetCompressiveStrength() {
+    m_compressiveStrength = Step::getUnset(getCompressiveStrength());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testCompressiveStrength() const {
+    return !Step::isUnset(getCompressiveStrength());
+}
+
 IfcPositiveLengthMeasure IfcMechanicalConcreteMaterialProperties::getMaxAggregateSize() {
     if (Step::BaseObject::inited()) {
         return m_maxAggregateSize;
@@ -106,6 +111,14 @@ const IfcPositiveLengthMeasure IfcMechanicalConcreteMaterialProperties::getMaxAg
 
 void IfcMechanicalConcreteMaterialProperties::setMaxAggregateSize(IfcPositiveLengthMeasure value) {
     m_maxAggregateSize = value;
+}
+
+void IfcMechanicalConcreteMaterialProperties::unsetMaxAggregateSize() {
+    m_maxAggregateSize = Step::getUnset(getMaxAggregateSize());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testMaxAggregateSize() const {
+    return !Step::isUnset(getMaxAggregateSize());
 }
 
 IfcText IfcMechanicalConcreteMaterialProperties::getAdmixturesDescription() {
@@ -126,6 +139,14 @@ void IfcMechanicalConcreteMaterialProperties::setAdmixturesDescription(const Ifc
     m_admixturesDescription = value;
 }
 
+void IfcMechanicalConcreteMaterialProperties::unsetAdmixturesDescription() {
+    m_admixturesDescription = Step::getUnset(getAdmixturesDescription());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testAdmixturesDescription() const {
+    return !Step::isUnset(getAdmixturesDescription());
+}
+
 IfcText IfcMechanicalConcreteMaterialProperties::getWorkability() {
     if (Step::BaseObject::inited()) {
         return m_workability;
@@ -142,6 +163,14 @@ const IfcText IfcMechanicalConcreteMaterialProperties::getWorkability() const {
 
 void IfcMechanicalConcreteMaterialProperties::setWorkability(const IfcText &value) {
     m_workability = value;
+}
+
+void IfcMechanicalConcreteMaterialProperties::unsetWorkability() {
+    m_workability = Step::getUnset(getWorkability());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testWorkability() const {
+    return !Step::isUnset(getWorkability());
 }
 
 IfcNormalisedRatioMeasure IfcMechanicalConcreteMaterialProperties::getProtectivePoreRatio() {
@@ -162,6 +191,14 @@ void IfcMechanicalConcreteMaterialProperties::setProtectivePoreRatio(IfcNormalis
     m_protectivePoreRatio = value;
 }
 
+void IfcMechanicalConcreteMaterialProperties::unsetProtectivePoreRatio() {
+    m_protectivePoreRatio = Step::getUnset(getProtectivePoreRatio());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testProtectivePoreRatio() const {
+    return !Step::isUnset(getProtectivePoreRatio());
+}
+
 IfcText IfcMechanicalConcreteMaterialProperties::getWaterImpermeability() {
     if (Step::BaseObject::inited()) {
         return m_waterImpermeability;
@@ -178,6 +215,14 @@ const IfcText IfcMechanicalConcreteMaterialProperties::getWaterImpermeability() 
 
 void IfcMechanicalConcreteMaterialProperties::setWaterImpermeability(const IfcText &value) {
     m_waterImpermeability = value;
+}
+
+void IfcMechanicalConcreteMaterialProperties::unsetWaterImpermeability() {
+    m_waterImpermeability = Step::getUnset(getWaterImpermeability());
+}
+
+bool IfcMechanicalConcreteMaterialProperties::testWaterImpermeability() const {
+    return !Step::isUnset(getWaterImpermeability());
 }
 
 bool IfcMechanicalConcreteMaterialProperties::init() {

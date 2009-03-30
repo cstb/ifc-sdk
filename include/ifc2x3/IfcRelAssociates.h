@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
 #include "ifc2x3/IfcRelationship.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcRoot;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelAssociates_RelatedObjects_type : public Set_IfcRoot_1_n {
     public:
@@ -52,28 +54,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelAssociates *mOwner;
-        /**
-         */
         Inverted_IfcRelAssociates_RelatedObjects_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelAssociates *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcRoot > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcRoot > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelAssociates;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelAssociates *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelAssociates *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRelAssociates Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelAssociates : public IfcRelationship {
     public:
@@ -115,6 +133,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedObjects'
          */
         virtual const Set_IfcRoot_1_n &getRelatedObjects() const;
+        /**
+         * unset the attribute 'RelatedObjects'.
+         * 
+         */
+        virtual void unsetRelatedObjects();
+        /**
+         * Test if the attribute 'RelatedObjects' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedObjects() const;
         friend class ExpressDataSet;
 
     protected:

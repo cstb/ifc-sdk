@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcElementQuantity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcElementQuantity : public IfcPropertySetDefinition {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setMethodOfMeasurement(const IfcLabel &value);
         /**
+         * unset the attribute 'MethodOfMeasurement'.
+         * 
+         */
+        virtual void unsetMethodOfMeasurement();
+        /**
+         * Test if the attribute 'MethodOfMeasurement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMethodOfMeasurement() const;
+        /**
          * Gets the value of the explicit attribute 'Quantities'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setQuantities(const Set_IfcPhysicalQuantity_1_n &value);
+        /**
+         * unset the attribute 'Quantities'.
+         * 
+         */
+        virtual void unsetQuantities();
+        /**
+         * Test if the attribute 'Quantities' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testQuantities() const;
         friend class ExpressDataSet;
 
     protected:

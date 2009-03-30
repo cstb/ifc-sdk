@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProductsOfCombustionProperties::IfcProductsOfCombustionProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -87,6 +84,14 @@ void IfcProductsOfCombustionProperties::setSpecificHeatCapacity(IfcSpecificHeatC
     m_specificHeatCapacity = value;
 }
 
+void IfcProductsOfCombustionProperties::unsetSpecificHeatCapacity() {
+    m_specificHeatCapacity = Step::getUnset(getSpecificHeatCapacity());
+}
+
+bool IfcProductsOfCombustionProperties::testSpecificHeatCapacity() const {
+    return !Step::isUnset(getSpecificHeatCapacity());
+}
+
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getN20Content() {
     if (Step::BaseObject::inited()) {
         return m_n20Content;
@@ -103,6 +108,14 @@ const IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getN20Content()
 
 void IfcProductsOfCombustionProperties::setN20Content(IfcPositiveRatioMeasure value) {
     m_n20Content = value;
+}
+
+void IfcProductsOfCombustionProperties::unsetN20Content() {
+    m_n20Content = Step::getUnset(getN20Content());
+}
+
+bool IfcProductsOfCombustionProperties::testN20Content() const {
+    return !Step::isUnset(getN20Content());
 }
 
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCOContent() {
@@ -123,6 +136,14 @@ void IfcProductsOfCombustionProperties::setCOContent(IfcPositiveRatioMeasure val
     m_cOContent = value;
 }
 
+void IfcProductsOfCombustionProperties::unsetCOContent() {
+    m_cOContent = Step::getUnset(getCOContent());
+}
+
+bool IfcProductsOfCombustionProperties::testCOContent() const {
+    return !Step::isUnset(getCOContent());
+}
+
 IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCO2Content() {
     if (Step::BaseObject::inited()) {
         return m_cO2Content;
@@ -139,6 +160,14 @@ const IfcPositiveRatioMeasure IfcProductsOfCombustionProperties::getCO2Content()
 
 void IfcProductsOfCombustionProperties::setCO2Content(IfcPositiveRatioMeasure value) {
     m_cO2Content = value;
+}
+
+void IfcProductsOfCombustionProperties::unsetCO2Content() {
+    m_cO2Content = Step::getUnset(getCO2Content());
+}
+
+bool IfcProductsOfCombustionProperties::testCO2Content() const {
+    return !Step::isUnset(getCO2Content());
 }
 
 bool IfcProductsOfCombustionProperties::init() {

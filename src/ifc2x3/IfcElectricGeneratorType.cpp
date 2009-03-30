@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElectricGeneratorType::IfcElectricGeneratorType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcElectricGeneratorTypeEnum IfcElectricGeneratorType::getPredefinedType()
 
 void IfcElectricGeneratorType::setPredefinedType(IfcElectricGeneratorTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcElectricGeneratorType::unsetPredefinedType() {
+    m_predefinedType = IfcElectricGeneratorTypeEnum_UNSET;
+}
+
+bool IfcElectricGeneratorType::testPredefinedType() const {
+    return getPredefinedType() != IfcElectricGeneratorTypeEnum_UNSET;
 }
 
 bool IfcElectricGeneratorType::init() {

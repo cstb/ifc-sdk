@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSweptSurface::IfcSweptSurface(Step::Id id, Step::SPFData *args) : IfcSurface(id, args) {
@@ -90,6 +87,14 @@ void IfcSweptSurface::setSweptCurve(const Step::RefPtr< IfcProfileDef > &value) 
     m_sweptCurve = value;
 }
 
+void IfcSweptSurface::unsetSweptCurve() {
+    m_sweptCurve = Step::getUnset(getSweptCurve());
+}
+
+bool IfcSweptSurface::testSweptCurve() const {
+    return !Step::isUnset(getSweptCurve());
+}
+
 IfcAxis2Placement3D *IfcSweptSurface::getPosition() {
     if (Step::BaseObject::inited()) {
         return m_position.get();
@@ -106,6 +111,14 @@ const IfcAxis2Placement3D *IfcSweptSurface::getPosition() const {
 
 void IfcSweptSurface::setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value) {
     m_position = value;
+}
+
+void IfcSweptSurface::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcSweptSurface::testPosition() const {
+    return !Step::isUnset(getPosition());
 }
 
 bool IfcSweptSurface::init() {

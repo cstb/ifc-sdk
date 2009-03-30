@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelAssigns_RelatedObjects_type::Inverted_IfcRelAssigns_RelatedObjects_type() {
@@ -63,8 +60,13 @@ Inverted_IfcRelAssigns_RelatedObjects_type::size_type Inverted_IfcRelAssigns_Rel
     return Set_IfcObjectDefinition_1_n::erase(value);
 }
 
+void Inverted_IfcRelAssigns_RelatedObjects_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelAssigns::IfcRelAssigns(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
-    m_relatedObjects.setUnset(true);
     m_relatedObjects.setOwner(this);
     m_relatedObjectsType = IfcObjectTypeEnum_UNSET;
 }
@@ -107,6 +109,15 @@ const Set_IfcObjectDefinition_1_n &IfcRelAssigns::getRelatedObjects() const {
     return deConstObject->getRelatedObjects();
 }
 
+void IfcRelAssigns::unsetRelatedObjects() {
+    m_relatedObjects.clear();
+    m_relatedObjects.setUnset(true);
+}
+
+bool IfcRelAssigns::testRelatedObjects() const {
+    return !Step::isUnset(getRelatedObjects());
+}
+
 IfcObjectTypeEnum IfcRelAssigns::getRelatedObjectsType() {
     if (Step::BaseObject::inited()) {
         return m_relatedObjectsType;
@@ -123,6 +134,14 @@ const IfcObjectTypeEnum IfcRelAssigns::getRelatedObjectsType() const {
 
 void IfcRelAssigns::setRelatedObjectsType(IfcObjectTypeEnum value) {
     m_relatedObjectsType = value;
+}
+
+void IfcRelAssigns::unsetRelatedObjectsType() {
+    m_relatedObjectsType = IfcObjectTypeEnum_UNSET;
+}
+
+bool IfcRelAssigns::testRelatedObjectsType() const {
+    return getRelatedObjectsType() != IfcObjectTypeEnum_UNSET;
 }
 
 bool IfcRelAssigns::init() {

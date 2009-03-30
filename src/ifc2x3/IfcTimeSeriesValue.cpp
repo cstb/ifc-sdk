@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTimeSeriesValue::IfcTimeSeriesValue(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -88,6 +85,15 @@ const List_IfcValue_1_n &IfcTimeSeriesValue::getListValues() const {
 
 void IfcTimeSeriesValue::setListValues(const List_IfcValue_1_n &value) {
     m_listValues = value;
+}
+
+void IfcTimeSeriesValue::unsetListValues() {
+    m_listValues.clear();
+    m_listValues.setUnset(true);
+}
+
+bool IfcTimeSeriesValue::testListValues() const {
+    return !Step::isUnset(getListValues());
 }
 
 bool IfcTimeSeriesValue::init() {

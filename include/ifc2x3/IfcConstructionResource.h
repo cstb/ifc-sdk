@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcResource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcResource.h"
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcMeasureWithUnit;
 
     /**
+     * Generated class for the IfcConstructionResource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConstructionResource : public IfcResource {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setResourceIdentifier(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ResourceIdentifier'.
+         * 
+         */
+        virtual void unsetResourceIdentifier();
+        /**
+         * Test if the attribute 'ResourceIdentifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResourceIdentifier() const;
+        /**
          * Gets the value of the explicit attribute 'ResourceGroup'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setResourceGroup(const IfcLabel &value);
+        /**
+         * unset the attribute 'ResourceGroup'.
+         * 
+         */
+        virtual void unsetResourceGroup();
+        /**
+         * Test if the attribute 'ResourceGroup' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResourceGroup() const;
         /**
          * Gets the value of the explicit attribute 'ResourceConsumption'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setResourceConsumption(IfcResourceConsumptionEnum value);
         /**
+         * unset the attribute 'ResourceConsumption'.
+         * 
+         */
+        virtual void unsetResourceConsumption();
+        /**
+         * Test if the attribute 'ResourceConsumption' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResourceConsumption() const;
+        /**
          * Gets the value of the explicit attribute 'BaseQuantity'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBaseQuantity(const Step::RefPtr< IfcMeasureWithUnit > &value);
+        /**
+         * unset the attribute 'BaseQuantity'.
+         * 
+         */
+        virtual void unsetBaseQuantity();
+        /**
+         * Test if the attribute 'BaseQuantity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseQuantity() const;
         friend class ExpressDataSet;
 
     protected:

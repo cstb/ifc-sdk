@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFacetedBrepWithVoids::IfcFacetedBrepWithVoids(Step::Id id, Step::SPFData *args) : IfcManifoldSolidBrep(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcClosedShell_1_n &IfcFacetedBrepWithVoids::getVoids() const {
 
 void IfcFacetedBrepWithVoids::setVoids(const Set_IfcClosedShell_1_n &value) {
     m_voids = value;
+}
+
+void IfcFacetedBrepWithVoids::unsetVoids() {
+    m_voids.clear();
+    m_voids.setUnset(true);
+}
+
+bool IfcFacetedBrepWithVoids::testVoids() const {
+    return !Step::isUnset(getVoids());
 }
 
 bool IfcFacetedBrepWithVoids::init() {

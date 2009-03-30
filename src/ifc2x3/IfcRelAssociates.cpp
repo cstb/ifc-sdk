@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelAssociates_RelatedObjects_type::Inverted_IfcRelAssociates_RelatedObjects_type() {
@@ -69,8 +66,13 @@ Inverted_IfcRelAssociates_RelatedObjects_type::size_type Inverted_IfcRelAssociat
     return Set_IfcRoot_1_n::erase(value);
 }
 
+void Inverted_IfcRelAssociates_RelatedObjects_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelAssociates::IfcRelAssociates(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
-    m_relatedObjects.setUnset(true);
     m_relatedObjects.setOwner(this);
 }
 
@@ -110,6 +112,15 @@ Set_IfcRoot_1_n &IfcRelAssociates::getRelatedObjects() {
 const Set_IfcRoot_1_n &IfcRelAssociates::getRelatedObjects() const {
     IfcRelAssociates * deConstObject = const_cast< IfcRelAssociates * > (this);
     return deConstObject->getRelatedObjects();
+}
+
+void IfcRelAssociates::unsetRelatedObjects() {
+    m_relatedObjects.clear();
+    m_relatedObjects.setUnset(true);
+}
+
+bool IfcRelAssociates::testRelatedObjects() const {
+    return !Step::isUnset(getRelatedObjects());
 }
 
 bool IfcRelAssociates::init() {

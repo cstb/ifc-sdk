@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcResource::IfcResource(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() {
 const Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() const {
     IfcResource * deConstObject = const_cast< IfcResource * > (this);
     return deConstObject->getResourceOf();
+}
+
+bool IfcResource::testResourceOf() const {
+    return !Step::isUnset(getResourceOf());
 }
 
 bool IfcResource::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTransformerType::IfcTransformerType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcTransformerTypeEnum IfcTransformerType::getPredefinedType() const {
 
 void IfcTransformerType::setPredefinedType(IfcTransformerTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcTransformerType::unsetPredefinedType() {
+    m_predefinedType = IfcTransformerTypeEnum_UNSET;
+}
+
+bool IfcTransformerType::testPredefinedType() const {
+    return getPredefinedType() != IfcTransformerTypeEnum_UNSET;
 }
 
 bool IfcTransformerType::init() {

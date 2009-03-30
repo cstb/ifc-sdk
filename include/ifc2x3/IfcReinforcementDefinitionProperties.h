@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcReinforcementDefinitionProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcReinforcementDefinitionProperties : public IfcPropertySetDefinition {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setDefinitionType(const IfcLabel &value);
         /**
+         * unset the attribute 'DefinitionType'.
+         * 
+         */
+        virtual void unsetDefinitionType();
+        /**
+         * Test if the attribute 'DefinitionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefinitionType() const;
+        /**
          * Gets the value of the explicit attribute 'ReinforcementSectionDefinitions'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setReinforcementSectionDefinitions(const List_IfcSectionReinforcementProperties_1_n &value);
+        /**
+         * unset the attribute 'ReinforcementSectionDefinitions'.
+         * 
+         */
+        virtual void unsetReinforcementSectionDefinitions();
+        /**
+         * Test if the attribute 'ReinforcementSectionDefinitions' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReinforcementSectionDefinitions() const;
         friend class ExpressDataSet;
 
     protected:

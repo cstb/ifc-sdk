@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLocalTime::IfcLocalTime(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcLocalTime::setHourComponent(IfcHourInDay value) {
     m_hourComponent = value;
 }
 
+void IfcLocalTime::unsetHourComponent() {
+    m_hourComponent = Step::getUnset(getHourComponent());
+}
+
+bool IfcLocalTime::testHourComponent() const {
+    return !Step::isUnset(getHourComponent());
+}
+
 IfcMinuteInHour IfcLocalTime::getMinuteComponent() {
     if (Step::BaseObject::inited()) {
         return m_minuteComponent;
@@ -108,6 +113,14 @@ const IfcMinuteInHour IfcLocalTime::getMinuteComponent() const {
 
 void IfcLocalTime::setMinuteComponent(IfcMinuteInHour value) {
     m_minuteComponent = value;
+}
+
+void IfcLocalTime::unsetMinuteComponent() {
+    m_minuteComponent = Step::getUnset(getMinuteComponent());
+}
+
+bool IfcLocalTime::testMinuteComponent() const {
+    return !Step::isUnset(getMinuteComponent());
 }
 
 IfcSecondInMinute IfcLocalTime::getSecondComponent() {
@@ -128,6 +141,14 @@ void IfcLocalTime::setSecondComponent(IfcSecondInMinute value) {
     m_secondComponent = value;
 }
 
+void IfcLocalTime::unsetSecondComponent() {
+    m_secondComponent = Step::getUnset(getSecondComponent());
+}
+
+bool IfcLocalTime::testSecondComponent() const {
+    return !Step::isUnset(getSecondComponent());
+}
+
 IfcCoordinatedUniversalTimeOffset *IfcLocalTime::getZone() {
     if (Step::BaseObject::inited()) {
         return m_zone.get();
@@ -146,6 +167,14 @@ void IfcLocalTime::setZone(const Step::RefPtr< IfcCoordinatedUniversalTimeOffset
     m_zone = value;
 }
 
+void IfcLocalTime::unsetZone() {
+    m_zone = Step::getUnset(getZone());
+}
+
+bool IfcLocalTime::testZone() const {
+    return !Step::isUnset(getZone());
+}
+
 IfcDaylightSavingHour IfcLocalTime::getDaylightSavingOffset() {
     if (Step::BaseObject::inited()) {
         return m_daylightSavingOffset;
@@ -162,6 +191,14 @@ const IfcDaylightSavingHour IfcLocalTime::getDaylightSavingOffset() const {
 
 void IfcLocalTime::setDaylightSavingOffset(IfcDaylightSavingHour value) {
     m_daylightSavingOffset = value;
+}
+
+void IfcLocalTime::unsetDaylightSavingOffset() {
+    m_daylightSavingOffset = Step::getUnset(getDaylightSavingOffset());
+}
+
+bool IfcLocalTime::testDaylightSavingOffset() const {
+    return !Step::isUnset(getDaylightSavingOffset());
 }
 
 bool IfcLocalTime::init() {

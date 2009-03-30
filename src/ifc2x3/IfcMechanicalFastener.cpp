@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMechanicalFastener::IfcMechanicalFastener(Step::Id id, Step::SPFData *args) : IfcFastener(id, args) {
@@ -85,6 +82,14 @@ void IfcMechanicalFastener::setNominalDiameter(IfcPositiveLengthMeasure value) {
     m_nominalDiameter = value;
 }
 
+void IfcMechanicalFastener::unsetNominalDiameter() {
+    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+}
+
+bool IfcMechanicalFastener::testNominalDiameter() const {
+    return !Step::isUnset(getNominalDiameter());
+}
+
 IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength() {
     if (Step::BaseObject::inited()) {
         return m_nominalLength;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcMechanicalFastener::getNominalLength() const {
 
 void IfcMechanicalFastener::setNominalLength(IfcPositiveLengthMeasure value) {
     m_nominalLength = value;
+}
+
+void IfcMechanicalFastener::unsetNominalLength() {
+    m_nominalLength = Step::getUnset(getNominalLength());
+}
+
+bool IfcMechanicalFastener::testNominalLength() const {
+    return !Step::isUnset(getNominalLength());
 }
 
 bool IfcMechanicalFastener::init() {

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,7 +22,7 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/ClientData.h>
+#include "Step/ClientData.h"
 
 std::string Step::ClientData::s_defaultName = "Unknown ClientData";
 std::string Step::ClientData::s_defaultDesc = "No Description";

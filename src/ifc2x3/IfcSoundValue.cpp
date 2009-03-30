@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSoundValue::IfcSoundValue(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -92,6 +89,14 @@ void IfcSoundValue::setSoundLevelTimeSeries(const Step::RefPtr< IfcTimeSeries > 
     m_soundLevelTimeSeries = value;
 }
 
+void IfcSoundValue::unsetSoundLevelTimeSeries() {
+    m_soundLevelTimeSeries = Step::getUnset(getSoundLevelTimeSeries());
+}
+
+bool IfcSoundValue::testSoundLevelTimeSeries() const {
+    return !Step::isUnset(getSoundLevelTimeSeries());
+}
+
 IfcFrequencyMeasure IfcSoundValue::getFrequency() {
     if (Step::BaseObject::inited()) {
         return m_frequency;
@@ -110,6 +115,14 @@ void IfcSoundValue::setFrequency(IfcFrequencyMeasure value) {
     m_frequency = value;
 }
 
+void IfcSoundValue::unsetFrequency() {
+    m_frequency = Step::getUnset(getFrequency());
+}
+
+bool IfcSoundValue::testFrequency() const {
+    return !Step::isUnset(getFrequency());
+}
+
 IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() {
     if (Step::BaseObject::inited()) {
         return m_soundLevelSingleValue.get();
@@ -126,6 +139,14 @@ const IfcDerivedMeasureValue *IfcSoundValue::getSoundLevelSingleValue() const {
 
 void IfcSoundValue::setSoundLevelSingleValue(const Step::RefPtr< IfcDerivedMeasureValue > &value) {
     m_soundLevelSingleValue = value;
+}
+
+void IfcSoundValue::unsetSoundLevelSingleValue() {
+    m_soundLevelSingleValue = Step::getUnset(getSoundLevelSingleValue());
+}
+
+bool IfcSoundValue::testSoundLevelSingleValue() const {
+    return !Step::isUnset(getSoundLevelSingleValue());
 }
 
 bool IfcSoundValue::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcVirtualGridIntersection;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcVirtualGridIntersection_IntersectingAxes_type : public List_IfcGridAxis_2_2 {
     public:
@@ -52,28 +54,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcVirtualGridIntersection *mOwner;
-        /**
-         */
         Inverted_IfcVirtualGridIntersection_IntersectingAxes_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcVirtualGridIntersection *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcGridAxis > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcVirtualGridIntersection;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcVirtualGridIntersection *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcVirtualGridIntersection *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcVirtualGridIntersection Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcVirtualGridIntersection : public Step::BaseEntity {
     public:
@@ -116,6 +134,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcGridAxis_2_2 &getIntersectingAxes() const;
         /**
+         * unset the attribute 'IntersectingAxes'.
+         * 
+         */
+        virtual void unsetIntersectingAxes();
+        /**
+         * Test if the attribute 'IntersectingAxes' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIntersectingAxes() const;
+        /**
          * Gets the value of the explicit attribute 'OffsetDistances'.
          * 
          */
@@ -132,6 +161,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOffsetDistances(const List_IfcLengthMeasure_2_3 &value);
+        /**
+         * unset the attribute 'OffsetDistances'.
+         * 
+         */
+        virtual void unsetOffsetDistances();
+        /**
+         * Test if the attribute 'OffsetDistances' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOffsetDistances() const;
         friend class ExpressDataSet;
 
     protected:

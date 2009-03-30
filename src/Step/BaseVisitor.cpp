@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,32 +22,32 @@
  *                                                                         *
  ***************************************************************************
 */
+#include "Step/BaseVisitor.h"
+#include "Step/BaseObject.h"
+#include "Step/BaseEntity.h"
+#include "Step/BaseExpressDataSet.h"
+
+#include "Step/logger.h"
+
 #include <iostream>
-#include <Step/BaseVisitor.h>
-#include <Step/BaseObject.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/logger.h>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+using namespace Step;
 
-Step::BaseVisitor::BaseVisitor()
+BaseVisitor::BaseVisitor()
 {
 }
 
-Step::BaseVisitor::~BaseVisitor()
+BaseVisitor::~BaseVisitor()
 {
 }
 
-bool Step::BaseVisitor::visitBaseObject(BaseObject* obj)
+bool BaseVisitor::visitBaseObject(BaseObject* obj)
 {
     LOG_ERROR("Failed to visit BaseObject(" << obj->type() << ")");
     return false;
 }
 
-bool Step::BaseVisitor::visitBaseEntity(BaseEntity* obj)
+bool BaseVisitor::visitBaseEntity(BaseEntity* obj)
 {
     LOG_ERROR("Failed to visit BaseEntity(" << obj->type() << ")");
     return false;

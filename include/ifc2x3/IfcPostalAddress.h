@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcAddress.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcAddress.h"
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPostalAddress Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPostalAddress : public IfcAddress {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setInternalLocation(const IfcLabel &value);
         /**
+         * unset the attribute 'InternalLocation'.
+         * 
+         */
+        virtual void unsetInternalLocation();
+        /**
+         * Test if the attribute 'InternalLocation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInternalLocation() const;
+        /**
          * Gets the value of the explicit attribute 'AddressLines'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAddressLines(const List_IfcLabel_1_n &value);
+        /**
+         * unset the attribute 'AddressLines'.
+         * 
+         */
+        virtual void unsetAddressLines();
+        /**
+         * Test if the attribute 'AddressLines' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAddressLines() const;
         /**
          * Gets the value of the explicit attribute 'PostalBox'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setPostalBox(const IfcLabel &value);
         /**
+         * unset the attribute 'PostalBox'.
+         * 
+         */
+        virtual void unsetPostalBox();
+        /**
+         * Test if the attribute 'PostalBox' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPostalBox() const;
+        /**
          * Gets the value of the explicit attribute 'Town'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTown(const IfcLabel &value);
+        /**
+         * unset the attribute 'Town'.
+         * 
+         */
+        virtual void unsetTown();
+        /**
+         * Test if the attribute 'Town' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTown() const;
         /**
          * Gets the value of the explicit attribute 'Region'.
          * 
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          */
         virtual void setRegion(const IfcLabel &value);
         /**
+         * unset the attribute 'Region'.
+         * 
+         */
+        virtual void unsetRegion();
+        /**
+         * Test if the attribute 'Region' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRegion() const;
+        /**
          * Gets the value of the explicit attribute 'PostalCode'.
          * 
          */
@@ -174,6 +231,17 @@ namespace ifc2x3 {
          */
         virtual void setPostalCode(const IfcLabel &value);
         /**
+         * unset the attribute 'PostalCode'.
+         * 
+         */
+        virtual void unsetPostalCode();
+        /**
+         * Test if the attribute 'PostalCode' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPostalCode() const;
+        /**
          * Gets the value of the explicit attribute 'Country'.
          * 
          */
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCountry(const IfcLabel &value);
+        /**
+         * unset the attribute 'Country'.
+         * 
+         */
+        virtual void unsetCountry();
+        /**
+         * Test if the attribute 'Country' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCountry() const;
         friend class ExpressDataSet;
 
     protected:

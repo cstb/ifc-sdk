@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadSingleDisplacement::IfcStructuralLoadSingleDisplacement(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
@@ -89,6 +86,14 @@ void IfcStructuralLoadSingleDisplacement::setDisplacementX(IfcLengthMeasure valu
     m_displacementX = value;
 }
 
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementX() {
+    m_displacementX = Step::getUnset(getDisplacementX());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testDisplacementX() const {
+    return !Step::isUnset(getDisplacementX());
+}
+
 IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() {
     if (Step::BaseObject::inited()) {
         return m_displacementY;
@@ -105,6 +110,14 @@ const IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementY() c
 
 void IfcStructuralLoadSingleDisplacement::setDisplacementY(IfcLengthMeasure value) {
     m_displacementY = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementY() {
+    m_displacementY = Step::getUnset(getDisplacementY());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testDisplacementY() const {
+    return !Step::isUnset(getDisplacementY());
 }
 
 IfcLengthMeasure IfcStructuralLoadSingleDisplacement::getDisplacementZ() {
@@ -125,6 +138,14 @@ void IfcStructuralLoadSingleDisplacement::setDisplacementZ(IfcLengthMeasure valu
     m_displacementZ = value;
 }
 
+void IfcStructuralLoadSingleDisplacement::unsetDisplacementZ() {
+    m_displacementZ = Step::getUnset(getDisplacementZ());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testDisplacementZ() const {
+    return !Step::isUnset(getDisplacementZ());
+}
+
 IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRX() {
     if (Step::BaseObject::inited()) {
         return m_rotationalDisplacementRX;
@@ -141,6 +162,14 @@ const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDis
 
 void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRX(IfcPlaneAngleMeasure value) {
     m_rotationalDisplacementRX = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRX() {
+    m_rotationalDisplacementRX = Step::getUnset(getRotationalDisplacementRX());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRX() const {
+    return !Step::isUnset(getRotationalDisplacementRX());
 }
 
 IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRY() {
@@ -161,6 +190,14 @@ void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRY(IfcPlaneAn
     m_rotationalDisplacementRY = value;
 }
 
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRY() {
+    m_rotationalDisplacementRY = Step::getUnset(getRotationalDisplacementRY());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRY() const {
+    return !Step::isUnset(getRotationalDisplacementRY());
+}
+
 IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDisplacementRZ() {
     if (Step::BaseObject::inited()) {
         return m_rotationalDisplacementRZ;
@@ -177,6 +214,14 @@ const IfcPlaneAngleMeasure IfcStructuralLoadSingleDisplacement::getRotationalDis
 
 void IfcStructuralLoadSingleDisplacement::setRotationalDisplacementRZ(IfcPlaneAngleMeasure value) {
     m_rotationalDisplacementRZ = value;
+}
+
+void IfcStructuralLoadSingleDisplacement::unsetRotationalDisplacementRZ() {
+    m_rotationalDisplacementRZ = Step::getUnset(getRotationalDisplacementRZ());
+}
+
+bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRZ() const {
+    return !Step::isUnset(getRotationalDisplacementRZ());
 }
 
 bool IfcStructuralLoadSingleDisplacement::init() {

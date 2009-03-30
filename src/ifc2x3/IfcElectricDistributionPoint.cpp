@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElectricDistributionPoint::IfcElectricDistributionPoint(Step::Id id, Step::SPFData *args) : IfcFlowController(id, args) {
@@ -86,6 +83,14 @@ void IfcElectricDistributionPoint::setDistributionPointFunction(IfcElectricDistr
     m_distributionPointFunction = value;
 }
 
+void IfcElectricDistributionPoint::unsetDistributionPointFunction() {
+    m_distributionPointFunction = IfcElectricDistributionPointFunctionEnum_UNSET;
+}
+
+bool IfcElectricDistributionPoint::testDistributionPointFunction() const {
+    return getDistributionPointFunction() != IfcElectricDistributionPointFunctionEnum_UNSET;
+}
+
 IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedFunction;
@@ -102,6 +107,14 @@ const IfcLabel IfcElectricDistributionPoint::getUserDefinedFunction() const {
 
 void IfcElectricDistributionPoint::setUserDefinedFunction(const IfcLabel &value) {
     m_userDefinedFunction = value;
+}
+
+void IfcElectricDistributionPoint::unsetUserDefinedFunction() {
+    m_userDefinedFunction = Step::getUnset(getUserDefinedFunction());
+}
+
+bool IfcElectricDistributionPoint::testUserDefinedFunction() const {
+    return !Step::isUnset(getUserDefinedFunction());
 }
 
 bool IfcElectricDistributionPoint::init() {

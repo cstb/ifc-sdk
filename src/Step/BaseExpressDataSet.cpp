@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,25 +22,21 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/BaseExpressDataSet.h>
-#include <Step/BaseEntity.h>
-#include <Step/BaseSPFObject.h>
-#include <Step/SPFHeader.h>
-#include <Step/SPFData.h>
-#include <Step/RefLinkedList.h>
+#include "Step/BaseExpressDataSet.h"
+#include "Step/BaseEntity.h"
+#include "Step/BaseSPFObject.h"
+#include "Step/SPFHeader.h"
+#include "Step/SPFData.h"
+#include "Step/RefLinkedList.h"
+
+#include "Step/logger.h"
 
 #include <iostream>
-
-#include <Step/logger.h>
-
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 
 using namespace Step;
 
 BaseExpressDataSet::BaseExpressDataSet() :
-        m_maxId(0)
+    m_maxId(0)
 {
 }
 
@@ -69,7 +65,7 @@ SPFHeader& BaseExpressDataSet::getHeader()
 
 void BaseExpressDataSet::setHeader(SPFHeader& header)
 {
-    m_header=header;
+    m_header = header;
 }
 
 Id BaseExpressDataSet::getNewId()
@@ -84,9 +80,9 @@ Id BaseExpressDataSet::maxId()
 
 void BaseExpressDataSet::updateMaxId(Id id)
 {
-    if (id>m_maxId)
+    if (id > m_maxId)
     {
-        m_maxId=id;
+        m_maxId = id;
     }
 }
 
@@ -102,7 +98,7 @@ bool BaseExpressDataSet::registerObject(Id id, BaseEntity* obj)
         else
         {
             //implicit destruction of BaseSPFObject thanks to RefPtr...
-            m_Id2BaseObject[id]->m_args=0;
+            m_Id2BaseObject[id]->m_args = 0;
             m_Id2BaseObject[id] = obj;
             obj->setExpressDataSet(this);
             return true;
@@ -129,7 +125,8 @@ BaseEntity *BaseExpressDataSet::get(Id id)
     else if (it->second->isOfType(BaseSPFObject::getClassType()))
     {
         // Get the appropriate allocate function
-        AllocateFuncType allocFunc =static_cast<BaseSPFObject*>(it->second.get())->getAllocateFunction();
+        AllocateFuncType allocFunc =
+            static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
         // Call it and get the result
         BaseEntity* ret = (*allocFunc)(this, id);
         return ret;
@@ -138,9 +135,8 @@ BaseEntity *BaseExpressDataSet::get(Id id)
         return it->second.get();
 }
 
-const MapOfEntities& BaseExpressDataSet::getAll()
+MapOfEntities& BaseExpressDataSet::getAll()
 {
-    instantiateAll();
     return m_Id2BaseObject;
 }
 
@@ -155,7 +151,7 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
         return bo;
     }
     else
-        return static_cast<BaseSPFObject*>(m_Id2BaseObject[id].get());
+        return static_cast<BaseSPFObject*> (m_Id2BaseObject[id].get());
 }
 
 SPFData* BaseExpressDataSet::getArgs(Id id)
@@ -181,7 +177,9 @@ void BaseExpressDataSet::instantiateAll()
         if (it->second->isOfType(BaseSPFObject::getClassType()))
         {
             // Get the appropriate allocate function
-            AllocateFuncType allocFunc =static_cast<BaseSPFObject*>(it->second.get())->getAllocateFunction();
+            AllocateFuncType
+                    allocFunc =
+                            static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
             // Call it and get the result
             BaseEntity* ret = (*allocFunc)(this, it->first);
 

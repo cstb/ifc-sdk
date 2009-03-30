@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcOrganization;
 
     /**
+     * Generated class for the IfcApplication Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcApplication : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicationDeveloper(const Step::RefPtr< IfcOrganization > &value);
         /**
+         * unset the attribute 'ApplicationDeveloper'.
+         * 
+         */
+        virtual void unsetApplicationDeveloper();
+        /**
+         * Test if the attribute 'ApplicationDeveloper' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicationDeveloper() const;
+        /**
          * Gets the value of the explicit attribute 'Version'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setVersion(const IfcLabel &value);
+        /**
+         * unset the attribute 'Version'.
+         * 
+         */
+        virtual void unsetVersion();
+        /**
+         * Test if the attribute 'Version' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVersion() const;
         /**
          * Gets the value of the explicit attribute 'ApplicationFullName'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicationFullName(const IfcLabel &value);
         /**
+         * unset the attribute 'ApplicationFullName'.
+         * 
+         */
+        virtual void unsetApplicationFullName();
+        /**
+         * Test if the attribute 'ApplicationFullName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicationFullName() const;
+        /**
          * Gets the value of the explicit attribute 'ApplicationIdentifier'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setApplicationIdentifier(const IfcIdentifier &value);
+        /**
+         * unset the attribute 'ApplicationIdentifier'.
+         * 
+         */
+        virtual void unsetApplicationIdentifier();
+        /**
+         * Test if the attribute 'ApplicationIdentifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicationIdentifier() const;
         friend class ExpressDataSet;
 
     protected:

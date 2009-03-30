@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args) : IfcRepresentationContext(id, args) {
@@ -95,6 +92,14 @@ void IfcGeometricRepresentationContext::setCoordinateSpaceDimension(IfcDimension
     m_coordinateSpaceDimension = value;
 }
 
+void IfcGeometricRepresentationContext::unsetCoordinateSpaceDimension() {
+    m_coordinateSpaceDimension = Step::getUnset(getCoordinateSpaceDimension());
+}
+
+bool IfcGeometricRepresentationContext::testCoordinateSpaceDimension() const {
+    return !Step::isUnset(getCoordinateSpaceDimension());
+}
+
 Step::Real IfcGeometricRepresentationContext::getPrecision() {
     if (Step::BaseObject::inited()) {
         return m_precision;
@@ -111,6 +116,14 @@ const Step::Real IfcGeometricRepresentationContext::getPrecision() const {
 
 void IfcGeometricRepresentationContext::setPrecision(Step::Real value) {
     m_precision = value;
+}
+
+void IfcGeometricRepresentationContext::unsetPrecision() {
+    m_precision = Step::getUnset(getPrecision());
+}
+
+bool IfcGeometricRepresentationContext::testPrecision() const {
+    return !Step::isUnset(getPrecision());
 }
 
 IfcAxis2Placement *IfcGeometricRepresentationContext::getWorldCoordinateSystem() {
@@ -131,6 +144,14 @@ void IfcGeometricRepresentationContext::setWorldCoordinateSystem(const Step::Ref
     m_worldCoordinateSystem = value;
 }
 
+void IfcGeometricRepresentationContext::unsetWorldCoordinateSystem() {
+    m_worldCoordinateSystem = Step::getUnset(getWorldCoordinateSystem());
+}
+
+bool IfcGeometricRepresentationContext::testWorldCoordinateSystem() const {
+    return !Step::isUnset(getWorldCoordinateSystem());
+}
+
 IfcDirection *IfcGeometricRepresentationContext::getTrueNorth() {
     if (Step::BaseObject::inited()) {
         return m_trueNorth.get();
@@ -149,6 +170,14 @@ void IfcGeometricRepresentationContext::setTrueNorth(const Step::RefPtr< IfcDire
     m_trueNorth = value;
 }
 
+void IfcGeometricRepresentationContext::unsetTrueNorth() {
+    m_trueNorth = Step::getUnset(getTrueNorth());
+}
+
+bool IfcGeometricRepresentationContext::testTrueNorth() const {
+    return !Step::isUnset(getTrueNorth());
+}
+
 Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() {
     if (Step::BaseObject::inited()) {
         return m_hasSubContexts;
@@ -162,6 +191,10 @@ Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentation
 const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() const {
     IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
     return deConstObject->getHasSubContexts();
+}
+
+bool IfcGeometricRepresentationContext::testHasSubContexts() const {
+    return !Step::isUnset(getHasSubContexts());
 }
 
 bool IfcGeometricRepresentationContext::init() {

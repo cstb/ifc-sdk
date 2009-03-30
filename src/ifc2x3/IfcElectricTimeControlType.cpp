@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElectricTimeControlType::IfcElectricTimeControlType(Step::Id id, Step::SPFData *args) : IfcFlowControllerType(id, args) {
@@ -82,6 +79,14 @@ const IfcElectricTimeControlTypeEnum IfcElectricTimeControlType::getPredefinedTy
 
 void IfcElectricTimeControlType::setPredefinedType(IfcElectricTimeControlTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcElectricTimeControlType::unsetPredefinedType() {
+    m_predefinedType = IfcElectricTimeControlTypeEnum_UNSET;
+}
+
+bool IfcElectricTimeControlType::testPredefinedType() const {
+    return getPredefinedType() != IfcElectricTimeControlTypeEnum_UNSET;
 }
 
 bool IfcElectricTimeControlType::init() {

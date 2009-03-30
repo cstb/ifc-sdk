@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPoint.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcPoint.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCartesianPoint Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCartesianPoint : public IfcPoint {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCoordinates(const List_IfcLengthMeasure_1_3 &value);
+        /**
+         * unset the attribute 'Coordinates'.
+         * 
+         */
+        virtual void unsetCoordinates();
+        /**
+         * Test if the attribute 'Coordinates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCoordinates() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

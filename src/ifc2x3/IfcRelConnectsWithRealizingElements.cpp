@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type() {
@@ -64,8 +61,13 @@ Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::size_type I
     return Set_IfcElement_1_n::erase(value);
 }
 
+void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelConnectsWithRealizingElements::IfcRelConnectsWithRealizingElements(Step::Id id, Step::SPFData *args) : IfcRelConnectsElements(id, args) {
-    m_realizingElements.setUnset(true);
     m_realizingElements.setOwner(this);
     m_connectionType = Step::getUnset(m_connectionType);
 }
@@ -108,6 +110,15 @@ const Set_IfcElement_1_n &IfcRelConnectsWithRealizingElements::getRealizingEleme
     return deConstObject->getRealizingElements();
 }
 
+void IfcRelConnectsWithRealizingElements::unsetRealizingElements() {
+    m_realizingElements.clear();
+    m_realizingElements.setUnset(true);
+}
+
+bool IfcRelConnectsWithRealizingElements::testRealizingElements() const {
+    return !Step::isUnset(getRealizingElements());
+}
+
 IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() {
     if (Step::BaseObject::inited()) {
         return m_connectionType;
@@ -124,6 +135,14 @@ const IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() const {
 
 void IfcRelConnectsWithRealizingElements::setConnectionType(const IfcLabel &value) {
     m_connectionType = value;
+}
+
+void IfcRelConnectsWithRealizingElements::unsetConnectionType() {
+    m_connectionType = Step::getUnset(getConnectionType());
+}
+
+bool IfcRelConnectsWithRealizingElements::testConnectionType() const {
+    return !Step::isUnset(getConnectionType());
 }
 
 bool IfcRelConnectsWithRealizingElements::init() {

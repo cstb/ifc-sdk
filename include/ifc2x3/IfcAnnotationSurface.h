@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcTextureCoordinate;
 
     /**
+     * Generated class for the IfcAnnotationSurface Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAnnotationSurface : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setItem(const Step::RefPtr< IfcGeometricRepresentationItem > &value);
         /**
+         * unset the attribute 'Item'.
+         * 
+         */
+        virtual void unsetItem();
+        /**
+         * Test if the attribute 'Item' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testItem() const;
+        /**
          * Gets the value of the explicit attribute 'TextureCoordinates'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value);
+        /**
+         * unset the attribute 'TextureCoordinates'.
+         * 
+         */
+        virtual void unsetTextureCoordinates();
+        /**
+         * Test if the attribute 'TextureCoordinates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextureCoordinates() const;
         friend class ExpressDataSet;
 
     protected:

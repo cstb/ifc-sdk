@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyEnumeratedValue::IfcPropertyEnumeratedValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -92,6 +89,15 @@ void IfcPropertyEnumeratedValue::setEnumerationValues(const List_IfcValue_1_n &v
     m_enumerationValues = value;
 }
 
+void IfcPropertyEnumeratedValue::unsetEnumerationValues() {
+    m_enumerationValues.clear();
+    m_enumerationValues.setUnset(true);
+}
+
+bool IfcPropertyEnumeratedValue::testEnumerationValues() const {
+    return !Step::isUnset(getEnumerationValues());
+}
+
 IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() {
     if (Step::BaseObject::inited()) {
         return m_enumerationReference.get();
@@ -108,6 +114,14 @@ const IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReferenc
 
 void IfcPropertyEnumeratedValue::setEnumerationReference(const Step::RefPtr< IfcPropertyEnumeration > &value) {
     m_enumerationReference = value;
+}
+
+void IfcPropertyEnumeratedValue::unsetEnumerationReference() {
+    m_enumerationReference = Step::getUnset(getEnumerationReference());
+}
+
+bool IfcPropertyEnumeratedValue::testEnumerationReference() const {
+    return !Step::isUnset(getEnumerationReference());
 }
 
 bool IfcPropertyEnumeratedValue::init() {

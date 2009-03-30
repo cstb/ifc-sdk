@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConnectionSurfaceGeometry::IfcConnectionSurfaceGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
@@ -88,6 +85,14 @@ void IfcConnectionSurfaceGeometry::setSurfaceOnRelatingElement(const Step::RefPt
     m_surfaceOnRelatingElement = value;
 }
 
+void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatingElement() {
+    m_surfaceOnRelatingElement = Step::getUnset(getSurfaceOnRelatingElement());
+}
+
+bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatingElement() const {
+    return !Step::isUnset(getSurfaceOnRelatingElement());
+}
+
 IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_surfaceOnRelatedElement.get();
@@ -104,6 +109,14 @@ const IfcSurfaceOrFaceSurface *IfcConnectionSurfaceGeometry::getSurfaceOnRelated
 
 void IfcConnectionSurfaceGeometry::setSurfaceOnRelatedElement(const Step::RefPtr< IfcSurfaceOrFaceSurface > &value) {
     m_surfaceOnRelatedElement = value;
+}
+
+void IfcConnectionSurfaceGeometry::unsetSurfaceOnRelatedElement() {
+    m_surfaceOnRelatedElement = Step::getUnset(getSurfaceOnRelatedElement());
+}
+
+bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatedElement() const {
+    return !Step::isUnset(getSurfaceOnRelatedElement());
 }
 
 bool IfcConnectionSurfaceGeometry::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcIShapeProfileDef::IfcIShapeProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
@@ -88,6 +85,14 @@ void IfcIShapeProfileDef::setOverallWidth(IfcPositiveLengthMeasure value) {
     m_overallWidth = value;
 }
 
+void IfcIShapeProfileDef::unsetOverallWidth() {
+    m_overallWidth = Step::getUnset(getOverallWidth());
+}
+
+bool IfcIShapeProfileDef::testOverallWidth() const {
+    return !Step::isUnset(getOverallWidth());
+}
+
 IfcPositiveLengthMeasure IfcIShapeProfileDef::getOverallDepth() {
     if (Step::BaseObject::inited()) {
         return m_overallDepth;
@@ -104,6 +109,14 @@ const IfcPositiveLengthMeasure IfcIShapeProfileDef::getOverallDepth() const {
 
 void IfcIShapeProfileDef::setOverallDepth(IfcPositiveLengthMeasure value) {
     m_overallDepth = value;
+}
+
+void IfcIShapeProfileDef::unsetOverallDepth() {
+    m_overallDepth = Step::getUnset(getOverallDepth());
+}
+
+bool IfcIShapeProfileDef::testOverallDepth() const {
+    return !Step::isUnset(getOverallDepth());
 }
 
 IfcPositiveLengthMeasure IfcIShapeProfileDef::getWebThickness() {
@@ -124,6 +137,14 @@ void IfcIShapeProfileDef::setWebThickness(IfcPositiveLengthMeasure value) {
     m_webThickness = value;
 }
 
+void IfcIShapeProfileDef::unsetWebThickness() {
+    m_webThickness = Step::getUnset(getWebThickness());
+}
+
+bool IfcIShapeProfileDef::testWebThickness() const {
+    return !Step::isUnset(getWebThickness());
+}
+
 IfcPositiveLengthMeasure IfcIShapeProfileDef::getFlangeThickness() {
     if (Step::BaseObject::inited()) {
         return m_flangeThickness;
@@ -142,6 +163,14 @@ void IfcIShapeProfileDef::setFlangeThickness(IfcPositiveLengthMeasure value) {
     m_flangeThickness = value;
 }
 
+void IfcIShapeProfileDef::unsetFlangeThickness() {
+    m_flangeThickness = Step::getUnset(getFlangeThickness());
+}
+
+bool IfcIShapeProfileDef::testFlangeThickness() const {
+    return !Step::isUnset(getFlangeThickness());
+}
+
 IfcPositiveLengthMeasure IfcIShapeProfileDef::getFilletRadius() {
     if (Step::BaseObject::inited()) {
         return m_filletRadius;
@@ -158,6 +187,14 @@ const IfcPositiveLengthMeasure IfcIShapeProfileDef::getFilletRadius() const {
 
 void IfcIShapeProfileDef::setFilletRadius(IfcPositiveLengthMeasure value) {
     m_filletRadius = value;
+}
+
+void IfcIShapeProfileDef::unsetFilletRadius() {
+    m_filletRadius = Step::getUnset(getFilletRadius());
+}
+
+bool IfcIShapeProfileDef::testFilletRadius() const {
+    return !Step::isUnset(getFilletRadius());
 }
 
 bool IfcIShapeProfileDef::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAxis1Placement::IfcAxis1Placement(Step::Id id, Step::SPFData *args) : IfcPlacement(id, args) {
@@ -86,6 +83,14 @@ const IfcDirection *IfcAxis1Placement::getAxis() const {
 
 void IfcAxis1Placement::setAxis(const Step::RefPtr< IfcDirection > &value) {
     m_axis = value;
+}
+
+void IfcAxis1Placement::unsetAxis() {
+    m_axis = Step::getUnset(getAxis());
+}
+
+bool IfcAxis1Placement::testAxis() const {
+    return !Step::isUnset(getAxis());
 }
 
 bool IfcAxis1Placement::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcShellBasedSurfaceModel::IfcShellBasedSurfaceModel(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -87,6 +84,15 @@ const Set_IfcShell_1_n &IfcShellBasedSurfaceModel::getSbsmBoundary() const {
 
 void IfcShellBasedSurfaceModel::setSbsmBoundary(const Set_IfcShell_1_n &value) {
     m_sbsmBoundary = value;
+}
+
+void IfcShellBasedSurfaceModel::unsetSbsmBoundary() {
+    m_sbsmBoundary.clear();
+    m_sbsmBoundary.setUnset(true);
+}
+
+bool IfcShellBasedSurfaceModel::testSbsmBoundary() const {
+    return !Step::isUnset(getSbsmBoundary());
 }
 
 bool IfcShellBasedSurfaceModel::init() {

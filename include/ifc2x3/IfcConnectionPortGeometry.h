@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcConnectionGeometry.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcConnectionGeometry.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcProfileDef;
 
     /**
+     * Generated class for the IfcConnectionPortGeometry Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConnectionPortGeometry : public IfcConnectionGeometry {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setLocationAtRelatingElement(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * unset the attribute 'LocationAtRelatingElement'.
+         * 
+         */
+        virtual void unsetLocationAtRelatingElement();
+        /**
+         * Test if the attribute 'LocationAtRelatingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLocationAtRelatingElement() const;
+        /**
          * Gets the value of the explicit attribute 'LocationAtRelatedElement'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setLocationAtRelatedElement(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * unset the attribute 'LocationAtRelatedElement'.
+         * 
+         */
+        virtual void unsetLocationAtRelatedElement();
+        /**
+         * Test if the attribute 'LocationAtRelatedElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLocationAtRelatedElement() const;
+        /**
          * Gets the value of the explicit attribute 'ProfileOfPort'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value);
+        /**
+         * unset the attribute 'ProfileOfPort'.
+         * 
+         */
+        virtual void unsetProfileOfPort();
+        /**
+         * Test if the attribute 'ProfileOfPort' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfileOfPort() const;
         friend class ExpressDataSet;
 
     protected:

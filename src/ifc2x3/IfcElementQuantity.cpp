@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcElementQuantity::IfcElementQuantity(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -89,6 +86,14 @@ void IfcElementQuantity::setMethodOfMeasurement(const IfcLabel &value) {
     m_methodOfMeasurement = value;
 }
 
+void IfcElementQuantity::unsetMethodOfMeasurement() {
+    m_methodOfMeasurement = Step::getUnset(getMethodOfMeasurement());
+}
+
+bool IfcElementQuantity::testMethodOfMeasurement() const {
+    return !Step::isUnset(getMethodOfMeasurement());
+}
+
 Set_IfcPhysicalQuantity_1_n &IfcElementQuantity::getQuantities() {
     if (Step::BaseObject::inited()) {
         return m_quantities;
@@ -106,6 +111,15 @@ const Set_IfcPhysicalQuantity_1_n &IfcElementQuantity::getQuantities() const {
 
 void IfcElementQuantity::setQuantities(const Set_IfcPhysicalQuantity_1_n &value) {
     m_quantities = value;
+}
+
+void IfcElementQuantity::unsetQuantities() {
+    m_quantities.clear();
+    m_quantities.setUnset(true);
+}
+
+bool IfcElementQuantity::testQuantities() const {
+    return !Step::isUnset(getQuantities());
 }
 
 bool IfcElementQuantity::init() {

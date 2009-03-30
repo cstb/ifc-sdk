@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRectangleProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcRectangleProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRectangleHollowProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRectangleHollowProfileDef : public IfcRectangleProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setWallThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'WallThickness'.
+         * 
+         */
+        virtual void unsetWallThickness();
+        /**
+         * Test if the attribute 'WallThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWallThickness() const;
+        /**
          * Gets the value of the explicit attribute 'InnerFilletRadius'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setInnerFilletRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'InnerFilletRadius'.
+         * 
+         */
+        virtual void unsetInnerFilletRadius();
+        /**
+         * Test if the attribute 'InnerFilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInnerFilletRadius() const;
+        /**
          * Gets the value of the explicit attribute 'OuterFilletRadius'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOuterFilletRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'OuterFilletRadius'.
+         * 
+         */
+        virtual void unsetOuterFilletRadius();
+        /**
+         * Test if the attribute 'OuterFilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOuterFilletRadius() const;
         friend class ExpressDataSet;
 
     protected:

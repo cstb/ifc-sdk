@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCoordinatedUniversalTimeOffset;
 
     /**
+     * Generated class for the IfcLocalTime Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLocalTime : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setHourComponent(IfcHourInDay value);
         /**
+         * unset the attribute 'HourComponent'.
+         * 
+         */
+        virtual void unsetHourComponent();
+        /**
+         * Test if the attribute 'HourComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHourComponent() const;
+        /**
          * Gets the value of the explicit attribute 'MinuteComponent'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMinuteComponent(IfcMinuteInHour value);
+        /**
+         * unset the attribute 'MinuteComponent'.
+         * 
+         */
+        virtual void unsetMinuteComponent();
+        /**
+         * Test if the attribute 'MinuteComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinuteComponent() const;
         /**
          * Gets the value of the explicit attribute 'SecondComponent'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setSecondComponent(IfcSecondInMinute value);
         /**
+         * unset the attribute 'SecondComponent'.
+         * 
+         */
+        virtual void unsetSecondComponent();
+        /**
+         * Test if the attribute 'SecondComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSecondComponent() const;
+        /**
          * Gets the value of the explicit attribute 'Zone'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setZone(const Step::RefPtr< IfcCoordinatedUniversalTimeOffset > &value);
         /**
+         * unset the attribute 'Zone'.
+         * 
+         */
+        virtual void unsetZone();
+        /**
+         * Test if the attribute 'Zone' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testZone() const;
+        /**
          * Gets the value of the explicit attribute 'DaylightSavingOffset'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDaylightSavingOffset(IfcDaylightSavingHour value);
+        /**
+         * unset the attribute 'DaylightSavingOffset'.
+         * 
+         */
+        virtual void unsetDaylightSavingOffset();
+        /**
+         * Test if the attribute 'DaylightSavingOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDaylightSavingOffset() const;
         friend class ExpressDataSet;
 
     protected:

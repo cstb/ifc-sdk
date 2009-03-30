@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcParameterizedProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcParameterizedProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcLShapeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLShapeProfileDef : public IfcParameterizedProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'Depth'.
+         * 
+         */
+        virtual void unsetDepth();
+        /**
+         * Test if the attribute 'Depth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDepth() const;
+        /**
          * Gets the value of the explicit attribute 'Width'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWidth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Width'.
+         * 
+         */
+        virtual void unsetWidth();
+        /**
+         * Test if the attribute 'Width' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWidth() const;
         /**
          * Gets the value of the explicit attribute 'Thickness'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'Thickness'.
+         * 
+         */
+        virtual void unsetThickness();
+        /**
+         * Test if the attribute 'Thickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThickness() const;
+        /**
          * Gets the value of the explicit attribute 'FilletRadius'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFilletRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'FilletRadius'.
+         * 
+         */
+        virtual void unsetFilletRadius();
+        /**
+         * Test if the attribute 'FilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFilletRadius() const;
         /**
          * Gets the value of the explicit attribute 'EdgeRadius'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setEdgeRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'EdgeRadius'.
+         * 
+         */
+        virtual void unsetEdgeRadius();
+        /**
+         * Test if the attribute 'EdgeRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdgeRadius() const;
+        /**
          * Gets the value of the explicit attribute 'LegSlope'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLegSlope(IfcPlaneAngleMeasure value);
+        /**
+         * unset the attribute 'LegSlope'.
+         * 
+         */
+        virtual void unsetLegSlope();
+        /**
+         * Test if the attribute 'LegSlope' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLegSlope() const;
         /**
          * Gets the value of the explicit attribute 'CentreOfGravityInX'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setCentreOfGravityInX(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'CentreOfGravityInX'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInX();
+        /**
+         * Test if the attribute 'CentreOfGravityInX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInX() const;
+        /**
          * Gets the value of the explicit attribute 'CentreOfGravityInY'.
          * 
          */
@@ -206,6 +285,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCentreOfGravityInY(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'CentreOfGravityInY'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInY();
+        /**
+         * Test if the attribute 'CentreOfGravityInY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInY() const;
         friend class ExpressDataSet;
 
     protected:

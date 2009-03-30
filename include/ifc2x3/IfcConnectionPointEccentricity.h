@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcConnectionPointGeometry.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcConnectionPointEccentricity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConnectionPointEccentricity : public IfcConnectionPointGeometry {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setEccentricityInX(IfcLengthMeasure value);
         /**
+         * unset the attribute 'EccentricityInX'.
+         * 
+         */
+        virtual void unsetEccentricityInX();
+        /**
+         * Test if the attribute 'EccentricityInX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEccentricityInX() const;
+        /**
          * Gets the value of the explicit attribute 'EccentricityInY'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setEccentricityInY(IfcLengthMeasure value);
         /**
+         * unset the attribute 'EccentricityInY'.
+         * 
+         */
+        virtual void unsetEccentricityInY();
+        /**
+         * Test if the attribute 'EccentricityInY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEccentricityInY() const;
+        /**
          * Gets the value of the explicit attribute 'EccentricityInZ'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEccentricityInZ(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'EccentricityInZ'.
+         * 
+         */
+        virtual void unsetEccentricityInZ();
+        /**
+         * Test if the attribute 'EccentricityInZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEccentricityInZ() const;
         friend class ExpressDataSet;
 
     protected:

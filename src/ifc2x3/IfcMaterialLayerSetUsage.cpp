@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterialLayerSetUsage::IfcMaterialLayerSetUsage(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcMaterialLayerSetUsage::setForLayerSet(const Step::RefPtr< IfcMaterialLay
     m_forLayerSet = value;
 }
 
+void IfcMaterialLayerSetUsage::unsetForLayerSet() {
+    m_forLayerSet = Step::getUnset(getForLayerSet());
+}
+
+bool IfcMaterialLayerSetUsage::testForLayerSet() const {
+    return !Step::isUnset(getForLayerSet());
+}
+
 IfcLayerSetDirectionEnum IfcMaterialLayerSetUsage::getLayerSetDirection() {
     if (Step::BaseObject::inited()) {
         return m_layerSetDirection;
@@ -107,6 +112,14 @@ const IfcLayerSetDirectionEnum IfcMaterialLayerSetUsage::getLayerSetDirection() 
 
 void IfcMaterialLayerSetUsage::setLayerSetDirection(IfcLayerSetDirectionEnum value) {
     m_layerSetDirection = value;
+}
+
+void IfcMaterialLayerSetUsage::unsetLayerSetDirection() {
+    m_layerSetDirection = IfcLayerSetDirectionEnum_UNSET;
+}
+
+bool IfcMaterialLayerSetUsage::testLayerSetDirection() const {
+    return getLayerSetDirection() != IfcLayerSetDirectionEnum_UNSET;
 }
 
 IfcDirectionSenseEnum IfcMaterialLayerSetUsage::getDirectionSense() {
@@ -127,6 +140,14 @@ void IfcMaterialLayerSetUsage::setDirectionSense(IfcDirectionSenseEnum value) {
     m_directionSense = value;
 }
 
+void IfcMaterialLayerSetUsage::unsetDirectionSense() {
+    m_directionSense = IfcDirectionSenseEnum_UNSET;
+}
+
+bool IfcMaterialLayerSetUsage::testDirectionSense() const {
+    return getDirectionSense() != IfcDirectionSenseEnum_UNSET;
+}
+
 IfcLengthMeasure IfcMaterialLayerSetUsage::getOffsetFromReferenceLine() {
     if (Step::BaseObject::inited()) {
         return m_offsetFromReferenceLine;
@@ -143,6 +164,14 @@ const IfcLengthMeasure IfcMaterialLayerSetUsage::getOffsetFromReferenceLine() co
 
 void IfcMaterialLayerSetUsage::setOffsetFromReferenceLine(IfcLengthMeasure value) {
     m_offsetFromReferenceLine = value;
+}
+
+void IfcMaterialLayerSetUsage::unsetOffsetFromReferenceLine() {
+    m_offsetFromReferenceLine = Step::getUnset(getOffsetFromReferenceLine());
+}
+
+bool IfcMaterialLayerSetUsage::testOffsetFromReferenceLine() const {
+    return !Step::isUnset(getOffsetFromReferenceLine());
 }
 
 bool IfcMaterialLayerSetUsage::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcConstructionResource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcConstructionMaterialResource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConstructionMaterialResource : public IfcConstructionResource {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSuppliers(const Set_IfcActorSelect_1_n &value);
         /**
+         * unset the attribute 'Suppliers'.
+         * 
+         */
+        virtual void unsetSuppliers();
+        /**
+         * Test if the attribute 'Suppliers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSuppliers() const;
+        /**
          * Gets the value of the explicit attribute 'UsageRatio'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUsageRatio(IfcRatioMeasure value);
+        /**
+         * unset the attribute 'UsageRatio'.
+         * 
+         */
+        virtual void unsetUsageRatio();
+        /**
+         * Test if the attribute 'UsageRatio' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsageRatio() const;
         friend class ExpressDataSet;
 
     protected:

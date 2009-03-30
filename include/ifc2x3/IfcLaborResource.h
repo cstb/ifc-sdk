@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,15 +32,17 @@
 #include "ifc2x3/IfcConstructionResource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcLaborResource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLaborResource : public IfcConstructionResource {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSkillSet(const IfcText &value);
+        /**
+         * unset the attribute 'SkillSet'.
+         * 
+         */
+        virtual void unsetSkillSet();
+        /**
+         * Test if the attribute 'SkillSet' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSkillSet() const;
         friend class ExpressDataSet;
 
     protected:

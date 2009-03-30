@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSphere::IfcSphere(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
@@ -82,6 +79,14 @@ const IfcPositiveLengthMeasure IfcSphere::getRadius() const {
 
 void IfcSphere::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
+}
+
+void IfcSphere::unsetRadius() {
+    m_radius = Step::getUnset(getRadius());
+}
+
+bool IfcSphere::testRadius() const {
+    return !Step::isUnset(getRadius());
 }
 
 bool IfcSphere::init() {

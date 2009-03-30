@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesDocument::IfcRelAssociatesDocument(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -85,6 +82,14 @@ const IfcDocumentSelect *IfcRelAssociatesDocument::getRelatingDocument() const {
 
 void IfcRelAssociatesDocument::setRelatingDocument(const Step::RefPtr< IfcDocumentSelect > &value) {
     m_relatingDocument = value;
+}
+
+void IfcRelAssociatesDocument::unsetRelatingDocument() {
+    m_relatingDocument = Step::getUnset(getRelatingDocument());
+}
+
+bool IfcRelAssociatesDocument::testRelatingDocument() const {
+    return !Step::isUnset(getRelatingDocument());
 }
 
 bool IfcRelAssociatesDocument::init() {

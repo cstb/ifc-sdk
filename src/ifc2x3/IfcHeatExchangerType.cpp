@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcHeatExchangerType::IfcHeatExchangerType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcHeatExchangerTypeEnum IfcHeatExchangerType::getPredefinedType() const {
 
 void IfcHeatExchangerType::setPredefinedType(IfcHeatExchangerTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcHeatExchangerType::unsetPredefinedType() {
+    m_predefinedType = IfcHeatExchangerTypeEnum_UNSET;
+}
+
+bool IfcHeatExchangerType::testPredefinedType() const {
+    return getPredefinedType() != IfcHeatExchangerTypeEnum_UNSET;
 }
 
 bool IfcHeatExchangerType::init() {

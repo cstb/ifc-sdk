@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRepresentationItem Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRepresentationItem : public Step::BaseEntity {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
         /**
+         * Test if the attribute 'LayerAssignments' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerAssignments() const;
+        /**
          * Gets the value of the inverse attribute 'StyledByItem'.
          * 
          */
@@ -92,9 +100,15 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'StyledByItem'
          */
         virtual const Inverse_Set_IfcStyledItem_0_1 &getStyledByItem() const;
+        /**
+         * Test if the attribute 'StyledByItem' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStyledByItem() const;
+        friend class Inverted_IfcPresentationLayerAssignment_AssignedItems_type;
         friend class IfcPresentationLayerAssignment;
         friend class ExpressDataSet;
-        friend class Inverted_IfcPresentationLayerAssignment_AssignedItems_type;
         friend class IfcStyledItem;
 
     protected:

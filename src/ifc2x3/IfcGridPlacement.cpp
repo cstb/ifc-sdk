@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGridPlacement::IfcGridPlacement(Step::Id id, Step::SPFData *args) : IfcObjectPlacement(id, args) {
@@ -89,6 +86,14 @@ void IfcGridPlacement::setPlacementLocation(const Step::RefPtr< IfcVirtualGridIn
     m_placementLocation = value;
 }
 
+void IfcGridPlacement::unsetPlacementLocation() {
+    m_placementLocation = Step::getUnset(getPlacementLocation());
+}
+
+bool IfcGridPlacement::testPlacementLocation() const {
+    return !Step::isUnset(getPlacementLocation());
+}
+
 IfcVirtualGridIntersection *IfcGridPlacement::getPlacementRefDirection() {
     if (Step::BaseObject::inited()) {
         return m_placementRefDirection.get();
@@ -105,6 +110,14 @@ const IfcVirtualGridIntersection *IfcGridPlacement::getPlacementRefDirection() c
 
 void IfcGridPlacement::setPlacementRefDirection(const Step::RefPtr< IfcVirtualGridIntersection > &value) {
     m_placementRefDirection = value;
+}
+
+void IfcGridPlacement::unsetPlacementRefDirection() {
+    m_placementRefDirection = Step::getUnset(getPlacementRefDirection());
+}
+
+bool IfcGridPlacement::testPlacementRefDirection() const {
+    return !Step::isUnset(getPlacementRefDirection());
 }
 
 bool IfcGridPlacement::init() {

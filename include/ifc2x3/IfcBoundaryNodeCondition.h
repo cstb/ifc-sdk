@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundaryCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundaryCondition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcBoundaryNodeCondition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBoundaryNodeCondition : public IfcBoundaryCondition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessX(IfcLinearStiffnessMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessX'.
+         * 
+         */
+        virtual void unsetLinearStiffnessX();
+        /**
+         * Test if the attribute 'LinearStiffnessX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessX() const;
+        /**
          * Gets the value of the explicit attribute 'LinearStiffnessY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearStiffnessY(IfcLinearStiffnessMeasure value);
+        /**
+         * unset the attribute 'LinearStiffnessY'.
+         * 
+         */
+        virtual void unsetLinearStiffnessY();
+        /**
+         * Test if the attribute 'LinearStiffnessY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessY() const;
         /**
          * Gets the value of the explicit attribute 'LinearStiffnessZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessZ(IfcLinearStiffnessMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessZ'.
+         * 
+         */
+        virtual void unsetLinearStiffnessZ();
+        /**
+         * Test if the attribute 'LinearStiffnessZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessZ() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalStiffnessX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalStiffnessX(IfcRotationalStiffnessMeasure value);
+        /**
+         * unset the attribute 'RotationalStiffnessX'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessX();
+        /**
+         * Test if the attribute 'RotationalStiffnessX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessX() const;
         /**
          * Gets the value of the explicit attribute 'RotationalStiffnessY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setRotationalStiffnessY(IfcRotationalStiffnessMeasure value);
         /**
+         * unset the attribute 'RotationalStiffnessY'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessY();
+        /**
+         * Test if the attribute 'RotationalStiffnessY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessY() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalStiffnessZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalStiffnessZ(IfcRotationalStiffnessMeasure value);
+        /**
+         * unset the attribute 'RotationalStiffnessZ'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessZ();
+        /**
+         * Test if the attribute 'RotationalStiffnessZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessZ() const;
         friend class ExpressDataSet;
 
     protected:

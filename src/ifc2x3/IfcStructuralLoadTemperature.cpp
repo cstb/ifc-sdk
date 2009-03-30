@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadTemperature::IfcStructuralLoadTemperature(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
@@ -86,6 +83,14 @@ void IfcStructuralLoadTemperature::setDeltaT_Constant(IfcThermodynamicTemperatur
     m_deltaT_Constant = value;
 }
 
+void IfcStructuralLoadTemperature::unsetDeltaT_Constant() {
+    m_deltaT_Constant = Step::getUnset(getDeltaT_Constant());
+}
+
+bool IfcStructuralLoadTemperature::testDeltaT_Constant() const {
+    return !Step::isUnset(getDeltaT_Constant());
+}
+
 IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Y() {
     if (Step::BaseObject::inited()) {
         return m_deltaT_Y;
@@ -104,6 +109,14 @@ void IfcStructuralLoadTemperature::setDeltaT_Y(IfcThermodynamicTemperatureMeasur
     m_deltaT_Y = value;
 }
 
+void IfcStructuralLoadTemperature::unsetDeltaT_Y() {
+    m_deltaT_Y = Step::getUnset(getDeltaT_Y());
+}
+
+bool IfcStructuralLoadTemperature::testDeltaT_Y() const {
+    return !Step::isUnset(getDeltaT_Y());
+}
+
 IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT_Z() {
     if (Step::BaseObject::inited()) {
         return m_deltaT_Z;
@@ -120,6 +133,14 @@ const IfcThermodynamicTemperatureMeasure IfcStructuralLoadTemperature::getDeltaT
 
 void IfcStructuralLoadTemperature::setDeltaT_Z(IfcThermodynamicTemperatureMeasure value) {
     m_deltaT_Z = value;
+}
+
+void IfcStructuralLoadTemperature::unsetDeltaT_Z() {
+    m_deltaT_Z = Step::getUnset(getDeltaT_Z());
+}
+
+bool IfcStructuralLoadTemperature::testDeltaT_Z() const {
+    return !Step::isUnset(getDeltaT_Z());
 }
 
 bool IfcStructuralLoadTemperature::init() {

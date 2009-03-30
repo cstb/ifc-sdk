@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,9 +36,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTelecomAddress::IfcTelecomAddress(Step::Id id, Step::SPFData *args) : IfcAddress(id, args) {
@@ -91,6 +88,15 @@ void IfcTelecomAddress::setTelephoneNumbers(const List_IfcLabel_1_n &value) {
     m_telephoneNumbers = value;
 }
 
+void IfcTelecomAddress::unsetTelephoneNumbers() {
+    m_telephoneNumbers.clear();
+    m_telephoneNumbers.setUnset(true);
+}
+
+bool IfcTelecomAddress::testTelephoneNumbers() const {
+    return !Step::isUnset(getTelephoneNumbers());
+}
+
 List_IfcLabel_1_n &IfcTelecomAddress::getFacsimileNumbers() {
     if (Step::BaseObject::inited()) {
         return m_facsimileNumbers;
@@ -110,6 +116,15 @@ void IfcTelecomAddress::setFacsimileNumbers(const List_IfcLabel_1_n &value) {
     m_facsimileNumbers = value;
 }
 
+void IfcTelecomAddress::unsetFacsimileNumbers() {
+    m_facsimileNumbers.clear();
+    m_facsimileNumbers.setUnset(true);
+}
+
+bool IfcTelecomAddress::testFacsimileNumbers() const {
+    return !Step::isUnset(getFacsimileNumbers());
+}
+
 IfcLabel IfcTelecomAddress::getPagerNumber() {
     if (Step::BaseObject::inited()) {
         return m_pagerNumber;
@@ -126,6 +141,14 @@ const IfcLabel IfcTelecomAddress::getPagerNumber() const {
 
 void IfcTelecomAddress::setPagerNumber(const IfcLabel &value) {
     m_pagerNumber = value;
+}
+
+void IfcTelecomAddress::unsetPagerNumber() {
+    m_pagerNumber = Step::getUnset(getPagerNumber());
+}
+
+bool IfcTelecomAddress::testPagerNumber() const {
+    return !Step::isUnset(getPagerNumber());
 }
 
 List_IfcLabel_1_n &IfcTelecomAddress::getElectronicMailAddresses() {
@@ -147,6 +170,15 @@ void IfcTelecomAddress::setElectronicMailAddresses(const List_IfcLabel_1_n &valu
     m_electronicMailAddresses = value;
 }
 
+void IfcTelecomAddress::unsetElectronicMailAddresses() {
+    m_electronicMailAddresses.clear();
+    m_electronicMailAddresses.setUnset(true);
+}
+
+bool IfcTelecomAddress::testElectronicMailAddresses() const {
+    return !Step::isUnset(getElectronicMailAddresses());
+}
+
 IfcLabel IfcTelecomAddress::getWWWHomePageURL() {
     if (Step::BaseObject::inited()) {
         return m_wWWHomePageURL;
@@ -163,6 +195,14 @@ const IfcLabel IfcTelecomAddress::getWWWHomePageURL() const {
 
 void IfcTelecomAddress::setWWWHomePageURL(const IfcLabel &value) {
     m_wWWHomePageURL = value;
+}
+
+void IfcTelecomAddress::unsetWWWHomePageURL() {
+    m_wWWHomePageURL = Step::getUnset(getWWWHomePageURL());
+}
+
+bool IfcTelecomAddress::testWWWHomePageURL() const {
+    return !Step::isUnset(getWWWHomePageURL());
 }
 
 bool IfcTelecomAddress::init() {

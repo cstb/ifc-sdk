@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,15 +22,16 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_PTR_TYPES
-#define STEP_PTR_TYPES
+#ifndef Step_Types_h
+#define Step_Types_h
 
 #include "Referenced.h"
 
 #include <map>
 #include <limits.h>
 
-namespace Step {
+namespace Step
+{
     class BaseVisitor;
     class BaseObject;
     class BaseExpressDataSet;
@@ -51,7 +52,7 @@ namespace Step {
     typedef unsigned long int Id;
 
     //! for error handling
-    const unsigned long int Id_UNDEF = UINT_MAX ;
+    const unsigned long int Id_UNDEF = UINT_MAX;
 
     //! for '$' token
     const unsigned long int Id_UNSET = 0;
@@ -60,6 +61,7 @@ namespace Step {
     typedef BaseEntity* (*AllocateFuncType)(BaseExpressDataSet*, Id);
 
     //! The map of entities type definition
-    typedef std::map<Id, BaseEntityPtr > MapOfEntities;
+    typedef std::map<Id, BaseEntityPtr> MapOfEntities;
 }
+
 #endif

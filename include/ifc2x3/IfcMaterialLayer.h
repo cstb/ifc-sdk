@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcMaterialLayerSet;
 
     /**
+     * Generated class for the IfcMaterialLayer Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMaterialLayer : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setMaterial(const Step::RefPtr< IfcMaterial > &value);
         /**
+         * unset the attribute 'Material'.
+         * 
+         */
+        virtual void unsetMaterial();
+        /**
+         * Test if the attribute 'Material' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaterial() const;
+        /**
          * Gets the value of the explicit attribute 'LayerThickness'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLayerThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'LayerThickness'.
+         * 
+         */
+        virtual void unsetLayerThickness();
+        /**
+         * Test if the attribute 'LayerThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerThickness() const;
         /**
          * Gets the value of the explicit attribute 'IsVentilated'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setIsVentilated(IfcLogical value);
         /**
+         * unset the attribute 'IsVentilated'.
+         * 
+         */
+        virtual void unsetIsVentilated();
+        /**
+         * Test if the attribute 'IsVentilated' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsVentilated() const;
+        /**
          * Gets the value of the inverse attribute 'ToMaterialLayerSet'.
          * 
          */
@@ -135,6 +170,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ToMaterialLayerSet'
          */
         virtual const IfcMaterialLayerSet *getToMaterialLayerSet() const;
+        /**
+         * Test if the attribute 'ToMaterialLayerSet' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testToMaterialLayerSet() const;
         friend class Inverted_IfcMaterialLayerSet_MaterialLayers_type;
         friend class IfcMaterialLayerSet;
         friend class ExpressDataSet;

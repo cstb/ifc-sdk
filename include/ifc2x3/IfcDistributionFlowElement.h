@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcDistributionElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcDistributionElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDistributionFlowElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDistributionFlowElement : public IfcDistributionElement {
     public:
@@ -81,6 +83,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasControlElements'
          */
         virtual const Inverse_Set_IfcRelFlowControlElements_0_1 &getHasControlElements() const;
+        /**
+         * Test if the attribute 'HasControlElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasControlElements() const;
         friend class IfcRelFlowControlElements;
         friend class ExpressDataSet;
 

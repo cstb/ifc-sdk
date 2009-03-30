@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcSpatialStructureElement;
 
     /**
+     * Generated class for the IfcRelInteractionRequirements Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelInteractionRequirements : public IfcRelConnects {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setDailyInteraction(IfcCountMeasure value);
         /**
+         * unset the attribute 'DailyInteraction'.
+         * 
+         */
+        virtual void unsetDailyInteraction();
+        /**
+         * Test if the attribute 'DailyInteraction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDailyInteraction() const;
+        /**
          * Gets the value of the explicit attribute 'ImportanceRating'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setImportanceRating(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'ImportanceRating'.
+         * 
+         */
+        virtual void unsetImportanceRating();
+        /**
+         * Test if the attribute 'ImportanceRating' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testImportanceRating() const;
         /**
          * Gets the value of the explicit attribute 'LocationOfInteraction'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setLocationOfInteraction(const Step::RefPtr< IfcSpatialStructureElement > &value);
         /**
+         * unset the attribute 'LocationOfInteraction'.
+         * 
+         */
+        virtual void unsetLocationOfInteraction();
+        /**
+         * Test if the attribute 'LocationOfInteraction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLocationOfInteraction() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedSpaceProgram'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value);
         /**
+         * unset the attribute 'RelatedSpaceProgram'.
+         * 
+         */
+        virtual void unsetRelatedSpaceProgram();
+        /**
+         * Test if the attribute 'RelatedSpaceProgram' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedSpaceProgram() const;
+        /**
          * Gets the value of the explicit attribute 'RelatingSpaceProgram'.
          * 
          */
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatingSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value);
+        /**
+         * unset the attribute 'RelatingSpaceProgram'.
+         * 
+         */
+        virtual void unsetRelatingSpaceProgram();
+        /**
+         * Test if the attribute 'RelatingSpaceProgram' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingSpaceProgram() const;
         friend class ExpressDataSet;
 
     protected:

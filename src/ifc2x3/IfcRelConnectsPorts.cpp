@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsPorts::IfcRelConnectsPorts(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -97,6 +94,14 @@ void IfcRelConnectsPorts::setRelatingPort(const Step::RefPtr< IfcPort > &value) 
     m_relatingPort = value;
 }
 
+void IfcRelConnectsPorts::unsetRelatingPort() {
+    m_relatingPort = Step::getUnset(getRelatingPort());
+}
+
+bool IfcRelConnectsPorts::testRelatingPort() const {
+    return !Step::isUnset(getRelatingPort());
+}
+
 IfcPort *IfcRelConnectsPorts::getRelatedPort() {
     if (Step::BaseObject::inited()) {
         return m_relatedPort.get();
@@ -121,6 +126,14 @@ void IfcRelConnectsPorts::setRelatedPort(const Step::RefPtr< IfcPort > &value) {
     m_relatedPort = value;
 }
 
+void IfcRelConnectsPorts::unsetRelatedPort() {
+    m_relatedPort = Step::getUnset(getRelatedPort());
+}
+
+bool IfcRelConnectsPorts::testRelatedPort() const {
+    return !Step::isUnset(getRelatedPort());
+}
+
 IfcElement *IfcRelConnectsPorts::getRealizingElement() {
     if (Step::BaseObject::inited()) {
         return m_realizingElement.get();
@@ -137,6 +150,14 @@ const IfcElement *IfcRelConnectsPorts::getRealizingElement() const {
 
 void IfcRelConnectsPorts::setRealizingElement(const Step::RefPtr< IfcElement > &value) {
     m_realizingElement = value;
+}
+
+void IfcRelConnectsPorts::unsetRealizingElement() {
+    m_realizingElement = Step::getUnset(getRealizingElement());
+}
+
+bool IfcRelConnectsPorts::testRealizingElement() const {
+    return !Step::isUnset(getRealizingElement());
 }
 
 bool IfcRelConnectsPorts::init() {

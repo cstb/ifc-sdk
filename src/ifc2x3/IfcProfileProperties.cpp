@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProfileProperties::IfcProfileProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcProfileProperties::setProfileName(const IfcLabel &value) {
     m_profileName = value;
 }
 
+void IfcProfileProperties::unsetProfileName() {
+    m_profileName = Step::getUnset(getProfileName());
+}
+
+bool IfcProfileProperties::testProfileName() const {
+    return !Step::isUnset(getProfileName());
+}
+
 IfcProfileDef *IfcProfileProperties::getProfileDefinition() {
     if (Step::BaseObject::inited()) {
         return m_profileDefinition.get();
@@ -106,6 +111,14 @@ const IfcProfileDef *IfcProfileProperties::getProfileDefinition() const {
 
 void IfcProfileProperties::setProfileDefinition(const Step::RefPtr< IfcProfileDef > &value) {
     m_profileDefinition = value;
+}
+
+void IfcProfileProperties::unsetProfileDefinition() {
+    m_profileDefinition = Step::getUnset(getProfileDefinition());
+}
+
+bool IfcProfileProperties::testProfileDefinition() const {
+    return !Step::isUnset(getProfileDefinition());
 }
 
 bool IfcProfileProperties::init() {

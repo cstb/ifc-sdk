@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCartesianTransformationOperator2D;
 
     /**
+     * Generated class for the IfcSurfaceTexture Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSurfaceTexture : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setRepeatS(Step::Boolean value);
         /**
+         * unset the attribute 'RepeatS'.
+         * 
+         */
+        virtual void unsetRepeatS();
+        /**
+         * Test if the attribute 'RepeatS' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepeatS() const;
+        /**
          * Gets the value of the explicit attribute 'RepeatT'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRepeatT(Step::Boolean value);
+        /**
+         * unset the attribute 'RepeatT'.
+         * 
+         */
+        virtual void unsetRepeatT();
+        /**
+         * Test if the attribute 'RepeatT' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepeatT() const;
         /**
          * Gets the value of the explicit attribute 'TextureType'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTextureType(IfcSurfaceTextureEnum value);
         /**
+         * unset the attribute 'TextureType'.
+         * 
+         */
+        virtual void unsetTextureType();
+        /**
+         * Test if the attribute 'TextureType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextureType() const;
+        /**
          * Gets the value of the explicit attribute 'TextureTransform'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value);
+        /**
+         * unset the attribute 'TextureTransform'.
+         * 
+         */
+        virtual void unsetTextureTransform();
+        /**
+         * Test if the attribute 'TextureTransform' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextureTransform() const;
         friend class ExpressDataSet;
 
     protected:

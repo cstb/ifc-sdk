@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcQuantityWeight::IfcQuantityWeight(Step::Id id, Step::SPFData *args) : IfcPhysicalSimpleQuantity(id, args) {
@@ -82,6 +79,14 @@ const IfcMassMeasure IfcQuantityWeight::getWeightValue() const {
 
 void IfcQuantityWeight::setWeightValue(IfcMassMeasure value) {
     m_weightValue = value;
+}
+
+void IfcQuantityWeight::unsetWeightValue() {
+    m_weightValue = Step::getUnset(getWeightValue());
+}
+
+bool IfcQuantityWeight::testWeightValue() const {
+    return !Step::isUnset(getWeightValue());
 }
 
 bool IfcQuantityWeight::init() {

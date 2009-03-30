@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcPresentationStyle.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSurfaceStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSurfaceStyle : public IfcPresentationStyle {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSide(IfcSurfaceSide value);
         /**
+         * unset the attribute 'Side'.
+         * 
+         */
+        virtual void unsetSide();
+        /**
+         * Test if the attribute 'Side' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSide() const;
+        /**
          * Gets the value of the explicit attribute 'Styles'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStyles(const Set_IfcSurfaceStyleElementSelect_1_5 &value);
+        /**
+         * unset the attribute 'Styles'.
+         * 
+         */
+        virtual void unsetStyles();
+        /**
+         * Test if the attribute 'Styles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStyles() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcParameterizedProfileDef::IfcParameterizedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
@@ -86,6 +83,14 @@ const IfcAxis2Placement2D *IfcParameterizedProfileDef::getPosition() const {
 
 void IfcParameterizedProfileDef::setPosition(const Step::RefPtr< IfcAxis2Placement2D > &value) {
     m_position = value;
+}
+
+void IfcParameterizedProfileDef::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcParameterizedProfileDef::testPosition() const {
+    return !Step::isUnset(getPosition());
 }
 
 bool IfcParameterizedProfileDef::init() {

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,79 +22,86 @@
  *                                                                         *
  ***************************************************************************
 */
-//////////////////////////////////////////////////////////////////////
-// BaseObject.cpp: implementation of the BaseObject class.
-//
-//////////////////////////////////////////////////////////////////////
-#include <Step/BaseObject.h>
-#include <Step/SPFData.h>
-#include <Step/BaseVisitor.h>
+#include "Step/BaseObject.h"
+#include "Step/SPFData.h"
+#include "Step/BaseVisitor.h"
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+using namespace Step;
 
-Step::BaseObject::BaseObject(Step::SPFData* data)
-        : m_inited((!data) || (data && (data->argc()==0))),
-        m_args(data)
+ClassType_child_implementations(STEP_DLL_DEF,BaseObject,ClientDataHandler);
+
+BaseObject::BaseObject(SPFData* data) :
+    m_inited((!data) || (data && (data->argc() == 0))), m_args(data)
 {
 }
 
-void Step::BaseObject::copy(const Step::BaseObject& obj, const Step::BaseCopyOp& copyop)
+void BaseObject::copy(const BaseObject& obj, const BaseCopyOp& copyop)
 {
-    Step::ClientDataHandler::copy(obj,copyop);
+    ClientDataHandler::copy(obj, copyop);
     if (!obj.m_inited)
     {
-        Step::BaseObject* bo = const_cast<Step::BaseObject*>(&obj);
+        BaseObject* bo = const_cast<BaseObject*> (&obj);
         bo->inited();
     }
 }
 
-Step::BaseObject::~BaseObject()
+BaseObject::~BaseObject()
 {
     if (m_args)
         delete m_args;
 }
 
-const Step::ClassType& Step::BaseObject::getClassType() {
-    return Step::BaseObject::s_type;
-}
 
-const Step::ClassType& Step::BaseObject::getType() const {
-    return Step::BaseObject::s_type;
-}
-
-bool Step::BaseObject::isOfType(const Step::ClassType& t) const {
-    return Step::BaseObject::s_type == t ? true : ClientDataHandler::isOfType(t);
-}
-
-const std::string &Step::BaseObject::type() const {
-    return Step::BaseObject::s_type.getName();
-}
-
-bool Step::BaseObject::acceptVisitor(BaseVisitor *v)
+bool BaseObject::acceptVisitor(BaseVisitor *v)
 {
     return v->visitBaseObject(this);
 }
 
-
-
-bool Step::BaseObject::inited()
+bool BaseObject::inited()
 {
-    if (!m_inited) {
+    if (!m_inited)
+    {
 #ifdef STEP_THREAD_SAFE
         OpenThreads::ScopedLock<OpenThreads::Mutex> lock(m_mutex);
 #endif
         m_inited = true; // set this to break cycle when inverse attribute inits
         bool inited = init();
-        if (inited) {
+        if (inited)
+        {
             delete m_args;
-            m_args=0;
+            m_args = 0;
         }
     }
 
     return m_inited;
 }
 
-Step::ClassType Step::BaseObject::s_type("BaseObject");
+BaseExpressDataSet* BaseObject::getExpressDataSet() const
+{
+    return m_expressDataSet;
+}
+
+SPFData* BaseObject::getArgs()
+{
+    return m_args;
+}
+
+bool BaseObject::isInited()
+{
+    return m_inited;
+}
+
+BaseExpressDataSet * BaseObject::getExpressDataSet()
+{
+    return m_expressDataSet;
+}
+
+void BaseObject::setExpressDataSet(BaseExpressDataSet * expressDataSet)
+{
+    m_expressDataSet = expressDataSet;
+}
+
+void BaseObject::release()
+{
+}
 

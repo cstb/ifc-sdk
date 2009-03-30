@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPermit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPermit : public IfcControl {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPermitID(const IfcIdentifier &value);
+        /**
+         * unset the attribute 'PermitID'.
+         * 
+         */
+        virtual void unsetPermitID();
+        /**
+         * Test if the attribute 'PermitID' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPermitID() const;
         friend class ExpressDataSet;
 
     protected:

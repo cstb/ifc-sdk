@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::Inverted_IfcVirtualGridIntersection_IntersectingAxes_type() {
@@ -63,8 +60,13 @@ Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::iterator Inverted_Ifc
     return List_IfcGridAxis_2_2::erase(value);
 }
 
+void Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcVirtualGridIntersection::IfcVirtualGridIntersection(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_intersectingAxes.setUnset(true);
     m_intersectingAxes.setOwner(this);
 }
 
@@ -106,6 +108,15 @@ const List_IfcGridAxis_2_2 &IfcVirtualGridIntersection::getIntersectingAxes() co
     return deConstObject->getIntersectingAxes();
 }
 
+void IfcVirtualGridIntersection::unsetIntersectingAxes() {
+    m_intersectingAxes.clear();
+    m_intersectingAxes.setUnset(true);
+}
+
+bool IfcVirtualGridIntersection::testIntersectingAxes() const {
+    return !Step::isUnset(getIntersectingAxes());
+}
+
 List_IfcLengthMeasure_2_3 &IfcVirtualGridIntersection::getOffsetDistances() {
     if (Step::BaseObject::inited()) {
         return m_offsetDistances;
@@ -123,6 +134,15 @@ const List_IfcLengthMeasure_2_3 &IfcVirtualGridIntersection::getOffsetDistances(
 
 void IfcVirtualGridIntersection::setOffsetDistances(const List_IfcLengthMeasure_2_3 &value) {
     m_offsetDistances = value;
+}
+
+void IfcVirtualGridIntersection::unsetOffsetDistances() {
+    m_offsetDistances.clear();
+    m_offsetDistances.setUnset(true);
+}
+
+bool IfcVirtualGridIntersection::testOffsetDistances() const {
+    return !Step::isUnset(getOffsetDistances());
 }
 
 bool IfcVirtualGridIntersection::init() {

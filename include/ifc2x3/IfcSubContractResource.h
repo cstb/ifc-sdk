@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,10 +32,10 @@
 #include "ifc2x3/IfcConstructionResource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcActorSelect;
 
     /**
+     * Generated class for the IfcSubContractResource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSubContractResource : public IfcConstructionResource {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setSubContractor(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'SubContractor'.
+         * 
+         */
+        virtual void unsetSubContractor();
+        /**
+         * Test if the attribute 'SubContractor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSubContractor() const;
+        /**
          * Gets the value of the explicit attribute 'JobDescription'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setJobDescription(const IfcText &value);
+        /**
+         * unset the attribute 'JobDescription'.
+         * 
+         */
+        virtual void unsetJobDescription();
+        /**
+         * Test if the attribute 'JobDescription' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testJobDescription() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFaceSurface::IfcFaceSurface(Step::Id id, Step::SPFData *args) : IfcFace(id, args) {
@@ -89,6 +86,14 @@ void IfcFaceSurface::setFaceSurface(const Step::RefPtr< IfcSurface > &value) {
     m_faceSurface = value;
 }
 
+void IfcFaceSurface::unsetFaceSurface() {
+    m_faceSurface = Step::getUnset(getFaceSurface());
+}
+
+bool IfcFaceSurface::testFaceSurface() const {
+    return !Step::isUnset(getFaceSurface());
+}
+
 Step::Boolean IfcFaceSurface::getSameSense() {
     if (Step::BaseObject::inited()) {
         return m_sameSense;
@@ -105,6 +110,14 @@ const Step::Boolean IfcFaceSurface::getSameSense() const {
 
 void IfcFaceSurface::setSameSense(Step::Boolean value) {
     m_sameSense = value;
+}
+
+void IfcFaceSurface::unsetSameSense() {
+    m_sameSense = Step::getUnset(getSameSense());
+}
+
+bool IfcFaceSurface::testSameSense() const {
+    return !Step::isUnset(getSameSense());
 }
 
 bool IfcFaceSurface::init() {

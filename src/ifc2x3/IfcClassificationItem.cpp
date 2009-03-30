@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcClassificationItem::IfcClassificationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -94,6 +91,14 @@ void IfcClassificationItem::setNotation(const Step::RefPtr< IfcClassificationNot
     m_notation = value;
 }
 
+void IfcClassificationItem::unsetNotation() {
+    m_notation = Step::getUnset(getNotation());
+}
+
+bool IfcClassificationItem::testNotation() const {
+    return !Step::isUnset(getNotation());
+}
+
 IfcClassification *IfcClassificationItem::getItemOf() {
     if (Step::BaseObject::inited()) {
         return m_itemOf.get();
@@ -118,6 +123,14 @@ void IfcClassificationItem::setItemOf(const Step::RefPtr< IfcClassification > &v
     m_itemOf = value;
 }
 
+void IfcClassificationItem::unsetItemOf() {
+    m_itemOf = Step::getUnset(getItemOf());
+}
+
+bool IfcClassificationItem::testItemOf() const {
+    return !Step::isUnset(getItemOf());
+}
+
 IfcLabel IfcClassificationItem::getTitle() {
     if (Step::BaseObject::inited()) {
         return m_title;
@@ -136,6 +149,14 @@ void IfcClassificationItem::setTitle(const IfcLabel &value) {
     m_title = value;
 }
 
+void IfcClassificationItem::unsetTitle() {
+    m_title = Step::getUnset(getTitle());
+}
+
+bool IfcClassificationItem::testTitle() const {
+    return !Step::isUnset(getTitle());
+}
+
 Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifiedItemIn;
@@ -151,6 +172,10 @@ const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::
     return deConstObject->getIsClassifiedItemIn();
 }
 
+bool IfcClassificationItem::testIsClassifiedItemIn() const {
+    return !Step::isUnset(getIsClassifiedItemIn());
+}
+
 Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifyingItemIn;
@@ -164,6 +189,10 @@ Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsC
 const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() const {
     IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
     return deConstObject->getIsClassifyingItemIn();
+}
+
+bool IfcClassificationItem::testIsClassifyingItemIn() const {
+    return !Step::isUnset(getIsClassifyingItemIn());
 }
 
 bool IfcClassificationItem::init() {

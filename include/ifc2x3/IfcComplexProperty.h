@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -28,21 +28,22 @@
 #define IFC2X3_IFCCOMPLEXPROPERTY_H
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
+#include <ifc2x3/IfcComplexProperty.h>
 #include <ifc2x3/IfcProperty.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
-    class IfcComplexProperty;
-
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcComplexProperty_HasProperties_type : public Set_IfcProperty_1_n {
     public:
@@ -52,28 +53,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcComplexProperty *mOwner;
-        /**
-         */
         Inverted_IfcComplexProperty_HasProperties_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcComplexProperty *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcProperty > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcProperty > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcComplexProperty;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcComplexProperty *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcComplexProperty *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcComplexProperty Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcComplexProperty : public IfcProperty {
     public:
@@ -122,6 +139,17 @@ namespace ifc2x3 {
          */
         virtual void setUsageName(const IfcIdentifier &value);
         /**
+         * unset the attribute 'UsageName'.
+         * 
+         */
+        virtual void unsetUsageName();
+        /**
+         * Test if the attribute 'UsageName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsageName() const;
+        /**
          * Gets the value of the explicit attribute 'HasProperties'.
          * 
          */
@@ -132,6 +160,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasProperties'
          */
         virtual const Set_IfcProperty_1_n &getHasProperties() const;
+        /**
+         * unset the attribute 'HasProperties'.
+         * 
+         */
+        virtual void unsetHasProperties();
+        /**
+         * Test if the attribute 'HasProperties' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasProperties() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcLibraryInformation_LibraryReference_type::Inverted_IfcLibraryInformation_LibraryReference_type() {
@@ -64,6 +61,12 @@ Inverted_IfcLibraryInformation_LibraryReference_type::size_type Inverted_IfcLibr
     IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
     inverse->m_referenceIntoLibrary.erase(mOwner);
     return Set_IfcLibraryReference_1_n::erase(value);
+}
+
+void Inverted_IfcLibraryInformation_LibraryReference_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 IfcLibraryInformation::IfcLibraryInformation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -116,6 +119,14 @@ void IfcLibraryInformation::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcLibraryInformation::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcLibraryInformation::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcLabel IfcLibraryInformation::getVersion() {
     if (Step::BaseObject::inited()) {
         return m_version;
@@ -132,6 +143,14 @@ const IfcLabel IfcLibraryInformation::getVersion() const {
 
 void IfcLibraryInformation::setVersion(const IfcLabel &value) {
     m_version = value;
+}
+
+void IfcLibraryInformation::unsetVersion() {
+    m_version = Step::getUnset(getVersion());
+}
+
+bool IfcLibraryInformation::testVersion() const {
+    return !Step::isUnset(getVersion());
 }
 
 IfcOrganization *IfcLibraryInformation::getPublisher() {
@@ -152,6 +171,14 @@ void IfcLibraryInformation::setPublisher(const Step::RefPtr< IfcOrganization > &
     m_publisher = value;
 }
 
+void IfcLibraryInformation::unsetPublisher() {
+    m_publisher = Step::getUnset(getPublisher());
+}
+
+bool IfcLibraryInformation::testPublisher() const {
+    return !Step::isUnset(getPublisher());
+}
+
 IfcCalendarDate *IfcLibraryInformation::getVersionDate() {
     if (Step::BaseObject::inited()) {
         return m_versionDate.get();
@@ -170,6 +197,14 @@ void IfcLibraryInformation::setVersionDate(const Step::RefPtr< IfcCalendarDate >
     m_versionDate = value;
 }
 
+void IfcLibraryInformation::unsetVersionDate() {
+    m_versionDate = Step::getUnset(getVersionDate());
+}
+
+bool IfcLibraryInformation::testVersionDate() const {
+    return !Step::isUnset(getVersionDate());
+}
+
 Set_IfcLibraryReference_1_n &IfcLibraryInformation::getLibraryReference() {
     if (Step::BaseObject::inited()) {
         return m_libraryReference;
@@ -183,6 +218,15 @@ Set_IfcLibraryReference_1_n &IfcLibraryInformation::getLibraryReference() {
 const Set_IfcLibraryReference_1_n &IfcLibraryInformation::getLibraryReference() const {
     IfcLibraryInformation * deConstObject = const_cast< IfcLibraryInformation * > (this);
     return deConstObject->getLibraryReference();
+}
+
+void IfcLibraryInformation::unsetLibraryReference() {
+    m_libraryReference.clear();
+    m_libraryReference.setUnset(true);
+}
+
+bool IfcLibraryInformation::testLibraryReference() const {
+    return !Step::isUnset(getLibraryReference());
 }
 
 bool IfcLibraryInformation::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFillAreaStyleHatching::IfcFillAreaStyleHatching(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -95,6 +92,14 @@ void IfcFillAreaStyleHatching::setHatchLineAppearance(const Step::RefPtr< IfcCur
     m_hatchLineAppearance = value;
 }
 
+void IfcFillAreaStyleHatching::unsetHatchLineAppearance() {
+    m_hatchLineAppearance = Step::getUnset(getHatchLineAppearance());
+}
+
+bool IfcFillAreaStyleHatching::testHatchLineAppearance() const {
+    return !Step::isUnset(getHatchLineAppearance());
+}
+
 IfcHatchLineDistanceSelect *IfcFillAreaStyleHatching::getStartOfNextHatchLine() {
     if (Step::BaseObject::inited()) {
         return m_startOfNextHatchLine.get();
@@ -111,6 +116,14 @@ const IfcHatchLineDistanceSelect *IfcFillAreaStyleHatching::getStartOfNextHatchL
 
 void IfcFillAreaStyleHatching::setStartOfNextHatchLine(const Step::RefPtr< IfcHatchLineDistanceSelect > &value) {
     m_startOfNextHatchLine = value;
+}
+
+void IfcFillAreaStyleHatching::unsetStartOfNextHatchLine() {
+    m_startOfNextHatchLine = Step::getUnset(getStartOfNextHatchLine());
+}
+
+bool IfcFillAreaStyleHatching::testStartOfNextHatchLine() const {
+    return !Step::isUnset(getStartOfNextHatchLine());
 }
 
 IfcCartesianPoint *IfcFillAreaStyleHatching::getPointOfReferenceHatchLine() {
@@ -131,6 +144,14 @@ void IfcFillAreaStyleHatching::setPointOfReferenceHatchLine(const Step::RefPtr< 
     m_pointOfReferenceHatchLine = value;
 }
 
+void IfcFillAreaStyleHatching::unsetPointOfReferenceHatchLine() {
+    m_pointOfReferenceHatchLine = Step::getUnset(getPointOfReferenceHatchLine());
+}
+
+bool IfcFillAreaStyleHatching::testPointOfReferenceHatchLine() const {
+    return !Step::isUnset(getPointOfReferenceHatchLine());
+}
+
 IfcCartesianPoint *IfcFillAreaStyleHatching::getPatternStart() {
     if (Step::BaseObject::inited()) {
         return m_patternStart.get();
@@ -149,6 +170,14 @@ void IfcFillAreaStyleHatching::setPatternStart(const Step::RefPtr< IfcCartesianP
     m_patternStart = value;
 }
 
+void IfcFillAreaStyleHatching::unsetPatternStart() {
+    m_patternStart = Step::getUnset(getPatternStart());
+}
+
+bool IfcFillAreaStyleHatching::testPatternStart() const {
+    return !Step::isUnset(getPatternStart());
+}
+
 IfcPlaneAngleMeasure IfcFillAreaStyleHatching::getHatchLineAngle() {
     if (Step::BaseObject::inited()) {
         return m_hatchLineAngle;
@@ -165,6 +194,14 @@ const IfcPlaneAngleMeasure IfcFillAreaStyleHatching::getHatchLineAngle() const {
 
 void IfcFillAreaStyleHatching::setHatchLineAngle(IfcPlaneAngleMeasure value) {
     m_hatchLineAngle = value;
+}
+
+void IfcFillAreaStyleHatching::unsetHatchLineAngle() {
+    m_hatchLineAngle = Step::getUnset(getHatchLineAngle());
+}
+
+bool IfcFillAreaStyleHatching::testHatchLineAngle() const {
+    return !Step::isUnset(getHatchLineAngle());
 }
 
 bool IfcFillAreaStyleHatching::init() {

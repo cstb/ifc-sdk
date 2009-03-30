@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,10 +22,11 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_EXPRESSDATASET
-#define STEP_EXPRESSDATASET
+#ifndef Step_BaseExpressDataSet_h
+#define Step_BaseExpressDataSet_h
 
 #include "StepDLL.h"
+
 #include "Types.h"
 #include "ClassType.h"
 #include "SPFHeader.h"
@@ -33,8 +34,7 @@
 #include <map>
 #include <string>
 
-namespace Step
-{
+namespace Step {
     class BaseObject;
     class BaseSPFObject;
     class SPFData;
@@ -42,7 +42,7 @@ namespace Step
     /*!
      \short Base definition of a STEP ExpressDataSet
      */
-    class STEP_DLL_DEF BaseExpressDataSet : public Referenced
+    class STEP_DLL_DEF BaseExpressDataSet: public Referenced
     {
     public:
 
@@ -63,11 +63,10 @@ namespace Step
         virtual BaseEntity* get(Id id);
 
         /// Get all objects from the model
-        /*! Warning : This methods calls instantiateAll() before returning the objects so this method
-         could be time-consuming
+        /*!
          @return The list of every instance from the model
          */
-        const MapOfEntities& getAll();
+        MapOfEntities& getAll();
 
         /*!
          \short Returns true if an object with a specified id exists
@@ -133,8 +132,9 @@ namespace Step
         void updateMaxId(Id id);
 
         /*!
-         \short Returns the non-inited entity, if it exists. otherwise, it returns NULL
-         @return A pointer to a non-inited entity
+         * \short Returns the non-initiated entity, if it exists. otherwise, it returns NULL
+         * \param id the Id of the object to get
+         * \return A pointer to a non-initiated entity
          */
         virtual BaseSPFObject* getSPFObject(Id id);
 
@@ -144,6 +144,8 @@ namespace Step
          @return A function pointer of the allocation function
          */
         AllocateFuncType getAllocateFunction(BaseSPFObject* spfObj);
+
+    private:
 
         Id m_maxId;
         MapOfEntities m_Id2BaseObject;

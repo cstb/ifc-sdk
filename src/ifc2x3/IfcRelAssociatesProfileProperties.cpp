@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesProfileProperties::IfcRelAssociatesProfileProperties(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -93,6 +90,14 @@ void IfcRelAssociatesProfileProperties::setRelatingProfileProperties(const Step:
     m_relatingProfileProperties = value;
 }
 
+void IfcRelAssociatesProfileProperties::unsetRelatingProfileProperties() {
+    m_relatingProfileProperties = Step::getUnset(getRelatingProfileProperties());
+}
+
+bool IfcRelAssociatesProfileProperties::testRelatingProfileProperties() const {
+    return !Step::isUnset(getRelatingProfileProperties());
+}
+
 IfcShapeAspect *IfcRelAssociatesProfileProperties::getProfileSectionLocation() {
     if (Step::BaseObject::inited()) {
         return m_profileSectionLocation.get();
@@ -111,6 +116,14 @@ void IfcRelAssociatesProfileProperties::setProfileSectionLocation(const Step::Re
     m_profileSectionLocation = value;
 }
 
+void IfcRelAssociatesProfileProperties::unsetProfileSectionLocation() {
+    m_profileSectionLocation = Step::getUnset(getProfileSectionLocation());
+}
+
+bool IfcRelAssociatesProfileProperties::testProfileSectionLocation() const {
+    return !Step::isUnset(getProfileSectionLocation());
+}
+
 IfcOrientationSelect *IfcRelAssociatesProfileProperties::getProfileOrientation() {
     if (Step::BaseObject::inited()) {
         return m_profileOrientation.get();
@@ -127,6 +140,14 @@ const IfcOrientationSelect *IfcRelAssociatesProfileProperties::getProfileOrienta
 
 void IfcRelAssociatesProfileProperties::setProfileOrientation(const Step::RefPtr< IfcOrientationSelect > &value) {
     m_profileOrientation = value;
+}
+
+void IfcRelAssociatesProfileProperties::unsetProfileOrientation() {
+    m_profileOrientation = Step::getUnset(getProfileOrientation());
+}
+
+bool IfcRelAssociatesProfileProperties::testProfileOrientation() const {
+    return !Step::isUnset(getProfileOrientation());
 }
 
 bool IfcRelAssociatesProfileProperties::init() {

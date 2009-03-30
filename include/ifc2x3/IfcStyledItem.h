@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,19 +29,21 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcRepresentationItem.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStyledItem Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStyledItem : public IfcRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setItem(const Step::RefPtr< IfcRepresentationItem > &value);
         /**
+         * unset the attribute 'Item'.
+         * 
+         */
+        virtual void unsetItem();
+        /**
+         * Test if the attribute 'Item' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testItem() const;
+        /**
          * Gets the value of the explicit attribute 'Styles'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setStyles(const Set_IfcPresentationStyleAssignment_1_n &value);
         /**
+         * unset the attribute 'Styles'.
+         * 
+         */
+        virtual void unsetStyles();
+        /**
+         * Test if the attribute 'Styles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStyles() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         friend class ExpressDataSet;
 
     protected:

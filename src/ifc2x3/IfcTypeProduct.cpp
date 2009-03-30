@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTypeProduct::IfcTypeProduct(Step::Id id, Step::SPFData *args) : IfcTypeObject(id, args) {
@@ -91,6 +88,15 @@ void IfcTypeProduct::setRepresentationMaps(const List_IfcRepresentationMap_1_n &
     m_representationMaps = value;
 }
 
+void IfcTypeProduct::unsetRepresentationMaps() {
+    m_representationMaps.clear();
+    m_representationMaps.setUnset(true);
+}
+
+bool IfcTypeProduct::testRepresentationMaps() const {
+    return !Step::isUnset(getRepresentationMaps());
+}
+
 IfcLabel IfcTypeProduct::getTag() {
     if (Step::BaseObject::inited()) {
         return m_tag;
@@ -107,6 +113,14 @@ const IfcLabel IfcTypeProduct::getTag() const {
 
 void IfcTypeProduct::setTag(const IfcLabel &value) {
     m_tag = value;
+}
+
+void IfcTypeProduct::unsetTag() {
+    m_tag = Step::getUnset(getTag());
+}
+
+bool IfcTypeProduct::testTag() const {
+    return !Step::isUnset(getTag());
 }
 
 bool IfcTypeProduct::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralSurfaceMember::IfcStructuralSurfaceMember(Step::Id id, Step::SPFData *args) : IfcStructuralMember(id, args) {
@@ -85,6 +82,14 @@ void IfcStructuralSurfaceMember::setPredefinedType(IfcStructuralSurfaceTypeEnum 
     m_predefinedType = value;
 }
 
+void IfcStructuralSurfaceMember::unsetPredefinedType() {
+    m_predefinedType = IfcStructuralSurfaceTypeEnum_UNSET;
+}
+
+bool IfcStructuralSurfaceMember::testPredefinedType() const {
+    return getPredefinedType() != IfcStructuralSurfaceTypeEnum_UNSET;
+}
+
 IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() {
     if (Step::BaseObject::inited()) {
         return m_thickness;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcStructuralSurfaceMember::getThickness() const 
 
 void IfcStructuralSurfaceMember::setThickness(IfcPositiveLengthMeasure value) {
     m_thickness = value;
+}
+
+void IfcStructuralSurfaceMember::unsetThickness() {
+    m_thickness = Step::getUnset(getThickness());
+}
+
+bool IfcStructuralSurfaceMember::testThickness() const {
+    return !Step::isUnset(getThickness());
 }
 
 bool IfcStructuralSurfaceMember::init() {

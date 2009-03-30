@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurtainWallType::IfcCurtainWallType(Step::Id id, Step::SPFData *args) : IfcBuildingElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcCurtainWallTypeEnum IfcCurtainWallType::getPredefinedType() const {
 
 void IfcCurtainWallType::setPredefinedType(IfcCurtainWallTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcCurtainWallType::unsetPredefinedType() {
+    m_predefinedType = IfcCurtainWallTypeEnum_UNSET;
+}
+
+bool IfcCurtainWallType::testPredefinedType() const {
+    return getPredefinedType() != IfcCurtainWallTypeEnum_UNSET;
 }
 
 bool IfcCurtainWallType::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcAxis2Placement;
 
     /**
+     * Generated class for the IfcTextLiteral Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextLiteral : public IfcGeometricRepresentationItem {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setLiteral(const IfcPresentableText &value);
         /**
+         * unset the attribute 'Literal'.
+         * 
+         */
+        virtual void unsetLiteral();
+        /**
+         * Test if the attribute 'Literal' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiteral() const;
+        /**
          * Gets the value of the explicit attribute 'Placement'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setPlacement(const Step::RefPtr< IfcAxis2Placement > &value);
         /**
+         * unset the attribute 'Placement'.
+         * 
+         */
+        virtual void unsetPlacement();
+        /**
+         * Test if the attribute 'Placement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlacement() const;
+        /**
          * Gets the value of the explicit attribute 'Path'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPath(IfcTextPath value);
+        /**
+         * unset the attribute 'Path'.
+         * 
+         */
+        virtual void unsetPath();
+        /**
+         * Test if the attribute 'Path' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPath() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGroup::IfcGroup(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -80,6 +77,10 @@ IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() {
 const IfcRelAssignsToGroup *IfcGroup::getIsGroupedBy() const {
     IfcGroup * deConstObject = const_cast< IfcGroup * > (this);
     return deConstObject->getIsGroupedBy();
+}
+
+bool IfcGroup::testIsGroupedBy() const {
+    return !Step::isUnset(getIsGroupedBy());
 }
 
 bool IfcGroup::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurveStyleFont::IfcCurveStyleFont(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcCurveStyleFont::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcCurveStyleFont::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcCurveStyleFont::testName() const {
+    return !Step::isUnset(getName());
+}
+
 List_IfcCurveStyleFontPattern_1_n &IfcCurveStyleFont::getPatternList() {
     if (Step::BaseObject::inited()) {
         return m_patternList;
@@ -106,6 +111,15 @@ const List_IfcCurveStyleFontPattern_1_n &IfcCurveStyleFont::getPatternList() con
 
 void IfcCurveStyleFont::setPatternList(const List_IfcCurveStyleFontPattern_1_n &value) {
     m_patternList = value;
+}
+
+void IfcCurveStyleFont::unsetPatternList() {
+    m_patternList.clear();
+    m_patternList.setUnset(true);
+}
+
+bool IfcCurveStyleFont::testPatternList() const {
+    return !Step::isUnset(getPatternList());
 }
 
 bool IfcCurveStyleFont::init() {

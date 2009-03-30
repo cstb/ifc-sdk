@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcVertexBasedTextureMap::IfcVertexBasedTextureMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,15 @@ void IfcVertexBasedTextureMap::setTextureVertices(const List_IfcTextureVertex_3_
     m_textureVertices = value;
 }
 
+void IfcVertexBasedTextureMap::unsetTextureVertices() {
+    m_textureVertices.clear();
+    m_textureVertices.setUnset(true);
+}
+
+bool IfcVertexBasedTextureMap::testTextureVertices() const {
+    return !Step::isUnset(getTextureVertices());
+}
+
 List_IfcCartesianPoint_3_n &IfcVertexBasedTextureMap::getTexturePoints() {
     if (Step::BaseObject::inited()) {
         return m_texturePoints;
@@ -106,6 +112,15 @@ const List_IfcCartesianPoint_3_n &IfcVertexBasedTextureMap::getTexturePoints() c
 
 void IfcVertexBasedTextureMap::setTexturePoints(const List_IfcCartesianPoint_3_n &value) {
     m_texturePoints = value;
+}
+
+void IfcVertexBasedTextureMap::unsetTexturePoints() {
+    m_texturePoints.clear();
+    m_texturePoints.setUnset(true);
+}
+
+bool IfcVertexBasedTextureMap::testTexturePoints() const {
+    return !Step::isUnset(getTexturePoints());
 }
 
 bool IfcVertexBasedTextureMap::init() {

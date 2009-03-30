@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsStructuralActivity::IfcRelConnectsStructuralActivity(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -96,6 +93,14 @@ void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< If
     m_relatingElement = value;
 }
 
+void IfcRelConnectsStructuralActivity::unsetRelatingElement() {
+    m_relatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelConnectsStructuralActivity::testRelatingElement() const {
+    return !Step::isUnset(getRelatingElement());
+}
+
 IfcStructuralActivity *IfcRelConnectsStructuralActivity::getRelatedStructuralActivity() {
     if (Step::BaseObject::inited()) {
         return m_relatedStructuralActivity.get();
@@ -118,6 +123,14 @@ void IfcRelConnectsStructuralActivity::setRelatedStructuralActivity(const Step::
         value->m_assignedToStructuralItem = this;
     }
     m_relatedStructuralActivity = value;
+}
+
+void IfcRelConnectsStructuralActivity::unsetRelatedStructuralActivity() {
+    m_relatedStructuralActivity = Step::getUnset(getRelatedStructuralActivity());
+}
+
+bool IfcRelConnectsStructuralActivity::testRelatedStructuralActivity() const {
+    return !Step::isUnset(getRelatedStructuralActivity());
 }
 
 bool IfcRelConnectsStructuralActivity::init() {

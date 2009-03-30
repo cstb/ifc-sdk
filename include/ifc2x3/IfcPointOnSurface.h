@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPoint.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPoint.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSurface;
 
     /**
+     * Generated class for the IfcPointOnSurface Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPointOnSurface : public IfcPoint {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisSurface(const Step::RefPtr< IfcSurface > &value);
         /**
+         * unset the attribute 'BasisSurface'.
+         * 
+         */
+        virtual void unsetBasisSurface();
+        /**
+         * Test if the attribute 'BasisSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisSurface() const;
+        /**
          * Gets the value of the explicit attribute 'PointParameterU'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setPointParameterU(IfcParameterValue value);
         /**
+         * unset the attribute 'PointParameterU'.
+         * 
+         */
+        virtual void unsetPointParameterU();
+        /**
+         * Test if the attribute 'PointParameterU' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPointParameterU() const;
+        /**
          * Gets the value of the explicit attribute 'PointParameterV'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPointParameterV(IfcParameterValue value);
+        /**
+         * unset the attribute 'PointParameterV'.
+         * 
+         */
+        virtual void unsetPointParameterV();
+        /**
+         * Test if the attribute 'PointParameterV' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPointParameterV() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDerivedUnit::IfcDerivedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,15 @@ void IfcDerivedUnit::setElements(const Set_IfcDerivedUnitElement_1_n &value) {
     m_elements = value;
 }
 
+void IfcDerivedUnit::unsetElements() {
+    m_elements.clear();
+    m_elements.setUnset(true);
+}
+
+bool IfcDerivedUnit::testElements() const {
+    return !Step::isUnset(getElements());
+}
+
 IfcDerivedUnitEnum IfcDerivedUnit::getUnitType() {
     if (Step::BaseObject::inited()) {
         return m_unitType;
@@ -109,6 +115,14 @@ void IfcDerivedUnit::setUnitType(IfcDerivedUnitEnum value) {
     m_unitType = value;
 }
 
+void IfcDerivedUnit::unsetUnitType() {
+    m_unitType = IfcDerivedUnitEnum_UNSET;
+}
+
+bool IfcDerivedUnit::testUnitType() const {
+    return getUnitType() != IfcDerivedUnitEnum_UNSET;
+}
+
 IfcLabel IfcDerivedUnit::getUserDefinedType() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedType;
@@ -125,6 +139,14 @@ const IfcLabel IfcDerivedUnit::getUserDefinedType() const {
 
 void IfcDerivedUnit::setUserDefinedType(const IfcLabel &value) {
     m_userDefinedType = value;
+}
+
+void IfcDerivedUnit::unsetUserDefinedType() {
+    m_userDefinedType = Step::getUnset(getUserDefinedType());
+}
+
+bool IfcDerivedUnit::testUserDefinedType() const {
+    return !Step::isUnset(getUserDefinedType());
 }
 
 bool IfcDerivedUnit::init() {

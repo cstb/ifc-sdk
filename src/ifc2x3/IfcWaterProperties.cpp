@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWaterProperties::IfcWaterProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -90,6 +87,14 @@ void IfcWaterProperties::setIsPotable(Step::Boolean value) {
     m_isPotable = value;
 }
 
+void IfcWaterProperties::unsetIsPotable() {
+    m_isPotable = Step::getUnset(getIsPotable());
+}
+
+bool IfcWaterProperties::testIsPotable() const {
+    return !Step::isUnset(getIsPotable());
+}
+
 IfcIonConcentrationMeasure IfcWaterProperties::getHardness() {
     if (Step::BaseObject::inited()) {
         return m_hardness;
@@ -106,6 +111,14 @@ const IfcIonConcentrationMeasure IfcWaterProperties::getHardness() const {
 
 void IfcWaterProperties::setHardness(IfcIonConcentrationMeasure value) {
     m_hardness = value;
+}
+
+void IfcWaterProperties::unsetHardness() {
+    m_hardness = Step::getUnset(getHardness());
+}
+
+bool IfcWaterProperties::testHardness() const {
+    return !Step::isUnset(getHardness());
 }
 
 IfcIonConcentrationMeasure IfcWaterProperties::getAlkalinityConcentration() {
@@ -126,6 +139,14 @@ void IfcWaterProperties::setAlkalinityConcentration(IfcIonConcentrationMeasure v
     m_alkalinityConcentration = value;
 }
 
+void IfcWaterProperties::unsetAlkalinityConcentration() {
+    m_alkalinityConcentration = Step::getUnset(getAlkalinityConcentration());
+}
+
+bool IfcWaterProperties::testAlkalinityConcentration() const {
+    return !Step::isUnset(getAlkalinityConcentration());
+}
+
 IfcIonConcentrationMeasure IfcWaterProperties::getAcidityConcentration() {
     if (Step::BaseObject::inited()) {
         return m_acidityConcentration;
@@ -142,6 +163,14 @@ const IfcIonConcentrationMeasure IfcWaterProperties::getAcidityConcentration() c
 
 void IfcWaterProperties::setAcidityConcentration(IfcIonConcentrationMeasure value) {
     m_acidityConcentration = value;
+}
+
+void IfcWaterProperties::unsetAcidityConcentration() {
+    m_acidityConcentration = Step::getUnset(getAcidityConcentration());
+}
+
+bool IfcWaterProperties::testAcidityConcentration() const {
+    return !Step::isUnset(getAcidityConcentration());
 }
 
 IfcNormalisedRatioMeasure IfcWaterProperties::getImpuritiesContent() {
@@ -162,6 +191,14 @@ void IfcWaterProperties::setImpuritiesContent(IfcNormalisedRatioMeasure value) {
     m_impuritiesContent = value;
 }
 
+void IfcWaterProperties::unsetImpuritiesContent() {
+    m_impuritiesContent = Step::getUnset(getImpuritiesContent());
+}
+
+bool IfcWaterProperties::testImpuritiesContent() const {
+    return !Step::isUnset(getImpuritiesContent());
+}
+
 IfcPHMeasure IfcWaterProperties::getPHLevel() {
     if (Step::BaseObject::inited()) {
         return m_pHLevel;
@@ -180,6 +217,14 @@ void IfcWaterProperties::setPHLevel(IfcPHMeasure value) {
     m_pHLevel = value;
 }
 
+void IfcWaterProperties::unsetPHLevel() {
+    m_pHLevel = Step::getUnset(getPHLevel());
+}
+
+bool IfcWaterProperties::testPHLevel() const {
+    return !Step::isUnset(getPHLevel());
+}
+
 IfcNormalisedRatioMeasure IfcWaterProperties::getDissolvedSolidsContent() {
     if (Step::BaseObject::inited()) {
         return m_dissolvedSolidsContent;
@@ -196,6 +241,14 @@ const IfcNormalisedRatioMeasure IfcWaterProperties::getDissolvedSolidsContent() 
 
 void IfcWaterProperties::setDissolvedSolidsContent(IfcNormalisedRatioMeasure value) {
     m_dissolvedSolidsContent = value;
+}
+
+void IfcWaterProperties::unsetDissolvedSolidsContent() {
+    m_dissolvedSolidsContent = Step::getUnset(getDissolvedSolidsContent());
+}
+
+bool IfcWaterProperties::testDissolvedSolidsContent() const {
+    return !Step::isUnset(getDissolvedSolidsContent());
 }
 
 bool IfcWaterProperties::init() {

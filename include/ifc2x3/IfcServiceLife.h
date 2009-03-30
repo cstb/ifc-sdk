@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcServiceLife Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcServiceLife : public IfcControl {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setServiceLifeType(IfcServiceLifeTypeEnum value);
         /**
+         * unset the attribute 'ServiceLifeType'.
+         * 
+         */
+        virtual void unsetServiceLifeType();
+        /**
+         * Test if the attribute 'ServiceLifeType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testServiceLifeType() const;
+        /**
          * Gets the value of the explicit attribute 'ServiceLifeDuration'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setServiceLifeDuration(IfcTimeMeasure value);
+        /**
+         * unset the attribute 'ServiceLifeDuration'.
+         * 
+         */
+        virtual void unsetServiceLifeDuration();
+        /**
+         * Test if the attribute 'ServiceLifeDuration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testServiceLifeDuration() const;
         friend class ExpressDataSet;
 
     protected:

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,23 +22,20 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/SPFData.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/SPFFunctions.h>
-
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+#include "Step/SPFData.h"
+#include "Step/BaseExpressDataSet.h"
+#include "Step/SPFFunctions.h"
 
 using namespace std;
+using namespace Step;
 
-Step::SPFData::~SPFData()
+SPFData::~SPFData()
 {
     if (m_argv)
         delete []m_argv;
 }
 
-std::string Step::SPFData::getNext()
+std::string SPFData::getNext()
 {
     if (m_index>=m_argc)
         return "";
@@ -46,25 +43,25 @@ std::string Step::SPFData::getNext()
         return m_argv[m_index++];
 }
 
-std::vector<Step::Id>* Step::SPFData::getInverses(ClassType cl, int i)
+std::vector<Id>* SPFData::getInverses(ClassType cl, int i)
 {
-    std::map<std::pair<Step::ClassType,int>, std::vector<Step::Id> >::iterator it =
-        m_inverses.find(std::pair<Step::ClassType,int>(cl,i));
+    std::map<std::pair<ClassType,int>, std::vector<Id> >::iterator it =
+        m_inverses.find(std::pair<ClassType,int>(cl,i));
     if (it != m_inverses.end())
         return &it->second;
     else
         return NULL;
 }
 
-void Step::SPFData::addInverse(ClassType cl,int i , Id id)
+void SPFData::addInverse(ClassType cl,int i , Id id)
 {
     m_inverses[std::pair<ClassType,int>(cl,i)].push_back(id);
 }
 
-bool Step::SPFData::setParams(const char *s)
+bool SPFData::setParams(const char *s)
 {
     std::vector<std::string> v;
-    if (!Step::parseList(s,v)) {
+    if (!parseList(s,v)) {
         return false;
     }
     m_argv = new std::string[v.size()];

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcObjectPlacement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcObjectPlacement : public Step::BaseEntity {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcProduct_1_1 &getPlacesObject() const;
         /**
+         * Test if the attribute 'PlacesObject' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlacesObject() const;
+        /**
          * Gets the value of the inverse attribute 'ReferencedByPlacements'.
          * 
          */
@@ -92,6 +100,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ReferencedByPlacements'
          */
         virtual const Inverse_Set_IfcLocalPlacement_0_n &getReferencedByPlacements() const;
+        /**
+         * Test if the attribute 'ReferencedByPlacements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencedByPlacements() const;
         friend class IfcLocalPlacement;
         friend class IfcProduct;
         friend class ExpressDataSet;

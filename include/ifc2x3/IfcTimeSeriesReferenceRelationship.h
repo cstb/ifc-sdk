@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcTimeSeries;
 
     /**
+     * Generated class for the IfcTimeSeriesReferenceRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTimeSeriesReferenceRelationship : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setReferencedTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
         /**
+         * unset the attribute 'ReferencedTimeSeries'.
+         * 
+         */
+        virtual void unsetReferencedTimeSeries();
+        /**
+         * Test if the attribute 'ReferencedTimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencedTimeSeries() const;
+        /**
          * Gets the value of the explicit attribute 'TimeSeriesReferences'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTimeSeriesReferences(const Set_IfcDocumentSelect_1_n &value);
+        /**
+         * unset the attribute 'TimeSeriesReferences'.
+         * 
+         */
+        virtual void unsetTimeSeriesReferences();
+        /**
+         * Test if the attribute 'TimeSeriesReferences' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeSeriesReferences() const;
         friend class ExpressDataSet;
 
     protected:

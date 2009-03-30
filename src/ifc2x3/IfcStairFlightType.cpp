@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStairFlightType::IfcStairFlightType(Step::Id id, Step::SPFData *args) : IfcBuildingElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcStairFlightTypeEnum IfcStairFlightType::getPredefinedType() const {
 
 void IfcStairFlightType::setPredefinedType(IfcStairFlightTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcStairFlightType::unsetPredefinedType() {
+    m_predefinedType = IfcStairFlightTypeEnum_UNSET;
+}
+
+bool IfcStairFlightType::testPredefinedType() const {
+    return getPredefinedType() != IfcStairFlightTypeEnum_UNSET;
 }
 
 bool IfcStairFlightType::init() {

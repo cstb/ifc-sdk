@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFeatureElementSubtraction::IfcFeatureElementSubtraction(Step::Id id, Step::SPFData *args) : IfcFeatureElement(id, args) {
@@ -80,6 +77,10 @@ IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() {
 const IfcRelVoidsElement *IfcFeatureElementSubtraction::getVoidsElements() const {
     IfcFeatureElementSubtraction * deConstObject = const_cast< IfcFeatureElementSubtraction * > (this);
     return deConstObject->getVoidsElements();
+}
+
+bool IfcFeatureElementSubtraction::testVoidsElements() const {
+    return !Step::isUnset(getVoidsElements());
 }
 
 bool IfcFeatureElementSubtraction::init() {

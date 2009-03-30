@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcMonetaryUnit;
 
     /**
+     * Generated class for the IfcCurrencyRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurrencyRelationship : public Step::BaseEntity {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value);
         /**
+         * unset the attribute 'RelatingMonetaryUnit'.
+         * 
+         */
+        virtual void unsetRelatingMonetaryUnit();
+        /**
+         * Test if the attribute 'RelatingMonetaryUnit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingMonetaryUnit() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedMonetaryUnit'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value);
+        /**
+         * unset the attribute 'RelatedMonetaryUnit'.
+         * 
+         */
+        virtual void unsetRelatedMonetaryUnit();
+        /**
+         * Test if the attribute 'RelatedMonetaryUnit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedMonetaryUnit() const;
         /**
          * Gets the value of the explicit attribute 'ExchangeRate'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setExchangeRate(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'ExchangeRate'.
+         * 
+         */
+        virtual void unsetExchangeRate();
+        /**
+         * Test if the attribute 'ExchangeRate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testExchangeRate() const;
+        /**
          * Gets the value of the explicit attribute 'RateDateTime'.
          * 
          */
@@ -143,6 +178,17 @@ namespace ifc2x3 {
          */
         virtual void setRateDateTime(const Step::RefPtr< IfcDateAndTime > &value);
         /**
+         * unset the attribute 'RateDateTime'.
+         * 
+         */
+        virtual void unsetRateDateTime();
+        /**
+         * Test if the attribute 'RateDateTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRateDateTime() const;
+        /**
          * Gets the value of the explicit attribute 'RateSource'.
          * 
          */
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRateSource(const Step::RefPtr< IfcLibraryInformation > &value);
+        /**
+         * unset the attribute 'RateSource'.
+         * 
+         */
+        virtual void unsetRateSource();
+        /**
+         * Test if the attribute 'RateSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRateSource() const;
         friend class ExpressDataSet;
 
     protected:

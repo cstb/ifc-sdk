@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcActionRequest::IfcActionRequest(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -83,6 +80,14 @@ const IfcIdentifier IfcActionRequest::getRequestID() const {
 
 void IfcActionRequest::setRequestID(const IfcIdentifier &value) {
     m_requestID = value;
+}
+
+void IfcActionRequest::unsetRequestID() {
+    m_requestID = Step::getUnset(getRequestID());
+}
+
+bool IfcActionRequest::testRequestID() const {
+    return !Step::isUnset(getRequestID());
 }
 
 bool IfcActionRequest::init() {

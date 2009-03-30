@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcAppliedValue.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcAppliedValue.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcEnvironmentalImpactValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcEnvironmentalImpactValue : public IfcAppliedValue {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setImpactType(const IfcLabel &value);
         /**
+         * unset the attribute 'ImpactType'.
+         * 
+         */
+        virtual void unsetImpactType();
+        /**
+         * Test if the attribute 'ImpactType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testImpactType() const;
+        /**
          * Gets the value of the explicit attribute 'Category'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setCategory(IfcEnvironmentalImpactCategoryEnum value);
         /**
+         * unset the attribute 'Category'.
+         * 
+         */
+        virtual void unsetCategory();
+        /**
+         * Test if the attribute 'Category' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCategory() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedCategory'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedCategory(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedCategory'.
+         * 
+         */
+        virtual void unsetUserDefinedCategory();
+        /**
+         * Test if the attribute 'UserDefinedCategory' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedCategory() const;
         friend class ExpressDataSet;
 
     protected:

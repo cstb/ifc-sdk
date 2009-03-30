@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPile::IfcPile(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -85,6 +82,14 @@ void IfcPile::setPredefinedType(IfcPileTypeEnum value) {
     m_predefinedType = value;
 }
 
+void IfcPile::unsetPredefinedType() {
+    m_predefinedType = IfcPileTypeEnum_UNSET;
+}
+
+bool IfcPile::testPredefinedType() const {
+    return getPredefinedType() != IfcPileTypeEnum_UNSET;
+}
+
 IfcPileConstructionEnum IfcPile::getConstructionType() {
     if (Step::BaseObject::inited()) {
         return m_constructionType;
@@ -101,6 +106,14 @@ const IfcPileConstructionEnum IfcPile::getConstructionType() const {
 
 void IfcPile::setConstructionType(IfcPileConstructionEnum value) {
     m_constructionType = value;
+}
+
+void IfcPile::unsetConstructionType() {
+    m_constructionType = IfcPileConstructionEnum_UNSET;
+}
+
+bool IfcPile::testConstructionType() const {
+    return getConstructionType() != IfcPileConstructionEnum_UNSET;
 }
 
 bool IfcPile::init() {

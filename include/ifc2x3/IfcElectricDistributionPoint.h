@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcFlowController.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcElectricDistributionPoint Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcElectricDistributionPoint : public IfcFlowController {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setDistributionPointFunction(IfcElectricDistributionPointFunctionEnum value);
         /**
+         * unset the attribute 'DistributionPointFunction'.
+         * 
+         */
+        virtual void unsetDistributionPointFunction();
+        /**
+         * Test if the attribute 'DistributionPointFunction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDistributionPointFunction() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedFunction'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedFunction(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedFunction'.
+         * 
+         */
+        virtual void unsetUserDefinedFunction();
+        /**
+         * Test if the attribute 'UserDefinedFunction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedFunction() const;
         friend class ExpressDataSet;
 
     protected:

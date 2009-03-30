@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSpace::IfcSpace(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
@@ -89,6 +86,14 @@ void IfcSpace::setInteriorOrExteriorSpace(IfcInternalOrExternalEnum value) {
     m_interiorOrExteriorSpace = value;
 }
 
+void IfcSpace::unsetInteriorOrExteriorSpace() {
+    m_interiorOrExteriorSpace = IfcInternalOrExternalEnum_UNSET;
+}
+
+bool IfcSpace::testInteriorOrExteriorSpace() const {
+    return getInteriorOrExteriorSpace() != IfcInternalOrExternalEnum_UNSET;
+}
+
 IfcLengthMeasure IfcSpace::getElevationWithFlooring() {
     if (Step::BaseObject::inited()) {
         return m_elevationWithFlooring;
@@ -107,6 +112,14 @@ void IfcSpace::setElevationWithFlooring(IfcLengthMeasure value) {
     m_elevationWithFlooring = value;
 }
 
+void IfcSpace::unsetElevationWithFlooring() {
+    m_elevationWithFlooring = Step::getUnset(getElevationWithFlooring());
+}
+
+bool IfcSpace::testElevationWithFlooring() const {
+    return !Step::isUnset(getElevationWithFlooring());
+}
+
 Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() {
     if (Step::BaseObject::inited()) {
         return m_hasCoverings;
@@ -122,6 +135,10 @@ const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const {
     return deConstObject->getHasCoverings();
 }
 
+bool IfcSpace::testHasCoverings() const {
+    return !Step::isUnset(getHasCoverings());
+}
+
 Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
     if (Step::BaseObject::inited()) {
         return m_boundedBy;
@@ -135,6 +152,10 @@ Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
 const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const {
     IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
     return deConstObject->getBoundedBy();
+}
+
+bool IfcSpace::testBoundedBy() const {
+    return !Step::isUnset(getBoundedBy());
 }
 
 bool IfcSpace::init() {

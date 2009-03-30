@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCovering::IfcCovering(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -88,6 +85,14 @@ void IfcCovering::setPredefinedType(IfcCoveringTypeEnum value) {
     m_predefinedType = value;
 }
 
+void IfcCovering::unsetPredefinedType() {
+    m_predefinedType = IfcCoveringTypeEnum_UNSET;
+}
+
+bool IfcCovering::testPredefinedType() const {
+    return getPredefinedType() != IfcCoveringTypeEnum_UNSET;
+}
+
 Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() {
     if (Step::BaseObject::inited()) {
         return m_coversSpaces;
@@ -103,6 +108,10 @@ const Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() const {
     return deConstObject->getCoversSpaces();
 }
 
+bool IfcCovering::testCoversSpaces() const {
+    return !Step::isUnset(getCoversSpaces());
+}
+
 Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
     if (Step::BaseObject::inited()) {
         return m_covers;
@@ -116,6 +125,10 @@ Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
 const Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() const {
     IfcCovering * deConstObject = const_cast< IfcCovering * > (this);
     return deConstObject->getCovers();
+}
+
+bool IfcCovering::testCovers() const {
+    return !Step::isUnset(getCovers());
 }
 
 bool IfcCovering::init() {

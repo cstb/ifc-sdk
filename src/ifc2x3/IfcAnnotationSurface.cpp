@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAnnotationSurface::IfcAnnotationSurface(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcAnnotationSurface::setItem(const Step::RefPtr< IfcGeometricRepresentatio
     m_item = value;
 }
 
+void IfcAnnotationSurface::unsetItem() {
+    m_item = Step::getUnset(getItem());
+}
+
+bool IfcAnnotationSurface::testItem() const {
+    return !Step::isUnset(getItem());
+}
+
 IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() {
     if (Step::BaseObject::inited()) {
         return m_textureCoordinates.get();
@@ -111,6 +116,14 @@ void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureC
         value->m_annotatedSurface.insert(this);
     }
     m_textureCoordinates = value;
+}
+
+void IfcAnnotationSurface::unsetTextureCoordinates() {
+    m_textureCoordinates = Step::getUnset(getTextureCoordinates());
+}
+
+bool IfcAnnotationSurface::testTextureCoordinates() const {
+    return !Step::isUnset(getTextureCoordinates());
 }
 
 bool IfcAnnotationSurface::init() {

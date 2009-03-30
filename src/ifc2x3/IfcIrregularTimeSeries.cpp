@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcIrregularTimeSeries::IfcIrregularTimeSeries(Step::Id id, Step::SPFData *args) : IfcTimeSeries(id, args) {
@@ -86,6 +83,15 @@ const List_IfcIrregularTimeSeriesValue_1_n &IfcIrregularTimeSeries::getValues() 
 
 void IfcIrregularTimeSeries::setValues(const List_IfcIrregularTimeSeriesValue_1_n &value) {
     m_values = value;
+}
+
+void IfcIrregularTimeSeries::unsetValues() {
+    m_values.clear();
+    m_values.setUnset(true);
+}
+
+bool IfcIrregularTimeSeries::testValues() const {
+    return !Step::isUnset(getValues());
 }
 
 bool IfcIrregularTimeSeries::init() {

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,26 +22,28 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_SPF_HEADER
-#define STEP_SPF_HEADER
+#ifndef Step_SPFHeader_h
+#define Step_SPFHeader_h
 
 #include "StepDLL.h"
+
 #include "SimpleTypes.h"
 
 #include <istream>
 #include <vector>
 
-
 namespace Step {
     /*!
-    \short Defines the STEP-21 header
-    */
-    class STEP_DLL_DEF SPFHeader {
+     ** \short Defines the STEP-21 header
+     */
+    class STEP_DLL_DEF SPFHeader
+    {
     public:
         /*!
-        \short Mapping of STEP-21 file_description
-        */
-        struct FileDescription {
+         ** \short Mapping of STEP-21 file_description
+         */
+        struct FileDescription
+        {
             //! storage of the description strings
             std::vector<String> description;
             //! storage of the implementation level string
@@ -49,9 +51,10 @@ namespace Step {
         };
 
         /*!
-        \short Mapping of STEP-21 file_name
-        */
-        struct FileName {
+         \short Mapping of STEP-21 file_name
+         */
+        struct FileName
+        {
             //! storage of the name string
             String name;
             //! storage of the timeStamp string
@@ -69,61 +72,55 @@ namespace Step {
         };
 
         /*!
-        \short Mapping of STEP-21 file_schema
-        */
-        struct FileSchema {
+         \short Mapping of STEP-21 file_schema
+         */
+        struct FileSchema
+        {
+            //! list of schema identifiers
             std::vector<String> schemaIdentifiers;
         };
 
         /*!
-        \short Default constructor. It does nothing
-        */
-        SPFHeader() {}
+         \short Default constructor
+         */
+        SPFHeader();
 
         /*!
-        \short Destructor. It does nothing
-        */
-        ~SPFHeader() {}
+         \short Destructor.
+         */
+        virtual ~SPFHeader();
 
         /*!
-        \short Gets the file description structure from the header
-        @return the file description structure from the header
-        */
-        FileDescription& getFileDescription() {
-            return m_fileDescription;
-        }
+         \short Gets the file description structure from the header
+         @return the file description structure from the header
+         */
+        FileDescription& getFileDescription();
 
         /*!
-        \short Gets the file name structure from the header
-        @return the file name structure from the header
-        */
-        FileName& getFileName() {
-            return m_fileName;
-        }
+         \short Gets the file name structure from the header
+         @return the file name structure from the header
+         */
+        FileName& getFileName();
 
         /*!
-        \short Gets the file schema structure from the header
-        @return the file schema structure from the header
-        */
-        FileSchema& getFileSchema() {
-            return m_fileSchema;
-        }
+         \short Gets the file schema structure from the header
+         @return the file schema structure from the header
+         */
+        FileSchema& getFileSchema();
 
         /*!
-        \short Gets other optional fields from the header
-        @return other optional fields from the header
-        */
-        String& getOtherFields() {
-            return m_otherFields;
-        }
+         \short Gets other optional fields from the header
+         @return other optional fields from the header
+         */
+        String& getOtherFields();
 
         /*!
-        \short Parse an input stream to extract the header
-        @param data the input stream. Its position will be set at the end of the header section
-        @param counter an integer for line counting. This method updates the counter
-        @return true if the header has no syntax error.
-        */
-        bool parse(std::istream& data, unsigned int& counter);
+         \short Parse an input stream to extract the header
+         @param ifs the input stream. Its position will be set at the end of the header section
+         @param counter an integer for line counting. This method updates the counter
+         @return true if the header has no syntax error.
+         */
+        bool parse(std::istream& ifs, unsigned int& counter);
 
     private:
         FileDescription m_fileDescription;

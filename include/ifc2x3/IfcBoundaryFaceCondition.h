@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundaryCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundaryCondition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcBoundaryFaceCondition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBoundaryFaceCondition : public IfcBoundaryCondition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessByAreaX(IfcModulusOfSubgradeReactionMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessByAreaX'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByAreaX();
+        /**
+         * Test if the attribute 'LinearStiffnessByAreaX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByAreaX() const;
+        /**
          * Gets the value of the explicit attribute 'LinearStiffnessByAreaY'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessByAreaY(IfcModulusOfSubgradeReactionMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessByAreaY'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByAreaY();
+        /**
+         * Test if the attribute 'LinearStiffnessByAreaY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByAreaY() const;
+        /**
          * Gets the value of the explicit attribute 'LinearStiffnessByAreaZ'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value);
+        /**
+         * unset the attribute 'LinearStiffnessByAreaZ'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByAreaZ();
+        /**
+         * Test if the attribute 'LinearStiffnessByAreaZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByAreaZ() const;
         friend class ExpressDataSet;
 
     protected:

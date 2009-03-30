@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBuildingElementProxy::IfcBuildingElementProxy(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -82,6 +79,14 @@ const IfcElementCompositionEnum IfcBuildingElementProxy::getCompositionType() co
 
 void IfcBuildingElementProxy::setCompositionType(IfcElementCompositionEnum value) {
     m_compositionType = value;
+}
+
+void IfcBuildingElementProxy::unsetCompositionType() {
+    m_compositionType = IfcElementCompositionEnum_UNSET;
+}
+
+bool IfcBuildingElementProxy::testCompositionType() const {
+    return getCompositionType() != IfcElementCompositionEnum_UNSET;
 }
 
 bool IfcBuildingElementProxy::init() {

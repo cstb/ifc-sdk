@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToControl::IfcRelAssignsToControl(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -92,6 +89,14 @@ void IfcRelAssignsToControl::setRelatingControl(const Step::RefPtr< IfcControl >
         value->m_controls.insert(this);
     }
     m_relatingControl = value;
+}
+
+void IfcRelAssignsToControl::unsetRelatingControl() {
+    m_relatingControl = Step::getUnset(getRelatingControl());
+}
+
+bool IfcRelAssignsToControl::testRelatingControl() const {
+    return !Step::isUnset(getRelatingControl());
 }
 
 bool IfcRelAssignsToControl::init() {

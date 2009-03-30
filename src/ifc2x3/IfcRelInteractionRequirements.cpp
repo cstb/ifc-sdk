@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelInteractionRequirements::IfcRelInteractionRequirements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -93,6 +90,14 @@ void IfcRelInteractionRequirements::setDailyInteraction(IfcCountMeasure value) {
     m_dailyInteraction = value;
 }
 
+void IfcRelInteractionRequirements::unsetDailyInteraction() {
+    m_dailyInteraction = Step::getUnset(getDailyInteraction());
+}
+
+bool IfcRelInteractionRequirements::testDailyInteraction() const {
+    return !Step::isUnset(getDailyInteraction());
+}
+
 IfcNormalisedRatioMeasure IfcRelInteractionRequirements::getImportanceRating() {
     if (Step::BaseObject::inited()) {
         return m_importanceRating;
@@ -111,6 +116,14 @@ void IfcRelInteractionRequirements::setImportanceRating(IfcNormalisedRatioMeasur
     m_importanceRating = value;
 }
 
+void IfcRelInteractionRequirements::unsetImportanceRating() {
+    m_importanceRating = Step::getUnset(getImportanceRating());
+}
+
+bool IfcRelInteractionRequirements::testImportanceRating() const {
+    return !Step::isUnset(getImportanceRating());
+}
+
 IfcSpatialStructureElement *IfcRelInteractionRequirements::getLocationOfInteraction() {
     if (Step::BaseObject::inited()) {
         return m_locationOfInteraction.get();
@@ -127,6 +140,14 @@ const IfcSpatialStructureElement *IfcRelInteractionRequirements::getLocationOfIn
 
 void IfcRelInteractionRequirements::setLocationOfInteraction(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     m_locationOfInteraction = value;
+}
+
+void IfcRelInteractionRequirements::unsetLocationOfInteraction() {
+    m_locationOfInteraction = Step::getUnset(getLocationOfInteraction());
+}
+
+bool IfcRelInteractionRequirements::testLocationOfInteraction() const {
+    return !Step::isUnset(getLocationOfInteraction());
 }
 
 IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram() {
@@ -153,6 +174,14 @@ void IfcRelInteractionRequirements::setRelatedSpaceProgram(const Step::RefPtr< I
     m_relatedSpaceProgram = value;
 }
 
+void IfcRelInteractionRequirements::unsetRelatedSpaceProgram() {
+    m_relatedSpaceProgram = Step::getUnset(getRelatedSpaceProgram());
+}
+
+bool IfcRelInteractionRequirements::testRelatedSpaceProgram() const {
+    return !Step::isUnset(getRelatedSpaceProgram());
+}
+
 IfcSpaceProgram *IfcRelInteractionRequirements::getRelatingSpaceProgram() {
     if (Step::BaseObject::inited()) {
         return m_relatingSpaceProgram.get();
@@ -175,6 +204,14 @@ void IfcRelInteractionRequirements::setRelatingSpaceProgram(const Step::RefPtr< 
         value->m_hasInteractionReqsTo.insert(this);
     }
     m_relatingSpaceProgram = value;
+}
+
+void IfcRelInteractionRequirements::unsetRelatingSpaceProgram() {
+    m_relatingSpaceProgram = Step::getUnset(getRelatingSpaceProgram());
+}
+
+bool IfcRelInteractionRequirements::testRelatingSpaceProgram() const {
+    return !Step::isUnset(getRelatingSpaceProgram());
 }
 
 bool IfcRelInteractionRequirements::init() {

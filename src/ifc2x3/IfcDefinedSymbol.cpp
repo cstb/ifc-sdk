@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDefinedSymbol::IfcDefinedSymbol(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -91,6 +88,14 @@ void IfcDefinedSymbol::setDefinition(const Step::RefPtr< IfcDefinedSymbolSelect 
     m_definition = value;
 }
 
+void IfcDefinedSymbol::unsetDefinition() {
+    m_definition = Step::getUnset(getDefinition());
+}
+
+bool IfcDefinedSymbol::testDefinition() const {
+    return !Step::isUnset(getDefinition());
+}
+
 IfcCartesianTransformationOperator2D *IfcDefinedSymbol::getTarget() {
     if (Step::BaseObject::inited()) {
         return m_target.get();
@@ -107,6 +112,14 @@ const IfcCartesianTransformationOperator2D *IfcDefinedSymbol::getTarget() const 
 
 void IfcDefinedSymbol::setTarget(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
     m_target = value;
+}
+
+void IfcDefinedSymbol::unsetTarget() {
+    m_target = Step::getUnset(getTarget());
+}
+
+bool IfcDefinedSymbol::testTarget() const {
+    return !Step::isUnset(getTarget());
 }
 
 bool IfcDefinedSymbol::init() {

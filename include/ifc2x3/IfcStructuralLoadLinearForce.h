@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadLinearForce Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadLinearForce : public IfcStructuralLoadStatic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearForceX(IfcLinearForceMeasure value);
         /**
+         * unset the attribute 'LinearForceX'.
+         * 
+         */
+        virtual void unsetLinearForceX();
+        /**
+         * Test if the attribute 'LinearForceX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearForceX() const;
+        /**
          * Gets the value of the explicit attribute 'LinearForceY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearForceY(IfcLinearForceMeasure value);
+        /**
+         * unset the attribute 'LinearForceY'.
+         * 
+         */
+        virtual void unsetLinearForceY();
+        /**
+         * Test if the attribute 'LinearForceY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearForceY() const;
         /**
          * Gets the value of the explicit attribute 'LinearForceZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearForceZ(IfcLinearForceMeasure value);
         /**
+         * unset the attribute 'LinearForceZ'.
+         * 
+         */
+        virtual void unsetLinearForceZ();
+        /**
+         * Test if the attribute 'LinearForceZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearForceZ() const;
+        /**
          * Gets the value of the explicit attribute 'LinearMomentX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearMomentX(IfcLinearMomentMeasure value);
+        /**
+         * unset the attribute 'LinearMomentX'.
+         * 
+         */
+        virtual void unsetLinearMomentX();
+        /**
+         * Test if the attribute 'LinearMomentX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearMomentX() const;
         /**
          * Gets the value of the explicit attribute 'LinearMomentY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearMomentY(IfcLinearMomentMeasure value);
         /**
+         * unset the attribute 'LinearMomentY'.
+         * 
+         */
+        virtual void unsetLinearMomentY();
+        /**
+         * Test if the attribute 'LinearMomentY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearMomentY() const;
+        /**
          * Gets the value of the explicit attribute 'LinearMomentZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearMomentZ(IfcLinearMomentMeasure value);
+        /**
+         * unset the attribute 'LinearMomentZ'.
+         * 
+         */
+        virtual void unsetLinearMomentZ();
+        /**
+         * Test if the attribute 'LinearMomentZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearMomentZ() const;
         friend class ExpressDataSet;
 
     protected:

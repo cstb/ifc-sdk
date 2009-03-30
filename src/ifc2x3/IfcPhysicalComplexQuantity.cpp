@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::Inverted_IfcPhysicalComplexQuantity_HasQuantities_type() {
@@ -63,8 +60,13 @@ Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::size_type Inverted_IfcPh
     return Set_IfcPhysicalQuantity_1_n::erase(value);
 }
 
+void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcPhysicalComplexQuantity::IfcPhysicalComplexQuantity(Step::Id id, Step::SPFData *args) : IfcPhysicalQuantity(id, args) {
-    m_hasQuantities.setUnset(true);
     m_hasQuantities.setOwner(this);
     m_discrimination = Step::getUnset(m_discrimination);
     m_quality = Step::getUnset(m_quality);
@@ -109,6 +111,15 @@ const Set_IfcPhysicalQuantity_1_n &IfcPhysicalComplexQuantity::getHasQuantities(
     return deConstObject->getHasQuantities();
 }
 
+void IfcPhysicalComplexQuantity::unsetHasQuantities() {
+    m_hasQuantities.clear();
+    m_hasQuantities.setUnset(true);
+}
+
+bool IfcPhysicalComplexQuantity::testHasQuantities() const {
+    return !Step::isUnset(getHasQuantities());
+}
+
 IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() {
     if (Step::BaseObject::inited()) {
         return m_discrimination;
@@ -125,6 +136,14 @@ const IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() const {
 
 void IfcPhysicalComplexQuantity::setDiscrimination(const IfcLabel &value) {
     m_discrimination = value;
+}
+
+void IfcPhysicalComplexQuantity::unsetDiscrimination() {
+    m_discrimination = Step::getUnset(getDiscrimination());
+}
+
+bool IfcPhysicalComplexQuantity::testDiscrimination() const {
+    return !Step::isUnset(getDiscrimination());
 }
 
 IfcLabel IfcPhysicalComplexQuantity::getQuality() {
@@ -145,6 +164,14 @@ void IfcPhysicalComplexQuantity::setQuality(const IfcLabel &value) {
     m_quality = value;
 }
 
+void IfcPhysicalComplexQuantity::unsetQuality() {
+    m_quality = Step::getUnset(getQuality());
+}
+
+bool IfcPhysicalComplexQuantity::testQuality() const {
+    return !Step::isUnset(getQuality());
+}
+
 IfcLabel IfcPhysicalComplexQuantity::getUsage() {
     if (Step::BaseObject::inited()) {
         return m_usage;
@@ -161,6 +188,14 @@ const IfcLabel IfcPhysicalComplexQuantity::getUsage() const {
 
 void IfcPhysicalComplexQuantity::setUsage(const IfcLabel &value) {
     m_usage = value;
+}
+
+void IfcPhysicalComplexQuantity::unsetUsage() {
+    m_usage = Step::getUnset(getUsage());
+}
+
+bool IfcPhysicalComplexQuantity::testUsage() const {
+    return !Step::isUnset(getUsage());
 }
 
 bool IfcPhysicalComplexQuantity::init() {

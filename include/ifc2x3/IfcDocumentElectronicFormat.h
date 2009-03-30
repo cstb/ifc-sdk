@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDocumentElectronicFormat Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDocumentElectronicFormat : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setFileExtension(const IfcLabel &value);
         /**
+         * unset the attribute 'FileExtension'.
+         * 
+         */
+        virtual void unsetFileExtension();
+        /**
+         * Test if the attribute 'FileExtension' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFileExtension() const;
+        /**
          * Gets the value of the explicit attribute 'MimeContentType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setMimeContentType(const IfcLabel &value);
         /**
+         * unset the attribute 'MimeContentType'.
+         * 
+         */
+        virtual void unsetMimeContentType();
+        /**
+         * Test if the attribute 'MimeContentType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMimeContentType() const;
+        /**
          * Gets the value of the explicit attribute 'MimeSubtype'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMimeSubtype(const IfcLabel &value);
+        /**
+         * unset the attribute 'MimeSubtype'.
+         * 
+         */
+        virtual void unsetMimeSubtype();
+        /**
+         * Test if the attribute 'MimeSubtype' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMimeSubtype() const;
         friend class ExpressDataSet;
 
     protected:

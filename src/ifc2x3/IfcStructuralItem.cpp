@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralItem::IfcStructuralItem(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssigned
 const Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssignedStructuralActivity() const {
     IfcStructuralItem * deConstObject = const_cast< IfcStructuralItem * > (this);
     return deConstObject->getAssignedStructuralActivity();
+}
+
+bool IfcStructuralItem::testAssignedStructuralActivity() const {
+    return !Step::isUnset(getAssignedStructuralActivity());
 }
 
 bool IfcStructuralItem::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextureCoordinate::IfcTextureCoordinate(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcAnnotationSurface_1_1 &IfcTextureCoordinate::getAnnotatedSurface(
 const Inverse_Set_IfcAnnotationSurface_1_1 &IfcTextureCoordinate::getAnnotatedSurface() const {
     IfcTextureCoordinate * deConstObject = const_cast< IfcTextureCoordinate * > (this);
     return deConstObject->getAnnotatedSurface();
+}
+
+bool IfcTextureCoordinate::testAnnotatedSurface() const {
+    return !Step::isUnset(getAnnotatedSurface());
 }
 
 bool IfcTextureCoordinate::init() {

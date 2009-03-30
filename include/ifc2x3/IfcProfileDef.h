@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProfileDef : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setProfileType(IfcProfileTypeEnum value);
         /**
+         * unset the attribute 'ProfileType'.
+         * 
+         */
+        virtual void unsetProfileType();
+        /**
+         * Test if the attribute 'ProfileType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfileType() const;
+        /**
          * Gets the value of the explicit attribute 'ProfileName'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setProfileName(const IfcLabel &value);
+        /**
+         * unset the attribute 'ProfileName'.
+         * 
+         */
+        virtual void unsetProfileName();
+        /**
+         * Test if the attribute 'ProfileName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfileName() const;
         friend class ExpressDataSet;
 
     protected:

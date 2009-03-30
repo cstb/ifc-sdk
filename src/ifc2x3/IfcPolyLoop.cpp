@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPolyLoop::IfcPolyLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, args) {
@@ -86,6 +83,15 @@ const List_IfcCartesianPoint_3_n &IfcPolyLoop::getPolygon() const {
 
 void IfcPolyLoop::setPolygon(const List_IfcCartesianPoint_3_n &value) {
     m_polygon = value;
+}
+
+void IfcPolyLoop::unsetPolygon() {
+    m_polygon.clear();
+    m_polygon.setUnset(true);
+}
+
+bool IfcPolyLoop::testPolygon() const {
+    return !Step::isUnset(getPolygon());
 }
 
 bool IfcPolyLoop::init() {

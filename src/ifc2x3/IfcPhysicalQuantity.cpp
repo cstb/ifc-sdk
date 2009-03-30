@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPhysicalQuantity::IfcPhysicalQuantity(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcPhysicalQuantity::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcPhysicalQuantity::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcPhysicalQuantity::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcPhysicalQuantity::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -107,6 +112,14 @@ void IfcPhysicalQuantity::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcPhysicalQuantity::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcPhysicalQuantity::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return m_partOfComplex;
@@ -120,6 +133,10 @@ Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComple
 const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() const {
     IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
     return deConstObject->getPartOfComplex();
+}
+
+bool IfcPhysicalQuantity::testPartOfComplex() const {
+    return !Step::isUnset(getPartOfComplex());
 }
 
 bool IfcPhysicalQuantity::init() {

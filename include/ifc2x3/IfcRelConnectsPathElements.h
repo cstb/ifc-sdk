@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnectsElements.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcRelConnectsElements.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRelConnectsPathElements Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelConnectsPathElements : public IfcRelConnectsElements {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingPriorities(const List_Integer_0_n &value);
         /**
+         * unset the attribute 'RelatingPriorities'.
+         * 
+         */
+        virtual void unsetRelatingPriorities();
+        /**
+         * Test if the attribute 'RelatingPriorities' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingPriorities() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedPriorities'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedPriorities(const List_Integer_0_n &value);
+        /**
+         * unset the attribute 'RelatedPriorities'.
+         * 
+         */
+        virtual void unsetRelatedPriorities();
+        /**
+         * Test if the attribute 'RelatedPriorities' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedPriorities() const;
         /**
          * Gets the value of the explicit attribute 'RelatedConnectionType'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatedConnectionType(IfcConnectionTypeEnum value);
         /**
+         * unset the attribute 'RelatedConnectionType'.
+         * 
+         */
+        virtual void unsetRelatedConnectionType();
+        /**
+         * Test if the attribute 'RelatedConnectionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedConnectionType() const;
+        /**
          * Gets the value of the explicit attribute 'RelatingConnectionType'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatingConnectionType(IfcConnectionTypeEnum value);
+        /**
+         * unset the attribute 'RelatingConnectionType'.
+         * 
+         */
+        virtual void unsetRelatingConnectionType();
+        /**
+         * Test if the attribute 'RelatingConnectionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingConnectionType() const;
         friend class ExpressDataSet;
 
     protected:

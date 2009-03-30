@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelaxation::IfcRelaxation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -85,6 +82,14 @@ void IfcRelaxation::setRelaxationValue(IfcNormalisedRatioMeasure value) {
     m_relaxationValue = value;
 }
 
+void IfcRelaxation::unsetRelaxationValue() {
+    m_relaxationValue = Step::getUnset(getRelaxationValue());
+}
+
+bool IfcRelaxation::testRelaxationValue() const {
+    return !Step::isUnset(getRelaxationValue());
+}
+
 IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() {
     if (Step::BaseObject::inited()) {
         return m_initialStress;
@@ -101,6 +106,14 @@ const IfcNormalisedRatioMeasure IfcRelaxation::getInitialStress() const {
 
 void IfcRelaxation::setInitialStress(IfcNormalisedRatioMeasure value) {
     m_initialStress = value;
+}
+
+void IfcRelaxation::unsetInitialStress() {
+    m_initialStress = Step::getUnset(getInitialStress());
+}
+
+bool IfcRelaxation::testInitialStress() const {
+    return !Step::isUnset(getInitialStress());
 }
 
 bool IfcRelaxation::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcOpticalMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOpticalMaterialProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setVisibleTransmittance(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'VisibleTransmittance'.
+         * 
+         */
+        virtual void unsetVisibleTransmittance();
+        /**
+         * Test if the attribute 'VisibleTransmittance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVisibleTransmittance() const;
+        /**
          * Gets the value of the explicit attribute 'SolarTransmittance'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSolarTransmittance(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'SolarTransmittance'.
+         * 
+         */
+        virtual void unsetSolarTransmittance();
+        /**
+         * Test if the attribute 'SolarTransmittance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSolarTransmittance() const;
         /**
          * Gets the value of the explicit attribute 'ThermalIrTransmittance'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setThermalIrTransmittance(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'ThermalIrTransmittance'.
+         * 
+         */
+        virtual void unsetThermalIrTransmittance();
+        /**
+         * Test if the attribute 'ThermalIrTransmittance' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalIrTransmittance() const;
+        /**
          * Gets the value of the explicit attribute 'ThermalIrEmissivityBack'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThermalIrEmissivityBack(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'ThermalIrEmissivityBack'.
+         * 
+         */
+        virtual void unsetThermalIrEmissivityBack();
+        /**
+         * Test if the attribute 'ThermalIrEmissivityBack' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalIrEmissivityBack() const;
         /**
          * Gets the value of the explicit attribute 'ThermalIrEmissivityFront'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setThermalIrEmissivityFront(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'ThermalIrEmissivityFront'.
+         * 
+         */
+        virtual void unsetThermalIrEmissivityFront();
+        /**
+         * Test if the attribute 'ThermalIrEmissivityFront' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalIrEmissivityFront() const;
+        /**
          * Gets the value of the explicit attribute 'VisibleReflectanceBack'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setVisibleReflectanceBack(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'VisibleReflectanceBack'.
+         * 
+         */
+        virtual void unsetVisibleReflectanceBack();
+        /**
+         * Test if the attribute 'VisibleReflectanceBack' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVisibleReflectanceBack() const;
         /**
          * Gets the value of the explicit attribute 'VisibleReflectanceFront'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setVisibleReflectanceFront(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'VisibleReflectanceFront'.
+         * 
+         */
+        virtual void unsetVisibleReflectanceFront();
+        /**
+         * Test if the attribute 'VisibleReflectanceFront' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testVisibleReflectanceFront() const;
+        /**
          * Gets the value of the explicit attribute 'SolarReflectanceFront'.
          * 
          */
@@ -207,6 +286,17 @@ namespace ifc2x3 {
          */
         virtual void setSolarReflectanceFront(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'SolarReflectanceFront'.
+         * 
+         */
+        virtual void unsetSolarReflectanceFront();
+        /**
+         * Test if the attribute 'SolarReflectanceFront' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSolarReflectanceFront() const;
+        /**
          * Gets the value of the explicit attribute 'SolarReflectanceBack'.
          * 
          */
@@ -223,6 +313,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSolarReflectanceBack(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'SolarReflectanceBack'.
+         * 
+         */
+        virtual void unsetSolarReflectanceBack();
+        /**
+         * Test if the attribute 'SolarReflectanceBack' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSolarReflectanceBack() const;
         friend class ExpressDataSet;
 
     protected:

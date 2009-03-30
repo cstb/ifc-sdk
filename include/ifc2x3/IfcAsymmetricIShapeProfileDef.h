@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcIShapeProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcIShapeProfileDef.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcAsymmetricIShapeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAsymmetricIShapeProfileDef : public IfcIShapeProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setTopFlangeWidth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'TopFlangeWidth'.
+         * 
+         */
+        virtual void unsetTopFlangeWidth();
+        /**
+         * Test if the attribute 'TopFlangeWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTopFlangeWidth() const;
+        /**
          * Gets the value of the explicit attribute 'TopFlangeThickness'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTopFlangeThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'TopFlangeThickness'.
+         * 
+         */
+        virtual void unsetTopFlangeThickness();
+        /**
+         * Test if the attribute 'TopFlangeThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTopFlangeThickness() const;
         /**
          * Gets the value of the explicit attribute 'TopFlangeFilletRadius'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setTopFlangeFilletRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'TopFlangeFilletRadius'.
+         * 
+         */
+        virtual void unsetTopFlangeFilletRadius();
+        /**
+         * Test if the attribute 'TopFlangeFilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTopFlangeFilletRadius() const;
+        /**
          * Gets the value of the explicit attribute 'CentreOfGravityInY'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCentreOfGravityInY(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'CentreOfGravityInY'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInY();
+        /**
+         * Test if the attribute 'CentreOfGravityInY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInY() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcGeneralProfileProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralProfileProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralProfileProperties : public IfcGeneralProfileProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setTorsionalConstantX(IfcMomentOfInertiaMeasure value);
         /**
+         * unset the attribute 'TorsionalConstantX'.
+         * 
+         */
+        virtual void unsetTorsionalConstantX();
+        /**
+         * Test if the attribute 'TorsionalConstantX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTorsionalConstantX() const;
+        /**
          * Gets the value of the explicit attribute 'MomentOfInertiaYZ'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMomentOfInertiaYZ(IfcMomentOfInertiaMeasure value);
+        /**
+         * unset the attribute 'MomentOfInertiaYZ'.
+         * 
+         */
+        virtual void unsetMomentOfInertiaYZ();
+        /**
+         * Test if the attribute 'MomentOfInertiaYZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentOfInertiaYZ() const;
         /**
          * Gets the value of the explicit attribute 'MomentOfInertiaY'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setMomentOfInertiaY(IfcMomentOfInertiaMeasure value);
         /**
+         * unset the attribute 'MomentOfInertiaY'.
+         * 
+         */
+        virtual void unsetMomentOfInertiaY();
+        /**
+         * Test if the attribute 'MomentOfInertiaY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentOfInertiaY() const;
+        /**
          * Gets the value of the explicit attribute 'MomentOfInertiaZ'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMomentOfInertiaZ(IfcMomentOfInertiaMeasure value);
+        /**
+         * unset the attribute 'MomentOfInertiaZ'.
+         * 
+         */
+        virtual void unsetMomentOfInertiaZ();
+        /**
+         * Test if the attribute 'MomentOfInertiaZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMomentOfInertiaZ() const;
         /**
          * Gets the value of the explicit attribute 'WarpingConstant'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setWarpingConstant(IfcWarpingConstantMeasure value);
         /**
+         * unset the attribute 'WarpingConstant'.
+         * 
+         */
+        virtual void unsetWarpingConstant();
+        /**
+         * Test if the attribute 'WarpingConstant' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWarpingConstant() const;
+        /**
          * Gets the value of the explicit attribute 'ShearCentreZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShearCentreZ(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'ShearCentreZ'.
+         * 
+         */
+        virtual void unsetShearCentreZ();
+        /**
+         * Test if the attribute 'ShearCentreZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearCentreZ() const;
         /**
          * Gets the value of the explicit attribute 'ShearCentreY'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setShearCentreY(IfcLengthMeasure value);
         /**
+         * unset the attribute 'ShearCentreY'.
+         * 
+         */
+        virtual void unsetShearCentreY();
+        /**
+         * Test if the attribute 'ShearCentreY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearCentreY() const;
+        /**
          * Gets the value of the explicit attribute 'ShearDeformationAreaZ'.
          * 
          */
@@ -206,6 +285,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShearDeformationAreaZ(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'ShearDeformationAreaZ'.
+         * 
+         */
+        virtual void unsetShearDeformationAreaZ();
+        /**
+         * Test if the attribute 'ShearDeformationAreaZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearDeformationAreaZ() const;
         /**
          * Gets the value of the explicit attribute 'ShearDeformationAreaY'.
          * 
@@ -224,6 +314,17 @@ namespace ifc2x3 {
          */
         virtual void setShearDeformationAreaY(IfcAreaMeasure value);
         /**
+         * unset the attribute 'ShearDeformationAreaY'.
+         * 
+         */
+        virtual void unsetShearDeformationAreaY();
+        /**
+         * Test if the attribute 'ShearDeformationAreaY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearDeformationAreaY() const;
+        /**
          * Gets the value of the explicit attribute 'MaximumSectionModulusY'.
          * 
          */
@@ -240,6 +341,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMaximumSectionModulusY(IfcSectionModulusMeasure value);
+        /**
+         * unset the attribute 'MaximumSectionModulusY'.
+         * 
+         */
+        virtual void unsetMaximumSectionModulusY();
+        /**
+         * Test if the attribute 'MaximumSectionModulusY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaximumSectionModulusY() const;
         /**
          * Gets the value of the explicit attribute 'MinimumSectionModulusY'.
          * 
@@ -258,6 +370,17 @@ namespace ifc2x3 {
          */
         virtual void setMinimumSectionModulusY(IfcSectionModulusMeasure value);
         /**
+         * unset the attribute 'MinimumSectionModulusY'.
+         * 
+         */
+        virtual void unsetMinimumSectionModulusY();
+        /**
+         * Test if the attribute 'MinimumSectionModulusY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinimumSectionModulusY() const;
+        /**
          * Gets the value of the explicit attribute 'MaximumSectionModulusZ'.
          * 
          */
@@ -274,6 +397,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMaximumSectionModulusZ(IfcSectionModulusMeasure value);
+        /**
+         * unset the attribute 'MaximumSectionModulusZ'.
+         * 
+         */
+        virtual void unsetMaximumSectionModulusZ();
+        /**
+         * Test if the attribute 'MaximumSectionModulusZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaximumSectionModulusZ() const;
         /**
          * Gets the value of the explicit attribute 'MinimumSectionModulusZ'.
          * 
@@ -292,6 +426,17 @@ namespace ifc2x3 {
          */
         virtual void setMinimumSectionModulusZ(IfcSectionModulusMeasure value);
         /**
+         * unset the attribute 'MinimumSectionModulusZ'.
+         * 
+         */
+        virtual void unsetMinimumSectionModulusZ();
+        /**
+         * Test if the attribute 'MinimumSectionModulusZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinimumSectionModulusZ() const;
+        /**
          * Gets the value of the explicit attribute 'TorsionalSectionModulus'.
          * 
          */
@@ -308,6 +453,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTorsionalSectionModulus(IfcSectionModulusMeasure value);
+        /**
+         * unset the attribute 'TorsionalSectionModulus'.
+         * 
+         */
+        virtual void unsetTorsionalSectionModulus();
+        /**
+         * Test if the attribute 'TorsionalSectionModulus' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTorsionalSectionModulus() const;
         /**
          * Gets the value of the explicit attribute 'CentreOfGravityInX'.
          * 
@@ -326,6 +482,17 @@ namespace ifc2x3 {
          */
         virtual void setCentreOfGravityInX(IfcLengthMeasure value);
         /**
+         * unset the attribute 'CentreOfGravityInX'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInX();
+        /**
+         * Test if the attribute 'CentreOfGravityInX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInX() const;
+        /**
          * Gets the value of the explicit attribute 'CentreOfGravityInY'.
          * 
          */
@@ -342,6 +509,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCentreOfGravityInY(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'CentreOfGravityInY'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInY();
+        /**
+         * Test if the attribute 'CentreOfGravityInY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInY() const;
         friend class ExpressDataSet;
 
     protected:

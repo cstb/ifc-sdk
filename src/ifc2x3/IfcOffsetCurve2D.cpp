@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOffsetCurve2D::IfcOffsetCurve2D(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
@@ -89,6 +86,14 @@ void IfcOffsetCurve2D::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_basisCurve = value;
 }
 
+void IfcOffsetCurve2D::unsetBasisCurve() {
+    m_basisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcOffsetCurve2D::testBasisCurve() const {
+    return !Step::isUnset(getBasisCurve());
+}
+
 IfcLengthMeasure IfcOffsetCurve2D::getDistance() {
     if (Step::BaseObject::inited()) {
         return m_distance;
@@ -107,6 +112,14 @@ void IfcOffsetCurve2D::setDistance(IfcLengthMeasure value) {
     m_distance = value;
 }
 
+void IfcOffsetCurve2D::unsetDistance() {
+    m_distance = Step::getUnset(getDistance());
+}
+
+bool IfcOffsetCurve2D::testDistance() const {
+    return !Step::isUnset(getDistance());
+}
+
 Step::Logical IfcOffsetCurve2D::getSelfIntersect() {
     if (Step::BaseObject::inited()) {
         return m_selfIntersect;
@@ -123,6 +136,14 @@ const Step::Logical IfcOffsetCurve2D::getSelfIntersect() const {
 
 void IfcOffsetCurve2D::setSelfIntersect(Step::Logical value) {
     m_selfIntersect = value;
+}
+
+void IfcOffsetCurve2D::unsetSelfIntersect() {
+    m_selfIntersect = Step::getUnset(getSelfIntersect());
+}
+
+bool IfcOffsetCurve2D::testSelfIntersect() const {
+    return !Step::isUnset(getSelfIntersect());
 }
 
 bool IfcOffsetCurve2D::init() {

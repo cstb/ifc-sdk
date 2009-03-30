@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightSourceGoniometric::IfcLightSourceGoniometric(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
@@ -96,6 +93,14 @@ void IfcLightSourceGoniometric::setPosition(const Step::RefPtr< IfcAxis2Placemen
     m_position = value;
 }
 
+void IfcLightSourceGoniometric::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcLightSourceGoniometric::testPosition() const {
+    return !Step::isUnset(getPosition());
+}
+
 IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() {
     if (Step::BaseObject::inited()) {
         return m_colourAppearance.get();
@@ -112,6 +117,14 @@ const IfcColourRgb *IfcLightSourceGoniometric::getColourAppearance() const {
 
 void IfcLightSourceGoniometric::setColourAppearance(const Step::RefPtr< IfcColourRgb > &value) {
     m_colourAppearance = value;
+}
+
+void IfcLightSourceGoniometric::unsetColourAppearance() {
+    m_colourAppearance = Step::getUnset(getColourAppearance());
+}
+
+bool IfcLightSourceGoniometric::testColourAppearance() const {
+    return !Step::isUnset(getColourAppearance());
 }
 
 IfcThermodynamicTemperatureMeasure IfcLightSourceGoniometric::getColourTemperature() {
@@ -132,6 +145,14 @@ void IfcLightSourceGoniometric::setColourTemperature(IfcThermodynamicTemperature
     m_colourTemperature = value;
 }
 
+void IfcLightSourceGoniometric::unsetColourTemperature() {
+    m_colourTemperature = Step::getUnset(getColourTemperature());
+}
+
+bool IfcLightSourceGoniometric::testColourTemperature() const {
+    return !Step::isUnset(getColourTemperature());
+}
+
 IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() {
     if (Step::BaseObject::inited()) {
         return m_luminousFlux;
@@ -148,6 +169,14 @@ const IfcLuminousFluxMeasure IfcLightSourceGoniometric::getLuminousFlux() const 
 
 void IfcLightSourceGoniometric::setLuminousFlux(IfcLuminousFluxMeasure value) {
     m_luminousFlux = value;
+}
+
+void IfcLightSourceGoniometric::unsetLuminousFlux() {
+    m_luminousFlux = Step::getUnset(getLuminousFlux());
+}
+
+bool IfcLightSourceGoniometric::testLuminousFlux() const {
+    return !Step::isUnset(getLuminousFlux());
 }
 
 IfcLightEmissionSourceEnum IfcLightSourceGoniometric::getLightEmissionSource() {
@@ -168,6 +197,14 @@ void IfcLightSourceGoniometric::setLightEmissionSource(IfcLightEmissionSourceEnu
     m_lightEmissionSource = value;
 }
 
+void IfcLightSourceGoniometric::unsetLightEmissionSource() {
+    m_lightEmissionSource = IfcLightEmissionSourceEnum_UNSET;
+}
+
+bool IfcLightSourceGoniometric::testLightEmissionSource() const {
+    return getLightEmissionSource() != IfcLightEmissionSourceEnum_UNSET;
+}
+
 IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightDistributionDataSource() {
     if (Step::BaseObject::inited()) {
         return m_lightDistributionDataSource.get();
@@ -184,6 +221,14 @@ const IfcLightDistributionDataSourceSelect *IfcLightSourceGoniometric::getLightD
 
 void IfcLightSourceGoniometric::setLightDistributionDataSource(const Step::RefPtr< IfcLightDistributionDataSourceSelect > &value) {
     m_lightDistributionDataSource = value;
+}
+
+void IfcLightSourceGoniometric::unsetLightDistributionDataSource() {
+    m_lightDistributionDataSource = Step::getUnset(getLightDistributionDataSource());
+}
+
+bool IfcLightSourceGoniometric::testLightDistributionDataSource() const {
+    return !Step::isUnset(getLightDistributionDataSource());
 }
 
 bool IfcLightSourceGoniometric::init() {

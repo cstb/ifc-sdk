@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDraughtingCalloutRelationship::IfcDraughtingCalloutRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcDraughtingCalloutRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcDraughtingCalloutRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcDraughtingCalloutRelationship::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcDraughtingCalloutRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -108,6 +113,14 @@ const IfcText IfcDraughtingCalloutRelationship::getDescription() const {
 
 void IfcDraughtingCalloutRelationship::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcDraughtingCalloutRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcDraughtingCalloutRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraughtingCallout() {
@@ -134,6 +147,14 @@ void IfcDraughtingCalloutRelationship::setRelatingDraughtingCallout(const Step::
     m_relatingDraughtingCallout = value;
 }
 
+void IfcDraughtingCalloutRelationship::unsetRelatingDraughtingCallout() {
+    m_relatingDraughtingCallout = Step::getUnset(getRelatingDraughtingCallout());
+}
+
+bool IfcDraughtingCalloutRelationship::testRelatingDraughtingCallout() const {
+    return !Step::isUnset(getRelatingDraughtingCallout());
+}
+
 IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughtingCallout() {
     if (Step::BaseObject::inited()) {
         return m_relatedDraughtingCallout.get();
@@ -156,6 +177,14 @@ void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::R
         value->m_isRelatedFromCallout.insert(this);
     }
     m_relatedDraughtingCallout = value;
+}
+
+void IfcDraughtingCalloutRelationship::unsetRelatedDraughtingCallout() {
+    m_relatedDraughtingCallout = Step::getUnset(getRelatedDraughtingCallout());
+}
+
+bool IfcDraughtingCalloutRelationship::testRelatedDraughtingCallout() const {
+    return !Step::isUnset(getRelatedDraughtingCallout());
 }
 
 bool IfcDraughtingCalloutRelationship::init() {

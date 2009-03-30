@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCalendarDate Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCalendarDate : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDayComponent(IfcDayInMonthNumber value);
         /**
+         * unset the attribute 'DayComponent'.
+         * 
+         */
+        virtual void unsetDayComponent();
+        /**
+         * Test if the attribute 'DayComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDayComponent() const;
+        /**
          * Gets the value of the explicit attribute 'MonthComponent'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setMonthComponent(IfcMonthInYearNumber value);
         /**
+         * unset the attribute 'MonthComponent'.
+         * 
+         */
+        virtual void unsetMonthComponent();
+        /**
+         * Test if the attribute 'MonthComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMonthComponent() const;
+        /**
          * Gets the value of the explicit attribute 'YearComponent'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setYearComponent(IfcYearNumber value);
+        /**
+         * unset the attribute 'YearComponent'.
+         * 
+         */
+        virtual void unsetYearComponent();
+        /**
+         * Test if the attribute 'YearComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYearComponent() const;
         friend class ExpressDataSet;
 
     protected:

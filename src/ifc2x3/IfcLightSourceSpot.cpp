@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightSourceSpot::IfcLightSourceSpot(Step::Id id, Step::SPFData *args) : IfcLightSourcePositional(id, args) {
@@ -91,6 +88,14 @@ void IfcLightSourceSpot::setOrientation(const Step::RefPtr< IfcDirection > &valu
     m_orientation = value;
 }
 
+void IfcLightSourceSpot::unsetOrientation() {
+    m_orientation = Step::getUnset(getOrientation());
+}
+
+bool IfcLightSourceSpot::testOrientation() const {
+    return !Step::isUnset(getOrientation());
+}
+
 IfcReal IfcLightSourceSpot::getConcentrationExponent() {
     if (Step::BaseObject::inited()) {
         return m_concentrationExponent;
@@ -107,6 +112,14 @@ const IfcReal IfcLightSourceSpot::getConcentrationExponent() const {
 
 void IfcLightSourceSpot::setConcentrationExponent(IfcReal value) {
     m_concentrationExponent = value;
+}
+
+void IfcLightSourceSpot::unsetConcentrationExponent() {
+    m_concentrationExponent = Step::getUnset(getConcentrationExponent());
+}
+
+bool IfcLightSourceSpot::testConcentrationExponent() const {
+    return !Step::isUnset(getConcentrationExponent());
 }
 
 IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getSpreadAngle() {
@@ -127,6 +140,14 @@ void IfcLightSourceSpot::setSpreadAngle(IfcPositivePlaneAngleMeasure value) {
     m_spreadAngle = value;
 }
 
+void IfcLightSourceSpot::unsetSpreadAngle() {
+    m_spreadAngle = Step::getUnset(getSpreadAngle());
+}
+
+bool IfcLightSourceSpot::testSpreadAngle() const {
+    return !Step::isUnset(getSpreadAngle());
+}
+
 IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getBeamWidthAngle() {
     if (Step::BaseObject::inited()) {
         return m_beamWidthAngle;
@@ -143,6 +164,14 @@ const IfcPositivePlaneAngleMeasure IfcLightSourceSpot::getBeamWidthAngle() const
 
 void IfcLightSourceSpot::setBeamWidthAngle(IfcPositivePlaneAngleMeasure value) {
     m_beamWidthAngle = value;
+}
+
+void IfcLightSourceSpot::unsetBeamWidthAngle() {
+    m_beamWidthAngle = Step::getUnset(getBeamWidthAngle());
+}
+
+bool IfcLightSourceSpot::testBeamWidthAngle() const {
+    return !Step::isUnset(getBeamWidthAngle());
 }
 
 bool IfcLightSourceSpot::init() {

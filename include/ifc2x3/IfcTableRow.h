@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcTable;
 
     /**
+     * Generated class for the IfcTableRow Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTableRow : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setRowCells(const List_IfcValue_1_n &value);
         /**
+         * unset the attribute 'RowCells'.
+         * 
+         */
+        virtual void unsetRowCells();
+        /**
+         * Test if the attribute 'RowCells' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRowCells() const;
+        /**
          * Gets the value of the explicit attribute 'IsHeading'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setIsHeading(Step::Boolean value);
         /**
+         * unset the attribute 'IsHeading'.
+         * 
+         */
+        virtual void unsetIsHeading();
+        /**
+         * Test if the attribute 'IsHeading' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsHeading() const;
+        /**
          * Gets the value of the inverse attribute 'OfTable'.
          * 
          */
@@ -117,9 +141,15 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'OfTable'
          */
         virtual const IfcTable *getOfTable() const;
-        friend class Inverted_IfcTable_Rows_type;
+        /**
+         * Test if the attribute 'OfTable' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOfTable() const;
         friend class IfcTable;
         friend class ExpressDataSet;
+        friend class Inverted_IfcTable_Rows_type;
 
     protected:
         /**

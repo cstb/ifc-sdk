@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcAnnotationOccurrence.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcAnnotationOccurrence.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcPoint;
 
     /**
+     * Generated class for the IfcAnnotationFillAreaOccurrence Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAnnotationFillAreaOccurrence : public IfcAnnotationOccurrence {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setFillStyleTarget(const Step::RefPtr< IfcPoint > &value);
         /**
+         * unset the attribute 'FillStyleTarget'.
+         * 
+         */
+        virtual void unsetFillStyleTarget();
+        /**
+         * Test if the attribute 'FillStyleTarget' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFillStyleTarget() const;
+        /**
          * Gets the value of the explicit attribute 'GlobalOrLocal'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setGlobalOrLocal(IfcGlobalOrLocalEnum value);
+        /**
+         * unset the attribute 'GlobalOrLocal'.
+         * 
+         */
+        virtual void unsetGlobalOrLocal();
+        /**
+         * Test if the attribute 'GlobalOrLocal' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testGlobalOrLocal() const;
         friend class ExpressDataSet;
 
     protected:

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,7 +22,7 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/logger.h>
+#include "Step/logger.h"
 
 #ifdef USE_LOG4CPLUS
 using namespace log4cplus;
@@ -30,4 +30,3 @@ using namespace log4cplus;
 STEP_DLL_DEF Logger Step::logger = Logger::getInstance("Step");
 
 #endif
-

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesApproval::IfcRelAssociatesApproval(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -86,6 +83,14 @@ const IfcApproval *IfcRelAssociatesApproval::getRelatingApproval() const {
 
 void IfcRelAssociatesApproval::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
     m_relatingApproval = value;
+}
+
+void IfcRelAssociatesApproval::unsetRelatingApproval() {
+    m_relatingApproval = Step::getUnset(getRelatingApproval());
+}
+
+bool IfcRelAssociatesApproval::testRelatingApproval() const {
+    return !Step::isUnset(getRelatingApproval());
 }
 
 bool IfcRelAssociatesApproval::init() {

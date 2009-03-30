@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcObject.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProcess Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProcess : public IfcObject {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn() const;
         /**
+         * Test if the attribute 'OperatesOn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOperatesOn() const;
+        /**
          * Gets the value of the inverse attribute 'IsSuccessorFrom'.
          * 
          */
@@ -93,6 +101,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom() const;
         /**
+         * Test if the attribute 'IsSuccessorFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsSuccessorFrom() const;
+        /**
          * Gets the value of the inverse attribute 'IsPredecessorTo'.
          * 
          */
@@ -103,6 +117,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsPredecessorTo'
          */
         virtual const Inverse_Set_IfcRelSequence_0_n &getIsPredecessorTo() const;
+        /**
+         * Test if the attribute 'IsPredecessorTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsPredecessorTo() const;
         friend class IfcRelAssignsToProcess;
         friend class ExpressDataSet;
         friend class IfcRelSequence;

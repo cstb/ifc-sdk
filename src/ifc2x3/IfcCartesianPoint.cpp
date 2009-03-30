@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCartesianPoint::IfcCartesianPoint(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
@@ -83,6 +80,15 @@ const List_IfcLengthMeasure_1_3 &IfcCartesianPoint::getCoordinates() const {
 
 void IfcCartesianPoint::setCoordinates(const List_IfcLengthMeasure_1_3 &value) {
     m_coordinates = value;
+}
+
+void IfcCartesianPoint::unsetCoordinates() {
+    m_coordinates.clear();
+    m_coordinates.setUnset(true);
+}
+
+bool IfcCartesianPoint::testCoordinates() const {
+    return !Step::isUnset(getCoordinates());
 }
 
 bool IfcCartesianPoint::init() {

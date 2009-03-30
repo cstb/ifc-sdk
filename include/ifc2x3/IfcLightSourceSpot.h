@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcLightSourcePositional.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcDirection;
 
     /**
+     * Generated class for the IfcLightSourceSpot Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLightSourceSpot : public IfcLightSourcePositional {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setOrientation(const Step::RefPtr< IfcDirection > &value);
         /**
+         * unset the attribute 'Orientation'.
+         * 
+         */
+        virtual void unsetOrientation();
+        /**
+         * Test if the attribute 'Orientation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOrientation() const;
+        /**
          * Gets the value of the explicit attribute 'ConcentrationExponent'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConcentrationExponent(IfcReal value);
+        /**
+         * unset the attribute 'ConcentrationExponent'.
+         * 
+         */
+        virtual void unsetConcentrationExponent();
+        /**
+         * Test if the attribute 'ConcentrationExponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConcentrationExponent() const;
         /**
          * Gets the value of the explicit attribute 'SpreadAngle'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setSpreadAngle(IfcPositivePlaneAngleMeasure value);
         /**
+         * unset the attribute 'SpreadAngle'.
+         * 
+         */
+        virtual void unsetSpreadAngle();
+        /**
+         * Test if the attribute 'SpreadAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpreadAngle() const;
+        /**
          * Gets the value of the explicit attribute 'BeamWidthAngle'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBeamWidthAngle(IfcPositivePlaneAngleMeasure value);
+        /**
+         * unset the attribute 'BeamWidthAngle'.
+         * 
+         */
+        virtual void unsetBeamWidthAngle();
+        /**
+         * Test if the attribute 'BeamWidthAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBeamWidthAngle() const;
         friend class ExpressDataSet;
 
     protected:

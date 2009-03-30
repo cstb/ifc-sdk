@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRightCircularCylinder::IfcRightCircularCylinder(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
@@ -85,6 +82,14 @@ void IfcRightCircularCylinder::setHeight(IfcPositiveLengthMeasure value) {
     m_height = value;
 }
 
+void IfcRightCircularCylinder::unsetHeight() {
+    m_height = Step::getUnset(getHeight());
+}
+
+bool IfcRightCircularCylinder::testHeight() const {
+    return !Step::isUnset(getHeight());
+}
+
 IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() {
     if (Step::BaseObject::inited()) {
         return m_radius;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcRightCircularCylinder::getRadius() const {
 
 void IfcRightCircularCylinder::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
+}
+
+void IfcRightCircularCylinder::unsetRadius() {
+    m_radius = Step::getUnset(getRadius());
+}
+
+bool IfcRightCircularCylinder::testRadius() const {
+    return !Step::isUnset(getRadius());
 }
 
 bool IfcRightCircularCylinder::init() {

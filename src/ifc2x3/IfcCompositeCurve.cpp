@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcCompositeCurve_Segments_type::Inverted_IfcCompositeCurve_Segments_type() {
@@ -63,8 +60,13 @@ Inverted_IfcCompositeCurve_Segments_type::iterator Inverted_IfcCompositeCurve_Se
     return List_IfcCompositeCurveSegment_1_n::erase(value);
 }
 
+void Inverted_IfcCompositeCurve_Segments_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcCompositeCurve::IfcCompositeCurve(Step::Id id, Step::SPFData *args) : IfcBoundedCurve(id, args) {
-    m_segments.setUnset(true);
     m_segments.setOwner(this);
     m_selfIntersect = Step::getUnset(m_selfIntersect);
 }
@@ -107,6 +109,15 @@ const List_IfcCompositeCurveSegment_1_n &IfcCompositeCurve::getSegments() const 
     return deConstObject->getSegments();
 }
 
+void IfcCompositeCurve::unsetSegments() {
+    m_segments.clear();
+    m_segments.setUnset(true);
+}
+
+bool IfcCompositeCurve::testSegments() const {
+    return !Step::isUnset(getSegments());
+}
+
 Step::Logical IfcCompositeCurve::getSelfIntersect() {
     if (Step::BaseObject::inited()) {
         return m_selfIntersect;
@@ -123,6 +134,14 @@ const Step::Logical IfcCompositeCurve::getSelfIntersect() const {
 
 void IfcCompositeCurve::setSelfIntersect(Step::Logical value) {
     m_selfIntersect = value;
+}
+
+void IfcCompositeCurve::unsetSelfIntersect() {
+    m_selfIntersect = Step::getUnset(getSelfIntersect());
+}
+
+bool IfcCompositeCurve::testSelfIntersect() const {
+    return !Step::isUnset(getSelfIntersect());
 }
 
 bool IfcCompositeCurve::init() {

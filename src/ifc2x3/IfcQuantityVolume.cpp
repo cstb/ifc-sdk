@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcQuantityVolume::IfcQuantityVolume(Step::Id id, Step::SPFData *args) : IfcPhysicalSimpleQuantity(id, args) {
@@ -82,6 +79,14 @@ const IfcVolumeMeasure IfcQuantityVolume::getVolumeValue() const {
 
 void IfcQuantityVolume::setVolumeValue(IfcVolumeMeasure value) {
     m_volumeValue = value;
+}
+
+void IfcQuantityVolume::unsetVolumeValue() {
+    m_volumeValue = Step::getUnset(getVolumeValue());
+}
+
+bool IfcQuantityVolume::testVolumeValue() const {
+    return !Step::isUnset(getVolumeValue());
 }
 
 bool IfcQuantityVolume::init() {

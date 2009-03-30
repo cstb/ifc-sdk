@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcProduct.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSpatialStructureElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSpatialStructureElement : public IfcProduct {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setLongName(const IfcLabel &value);
         /**
+         * unset the attribute 'LongName'.
+         * 
+         */
+        virtual void unsetLongName();
+        /**
+         * Test if the attribute 'LongName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLongName() const;
+        /**
          * Gets the value of the explicit attribute 'CompositionType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setCompositionType(IfcElementCompositionEnum value);
         /**
+         * unset the attribute 'CompositionType'.
+         * 
+         */
+        virtual void unsetCompositionType();
+        /**
+         * Test if the attribute 'CompositionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompositionType() const;
+        /**
          * Gets the value of the inverse attribute 'ReferencesElements'.
          * 
          */
@@ -116,6 +140,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ReferencesElements'
          */
         virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements() const;
+        /**
+         * Test if the attribute 'ReferencesElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencesElements() const;
         /**
          * Gets the value of the inverse attribute 'ServicedBySystems'.
          * 
@@ -128,6 +158,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
         /**
+         * Test if the attribute 'ServicedBySystems' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testServicedBySystems() const;
+        /**
          * Gets the value of the inverse attribute 'ContainsElements'.
          * 
          */
@@ -138,11 +174,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ContainsElements'
          */
         virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements() const;
-        friend class IfcRelServicesBuildings;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'ContainsElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContainsElements() const;
         friend class Inverted_IfcRelServicesBuildings_RelatedBuildings_type;
-        friend class IfcRelContainedInSpatialStructure;
+        friend class IfcRelServicesBuildings;
         friend class IfcRelReferencedInSpatialStructure;
+        friend class ExpressDataSet;
+        friend class IfcRelContainedInSpatialStructure;
 
     protected:
         /**

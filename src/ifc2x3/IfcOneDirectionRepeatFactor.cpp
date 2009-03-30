@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOneDirectionRepeatFactor::IfcOneDirectionRepeatFactor(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -86,6 +83,14 @@ const IfcVector *IfcOneDirectionRepeatFactor::getRepeatFactor() const {
 
 void IfcOneDirectionRepeatFactor::setRepeatFactor(const Step::RefPtr< IfcVector > &value) {
     m_repeatFactor = value;
+}
+
+void IfcOneDirectionRepeatFactor::unsetRepeatFactor() {
+    m_repeatFactor = Step::getUnset(getRepeatFactor());
+}
+
+bool IfcOneDirectionRepeatFactor::testRepeatFactor() const {
+    return !Step::isUnset(getRepeatFactor());
 }
 
 bool IfcOneDirectionRepeatFactor::init() {

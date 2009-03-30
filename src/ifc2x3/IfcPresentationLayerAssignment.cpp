@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,9 +43,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcPresentationLayerAssignment_AssignedItems_type::Inverted_IfcPresentationLayerAssignment_AssignedItems_type() {
@@ -81,10 +78,15 @@ Inverted_IfcPresentationLayerAssignment_AssignedItems_type::size_type Inverted_I
     return Set_IfcLayeredItem_1_n::erase(value);
 }
 
+void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcPresentationLayerAssignment::IfcPresentationLayerAssignment(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_assignedItems.setUnset(true);
     m_assignedItems.setOwner(this);
     m_identifier = Step::getUnset(m_identifier);
 }
@@ -130,6 +132,14 @@ void IfcPresentationLayerAssignment::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcPresentationLayerAssignment::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcPresentationLayerAssignment::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcPresentationLayerAssignment::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -148,6 +158,14 @@ void IfcPresentationLayerAssignment::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcPresentationLayerAssignment::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcPresentationLayerAssignment::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 Set_IfcLayeredItem_1_n &IfcPresentationLayerAssignment::getAssignedItems() {
     if (Step::BaseObject::inited()) {
         return m_assignedItems;
@@ -161,6 +179,15 @@ Set_IfcLayeredItem_1_n &IfcPresentationLayerAssignment::getAssignedItems() {
 const Set_IfcLayeredItem_1_n &IfcPresentationLayerAssignment::getAssignedItems() const {
     IfcPresentationLayerAssignment * deConstObject = const_cast< IfcPresentationLayerAssignment * > (this);
     return deConstObject->getAssignedItems();
+}
+
+void IfcPresentationLayerAssignment::unsetAssignedItems() {
+    m_assignedItems.clear();
+    m_assignedItems.setUnset(true);
+}
+
+bool IfcPresentationLayerAssignment::testAssignedItems() const {
+    return !Step::isUnset(getAssignedItems());
 }
 
 IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() {
@@ -179,6 +206,14 @@ const IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() const {
 
 void IfcPresentationLayerAssignment::setIdentifier(const IfcIdentifier &value) {
     m_identifier = value;
+}
+
+void IfcPresentationLayerAssignment::unsetIdentifier() {
+    m_identifier = Step::getUnset(getIdentifier());
+}
+
+bool IfcPresentationLayerAssignment::testIdentifier() const {
+    return !Step::isUnset(getIdentifier());
 }
 
 bool IfcPresentationLayerAssignment::init() {

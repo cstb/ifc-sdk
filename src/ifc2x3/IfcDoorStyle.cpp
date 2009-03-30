@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDoorStyle::IfcDoorStyle(Step::Id id, Step::SPFData *args) : IfcTypeProduct(id, args) {
@@ -87,6 +84,14 @@ void IfcDoorStyle::setOperationType(IfcDoorStyleOperationEnum value) {
     m_operationType = value;
 }
 
+void IfcDoorStyle::unsetOperationType() {
+    m_operationType = IfcDoorStyleOperationEnum_UNSET;
+}
+
+bool IfcDoorStyle::testOperationType() const {
+    return getOperationType() != IfcDoorStyleOperationEnum_UNSET;
+}
+
 IfcDoorStyleConstructionEnum IfcDoorStyle::getConstructionType() {
     if (Step::BaseObject::inited()) {
         return m_constructionType;
@@ -103,6 +108,14 @@ const IfcDoorStyleConstructionEnum IfcDoorStyle::getConstructionType() const {
 
 void IfcDoorStyle::setConstructionType(IfcDoorStyleConstructionEnum value) {
     m_constructionType = value;
+}
+
+void IfcDoorStyle::unsetConstructionType() {
+    m_constructionType = IfcDoorStyleConstructionEnum_UNSET;
+}
+
+bool IfcDoorStyle::testConstructionType() const {
+    return getConstructionType() != IfcDoorStyleConstructionEnum_UNSET;
 }
 
 Step::Boolean IfcDoorStyle::getParameterTakesPrecedence() {
@@ -123,6 +136,14 @@ void IfcDoorStyle::setParameterTakesPrecedence(Step::Boolean value) {
     m_parameterTakesPrecedence = value;
 }
 
+void IfcDoorStyle::unsetParameterTakesPrecedence() {
+    m_parameterTakesPrecedence = Step::getUnset(getParameterTakesPrecedence());
+}
+
+bool IfcDoorStyle::testParameterTakesPrecedence() const {
+    return !Step::isUnset(getParameterTakesPrecedence());
+}
+
 Step::Boolean IfcDoorStyle::getSizeable() {
     if (Step::BaseObject::inited()) {
         return m_sizeable;
@@ -139,6 +160,14 @@ const Step::Boolean IfcDoorStyle::getSizeable() const {
 
 void IfcDoorStyle::setSizeable(Step::Boolean value) {
     m_sizeable = value;
+}
+
+void IfcDoorStyle::unsetSizeable() {
+    m_sizeable = Step::getUnset(getSizeable());
+}
+
+bool IfcDoorStyle::testSizeable() const {
+    return !Step::isUnset(getSizeable());
 }
 
 bool IfcDoorStyle::init() {

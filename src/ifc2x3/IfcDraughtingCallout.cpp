@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDraughtingCallout::IfcDraughtingCallout(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -91,6 +88,15 @@ void IfcDraughtingCallout::setContents(const Set_IfcDraughtingCalloutElement_1_n
     m_contents = value;
 }
 
+void IfcDraughtingCallout::unsetContents() {
+    m_contents.clear();
+    m_contents.setUnset(true);
+}
+
+bool IfcDraughtingCallout::testContents() const {
+    return !Step::isUnset(getContents());
+}
+
 Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedFromCallout;
@@ -106,6 +112,10 @@ const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::ge
     return deConstObject->getIsRelatedFromCallout();
 }
 
+bool IfcDraughtingCallout::testIsRelatedFromCallout() const {
+    return !Step::isUnset(getIsRelatedFromCallout());
+}
+
 Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedToCallout;
@@ -119,6 +129,10 @@ Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRel
 const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() const {
     IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
     return deConstObject->getIsRelatedToCallout();
+}
+
+bool IfcDraughtingCallout::testIsRelatedToCallout() const {
+    return !Step::isUnset(getIsRelatedToCallout());
 }
 
 bool IfcDraughtingCallout::init() {

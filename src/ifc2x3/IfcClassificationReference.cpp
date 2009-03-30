@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcClassificationReference::IfcClassificationReference(Step::Id id, Step::SPFData *args) : IfcExternalReference(id, args) {
@@ -86,6 +83,14 @@ const IfcClassification *IfcClassificationReference::getReferencedSource() const
 
 void IfcClassificationReference::setReferencedSource(const Step::RefPtr< IfcClassification > &value) {
     m_referencedSource = value;
+}
+
+void IfcClassificationReference::unsetReferencedSource() {
+    m_referencedSource = Step::getUnset(getReferencedSource());
+}
+
+bool IfcClassificationReference::testReferencedSource() const {
+    return !Step::isUnset(getReferencedSource());
 }
 
 bool IfcClassificationReference::init() {

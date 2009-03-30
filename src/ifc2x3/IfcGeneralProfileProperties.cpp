@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGeneralProfileProperties::IfcGeneralProfileProperties(Step::Id id, Step::SPFData *args) : IfcProfileProperties(id, args) {
@@ -88,6 +85,14 @@ void IfcGeneralProfileProperties::setPhysicalWeight(IfcMassPerLengthMeasure valu
     m_physicalWeight = value;
 }
 
+void IfcGeneralProfileProperties::unsetPhysicalWeight() {
+    m_physicalWeight = Step::getUnset(getPhysicalWeight());
+}
+
+bool IfcGeneralProfileProperties::testPhysicalWeight() const {
+    return !Step::isUnset(getPhysicalWeight());
+}
+
 IfcPositiveLengthMeasure IfcGeneralProfileProperties::getPerimeter() {
     if (Step::BaseObject::inited()) {
         return m_perimeter;
@@ -104,6 +109,14 @@ const IfcPositiveLengthMeasure IfcGeneralProfileProperties::getPerimeter() const
 
 void IfcGeneralProfileProperties::setPerimeter(IfcPositiveLengthMeasure value) {
     m_perimeter = value;
+}
+
+void IfcGeneralProfileProperties::unsetPerimeter() {
+    m_perimeter = Step::getUnset(getPerimeter());
+}
+
+bool IfcGeneralProfileProperties::testPerimeter() const {
+    return !Step::isUnset(getPerimeter());
 }
 
 IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMinimumPlateThickness() {
@@ -124,6 +137,14 @@ void IfcGeneralProfileProperties::setMinimumPlateThickness(IfcPositiveLengthMeas
     m_minimumPlateThickness = value;
 }
 
+void IfcGeneralProfileProperties::unsetMinimumPlateThickness() {
+    m_minimumPlateThickness = Step::getUnset(getMinimumPlateThickness());
+}
+
+bool IfcGeneralProfileProperties::testMinimumPlateThickness() const {
+    return !Step::isUnset(getMinimumPlateThickness());
+}
+
 IfcPositiveLengthMeasure IfcGeneralProfileProperties::getMaximumPlateThickness() {
     if (Step::BaseObject::inited()) {
         return m_maximumPlateThickness;
@@ -142,6 +163,14 @@ void IfcGeneralProfileProperties::setMaximumPlateThickness(IfcPositiveLengthMeas
     m_maximumPlateThickness = value;
 }
 
+void IfcGeneralProfileProperties::unsetMaximumPlateThickness() {
+    m_maximumPlateThickness = Step::getUnset(getMaximumPlateThickness());
+}
+
+bool IfcGeneralProfileProperties::testMaximumPlateThickness() const {
+    return !Step::isUnset(getMaximumPlateThickness());
+}
+
 IfcAreaMeasure IfcGeneralProfileProperties::getCrossSectionArea() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionArea;
@@ -158,6 +187,14 @@ const IfcAreaMeasure IfcGeneralProfileProperties::getCrossSectionArea() const {
 
 void IfcGeneralProfileProperties::setCrossSectionArea(IfcAreaMeasure value) {
     m_crossSectionArea = value;
+}
+
+void IfcGeneralProfileProperties::unsetCrossSectionArea() {
+    m_crossSectionArea = Step::getUnset(getCrossSectionArea());
+}
+
+bool IfcGeneralProfileProperties::testCrossSectionArea() const {
+    return !Step::isUnset(getCrossSectionArea());
 }
 
 bool IfcGeneralProfileProperties::init() {

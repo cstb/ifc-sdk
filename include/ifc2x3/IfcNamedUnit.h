@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcDimensionalExponents;
 
     /**
+     * Generated class for the IfcNamedUnit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcNamedUnit : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setDimensions(const Step::RefPtr< IfcDimensionalExponents > &value);
         /**
+         * unset the attribute 'Dimensions'.
+         * 
+         */
+        virtual void unsetDimensions();
+        /**
+         * Test if the attribute 'Dimensions' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDimensions() const;
+        /**
          * Gets the value of the explicit attribute 'UnitType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUnitType(IfcUnitEnum value);
+        /**
+         * unset the attribute 'UnitType'.
+         * 
+         */
+        virtual void unsetUnitType();
+        /**
+         * Test if the attribute 'UnitType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnitType() const;
         friend class ExpressDataSet;
 
     protected:

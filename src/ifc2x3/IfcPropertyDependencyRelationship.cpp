@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyDependencyRelationship::IfcPropertyDependencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -99,6 +96,14 @@ void IfcPropertyDependencyRelationship::setDependingProperty(const Step::RefPtr<
     m_dependingProperty = value;
 }
 
+void IfcPropertyDependencyRelationship::unsetDependingProperty() {
+    m_dependingProperty = Step::getUnset(getDependingProperty());
+}
+
+bool IfcPropertyDependencyRelationship::testDependingProperty() const {
+    return !Step::isUnset(getDependingProperty());
+}
+
 IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() {
     if (Step::BaseObject::inited()) {
         return m_dependantProperty.get();
@@ -123,6 +128,14 @@ void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr<
     m_dependantProperty = value;
 }
 
+void IfcPropertyDependencyRelationship::unsetDependantProperty() {
+    m_dependantProperty = Step::getUnset(getDependantProperty());
+}
+
+bool IfcPropertyDependencyRelationship::testDependantProperty() const {
+    return !Step::isUnset(getDependantProperty());
+}
+
 IfcLabel IfcPropertyDependencyRelationship::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -139,6 +152,14 @@ const IfcLabel IfcPropertyDependencyRelationship::getName() const {
 
 void IfcPropertyDependencyRelationship::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcPropertyDependencyRelationship::testName() const {
+    return !Step::isUnset(getName());
 }
 
 IfcText IfcPropertyDependencyRelationship::getDescription() {
@@ -159,6 +180,14 @@ void IfcPropertyDependencyRelationship::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcPropertyDependencyRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcPropertyDependencyRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 IfcText IfcPropertyDependencyRelationship::getExpression() {
     if (Step::BaseObject::inited()) {
         return m_expression;
@@ -175,6 +204,14 @@ const IfcText IfcPropertyDependencyRelationship::getExpression() const {
 
 void IfcPropertyDependencyRelationship::setExpression(const IfcText &value) {
     m_expression = value;
+}
+
+void IfcPropertyDependencyRelationship::unsetExpression() {
+    m_expression = Step::getUnset(getExpression());
+}
+
+bool IfcPropertyDependencyRelationship::testExpression() const {
+    return !Step::isUnset(getExpression());
 }
 
 bool IfcPropertyDependencyRelationship::init() {

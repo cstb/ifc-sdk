@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProcess.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcProcess.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTask Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTask : public IfcProcess {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setTaskId(const IfcIdentifier &value);
         /**
+         * unset the attribute 'TaskId'.
+         * 
+         */
+        virtual void unsetTaskId();
+        /**
+         * Test if the attribute 'TaskId' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTaskId() const;
+        /**
          * Gets the value of the explicit attribute 'Status'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStatus(const IfcLabel &value);
+        /**
+         * unset the attribute 'Status'.
+         * 
+         */
+        virtual void unsetStatus();
+        /**
+         * Test if the attribute 'Status' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStatus() const;
         /**
          * Gets the value of the explicit attribute 'WorkMethod'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setWorkMethod(const IfcLabel &value);
         /**
+         * unset the attribute 'WorkMethod'.
+         * 
+         */
+        virtual void unsetWorkMethod();
+        /**
+         * Test if the attribute 'WorkMethod' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWorkMethod() const;
+        /**
          * Gets the value of the explicit attribute 'IsMilestone'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          */
         virtual void setIsMilestone(Step::Boolean value);
         /**
+         * unset the attribute 'IsMilestone'.
+         * 
+         */
+        virtual void unsetIsMilestone();
+        /**
+         * Test if the attribute 'IsMilestone' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsMilestone() const;
+        /**
          * Gets the value of the explicit attribute 'Priority'.
          * 
          */
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPriority(Step::Integer value);
+        /**
+         * unset the attribute 'Priority'.
+         * 
+         */
+        virtual void unsetPriority();
+        /**
+         * Test if the attribute 'Priority' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPriority() const;
         friend class ExpressDataSet;
 
     protected:

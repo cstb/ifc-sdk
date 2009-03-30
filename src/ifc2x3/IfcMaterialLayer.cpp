@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterialLayer::IfcMaterialLayer(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcMaterialLayer::setMaterial(const Step::RefPtr< IfcMaterial > &value) {
     m_material = value;
 }
 
+void IfcMaterialLayer::unsetMaterial() {
+    m_material = Step::getUnset(getMaterial());
+}
+
+bool IfcMaterialLayer::testMaterial() const {
+    return !Step::isUnset(getMaterial());
+}
+
 IfcPositiveLengthMeasure IfcMaterialLayer::getLayerThickness() {
     if (Step::BaseObject::inited()) {
         return m_layerThickness;
@@ -108,6 +113,14 @@ const IfcPositiveLengthMeasure IfcMaterialLayer::getLayerThickness() const {
 
 void IfcMaterialLayer::setLayerThickness(IfcPositiveLengthMeasure value) {
     m_layerThickness = value;
+}
+
+void IfcMaterialLayer::unsetLayerThickness() {
+    m_layerThickness = Step::getUnset(getLayerThickness());
+}
+
+bool IfcMaterialLayer::testLayerThickness() const {
+    return !Step::isUnset(getLayerThickness());
 }
 
 IfcLogical IfcMaterialLayer::getIsVentilated() {
@@ -128,6 +141,14 @@ void IfcMaterialLayer::setIsVentilated(IfcLogical value) {
     m_isVentilated = value;
 }
 
+void IfcMaterialLayer::unsetIsVentilated() {
+    m_isVentilated = Step::getUnset(getIsVentilated());
+}
+
+bool IfcMaterialLayer::testIsVentilated() const {
+    return !Step::isUnset(getIsVentilated());
+}
+
 IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() {
     if (Step::BaseObject::inited()) {
         return m_toMaterialLayerSet.get();
@@ -140,6 +161,10 @@ IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() {
 const IfcMaterialLayerSet *IfcMaterialLayer::getToMaterialLayerSet() const {
     IfcMaterialLayer * deConstObject = const_cast< IfcMaterialLayer * > (this);
     return deConstObject->getToMaterialLayerSet();
+}
+
+bool IfcMaterialLayer::testToMaterialLayerSet() const {
+    return !Step::isUnset(getToMaterialLayerSet());
 }
 
 bool IfcMaterialLayer::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMappedItem::IfcMappedItem(Step::Id id, Step::SPFData *args) : IfcRepresentationItem(id, args) {
@@ -96,6 +93,14 @@ void IfcMappedItem::setMappingSource(const Step::RefPtr< IfcRepresentationMap > 
     m_mappingSource = value;
 }
 
+void IfcMappedItem::unsetMappingSource() {
+    m_mappingSource = Step::getUnset(getMappingSource());
+}
+
+bool IfcMappedItem::testMappingSource() const {
+    return !Step::isUnset(getMappingSource());
+}
+
 IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() {
     if (Step::BaseObject::inited()) {
         return m_mappingTarget.get();
@@ -112,6 +117,14 @@ const IfcCartesianTransformationOperator *IfcMappedItem::getMappingTarget() cons
 
 void IfcMappedItem::setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value) {
     m_mappingTarget = value;
+}
+
+void IfcMappedItem::unsetMappingTarget() {
+    m_mappingTarget = Step::getUnset(getMappingTarget());
+}
+
+bool IfcMappedItem::testMappingTarget() const {
+    return !Step::isUnset(getMappingTarget());
 }
 
 bool IfcMappedItem::init() {

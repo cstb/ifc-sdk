@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,15 +32,17 @@
 #include "ifc2x3/IfcMechanicalMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMechanicalConcreteMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMechanicalConcreteMaterialProperties : public IfcMechanicalMaterialProperties {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setCompressiveStrength(IfcPressureMeasure value);
         /**
+         * unset the attribute 'CompressiveStrength'.
+         * 
+         */
+        virtual void unsetCompressiveStrength();
+        /**
+         * Test if the attribute 'CompressiveStrength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompressiveStrength() const;
+        /**
          * Gets the value of the explicit attribute 'MaxAggregateSize'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMaxAggregateSize(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'MaxAggregateSize'.
+         * 
+         */
+        virtual void unsetMaxAggregateSize();
+        /**
+         * Test if the attribute 'MaxAggregateSize' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaxAggregateSize() const;
         /**
          * Gets the value of the explicit attribute 'AdmixturesDescription'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setAdmixturesDescription(const IfcText &value);
         /**
+         * unset the attribute 'AdmixturesDescription'.
+         * 
+         */
+        virtual void unsetAdmixturesDescription();
+        /**
+         * Test if the attribute 'AdmixturesDescription' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAdmixturesDescription() const;
+        /**
          * Gets the value of the explicit attribute 'Workability'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWorkability(const IfcText &value);
+        /**
+         * unset the attribute 'Workability'.
+         * 
+         */
+        virtual void unsetWorkability();
+        /**
+         * Test if the attribute 'Workability' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWorkability() const;
         /**
          * Gets the value of the explicit attribute 'ProtectivePoreRatio'.
          * 
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          */
         virtual void setProtectivePoreRatio(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'ProtectivePoreRatio'.
+         * 
+         */
+        virtual void unsetProtectivePoreRatio();
+        /**
+         * Test if the attribute 'ProtectivePoreRatio' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProtectivePoreRatio() const;
+        /**
          * Gets the value of the explicit attribute 'WaterImpermeability'.
          * 
          */
@@ -173,6 +230,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWaterImpermeability(const IfcText &value);
+        /**
+         * unset the attribute 'WaterImpermeability'.
+         * 
+         */
+        virtual void unsetWaterImpermeability();
+        /**
+         * Test if the attribute 'WaterImpermeability' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWaterImpermeability() const;
         friend class ExpressDataSet;
 
     protected:

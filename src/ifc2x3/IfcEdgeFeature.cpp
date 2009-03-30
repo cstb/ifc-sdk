@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEdgeFeature::IfcEdgeFeature(Step::Id id, Step::SPFData *args) : IfcFeatureElementSubtraction(id, args) {
@@ -82,6 +79,14 @@ const IfcPositiveLengthMeasure IfcEdgeFeature::getFeatureLength() const {
 
 void IfcEdgeFeature::setFeatureLength(IfcPositiveLengthMeasure value) {
     m_featureLength = value;
+}
+
+void IfcEdgeFeature::unsetFeatureLength() {
+    m_featureLength = Step::getUnset(getFeatureLength());
+}
+
+bool IfcEdgeFeature::testFeatureLength() const {
+    return !Step::isUnset(getFeatureLength());
 }
 
 bool IfcEdgeFeature::init() {

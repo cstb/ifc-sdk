@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcScheduleTimeControl::IfcScheduleTimeControl(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -106,6 +103,14 @@ void IfcScheduleTimeControl::setActualStart(const Step::RefPtr< IfcDateTimeSelec
     m_actualStart = value;
 }
 
+void IfcScheduleTimeControl::unsetActualStart() {
+    m_actualStart = Step::getUnset(getActualStart());
+}
+
+bool IfcScheduleTimeControl::testActualStart() const {
+    return !Step::isUnset(getActualStart());
+}
+
 IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyStart() {
     if (Step::BaseObject::inited()) {
         return m_earlyStart.get();
@@ -122,6 +127,14 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyStart() const {
 
 void IfcScheduleTimeControl::setEarlyStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_earlyStart = value;
+}
+
+void IfcScheduleTimeControl::unsetEarlyStart() {
+    m_earlyStart = Step::getUnset(getEarlyStart());
+}
+
+bool IfcScheduleTimeControl::testEarlyStart() const {
+    return !Step::isUnset(getEarlyStart());
 }
 
 IfcDateTimeSelect *IfcScheduleTimeControl::getLateStart() {
@@ -142,6 +155,14 @@ void IfcScheduleTimeControl::setLateStart(const Step::RefPtr< IfcDateTimeSelect 
     m_lateStart = value;
 }
 
+void IfcScheduleTimeControl::unsetLateStart() {
+    m_lateStart = Step::getUnset(getLateStart());
+}
+
+bool IfcScheduleTimeControl::testLateStart() const {
+    return !Step::isUnset(getLateStart());
+}
+
 IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleStart() {
     if (Step::BaseObject::inited()) {
         return m_scheduleStart.get();
@@ -158,6 +179,14 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleStart() const {
 
 void IfcScheduleTimeControl::setScheduleStart(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_scheduleStart = value;
+}
+
+void IfcScheduleTimeControl::unsetScheduleStart() {
+    m_scheduleStart = Step::getUnset(getScheduleStart());
+}
+
+bool IfcScheduleTimeControl::testScheduleStart() const {
+    return !Step::isUnset(getScheduleStart());
 }
 
 IfcDateTimeSelect *IfcScheduleTimeControl::getActualFinish() {
@@ -178,6 +207,14 @@ void IfcScheduleTimeControl::setActualFinish(const Step::RefPtr< IfcDateTimeSele
     m_actualFinish = value;
 }
 
+void IfcScheduleTimeControl::unsetActualFinish() {
+    m_actualFinish = Step::getUnset(getActualFinish());
+}
+
+bool IfcScheduleTimeControl::testActualFinish() const {
+    return !Step::isUnset(getActualFinish());
+}
+
 IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyFinish() {
     if (Step::BaseObject::inited()) {
         return m_earlyFinish.get();
@@ -194,6 +231,14 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getEarlyFinish() const {
 
 void IfcScheduleTimeControl::setEarlyFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_earlyFinish = value;
+}
+
+void IfcScheduleTimeControl::unsetEarlyFinish() {
+    m_earlyFinish = Step::getUnset(getEarlyFinish());
+}
+
+bool IfcScheduleTimeControl::testEarlyFinish() const {
+    return !Step::isUnset(getEarlyFinish());
 }
 
 IfcDateTimeSelect *IfcScheduleTimeControl::getLateFinish() {
@@ -214,6 +259,14 @@ void IfcScheduleTimeControl::setLateFinish(const Step::RefPtr< IfcDateTimeSelect
     m_lateFinish = value;
 }
 
+void IfcScheduleTimeControl::unsetLateFinish() {
+    m_lateFinish = Step::getUnset(getLateFinish());
+}
+
+bool IfcScheduleTimeControl::testLateFinish() const {
+    return !Step::isUnset(getLateFinish());
+}
+
 IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleFinish() {
     if (Step::BaseObject::inited()) {
         return m_scheduleFinish.get();
@@ -230,6 +283,14 @@ const IfcDateTimeSelect *IfcScheduleTimeControl::getScheduleFinish() const {
 
 void IfcScheduleTimeControl::setScheduleFinish(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_scheduleFinish = value;
+}
+
+void IfcScheduleTimeControl::unsetScheduleFinish() {
+    m_scheduleFinish = Step::getUnset(getScheduleFinish());
+}
+
+bool IfcScheduleTimeControl::testScheduleFinish() const {
+    return !Step::isUnset(getScheduleFinish());
 }
 
 IfcTimeMeasure IfcScheduleTimeControl::getScheduleDuration() {
@@ -250,6 +311,14 @@ void IfcScheduleTimeControl::setScheduleDuration(IfcTimeMeasure value) {
     m_scheduleDuration = value;
 }
 
+void IfcScheduleTimeControl::unsetScheduleDuration() {
+    m_scheduleDuration = Step::getUnset(getScheduleDuration());
+}
+
+bool IfcScheduleTimeControl::testScheduleDuration() const {
+    return !Step::isUnset(getScheduleDuration());
+}
+
 IfcTimeMeasure IfcScheduleTimeControl::getActualDuration() {
     if (Step::BaseObject::inited()) {
         return m_actualDuration;
@@ -266,6 +335,14 @@ const IfcTimeMeasure IfcScheduleTimeControl::getActualDuration() const {
 
 void IfcScheduleTimeControl::setActualDuration(IfcTimeMeasure value) {
     m_actualDuration = value;
+}
+
+void IfcScheduleTimeControl::unsetActualDuration() {
+    m_actualDuration = Step::getUnset(getActualDuration());
+}
+
+bool IfcScheduleTimeControl::testActualDuration() const {
+    return !Step::isUnset(getActualDuration());
 }
 
 IfcTimeMeasure IfcScheduleTimeControl::getRemainingTime() {
@@ -286,6 +363,14 @@ void IfcScheduleTimeControl::setRemainingTime(IfcTimeMeasure value) {
     m_remainingTime = value;
 }
 
+void IfcScheduleTimeControl::unsetRemainingTime() {
+    m_remainingTime = Step::getUnset(getRemainingTime());
+}
+
+bool IfcScheduleTimeControl::testRemainingTime() const {
+    return !Step::isUnset(getRemainingTime());
+}
+
 IfcTimeMeasure IfcScheduleTimeControl::getFreeFloat() {
     if (Step::BaseObject::inited()) {
         return m_freeFloat;
@@ -302,6 +387,14 @@ const IfcTimeMeasure IfcScheduleTimeControl::getFreeFloat() const {
 
 void IfcScheduleTimeControl::setFreeFloat(IfcTimeMeasure value) {
     m_freeFloat = value;
+}
+
+void IfcScheduleTimeControl::unsetFreeFloat() {
+    m_freeFloat = Step::getUnset(getFreeFloat());
+}
+
+bool IfcScheduleTimeControl::testFreeFloat() const {
+    return !Step::isUnset(getFreeFloat());
 }
 
 IfcTimeMeasure IfcScheduleTimeControl::getTotalFloat() {
@@ -322,6 +415,14 @@ void IfcScheduleTimeControl::setTotalFloat(IfcTimeMeasure value) {
     m_totalFloat = value;
 }
 
+void IfcScheduleTimeControl::unsetTotalFloat() {
+    m_totalFloat = Step::getUnset(getTotalFloat());
+}
+
+bool IfcScheduleTimeControl::testTotalFloat() const {
+    return !Step::isUnset(getTotalFloat());
+}
+
 Step::Boolean IfcScheduleTimeControl::getIsCritical() {
     if (Step::BaseObject::inited()) {
         return m_isCritical;
@@ -338,6 +439,14 @@ const Step::Boolean IfcScheduleTimeControl::getIsCritical() const {
 
 void IfcScheduleTimeControl::setIsCritical(Step::Boolean value) {
     m_isCritical = value;
+}
+
+void IfcScheduleTimeControl::unsetIsCritical() {
+    m_isCritical = Step::getUnset(getIsCritical());
+}
+
+bool IfcScheduleTimeControl::testIsCritical() const {
+    return !Step::isUnset(getIsCritical());
 }
 
 IfcDateTimeSelect *IfcScheduleTimeControl::getStatusTime() {
@@ -358,6 +467,14 @@ void IfcScheduleTimeControl::setStatusTime(const Step::RefPtr< IfcDateTimeSelect
     m_statusTime = value;
 }
 
+void IfcScheduleTimeControl::unsetStatusTime() {
+    m_statusTime = Step::getUnset(getStatusTime());
+}
+
+bool IfcScheduleTimeControl::testStatusTime() const {
+    return !Step::isUnset(getStatusTime());
+}
+
 IfcTimeMeasure IfcScheduleTimeControl::getStartFloat() {
     if (Step::BaseObject::inited()) {
         return m_startFloat;
@@ -374,6 +491,14 @@ const IfcTimeMeasure IfcScheduleTimeControl::getStartFloat() const {
 
 void IfcScheduleTimeControl::setStartFloat(IfcTimeMeasure value) {
     m_startFloat = value;
+}
+
+void IfcScheduleTimeControl::unsetStartFloat() {
+    m_startFloat = Step::getUnset(getStartFloat());
+}
+
+bool IfcScheduleTimeControl::testStartFloat() const {
+    return !Step::isUnset(getStartFloat());
 }
 
 IfcTimeMeasure IfcScheduleTimeControl::getFinishFloat() {
@@ -394,6 +519,14 @@ void IfcScheduleTimeControl::setFinishFloat(IfcTimeMeasure value) {
     m_finishFloat = value;
 }
 
+void IfcScheduleTimeControl::unsetFinishFloat() {
+    m_finishFloat = Step::getUnset(getFinishFloat());
+}
+
+bool IfcScheduleTimeControl::testFinishFloat() const {
+    return !Step::isUnset(getFinishFloat());
+}
+
 IfcPositiveRatioMeasure IfcScheduleTimeControl::getCompletion() {
     if (Step::BaseObject::inited()) {
         return m_completion;
@@ -412,6 +545,14 @@ void IfcScheduleTimeControl::setCompletion(IfcPositiveRatioMeasure value) {
     m_completion = value;
 }
 
+void IfcScheduleTimeControl::unsetCompletion() {
+    m_completion = Step::getUnset(getCompletion());
+}
+
+bool IfcScheduleTimeControl::testCompletion() const {
+    return !Step::isUnset(getCompletion());
+}
+
 IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() {
     if (Step::BaseObject::inited()) {
         return m_scheduleTimeControlAssigned.get();
@@ -424,6 +565,10 @@ IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() {
 const IfcRelAssignsTasks *IfcScheduleTimeControl::getScheduleTimeControlAssigned() const {
     IfcScheduleTimeControl * deConstObject = const_cast< IfcScheduleTimeControl * > (this);
     return deConstObject->getScheduleTimeControlAssigned();
+}
+
+bool IfcScheduleTimeControl::testScheduleTimeControlAssigned() const {
+    return !Step::isUnset(getScheduleTimeControlAssigned());
 }
 
 bool IfcScheduleTimeControl::init() {

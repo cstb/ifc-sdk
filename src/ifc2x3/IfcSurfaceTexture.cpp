@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceTexture::IfcSurfaceTexture(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcSurfaceTexture::setRepeatS(Step::Boolean value) {
     m_repeatS = value;
 }
 
+void IfcSurfaceTexture::unsetRepeatS() {
+    m_repeatS = Step::getUnset(getRepeatS());
+}
+
+bool IfcSurfaceTexture::testRepeatS() const {
+    return !Step::isUnset(getRepeatS());
+}
+
 Step::Boolean IfcSurfaceTexture::getRepeatT() {
     if (Step::BaseObject::inited()) {
         return m_repeatT;
@@ -107,6 +112,14 @@ const Step::Boolean IfcSurfaceTexture::getRepeatT() const {
 
 void IfcSurfaceTexture::setRepeatT(Step::Boolean value) {
     m_repeatT = value;
+}
+
+void IfcSurfaceTexture::unsetRepeatT() {
+    m_repeatT = Step::getUnset(getRepeatT());
+}
+
+bool IfcSurfaceTexture::testRepeatT() const {
+    return !Step::isUnset(getRepeatT());
 }
 
 IfcSurfaceTextureEnum IfcSurfaceTexture::getTextureType() {
@@ -127,6 +140,14 @@ void IfcSurfaceTexture::setTextureType(IfcSurfaceTextureEnum value) {
     m_textureType = value;
 }
 
+void IfcSurfaceTexture::unsetTextureType() {
+    m_textureType = IfcSurfaceTextureEnum_UNSET;
+}
+
+bool IfcSurfaceTexture::testTextureType() const {
+    return getTextureType() != IfcSurfaceTextureEnum_UNSET;
+}
+
 IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransform() {
     if (Step::BaseObject::inited()) {
         return m_textureTransform.get();
@@ -143,6 +164,14 @@ const IfcCartesianTransformationOperator2D *IfcSurfaceTexture::getTextureTransfo
 
 void IfcSurfaceTexture::setTextureTransform(const Step::RefPtr< IfcCartesianTransformationOperator2D > &value) {
     m_textureTransform = value;
+}
+
+void IfcSurfaceTexture::unsetTextureTransform() {
+    m_textureTransform = Step::getUnset(getTextureTransform());
+}
+
+bool IfcSurfaceTexture::testTextureTransform() const {
+    return !Step::isUnset(getTextureTransform());
 }
 
 bool IfcSurfaceTexture::init() {

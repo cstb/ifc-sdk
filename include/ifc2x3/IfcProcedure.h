@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProcess.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcProcess.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProcedure Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProcedure : public IfcProcess {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setProcedureID(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ProcedureID'.
+         * 
+         */
+        virtual void unsetProcedureID();
+        /**
+         * Test if the attribute 'ProcedureID' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProcedureID() const;
+        /**
          * Gets the value of the explicit attribute 'ProcedureType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setProcedureType(IfcProcedureTypeEnum value);
         /**
+         * unset the attribute 'ProcedureType'.
+         * 
+         */
+        virtual void unsetProcedureType();
+        /**
+         * Test if the attribute 'ProcedureType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProcedureType() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedProcedureType'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedProcedureType(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedProcedureType'.
+         * 
+         */
+        virtual void unsetUserDefinedProcedureType();
+        /**
+         * Test if the attribute 'UserDefinedProcedureType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedProcedureType() const;
         friend class ExpressDataSet;
 
     protected:

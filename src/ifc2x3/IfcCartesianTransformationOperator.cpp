@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator::IfcCartesianTransformationOperator(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -92,6 +89,14 @@ void IfcCartesianTransformationOperator::setAxis1(const Step::RefPtr< IfcDirecti
     m_axis1 = value;
 }
 
+void IfcCartesianTransformationOperator::unsetAxis1() {
+    m_axis1 = Step::getUnset(getAxis1());
+}
+
+bool IfcCartesianTransformationOperator::testAxis1() const {
+    return !Step::isUnset(getAxis1());
+}
+
 IfcDirection *IfcCartesianTransformationOperator::getAxis2() {
     if (Step::BaseObject::inited()) {
         return m_axis2.get();
@@ -108,6 +113,14 @@ const IfcDirection *IfcCartesianTransformationOperator::getAxis2() const {
 
 void IfcCartesianTransformationOperator::setAxis2(const Step::RefPtr< IfcDirection > &value) {
     m_axis2 = value;
+}
+
+void IfcCartesianTransformationOperator::unsetAxis2() {
+    m_axis2 = Step::getUnset(getAxis2());
+}
+
+bool IfcCartesianTransformationOperator::testAxis2() const {
+    return !Step::isUnset(getAxis2());
 }
 
 IfcCartesianPoint *IfcCartesianTransformationOperator::getLocalOrigin() {
@@ -128,6 +141,14 @@ void IfcCartesianTransformationOperator::setLocalOrigin(const Step::RefPtr< IfcC
     m_localOrigin = value;
 }
 
+void IfcCartesianTransformationOperator::unsetLocalOrigin() {
+    m_localOrigin = Step::getUnset(getLocalOrigin());
+}
+
+bool IfcCartesianTransformationOperator::testLocalOrigin() const {
+    return !Step::isUnset(getLocalOrigin());
+}
+
 Step::Real IfcCartesianTransformationOperator::getScale() {
     if (Step::BaseObject::inited()) {
         return m_scale;
@@ -144,6 +165,14 @@ const Step::Real IfcCartesianTransformationOperator::getScale() const {
 
 void IfcCartesianTransformationOperator::setScale(Step::Real value) {
     m_scale = value;
+}
+
+void IfcCartesianTransformationOperator::unsetScale() {
+    m_scale = Step::getUnset(getScale());
+}
+
+bool IfcCartesianTransformationOperator::testScale() const {
+    return !Step::isUnset(getScale());
 }
 
 bool IfcCartesianTransformationOperator::init() {

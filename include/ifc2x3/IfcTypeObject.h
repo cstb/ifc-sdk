@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcObjectDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcObjectDefinition.h"
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcTypeObject;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcTypeObject_HasPropertySets_type : public Set_IfcPropertySetDefinition_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcTypeObject *mOwner;
-        /**
-         */
         Inverted_IfcTypeObject_HasPropertySets_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcTypeObject *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcPropertySetDefinition > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcPropertySetDefinition > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcTypeObject;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcTypeObject *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcTypeObject *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTypeObject Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTypeObject : public IfcObjectDefinition {
     public:
@@ -123,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicableOccurrence(const IfcLabel &value);
         /**
+         * unset the attribute 'ApplicableOccurrence'.
+         * 
+         */
+        virtual void unsetApplicableOccurrence();
+        /**
+         * Test if the attribute 'ApplicableOccurrence' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicableOccurrence() const;
+        /**
          * Gets the value of the explicit attribute 'HasPropertySets'.
          * 
          */
@@ -134,6 +163,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcPropertySetDefinition_1_n &getHasPropertySets() const;
         /**
+         * unset the attribute 'HasPropertySets'.
+         * 
+         */
+        virtual void unsetHasPropertySets();
+        /**
+         * Test if the attribute 'HasPropertySets' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasPropertySets() const;
+        /**
          * Gets the value of the inverse attribute 'ObjectTypeOf'.
          * 
          */
@@ -144,8 +184,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ObjectTypeOf'
          */
         virtual const Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf() const;
-        friend class IfcRelDefinesByType;
+        /**
+         * Test if the attribute 'ObjectTypeOf' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testObjectTypeOf() const;
         friend class ExpressDataSet;
+        friend class IfcRelDefinesByType;
 
     protected:
         /**

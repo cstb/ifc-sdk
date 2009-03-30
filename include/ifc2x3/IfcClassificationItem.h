@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcClassificationNotationFacet;
 
     /**
+     * Generated class for the IfcClassificationItem Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcClassificationItem : public Step::BaseEntity {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setNotation(const Step::RefPtr< IfcClassificationNotationFacet > &value);
         /**
+         * unset the attribute 'Notation'.
+         * 
+         */
+        virtual void unsetNotation();
+        /**
+         * Test if the attribute 'Notation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNotation() const;
+        /**
          * Gets the value of the explicit attribute 'ItemOf'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setItemOf(const Step::RefPtr< IfcClassification > &value);
+        /**
+         * unset the attribute 'ItemOf'.
+         * 
+         */
+        virtual void unsetItemOf();
+        /**
+         * Test if the attribute 'ItemOf' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testItemOf() const;
         /**
          * Gets the value of the explicit attribute 'Title'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setTitle(const IfcLabel &value);
         /**
+         * unset the attribute 'Title'.
+         * 
+         */
+        virtual void unsetTitle();
+        /**
+         * Test if the attribute 'Title' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTitle() const;
+        /**
          * Gets the value of the inverse attribute 'IsClassifiedItemIn'.
          * 
          */
@@ -137,6 +172,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
         /**
+         * Test if the attribute 'IsClassifiedItemIn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsClassifiedItemIn() const;
+        /**
          * Gets the value of the inverse attribute 'IsClassifyingItemIn'.
          * 
          */
@@ -147,8 +188,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsClassifyingItemIn'
          */
         virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'IsClassifyingItemIn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsClassifyingItemIn() const;
         friend class Inverted_IfcClassificationItemRelationship_RelatedItems_type;
+        friend class ExpressDataSet;
         friend class IfcClassificationItemRelationship;
 
     protected:

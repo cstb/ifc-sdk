@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFuelProperties::IfcFuelProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -87,6 +84,14 @@ void IfcFuelProperties::setCombustionTemperature(IfcThermodynamicTemperatureMeas
     m_combustionTemperature = value;
 }
 
+void IfcFuelProperties::unsetCombustionTemperature() {
+    m_combustionTemperature = Step::getUnset(getCombustionTemperature());
+}
+
+bool IfcFuelProperties::testCombustionTemperature() const {
+    return !Step::isUnset(getCombustionTemperature());
+}
+
 IfcPositiveRatioMeasure IfcFuelProperties::getCarbonContent() {
     if (Step::BaseObject::inited()) {
         return m_carbonContent;
@@ -103,6 +108,14 @@ const IfcPositiveRatioMeasure IfcFuelProperties::getCarbonContent() const {
 
 void IfcFuelProperties::setCarbonContent(IfcPositiveRatioMeasure value) {
     m_carbonContent = value;
+}
+
+void IfcFuelProperties::unsetCarbonContent() {
+    m_carbonContent = Step::getUnset(getCarbonContent());
+}
+
+bool IfcFuelProperties::testCarbonContent() const {
+    return !Step::isUnset(getCarbonContent());
 }
 
 IfcHeatingValueMeasure IfcFuelProperties::getLowerHeatingValue() {
@@ -123,6 +136,14 @@ void IfcFuelProperties::setLowerHeatingValue(IfcHeatingValueMeasure value) {
     m_lowerHeatingValue = value;
 }
 
+void IfcFuelProperties::unsetLowerHeatingValue() {
+    m_lowerHeatingValue = Step::getUnset(getLowerHeatingValue());
+}
+
+bool IfcFuelProperties::testLowerHeatingValue() const {
+    return !Step::isUnset(getLowerHeatingValue());
+}
+
 IfcHeatingValueMeasure IfcFuelProperties::getHigherHeatingValue() {
     if (Step::BaseObject::inited()) {
         return m_higherHeatingValue;
@@ -139,6 +160,14 @@ const IfcHeatingValueMeasure IfcFuelProperties::getHigherHeatingValue() const {
 
 void IfcFuelProperties::setHigherHeatingValue(IfcHeatingValueMeasure value) {
     m_higherHeatingValue = value;
+}
+
+void IfcFuelProperties::unsetHigherHeatingValue() {
+    m_higherHeatingValue = Step::getUnset(getHigherHeatingValue());
+}
+
+bool IfcFuelProperties::testHigherHeatingValue() const {
+    return !Step::isUnset(getHigherHeatingValue());
 }
 
 bool IfcFuelProperties::init() {

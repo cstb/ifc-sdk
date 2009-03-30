@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWorkControl::IfcWorkControl(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -100,6 +97,14 @@ void IfcWorkControl::setIdentifier(const IfcIdentifier &value) {
     m_identifier = value;
 }
 
+void IfcWorkControl::unsetIdentifier() {
+    m_identifier = Step::getUnset(getIdentifier());
+}
+
+bool IfcWorkControl::testIdentifier() const {
+    return !Step::isUnset(getIdentifier());
+}
+
 IfcDateTimeSelect *IfcWorkControl::getCreationDate() {
     if (Step::BaseObject::inited()) {
         return m_creationDate.get();
@@ -116,6 +121,14 @@ const IfcDateTimeSelect *IfcWorkControl::getCreationDate() const {
 
 void IfcWorkControl::setCreationDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_creationDate = value;
+}
+
+void IfcWorkControl::unsetCreationDate() {
+    m_creationDate = Step::getUnset(getCreationDate());
+}
+
+bool IfcWorkControl::testCreationDate() const {
+    return !Step::isUnset(getCreationDate());
 }
 
 Set_IfcPerson_1_n &IfcWorkControl::getCreators() {
@@ -137,6 +150,15 @@ void IfcWorkControl::setCreators(const Set_IfcPerson_1_n &value) {
     m_creators = value;
 }
 
+void IfcWorkControl::unsetCreators() {
+    m_creators.clear();
+    m_creators.setUnset(true);
+}
+
+bool IfcWorkControl::testCreators() const {
+    return !Step::isUnset(getCreators());
+}
+
 IfcLabel IfcWorkControl::getPurpose() {
     if (Step::BaseObject::inited()) {
         return m_purpose;
@@ -153,6 +175,14 @@ const IfcLabel IfcWorkControl::getPurpose() const {
 
 void IfcWorkControl::setPurpose(const IfcLabel &value) {
     m_purpose = value;
+}
+
+void IfcWorkControl::unsetPurpose() {
+    m_purpose = Step::getUnset(getPurpose());
+}
+
+bool IfcWorkControl::testPurpose() const {
+    return !Step::isUnset(getPurpose());
 }
 
 IfcTimeMeasure IfcWorkControl::getDuration() {
@@ -173,6 +203,14 @@ void IfcWorkControl::setDuration(IfcTimeMeasure value) {
     m_duration = value;
 }
 
+void IfcWorkControl::unsetDuration() {
+    m_duration = Step::getUnset(getDuration());
+}
+
+bool IfcWorkControl::testDuration() const {
+    return !Step::isUnset(getDuration());
+}
+
 IfcTimeMeasure IfcWorkControl::getTotalFloat() {
     if (Step::BaseObject::inited()) {
         return m_totalFloat;
@@ -189,6 +227,14 @@ const IfcTimeMeasure IfcWorkControl::getTotalFloat() const {
 
 void IfcWorkControl::setTotalFloat(IfcTimeMeasure value) {
     m_totalFloat = value;
+}
+
+void IfcWorkControl::unsetTotalFloat() {
+    m_totalFloat = Step::getUnset(getTotalFloat());
+}
+
+bool IfcWorkControl::testTotalFloat() const {
+    return !Step::isUnset(getTotalFloat());
 }
 
 IfcDateTimeSelect *IfcWorkControl::getStartTime() {
@@ -209,6 +255,14 @@ void IfcWorkControl::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value
     m_startTime = value;
 }
 
+void IfcWorkControl::unsetStartTime() {
+    m_startTime = Step::getUnset(getStartTime());
+}
+
+bool IfcWorkControl::testStartTime() const {
+    return !Step::isUnset(getStartTime());
+}
+
 IfcDateTimeSelect *IfcWorkControl::getFinishTime() {
     if (Step::BaseObject::inited()) {
         return m_finishTime.get();
@@ -225,6 +279,14 @@ const IfcDateTimeSelect *IfcWorkControl::getFinishTime() const {
 
 void IfcWorkControl::setFinishTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_finishTime = value;
+}
+
+void IfcWorkControl::unsetFinishTime() {
+    m_finishTime = Step::getUnset(getFinishTime());
+}
+
+bool IfcWorkControl::testFinishTime() const {
+    return !Step::isUnset(getFinishTime());
 }
 
 IfcWorkControlTypeEnum IfcWorkControl::getWorkControlType() {
@@ -245,6 +307,14 @@ void IfcWorkControl::setWorkControlType(IfcWorkControlTypeEnum value) {
     m_workControlType = value;
 }
 
+void IfcWorkControl::unsetWorkControlType() {
+    m_workControlType = IfcWorkControlTypeEnum_UNSET;
+}
+
+bool IfcWorkControl::testWorkControlType() const {
+    return getWorkControlType() != IfcWorkControlTypeEnum_UNSET;
+}
+
 IfcLabel IfcWorkControl::getUserDefinedControlType() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedControlType;
@@ -261,6 +331,14 @@ const IfcLabel IfcWorkControl::getUserDefinedControlType() const {
 
 void IfcWorkControl::setUserDefinedControlType(const IfcLabel &value) {
     m_userDefinedControlType = value;
+}
+
+void IfcWorkControl::unsetUserDefinedControlType() {
+    m_userDefinedControlType = Step::getUnset(getUserDefinedControlType());
+}
+
+bool IfcWorkControl::testUserDefinedControlType() const {
+    return !Step::isUnset(getUserDefinedControlType());
 }
 
 bool IfcWorkControl::init() {

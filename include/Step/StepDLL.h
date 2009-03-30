@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,8 +22,8 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_DLL_INCLUDED
-#define STEP_DLL_INCLUDED
+#ifndef Step_StepDLL_h
+#define Step_StepDLL_h
 
 #ifdef _MSC_VER
 # pragma warning(disable : 4251) // [...] needs to have dll-interface
@@ -41,5 +41,3 @@
 # define STEP_DLL_DEF
 # endif
 #endif
-
-

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcVector::IfcVector(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcVector::setOrientation(const Step::RefPtr< IfcDirection > &value) {
     m_orientation = value;
 }
 
+void IfcVector::unsetOrientation() {
+    m_orientation = Step::getUnset(getOrientation());
+}
+
+bool IfcVector::testOrientation() const {
+    return !Step::isUnset(getOrientation());
+}
+
 IfcLengthMeasure IfcVector::getMagnitude() {
     if (Step::BaseObject::inited()) {
         return m_magnitude;
@@ -105,6 +110,14 @@ const IfcLengthMeasure IfcVector::getMagnitude() const {
 
 void IfcVector::setMagnitude(IfcLengthMeasure value) {
     m_magnitude = value;
+}
+
+void IfcVector::unsetMagnitude() {
+    m_magnitude = Step::getUnset(getMagnitude());
+}
+
+bool IfcVector::testMagnitude() const {
+    return !Step::isUnset(getMagnitude());
 }
 
 bool IfcVector::init() {

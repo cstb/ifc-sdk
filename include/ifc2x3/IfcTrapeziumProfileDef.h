@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcParameterizedProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcParameterizedProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTrapeziumProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTrapeziumProfileDef : public IfcParameterizedProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setBottomXDim(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'BottomXDim'.
+         * 
+         */
+        virtual void unsetBottomXDim();
+        /**
+         * Test if the attribute 'BottomXDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBottomXDim() const;
+        /**
          * Gets the value of the explicit attribute 'TopXDim'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTopXDim(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'TopXDim'.
+         * 
+         */
+        virtual void unsetTopXDim();
+        /**
+         * Test if the attribute 'TopXDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTopXDim() const;
         /**
          * Gets the value of the explicit attribute 'YDim'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setYDim(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'YDim'.
+         * 
+         */
+        virtual void unsetYDim();
+        /**
+         * Test if the attribute 'YDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYDim() const;
+        /**
          * Gets the value of the explicit attribute 'TopXOffset'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTopXOffset(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'TopXOffset'.
+         * 
+         */
+        virtual void unsetTopXOffset();
+        /**
+         * Test if the attribute 'TopXOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTopXOffset() const;
         friend class ExpressDataSet;
 
     protected:

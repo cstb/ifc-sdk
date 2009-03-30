@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcQuantityTime::IfcQuantityTime(Step::Id id, Step::SPFData *args) : IfcPhysicalSimpleQuantity(id, args) {
@@ -82,6 +79,14 @@ const IfcTimeMeasure IfcQuantityTime::getTimeValue() const {
 
 void IfcQuantityTime::setTimeValue(IfcTimeMeasure value) {
     m_timeValue = value;
+}
+
+void IfcQuantityTime::unsetTimeValue() {
+    m_timeValue = Step::getUnset(getTimeValue());
+}
+
+bool IfcQuantityTime::testTimeValue() const {
+    return !Step::isUnset(getTimeValue());
 }
 
 bool IfcQuantityTime::init() {

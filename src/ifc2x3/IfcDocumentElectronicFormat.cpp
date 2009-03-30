@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDocumentElectronicFormat::IfcDocumentElectronicFormat(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -87,6 +84,14 @@ void IfcDocumentElectronicFormat::setFileExtension(const IfcLabel &value) {
     m_fileExtension = value;
 }
 
+void IfcDocumentElectronicFormat::unsetFileExtension() {
+    m_fileExtension = Step::getUnset(getFileExtension());
+}
+
+bool IfcDocumentElectronicFormat::testFileExtension() const {
+    return !Step::isUnset(getFileExtension());
+}
+
 IfcLabel IfcDocumentElectronicFormat::getMimeContentType() {
     if (Step::BaseObject::inited()) {
         return m_mimeContentType;
@@ -105,6 +110,14 @@ void IfcDocumentElectronicFormat::setMimeContentType(const IfcLabel &value) {
     m_mimeContentType = value;
 }
 
+void IfcDocumentElectronicFormat::unsetMimeContentType() {
+    m_mimeContentType = Step::getUnset(getMimeContentType());
+}
+
+bool IfcDocumentElectronicFormat::testMimeContentType() const {
+    return !Step::isUnset(getMimeContentType());
+}
+
 IfcLabel IfcDocumentElectronicFormat::getMimeSubtype() {
     if (Step::BaseObject::inited()) {
         return m_mimeSubtype;
@@ -121,6 +134,14 @@ const IfcLabel IfcDocumentElectronicFormat::getMimeSubtype() const {
 
 void IfcDocumentElectronicFormat::setMimeSubtype(const IfcLabel &value) {
     m_mimeSubtype = value;
+}
+
+void IfcDocumentElectronicFormat::unsetMimeSubtype() {
+    m_mimeSubtype = Step::getUnset(getMimeSubtype());
+}
+
+bool IfcDocumentElectronicFormat::testMimeSubtype() const {
+    return !Step::isUnset(getMimeSubtype());
 }
 
 bool IfcDocumentElectronicFormat::init() {

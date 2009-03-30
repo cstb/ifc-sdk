@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralActivity.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcStructuralActivity.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcStructuralReaction;
 
     /**
+     * Generated class for the IfcStructuralAction Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralAction : public IfcStructuralActivity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setDestabilizingLoad(Step::Boolean value);
         /**
+         * unset the attribute 'DestabilizingLoad'.
+         * 
+         */
+        virtual void unsetDestabilizingLoad();
+        /**
+         * Test if the attribute 'DestabilizingLoad' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDestabilizingLoad() const;
+        /**
          * Gets the value of the explicit attribute 'CausedBy'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCausedBy(const Step::RefPtr< IfcStructuralReaction > &value);
+        /**
+         * unset the attribute 'CausedBy'.
+         * 
+         */
+        virtual void unsetCausedBy();
+        /**
+         * Test if the attribute 'CausedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCausedBy() const;
         friend class ExpressDataSet;
 
     protected:

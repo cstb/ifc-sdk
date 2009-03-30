@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTubeBundleType::IfcTubeBundleType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcTubeBundleTypeEnum IfcTubeBundleType::getPredefinedType() const {
 
 void IfcTubeBundleType::setPredefinedType(IfcTubeBundleTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcTubeBundleType::unsetPredefinedType() {
+    m_predefinedType = IfcTubeBundleTypeEnum_UNSET;
+}
+
+bool IfcTubeBundleType::testPredefinedType() const {
+    return getPredefinedType() != IfcTubeBundleTypeEnum_UNSET;
 }
 
 bool IfcTubeBundleType::init() {

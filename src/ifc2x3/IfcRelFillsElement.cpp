@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelFillsElement::IfcRelFillsElement(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -96,6 +93,14 @@ void IfcRelFillsElement::setRelatingOpeningElement(const Step::RefPtr< IfcOpenin
     m_relatingOpeningElement = value;
 }
 
+void IfcRelFillsElement::unsetRelatingOpeningElement() {
+    m_relatingOpeningElement = Step::getUnset(getRelatingOpeningElement());
+}
+
+bool IfcRelFillsElement::testRelatingOpeningElement() const {
+    return !Step::isUnset(getRelatingOpeningElement());
+}
+
 IfcElement *IfcRelFillsElement::getRelatedBuildingElement() {
     if (Step::BaseObject::inited()) {
         return m_relatedBuildingElement.get();
@@ -118,6 +123,14 @@ void IfcRelFillsElement::setRelatedBuildingElement(const Step::RefPtr< IfcElemen
         value->m_fillsVoids.insert(this);
     }
     m_relatedBuildingElement = value;
+}
+
+void IfcRelFillsElement::unsetRelatedBuildingElement() {
+    m_relatedBuildingElement = Step::getUnset(getRelatedBuildingElement());
+}
+
+bool IfcRelFillsElement::testRelatedBuildingElement() const {
+    return !Step::isUnset(getRelatedBuildingElement());
 }
 
 bool IfcRelFillsElement::init() {

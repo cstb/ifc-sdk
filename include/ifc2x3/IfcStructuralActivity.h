@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcProduct.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcStructuralLoad;
 
     /**
+     * Generated class for the IfcStructuralActivity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralActivity : public IfcProduct {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setAppliedLoad(const Step::RefPtr< IfcStructuralLoad > &value);
         /**
+         * unset the attribute 'AppliedLoad'.
+         * 
+         */
+        virtual void unsetAppliedLoad();
+        /**
+         * Test if the attribute 'AppliedLoad' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAppliedLoad() const;
+        /**
          * Gets the value of the explicit attribute 'GlobalOrLocal'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setGlobalOrLocal(IfcGlobalOrLocalEnum value);
         /**
+         * unset the attribute 'GlobalOrLocal'.
+         * 
+         */
+        virtual void unsetGlobalOrLocal();
+        /**
+         * Test if the attribute 'GlobalOrLocal' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testGlobalOrLocal() const;
+        /**
          * Gets the value of the inverse attribute 'AssignedToStructuralItem'.
          * 
          */
@@ -118,6 +142,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'AssignedToStructuralItem'
          */
         virtual const IfcRelConnectsStructuralActivity *getAssignedToStructuralItem() const;
+        /**
+         * Test if the attribute 'AssignedToStructuralItem' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAssignedToStructuralItem() const;
         friend class IfcRelConnectsStructuralActivity;
         friend class ExpressDataSet;
 

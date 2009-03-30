@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyleRefraction::IfcSurfaceStyleRefraction(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -85,6 +82,14 @@ void IfcSurfaceStyleRefraction::setRefractionIndex(IfcReal value) {
     m_refractionIndex = value;
 }
 
+void IfcSurfaceStyleRefraction::unsetRefractionIndex() {
+    m_refractionIndex = Step::getUnset(getRefractionIndex());
+}
+
+bool IfcSurfaceStyleRefraction::testRefractionIndex() const {
+    return !Step::isUnset(getRefractionIndex());
+}
+
 IfcReal IfcSurfaceStyleRefraction::getDispersionFactor() {
     if (Step::BaseObject::inited()) {
         return m_dispersionFactor;
@@ -101,6 +106,14 @@ const IfcReal IfcSurfaceStyleRefraction::getDispersionFactor() const {
 
 void IfcSurfaceStyleRefraction::setDispersionFactor(IfcReal value) {
     m_dispersionFactor = value;
+}
+
+void IfcSurfaceStyleRefraction::unsetDispersionFactor() {
+    m_dispersionFactor = Step::getUnset(getDispersionFactor());
+}
+
+bool IfcSurfaceStyleRefraction::testDispersionFactor() const {
+    return !Step::isUnset(getDispersionFactor());
 }
 
 bool IfcSurfaceStyleRefraction::init() {

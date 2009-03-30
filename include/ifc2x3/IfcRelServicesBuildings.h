@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +43,8 @@ namespace ifc2x3 {
     class IfcSpatialStructureElement;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelServicesBuildings_RelatedBuildings_type : public Set_IfcSpatialStructureElement_1_n {
     public:
@@ -53,22 +54,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelServicesBuildings *mOwner;
-        /**
-         */
         Inverted_IfcRelServicesBuildings_RelatedBuildings_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelServicesBuildings *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcSpatialStructureElement > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcSpatialStructureElement > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelServicesBuildings;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelServicesBuildings *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelServicesBuildings *owner);
 
     };
 
@@ -76,6 +91,8 @@ namespace ifc2x3 {
     class IfcSystem;
 
     /**
+     * Generated class for the IfcRelServicesBuildings Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelServicesBuildings : public IfcRelConnects {
     public:
@@ -124,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingSystem(const Step::RefPtr< IfcSystem > &value);
         /**
+         * unset the attribute 'RelatingSystem'.
+         * 
+         */
+        virtual void unsetRelatingSystem();
+        /**
+         * Test if the attribute 'RelatingSystem' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingSystem() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedBuildings'.
          * 
          */
@@ -134,6 +162,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedBuildings'
          */
         virtual const Set_IfcSpatialStructureElement_1_n &getRelatedBuildings() const;
+        /**
+         * unset the attribute 'RelatedBuildings'.
+         * 
+         */
+        virtual void unsetRelatedBuildings();
+        /**
+         * Test if the attribute 'RelatedBuildings' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedBuildings() const;
         friend class ExpressDataSet;
 
     protected:

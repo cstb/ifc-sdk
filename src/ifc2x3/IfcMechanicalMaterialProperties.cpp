@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMechanicalMaterialProperties::IfcMechanicalMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -88,6 +85,14 @@ void IfcMechanicalMaterialProperties::setDynamicViscosity(IfcDynamicViscosityMea
     m_dynamicViscosity = value;
 }
 
+void IfcMechanicalMaterialProperties::unsetDynamicViscosity() {
+    m_dynamicViscosity = Step::getUnset(getDynamicViscosity());
+}
+
+bool IfcMechanicalMaterialProperties::testDynamicViscosity() const {
+    return !Step::isUnset(getDynamicViscosity());
+}
+
 IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getYoungModulus() {
     if (Step::BaseObject::inited()) {
         return m_youngModulus;
@@ -104,6 +109,14 @@ const IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getYoungMod
 
 void IfcMechanicalMaterialProperties::setYoungModulus(IfcModulusOfElasticityMeasure value) {
     m_youngModulus = value;
+}
+
+void IfcMechanicalMaterialProperties::unsetYoungModulus() {
+    m_youngModulus = Step::getUnset(getYoungModulus());
+}
+
+bool IfcMechanicalMaterialProperties::testYoungModulus() const {
+    return !Step::isUnset(getYoungModulus());
 }
 
 IfcModulusOfElasticityMeasure IfcMechanicalMaterialProperties::getShearModulus() {
@@ -124,6 +137,14 @@ void IfcMechanicalMaterialProperties::setShearModulus(IfcModulusOfElasticityMeas
     m_shearModulus = value;
 }
 
+void IfcMechanicalMaterialProperties::unsetShearModulus() {
+    m_shearModulus = Step::getUnset(getShearModulus());
+}
+
+bool IfcMechanicalMaterialProperties::testShearModulus() const {
+    return !Step::isUnset(getShearModulus());
+}
+
 IfcPositiveRatioMeasure IfcMechanicalMaterialProperties::getPoissonRatio() {
     if (Step::BaseObject::inited()) {
         return m_poissonRatio;
@@ -142,6 +163,14 @@ void IfcMechanicalMaterialProperties::setPoissonRatio(IfcPositiveRatioMeasure va
     m_poissonRatio = value;
 }
 
+void IfcMechanicalMaterialProperties::unsetPoissonRatio() {
+    m_poissonRatio = Step::getUnset(getPoissonRatio());
+}
+
+bool IfcMechanicalMaterialProperties::testPoissonRatio() const {
+    return !Step::isUnset(getPoissonRatio());
+}
+
 IfcThermalExpansionCoefficientMeasure IfcMechanicalMaterialProperties::getThermalExpansionCoefficient() {
     if (Step::BaseObject::inited()) {
         return m_thermalExpansionCoefficient;
@@ -158,6 +187,14 @@ const IfcThermalExpansionCoefficientMeasure IfcMechanicalMaterialProperties::get
 
 void IfcMechanicalMaterialProperties::setThermalExpansionCoefficient(IfcThermalExpansionCoefficientMeasure value) {
     m_thermalExpansionCoefficient = value;
+}
+
+void IfcMechanicalMaterialProperties::unsetThermalExpansionCoefficient() {
+    m_thermalExpansionCoefficient = Step::getUnset(getThermalExpansionCoefficient());
+}
+
+bool IfcMechanicalMaterialProperties::testThermalExpansionCoefficient() const {
+    return !Step::isUnset(getThermalExpansionCoefficient());
 }
 
 bool IfcMechanicalMaterialProperties::init() {

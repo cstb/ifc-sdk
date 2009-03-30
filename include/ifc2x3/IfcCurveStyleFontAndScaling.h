@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcCurveStyleFontSelect;
 
     /**
+     * Generated class for the IfcCurveStyleFontAndScaling Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurveStyleFontAndScaling : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'CurveFont'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setCurveFont(const Step::RefPtr< IfcCurveStyleFontSelect > &value);
         /**
+         * unset the attribute 'CurveFont'.
+         * 
+         */
+        virtual void unsetCurveFont();
+        /**
+         * Test if the attribute 'CurveFont' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveFont() const;
+        /**
          * Gets the value of the explicit attribute 'CurveFontScaling'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCurveFontScaling(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'CurveFontScaling'.
+         * 
+         */
+        virtual void unsetCurveFontScaling();
+        /**
+         * Test if the attribute 'CurveFontScaling' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveFontScaling() const;
         friend class ExpressDataSet;
 
     protected:

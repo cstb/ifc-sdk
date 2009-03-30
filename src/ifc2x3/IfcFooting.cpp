@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFooting::IfcFooting(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -82,6 +79,14 @@ const IfcFootingTypeEnum IfcFooting::getPredefinedType() const {
 
 void IfcFooting::setPredefinedType(IfcFootingTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcFooting::unsetPredefinedType() {
+    m_predefinedType = IfcFootingTypeEnum_UNSET;
+}
+
+bool IfcFooting::testPredefinedType() const {
+    return getPredefinedType() != IfcFootingTypeEnum_UNSET;
 }
 
 bool IfcFooting::init() {

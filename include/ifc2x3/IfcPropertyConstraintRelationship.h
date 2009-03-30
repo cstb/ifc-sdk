@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcConstraint;
 
     /**
+     * Generated class for the IfcPropertyConstraintRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertyConstraintRelationship : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value);
         /**
+         * unset the attribute 'RelatingConstraint'.
+         * 
+         */
+        virtual void unsetRelatingConstraint();
+        /**
+         * Test if the attribute 'RelatingConstraint' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingConstraint() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedProperties'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedProperties(const Set_IfcProperty_1_n &value);
+        /**
+         * unset the attribute 'RelatedProperties'.
+         * 
+         */
+        virtual void unsetRelatedProperties();
+        /**
+         * Test if the attribute 'RelatedProperties' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedProperties() const;
         /**
          * Gets the value of the explicit attribute 'Name'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTransportElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTransportElement : public IfcElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setOperationType(IfcTransportElementTypeEnum value);
         /**
+         * unset the attribute 'OperationType'.
+         * 
+         */
+        virtual void unsetOperationType();
+        /**
+         * Test if the attribute 'OperationType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOperationType() const;
+        /**
          * Gets the value of the explicit attribute 'CapacityByWeight'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setCapacityByWeight(IfcMassMeasure value);
         /**
+         * unset the attribute 'CapacityByWeight'.
+         * 
+         */
+        virtual void unsetCapacityByWeight();
+        /**
+         * Test if the attribute 'CapacityByWeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCapacityByWeight() const;
+        /**
          * Gets the value of the explicit attribute 'CapacityByNumber'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCapacityByNumber(IfcCountMeasure value);
+        /**
+         * unset the attribute 'CapacityByNumber'.
+         * 
+         */
+        virtual void unsetCapacityByNumber();
+        /**
+         * Test if the attribute 'CapacityByNumber' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCapacityByNumber() const;
         friend class ExpressDataSet;
 
     protected:

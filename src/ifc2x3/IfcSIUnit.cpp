@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSIUnit::IfcSIUnit(Step::Id id, Step::SPFData *args) : IfcNamedUnit(id, args) {
@@ -85,6 +82,14 @@ void IfcSIUnit::setPrefix(IfcSIPrefix value) {
     m_prefix = value;
 }
 
+void IfcSIUnit::unsetPrefix() {
+    m_prefix = IfcSIPrefix_UNSET;
+}
+
+bool IfcSIUnit::testPrefix() const {
+    return getPrefix() != IfcSIPrefix_UNSET;
+}
+
 IfcSIUnitName IfcSIUnit::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -101,6 +106,14 @@ const IfcSIUnitName IfcSIUnit::getName() const {
 
 void IfcSIUnit::setName(IfcSIUnitName value) {
     m_name = value;
+}
+
+void IfcSIUnit::unsetName() {
+    m_name = IfcSIUnitName_UNSET;
+}
+
+bool IfcSIUnit::testName() const {
+    return getName() != IfcSIUnitName_UNSET;
 }
 
 bool IfcSIUnit::init() {

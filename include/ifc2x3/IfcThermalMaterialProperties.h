@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcThermalMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcThermalMaterialProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSpecificHeatCapacity(IfcSpecificHeatCapacityMeasure value);
         /**
+         * unset the attribute 'SpecificHeatCapacity'.
+         * 
+         */
+        virtual void unsetSpecificHeatCapacity();
+        /**
+         * Test if the attribute 'SpecificHeatCapacity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpecificHeatCapacity() const;
+        /**
          * Gets the value of the explicit attribute 'BoilingPoint'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBoilingPoint(IfcThermodynamicTemperatureMeasure value);
+        /**
+         * unset the attribute 'BoilingPoint'.
+         * 
+         */
+        virtual void unsetBoilingPoint();
+        /**
+         * Test if the attribute 'BoilingPoint' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoilingPoint() const;
         /**
          * Gets the value of the explicit attribute 'FreezingPoint'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setFreezingPoint(IfcThermodynamicTemperatureMeasure value);
         /**
+         * unset the attribute 'FreezingPoint'.
+         * 
+         */
+        virtual void unsetFreezingPoint();
+        /**
+         * Test if the attribute 'FreezingPoint' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFreezingPoint() const;
+        /**
          * Gets the value of the explicit attribute 'ThermalConductivity'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThermalConductivity(IfcThermalConductivityMeasure value);
+        /**
+         * unset the attribute 'ThermalConductivity'.
+         * 
+         */
+        virtual void unsetThermalConductivity();
+        /**
+         * Test if the attribute 'ThermalConductivity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThermalConductivity() const;
         friend class ExpressDataSet;
 
     protected:

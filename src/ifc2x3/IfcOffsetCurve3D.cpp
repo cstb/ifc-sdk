@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOffsetCurve3D::IfcOffsetCurve3D(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
@@ -91,6 +88,14 @@ void IfcOffsetCurve3D::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_basisCurve = value;
 }
 
+void IfcOffsetCurve3D::unsetBasisCurve() {
+    m_basisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcOffsetCurve3D::testBasisCurve() const {
+    return !Step::isUnset(getBasisCurve());
+}
+
 IfcLengthMeasure IfcOffsetCurve3D::getDistance() {
     if (Step::BaseObject::inited()) {
         return m_distance;
@@ -107,6 +112,14 @@ const IfcLengthMeasure IfcOffsetCurve3D::getDistance() const {
 
 void IfcOffsetCurve3D::setDistance(IfcLengthMeasure value) {
     m_distance = value;
+}
+
+void IfcOffsetCurve3D::unsetDistance() {
+    m_distance = Step::getUnset(getDistance());
+}
+
+bool IfcOffsetCurve3D::testDistance() const {
+    return !Step::isUnset(getDistance());
 }
 
 Step::Logical IfcOffsetCurve3D::getSelfIntersect() {
@@ -127,6 +140,14 @@ void IfcOffsetCurve3D::setSelfIntersect(Step::Logical value) {
     m_selfIntersect = value;
 }
 
+void IfcOffsetCurve3D::unsetSelfIntersect() {
+    m_selfIntersect = Step::getUnset(getSelfIntersect());
+}
+
+bool IfcOffsetCurve3D::testSelfIntersect() const {
+    return !Step::isUnset(getSelfIntersect());
+}
+
 IfcDirection *IfcOffsetCurve3D::getRefDirection() {
     if (Step::BaseObject::inited()) {
         return m_refDirection.get();
@@ -143,6 +164,14 @@ const IfcDirection *IfcOffsetCurve3D::getRefDirection() const {
 
 void IfcOffsetCurve3D::setRefDirection(const Step::RefPtr< IfcDirection > &value) {
     m_refDirection = value;
+}
+
+void IfcOffsetCurve3D::unsetRefDirection() {
+    m_refDirection = Step::getUnset(getRefDirection());
+}
+
+bool IfcOffsetCurve3D::testRefDirection() const {
+    return !Step::isUnset(getRefDirection());
 }
 
 bool IfcOffsetCurve3D::init() {

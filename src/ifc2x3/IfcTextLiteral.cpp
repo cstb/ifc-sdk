@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextLiteral::IfcTextLiteral(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -90,6 +87,14 @@ void IfcTextLiteral::setLiteral(const IfcPresentableText &value) {
     m_literal = value;
 }
 
+void IfcTextLiteral::unsetLiteral() {
+    m_literal = Step::getUnset(getLiteral());
+}
+
+bool IfcTextLiteral::testLiteral() const {
+    return !Step::isUnset(getLiteral());
+}
+
 IfcAxis2Placement *IfcTextLiteral::getPlacement() {
     if (Step::BaseObject::inited()) {
         return m_placement.get();
@@ -108,6 +113,14 @@ void IfcTextLiteral::setPlacement(const Step::RefPtr< IfcAxis2Placement > &value
     m_placement = value;
 }
 
+void IfcTextLiteral::unsetPlacement() {
+    m_placement = Step::getUnset(getPlacement());
+}
+
+bool IfcTextLiteral::testPlacement() const {
+    return !Step::isUnset(getPlacement());
+}
+
 IfcTextPath IfcTextLiteral::getPath() {
     if (Step::BaseObject::inited()) {
         return m_path;
@@ -124,6 +137,14 @@ const IfcTextPath IfcTextLiteral::getPath() const {
 
 void IfcTextLiteral::setPath(IfcTextPath value) {
     m_path = value;
+}
+
+void IfcTextLiteral::unsetPath() {
+    m_path = IfcTextPath_UNSET;
+}
+
+bool IfcTextLiteral::testPath() const {
+    return getPath() != IfcTextPath_UNSET;
 }
 
 bool IfcTextLiteral::init() {

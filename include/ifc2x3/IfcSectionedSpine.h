@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCompositeCurve;
 
     /**
+     * Generated class for the IfcSectionedSpine Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSectionedSpine : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setSpineCurve(const Step::RefPtr< IfcCompositeCurve > &value);
         /**
+         * unset the attribute 'SpineCurve'.
+         * 
+         */
+        virtual void unsetSpineCurve();
+        /**
+         * Test if the attribute 'SpineCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSpineCurve() const;
+        /**
          * Gets the value of the explicit attribute 'CrossSections'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setCrossSections(const List_IfcProfileDef_2_n &value);
         /**
+         * unset the attribute 'CrossSections'.
+         * 
+         */
+        virtual void unsetCrossSections();
+        /**
+         * Test if the attribute 'CrossSections' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSections() const;
+        /**
          * Gets the value of the explicit attribute 'CrossSectionPositions'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCrossSectionPositions(const List_IfcAxis2Placement3D_2_n &value);
+        /**
+         * unset the attribute 'CrossSectionPositions'.
+         * 
+         */
+        virtual void unsetCrossSectionPositions();
+        /**
+         * Test if the attribute 'CrossSectionPositions' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSectionPositions() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextStyleForDefinedFont::IfcTextStyleForDefinedFont(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -88,6 +85,14 @@ void IfcTextStyleForDefinedFont::setColour(const Step::RefPtr< IfcColour > &valu
     m_colour = value;
 }
 
+void IfcTextStyleForDefinedFont::unsetColour() {
+    m_colour = Step::getUnset(getColour());
+}
+
+bool IfcTextStyleForDefinedFont::testColour() const {
+    return !Step::isUnset(getColour());
+}
+
 IfcColour *IfcTextStyleForDefinedFont::getBackgroundColour() {
     if (Step::BaseObject::inited()) {
         return m_backgroundColour.get();
@@ -104,6 +109,14 @@ const IfcColour *IfcTextStyleForDefinedFont::getBackgroundColour() const {
 
 void IfcTextStyleForDefinedFont::setBackgroundColour(const Step::RefPtr< IfcColour > &value) {
     m_backgroundColour = value;
+}
+
+void IfcTextStyleForDefinedFont::unsetBackgroundColour() {
+    m_backgroundColour = Step::getUnset(getBackgroundColour());
+}
+
+bool IfcTextStyleForDefinedFont::testBackgroundColour() const {
+    return !Step::isUnset(getBackgroundColour());
 }
 
 bool IfcTextStyleForDefinedFont::init() {

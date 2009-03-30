@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFaceBasedSurfaceModel::IfcFaceBasedSurfaceModel(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -86,6 +83,15 @@ const Set_IfcConnectedFaceSet_1_n &IfcFaceBasedSurfaceModel::getFbsmFaces() cons
 
 void IfcFaceBasedSurfaceModel::setFbsmFaces(const Set_IfcConnectedFaceSet_1_n &value) {
     m_fbsmFaces = value;
+}
+
+void IfcFaceBasedSurfaceModel::unsetFbsmFaces() {
+    m_fbsmFaces.clear();
+    m_fbsmFaces.setUnset(true);
+}
+
+bool IfcFaceBasedSurfaceModel::testFbsmFaces() const {
+    return !Step::isUnset(getFbsmFaces());
 }
 
 bool IfcFaceBasedSurfaceModel::init() {

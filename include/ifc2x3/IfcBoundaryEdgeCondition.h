@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundaryCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundaryCondition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcBoundaryEdgeCondition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBoundaryEdgeCondition : public IfcBoundaryCondition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessByLengthX(IfcModulusOfLinearSubgradeReactionMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessByLengthX'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByLengthX();
+        /**
+         * Test if the attribute 'LinearStiffnessByLengthX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByLengthX() const;
+        /**
          * Gets the value of the explicit attribute 'LinearStiffnessByLengthY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLinearStiffnessByLengthY(IfcModulusOfLinearSubgradeReactionMeasure value);
+        /**
+         * unset the attribute 'LinearStiffnessByLengthY'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByLengthY();
+        /**
+         * Test if the attribute 'LinearStiffnessByLengthY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByLengthY() const;
         /**
          * Gets the value of the explicit attribute 'LinearStiffnessByLengthZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setLinearStiffnessByLengthZ(IfcModulusOfLinearSubgradeReactionMeasure value);
         /**
+         * unset the attribute 'LinearStiffnessByLengthZ'.
+         * 
+         */
+        virtual void unsetLinearStiffnessByLengthZ();
+        /**
+         * Test if the attribute 'LinearStiffnessByLengthZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLinearStiffnessByLengthZ() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalStiffnessByLengthX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalStiffnessByLengthX(IfcModulusOfRotationalSubgradeReactionMeasure value);
+        /**
+         * unset the attribute 'RotationalStiffnessByLengthX'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessByLengthX();
+        /**
+         * Test if the attribute 'RotationalStiffnessByLengthX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessByLengthX() const;
         /**
          * Gets the value of the explicit attribute 'RotationalStiffnessByLengthY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setRotationalStiffnessByLengthY(IfcModulusOfRotationalSubgradeReactionMeasure value);
         /**
+         * unset the attribute 'RotationalStiffnessByLengthY'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessByLengthY();
+        /**
+         * Test if the attribute 'RotationalStiffnessByLengthY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessByLengthY() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalStiffnessByLengthZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value);
+        /**
+         * unset the attribute 'RotationalStiffnessByLengthZ'.
+         * 
+         */
+        virtual void unsetRotationalStiffnessByLengthZ();
+        /**
+         * Test if the attribute 'RotationalStiffnessByLengthZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalStiffnessByLengthZ() const;
         friend class ExpressDataSet;
 
     protected:

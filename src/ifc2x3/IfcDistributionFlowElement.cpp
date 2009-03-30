@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDistributionFlowElement::IfcDistributionFlowElement(Step::Id id, Step::SPFData *args) : IfcDistributionElement(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasCon
 const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasControlElements() const {
     IfcDistributionFlowElement * deConstObject = const_cast< IfcDistributionFlowElement * > (this);
     return deConstObject->getHasControlElements();
+}
+
+bool IfcDistributionFlowElement::testHasControlElements() const {
+    return !Step::isUnset(getHasControlElements());
 }
 
 bool IfcDistributionFlowElement::init() {

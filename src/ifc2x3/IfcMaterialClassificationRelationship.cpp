@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterialClassificationRelationship::IfcMaterialClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,15 @@ void IfcMaterialClassificationRelationship::setMaterialClassifications(const Set
     m_materialClassifications = value;
 }
 
+void IfcMaterialClassificationRelationship::unsetMaterialClassifications() {
+    m_materialClassifications.clear();
+    m_materialClassifications.setUnset(true);
+}
+
+bool IfcMaterialClassificationRelationship::testMaterialClassifications() const {
+    return !Step::isUnset(getMaterialClassifications());
+}
+
 IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial() {
     if (Step::BaseObject::inited()) {
         return m_classifiedMaterial.get();
@@ -113,6 +119,14 @@ void IfcMaterialClassificationRelationship::setClassifiedMaterial(const Step::Re
         value->m_classifiedAs.insert(this);
     }
     m_classifiedMaterial = value;
+}
+
+void IfcMaterialClassificationRelationship::unsetClassifiedMaterial() {
+    m_classifiedMaterial = Step::getUnset(getClassifiedMaterial());
+}
+
+bool IfcMaterialClassificationRelationship::testClassifiedMaterial() const {
+    return !Step::isUnset(getClassifiedMaterial());
 }
 
 bool IfcMaterialClassificationRelationship::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyTableValue::IfcPropertyTableValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -94,6 +91,15 @@ void IfcPropertyTableValue::setDefiningValues(const List_IfcValue_1_n &value) {
     m_definingValues = value;
 }
 
+void IfcPropertyTableValue::unsetDefiningValues() {
+    m_definingValues.clear();
+    m_definingValues.setUnset(true);
+}
+
+bool IfcPropertyTableValue::testDefiningValues() const {
+    return !Step::isUnset(getDefiningValues());
+}
+
 List_IfcValue_1_n &IfcPropertyTableValue::getDefinedValues() {
     if (Step::BaseObject::inited()) {
         return m_definedValues;
@@ -111,6 +117,15 @@ const List_IfcValue_1_n &IfcPropertyTableValue::getDefinedValues() const {
 
 void IfcPropertyTableValue::setDefinedValues(const List_IfcValue_1_n &value) {
     m_definedValues = value;
+}
+
+void IfcPropertyTableValue::unsetDefinedValues() {
+    m_definedValues.clear();
+    m_definedValues.setUnset(true);
+}
+
+bool IfcPropertyTableValue::testDefinedValues() const {
+    return !Step::isUnset(getDefinedValues());
 }
 
 IfcText IfcPropertyTableValue::getExpression() {
@@ -131,6 +146,14 @@ void IfcPropertyTableValue::setExpression(const IfcText &value) {
     m_expression = value;
 }
 
+void IfcPropertyTableValue::unsetExpression() {
+    m_expression = Step::getUnset(getExpression());
+}
+
+bool IfcPropertyTableValue::testExpression() const {
+    return !Step::isUnset(getExpression());
+}
+
 IfcUnit *IfcPropertyTableValue::getDefiningUnit() {
     if (Step::BaseObject::inited()) {
         return m_definingUnit.get();
@@ -149,6 +172,14 @@ void IfcPropertyTableValue::setDefiningUnit(const Step::RefPtr< IfcUnit > &value
     m_definingUnit = value;
 }
 
+void IfcPropertyTableValue::unsetDefiningUnit() {
+    m_definingUnit = Step::getUnset(getDefiningUnit());
+}
+
+bool IfcPropertyTableValue::testDefiningUnit() const {
+    return !Step::isUnset(getDefiningUnit());
+}
+
 IfcUnit *IfcPropertyTableValue::getDefinedUnit() {
     if (Step::BaseObject::inited()) {
         return m_definedUnit.get();
@@ -165,6 +196,14 @@ const IfcUnit *IfcPropertyTableValue::getDefinedUnit() const {
 
 void IfcPropertyTableValue::setDefinedUnit(const Step::RefPtr< IfcUnit > &value) {
     m_definedUnit = value;
+}
+
+void IfcPropertyTableValue::unsetDefinedUnit() {
+    m_definedUnit = Step::getUnset(getDefinedUnit());
+}
+
+bool IfcPropertyTableValue::testDefinedUnit() const {
+    return !Step::isUnset(getDefinedUnit());
 }
 
 bool IfcPropertyTableValue::init() {

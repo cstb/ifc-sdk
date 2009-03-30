@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSimpleProperty.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcSimpleProperty.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcUnit;
 
     /**
+     * Generated class for the IfcPropertyTableValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertyTableValue : public IfcSimpleProperty {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setDefiningValues(const List_IfcValue_1_n &value);
         /**
+         * unset the attribute 'DefiningValues'.
+         * 
+         */
+        virtual void unsetDefiningValues();
+        /**
+         * Test if the attribute 'DefiningValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefiningValues() const;
+        /**
          * Gets the value of the explicit attribute 'DefinedValues'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDefinedValues(const List_IfcValue_1_n &value);
+        /**
+         * unset the attribute 'DefinedValues'.
+         * 
+         */
+        virtual void unsetDefinedValues();
+        /**
+         * Test if the attribute 'DefinedValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefinedValues() const;
         /**
          * Gets the value of the explicit attribute 'Expression'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setExpression(const IfcText &value);
         /**
+         * unset the attribute 'Expression'.
+         * 
+         */
+        virtual void unsetExpression();
+        /**
+         * Test if the attribute 'Expression' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testExpression() const;
+        /**
          * Gets the value of the explicit attribute 'DefiningUnit'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setDefiningUnit(const Step::RefPtr< IfcUnit > &value);
         /**
+         * unset the attribute 'DefiningUnit'.
+         * 
+         */
+        virtual void unsetDefiningUnit();
+        /**
+         * Test if the attribute 'DefiningUnit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefiningUnit() const;
+        /**
          * Gets the value of the explicit attribute 'DefinedUnit'.
          * 
          */
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDefinedUnit(const Step::RefPtr< IfcUnit > &value);
+        /**
+         * unset the attribute 'DefinedUnit'.
+         * 
+         */
+        virtual void unsetDefinedUnit();
+        /**
+         * Test if the attribute 'DefinedUnit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefinedUnit() const;
         friend class ExpressDataSet;
 
     protected:

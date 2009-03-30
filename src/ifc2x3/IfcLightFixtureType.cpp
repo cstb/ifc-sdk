@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightFixtureType::IfcLightFixtureType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
@@ -82,6 +79,14 @@ const IfcLightFixtureTypeEnum IfcLightFixtureType::getPredefinedType() const {
 
 void IfcLightFixtureType::setPredefinedType(IfcLightFixtureTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcLightFixtureType::unsetPredefinedType() {
+    m_predefinedType = IfcLightFixtureTypeEnum_UNSET;
+}
+
+bool IfcLightFixtureType::testPredefinedType() const {
+    return getPredefinedType() != IfcLightFixtureTypeEnum_UNSET;
 }
 
 bool IfcLightFixtureType::init() {

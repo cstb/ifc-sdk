@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,16 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcSystem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcSystem.h"
+#include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -46,6 +43,8 @@ namespace ifc2x3 {
     class IfcStructuralLoadGroup;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcStructuralAnalysisModel_LoadedBy_type : public Set_IfcStructuralLoadGroup_1_n {
     public:
@@ -55,29 +54,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcStructuralAnalysisModel *mOwner;
-        /**
-         */
         Inverted_IfcStructuralAnalysisModel_LoadedBy_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcStructuralAnalysisModel *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcStructuralLoadGroup > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcStructuralLoadGroup > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcStructuralAnalysisModel;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcStructuralAnalysisModel *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcStructuralAnalysisModel *owner);
 
     };
 
-    class IfcStructuralAnalysisModel;
     class IfcStructuralResultGroup;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcStructuralAnalysisModel_HasResults_type : public Set_IfcStructuralResultGroup_1_n {
     public:
@@ -87,22 +101,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcStructuralAnalysisModel *mOwner;
-        /**
-         */
         Inverted_IfcStructuralAnalysisModel_HasResults_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcStructuralAnalysisModel *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcStructuralResultGroup > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcStructuralResultGroup > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcStructuralAnalysisModel;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcStructuralAnalysisModel *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcStructuralAnalysisModel *owner);
 
     };
 
@@ -110,6 +138,8 @@ namespace ifc2x3 {
     class IfcAxis2Placement3D;
 
     /**
+     * Generated class for the IfcStructuralAnalysisModel Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralAnalysisModel : public IfcSystem {
     public:
@@ -158,6 +188,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcAnalysisModelTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'OrientationOf2DPlane'.
          * 
          */
@@ -175,6 +216,17 @@ namespace ifc2x3 {
          */
         virtual void setOrientationOf2DPlane(const Step::RefPtr< IfcAxis2Placement3D > &value);
         /**
+         * unset the attribute 'OrientationOf2DPlane'.
+         * 
+         */
+        virtual void unsetOrientationOf2DPlane();
+        /**
+         * Test if the attribute 'OrientationOf2DPlane' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOrientationOf2DPlane() const;
+        /**
          * Gets the value of the explicit attribute 'LoadedBy'.
          * 
          */
@@ -186,6 +238,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcStructuralLoadGroup_1_n &getLoadedBy() const;
         /**
+         * unset the attribute 'LoadedBy'.
+         * 
+         */
+        virtual void unsetLoadedBy();
+        /**
+         * Test if the attribute 'LoadedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLoadedBy() const;
+        /**
          * Gets the value of the explicit attribute 'HasResults'.
          * 
          */
@@ -196,6 +259,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasResults'
          */
         virtual const Set_IfcStructuralResultGroup_1_n &getHasResults() const;
+        /**
+         * unset the attribute 'HasResults'.
+         * 
+         */
+        virtual void unsetHasResults();
+        /**
+         * Test if the attribute 'HasResults' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasResults() const;
         friend class ExpressDataSet;
 
     protected:

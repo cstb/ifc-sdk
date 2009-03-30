@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcApprovalActorRelationship::IfcApprovalActorRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -93,6 +90,14 @@ void IfcApprovalActorRelationship::setActor(const Step::RefPtr< IfcActorSelect >
     m_actor = value;
 }
 
+void IfcApprovalActorRelationship::unsetActor() {
+    m_actor = Step::getUnset(getActor());
+}
+
+bool IfcApprovalActorRelationship::testActor() const {
+    return !Step::isUnset(getActor());
+}
+
 IfcApproval *IfcApprovalActorRelationship::getApproval() {
     if (Step::BaseObject::inited()) {
         return m_approval.get();
@@ -117,6 +122,14 @@ void IfcApprovalActorRelationship::setApproval(const Step::RefPtr< IfcApproval >
     m_approval = value;
 }
 
+void IfcApprovalActorRelationship::unsetApproval() {
+    m_approval = Step::getUnset(getApproval());
+}
+
+bool IfcApprovalActorRelationship::testApproval() const {
+    return !Step::isUnset(getApproval());
+}
+
 IfcActorRole *IfcApprovalActorRelationship::getRole() {
     if (Step::BaseObject::inited()) {
         return m_role.get();
@@ -133,6 +146,14 @@ const IfcActorRole *IfcApprovalActorRelationship::getRole() const {
 
 void IfcApprovalActorRelationship::setRole(const Step::RefPtr< IfcActorRole > &value) {
     m_role = value;
+}
+
+void IfcApprovalActorRelationship::unsetRole() {
+    m_role = Step::getUnset(getRole());
+}
+
+bool IfcApprovalActorRelationship::testRole() const {
+    return !Step::isUnset(getRole());
 }
 
 bool IfcApprovalActorRelationship::init() {

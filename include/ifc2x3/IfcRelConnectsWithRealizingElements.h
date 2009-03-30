@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcRelConnectsElements.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcRelConnectsElements.h"
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcRelConnectsWithRealizingElements;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type : public Set_IfcElement_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelConnectsWithRealizingElements *mOwner;
-        /**
-         */
         Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelConnectsWithRealizingElements *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcElement > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcElement > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelConnectsWithRealizingElements;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelConnectsWithRealizingElements *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelConnectsWithRealizingElements *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRelConnectsWithRealizingElements Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelConnectsWithRealizingElements : public IfcRelConnectsElements {
     public:
@@ -117,6 +135,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcElement_1_n &getRealizingElements() const;
         /**
+         * unset the attribute 'RealizingElements'.
+         * 
+         */
+        virtual void unsetRealizingElements();
+        /**
+         * Test if the attribute 'RealizingElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRealizingElements() const;
+        /**
          * Gets the value of the explicit attribute 'ConnectionType'.
          * 
          */
@@ -133,6 +162,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConnectionType(const IfcLabel &value);
+        /**
+         * unset the attribute 'ConnectionType'.
+         * 
+         */
+        virtual void unsetConnectionType();
+        /**
+         * Test if the attribute 'ConnectionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectionType() const;
         friend class ExpressDataSet;
 
     protected:

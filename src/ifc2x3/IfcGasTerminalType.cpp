@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGasTerminalType::IfcGasTerminalType(Step::Id id, Step::SPFData *args) : IfcFlowTerminalType(id, args) {
@@ -82,6 +79,14 @@ const IfcGasTerminalTypeEnum IfcGasTerminalType::getPredefinedType() const {
 
 void IfcGasTerminalType::setPredefinedType(IfcGasTerminalTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcGasTerminalType::unsetPredefinedType() {
+    m_predefinedType = IfcGasTerminalTypeEnum_UNSET;
+}
+
+bool IfcGasTerminalType::testPredefinedType() const {
+    return getPredefinedType() != IfcGasTerminalTypeEnum_UNSET;
 }
 
 bool IfcGasTerminalType::init() {

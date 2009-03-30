@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcServiceLifeFactor::IfcServiceLifeFactor(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -92,6 +89,14 @@ void IfcServiceLifeFactor::setPredefinedType(IfcServiceLifeFactorTypeEnum value)
     m_predefinedType = value;
 }
 
+void IfcServiceLifeFactor::unsetPredefinedType() {
+    m_predefinedType = IfcServiceLifeFactorTypeEnum_UNSET;
+}
+
+bool IfcServiceLifeFactor::testPredefinedType() const {
+    return getPredefinedType() != IfcServiceLifeFactorTypeEnum_UNSET;
+}
+
 IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() {
     if (Step::BaseObject::inited()) {
         return m_upperValue.get();
@@ -108,6 +113,14 @@ const IfcMeasureValue *IfcServiceLifeFactor::getUpperValue() const {
 
 void IfcServiceLifeFactor::setUpperValue(const Step::RefPtr< IfcMeasureValue > &value) {
     m_upperValue = value;
+}
+
+void IfcServiceLifeFactor::unsetUpperValue() {
+    m_upperValue = Step::getUnset(getUpperValue());
+}
+
+bool IfcServiceLifeFactor::testUpperValue() const {
+    return !Step::isUnset(getUpperValue());
 }
 
 IfcMeasureValue *IfcServiceLifeFactor::getMostUsedValue() {
@@ -128,6 +141,14 @@ void IfcServiceLifeFactor::setMostUsedValue(const Step::RefPtr< IfcMeasureValue 
     m_mostUsedValue = value;
 }
 
+void IfcServiceLifeFactor::unsetMostUsedValue() {
+    m_mostUsedValue = Step::getUnset(getMostUsedValue());
+}
+
+bool IfcServiceLifeFactor::testMostUsedValue() const {
+    return !Step::isUnset(getMostUsedValue());
+}
+
 IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() {
     if (Step::BaseObject::inited()) {
         return m_lowerValue.get();
@@ -144,6 +165,14 @@ const IfcMeasureValue *IfcServiceLifeFactor::getLowerValue() const {
 
 void IfcServiceLifeFactor::setLowerValue(const Step::RefPtr< IfcMeasureValue > &value) {
     m_lowerValue = value;
+}
+
+void IfcServiceLifeFactor::unsetLowerValue() {
+    m_lowerValue = Step::getUnset(getLowerValue());
+}
+
+bool IfcServiceLifeFactor::testLowerValue() const {
+    return !Step::isUnset(getLowerValue());
 }
 
 bool IfcServiceLifeFactor::init() {

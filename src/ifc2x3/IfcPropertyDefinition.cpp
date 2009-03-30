@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyDefinition::IfcPropertyDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() {
 const Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() const {
     IfcPropertyDefinition * deConstObject = const_cast< IfcPropertyDefinition * > (this);
     return deConstObject->getHasAssociations();
+}
+
+bool IfcPropertyDefinition::testHasAssociations() const {
+    return !Step::isUnset(getHasAssociations());
 }
 
 bool IfcPropertyDefinition::init() {

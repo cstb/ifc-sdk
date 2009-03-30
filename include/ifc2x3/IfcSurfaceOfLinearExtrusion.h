@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSweptSurface.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcSweptSurface.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcDirection;
 
     /**
+     * Generated class for the IfcSurfaceOfLinearExtrusion Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSurfaceOfLinearExtrusion : public IfcSweptSurface {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setExtrudedDirection(const Step::RefPtr< IfcDirection > &value);
         /**
+         * unset the attribute 'ExtrudedDirection'.
+         * 
+         */
+        virtual void unsetExtrudedDirection();
+        /**
+         * Test if the attribute 'ExtrudedDirection' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testExtrudedDirection() const;
+        /**
          * Gets the value of the explicit attribute 'Depth'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDepth(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'Depth'.
+         * 
+         */
+        virtual void unsetDepth();
+        /**
+         * Test if the attribute 'Depth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDepth() const;
         /**
          * Gets the value of the derived attribute 'ExtrusionAxis'.
          * 

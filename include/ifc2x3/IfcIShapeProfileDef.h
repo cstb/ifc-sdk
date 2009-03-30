@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcParameterizedProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcParameterizedProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcIShapeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcIShapeProfileDef : public IfcParameterizedProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setOverallWidth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'OverallWidth'.
+         * 
+         */
+        virtual void unsetOverallWidth();
+        /**
+         * Test if the attribute 'OverallWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOverallWidth() const;
+        /**
          * Gets the value of the explicit attribute 'OverallDepth'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOverallDepth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'OverallDepth'.
+         * 
+         */
+        virtual void unsetOverallDepth();
+        /**
+         * Test if the attribute 'OverallDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOverallDepth() const;
         /**
          * Gets the value of the explicit attribute 'WebThickness'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setWebThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'WebThickness'.
+         * 
+         */
+        virtual void unsetWebThickness();
+        /**
+         * Test if the attribute 'WebThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWebThickness() const;
+        /**
          * Gets the value of the explicit attribute 'FlangeThickness'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setFlangeThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'FlangeThickness'.
+         * 
+         */
+        virtual void unsetFlangeThickness();
+        /**
+         * Test if the attribute 'FlangeThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlangeThickness() const;
+        /**
          * Gets the value of the explicit attribute 'FilletRadius'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFilletRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'FilletRadius'.
+         * 
+         */
+        virtual void unsetFilletRadius();
+        /**
+         * Test if the attribute 'FilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFilletRadius() const;
         friend class ExpressDataSet;
 
     protected:

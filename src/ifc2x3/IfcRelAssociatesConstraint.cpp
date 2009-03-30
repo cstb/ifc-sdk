@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesConstraint::IfcRelAssociatesConstraint(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -90,6 +87,14 @@ void IfcRelAssociatesConstraint::setIntent(const IfcLabel &value) {
     m_intent = value;
 }
 
+void IfcRelAssociatesConstraint::unsetIntent() {
+    m_intent = Step::getUnset(getIntent());
+}
+
+bool IfcRelAssociatesConstraint::testIntent() const {
+    return !Step::isUnset(getIntent());
+}
+
 IfcConstraint *IfcRelAssociatesConstraint::getRelatingConstraint() {
     if (Step::BaseObject::inited()) {
         return m_relatingConstraint.get();
@@ -106,6 +111,14 @@ const IfcConstraint *IfcRelAssociatesConstraint::getRelatingConstraint() const {
 
 void IfcRelAssociatesConstraint::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
     m_relatingConstraint = value;
+}
+
+void IfcRelAssociatesConstraint::unsetRelatingConstraint() {
+    m_relatingConstraint = Step::getUnset(getRelatingConstraint());
+}
+
+bool IfcRelAssociatesConstraint::testRelatingConstraint() const {
+    return !Step::isUnset(getRelatingConstraint());
 }
 
 bool IfcRelAssociatesConstraint::init() {

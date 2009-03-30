@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadTemperature Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadTemperature : public IfcStructuralLoadStatic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDeltaT_Constant(IfcThermodynamicTemperatureMeasure value);
         /**
+         * unset the attribute 'DeltaT_Constant'.
+         * 
+         */
+        virtual void unsetDeltaT_Constant();
+        /**
+         * Test if the attribute 'DeltaT_Constant' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDeltaT_Constant() const;
+        /**
          * Gets the value of the explicit attribute 'DeltaT_Y'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setDeltaT_Y(IfcThermodynamicTemperatureMeasure value);
         /**
+         * unset the attribute 'DeltaT_Y'.
+         * 
+         */
+        virtual void unsetDeltaT_Y();
+        /**
+         * Test if the attribute 'DeltaT_Y' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDeltaT_Y() const;
+        /**
          * Gets the value of the explicit attribute 'DeltaT_Z'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDeltaT_Z(IfcThermodynamicTemperatureMeasure value);
+        /**
+         * unset the attribute 'DeltaT_Z'.
+         * 
+         */
+        virtual void unsetDeltaT_Z();
+        /**
+         * Test if the attribute 'DeltaT_Z' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDeltaT_Z() const;
         friend class ExpressDataSet;
 
     protected:

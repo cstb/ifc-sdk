@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToActor::IfcRelAssignsToActor(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -96,6 +93,14 @@ void IfcRelAssignsToActor::setRelatingActor(const Step::RefPtr< IfcActor > &valu
     m_relatingActor = value;
 }
 
+void IfcRelAssignsToActor::unsetRelatingActor() {
+    m_relatingActor = Step::getUnset(getRelatingActor());
+}
+
+bool IfcRelAssignsToActor::testRelatingActor() const {
+    return !Step::isUnset(getRelatingActor());
+}
+
 IfcActorRole *IfcRelAssignsToActor::getActingRole() {
     if (Step::BaseObject::inited()) {
         return m_actingRole.get();
@@ -112,6 +117,14 @@ const IfcActorRole *IfcRelAssignsToActor::getActingRole() const {
 
 void IfcRelAssignsToActor::setActingRole(const Step::RefPtr< IfcActorRole > &value) {
     m_actingRole = value;
+}
+
+void IfcRelAssignsToActor::unsetActingRole() {
+    m_actingRole = Step::getUnset(getActingRole());
+}
+
+bool IfcRelAssignsToActor::testActingRole() const {
+    return !Step::isUnset(getActingRole());
 }
 
 bool IfcRelAssignsToActor::init() {

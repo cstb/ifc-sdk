@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConstructionMaterialResource::IfcConstructionMaterialResource(Step::Id id, Step::SPFData *args) : IfcConstructionResource(id, args) {
@@ -91,6 +88,15 @@ void IfcConstructionMaterialResource::setSuppliers(const Set_IfcActorSelect_1_n 
     m_suppliers = value;
 }
 
+void IfcConstructionMaterialResource::unsetSuppliers() {
+    m_suppliers.clear();
+    m_suppliers.setUnset(true);
+}
+
+bool IfcConstructionMaterialResource::testSuppliers() const {
+    return !Step::isUnset(getSuppliers());
+}
+
 IfcRatioMeasure IfcConstructionMaterialResource::getUsageRatio() {
     if (Step::BaseObject::inited()) {
         return m_usageRatio;
@@ -107,6 +113,14 @@ const IfcRatioMeasure IfcConstructionMaterialResource::getUsageRatio() const {
 
 void IfcConstructionMaterialResource::setUsageRatio(IfcRatioMeasure value) {
     m_usageRatio = value;
+}
+
+void IfcConstructionMaterialResource::unsetUsageRatio() {
+    m_usageRatio = Step::getUnset(getUsageRatio());
+}
+
+bool IfcConstructionMaterialResource::testUsageRatio() const {
+    return !Step::isUnset(getUsageRatio());
 }
 
 bool IfcConstructionMaterialResource::init() {

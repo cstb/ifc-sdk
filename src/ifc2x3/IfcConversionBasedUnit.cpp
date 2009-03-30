@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConversionBasedUnit::IfcConversionBasedUnit(Step::Id id, Step::SPFData *args) : IfcNamedUnit(id, args) {
@@ -90,6 +87,14 @@ void IfcConversionBasedUnit::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcConversionBasedUnit::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcConversionBasedUnit::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcMeasureWithUnit *IfcConversionBasedUnit::getConversionFactor() {
     if (Step::BaseObject::inited()) {
         return m_conversionFactor.get();
@@ -106,6 +111,14 @@ const IfcMeasureWithUnit *IfcConversionBasedUnit::getConversionFactor() const {
 
 void IfcConversionBasedUnit::setConversionFactor(const Step::RefPtr< IfcMeasureWithUnit > &value) {
     m_conversionFactor = value;
+}
+
+void IfcConversionBasedUnit::unsetConversionFactor() {
+    m_conversionFactor = Step::getUnset(getConversionFactor());
+}
+
+bool IfcConversionBasedUnit::testConversionFactor() const {
+    return !Step::isUnset(getConversionFactor());
 }
 
 bool IfcConversionBasedUnit::init() {

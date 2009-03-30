@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPlanarExtent::IfcPlanarExtent(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -85,6 +82,14 @@ void IfcPlanarExtent::setSizeInX(IfcLengthMeasure value) {
     m_sizeInX = value;
 }
 
+void IfcPlanarExtent::unsetSizeInX() {
+    m_sizeInX = Step::getUnset(getSizeInX());
+}
+
+bool IfcPlanarExtent::testSizeInX() const {
+    return !Step::isUnset(getSizeInX());
+}
+
 IfcLengthMeasure IfcPlanarExtent::getSizeInY() {
     if (Step::BaseObject::inited()) {
         return m_sizeInY;
@@ -101,6 +106,14 @@ const IfcLengthMeasure IfcPlanarExtent::getSizeInY() const {
 
 void IfcPlanarExtent::setSizeInY(IfcLengthMeasure value) {
     m_sizeInY = value;
+}
+
+void IfcPlanarExtent::unsetSizeInY() {
+    m_sizeInY = Step::getUnset(getSizeInY());
+}
+
+bool IfcPlanarExtent::testSizeInY() const {
+    return !Step::isUnset(getSizeInY());
 }
 
 bool IfcPlanarExtent::init() {

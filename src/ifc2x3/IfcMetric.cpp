@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMetric::IfcMetric(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args) {
@@ -90,6 +87,14 @@ void IfcMetric::setBenchmark(IfcBenchmarkEnum value) {
     m_benchmark = value;
 }
 
+void IfcMetric::unsetBenchmark() {
+    m_benchmark = IfcBenchmarkEnum_UNSET;
+}
+
+bool IfcMetric::testBenchmark() const {
+    return getBenchmark() != IfcBenchmarkEnum_UNSET;
+}
+
 IfcLabel IfcMetric::getValueSource() {
     if (Step::BaseObject::inited()) {
         return m_valueSource;
@@ -108,6 +113,14 @@ void IfcMetric::setValueSource(const IfcLabel &value) {
     m_valueSource = value;
 }
 
+void IfcMetric::unsetValueSource() {
+    m_valueSource = Step::getUnset(getValueSource());
+}
+
+bool IfcMetric::testValueSource() const {
+    return !Step::isUnset(getValueSource());
+}
+
 IfcMetricValueSelect *IfcMetric::getDataValue() {
     if (Step::BaseObject::inited()) {
         return m_dataValue.get();
@@ -124,6 +137,14 @@ const IfcMetricValueSelect *IfcMetric::getDataValue() const {
 
 void IfcMetric::setDataValue(const Step::RefPtr< IfcMetricValueSelect > &value) {
     m_dataValue = value;
+}
+
+void IfcMetric::unsetDataValue() {
+    m_dataValue = Step::getUnset(getDataValue());
+}
+
+bool IfcMetric::testDataValue() const {
+    return !Step::isUnset(getDataValue());
 }
 
 bool IfcMetric::init() {

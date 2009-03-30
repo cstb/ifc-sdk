@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelAssigns.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcRelAssigns.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcActorRole;
 
     /**
+     * Generated class for the IfcRelAssignsToActor Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelAssignsToActor : public IfcRelAssigns {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingActor(const Step::RefPtr< IfcActor > &value);
         /**
+         * unset the attribute 'RelatingActor'.
+         * 
+         */
+        virtual void unsetRelatingActor();
+        /**
+         * Test if the attribute 'RelatingActor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingActor() const;
+        /**
          * Gets the value of the explicit attribute 'ActingRole'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setActingRole(const Step::RefPtr< IfcActorRole > &value);
+        /**
+         * unset the attribute 'ActingRole'.
+         * 
+         */
+        virtual void unsetActingRole();
+        /**
+         * Test if the attribute 'ActingRole' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActingRole() const;
         friend class ExpressDataSet;
 
     protected:

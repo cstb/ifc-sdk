@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type() {
@@ -63,9 +60,14 @@ Inverted_IfcComplexProperty_HasProperties_type::size_type Inverted_IfcComplexPro
     return Set_IfcProperty_1_n::erase(value);
 }
 
+void Inverted_IfcComplexProperty_HasProperties_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcComplexProperty::IfcComplexProperty(Step::Id id, Step::SPFData *args) : IfcProperty(id, args) {
     m_usageName = Step::getUnset(m_usageName);
-    m_hasProperties.setUnset(true);
     m_hasProperties.setOwner(this);
 }
 
@@ -110,6 +112,14 @@ void IfcComplexProperty::setUsageName(const IfcIdentifier &value) {
     m_usageName = value;
 }
 
+void IfcComplexProperty::unsetUsageName() {
+    m_usageName = Step::getUnset(getUsageName());
+}
+
+bool IfcComplexProperty::testUsageName() const {
+    return !Step::isUnset(getUsageName());
+}
+
 Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() {
     if (Step::BaseObject::inited()) {
         return m_hasProperties;
@@ -123,6 +133,15 @@ Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() {
 const Set_IfcProperty_1_n &IfcComplexProperty::getHasProperties() const {
     IfcComplexProperty * deConstObject = const_cast< IfcComplexProperty * > (this);
     return deConstObject->getHasProperties();
+}
+
+void IfcComplexProperty::unsetHasProperties() {
+    m_hasProperties.clear();
+    m_hasProperties.setUnset(true);
+}
+
+bool IfcComplexProperty::testHasProperties() const {
+    return !Step::isUnset(getHasProperties());
 }
 
 bool IfcComplexProperty::init() {

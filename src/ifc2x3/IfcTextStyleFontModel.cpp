@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextStyleFontModel::IfcTextStyleFontModel(Step::Id id, Step::SPFData *args) : IfcPreDefinedTextFont(id, args) {
@@ -94,6 +91,15 @@ void IfcTextStyleFontModel::setFontFamily(const List_IfcTextFontName_1_n &value)
     m_fontFamily = value;
 }
 
+void IfcTextStyleFontModel::unsetFontFamily() {
+    m_fontFamily.clear();
+    m_fontFamily.setUnset(true);
+}
+
+bool IfcTextStyleFontModel::testFontFamily() const {
+    return !Step::isUnset(getFontFamily());
+}
+
 IfcFontStyle IfcTextStyleFontModel::getFontStyle() {
     if (Step::BaseObject::inited()) {
         return m_fontStyle;
@@ -110,6 +116,14 @@ const IfcFontStyle IfcTextStyleFontModel::getFontStyle() const {
 
 void IfcTextStyleFontModel::setFontStyle(const IfcFontStyle &value) {
     m_fontStyle = value;
+}
+
+void IfcTextStyleFontModel::unsetFontStyle() {
+    m_fontStyle = Step::getUnset(getFontStyle());
+}
+
+bool IfcTextStyleFontModel::testFontStyle() const {
+    return !Step::isUnset(getFontStyle());
 }
 
 IfcFontVariant IfcTextStyleFontModel::getFontVariant() {
@@ -130,6 +144,14 @@ void IfcTextStyleFontModel::setFontVariant(const IfcFontVariant &value) {
     m_fontVariant = value;
 }
 
+void IfcTextStyleFontModel::unsetFontVariant() {
+    m_fontVariant = Step::getUnset(getFontVariant());
+}
+
+bool IfcTextStyleFontModel::testFontVariant() const {
+    return !Step::isUnset(getFontVariant());
+}
+
 IfcFontWeight IfcTextStyleFontModel::getFontWeight() {
     if (Step::BaseObject::inited()) {
         return m_fontWeight;
@@ -148,6 +170,14 @@ void IfcTextStyleFontModel::setFontWeight(const IfcFontWeight &value) {
     m_fontWeight = value;
 }
 
+void IfcTextStyleFontModel::unsetFontWeight() {
+    m_fontWeight = Step::getUnset(getFontWeight());
+}
+
+bool IfcTextStyleFontModel::testFontWeight() const {
+    return !Step::isUnset(getFontWeight());
+}
+
 IfcSizeSelect *IfcTextStyleFontModel::getFontSize() {
     if (Step::BaseObject::inited()) {
         return m_fontSize.get();
@@ -164,6 +194,14 @@ const IfcSizeSelect *IfcTextStyleFontModel::getFontSize() const {
 
 void IfcTextStyleFontModel::setFontSize(const Step::RefPtr< IfcSizeSelect > &value) {
     m_fontSize = value;
+}
+
+void IfcTextStyleFontModel::unsetFontSize() {
+    m_fontSize = Step::getUnset(getFontSize());
+}
+
+bool IfcTextStyleFontModel::testFontSize() const {
+    return !Step::isUnset(getFontSize());
 }
 
 bool IfcTextStyleFontModel::init() {

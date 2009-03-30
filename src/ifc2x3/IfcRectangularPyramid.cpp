@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRectangularPyramid::IfcRectangularPyramid(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
@@ -86,6 +83,14 @@ void IfcRectangularPyramid::setXLength(IfcPositiveLengthMeasure value) {
     m_xLength = value;
 }
 
+void IfcRectangularPyramid::unsetXLength() {
+    m_xLength = Step::getUnset(getXLength());
+}
+
+bool IfcRectangularPyramid::testXLength() const {
+    return !Step::isUnset(getXLength());
+}
+
 IfcPositiveLengthMeasure IfcRectangularPyramid::getYLength() {
     if (Step::BaseObject::inited()) {
         return m_yLength;
@@ -104,6 +109,14 @@ void IfcRectangularPyramid::setYLength(IfcPositiveLengthMeasure value) {
     m_yLength = value;
 }
 
+void IfcRectangularPyramid::unsetYLength() {
+    m_yLength = Step::getUnset(getYLength());
+}
+
+bool IfcRectangularPyramid::testYLength() const {
+    return !Step::isUnset(getYLength());
+}
+
 IfcPositiveLengthMeasure IfcRectangularPyramid::getHeight() {
     if (Step::BaseObject::inited()) {
         return m_height;
@@ -120,6 +133,14 @@ const IfcPositiveLengthMeasure IfcRectangularPyramid::getHeight() const {
 
 void IfcRectangularPyramid::setHeight(IfcPositiveLengthMeasure value) {
     m_height = value;
+}
+
+void IfcRectangularPyramid::unsetHeight() {
+    m_height = Step::getUnset(getHeight());
+}
+
+bool IfcRectangularPyramid::testHeight() const {
+    return !Step::isUnset(getHeight());
 }
 
 bool IfcRectangularPyramid::init() {

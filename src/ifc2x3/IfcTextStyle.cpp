@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextStyle::IfcTextStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
@@ -91,6 +88,14 @@ void IfcTextStyle::setTextCharacterAppearance(const Step::RefPtr< IfcCharacterSt
     m_textCharacterAppearance = value;
 }
 
+void IfcTextStyle::unsetTextCharacterAppearance() {
+    m_textCharacterAppearance = Step::getUnset(getTextCharacterAppearance());
+}
+
+bool IfcTextStyle::testTextCharacterAppearance() const {
+    return !Step::isUnset(getTextCharacterAppearance());
+}
+
 IfcTextStyleSelect *IfcTextStyle::getTextStyle() {
     if (Step::BaseObject::inited()) {
         return m_textStyle.get();
@@ -109,6 +114,14 @@ void IfcTextStyle::setTextStyle(const Step::RefPtr< IfcTextStyleSelect > &value)
     m_textStyle = value;
 }
 
+void IfcTextStyle::unsetTextStyle() {
+    m_textStyle = Step::getUnset(getTextStyle());
+}
+
+bool IfcTextStyle::testTextStyle() const {
+    return !Step::isUnset(getTextStyle());
+}
+
 IfcTextFontSelect *IfcTextStyle::getTextFontStyle() {
     if (Step::BaseObject::inited()) {
         return m_textFontStyle.get();
@@ -125,6 +138,14 @@ const IfcTextFontSelect *IfcTextStyle::getTextFontStyle() const {
 
 void IfcTextStyle::setTextFontStyle(const Step::RefPtr< IfcTextFontSelect > &value) {
     m_textFontStyle = value;
+}
+
+void IfcTextStyle::unsetTextFontStyle() {
+    m_textFontStyle = Step::getUnset(getTextFontStyle());
+}
+
+bool IfcTextStyle::testTextFontStyle() const {
+    return !Step::isUnset(getTextFontStyle());
 }
 
 bool IfcTextStyle::init() {

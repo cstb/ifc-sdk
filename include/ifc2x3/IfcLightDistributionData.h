@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcLightDistributionData Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLightDistributionData : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setMainPlaneAngle(IfcPlaneAngleMeasure value);
         /**
+         * unset the attribute 'MainPlaneAngle'.
+         * 
+         */
+        virtual void unsetMainPlaneAngle();
+        /**
+         * Test if the attribute 'MainPlaneAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMainPlaneAngle() const;
+        /**
          * Gets the value of the explicit attribute 'SecondaryPlaneAngle'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setSecondaryPlaneAngle(const List_IfcPlaneAngleMeasure_1_n &value);
         /**
+         * unset the attribute 'SecondaryPlaneAngle'.
+         * 
+         */
+        virtual void unsetSecondaryPlaneAngle();
+        /**
+         * Test if the attribute 'SecondaryPlaneAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSecondaryPlaneAngle() const;
+        /**
          * Gets the value of the explicit attribute 'LuminousIntensity'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLuminousIntensity(const List_IfcLuminousIntensityDistributionMeasure_1_n &value);
+        /**
+         * unset the attribute 'LuminousIntensity'.
+         * 
+         */
+        virtual void unsetLuminousIntensity();
+        /**
+         * Test if the attribute 'LuminousIntensity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLuminousIntensity() const;
         friend class ExpressDataSet;
 
     protected:

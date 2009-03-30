@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFaceBound::IfcFaceBound(Step::Id id, Step::SPFData *args) : IfcTopologicalRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcFaceBound::setBound(const Step::RefPtr< IfcLoop > &value) {
     m_bound = value;
 }
 
+void IfcFaceBound::unsetBound() {
+    m_bound = Step::getUnset(getBound());
+}
+
+bool IfcFaceBound::testBound() const {
+    return !Step::isUnset(getBound());
+}
+
 Step::Boolean IfcFaceBound::getOrientation() {
     if (Step::BaseObject::inited()) {
         return m_orientation;
@@ -105,6 +110,14 @@ const Step::Boolean IfcFaceBound::getOrientation() const {
 
 void IfcFaceBound::setOrientation(Step::Boolean value) {
     m_orientation = value;
+}
+
+void IfcFaceBound::unsetOrientation() {
+    m_orientation = Step::getUnset(getOrientation());
+}
+
+bool IfcFaceBound::testOrientation() const {
+    return !Step::isUnset(getOrientation());
 }
 
 bool IfcFaceBound::init() {

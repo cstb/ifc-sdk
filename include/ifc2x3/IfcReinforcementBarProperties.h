@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcReinforcementBarProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcReinforcementBarProperties : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setTotalCrossSectionArea(IfcAreaMeasure value);
         /**
+         * unset the attribute 'TotalCrossSectionArea'.
+         * 
+         */
+        virtual void unsetTotalCrossSectionArea();
+        /**
+         * Test if the attribute 'TotalCrossSectionArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTotalCrossSectionArea() const;
+        /**
          * Gets the value of the explicit attribute 'SteelGrade'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSteelGrade(const IfcLabel &value);
+        /**
+         * unset the attribute 'SteelGrade'.
+         * 
+         */
+        virtual void unsetSteelGrade();
+        /**
+         * Test if the attribute 'SteelGrade' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSteelGrade() const;
         /**
          * Gets the value of the explicit attribute 'BarSurface'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setBarSurface(IfcReinforcingBarSurfaceEnum value);
         /**
+         * unset the attribute 'BarSurface'.
+         * 
+         */
+        virtual void unsetBarSurface();
+        /**
+         * Test if the attribute 'BarSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBarSurface() const;
+        /**
          * Gets the value of the explicit attribute 'EffectiveDepth'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEffectiveDepth(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'EffectiveDepth'.
+         * 
+         */
+        virtual void unsetEffectiveDepth();
+        /**
+         * Test if the attribute 'EffectiveDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEffectiveDepth() const;
         /**
          * Gets the value of the explicit attribute 'NominalBarDiameter'.
          * 
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          */
         virtual void setNominalBarDiameter(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'NominalBarDiameter'.
+         * 
+         */
+        virtual void unsetNominalBarDiameter();
+        /**
+         * Test if the attribute 'NominalBarDiameter' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNominalBarDiameter() const;
+        /**
          * Gets the value of the explicit attribute 'BarCount'.
          * 
          */
@@ -173,6 +230,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBarCount(IfcCountMeasure value);
+        /**
+         * unset the attribute 'BarCount'.
+         * 
+         */
+        virtual void unsetBarCount();
+        /**
+         * Test if the attribute 'BarCount' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBarCount() const;
         friend class ExpressDataSet;
 
     protected:

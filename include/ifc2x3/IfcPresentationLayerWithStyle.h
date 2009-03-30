@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPresentationLayerAssignment.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcPresentationLayerAssignment.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPresentationLayerWithStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPresentationLayerWithStyle : public IfcPresentationLayerAssignment {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLayerOn(Step::Logical value);
         /**
+         * unset the attribute 'LayerOn'.
+         * 
+         */
+        virtual void unsetLayerOn();
+        /**
+         * Test if the attribute 'LayerOn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerOn() const;
+        /**
          * Gets the value of the explicit attribute 'LayerFrozen'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLayerFrozen(Step::Logical value);
+        /**
+         * unset the attribute 'LayerFrozen'.
+         * 
+         */
+        virtual void unsetLayerFrozen();
+        /**
+         * Test if the attribute 'LayerFrozen' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerFrozen() const;
         /**
          * Gets the value of the explicit attribute 'LayerBlocked'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setLayerBlocked(Step::Logical value);
         /**
+         * unset the attribute 'LayerBlocked'.
+         * 
+         */
+        virtual void unsetLayerBlocked();
+        /**
+         * Test if the attribute 'LayerBlocked' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerBlocked() const;
+        /**
          * Gets the value of the explicit attribute 'LayerStyles'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLayerStyles(const Set_IfcPresentationStyleSelect_0_n &value);
+        /**
+         * unset the attribute 'LayerStyles'.
+         * 
+         */
+        virtual void unsetLayerStyles();
+        /**
+         * Test if the attribute 'LayerStyles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerStyles() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcPhysicalSimpleQuantity.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcQuantityArea Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcQuantityArea : public IfcPhysicalSimpleQuantity {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAreaValue(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'AreaValue'.
+         * 
+         */
+        virtual void unsetAreaValue();
+        /**
+         * Test if the attribute 'AreaValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAreaValue() const;
         friend class ExpressDataSet;
 
     protected:

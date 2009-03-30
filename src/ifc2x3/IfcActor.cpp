@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcActor::IfcActor(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -89,6 +86,14 @@ void IfcActor::setTheActor(const Step::RefPtr< IfcActorSelect > &value) {
     m_theActor = value;
 }
 
+void IfcActor::unsetTheActor() {
+    m_theActor = Step::getUnset(getTheActor());
+}
+
+bool IfcActor::testTheActor() const {
+    return !Step::isUnset(getTheActor());
+}
+
 Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() {
     if (Step::BaseObject::inited()) {
         return m_isActingUpon;
@@ -102,6 +107,10 @@ Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() {
 const Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() const {
     IfcActor * deConstObject = const_cast< IfcActor * > (this);
     return deConstObject->getIsActingUpon();
+}
+
+bool IfcActor::testIsActingUpon() const {
+    return !Step::isUnset(getIsActingUpon());
 }
 
 bool IfcActor::init() {

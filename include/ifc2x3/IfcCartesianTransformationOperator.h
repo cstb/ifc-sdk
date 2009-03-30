@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcDirection;
 
     /**
+     * Generated class for the IfcCartesianTransformationOperator Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCartesianTransformationOperator : public IfcGeometricRepresentationItem {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setAxis1(const Step::RefPtr< IfcDirection > &value);
         /**
+         * unset the attribute 'Axis1'.
+         * 
+         */
+        virtual void unsetAxis1();
+        /**
+         * Test if the attribute 'Axis1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAxis1() const;
+        /**
          * Gets the value of the explicit attribute 'Axis2'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAxis2(const Step::RefPtr< IfcDirection > &value);
+        /**
+         * unset the attribute 'Axis2'.
+         * 
+         */
+        virtual void unsetAxis2();
+        /**
+         * Test if the attribute 'Axis2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAxis2() const;
         /**
          * Gets the value of the explicit attribute 'LocalOrigin'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setLocalOrigin(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'LocalOrigin'.
+         * 
+         */
+        virtual void unsetLocalOrigin();
+        /**
+         * Test if the attribute 'LocalOrigin' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLocalOrigin() const;
+        /**
          * Gets the value of the explicit attribute 'Scale'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setScale(Step::Real value);
+        /**
+         * unset the attribute 'Scale'.
+         * 
+         */
+        virtual void unsetScale();
+        /**
+         * Test if the attribute 'Scale' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScale() const;
         /**
          * Gets the value of the derived attribute 'Scl'.
          * 

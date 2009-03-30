@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcWaterProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcWaterProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setIsPotable(Step::Boolean value);
         /**
+         * unset the attribute 'IsPotable'.
+         * 
+         */
+        virtual void unsetIsPotable();
+        /**
+         * Test if the attribute 'IsPotable' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsPotable() const;
+        /**
          * Gets the value of the explicit attribute 'Hardness'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHardness(IfcIonConcentrationMeasure value);
+        /**
+         * unset the attribute 'Hardness'.
+         * 
+         */
+        virtual void unsetHardness();
+        /**
+         * Test if the attribute 'Hardness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHardness() const;
         /**
          * Gets the value of the explicit attribute 'AlkalinityConcentration'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setAlkalinityConcentration(IfcIonConcentrationMeasure value);
         /**
+         * unset the attribute 'AlkalinityConcentration'.
+         * 
+         */
+        virtual void unsetAlkalinityConcentration();
+        /**
+         * Test if the attribute 'AlkalinityConcentration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAlkalinityConcentration() const;
+        /**
          * Gets the value of the explicit attribute 'AcidityConcentration'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAcidityConcentration(IfcIonConcentrationMeasure value);
+        /**
+         * unset the attribute 'AcidityConcentration'.
+         * 
+         */
+        virtual void unsetAcidityConcentration();
+        /**
+         * Test if the attribute 'AcidityConcentration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAcidityConcentration() const;
         /**
          * Gets the value of the explicit attribute 'ImpuritiesContent'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setImpuritiesContent(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'ImpuritiesContent'.
+         * 
+         */
+        virtual void unsetImpuritiesContent();
+        /**
+         * Test if the attribute 'ImpuritiesContent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testImpuritiesContent() const;
+        /**
          * Gets the value of the explicit attribute 'PHLevel'.
          * 
          */
@@ -173,6 +230,17 @@ namespace ifc2x3 {
          */
         virtual void setPHLevel(IfcPHMeasure value);
         /**
+         * unset the attribute 'PHLevel'.
+         * 
+         */
+        virtual void unsetPHLevel();
+        /**
+         * Test if the attribute 'PHLevel' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPHLevel() const;
+        /**
          * Gets the value of the explicit attribute 'DissolvedSolidsContent'.
          * 
          */
@@ -189,6 +257,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDissolvedSolidsContent(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'DissolvedSolidsContent'.
+         * 
+         */
+        virtual void unsetDissolvedSolidsContent();
+        /**
+         * Test if the attribute 'DissolvedSolidsContent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDissolvedSolidsContent() const;
         friend class ExpressDataSet;
 
     protected:

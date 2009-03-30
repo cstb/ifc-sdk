@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAsymmetricIShapeProfileDef::IfcAsymmetricIShapeProfileDef(Step::Id id, Step::SPFData *args) : IfcIShapeProfileDef(id, args) {
@@ -87,6 +84,14 @@ void IfcAsymmetricIShapeProfileDef::setTopFlangeWidth(IfcPositiveLengthMeasure v
     m_topFlangeWidth = value;
 }
 
+void IfcAsymmetricIShapeProfileDef::unsetTopFlangeWidth() {
+    m_topFlangeWidth = Step::getUnset(getTopFlangeWidth());
+}
+
+bool IfcAsymmetricIShapeProfileDef::testTopFlangeWidth() const {
+    return !Step::isUnset(getTopFlangeWidth());
+}
+
 IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeThickness() {
     if (Step::BaseObject::inited()) {
         return m_topFlangeThickness;
@@ -103,6 +108,14 @@ const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeThickn
 
 void IfcAsymmetricIShapeProfileDef::setTopFlangeThickness(IfcPositiveLengthMeasure value) {
     m_topFlangeThickness = value;
+}
+
+void IfcAsymmetricIShapeProfileDef::unsetTopFlangeThickness() {
+    m_topFlangeThickness = Step::getUnset(getTopFlangeThickness());
+}
+
+bool IfcAsymmetricIShapeProfileDef::testTopFlangeThickness() const {
+    return !Step::isUnset(getTopFlangeThickness());
 }
 
 IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getTopFlangeFilletRadius() {
@@ -123,6 +136,14 @@ void IfcAsymmetricIShapeProfileDef::setTopFlangeFilletRadius(IfcPositiveLengthMe
     m_topFlangeFilletRadius = value;
 }
 
+void IfcAsymmetricIShapeProfileDef::unsetTopFlangeFilletRadius() {
+    m_topFlangeFilletRadius = Step::getUnset(getTopFlangeFilletRadius());
+}
+
+bool IfcAsymmetricIShapeProfileDef::testTopFlangeFilletRadius() const {
+    return !Step::isUnset(getTopFlangeFilletRadius());
+}
+
 IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getCentreOfGravityInY() {
     if (Step::BaseObject::inited()) {
         return m_centreOfGravityInY;
@@ -139,6 +160,14 @@ const IfcPositiveLengthMeasure IfcAsymmetricIShapeProfileDef::getCentreOfGravity
 
 void IfcAsymmetricIShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
     m_centreOfGravityInY = value;
+}
+
+void IfcAsymmetricIShapeProfileDef::unsetCentreOfGravityInY() {
+    m_centreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
+}
+
+bool IfcAsymmetricIShapeProfileDef::testCentreOfGravityInY() const {
+    return !Step::isUnset(getCentreOfGravityInY());
 }
 
 bool IfcAsymmetricIShapeProfileDef::init() {

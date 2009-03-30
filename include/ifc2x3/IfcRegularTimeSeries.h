@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcTimeSeries.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcTimeSeries.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRegularTimeSeries Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRegularTimeSeries : public IfcTimeSeries {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setTimeStep(IfcTimeMeasure value);
         /**
+         * unset the attribute 'TimeStep'.
+         * 
+         */
+        virtual void unsetTimeStep();
+        /**
+         * Test if the attribute 'TimeStep' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeStep() const;
+        /**
          * Gets the value of the explicit attribute 'Values'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setValues(const List_IfcTimeSeriesValue_1_n &value);
+        /**
+         * unset the attribute 'Values'.
+         * 
+         */
+        virtual void unsetValues();
+        /**
+         * Test if the attribute 'Values' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValues() const;
         friend class ExpressDataSet;
 
     protected:

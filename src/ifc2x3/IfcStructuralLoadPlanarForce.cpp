@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadPlanarForce::IfcStructuralLoadPlanarForce(Step::Id id, Step::SPFData *args) : IfcStructuralLoadStatic(id, args) {
@@ -86,6 +83,14 @@ void IfcStructuralLoadPlanarForce::setPlanarForceX(IfcPlanarForceMeasure value) 
     m_planarForceX = value;
 }
 
+void IfcStructuralLoadPlanarForce::unsetPlanarForceX() {
+    m_planarForceX = Step::getUnset(getPlanarForceX());
+}
+
+bool IfcStructuralLoadPlanarForce::testPlanarForceX() const {
+    return !Step::isUnset(getPlanarForceX());
+}
+
 IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceY() {
     if (Step::BaseObject::inited()) {
         return m_planarForceY;
@@ -104,6 +109,14 @@ void IfcStructuralLoadPlanarForce::setPlanarForceY(IfcPlanarForceMeasure value) 
     m_planarForceY = value;
 }
 
+void IfcStructuralLoadPlanarForce::unsetPlanarForceY() {
+    m_planarForceY = Step::getUnset(getPlanarForceY());
+}
+
+bool IfcStructuralLoadPlanarForce::testPlanarForceY() const {
+    return !Step::isUnset(getPlanarForceY());
+}
+
 IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceZ() {
     if (Step::BaseObject::inited()) {
         return m_planarForceZ;
@@ -120,6 +133,14 @@ const IfcPlanarForceMeasure IfcStructuralLoadPlanarForce::getPlanarForceZ() cons
 
 void IfcStructuralLoadPlanarForce::setPlanarForceZ(IfcPlanarForceMeasure value) {
     m_planarForceZ = value;
+}
+
+void IfcStructuralLoadPlanarForce::unsetPlanarForceZ() {
+    m_planarForceZ = Step::getUnset(getPlanarForceZ());
+}
+
+bool IfcStructuralLoadPlanarForce::testPlanarForceZ() const {
+    return !Step::isUnset(getPlanarForceZ());
 }
 
 bool IfcStructuralLoadPlanarForce::init() {

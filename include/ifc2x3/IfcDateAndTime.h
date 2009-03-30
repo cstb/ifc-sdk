@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcLocalTime;
 
     /**
+     * Generated class for the IfcDateAndTime Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDateAndTime : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setDateComponent(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * unset the attribute 'DateComponent'.
+         * 
+         */
+        virtual void unsetDateComponent();
+        /**
+         * Test if the attribute 'DateComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDateComponent() const;
+        /**
          * Gets the value of the explicit attribute 'TimeComponent'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTimeComponent(const Step::RefPtr< IfcLocalTime > &value);
+        /**
+         * unset the attribute 'TimeComponent'.
+         * 
+         */
+        virtual void unsetTimeComponent();
+        /**
+         * Test if the attribute 'TimeComponent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeComponent() const;
         friend class ExpressDataSet;
 
     protected:

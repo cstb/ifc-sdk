@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCircleHollowProfileDef::IfcCircleHollowProfileDef(Step::Id id, Step::SPFData *args) : IfcCircleProfileDef(id, args) {
@@ -82,6 +79,14 @@ const IfcPositiveLengthMeasure IfcCircleHollowProfileDef::getWallThickness() con
 
 void IfcCircleHollowProfileDef::setWallThickness(IfcPositiveLengthMeasure value) {
     m_wallThickness = value;
+}
+
+void IfcCircleHollowProfileDef::unsetWallThickness() {
+    m_wallThickness = Step::getUnset(getWallThickness());
+}
+
+bool IfcCircleHollowProfileDef::testWallThickness() const {
+    return !Step::isUnset(getWallThickness());
 }
 
 bool IfcCircleHollowProfileDef::init() {

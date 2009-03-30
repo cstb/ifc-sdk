@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralActivity::IfcStructuralActivity(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -91,6 +88,14 @@ void IfcStructuralActivity::setAppliedLoad(const Step::RefPtr< IfcStructuralLoad
     m_appliedLoad = value;
 }
 
+void IfcStructuralActivity::unsetAppliedLoad() {
+    m_appliedLoad = Step::getUnset(getAppliedLoad());
+}
+
+bool IfcStructuralActivity::testAppliedLoad() const {
+    return !Step::isUnset(getAppliedLoad());
+}
+
 IfcGlobalOrLocalEnum IfcStructuralActivity::getGlobalOrLocal() {
     if (Step::BaseObject::inited()) {
         return m_globalOrLocal;
@@ -109,6 +114,14 @@ void IfcStructuralActivity::setGlobalOrLocal(IfcGlobalOrLocalEnum value) {
     m_globalOrLocal = value;
 }
 
+void IfcStructuralActivity::unsetGlobalOrLocal() {
+    m_globalOrLocal = IfcGlobalOrLocalEnum_UNSET;
+}
+
+bool IfcStructuralActivity::testGlobalOrLocal() const {
+    return getGlobalOrLocal() != IfcGlobalOrLocalEnum_UNSET;
+}
+
 IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructuralItem() {
     if (Step::BaseObject::inited()) {
         return m_assignedToStructuralItem.get();
@@ -121,6 +134,10 @@ IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructural
 const IfcRelConnectsStructuralActivity *IfcStructuralActivity::getAssignedToStructuralItem() const {
     IfcStructuralActivity * deConstObject = const_cast< IfcStructuralActivity * > (this);
     return deConstObject->getAssignedToStructuralItem();
+}
+
+bool IfcStructuralActivity::testAssignedToStructuralItem() const {
+    return !Step::isUnset(getAssignedToStructuralItem());
 }
 
 bool IfcStructuralActivity::init() {

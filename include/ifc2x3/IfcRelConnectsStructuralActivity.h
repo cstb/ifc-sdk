@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcStructuralActivityAssignmentSelect;
 
     /**
+     * Generated class for the IfcRelConnectsStructuralActivity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelConnectsStructuralActivity : public IfcRelConnects {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value);
         /**
+         * unset the attribute 'RelatingElement'.
+         * 
+         */
+        virtual void unsetRelatingElement();
+        /**
+         * Test if the attribute 'RelatingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingElement() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedStructuralActivity'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedStructuralActivity(const Step::RefPtr< IfcStructuralActivity > &value);
+        /**
+         * unset the attribute 'RelatedStructuralActivity'.
+         * 
+         */
+        virtual void unsetRelatedStructuralActivity();
+        /**
+         * Test if the attribute 'RelatedStructuralActivity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedStructuralActivity() const;
         friend class ExpressDataSet;
 
     protected:

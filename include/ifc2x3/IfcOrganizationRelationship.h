@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcOrganizationRelationship;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcOrganizationRelationship_RelatedOrganizations_type : public Set_IfcOrganization_1_n {
     public:
@@ -54,29 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcOrganizationRelationship *mOwner;
-        /**
-         */
         Inverted_IfcOrganizationRelationship_RelatedOrganizations_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcOrganizationRelationship *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcOrganization > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcOrganization > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcOrganizationRelationship;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcOrganizationRelationship *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcOrganizationRelationship *owner);
 
     };
 
     class CopyOp;
-    class IfcOrganization;
 
     /**
+     * Generated class for the IfcOrganizationRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOrganizationRelationship : public Step::BaseEntity {
     public:
@@ -125,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -141,6 +168,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'RelatingOrganization'.
          * 
@@ -159,6 +197,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value);
         /**
+         * unset the attribute 'RelatingOrganization'.
+         * 
+         */
+        virtual void unsetRelatingOrganization();
+        /**
+         * Test if the attribute 'RelatingOrganization' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingOrganization() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedOrganizations'.
          * 
          */
@@ -169,6 +218,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RelatedOrganizations'
          */
         virtual const Set_IfcOrganization_1_n &getRelatedOrganizations() const;
+        /**
+         * unset the attribute 'RelatedOrganizations'.
+         * 
+         */
+        virtual void unsetRelatedOrganizations();
+        /**
+         * Test if the attribute 'RelatedOrganizations' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedOrganizations() const;
         friend class ExpressDataSet;
 
     protected:

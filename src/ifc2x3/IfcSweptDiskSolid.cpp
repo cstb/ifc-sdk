@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSweptDiskSolid::IfcSweptDiskSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
@@ -92,6 +89,14 @@ void IfcSweptDiskSolid::setDirectrix(const Step::RefPtr< IfcCurve > &value) {
     m_directrix = value;
 }
 
+void IfcSweptDiskSolid::unsetDirectrix() {
+    m_directrix = Step::getUnset(getDirectrix());
+}
+
+bool IfcSweptDiskSolid::testDirectrix() const {
+    return !Step::isUnset(getDirectrix());
+}
+
 IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() {
     if (Step::BaseObject::inited()) {
         return m_radius;
@@ -108,6 +113,14 @@ const IfcPositiveLengthMeasure IfcSweptDiskSolid::getRadius() const {
 
 void IfcSweptDiskSolid::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
+}
+
+void IfcSweptDiskSolid::unsetRadius() {
+    m_radius = Step::getUnset(getRadius());
+}
+
+bool IfcSweptDiskSolid::testRadius() const {
+    return !Step::isUnset(getRadius());
 }
 
 IfcPositiveLengthMeasure IfcSweptDiskSolid::getInnerRadius() {
@@ -128,6 +141,14 @@ void IfcSweptDiskSolid::setInnerRadius(IfcPositiveLengthMeasure value) {
     m_innerRadius = value;
 }
 
+void IfcSweptDiskSolid::unsetInnerRadius() {
+    m_innerRadius = Step::getUnset(getInnerRadius());
+}
+
+bool IfcSweptDiskSolid::testInnerRadius() const {
+    return !Step::isUnset(getInnerRadius());
+}
+
 IfcParameterValue IfcSweptDiskSolid::getStartParam() {
     if (Step::BaseObject::inited()) {
         return m_startParam;
@@ -146,6 +167,14 @@ void IfcSweptDiskSolid::setStartParam(IfcParameterValue value) {
     m_startParam = value;
 }
 
+void IfcSweptDiskSolid::unsetStartParam() {
+    m_startParam = Step::getUnset(getStartParam());
+}
+
+bool IfcSweptDiskSolid::testStartParam() const {
+    return !Step::isUnset(getStartParam());
+}
+
 IfcParameterValue IfcSweptDiskSolid::getEndParam() {
     if (Step::BaseObject::inited()) {
         return m_endParam;
@@ -162,6 +191,14 @@ const IfcParameterValue IfcSweptDiskSolid::getEndParam() const {
 
 void IfcSweptDiskSolid::setEndParam(IfcParameterValue value) {
     m_endParam = value;
+}
+
+void IfcSweptDiskSolid::unsetEndParam() {
+    m_endParam = Step::getUnset(getEndParam());
+}
+
+bool IfcSweptDiskSolid::testEndParam() const {
+    return !Step::isUnset(getEndParam());
 }
 
 bool IfcSweptDiskSolid::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRoot::IfcRoot(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcRoot::setGlobalId(const IfcGloballyUniqueId &value) {
     m_globalId = value;
 }
 
+void IfcRoot::unsetGlobalId() {
+    m_globalId = Step::getUnset(getGlobalId());
+}
+
+bool IfcRoot::testGlobalId() const {
+    return !Step::isUnset(getGlobalId());
+}
+
 IfcOwnerHistory *IfcRoot::getOwnerHistory() {
     if (Step::BaseObject::inited()) {
         return m_ownerHistory.get();
@@ -108,6 +113,14 @@ const IfcOwnerHistory *IfcRoot::getOwnerHistory() const {
 
 void IfcRoot::setOwnerHistory(const Step::RefPtr< IfcOwnerHistory > &value) {
     m_ownerHistory = value;
+}
+
+void IfcRoot::unsetOwnerHistory() {
+    m_ownerHistory = Step::getUnset(getOwnerHistory());
+}
+
+bool IfcRoot::testOwnerHistory() const {
+    return !Step::isUnset(getOwnerHistory());
 }
 
 IfcLabel IfcRoot::getName() {
@@ -128,6 +141,14 @@ void IfcRoot::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcRoot::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcRoot::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcRoot::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -144,6 +165,14 @@ const IfcText IfcRoot::getDescription() const {
 
 void IfcRoot::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcRoot::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcRoot::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 bool IfcRoot::init() {

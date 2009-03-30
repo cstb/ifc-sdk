@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertySingleValue::IfcPropertySingleValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -91,6 +88,14 @@ void IfcPropertySingleValue::setNominalValue(const Step::RefPtr< IfcValue > &val
     m_nominalValue = value;
 }
 
+void IfcPropertySingleValue::unsetNominalValue() {
+    m_nominalValue = Step::getUnset(getNominalValue());
+}
+
+bool IfcPropertySingleValue::testNominalValue() const {
+    return !Step::isUnset(getNominalValue());
+}
+
 IfcUnit *IfcPropertySingleValue::getUnit() {
     if (Step::BaseObject::inited()) {
         return m_unit.get();
@@ -107,6 +112,14 @@ const IfcUnit *IfcPropertySingleValue::getUnit() const {
 
 void IfcPropertySingleValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
+}
+
+void IfcPropertySingleValue::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcPropertySingleValue::testUnit() const {
+    return !Step::isUnset(getUnit());
 }
 
 bool IfcPropertySingleValue::init() {

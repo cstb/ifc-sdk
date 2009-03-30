@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAnnotationFillAreaOccurrence::IfcAnnotationFillAreaOccurrence(Step::Id id, Step::SPFData *args) : IfcAnnotationOccurrence(id, args) {
@@ -89,6 +86,14 @@ void IfcAnnotationFillAreaOccurrence::setFillStyleTarget(const Step::RefPtr< Ifc
     m_fillStyleTarget = value;
 }
 
+void IfcAnnotationFillAreaOccurrence::unsetFillStyleTarget() {
+    m_fillStyleTarget = Step::getUnset(getFillStyleTarget());
+}
+
+bool IfcAnnotationFillAreaOccurrence::testFillStyleTarget() const {
+    return !Step::isUnset(getFillStyleTarget());
+}
+
 IfcGlobalOrLocalEnum IfcAnnotationFillAreaOccurrence::getGlobalOrLocal() {
     if (Step::BaseObject::inited()) {
         return m_globalOrLocal;
@@ -105,6 +110,14 @@ const IfcGlobalOrLocalEnum IfcAnnotationFillAreaOccurrence::getGlobalOrLocal() c
 
 void IfcAnnotationFillAreaOccurrence::setGlobalOrLocal(IfcGlobalOrLocalEnum value) {
     m_globalOrLocal = value;
+}
+
+void IfcAnnotationFillAreaOccurrence::unsetGlobalOrLocal() {
+    m_globalOrLocal = IfcGlobalOrLocalEnum_UNSET;
+}
+
+bool IfcAnnotationFillAreaOccurrence::testGlobalOrLocal() const {
+    return getGlobalOrLocal() != IfcGlobalOrLocalEnum_UNSET;
 }
 
 bool IfcAnnotationFillAreaOccurrence::init() {

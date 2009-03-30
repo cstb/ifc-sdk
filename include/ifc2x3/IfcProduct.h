@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcObject.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcProductRepresentation;
 
     /**
+     * Generated class for the IfcProduct Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProduct : public IfcObject {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setObjectPlacement(const Step::RefPtr< IfcObjectPlacement > &value);
         /**
+         * unset the attribute 'ObjectPlacement'.
+         * 
+         */
+        virtual void unsetObjectPlacement();
+        /**
+         * Test if the attribute 'ObjectPlacement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testObjectPlacement() const;
+        /**
          * Gets the value of the explicit attribute 'Representation'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value);
         /**
+         * unset the attribute 'Representation'.
+         * 
+         */
+        virtual void unsetRepresentation();
+        /**
+         * Test if the attribute 'Representation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentation() const;
+        /**
          * Gets the value of the inverse attribute 'ReferencedBy'.
          * 
          */
@@ -118,10 +142,16 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ReferencedBy'
          */
         virtual const Inverse_Set_IfcRelAssignsToProduct_0_n &getReferencedBy() const;
+        /**
+         * Test if the attribute 'ReferencedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencedBy() const;
         friend class IfcRelAssignsToProduct;
         friend class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type;
-        friend class Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type;
         friend class ExpressDataSet;
+        friend class Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type;
 
     protected:
         /**

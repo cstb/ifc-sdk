@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRightCircularCone::IfcRightCircularCone(Step::Id id, Step::SPFData *args) : IfcCsgPrimitive3D(id, args) {
@@ -85,6 +82,14 @@ void IfcRightCircularCone::setHeight(IfcPositiveLengthMeasure value) {
     m_height = value;
 }
 
+void IfcRightCircularCone::unsetHeight() {
+    m_height = Step::getUnset(getHeight());
+}
+
+bool IfcRightCircularCone::testHeight() const {
+    return !Step::isUnset(getHeight());
+}
+
 IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() {
     if (Step::BaseObject::inited()) {
         return m_bottomRadius;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcRightCircularCone::getBottomRadius() const {
 
 void IfcRightCircularCone::setBottomRadius(IfcPositiveLengthMeasure value) {
     m_bottomRadius = value;
+}
+
+void IfcRightCircularCone::unsetBottomRadius() {
+    m_bottomRadius = Step::getUnset(getBottomRadius());
+}
+
+bool IfcRightCircularCone::testBottomRadius() const {
+    return !Step::isUnset(getBottomRadius());
 }
 
 bool IfcRightCircularCone::init() {

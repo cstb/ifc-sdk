@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConstraintClassificationRelationship::IfcConstraintClassificationRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -96,6 +93,14 @@ void IfcConstraintClassificationRelationship::setClassifiedConstraint(const Step
     m_classifiedConstraint = value;
 }
 
+void IfcConstraintClassificationRelationship::unsetClassifiedConstraint() {
+    m_classifiedConstraint = Step::getUnset(getClassifiedConstraint());
+}
+
+bool IfcConstraintClassificationRelationship::testClassifiedConstraint() const {
+    return !Step::isUnset(getClassifiedConstraint());
+}
+
 Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelationship::getRelatedClassifications() {
     if (Step::BaseObject::inited()) {
         return m_relatedClassifications;
@@ -113,6 +118,15 @@ const Set_IfcClassificationNotationSelect_1_n &IfcConstraintClassificationRelati
 
 void IfcConstraintClassificationRelationship::setRelatedClassifications(const Set_IfcClassificationNotationSelect_1_n &value) {
     m_relatedClassifications = value;
+}
+
+void IfcConstraintClassificationRelationship::unsetRelatedClassifications() {
+    m_relatedClassifications.clear();
+    m_relatedClassifications.setUnset(true);
+}
+
+bool IfcConstraintClassificationRelationship::testRelatedClassifications() const {
+    return !Step::isUnset(getRelatedClassifications());
 }
 
 bool IfcConstraintClassificationRelationship::init() {

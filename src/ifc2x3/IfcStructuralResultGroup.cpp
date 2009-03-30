@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralResultGroup::IfcStructuralResultGroup(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
@@ -92,6 +89,14 @@ void IfcStructuralResultGroup::setTheoryType(IfcAnalysisTheoryTypeEnum value) {
     m_theoryType = value;
 }
 
+void IfcStructuralResultGroup::unsetTheoryType() {
+    m_theoryType = IfcAnalysisTheoryTypeEnum_UNSET;
+}
+
+bool IfcStructuralResultGroup::testTheoryType() const {
+    return getTheoryType() != IfcAnalysisTheoryTypeEnum_UNSET;
+}
+
 IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() {
     if (Step::BaseObject::inited()) {
         return m_resultForLoadGroup.get();
@@ -116,6 +121,14 @@ void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStru
     m_resultForLoadGroup = value;
 }
 
+void IfcStructuralResultGroup::unsetResultForLoadGroup() {
+    m_resultForLoadGroup = Step::getUnset(getResultForLoadGroup());
+}
+
+bool IfcStructuralResultGroup::testResultForLoadGroup() const {
+    return !Step::isUnset(getResultForLoadGroup());
+}
+
 Step::Boolean IfcStructuralResultGroup::getIsLinear() {
     if (Step::BaseObject::inited()) {
         return m_isLinear;
@@ -134,6 +147,14 @@ void IfcStructuralResultGroup::setIsLinear(Step::Boolean value) {
     m_isLinear = value;
 }
 
+void IfcStructuralResultGroup::unsetIsLinear() {
+    m_isLinear = Step::getUnset(getIsLinear());
+}
+
+bool IfcStructuralResultGroup::testIsLinear() const {
+    return !Step::isUnset(getIsLinear());
+}
+
 Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() {
     if (Step::BaseObject::inited()) {
         return m_resultGroupFor;
@@ -147,6 +168,10 @@ Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultG
 const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() const {
     IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
     return deConstObject->getResultGroupFor();
+}
+
+bool IfcStructuralResultGroup::testResultGroupFor() const {
+    return !Step::isUnset(getResultGroupFor());
 }
 
 bool IfcStructuralResultGroup::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProductDefinitionShape::IfcProductDefinitionShape(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct()
     return deConstObject->getShapeOfProduct();
 }
 
+bool IfcProductDefinitionShape::testShapeOfProduct() const {
+    return !Step::isUnset(getShapeOfProduct());
+}
+
 Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() {
     if (Step::BaseObject::inited()) {
         return m_hasShapeAspects;
@@ -97,6 +98,10 @@ Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() 
 const Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() const {
     IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
     return deConstObject->getHasShapeAspects();
+}
+
+bool IfcProductDefinitionShape::testHasShapeAspects() const {
+    return !Step::isUnset(getHasShapeAspects());
 }
 
 bool IfcProductDefinitionShape::init() {

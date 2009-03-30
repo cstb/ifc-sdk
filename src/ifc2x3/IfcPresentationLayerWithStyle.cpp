@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPresentationLayerWithStyle::IfcPresentationLayerWithStyle(Step::Id id, Step::SPFData *args) : IfcPresentationLayerAssignment(id, args) {
@@ -91,6 +88,14 @@ void IfcPresentationLayerWithStyle::setLayerOn(Step::Logical value) {
     m_layerOn = value;
 }
 
+void IfcPresentationLayerWithStyle::unsetLayerOn() {
+    m_layerOn = Step::getUnset(getLayerOn());
+}
+
+bool IfcPresentationLayerWithStyle::testLayerOn() const {
+    return !Step::isUnset(getLayerOn());
+}
+
 Step::Logical IfcPresentationLayerWithStyle::getLayerFrozen() {
     if (Step::BaseObject::inited()) {
         return m_layerFrozen;
@@ -107,6 +112,14 @@ const Step::Logical IfcPresentationLayerWithStyle::getLayerFrozen() const {
 
 void IfcPresentationLayerWithStyle::setLayerFrozen(Step::Logical value) {
     m_layerFrozen = value;
+}
+
+void IfcPresentationLayerWithStyle::unsetLayerFrozen() {
+    m_layerFrozen = Step::getUnset(getLayerFrozen());
+}
+
+bool IfcPresentationLayerWithStyle::testLayerFrozen() const {
+    return !Step::isUnset(getLayerFrozen());
 }
 
 Step::Logical IfcPresentationLayerWithStyle::getLayerBlocked() {
@@ -127,6 +140,14 @@ void IfcPresentationLayerWithStyle::setLayerBlocked(Step::Logical value) {
     m_layerBlocked = value;
 }
 
+void IfcPresentationLayerWithStyle::unsetLayerBlocked() {
+    m_layerBlocked = Step::getUnset(getLayerBlocked());
+}
+
+bool IfcPresentationLayerWithStyle::testLayerBlocked() const {
+    return !Step::isUnset(getLayerBlocked());
+}
+
 Set_IfcPresentationStyleSelect_0_n &IfcPresentationLayerWithStyle::getLayerStyles() {
     if (Step::BaseObject::inited()) {
         return m_layerStyles;
@@ -144,6 +165,15 @@ const Set_IfcPresentationStyleSelect_0_n &IfcPresentationLayerWithStyle::getLaye
 
 void IfcPresentationLayerWithStyle::setLayerStyles(const Set_IfcPresentationStyleSelect_0_n &value) {
     m_layerStyles = value;
+}
+
+void IfcPresentationLayerWithStyle::unsetLayerStyles() {
+    m_layerStyles.clear();
+    m_layerStyles.setUnset(true);
+}
+
+bool IfcPresentationLayerWithStyle::testLayerStyles() const {
+    return !Step::isUnset(getLayerStyles());
 }
 
 bool IfcPresentationLayerWithStyle::init() {

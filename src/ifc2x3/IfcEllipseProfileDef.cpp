@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEllipseProfileDef::IfcEllipseProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
@@ -85,6 +82,14 @@ void IfcEllipseProfileDef::setSemiAxis1(IfcPositiveLengthMeasure value) {
     m_semiAxis1 = value;
 }
 
+void IfcEllipseProfileDef::unsetSemiAxis1() {
+    m_semiAxis1 = Step::getUnset(getSemiAxis1());
+}
+
+bool IfcEllipseProfileDef::testSemiAxis1() const {
+    return !Step::isUnset(getSemiAxis1());
+}
+
 IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis2() {
     if (Step::BaseObject::inited()) {
         return m_semiAxis2;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcEllipseProfileDef::getSemiAxis2() const {
 
 void IfcEllipseProfileDef::setSemiAxis2(IfcPositiveLengthMeasure value) {
     m_semiAxis2 = value;
+}
+
+void IfcEllipseProfileDef::unsetSemiAxis2() {
+    m_semiAxis2 = Step::getUnset(getSemiAxis2());
+}
+
+bool IfcEllipseProfileDef::testSemiAxis2() const {
+    return !Step::isUnset(getSemiAxis2());
 }
 
 bool IfcEllipseProfileDef::init() {

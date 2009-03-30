@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcParameterizedProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcParameterizedProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcZShapeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcZShapeProfileDef : public IfcParameterizedProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'Depth'.
+         * 
+         */
+        virtual void unsetDepth();
+        /**
+         * Test if the attribute 'Depth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDepth() const;
+        /**
          * Gets the value of the explicit attribute 'FlangeWidth'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFlangeWidth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'FlangeWidth'.
+         * 
+         */
+        virtual void unsetFlangeWidth();
+        /**
+         * Test if the attribute 'FlangeWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlangeWidth() const;
         /**
          * Gets the value of the explicit attribute 'WebThickness'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setWebThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'WebThickness'.
+         * 
+         */
+        virtual void unsetWebThickness();
+        /**
+         * Test if the attribute 'WebThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWebThickness() const;
+        /**
          * Gets the value of the explicit attribute 'FlangeThickness'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFlangeThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'FlangeThickness'.
+         * 
+         */
+        virtual void unsetFlangeThickness();
+        /**
+         * Test if the attribute 'FlangeThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFlangeThickness() const;
         /**
          * Gets the value of the explicit attribute 'FilletRadius'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setFilletRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'FilletRadius'.
+         * 
+         */
+        virtual void unsetFilletRadius();
+        /**
+         * Test if the attribute 'FilletRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFilletRadius() const;
+        /**
          * Gets the value of the explicit attribute 'EdgeRadius'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEdgeRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'EdgeRadius'.
+         * 
+         */
+        virtual void unsetEdgeRadius();
+        /**
+         * Test if the attribute 'EdgeRadius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdgeRadius() const;
         friend class ExpressDataSet;
 
     protected:

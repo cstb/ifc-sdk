@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcFurnishingElementType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcFurnishingElementType.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcFurnitureType Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFurnitureType : public IfcFurnishingElementType {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAssemblyPlace(IfcAssemblyPlaceEnum value);
+        /**
+         * unset the attribute 'AssemblyPlace'.
+         * 
+         */
+        virtual void unsetAssemblyPlace();
+        /**
+         * Test if the attribute 'AssemblyPlace' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAssemblyPlace() const;
         friend class ExpressDataSet;
 
     protected:

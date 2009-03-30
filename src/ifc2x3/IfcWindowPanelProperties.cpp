@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWindowPanelProperties::IfcWindowPanelProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -92,6 +89,14 @@ void IfcWindowPanelProperties::setOperationType(IfcWindowPanelOperationEnum valu
     m_operationType = value;
 }
 
+void IfcWindowPanelProperties::unsetOperationType() {
+    m_operationType = IfcWindowPanelOperationEnum_UNSET;
+}
+
+bool IfcWindowPanelProperties::testOperationType() const {
+    return getOperationType() != IfcWindowPanelOperationEnum_UNSET;
+}
+
 IfcWindowPanelPositionEnum IfcWindowPanelProperties::getPanelPosition() {
     if (Step::BaseObject::inited()) {
         return m_panelPosition;
@@ -108,6 +113,14 @@ const IfcWindowPanelPositionEnum IfcWindowPanelProperties::getPanelPosition() co
 
 void IfcWindowPanelProperties::setPanelPosition(IfcWindowPanelPositionEnum value) {
     m_panelPosition = value;
+}
+
+void IfcWindowPanelProperties::unsetPanelPosition() {
+    m_panelPosition = IfcWindowPanelPositionEnum_UNSET;
+}
+
+bool IfcWindowPanelProperties::testPanelPosition() const {
+    return getPanelPosition() != IfcWindowPanelPositionEnum_UNSET;
 }
 
 IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameDepth() {
@@ -128,6 +141,14 @@ void IfcWindowPanelProperties::setFrameDepth(IfcPositiveLengthMeasure value) {
     m_frameDepth = value;
 }
 
+void IfcWindowPanelProperties::unsetFrameDepth() {
+    m_frameDepth = Step::getUnset(getFrameDepth());
+}
+
+bool IfcWindowPanelProperties::testFrameDepth() const {
+    return !Step::isUnset(getFrameDepth());
+}
+
 IfcPositiveLengthMeasure IfcWindowPanelProperties::getFrameThickness() {
     if (Step::BaseObject::inited()) {
         return m_frameThickness;
@@ -146,6 +167,14 @@ void IfcWindowPanelProperties::setFrameThickness(IfcPositiveLengthMeasure value)
     m_frameThickness = value;
 }
 
+void IfcWindowPanelProperties::unsetFrameThickness() {
+    m_frameThickness = Step::getUnset(getFrameThickness());
+}
+
+bool IfcWindowPanelProperties::testFrameThickness() const {
+    return !Step::isUnset(getFrameThickness());
+}
+
 IfcShapeAspect *IfcWindowPanelProperties::getShapeAspectStyle() {
     if (Step::BaseObject::inited()) {
         return m_shapeAspectStyle.get();
@@ -162,6 +191,14 @@ const IfcShapeAspect *IfcWindowPanelProperties::getShapeAspectStyle() const {
 
 void IfcWindowPanelProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
     m_shapeAspectStyle = value;
+}
+
+void IfcWindowPanelProperties::unsetShapeAspectStyle() {
+    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+}
+
+bool IfcWindowPanelProperties::testShapeAspectStyle() const {
+    return !Step::isUnset(getShapeAspectStyle());
 }
 
 bool IfcWindowPanelProperties::init() {

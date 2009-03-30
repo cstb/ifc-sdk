@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcLightSource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcLightSource.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCartesianPoint;
 
     /**
+     * Generated class for the IfcLightSourcePositional Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLightSourcePositional : public IfcLightSource {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setPosition(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'Position'.
+         * 
+         */
+        virtual void unsetPosition();
+        /**
+         * Test if the attribute 'Position' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPosition() const;
+        /**
          * Gets the value of the explicit attribute 'Radius'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRadius(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'Radius'.
+         * 
+         */
+        virtual void unsetRadius();
+        /**
+         * Test if the attribute 'Radius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRadius() const;
         /**
          * Gets the value of the explicit attribute 'ConstantAttenuation'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setConstantAttenuation(IfcReal value);
         /**
+         * unset the attribute 'ConstantAttenuation'.
+         * 
+         */
+        virtual void unsetConstantAttenuation();
+        /**
+         * Test if the attribute 'ConstantAttenuation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConstantAttenuation() const;
+        /**
          * Gets the value of the explicit attribute 'DistanceAttenuation'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setDistanceAttenuation(IfcReal value);
         /**
+         * unset the attribute 'DistanceAttenuation'.
+         * 
+         */
+        virtual void unsetDistanceAttenuation();
+        /**
+         * Test if the attribute 'DistanceAttenuation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDistanceAttenuation() const;
+        /**
          * Gets the value of the explicit attribute 'QuadricAttenuation'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setQuadricAttenuation(IfcReal value);
+        /**
+         * unset the attribute 'QuadricAttenuation'.
+         * 
+         */
+        virtual void unsetQuadricAttenuation();
+        /**
+         * Test if the attribute 'QuadricAttenuation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testQuadricAttenuation() const;
         friend class ExpressDataSet;
 
     protected:

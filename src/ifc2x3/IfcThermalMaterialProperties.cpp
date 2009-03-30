@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcThermalMaterialProperties::IfcThermalMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -87,6 +84,14 @@ void IfcThermalMaterialProperties::setSpecificHeatCapacity(IfcSpecificHeatCapaci
     m_specificHeatCapacity = value;
 }
 
+void IfcThermalMaterialProperties::unsetSpecificHeatCapacity() {
+    m_specificHeatCapacity = Step::getUnset(getSpecificHeatCapacity());
+}
+
+bool IfcThermalMaterialProperties::testSpecificHeatCapacity() const {
+    return !Step::isUnset(getSpecificHeatCapacity());
+}
+
 IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getBoilingPoint() {
     if (Step::BaseObject::inited()) {
         return m_boilingPoint;
@@ -103,6 +108,14 @@ const IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getBoilin
 
 void IfcThermalMaterialProperties::setBoilingPoint(IfcThermodynamicTemperatureMeasure value) {
     m_boilingPoint = value;
+}
+
+void IfcThermalMaterialProperties::unsetBoilingPoint() {
+    m_boilingPoint = Step::getUnset(getBoilingPoint());
+}
+
+bool IfcThermalMaterialProperties::testBoilingPoint() const {
+    return !Step::isUnset(getBoilingPoint());
 }
 
 IfcThermodynamicTemperatureMeasure IfcThermalMaterialProperties::getFreezingPoint() {
@@ -123,6 +136,14 @@ void IfcThermalMaterialProperties::setFreezingPoint(IfcThermodynamicTemperatureM
     m_freezingPoint = value;
 }
 
+void IfcThermalMaterialProperties::unsetFreezingPoint() {
+    m_freezingPoint = Step::getUnset(getFreezingPoint());
+}
+
+bool IfcThermalMaterialProperties::testFreezingPoint() const {
+    return !Step::isUnset(getFreezingPoint());
+}
+
 IfcThermalConductivityMeasure IfcThermalMaterialProperties::getThermalConductivity() {
     if (Step::BaseObject::inited()) {
         return m_thermalConductivity;
@@ -139,6 +160,14 @@ const IfcThermalConductivityMeasure IfcThermalMaterialProperties::getThermalCond
 
 void IfcThermalMaterialProperties::setThermalConductivity(IfcThermalConductivityMeasure value) {
     m_thermalConductivity = value;
+}
+
+void IfcThermalMaterialProperties::unsetThermalConductivity() {
+    m_thermalConductivity = Step::getUnset(getThermalConductivity());
+}
+
+bool IfcThermalMaterialProperties::testThermalConductivity() const {
+    return !Step::isUnset(getThermalConductivity());
 }
 
 bool IfcThermalMaterialProperties::init() {

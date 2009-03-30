@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPointOnCurve::IfcPointOnCurve(Step::Id id, Step::SPFData *args) : IfcPoint(id, args) {
@@ -89,6 +86,14 @@ void IfcPointOnCurve::setBasisCurve(const Step::RefPtr< IfcCurve > &value) {
     m_basisCurve = value;
 }
 
+void IfcPointOnCurve::unsetBasisCurve() {
+    m_basisCurve = Step::getUnset(getBasisCurve());
+}
+
+bool IfcPointOnCurve::testBasisCurve() const {
+    return !Step::isUnset(getBasisCurve());
+}
+
 IfcParameterValue IfcPointOnCurve::getPointParameter() {
     if (Step::BaseObject::inited()) {
         return m_pointParameter;
@@ -105,6 +110,14 @@ const IfcParameterValue IfcPointOnCurve::getPointParameter() const {
 
 void IfcPointOnCurve::setPointParameter(IfcParameterValue value) {
     m_pointParameter = value;
+}
+
+void IfcPointOnCurve::unsetPointParameter() {
+    m_pointParameter = Step::getUnset(getPointParameter());
+}
+
+bool IfcPointOnCurve::testPointParameter() const {
+    return !Step::isUnset(getPointParameter());
 }
 
 bool IfcPointOnCurve::init() {

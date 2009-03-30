@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProjectOrder Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProjectOrder : public IfcControl {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setID(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ID'.
+         * 
+         */
+        virtual void unsetID();
+        /**
+         * Test if the attribute 'ID' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testID() const;
+        /**
          * Gets the value of the explicit attribute 'PredefinedType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcProjectOrderTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'Status'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStatus(const IfcLabel &value);
+        /**
+         * unset the attribute 'Status'.
+         * 
+         */
+        virtual void unsetStatus();
+        /**
+         * Test if the attribute 'Status' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStatus() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTransportElement::IfcTransportElement(Step::Id id, Step::SPFData *args) : IfcElement(id, args) {
@@ -86,6 +83,14 @@ void IfcTransportElement::setOperationType(IfcTransportElementTypeEnum value) {
     m_operationType = value;
 }
 
+void IfcTransportElement::unsetOperationType() {
+    m_operationType = IfcTransportElementTypeEnum_UNSET;
+}
+
+bool IfcTransportElement::testOperationType() const {
+    return getOperationType() != IfcTransportElementTypeEnum_UNSET;
+}
+
 IfcMassMeasure IfcTransportElement::getCapacityByWeight() {
     if (Step::BaseObject::inited()) {
         return m_capacityByWeight;
@@ -104,6 +109,14 @@ void IfcTransportElement::setCapacityByWeight(IfcMassMeasure value) {
     m_capacityByWeight = value;
 }
 
+void IfcTransportElement::unsetCapacityByWeight() {
+    m_capacityByWeight = Step::getUnset(getCapacityByWeight());
+}
+
+bool IfcTransportElement::testCapacityByWeight() const {
+    return !Step::isUnset(getCapacityByWeight());
+}
+
 IfcCountMeasure IfcTransportElement::getCapacityByNumber() {
     if (Step::BaseObject::inited()) {
         return m_capacityByNumber;
@@ -120,6 +133,14 @@ const IfcCountMeasure IfcTransportElement::getCapacityByNumber() const {
 
 void IfcTransportElement::setCapacityByNumber(IfcCountMeasure value) {
     m_capacityByNumber = value;
+}
+
+void IfcTransportElement::unsetCapacityByNumber() {
+    m_capacityByNumber = Step::getUnset(getCapacityByNumber());
+}
+
+bool IfcTransportElement::testCapacityByNumber() const {
+    return !Step::isUnset(getCapacityByNumber());
 }
 
 bool IfcTransportElement::init() {

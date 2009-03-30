@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLShapeProfileDef::IfcLShapeProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
@@ -91,6 +88,14 @@ void IfcLShapeProfileDef::setDepth(IfcPositiveLengthMeasure value) {
     m_depth = value;
 }
 
+void IfcLShapeProfileDef::unsetDepth() {
+    m_depth = Step::getUnset(getDepth());
+}
+
+bool IfcLShapeProfileDef::testDepth() const {
+    return !Step::isUnset(getDepth());
+}
+
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth() {
     if (Step::BaseObject::inited()) {
         return m_width;
@@ -107,6 +112,14 @@ const IfcPositiveLengthMeasure IfcLShapeProfileDef::getWidth() const {
 
 void IfcLShapeProfileDef::setWidth(IfcPositiveLengthMeasure value) {
     m_width = value;
+}
+
+void IfcLShapeProfileDef::unsetWidth() {
+    m_width = Step::getUnset(getWidth());
+}
+
+bool IfcLShapeProfileDef::testWidth() const {
+    return !Step::isUnset(getWidth());
 }
 
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getThickness() {
@@ -127,6 +140,14 @@ void IfcLShapeProfileDef::setThickness(IfcPositiveLengthMeasure value) {
     m_thickness = value;
 }
 
+void IfcLShapeProfileDef::unsetThickness() {
+    m_thickness = Step::getUnset(getThickness());
+}
+
+bool IfcLShapeProfileDef::testThickness() const {
+    return !Step::isUnset(getThickness());
+}
+
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius() {
     if (Step::BaseObject::inited()) {
         return m_filletRadius;
@@ -143,6 +164,14 @@ const IfcPositiveLengthMeasure IfcLShapeProfileDef::getFilletRadius() const {
 
 void IfcLShapeProfileDef::setFilletRadius(IfcPositiveLengthMeasure value) {
     m_filletRadius = value;
+}
+
+void IfcLShapeProfileDef::unsetFilletRadius() {
+    m_filletRadius = Step::getUnset(getFilletRadius());
+}
+
+bool IfcLShapeProfileDef::testFilletRadius() const {
+    return !Step::isUnset(getFilletRadius());
 }
 
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getEdgeRadius() {
@@ -163,6 +192,14 @@ void IfcLShapeProfileDef::setEdgeRadius(IfcPositiveLengthMeasure value) {
     m_edgeRadius = value;
 }
 
+void IfcLShapeProfileDef::unsetEdgeRadius() {
+    m_edgeRadius = Step::getUnset(getEdgeRadius());
+}
+
+bool IfcLShapeProfileDef::testEdgeRadius() const {
+    return !Step::isUnset(getEdgeRadius());
+}
+
 IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope() {
     if (Step::BaseObject::inited()) {
         return m_legSlope;
@@ -179,6 +216,14 @@ const IfcPlaneAngleMeasure IfcLShapeProfileDef::getLegSlope() const {
 
 void IfcLShapeProfileDef::setLegSlope(IfcPlaneAngleMeasure value) {
     m_legSlope = value;
+}
+
+void IfcLShapeProfileDef::unsetLegSlope() {
+    m_legSlope = Step::getUnset(getLegSlope());
+}
+
+bool IfcLShapeProfileDef::testLegSlope() const {
+    return !Step::isUnset(getLegSlope());
 }
 
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInX() {
@@ -199,6 +244,14 @@ void IfcLShapeProfileDef::setCentreOfGravityInX(IfcPositiveLengthMeasure value) 
     m_centreOfGravityInX = value;
 }
 
+void IfcLShapeProfileDef::unsetCentreOfGravityInX() {
+    m_centreOfGravityInX = Step::getUnset(getCentreOfGravityInX());
+}
+
+bool IfcLShapeProfileDef::testCentreOfGravityInX() const {
+    return !Step::isUnset(getCentreOfGravityInX());
+}
+
 IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY() {
     if (Step::BaseObject::inited()) {
         return m_centreOfGravityInY;
@@ -215,6 +268,14 @@ const IfcPositiveLengthMeasure IfcLShapeProfileDef::getCentreOfGravityInY() cons
 
 void IfcLShapeProfileDef::setCentreOfGravityInY(IfcPositiveLengthMeasure value) {
     m_centreOfGravityInY = value;
+}
+
+void IfcLShapeProfileDef::unsetCentreOfGravityInY() {
+    m_centreOfGravityInY = Step::getUnset(getCentreOfGravityInY());
+}
+
+bool IfcLShapeProfileDef::testCentreOfGravityInY() const {
+    return !Step::isUnset(getCentreOfGravityInY());
 }
 
 bool IfcLShapeProfileDef::init() {

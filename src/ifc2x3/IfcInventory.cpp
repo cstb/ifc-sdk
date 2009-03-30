@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcInventory::IfcInventory(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
@@ -96,6 +93,14 @@ void IfcInventory::setInventoryType(IfcInventoryTypeEnum value) {
     m_inventoryType = value;
 }
 
+void IfcInventory::unsetInventoryType() {
+    m_inventoryType = IfcInventoryTypeEnum_UNSET;
+}
+
+bool IfcInventory::testInventoryType() const {
+    return getInventoryType() != IfcInventoryTypeEnum_UNSET;
+}
+
 IfcActorSelect *IfcInventory::getJurisdiction() {
     if (Step::BaseObject::inited()) {
         return m_jurisdiction.get();
@@ -112,6 +117,14 @@ const IfcActorSelect *IfcInventory::getJurisdiction() const {
 
 void IfcInventory::setJurisdiction(const Step::RefPtr< IfcActorSelect > &value) {
     m_jurisdiction = value;
+}
+
+void IfcInventory::unsetJurisdiction() {
+    m_jurisdiction = Step::getUnset(getJurisdiction());
+}
+
+bool IfcInventory::testJurisdiction() const {
+    return !Step::isUnset(getJurisdiction());
 }
 
 Set_IfcPerson_1_n &IfcInventory::getResponsiblePersons() {
@@ -133,6 +146,15 @@ void IfcInventory::setResponsiblePersons(const Set_IfcPerson_1_n &value) {
     m_responsiblePersons = value;
 }
 
+void IfcInventory::unsetResponsiblePersons() {
+    m_responsiblePersons.clear();
+    m_responsiblePersons.setUnset(true);
+}
+
+bool IfcInventory::testResponsiblePersons() const {
+    return !Step::isUnset(getResponsiblePersons());
+}
+
 IfcCalendarDate *IfcInventory::getLastUpdateDate() {
     if (Step::BaseObject::inited()) {
         return m_lastUpdateDate.get();
@@ -149,6 +171,14 @@ const IfcCalendarDate *IfcInventory::getLastUpdateDate() const {
 
 void IfcInventory::setLastUpdateDate(const Step::RefPtr< IfcCalendarDate > &value) {
     m_lastUpdateDate = value;
+}
+
+void IfcInventory::unsetLastUpdateDate() {
+    m_lastUpdateDate = Step::getUnset(getLastUpdateDate());
+}
+
+bool IfcInventory::testLastUpdateDate() const {
+    return !Step::isUnset(getLastUpdateDate());
 }
 
 IfcCostValue *IfcInventory::getCurrentValue() {
@@ -169,6 +199,14 @@ void IfcInventory::setCurrentValue(const Step::RefPtr< IfcCostValue > &value) {
     m_currentValue = value;
 }
 
+void IfcInventory::unsetCurrentValue() {
+    m_currentValue = Step::getUnset(getCurrentValue());
+}
+
+bool IfcInventory::testCurrentValue() const {
+    return !Step::isUnset(getCurrentValue());
+}
+
 IfcCostValue *IfcInventory::getOriginalValue() {
     if (Step::BaseObject::inited()) {
         return m_originalValue.get();
@@ -185,6 +223,14 @@ const IfcCostValue *IfcInventory::getOriginalValue() const {
 
 void IfcInventory::setOriginalValue(const Step::RefPtr< IfcCostValue > &value) {
     m_originalValue = value;
+}
+
+void IfcInventory::unsetOriginalValue() {
+    m_originalValue = Step::getUnset(getOriginalValue());
+}
+
+bool IfcInventory::testOriginalValue() const {
+    return !Step::isUnset(getOriginalValue());
 }
 
 bool IfcInventory::init() {

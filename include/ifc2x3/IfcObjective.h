@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcConstraint.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcConstraint.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcMetric;
 
     /**
+     * Generated class for the IfcObjective Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcObjective : public IfcConstraint {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setBenchmarkValues(const Step::RefPtr< IfcMetric > &value);
         /**
+         * unset the attribute 'BenchmarkValues'.
+         * 
+         */
+        virtual void unsetBenchmarkValues();
+        /**
+         * Test if the attribute 'BenchmarkValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBenchmarkValues() const;
+        /**
          * Gets the value of the explicit attribute 'ResultValues'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setResultValues(const Step::RefPtr< IfcMetric > &value);
+        /**
+         * unset the attribute 'ResultValues'.
+         * 
+         */
+        virtual void unsetResultValues();
+        /**
+         * Test if the attribute 'ResultValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResultValues() const;
         /**
          * Gets the value of the explicit attribute 'ObjectiveQualifier'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setObjectiveQualifier(IfcObjectiveEnum value);
         /**
+         * unset the attribute 'ObjectiveQualifier'.
+         * 
+         */
+        virtual void unsetObjectiveQualifier();
+        /**
+         * Test if the attribute 'ObjectiveQualifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testObjectiveQualifier() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedQualifier'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedQualifier(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedQualifier'.
+         * 
+         */
+        virtual void unsetUserDefinedQualifier();
+        /**
+         * Test if the attribute 'UserDefinedQualifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedQualifier() const;
         friend class ExpressDataSet;
 
     protected:

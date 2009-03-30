@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRoof::IfcRoof(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -82,6 +79,14 @@ const IfcRoofTypeEnum IfcRoof::getShapeType() const {
 
 void IfcRoof::setShapeType(IfcRoofTypeEnum value) {
     m_shapeType = value;
+}
+
+void IfcRoof::unsetShapeType() {
+    m_shapeType = IfcRoofTypeEnum_UNSET;
+}
+
+bool IfcRoof::testShapeType() const {
+    return getShapeType() != IfcRoofTypeEnum_UNSET;
 }
 
 bool IfcRoof::init() {

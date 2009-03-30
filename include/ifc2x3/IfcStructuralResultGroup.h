@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGroup.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGroup.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcStructuralLoadGroup;
 
     /**
+     * Generated class for the IfcStructuralResultGroup Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralResultGroup : public IfcGroup {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setTheoryType(IfcAnalysisTheoryTypeEnum value);
         /**
+         * unset the attribute 'TheoryType'.
+         * 
+         */
+        virtual void unsetTheoryType();
+        /**
+         * Test if the attribute 'TheoryType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTheoryType() const;
+        /**
          * Gets the value of the explicit attribute 'ResultForLoadGroup'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value);
+        /**
+         * unset the attribute 'ResultForLoadGroup'.
+         * 
+         */
+        virtual void unsetResultForLoadGroup();
+        /**
+         * Test if the attribute 'ResultForLoadGroup' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResultForLoadGroup() const;
         /**
          * Gets the value of the explicit attribute 'IsLinear'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setIsLinear(Step::Boolean value);
         /**
+         * unset the attribute 'IsLinear'.
+         * 
+         */
+        virtual void unsetIsLinear();
+        /**
+         * Test if the attribute 'IsLinear' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsLinear() const;
+        /**
          * Gets the value of the inverse attribute 'ResultGroupFor'.
          * 
          */
@@ -134,6 +169,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ResultGroupFor'
          */
         virtual const Inverse_Set_IfcStructuralAnalysisModel_0_1 &getResultGroupFor() const;
+        /**
+         * Test if the attribute 'ResultGroupFor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResultGroupFor() const;
         friend class IfcStructuralAnalysisModel;
         friend class ExpressDataSet;
         friend class Inverted_IfcStructuralAnalysisModel_HasResults_type;

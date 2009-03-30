@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGroup.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGroup.h"
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadGroup Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadGroup : public IfcGroup {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcLoadGroupTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the explicit attribute 'ActionType'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setActionType(IfcActionTypeEnum value);
+        /**
+         * unset the attribute 'ActionType'.
+         * 
+         */
+        virtual void unsetActionType();
+        /**
+         * Test if the attribute 'ActionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActionType() const;
         /**
          * Gets the value of the explicit attribute 'ActionSource'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setActionSource(IfcActionSourceTypeEnum value);
         /**
+         * unset the attribute 'ActionSource'.
+         * 
+         */
+        virtual void unsetActionSource();
+        /**
+         * Test if the attribute 'ActionSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActionSource() const;
+        /**
          * Gets the value of the explicit attribute 'Coefficient'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCoefficient(IfcRatioMeasure value);
+        /**
+         * unset the attribute 'Coefficient'.
+         * 
+         */
+        virtual void unsetCoefficient();
+        /**
+         * Test if the attribute 'Coefficient' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCoefficient() const;
         /**
          * Gets the value of the explicit attribute 'Purpose'.
          * 
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          */
         virtual void setPurpose(const IfcLabel &value);
         /**
+         * unset the attribute 'Purpose'.
+         * 
+         */
+        virtual void unsetPurpose();
+        /**
+         * Test if the attribute 'Purpose' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPurpose() const;
+        /**
          * Gets the value of the inverse attribute 'SourceOfResultGroup'.
          * 
          */
@@ -168,6 +225,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcStructuralResultGroup_0_1 &getSourceOfResultGroup() const;
         /**
+         * Test if the attribute 'SourceOfResultGroup' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSourceOfResultGroup() const;
+        /**
          * Gets the value of the inverse attribute 'LoadGroupFor'.
          * 
          */
@@ -178,8 +241,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'LoadGroupFor'
          */
         virtual const Inverse_Set_IfcStructuralAnalysisModel_0_n &getLoadGroupFor() const;
-        friend class IfcStructuralAnalysisModel;
+        /**
+         * Test if the attribute 'LoadGroupFor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLoadGroupFor() const;
         friend class IfcStructuralResultGroup;
+        friend class IfcStructuralAnalysisModel;
         friend class ExpressDataSet;
         friend class Inverted_IfcStructuralAnalysisModel_LoadedBy_type;
 

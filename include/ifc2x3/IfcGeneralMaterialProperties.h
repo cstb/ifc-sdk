@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcGeneralMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGeneralMaterialProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setMolecularWeight(IfcMolecularWeightMeasure value);
         /**
+         * unset the attribute 'MolecularWeight'.
+         * 
+         */
+        virtual void unsetMolecularWeight();
+        /**
+         * Test if the attribute 'MolecularWeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMolecularWeight() const;
+        /**
          * Gets the value of the explicit attribute 'Porosity'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setPorosity(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'Porosity'.
+         * 
+         */
+        virtual void unsetPorosity();
+        /**
+         * Test if the attribute 'Porosity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPorosity() const;
+        /**
          * Gets the value of the explicit attribute 'MassDensity'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMassDensity(IfcMassDensityMeasure value);
+        /**
+         * unset the attribute 'MassDensity'.
+         * 
+         */
+        virtual void unsetMassDensity();
+        /**
+         * Test if the attribute 'MassDensity' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMassDensity() const;
         friend class ExpressDataSet;
 
     protected:

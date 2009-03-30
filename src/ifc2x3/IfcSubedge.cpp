@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSubedge::IfcSubedge(Step::Id id, Step::SPFData *args) : IfcEdge(id, args) {
@@ -85,6 +82,14 @@ const IfcEdge *IfcSubedge::getParentEdge() const {
 
 void IfcSubedge::setParentEdge(const Step::RefPtr< IfcEdge > &value) {
     m_parentEdge = value;
+}
+
+void IfcSubedge::unsetParentEdge() {
+    m_parentEdge = Step::getUnset(getParentEdge());
+}
+
+bool IfcSubedge::testParentEdge() const {
+    return !Step::isUnset(getParentEdge());
 }
 
 bool IfcSubedge::init() {

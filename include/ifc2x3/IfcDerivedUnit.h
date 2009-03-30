@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDerivedUnit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDerivedUnit : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setElements(const Set_IfcDerivedUnitElement_1_n &value);
         /**
+         * unset the attribute 'Elements'.
+         * 
+         */
+        virtual void unsetElements();
+        /**
+         * Test if the attribute 'Elements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElements() const;
+        /**
          * Gets the value of the explicit attribute 'UnitType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setUnitType(IfcDerivedUnitEnum value);
         /**
+         * unset the attribute 'UnitType'.
+         * 
+         */
+        virtual void unsetUnitType();
+        /**
+         * Test if the attribute 'UnitType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnitType() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedType'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedType(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedType'.
+         * 
+         */
+        virtual void unsetUserDefinedType();
+        /**
+         * Test if the attribute 'UserDefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedType() const;
         /**
          * Gets the value of the derived attribute 'Dimensions'.
          * 

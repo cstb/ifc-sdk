@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSectionProperties::IfcSectionProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcSectionProperties::setSectionType(IfcSectionTypeEnum value) {
     m_sectionType = value;
 }
 
+void IfcSectionProperties::unsetSectionType() {
+    m_sectionType = IfcSectionTypeEnum_UNSET;
+}
+
+bool IfcSectionProperties::testSectionType() const {
+    return getSectionType() != IfcSectionTypeEnum_UNSET;
+}
+
 IfcProfileDef *IfcSectionProperties::getStartProfile() {
     if (Step::BaseObject::inited()) {
         return m_startProfile.get();
@@ -108,6 +113,14 @@ void IfcSectionProperties::setStartProfile(const Step::RefPtr< IfcProfileDef > &
     m_startProfile = value;
 }
 
+void IfcSectionProperties::unsetStartProfile() {
+    m_startProfile = Step::getUnset(getStartProfile());
+}
+
+bool IfcSectionProperties::testStartProfile() const {
+    return !Step::isUnset(getStartProfile());
+}
+
 IfcProfileDef *IfcSectionProperties::getEndProfile() {
     if (Step::BaseObject::inited()) {
         return m_endProfile.get();
@@ -124,6 +137,14 @@ const IfcProfileDef *IfcSectionProperties::getEndProfile() const {
 
 void IfcSectionProperties::setEndProfile(const Step::RefPtr< IfcProfileDef > &value) {
     m_endProfile = value;
+}
+
+void IfcSectionProperties::unsetEndProfile() {
+    m_endProfile = Step::getUnset(getEndProfile());
+}
+
+bool IfcSectionProperties::testEndProfile() const {
+    return !Step::isUnset(getEndProfile());
 }
 
 bool IfcSectionProperties::init() {

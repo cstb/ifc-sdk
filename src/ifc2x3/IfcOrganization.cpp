@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,9 +44,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcOrganization_Addresses_type::Inverted_IfcOrganization_Addresses_type() {
@@ -66,6 +63,12 @@ Inverted_IfcOrganization_Addresses_type::iterator Inverted_IfcOrganization_Addre
     IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
     inverse->m_ofOrganization.erase(mOwner);
     return List_IfcAddress_1_n::erase(value);
+}
+
+void Inverted_IfcOrganization_Addresses_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 IfcOrganization::IfcOrganization(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -118,6 +121,14 @@ void IfcOrganization::setId(const IfcIdentifier &value) {
     m_id = value;
 }
 
+void IfcOrganization::unsetId() {
+    m_id = Step::getUnset(getId());
+}
+
+bool IfcOrganization::testId() const {
+    return !Step::isUnset(getId());
+}
+
 IfcLabel IfcOrganization::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -136,6 +147,14 @@ void IfcOrganization::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcOrganization::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcOrganization::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcOrganization::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -152,6 +171,14 @@ const IfcText IfcOrganization::getDescription() const {
 
 void IfcOrganization::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcOrganization::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcOrganization::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 List_IfcActorRole_1_n &IfcOrganization::getRoles() {
@@ -173,6 +200,15 @@ void IfcOrganization::setRoles(const List_IfcActorRole_1_n &value) {
     m_roles = value;
 }
 
+void IfcOrganization::unsetRoles() {
+    m_roles.clear();
+    m_roles.setUnset(true);
+}
+
+bool IfcOrganization::testRoles() const {
+    return !Step::isUnset(getRoles());
+}
+
 List_IfcAddress_1_n &IfcOrganization::getAddresses() {
     if (Step::BaseObject::inited()) {
         return m_addresses;
@@ -186,6 +222,15 @@ List_IfcAddress_1_n &IfcOrganization::getAddresses() {
 const List_IfcAddress_1_n &IfcOrganization::getAddresses() const {
     IfcOrganization * deConstObject = const_cast< IfcOrganization * > (this);
     return deConstObject->getAddresses();
+}
+
+void IfcOrganization::unsetAddresses() {
+    m_addresses.clear();
+    m_addresses.setUnset(true);
+}
+
+bool IfcOrganization::testAddresses() const {
+    return !Step::isUnset(getAddresses());
 }
 
 Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() {
@@ -203,6 +248,10 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelated
     return deConstObject->getIsRelatedBy();
 }
 
+bool IfcOrganization::testIsRelatedBy() const {
+    return !Step::isUnset(getIsRelatedBy());
+}
+
 Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates() {
     if (Step::BaseObject::inited()) {
         return m_relates;
@@ -218,6 +267,10 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates()
     return deConstObject->getRelates();
 }
 
+bool IfcOrganization::testRelates() const {
+    return !Step::isUnset(getRelates());
+}
+
 Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() {
     if (Step::BaseObject::inited()) {
         return m_engages;
@@ -231,6 +284,10 @@ Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() {
 const Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() const {
     IfcOrganization * deConstObject = const_cast< IfcOrganization * > (this);
     return deConstObject->getEngages();
+}
+
+bool IfcOrganization::testEngages() const {
+    return !Step::isUnset(getEngages());
 }
 
 bool IfcOrganization::init() {

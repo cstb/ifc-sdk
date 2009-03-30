@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAirToAirHeatRecoveryType::IfcAirToAirHeatRecoveryType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcAirToAirHeatRecoveryTypeEnum IfcAirToAirHeatRecoveryType::getPredefined
 
 void IfcAirToAirHeatRecoveryType::setPredefinedType(IfcAirToAirHeatRecoveryTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcAirToAirHeatRecoveryType::unsetPredefinedType() {
+    m_predefinedType = IfcAirToAirHeatRecoveryTypeEnum_UNSET;
+}
+
+bool IfcAirToAirHeatRecoveryType::testPredefinedType() const {
+    return getPredefinedType() != IfcAirToAirHeatRecoveryTypeEnum_UNSET;
 }
 
 bool IfcAirToAirHeatRecoveryType::init() {

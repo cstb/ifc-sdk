@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,9 +44,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConstraint::IfcConstraint(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -100,6 +97,14 @@ void IfcConstraint::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcConstraint::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcConstraint::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcConstraint::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -116,6 +121,14 @@ const IfcText IfcConstraint::getDescription() const {
 
 void IfcConstraint::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcConstraint::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcConstraint::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcConstraintEnum IfcConstraint::getConstraintGrade() {
@@ -136,6 +149,14 @@ void IfcConstraint::setConstraintGrade(IfcConstraintEnum value) {
     m_constraintGrade = value;
 }
 
+void IfcConstraint::unsetConstraintGrade() {
+    m_constraintGrade = IfcConstraintEnum_UNSET;
+}
+
+bool IfcConstraint::testConstraintGrade() const {
+    return getConstraintGrade() != IfcConstraintEnum_UNSET;
+}
+
 IfcLabel IfcConstraint::getConstraintSource() {
     if (Step::BaseObject::inited()) {
         return m_constraintSource;
@@ -152,6 +173,14 @@ const IfcLabel IfcConstraint::getConstraintSource() const {
 
 void IfcConstraint::setConstraintSource(const IfcLabel &value) {
     m_constraintSource = value;
+}
+
+void IfcConstraint::unsetConstraintSource() {
+    m_constraintSource = Step::getUnset(getConstraintSource());
+}
+
+bool IfcConstraint::testConstraintSource() const {
+    return !Step::isUnset(getConstraintSource());
 }
 
 IfcActorSelect *IfcConstraint::getCreatingActor() {
@@ -172,6 +201,14 @@ void IfcConstraint::setCreatingActor(const Step::RefPtr< IfcActorSelect > &value
     m_creatingActor = value;
 }
 
+void IfcConstraint::unsetCreatingActor() {
+    m_creatingActor = Step::getUnset(getCreatingActor());
+}
+
+bool IfcConstraint::testCreatingActor() const {
+    return !Step::isUnset(getCreatingActor());
+}
+
 IfcDateTimeSelect *IfcConstraint::getCreationTime() {
     if (Step::BaseObject::inited()) {
         return m_creationTime.get();
@@ -188,6 +225,14 @@ const IfcDateTimeSelect *IfcConstraint::getCreationTime() const {
 
 void IfcConstraint::setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_creationTime = value;
+}
+
+void IfcConstraint::unsetCreationTime() {
+    m_creationTime = Step::getUnset(getCreationTime());
+}
+
+bool IfcConstraint::testCreationTime() const {
+    return !Step::isUnset(getCreationTime());
 }
 
 IfcLabel IfcConstraint::getUserDefinedGrade() {
@@ -208,6 +253,14 @@ void IfcConstraint::setUserDefinedGrade(const IfcLabel &value) {
     m_userDefinedGrade = value;
 }
 
+void IfcConstraint::unsetUserDefinedGrade() {
+    m_userDefinedGrade = Step::getUnset(getUserDefinedGrade());
+}
+
+bool IfcConstraint::testUserDefinedGrade() const {
+    return !Step::isUnset(getUserDefinedGrade());
+}
+
 Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs() {
     if (Step::BaseObject::inited()) {
         return m_classifiedAs;
@@ -221,6 +274,10 @@ Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClass
 const Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::getClassifiedAs() const {
     IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
     return deConstObject->getClassifiedAs();
+}
+
+bool IfcConstraint::testClassifiedAs() const {
+    return !Step::isUnset(getClassifiedAs());
 }
 
 Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints() {
@@ -238,6 +295,10 @@ const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstr
     return deConstObject->getRelatesConstraints();
 }
 
+bool IfcConstraint::testRelatesConstraints() const {
+    return !Step::isUnset(getRelatesConstraints());
+}
+
 Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedWith;
@@ -251,6 +312,10 @@ Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() {
 const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() const {
     IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
     return deConstObject->getIsRelatedWith();
+}
+
+bool IfcConstraint::testIsRelatedWith() const {
+    return !Step::isUnset(getIsRelatedWith());
 }
 
 Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint() {
@@ -268,6 +333,10 @@ const Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPrope
     return deConstObject->getPropertiesForConstraint();
 }
 
+bool IfcConstraint::testPropertiesForConstraint() const {
+    return !Step::isUnset(getPropertiesForConstraint());
+}
+
 Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates() {
     if (Step::BaseObject::inited()) {
         return m_aggregates;
@@ -283,6 +352,10 @@ const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAg
     return deConstObject->getAggregates();
 }
 
+bool IfcConstraint::testAggregates() const {
+    return !Step::isUnset(getAggregates());
+}
+
 Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() {
     if (Step::BaseObject::inited()) {
         return m_isAggregatedIn;
@@ -296,6 +369,10 @@ Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggreg
 const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() const {
     IfcConstraint * deConstObject = const_cast< IfcConstraint * > (this);
     return deConstObject->getIsAggregatedIn();
+}
+
+bool IfcConstraint::testIsAggregatedIn() const {
+    return !Step::isUnset(getIsAggregatedIn());
 }
 
 bool IfcConstraint::init() {

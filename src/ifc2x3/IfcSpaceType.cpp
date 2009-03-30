@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSpaceType::IfcSpaceType(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcSpaceTypeEnum IfcSpaceType::getPredefinedType() const {
 
 void IfcSpaceType::setPredefinedType(IfcSpaceTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcSpaceType::unsetPredefinedType() {
+    m_predefinedType = IfcSpaceTypeEnum_UNSET;
+}
+
+bool IfcSpaceType::testPredefinedType() const {
+    return getPredefinedType() != IfcSpaceTypeEnum_UNSET;
 }
 
 bool IfcSpaceType::init() {

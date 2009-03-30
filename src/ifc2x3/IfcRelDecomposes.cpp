@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelDecomposes_RelatedObjects_type::Inverted_IfcRelDecomposes_RelatedObjects_type() {
@@ -63,9 +60,14 @@ Inverted_IfcRelDecomposes_RelatedObjects_type::size_type Inverted_IfcRelDecompos
     return Set_IfcObjectDefinition_1_n::erase(value);
 }
 
+void Inverted_IfcRelDecomposes_RelatedObjects_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelDecomposes::IfcRelDecomposes(Step::Id id, Step::SPFData *args) : IfcRelationship(id, args) {
     m_relatingObject = NULL;
-    m_relatedObjects.setUnset(true);
     m_relatedObjects.setOwner(this);
 }
 
@@ -116,6 +118,14 @@ void IfcRelDecomposes::setRelatingObject(const Step::RefPtr< IfcObjectDefinition
     m_relatingObject = value;
 }
 
+void IfcRelDecomposes::unsetRelatingObject() {
+    m_relatingObject = Step::getUnset(getRelatingObject());
+}
+
+bool IfcRelDecomposes::testRelatingObject() const {
+    return !Step::isUnset(getRelatingObject());
+}
+
 Set_IfcObjectDefinition_1_n &IfcRelDecomposes::getRelatedObjects() {
     if (Step::BaseObject::inited()) {
         return m_relatedObjects;
@@ -129,6 +139,15 @@ Set_IfcObjectDefinition_1_n &IfcRelDecomposes::getRelatedObjects() {
 const Set_IfcObjectDefinition_1_n &IfcRelDecomposes::getRelatedObjects() const {
     IfcRelDecomposes * deConstObject = const_cast< IfcRelDecomposes * > (this);
     return deConstObject->getRelatedObjects();
+}
+
+void IfcRelDecomposes::unsetRelatedObjects() {
+    m_relatedObjects.clear();
+    m_relatedObjects.setUnset(true);
+}
+
+bool IfcRelDecomposes::testRelatedObjects() const {
+    return !Step::isUnset(getRelatedObjects());
 }
 
 bool IfcRelDecomposes::init() {

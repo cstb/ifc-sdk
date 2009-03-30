@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToProduct::IfcRelAssignsToProduct(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -92,6 +89,14 @@ void IfcRelAssignsToProduct::setRelatingProduct(const Step::RefPtr< IfcProduct >
         value->m_referencedBy.insert(this);
     }
     m_relatingProduct = value;
+}
+
+void IfcRelAssignsToProduct::unsetRelatingProduct() {
+    m_relatingProduct = Step::getUnset(getRelatingProduct());
+}
+
+bool IfcRelAssignsToProduct::testRelatingProduct() const {
+    return !Step::isUnset(getRelatingProduct());
 }
 
 bool IfcRelAssignsToProduct::init() {

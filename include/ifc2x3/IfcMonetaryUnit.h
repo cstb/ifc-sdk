@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMonetaryUnit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMonetaryUnit : public Step::BaseEntity {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCurrency(IfcCurrencyEnum value);
+        /**
+         * unset the attribute 'Currency'.
+         * 
+         */
+        virtual void unsetCurrency();
+        /**
+         * Test if the attribute 'Currency' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurrency() const;
         friend class ExpressDataSet;
 
     protected:

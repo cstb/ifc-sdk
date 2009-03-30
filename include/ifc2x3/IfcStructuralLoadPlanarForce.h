@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadPlanarForce Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadPlanarForce : public IfcStructuralLoadStatic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPlanarForceX(IfcPlanarForceMeasure value);
         /**
+         * unset the attribute 'PlanarForceX'.
+         * 
+         */
+        virtual void unsetPlanarForceX();
+        /**
+         * Test if the attribute 'PlanarForceX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlanarForceX() const;
+        /**
          * Gets the value of the explicit attribute 'PlanarForceY'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setPlanarForceY(IfcPlanarForceMeasure value);
         /**
+         * unset the attribute 'PlanarForceY'.
+         * 
+         */
+        virtual void unsetPlanarForceY();
+        /**
+         * Test if the attribute 'PlanarForceY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlanarForceY() const;
+        /**
          * Gets the value of the explicit attribute 'PlanarForceZ'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPlanarForceZ(IfcPlanarForceMeasure value);
+        /**
+         * unset the attribute 'PlanarForceZ'.
+         * 
+         */
+        virtual void unsetPlanarForceZ();
+        /**
+         * Test if the attribute 'PlanarForceZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlanarForceZ() const;
         friend class ExpressDataSet;
 
     protected:

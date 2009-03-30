@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcExternalReference Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcExternalReference : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setLocation(const IfcLabel &value);
         /**
+         * unset the attribute 'Location'.
+         * 
+         */
+        virtual void unsetLocation();
+        /**
+         * Test if the attribute 'Location' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLocation() const;
+        /**
          * Gets the value of the explicit attribute 'ItemReference'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setItemReference(const IfcIdentifier &value);
         /**
+         * unset the attribute 'ItemReference'.
+         * 
+         */
+        virtual void unsetItemReference();
+        /**
+         * Test if the attribute 'ItemReference' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testItemReference() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         friend class ExpressDataSet;
 
     protected:

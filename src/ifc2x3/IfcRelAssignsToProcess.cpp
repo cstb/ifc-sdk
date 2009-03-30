@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToProcess::IfcRelAssignsToProcess(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -96,6 +93,14 @@ void IfcRelAssignsToProcess::setRelatingProcess(const Step::RefPtr< IfcProcess >
     m_relatingProcess = value;
 }
 
+void IfcRelAssignsToProcess::unsetRelatingProcess() {
+    m_relatingProcess = Step::getUnset(getRelatingProcess());
+}
+
+bool IfcRelAssignsToProcess::testRelatingProcess() const {
+    return !Step::isUnset(getRelatingProcess());
+}
+
 IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() {
     if (Step::BaseObject::inited()) {
         return m_quantityInProcess.get();
@@ -112,6 +117,14 @@ const IfcMeasureWithUnit *IfcRelAssignsToProcess::getQuantityInProcess() const {
 
 void IfcRelAssignsToProcess::setQuantityInProcess(const Step::RefPtr< IfcMeasureWithUnit > &value) {
     m_quantityInProcess = value;
+}
+
+void IfcRelAssignsToProcess::unsetQuantityInProcess() {
+    m_quantityInProcess = Step::getUnset(getQuantityInProcess());
+}
+
+bool IfcRelAssignsToProcess::testQuantityInProcess() const {
+    return !Step::isUnset(getQuantityInProcess());
 }
 
 bool IfcRelAssignsToProcess::init() {

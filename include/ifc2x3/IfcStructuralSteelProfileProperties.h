@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralProfileProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralProfileProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralSteelProfileProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralSteelProfileProperties : public IfcStructuralProfileProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setShearAreaZ(IfcAreaMeasure value);
         /**
+         * unset the attribute 'ShearAreaZ'.
+         * 
+         */
+        virtual void unsetShearAreaZ();
+        /**
+         * Test if the attribute 'ShearAreaZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearAreaZ() const;
+        /**
          * Gets the value of the explicit attribute 'ShearAreaY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShearAreaY(IfcAreaMeasure value);
+        /**
+         * unset the attribute 'ShearAreaY'.
+         * 
+         */
+        virtual void unsetShearAreaY();
+        /**
+         * Test if the attribute 'ShearAreaY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShearAreaY() const;
         /**
          * Gets the value of the explicit attribute 'PlasticShapeFactorY'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setPlasticShapeFactorY(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'PlasticShapeFactorY'.
+         * 
+         */
+        virtual void unsetPlasticShapeFactorY();
+        /**
+         * Test if the attribute 'PlasticShapeFactorY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlasticShapeFactorY() const;
+        /**
          * Gets the value of the explicit attribute 'PlasticShapeFactorZ'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPlasticShapeFactorZ(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'PlasticShapeFactorZ'.
+         * 
+         */
+        virtual void unsetPlasticShapeFactorZ();
+        /**
+         * Test if the attribute 'PlasticShapeFactorZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlasticShapeFactorZ() const;
         friend class ExpressDataSet;
 
     protected:

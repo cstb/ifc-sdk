@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcDateTimeSelect;
 
     /**
+     * Generated class for the IfcConstraint Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConstraint : public Step::BaseEntity {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'ConstraintGrade'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setConstraintGrade(IfcConstraintEnum value);
         /**
+         * unset the attribute 'ConstraintGrade'.
+         * 
+         */
+        virtual void unsetConstraintGrade();
+        /**
+         * Test if the attribute 'ConstraintGrade' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConstraintGrade() const;
+        /**
          * Gets the value of the explicit attribute 'ConstraintSource'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConstraintSource(const IfcLabel &value);
+        /**
+         * unset the attribute 'ConstraintSource'.
+         * 
+         */
+        virtual void unsetConstraintSource();
+        /**
+         * Test if the attribute 'ConstraintSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConstraintSource() const;
         /**
          * Gets the value of the explicit attribute 'CreatingActor'.
          * 
@@ -160,6 +206,17 @@ namespace ifc2x3 {
          */
         virtual void setCreatingActor(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'CreatingActor'.
+         * 
+         */
+        virtual void unsetCreatingActor();
+        /**
+         * Test if the attribute 'CreatingActor' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreatingActor() const;
+        /**
          * Gets the value of the explicit attribute 'CreationTime'.
          * 
          */
@@ -176,6 +233,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCreationTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'CreationTime'.
+         * 
+         */
+        virtual void unsetCreationTime();
+        /**
+         * Test if the attribute 'CreationTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreationTime() const;
         /**
          * Gets the value of the explicit attribute 'UserDefinedGrade'.
          * 
@@ -194,6 +262,17 @@ namespace ifc2x3 {
          */
         virtual void setUserDefinedGrade(const IfcLabel &value);
         /**
+         * unset the attribute 'UserDefinedGrade'.
+         * 
+         */
+        virtual void unsetUserDefinedGrade();
+        /**
+         * Test if the attribute 'UserDefinedGrade' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedGrade() const;
+        /**
          * Gets the value of the inverse attribute 'ClassifiedAs'.
          * 
          */
@@ -204,6 +283,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ClassifiedAs'
          */
         virtual const Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs() const;
+        /**
+         * Test if the attribute 'ClassifiedAs' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testClassifiedAs() const;
         /**
          * Gets the value of the inverse attribute 'RelatesConstraints'.
          * 
@@ -216,6 +301,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints() const;
         /**
+         * Test if the attribute 'RelatesConstraints' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatesConstraints() const;
+        /**
          * Gets the value of the inverse attribute 'IsRelatedWith'.
          * 
          */
@@ -226,6 +317,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsRelatedWith'
          */
         virtual const Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
+        /**
+         * Test if the attribute 'IsRelatedWith' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsRelatedWith() const;
         /**
          * Gets the value of the inverse attribute 'PropertiesForConstraint'.
          * 
@@ -238,6 +335,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
         /**
+         * Test if the attribute 'PropertiesForConstraint' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPropertiesForConstraint() const;
+        /**
          * Gets the value of the inverse attribute 'Aggregates'.
          * 
          */
@@ -249,6 +352,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
         /**
+         * Test if the attribute 'Aggregates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAggregates() const;
+        /**
          * Gets the value of the inverse attribute 'IsAggregatedIn'.
          * 
          */
@@ -259,11 +368,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsAggregatedIn'
          */
         virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
+        /**
+         * Test if the attribute 'IsAggregatedIn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsAggregatedIn() const;
+        friend class Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type;
         friend class IfcConstraintAggregationRelationship;
+        friend class Inverted_IfcConstraintRelationship_RelatedConstraints_type;
         friend class IfcConstraintClassificationRelationship;
         friend class ExpressDataSet;
-        friend class Inverted_IfcConstraintRelationship_RelatedConstraints_type;
-        friend class Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type;
         friend class IfcPropertyConstraintRelationship;
         friend class IfcConstraintRelationship;
 

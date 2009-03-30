@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProductRepresentation.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcProductRepresentation.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProductDefinitionShape Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProductDefinitionShape : public IfcProductRepresentation {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcProduct_1_1 &getShapeOfProduct() const;
         /**
+         * Test if the attribute 'ShapeOfProduct' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShapeOfProduct() const;
+        /**
          * Gets the value of the inverse attribute 'HasShapeAspects'.
          * 
          */
@@ -92,6 +100,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasShapeAspects'
          */
         virtual const Inverse_Set_IfcShapeAspect_0_n &getHasShapeAspects() const;
+        /**
+         * Test if the attribute 'HasShapeAspects' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasShapeAspects() const;
         friend class IfcShapeAspect;
         friend class ExpressDataSet;
         friend class IfcProduct;

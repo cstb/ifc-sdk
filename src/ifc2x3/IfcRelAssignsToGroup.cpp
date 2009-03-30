@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToGroup::IfcRelAssignsToGroup(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -92,6 +89,14 @@ void IfcRelAssignsToGroup::setRelatingGroup(const Step::RefPtr< IfcGroup > &valu
         value->m_isGroupedBy = this;
     }
     m_relatingGroup = value;
+}
+
+void IfcRelAssignsToGroup::unsetRelatingGroup() {
+    m_relatingGroup = Step::getUnset(getRelatingGroup());
+}
+
+bool IfcRelAssignsToGroup::testRelatingGroup() const {
+    return !Step::isUnset(getRelatingGroup());
 }
 
 bool IfcRelAssignsToGroup::init() {

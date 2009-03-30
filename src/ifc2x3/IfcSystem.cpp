@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSystem::IfcSystem(Step::Id id, Step::SPFData *args) : IfcGroup(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() {
 const Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() const {
     IfcSystem * deConstObject = const_cast< IfcSystem * > (this);
     return deConstObject->getServicesBuildings();
+}
+
+bool IfcSystem::testServicesBuildings() const {
+    return !Step::isUnset(getServicesBuildings());
 }
 
 bool IfcSystem::init() {

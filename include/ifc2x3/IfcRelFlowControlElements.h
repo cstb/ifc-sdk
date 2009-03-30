@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +43,8 @@ namespace ifc2x3 {
     class IfcRelFlowControlElements;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelFlowControlElements_RelatedControlElements_type : public Set_IfcDistributionControlElement_1_n {
     public:
@@ -53,22 +54,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelFlowControlElements *mOwner;
-        /**
-         */
         Inverted_IfcRelFlowControlElements_RelatedControlElements_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelFlowControlElements *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcDistributionControlElement > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcDistributionControlElement > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelFlowControlElements;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelFlowControlElements *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelFlowControlElements *owner);
 
     };
 
@@ -76,6 +91,8 @@ namespace ifc2x3 {
     class IfcDistributionFlowElement;
 
     /**
+     * Generated class for the IfcRelFlowControlElements Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelFlowControlElements : public IfcRelConnects {
     public:
@@ -118,6 +135,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcDistributionControlElement_1_n &getRelatedControlElements() const;
         /**
+         * unset the attribute 'RelatedControlElements'.
+         * 
+         */
+        virtual void unsetRelatedControlElements();
+        /**
+         * Test if the attribute 'RelatedControlElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedControlElements() const;
+        /**
          * Gets the value of the explicit attribute 'RelatingFlowElement'.
          * 
          */
@@ -134,6 +162,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatingFlowElement(const Step::RefPtr< IfcDistributionFlowElement > &value);
+        /**
+         * unset the attribute 'RelatingFlowElement'.
+         * 
+         */
+        virtual void unsetRelatingFlowElement();
+        /**
+         * Test if the attribute 'RelatingFlowElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingFlowElement() const;
         friend class ExpressDataSet;
 
     protected:

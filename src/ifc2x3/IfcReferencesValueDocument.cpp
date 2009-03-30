@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcReferencesValueDocument_ReferencingValues_type::Inverted_IfcReferencesValueDocument_ReferencingValues_type() {
@@ -66,9 +63,14 @@ Inverted_IfcReferencesValueDocument_ReferencingValues_type::size_type Inverted_I
     return Set_IfcAppliedValue_1_n::erase(value);
 }
 
+void Inverted_IfcReferencesValueDocument_ReferencingValues_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcReferencesValueDocument::IfcReferencesValueDocument(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_referencedDocument = NULL;
-    m_referencingValues.setUnset(true);
     m_referencingValues.setOwner(this);
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
@@ -115,6 +117,14 @@ void IfcReferencesValueDocument::setReferencedDocument(const Step::RefPtr< IfcDo
     m_referencedDocument = value;
 }
 
+void IfcReferencesValueDocument::unsetReferencedDocument() {
+    m_referencedDocument = Step::getUnset(getReferencedDocument());
+}
+
+bool IfcReferencesValueDocument::testReferencedDocument() const {
+    return !Step::isUnset(getReferencedDocument());
+}
+
 Set_IfcAppliedValue_1_n &IfcReferencesValueDocument::getReferencingValues() {
     if (Step::BaseObject::inited()) {
         return m_referencingValues;
@@ -128,6 +138,15 @@ Set_IfcAppliedValue_1_n &IfcReferencesValueDocument::getReferencingValues() {
 const Set_IfcAppliedValue_1_n &IfcReferencesValueDocument::getReferencingValues() const {
     IfcReferencesValueDocument * deConstObject = const_cast< IfcReferencesValueDocument * > (this);
     return deConstObject->getReferencingValues();
+}
+
+void IfcReferencesValueDocument::unsetReferencingValues() {
+    m_referencingValues.clear();
+    m_referencingValues.setUnset(true);
+}
+
+bool IfcReferencesValueDocument::testReferencingValues() const {
+    return !Step::isUnset(getReferencingValues());
 }
 
 IfcLabel IfcReferencesValueDocument::getName() {
@@ -148,6 +167,14 @@ void IfcReferencesValueDocument::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcReferencesValueDocument::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcReferencesValueDocument::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcReferencesValueDocument::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -164,6 +191,14 @@ const IfcText IfcReferencesValueDocument::getDescription() const {
 
 void IfcReferencesValueDocument::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcReferencesValueDocument::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcReferencesValueDocument::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 bool IfcReferencesValueDocument::init() {

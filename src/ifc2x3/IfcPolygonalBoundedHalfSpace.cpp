@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPolygonalBoundedHalfSpace::IfcPolygonalBoundedHalfSpace(Step::Id id, Step::SPFData *args) : IfcHalfSpaceSolid(id, args) {
@@ -90,6 +87,14 @@ void IfcPolygonalBoundedHalfSpace::setPosition(const Step::RefPtr< IfcAxis2Place
     m_position = value;
 }
 
+void IfcPolygonalBoundedHalfSpace::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcPolygonalBoundedHalfSpace::testPosition() const {
+    return !Step::isUnset(getPosition());
+}
+
 IfcBoundedCurve *IfcPolygonalBoundedHalfSpace::getPolygonalBoundary() {
     if (Step::BaseObject::inited()) {
         return m_polygonalBoundary.get();
@@ -106,6 +111,14 @@ const IfcBoundedCurve *IfcPolygonalBoundedHalfSpace::getPolygonalBoundary() cons
 
 void IfcPolygonalBoundedHalfSpace::setPolygonalBoundary(const Step::RefPtr< IfcBoundedCurve > &value) {
     m_polygonalBoundary = value;
+}
+
+void IfcPolygonalBoundedHalfSpace::unsetPolygonalBoundary() {
+    m_polygonalBoundary = Step::getUnset(getPolygonalBoundary());
+}
+
+bool IfcPolygonalBoundedHalfSpace::testPolygonalBoundary() const {
+    return !Step::isUnset(getPolygonalBoundary());
 }
 
 bool IfcPolygonalBoundedHalfSpace::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEvaporatorType::IfcEvaporatorType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcEvaporatorTypeEnum IfcEvaporatorType::getPredefinedType() const {
 
 void IfcEvaporatorType::setPredefinedType(IfcEvaporatorTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcEvaporatorType::unsetPredefinedType() {
+    m_predefinedType = IfcEvaporatorTypeEnum_UNSET;
+}
+
+bool IfcEvaporatorType::testPredefinedType() const {
+    return getPredefinedType() != IfcEvaporatorTypeEnum_UNSET;
 }
 
 bool IfcEvaporatorType::init() {

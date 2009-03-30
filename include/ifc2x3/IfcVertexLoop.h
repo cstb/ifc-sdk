@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,9 +32,9 @@
 #include "ifc2x3/IfcLoop.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcVertex;
 
     /**
+     * Generated class for the IfcVertexLoop Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcVertexLoop : public IfcLoop {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLoopVertex(const Step::RefPtr< IfcVertex > &value);
+        /**
+         * unset the attribute 'LoopVertex'.
+         * 
+         */
+        virtual void unsetLoopVertex();
+        /**
+         * Test if the attribute 'LoopVertex' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLoopVertex() const;
         friend class ExpressDataSet;
 
     protected:

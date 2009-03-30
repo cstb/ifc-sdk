@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRegularTimeSeries::IfcRegularTimeSeries(Step::Id id, Step::SPFData *args) : IfcTimeSeries(id, args) {
@@ -88,6 +85,14 @@ void IfcRegularTimeSeries::setTimeStep(IfcTimeMeasure value) {
     m_timeStep = value;
 }
 
+void IfcRegularTimeSeries::unsetTimeStep() {
+    m_timeStep = Step::getUnset(getTimeStep());
+}
+
+bool IfcRegularTimeSeries::testTimeStep() const {
+    return !Step::isUnset(getTimeStep());
+}
+
 List_IfcTimeSeriesValue_1_n &IfcRegularTimeSeries::getValues() {
     if (Step::BaseObject::inited()) {
         return m_values;
@@ -105,6 +110,15 @@ const List_IfcTimeSeriesValue_1_n &IfcRegularTimeSeries::getValues() const {
 
 void IfcRegularTimeSeries::setValues(const List_IfcTimeSeriesValue_1_n &value) {
     m_values = value;
+}
+
+void IfcRegularTimeSeries::unsetValues() {
+    m_values.clear();
+    m_values.setUnset(true);
+}
+
+bool IfcRegularTimeSeries::testValues() const {
+    return !Step::isUnset(getValues());
 }
 
 bool IfcRegularTimeSeries::init() {

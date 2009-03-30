@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConnectionPointGeometry::IfcConnectionPointGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
@@ -88,6 +85,14 @@ void IfcConnectionPointGeometry::setPointOnRelatingElement(const Step::RefPtr< I
     m_pointOnRelatingElement = value;
 }
 
+void IfcConnectionPointGeometry::unsetPointOnRelatingElement() {
+    m_pointOnRelatingElement = Step::getUnset(getPointOnRelatingElement());
+}
+
+bool IfcConnectionPointGeometry::testPointOnRelatingElement() const {
+    return !Step::isUnset(getPointOnRelatingElement());
+}
+
 IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_pointOnRelatedElement.get();
@@ -104,6 +109,14 @@ const IfcPointOrVertexPoint *IfcConnectionPointGeometry::getPointOnRelatedElemen
 
 void IfcConnectionPointGeometry::setPointOnRelatedElement(const Step::RefPtr< IfcPointOrVertexPoint > &value) {
     m_pointOnRelatedElement = value;
+}
+
+void IfcConnectionPointGeometry::unsetPointOnRelatedElement() {
+    m_pointOnRelatedElement = Step::getUnset(getPointOnRelatedElement());
+}
+
+bool IfcConnectionPointGeometry::testPointOnRelatedElement() const {
+    return !Step::isUnset(getPointOnRelatedElement());
 }
 
 bool IfcConnectionPointGeometry::init() {

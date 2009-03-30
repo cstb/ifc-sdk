@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGeometricSet::IfcGeometricSet(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -87,6 +84,15 @@ const Set_IfcGeometricSetSelect_1_n &IfcGeometricSet::getElements() const {
 
 void IfcGeometricSet::setElements(const Set_IfcGeometricSetSelect_1_n &value) {
     m_elements = value;
+}
+
+void IfcGeometricSet::unsetElements() {
+    m_elements.clear();
+    m_elements.setUnset(true);
+}
+
+bool IfcGeometricSet::testElements() const {
+    return !Step::isUnset(getElements());
 }
 
 bool IfcGeometricSet::init() {

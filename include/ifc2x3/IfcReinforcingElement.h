@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBuildingElementComponent.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcBuildingElementComponent.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcReinforcingElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcReinforcingElement : public IfcBuildingElementComponent {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSteelGrade(const IfcLabel &value);
+        /**
+         * unset the attribute 'SteelGrade'.
+         * 
+         */
+        virtual void unsetSteelGrade();
+        /**
+         * Test if the attribute 'SteelGrade' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSteelGrade() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyle::IfcSurfaceStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
@@ -89,6 +86,14 @@ void IfcSurfaceStyle::setSide(IfcSurfaceSide value) {
     m_side = value;
 }
 
+void IfcSurfaceStyle::unsetSide() {
+    m_side = IfcSurfaceSide_UNSET;
+}
+
+bool IfcSurfaceStyle::testSide() const {
+    return getSide() != IfcSurfaceSide_UNSET;
+}
+
 Set_IfcSurfaceStyleElementSelect_1_5 &IfcSurfaceStyle::getStyles() {
     if (Step::BaseObject::inited()) {
         return m_styles;
@@ -106,6 +111,15 @@ const Set_IfcSurfaceStyleElementSelect_1_5 &IfcSurfaceStyle::getStyles() const {
 
 void IfcSurfaceStyle::setStyles(const Set_IfcSurfaceStyleElementSelect_1_5 &value) {
     m_styles = value;
+}
+
+void IfcSurfaceStyle::unsetStyles() {
+    m_styles.clear();
+    m_styles.setUnset(true);
+}
+
+bool IfcSurfaceStyle::testStyles() const {
+    return !Step::isUnset(getStyles());
 }
 
 bool IfcSurfaceStyle::init() {

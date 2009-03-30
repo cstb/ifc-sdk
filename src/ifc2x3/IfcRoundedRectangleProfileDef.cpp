@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRoundedRectangleProfileDef::IfcRoundedRectangleProfileDef(Step::Id id, Step::SPFData *args) : IfcRectangleProfileDef(id, args) {
@@ -82,6 +79,14 @@ const IfcPositiveLengthMeasure IfcRoundedRectangleProfileDef::getRoundingRadius(
 
 void IfcRoundedRectangleProfileDef::setRoundingRadius(IfcPositiveLengthMeasure value) {
     m_roundingRadius = value;
+}
+
+void IfcRoundedRectangleProfileDef::unsetRoundingRadius() {
+    m_roundingRadius = Step::getUnset(getRoundingRadius());
+}
+
+bool IfcRoundedRectangleProfileDef::testRoundingRadius() const {
+    return !Step::isUnset(getRoundingRadius());
 }
 
 bool IfcRoundedRectangleProfileDef::init() {

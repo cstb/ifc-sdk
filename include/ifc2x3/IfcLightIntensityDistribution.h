@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcLightIntensityDistribution Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLightIntensityDistribution : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setLightDistributionCurve(IfcLightDistributionCurveEnum value);
         /**
+         * unset the attribute 'LightDistributionCurve'.
+         * 
+         */
+        virtual void unsetLightDistributionCurve();
+        /**
+         * Test if the attribute 'LightDistributionCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLightDistributionCurve() const;
+        /**
          * Gets the value of the explicit attribute 'DistributionData'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDistributionData(const List_IfcLightDistributionData_1_n &value);
+        /**
+         * unset the attribute 'DistributionData'.
+         * 
+         */
+        virtual void unsetDistributionData();
+        /**
+         * Test if the attribute 'DistributionData' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDistributionData() const;
         friend class ExpressDataSet;
 
     protected:

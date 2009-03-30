@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSimpleProperty.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcSimpleProperty.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcObjectReferenceSelect;
 
     /**
+     * Generated class for the IfcPropertyReferenceValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertyReferenceValue : public IfcSimpleProperty {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setUsageName(const IfcLabel &value);
         /**
+         * unset the attribute 'UsageName'.
+         * 
+         */
+        virtual void unsetUsageName();
+        /**
+         * Test if the attribute 'UsageName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsageName() const;
+        /**
          * Gets the value of the explicit attribute 'PropertyReference'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPropertyReference(const Step::RefPtr< IfcObjectReferenceSelect > &value);
+        /**
+         * unset the attribute 'PropertyReference'.
+         * 
+         */
+        virtual void unsetPropertyReference();
+        /**
+         * Test if the attribute 'PropertyReference' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPropertyReference() const;
         friend class ExpressDataSet;
 
     protected:

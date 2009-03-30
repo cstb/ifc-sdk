@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcVertexBasedTextureMap Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcVertexBasedTextureMap : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setTextureVertices(const List_IfcTextureVertex_3_n &value);
         /**
+         * unset the attribute 'TextureVertices'.
+         * 
+         */
+        virtual void unsetTextureVertices();
+        /**
+         * Test if the attribute 'TextureVertices' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextureVertices() const;
+        /**
          * Gets the value of the explicit attribute 'TexturePoints'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTexturePoints(const List_IfcCartesianPoint_3_n &value);
+        /**
+         * unset the attribute 'TexturePoints'.
+         * 
+         */
+        virtual void unsetTexturePoints();
+        /**
+         * Test if the attribute 'TexturePoints' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTexturePoints() const;
         friend class ExpressDataSet;
 
     protected:

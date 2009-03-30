@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcCurve.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcVector;
 
     /**
+     * Generated class for the IfcLine Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcLine : public IfcCurve {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setPnt(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'Pnt'.
+         * 
+         */
+        virtual void unsetPnt();
+        /**
+         * Test if the attribute 'Pnt' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPnt() const;
+        /**
          * Gets the value of the explicit attribute 'Dir'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDir(const Step::RefPtr< IfcVector > &value);
+        /**
+         * unset the attribute 'Dir'.
+         * 
+         */
+        virtual void unsetDir();
+        /**
+         * Test if the attribute 'Dir' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDir() const;
         friend class ExpressDataSet;
 
     protected:

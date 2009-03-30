@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProjectOrder::IfcProjectOrder(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -87,6 +84,14 @@ void IfcProjectOrder::setID(const IfcIdentifier &value) {
     m_iD = value;
 }
 
+void IfcProjectOrder::unsetID() {
+    m_iD = Step::getUnset(getID());
+}
+
+bool IfcProjectOrder::testID() const {
+    return !Step::isUnset(getID());
+}
+
 IfcProjectOrderTypeEnum IfcProjectOrder::getPredefinedType() {
     if (Step::BaseObject::inited()) {
         return m_predefinedType;
@@ -105,6 +110,14 @@ void IfcProjectOrder::setPredefinedType(IfcProjectOrderTypeEnum value) {
     m_predefinedType = value;
 }
 
+void IfcProjectOrder::unsetPredefinedType() {
+    m_predefinedType = IfcProjectOrderTypeEnum_UNSET;
+}
+
+bool IfcProjectOrder::testPredefinedType() const {
+    return getPredefinedType() != IfcProjectOrderTypeEnum_UNSET;
+}
+
 IfcLabel IfcProjectOrder::getStatus() {
     if (Step::BaseObject::inited()) {
         return m_status;
@@ -121,6 +134,14 @@ const IfcLabel IfcProjectOrder::getStatus() const {
 
 void IfcProjectOrder::setStatus(const IfcLabel &value) {
     m_status = value;
+}
+
+void IfcProjectOrder::unsetStatus() {
+    m_status = Step::getUnset(getStatus());
+}
+
+bool IfcProjectOrder::testStatus() const {
+    return !Step::isUnset(getStatus());
 }
 
 bool IfcProjectOrder::init() {

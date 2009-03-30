@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcServiceLife::IfcServiceLife(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -85,6 +82,14 @@ void IfcServiceLife::setServiceLifeType(IfcServiceLifeTypeEnum value) {
     m_serviceLifeType = value;
 }
 
+void IfcServiceLife::unsetServiceLifeType() {
+    m_serviceLifeType = IfcServiceLifeTypeEnum_UNSET;
+}
+
+bool IfcServiceLife::testServiceLifeType() const {
+    return getServiceLifeType() != IfcServiceLifeTypeEnum_UNSET;
+}
+
 IfcTimeMeasure IfcServiceLife::getServiceLifeDuration() {
     if (Step::BaseObject::inited()) {
         return m_serviceLifeDuration;
@@ -101,6 +106,14 @@ const IfcTimeMeasure IfcServiceLife::getServiceLifeDuration() const {
 
 void IfcServiceLife::setServiceLifeDuration(IfcTimeMeasure value) {
     m_serviceLifeDuration = value;
+}
+
+void IfcServiceLife::unsetServiceLifeDuration() {
+    m_serviceLifeDuration = Step::getUnset(getServiceLifeDuration());
+}
+
+bool IfcServiceLife::testServiceLifeDuration() const {
+    return !Step::isUnset(getServiceLifeDuration());
 }
 
 bool IfcServiceLife::init() {

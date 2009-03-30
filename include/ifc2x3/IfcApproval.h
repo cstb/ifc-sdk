@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcDateTimeSelect;
 
     /**
+     * Generated class for the IfcApproval Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcApproval : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the explicit attribute 'ApprovalDateTime'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setApprovalDateTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'ApprovalDateTime'.
+         * 
+         */
+        virtual void unsetApprovalDateTime();
+        /**
+         * Test if the attribute 'ApprovalDateTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApprovalDateTime() const;
         /**
          * Gets the value of the explicit attribute 'ApprovalStatus'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setApprovalStatus(const IfcLabel &value);
         /**
+         * unset the attribute 'ApprovalStatus'.
+         * 
+         */
+        virtual void unsetApprovalStatus();
+        /**
+         * Test if the attribute 'ApprovalStatus' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApprovalStatus() const;
+        /**
          * Gets the value of the explicit attribute 'ApprovalLevel'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setApprovalLevel(const IfcLabel &value);
+        /**
+         * unset the attribute 'ApprovalLevel'.
+         * 
+         */
+        virtual void unsetApprovalLevel();
+        /**
+         * Test if the attribute 'ApprovalLevel' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApprovalLevel() const;
         /**
          * Gets the value of the explicit attribute 'ApprovalQualifier'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setApprovalQualifier(const IfcText &value);
         /**
+         * unset the attribute 'ApprovalQualifier'.
+         * 
+         */
+        virtual void unsetApprovalQualifier();
+        /**
+         * Test if the attribute 'ApprovalQualifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApprovalQualifier() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -175,6 +232,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         /**
          * Gets the value of the explicit attribute 'Identifier'.
          * 
@@ -193,6 +261,17 @@ namespace ifc2x3 {
          */
         virtual void setIdentifier(const IfcIdentifier &value);
         /**
+         * unset the attribute 'Identifier'.
+         * 
+         */
+        virtual void unsetIdentifier();
+        /**
+         * Test if the attribute 'Identifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIdentifier() const;
+        /**
          * Gets the value of the inverse attribute 'Actors'.
          * 
          */
@@ -203,6 +282,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Actors'
          */
         virtual const Inverse_Set_IfcApprovalActorRelationship_0_n &getActors() const;
+        /**
+         * Test if the attribute 'Actors' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testActors() const;
         /**
          * Gets the value of the inverse attribute 'IsRelatedWith'.
          * 
@@ -215,6 +300,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith() const;
         /**
+         * Test if the attribute 'IsRelatedWith' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsRelatedWith() const;
+        /**
          * Gets the value of the inverse attribute 'Relates'.
          * 
          */
@@ -225,6 +316,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Relates'
          */
         virtual const Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
+        /**
+         * Test if the attribute 'Relates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelates() const;
         friend class IfcApprovalRelationship;
         friend class IfcApprovalActorRelationship;
         friend class ExpressDataSet;

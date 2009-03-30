@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,8 +22,8 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_BaseCopyOp_H
-#define STEP_BaseCopyOp_H
+#ifndef Step_BaseCopyOp_H
+#define Step_BaseCopyOp_H
 
 #include "StepDLL.h"
 
@@ -34,6 +34,9 @@ namespace Step
 {
     class BaseObject;
 
+    /*!
+    ** \short Base class for all copy operator
+    */
     class STEP_DLL_DEF BaseCopyOp
     {
     public:

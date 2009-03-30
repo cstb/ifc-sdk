@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCenterLineProfileDef::IfcCenterLineProfileDef(Step::Id id, Step::SPFData *args) : IfcArbitraryOpenProfileDef(id, args) {
@@ -82,6 +79,14 @@ const IfcPositiveLengthMeasure IfcCenterLineProfileDef::getThickness() const {
 
 void IfcCenterLineProfileDef::setThickness(IfcPositiveLengthMeasure value) {
     m_thickness = value;
+}
+
+void IfcCenterLineProfileDef::unsetThickness() {
+    m_thickness = Step::getUnset(getThickness());
+}
+
+bool IfcCenterLineProfileDef::testThickness() const {
+    return !Step::isUnset(getThickness());
 }
 
 bool IfcCenterLineProfileDef::init() {

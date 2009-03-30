@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcExternalReference::IfcExternalReference(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -87,6 +84,14 @@ void IfcExternalReference::setLocation(const IfcLabel &value) {
     m_location = value;
 }
 
+void IfcExternalReference::unsetLocation() {
+    m_location = Step::getUnset(getLocation());
+}
+
+bool IfcExternalReference::testLocation() const {
+    return !Step::isUnset(getLocation());
+}
+
 IfcIdentifier IfcExternalReference::getItemReference() {
     if (Step::BaseObject::inited()) {
         return m_itemReference;
@@ -105,6 +110,14 @@ void IfcExternalReference::setItemReference(const IfcIdentifier &value) {
     m_itemReference = value;
 }
 
+void IfcExternalReference::unsetItemReference() {
+    m_itemReference = Step::getUnset(getItemReference());
+}
+
+bool IfcExternalReference::testItemReference() const {
+    return !Step::isUnset(getItemReference());
+}
+
 IfcLabel IfcExternalReference::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -121,6 +134,14 @@ const IfcLabel IfcExternalReference::getName() const {
 
 void IfcExternalReference::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcExternalReference::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcExternalReference::testName() const {
+    return !Step::isUnset(getName());
 }
 
 bool IfcExternalReference::init() {

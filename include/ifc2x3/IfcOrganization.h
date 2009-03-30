@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcOrganization;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcOrganization_Addresses_type : public List_IfcAddress_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcOrganization *mOwner;
-        /**
-         */
         Inverted_IfcOrganization_Addresses_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcOrganization *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcAddress > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcAddress > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcOrganization;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcOrganization *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcOrganization *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcOrganization Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcOrganization : public Step::BaseEntity {
     public:
@@ -123,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setId(const IfcIdentifier &value);
         /**
+         * unset the attribute 'Id'.
+         * 
+         */
+        virtual void unsetId();
+        /**
+         * Test if the attribute 'Id' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testId() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -139,6 +168,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         /**
          * Gets the value of the explicit attribute 'Description'.
          * 
@@ -157,6 +197,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the explicit attribute 'Roles'.
          * 
          */
@@ -174,6 +225,17 @@ namespace ifc2x3 {
          */
         virtual void setRoles(const List_IfcActorRole_1_n &value);
         /**
+         * unset the attribute 'Roles'.
+         * 
+         */
+        virtual void unsetRoles();
+        /**
+         * Test if the attribute 'Roles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRoles() const;
+        /**
          * Gets the value of the explicit attribute 'Addresses'.
          * 
          */
@@ -184,6 +246,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Addresses'
          */
         virtual const List_IfcAddress_1_n &getAddresses() const;
+        /**
+         * unset the attribute 'Addresses'.
+         * 
+         */
+        virtual void unsetAddresses();
+        /**
+         * Test if the attribute 'Addresses' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAddresses() const;
         /**
          * Gets the value of the inverse attribute 'IsRelatedBy'.
          * 
@@ -196,6 +269,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
         /**
+         * Test if the attribute 'IsRelatedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsRelatedBy() const;
+        /**
          * Gets the value of the inverse attribute 'Relates'.
          * 
          */
@@ -207,6 +286,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getRelates() const;
         /**
+         * Test if the attribute 'Relates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelates() const;
+        /**
          * Gets the value of the inverse attribute 'Engages'.
          * 
          */
@@ -217,6 +302,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Engages'
          */
         virtual const Inverse_Set_IfcPersonAndOrganization_0_n &getEngages() const;
+        /**
+         * Test if the attribute 'Engages' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEngages() const;
         friend class Inverted_IfcOrganizationRelationship_RelatedOrganizations_type;
         friend class ExpressDataSet;
         friend class IfcPersonAndOrganization;

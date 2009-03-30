@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -43,9 +43,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcPerson_Addresses_type::Inverted_IfcPerson_Addresses_type() {
@@ -65,6 +62,12 @@ Inverted_IfcPerson_Addresses_type::iterator Inverted_IfcPerson_Addresses_type::e
     IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
     inverse->m_ofPerson.erase(mOwner);
     return List_IfcAddress_1_n::erase(value);
+}
+
+void Inverted_IfcPerson_Addresses_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 IfcPerson::IfcPerson(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -120,6 +123,14 @@ void IfcPerson::setId(const IfcIdentifier &value) {
     m_id = value;
 }
 
+void IfcPerson::unsetId() {
+    m_id = Step::getUnset(getId());
+}
+
+bool IfcPerson::testId() const {
+    return !Step::isUnset(getId());
+}
+
 IfcLabel IfcPerson::getFamilyName() {
     if (Step::BaseObject::inited()) {
         return m_familyName;
@@ -138,6 +149,14 @@ void IfcPerson::setFamilyName(const IfcLabel &value) {
     m_familyName = value;
 }
 
+void IfcPerson::unsetFamilyName() {
+    m_familyName = Step::getUnset(getFamilyName());
+}
+
+bool IfcPerson::testFamilyName() const {
+    return !Step::isUnset(getFamilyName());
+}
+
 IfcLabel IfcPerson::getGivenName() {
     if (Step::BaseObject::inited()) {
         return m_givenName;
@@ -154,6 +173,14 @@ const IfcLabel IfcPerson::getGivenName() const {
 
 void IfcPerson::setGivenName(const IfcLabel &value) {
     m_givenName = value;
+}
+
+void IfcPerson::unsetGivenName() {
+    m_givenName = Step::getUnset(getGivenName());
+}
+
+bool IfcPerson::testGivenName() const {
+    return !Step::isUnset(getGivenName());
 }
 
 List_IfcLabel_1_n &IfcPerson::getMiddleNames() {
@@ -175,6 +202,15 @@ void IfcPerson::setMiddleNames(const List_IfcLabel_1_n &value) {
     m_middleNames = value;
 }
 
+void IfcPerson::unsetMiddleNames() {
+    m_middleNames.clear();
+    m_middleNames.setUnset(true);
+}
+
+bool IfcPerson::testMiddleNames() const {
+    return !Step::isUnset(getMiddleNames());
+}
+
 List_IfcLabel_1_n &IfcPerson::getPrefixTitles() {
     if (Step::BaseObject::inited()) {
         return m_prefixTitles;
@@ -192,6 +228,15 @@ const List_IfcLabel_1_n &IfcPerson::getPrefixTitles() const {
 
 void IfcPerson::setPrefixTitles(const List_IfcLabel_1_n &value) {
     m_prefixTitles = value;
+}
+
+void IfcPerson::unsetPrefixTitles() {
+    m_prefixTitles.clear();
+    m_prefixTitles.setUnset(true);
+}
+
+bool IfcPerson::testPrefixTitles() const {
+    return !Step::isUnset(getPrefixTitles());
 }
 
 List_IfcLabel_1_n &IfcPerson::getSuffixTitles() {
@@ -213,6 +258,15 @@ void IfcPerson::setSuffixTitles(const List_IfcLabel_1_n &value) {
     m_suffixTitles = value;
 }
 
+void IfcPerson::unsetSuffixTitles() {
+    m_suffixTitles.clear();
+    m_suffixTitles.setUnset(true);
+}
+
+bool IfcPerson::testSuffixTitles() const {
+    return !Step::isUnset(getSuffixTitles());
+}
+
 List_IfcActorRole_1_n &IfcPerson::getRoles() {
     if (Step::BaseObject::inited()) {
         return m_roles;
@@ -232,6 +286,15 @@ void IfcPerson::setRoles(const List_IfcActorRole_1_n &value) {
     m_roles = value;
 }
 
+void IfcPerson::unsetRoles() {
+    m_roles.clear();
+    m_roles.setUnset(true);
+}
+
+bool IfcPerson::testRoles() const {
+    return !Step::isUnset(getRoles());
+}
+
 List_IfcAddress_1_n &IfcPerson::getAddresses() {
     if (Step::BaseObject::inited()) {
         return m_addresses;
@@ -247,6 +310,15 @@ const List_IfcAddress_1_n &IfcPerson::getAddresses() const {
     return deConstObject->getAddresses();
 }
 
+void IfcPerson::unsetAddresses() {
+    m_addresses.clear();
+    m_addresses.setUnset(true);
+}
+
+bool IfcPerson::testAddresses() const {
+    return !Step::isUnset(getAddresses());
+}
+
 Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
     if (Step::BaseObject::inited()) {
         return m_engagedIn;
@@ -260,6 +332,10 @@ Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
 const Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() const {
     IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
     return deConstObject->getEngagedIn();
+}
+
+bool IfcPerson::testEngagedIn() const {
+    return !Step::isUnset(getEngagedIn());
 }
 
 bool IfcPerson::init() {

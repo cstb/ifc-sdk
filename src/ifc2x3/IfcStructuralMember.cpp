@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralMember::IfcStructuralMember(Step::Id id, Step::SPFData *args) : IfcStructuralItem(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getR
     return deConstObject->getReferencesElement();
 }
 
+bool IfcStructuralMember::testReferencesElement() const {
+    return !Step::isUnset(getReferencesElement());
+}
+
 Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() {
     if (Step::BaseObject::inited()) {
         return m_connectedBy;
@@ -97,6 +98,10 @@ Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnecte
 const Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() const {
     IfcStructuralMember * deConstObject = const_cast< IfcStructuralMember * > (this);
     return deConstObject->getConnectedBy();
+}
+
+bool IfcStructuralMember::testConnectedBy() const {
+    return !Step::isUnset(getConnectedBy());
 }
 
 bool IfcStructuralMember::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBuilding::IfcBuilding(Step::Id id, Step::SPFData *args) : IfcSpatialStructureElement(id, args) {
@@ -90,6 +87,14 @@ void IfcBuilding::setElevationOfRefHeight(IfcLengthMeasure value) {
     m_elevationOfRefHeight = value;
 }
 
+void IfcBuilding::unsetElevationOfRefHeight() {
+    m_elevationOfRefHeight = Step::getUnset(getElevationOfRefHeight());
+}
+
+bool IfcBuilding::testElevationOfRefHeight() const {
+    return !Step::isUnset(getElevationOfRefHeight());
+}
+
 IfcLengthMeasure IfcBuilding::getElevationOfTerrain() {
     if (Step::BaseObject::inited()) {
         return m_elevationOfTerrain;
@@ -108,6 +113,14 @@ void IfcBuilding::setElevationOfTerrain(IfcLengthMeasure value) {
     m_elevationOfTerrain = value;
 }
 
+void IfcBuilding::unsetElevationOfTerrain() {
+    m_elevationOfTerrain = Step::getUnset(getElevationOfTerrain());
+}
+
+bool IfcBuilding::testElevationOfTerrain() const {
+    return !Step::isUnset(getElevationOfTerrain());
+}
+
 IfcPostalAddress *IfcBuilding::getBuildingAddress() {
     if (Step::BaseObject::inited()) {
         return m_buildingAddress.get();
@@ -124,6 +137,14 @@ const IfcPostalAddress *IfcBuilding::getBuildingAddress() const {
 
 void IfcBuilding::setBuildingAddress(const Step::RefPtr< IfcPostalAddress > &value) {
     m_buildingAddress = value;
+}
+
+void IfcBuilding::unsetBuildingAddress() {
+    m_buildingAddress = Step::getUnset(getBuildingAddress());
+}
+
+bool IfcBuilding::testBuildingAddress() const {
+    return !Step::isUnset(getBuildingAddress());
 }
 
 bool IfcBuilding::init() {

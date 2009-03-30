@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTextureCoordinateGenerator::IfcTextureCoordinateGenerator(Step::Id id, Step::SPFData *args) : IfcTextureCoordinate(id, args) {
@@ -90,6 +87,14 @@ void IfcTextureCoordinateGenerator::setMode(const IfcLabel &value) {
     m_mode = value;
 }
 
+void IfcTextureCoordinateGenerator::unsetMode() {
+    m_mode = Step::getUnset(getMode());
+}
+
+bool IfcTextureCoordinateGenerator::testMode() const {
+    return !Step::isUnset(getMode());
+}
+
 List_IfcSimpleValue_1_n &IfcTextureCoordinateGenerator::getParameter() {
     if (Step::BaseObject::inited()) {
         return m_parameter;
@@ -107,6 +112,15 @@ const List_IfcSimpleValue_1_n &IfcTextureCoordinateGenerator::getParameter() con
 
 void IfcTextureCoordinateGenerator::setParameter(const List_IfcSimpleValue_1_n &value) {
     m_parameter = value;
+}
+
+void IfcTextureCoordinateGenerator::unsetParameter() {
+    m_parameter.clear();
+    m_parameter.setUnset(true);
+}
+
+bool IfcTextureCoordinateGenerator::testParameter() const {
+    return !Step::isUnset(getParameter());
 }
 
 bool IfcTextureCoordinateGenerator::init() {

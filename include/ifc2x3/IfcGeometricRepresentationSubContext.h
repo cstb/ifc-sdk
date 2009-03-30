@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,19 +29,21 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationContext.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcGeometricRepresentationContext.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcGeometricRepresentationSubContext Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcGeometricRepresentationSubContext : public IfcGeometricRepresentationContext {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setParentContext(const Step::RefPtr< IfcGeometricRepresentationContext > &value);
         /**
+         * unset the attribute 'ParentContext'.
+         * 
+         */
+        virtual void unsetParentContext();
+        /**
+         * Test if the attribute 'ParentContext' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testParentContext() const;
+        /**
          * Gets the value of the explicit attribute 'TargetScale'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTargetScale(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'TargetScale'.
+         * 
+         */
+        virtual void unsetTargetScale();
+        /**
+         * Test if the attribute 'TargetScale' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTargetScale() const;
         /**
          * Gets the value of the explicit attribute 'TargetView'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTargetView(IfcGeometricProjectionEnum value);
         /**
+         * unset the attribute 'TargetView'.
+         * 
+         */
+        virtual void unsetTargetView();
+        /**
+         * Test if the attribute 'TargetView' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTargetView() const;
+        /**
          * Gets the value of the explicit attribute 'UserDefinedTargetView'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUserDefinedTargetView(const IfcLabel &value);
+        /**
+         * unset the attribute 'UserDefinedTargetView'.
+         * 
+         */
+        virtual void unsetUserDefinedTargetView();
+        /**
+         * Test if the attribute 'UserDefinedTargetView' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedTargetView() const;
         /**
          * Gets the value of the derived attribute redeclaration 'WorldCoordinateSystem'.
          * 

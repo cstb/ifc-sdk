@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyConstraintRelationship::IfcPropertyConstraintRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -98,6 +95,14 @@ void IfcPropertyConstraintRelationship::setRelatingConstraint(const Step::RefPtr
     m_relatingConstraint = value;
 }
 
+void IfcPropertyConstraintRelationship::unsetRelatingConstraint() {
+    m_relatingConstraint = Step::getUnset(getRelatingConstraint());
+}
+
+bool IfcPropertyConstraintRelationship::testRelatingConstraint() const {
+    return !Step::isUnset(getRelatingConstraint());
+}
+
 Set_IfcProperty_1_n &IfcPropertyConstraintRelationship::getRelatedProperties() {
     if (Step::BaseObject::inited()) {
         return m_relatedProperties;
@@ -115,6 +120,15 @@ const Set_IfcProperty_1_n &IfcPropertyConstraintRelationship::getRelatedProperti
 
 void IfcPropertyConstraintRelationship::setRelatedProperties(const Set_IfcProperty_1_n &value) {
     m_relatedProperties = value;
+}
+
+void IfcPropertyConstraintRelationship::unsetRelatedProperties() {
+    m_relatedProperties.clear();
+    m_relatedProperties.setUnset(true);
+}
+
+bool IfcPropertyConstraintRelationship::testRelatedProperties() const {
+    return !Step::isUnset(getRelatedProperties());
 }
 
 IfcLabel IfcPropertyConstraintRelationship::getName() {
@@ -135,6 +149,14 @@ void IfcPropertyConstraintRelationship::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcPropertyConstraintRelationship::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcPropertyConstraintRelationship::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcPropertyConstraintRelationship::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -151,6 +173,14 @@ const IfcText IfcPropertyConstraintRelationship::getDescription() const {
 
 void IfcPropertyConstraintRelationship::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcPropertyConstraintRelationship::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcPropertyConstraintRelationship::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 bool IfcPropertyConstraintRelationship::init() {

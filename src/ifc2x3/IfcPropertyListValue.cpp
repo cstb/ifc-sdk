@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyListValue::IfcPropertyListValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -92,6 +89,15 @@ void IfcPropertyListValue::setListValues(const List_IfcValue_1_n &value) {
     m_listValues = value;
 }
 
+void IfcPropertyListValue::unsetListValues() {
+    m_listValues.clear();
+    m_listValues.setUnset(true);
+}
+
+bool IfcPropertyListValue::testListValues() const {
+    return !Step::isUnset(getListValues());
+}
+
 IfcUnit *IfcPropertyListValue::getUnit() {
     if (Step::BaseObject::inited()) {
         return m_unit.get();
@@ -108,6 +114,14 @@ const IfcUnit *IfcPropertyListValue::getUnit() const {
 
 void IfcPropertyListValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
+}
+
+void IfcPropertyListValue::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcPropertyListValue::testUnit() const {
+    return !Step::isUnset(getUnit());
 }
 
 bool IfcPropertyListValue::init() {

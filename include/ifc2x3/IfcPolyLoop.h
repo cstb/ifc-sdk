@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcLoop.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPolyLoop Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPolyLoop : public IfcLoop {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPolygon(const List_IfcCartesianPoint_3_n &value);
+        /**
+         * unset the attribute 'Polygon'.
+         * 
+         */
+        virtual void unsetPolygon();
+        /**
+         * Test if the attribute 'Polygon' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPolygon() const;
         friend class ExpressDataSet;
 
     protected:

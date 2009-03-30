@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcBoundedCurve.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundedCurve.h"
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcCompositeCurveSegment;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcCompositeCurve_Segments_type : public List_IfcCompositeCurveSegment_1_n {
     public:
@@ -52,28 +54,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcCompositeCurve *mOwner;
-        /**
-         */
         Inverted_IfcCompositeCurve_Segments_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcCompositeCurve *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcCompositeCurveSegment > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcCompositeCurveSegment > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcCompositeCurve;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcCompositeCurve *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcCompositeCurve *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCompositeCurve Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCompositeCurve : public IfcBoundedCurve {
     public:
@@ -116,6 +134,17 @@ namespace ifc2x3 {
          */
         virtual const List_IfcCompositeCurveSegment_1_n &getSegments() const;
         /**
+         * unset the attribute 'Segments'.
+         * 
+         */
+        virtual void unsetSegments();
+        /**
+         * Test if the attribute 'Segments' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSegments() const;
+        /**
          * Gets the value of the explicit attribute 'SelfIntersect'.
          * 
          */
@@ -132,6 +161,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSelfIntersect(Step::Logical value);
+        /**
+         * unset the attribute 'SelfIntersect'.
+         * 
+         */
+        virtual void unsetSelfIntersect();
+        /**
+         * Test if the attribute 'SelfIntersect' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSelfIntersect() const;
         /**
          * Gets the value of the derived attribute 'NSegments'.
          * 

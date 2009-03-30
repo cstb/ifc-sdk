@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +43,8 @@ namespace ifc2x3 {
     class IfcRelContainedInSpatialStructure;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type : public Set_IfcProduct_1_n {
     public:
@@ -53,22 +54,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcRelContainedInSpatialStructure *mOwner;
-        /**
-         */
         Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcRelContainedInSpatialStructure *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcProduct > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcRelContainedInSpatialStructure;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcRelContainedInSpatialStructure *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcRelContainedInSpatialStructure *owner);
 
     };
 
@@ -76,6 +91,8 @@ namespace ifc2x3 {
     class IfcSpatialStructureElement;
 
     /**
+     * Generated class for the IfcRelContainedInSpatialStructure Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelContainedInSpatialStructure : public IfcRelConnects {
     public:
@@ -118,6 +135,17 @@ namespace ifc2x3 {
          */
         virtual const Set_IfcProduct_1_n &getRelatedElements() const;
         /**
+         * unset the attribute 'RelatedElements'.
+         * 
+         */
+        virtual void unsetRelatedElements();
+        /**
+         * Test if the attribute 'RelatedElements' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedElements() const;
+        /**
          * Gets the value of the explicit attribute 'RelatingStructure'.
          * 
          */
@@ -134,6 +162,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value);
+        /**
+         * unset the attribute 'RelatingStructure'.
+         * 
+         */
+        virtual void unsetRelatingStructure();
+        /**
+         * Test if the attribute 'RelatingStructure' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingStructure() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFailureConnectionCondition::IfcFailureConnectionCondition(Step::Id id, Step::SPFData *args) : IfcStructuralConnectionCondition(id, args) {
@@ -89,6 +86,14 @@ void IfcFailureConnectionCondition::setTensionFailureX(IfcForceMeasure value) {
     m_tensionFailureX = value;
 }
 
+void IfcFailureConnectionCondition::unsetTensionFailureX() {
+    m_tensionFailureX = Step::getUnset(getTensionFailureX());
+}
+
+bool IfcFailureConnectionCondition::testTensionFailureX() const {
+    return !Step::isUnset(getTensionFailureX());
+}
+
 IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() {
     if (Step::BaseObject::inited()) {
         return m_tensionFailureY;
@@ -105,6 +110,14 @@ const IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureY() const 
 
 void IfcFailureConnectionCondition::setTensionFailureY(IfcForceMeasure value) {
     m_tensionFailureY = value;
+}
+
+void IfcFailureConnectionCondition::unsetTensionFailureY() {
+    m_tensionFailureY = Step::getUnset(getTensionFailureY());
+}
+
+bool IfcFailureConnectionCondition::testTensionFailureY() const {
+    return !Step::isUnset(getTensionFailureY());
 }
 
 IfcForceMeasure IfcFailureConnectionCondition::getTensionFailureZ() {
@@ -125,6 +138,14 @@ void IfcFailureConnectionCondition::setTensionFailureZ(IfcForceMeasure value) {
     m_tensionFailureZ = value;
 }
 
+void IfcFailureConnectionCondition::unsetTensionFailureZ() {
+    m_tensionFailureZ = Step::getUnset(getTensionFailureZ());
+}
+
+bool IfcFailureConnectionCondition::testTensionFailureZ() const {
+    return !Step::isUnset(getTensionFailureZ());
+}
+
 IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() {
     if (Step::BaseObject::inited()) {
         return m_compressionFailureX;
@@ -141,6 +162,14 @@ const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureX() co
 
 void IfcFailureConnectionCondition::setCompressionFailureX(IfcForceMeasure value) {
     m_compressionFailureX = value;
+}
+
+void IfcFailureConnectionCondition::unsetCompressionFailureX() {
+    m_compressionFailureX = Step::getUnset(getCompressionFailureX());
+}
+
+bool IfcFailureConnectionCondition::testCompressionFailureX() const {
+    return !Step::isUnset(getCompressionFailureX());
 }
 
 IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureY() {
@@ -161,6 +190,14 @@ void IfcFailureConnectionCondition::setCompressionFailureY(IfcForceMeasure value
     m_compressionFailureY = value;
 }
 
+void IfcFailureConnectionCondition::unsetCompressionFailureY() {
+    m_compressionFailureY = Step::getUnset(getCompressionFailureY());
+}
+
+bool IfcFailureConnectionCondition::testCompressionFailureY() const {
+    return !Step::isUnset(getCompressionFailureY());
+}
+
 IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() {
     if (Step::BaseObject::inited()) {
         return m_compressionFailureZ;
@@ -177,6 +214,14 @@ const IfcForceMeasure IfcFailureConnectionCondition::getCompressionFailureZ() co
 
 void IfcFailureConnectionCondition::setCompressionFailureZ(IfcForceMeasure value) {
     m_compressionFailureZ = value;
+}
+
+void IfcFailureConnectionCondition::unsetCompressionFailureZ() {
+    m_compressionFailureZ = Step::getUnset(getCompressionFailureZ());
+}
+
+bool IfcFailureConnectionCondition::testCompressionFailureZ() const {
+    return !Step::isUnset(getCompressionFailureZ());
 }
 
 bool IfcFailureConnectionCondition::init() {

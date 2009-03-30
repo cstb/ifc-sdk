@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTrapeziumProfileDef::IfcTrapeziumProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
@@ -87,6 +84,14 @@ void IfcTrapeziumProfileDef::setBottomXDim(IfcPositiveLengthMeasure value) {
     m_bottomXDim = value;
 }
 
+void IfcTrapeziumProfileDef::unsetBottomXDim() {
+    m_bottomXDim = Step::getUnset(getBottomXDim());
+}
+
+bool IfcTrapeziumProfileDef::testBottomXDim() const {
+    return !Step::isUnset(getBottomXDim());
+}
+
 IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() {
     if (Step::BaseObject::inited()) {
         return m_topXDim;
@@ -103,6 +108,14 @@ const IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getTopXDim() const {
 
 void IfcTrapeziumProfileDef::setTopXDim(IfcPositiveLengthMeasure value) {
     m_topXDim = value;
+}
+
+void IfcTrapeziumProfileDef::unsetTopXDim() {
+    m_topXDim = Step::getUnset(getTopXDim());
+}
+
+bool IfcTrapeziumProfileDef::testTopXDim() const {
+    return !Step::isUnset(getTopXDim());
 }
 
 IfcPositiveLengthMeasure IfcTrapeziumProfileDef::getYDim() {
@@ -123,6 +136,14 @@ void IfcTrapeziumProfileDef::setYDim(IfcPositiveLengthMeasure value) {
     m_yDim = value;
 }
 
+void IfcTrapeziumProfileDef::unsetYDim() {
+    m_yDim = Step::getUnset(getYDim());
+}
+
+bool IfcTrapeziumProfileDef::testYDim() const {
+    return !Step::isUnset(getYDim());
+}
+
 IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() {
     if (Step::BaseObject::inited()) {
         return m_topXOffset;
@@ -139,6 +160,14 @@ const IfcLengthMeasure IfcTrapeziumProfileDef::getTopXOffset() const {
 
 void IfcTrapeziumProfileDef::setTopXOffset(IfcLengthMeasure value) {
     m_topXOffset = value;
+}
+
+void IfcTrapeziumProfileDef::unsetTopXOffset() {
+    m_topXOffset = Step::getUnset(getTopXOffset());
+}
+
+bool IfcTrapeziumProfileDef::testTopXOffset() const {
+    return !Step::isUnset(getTopXOffset());
 }
 
 bool IfcTrapeziumProfileDef::init() {

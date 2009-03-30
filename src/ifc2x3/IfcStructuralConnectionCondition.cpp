@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralConnectionCondition::IfcStructuralConnectionCondition(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -83,6 +80,14 @@ const IfcLabel IfcStructuralConnectionCondition::getName() const {
 
 void IfcStructuralConnectionCondition::setName(const IfcLabel &value) {
     m_name = value;
+}
+
+void IfcStructuralConnectionCondition::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcStructuralConnectionCondition::testName() const {
+    return !Step::isUnset(getName());
 }
 
 bool IfcStructuralConnectionCondition::init() {

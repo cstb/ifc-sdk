@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,9 +32,9 @@
 #include "ifc2x3/IfcTopologicalRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcVertex;
 
     /**
+     * Generated class for the IfcEdge Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcEdge : public IfcTopologicalRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setEdgeStart(const Step::RefPtr< IfcVertex > &value);
         /**
+         * unset the attribute 'EdgeStart'.
+         * 
+         */
+        virtual void unsetEdgeStart();
+        /**
+         * Test if the attribute 'EdgeStart' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdgeStart() const;
+        /**
          * Gets the value of the explicit attribute 'EdgeEnd'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEdgeEnd(const Step::RefPtr< IfcVertex > &value);
+        /**
+         * unset the attribute 'EdgeEnd'.
+         * 
+         */
+        virtual void unsetEdgeEnd();
+        /**
+         * Test if the attribute 'EdgeEnd' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEdgeEnd() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPropertySetDefinition.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcShapeAspect;
 
     /**
+     * Generated class for the IfcDoorLiningProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDoorLiningProperties : public IfcPropertySetDefinition {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setLiningDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'LiningDepth'.
+         * 
+         */
+        virtual void unsetLiningDepth();
+        /**
+         * Test if the attribute 'LiningDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiningDepth() const;
+        /**
          * Gets the value of the explicit attribute 'LiningThickness'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLiningThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'LiningThickness'.
+         * 
+         */
+        virtual void unsetLiningThickness();
+        /**
+         * Test if the attribute 'LiningThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiningThickness() const;
         /**
          * Gets the value of the explicit attribute 'ThresholdDepth'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setThresholdDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'ThresholdDepth'.
+         * 
+         */
+        virtual void unsetThresholdDepth();
+        /**
+         * Test if the attribute 'ThresholdDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThresholdDepth() const;
+        /**
          * Gets the value of the explicit attribute 'ThresholdThickness'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThresholdThickness(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'ThresholdThickness'.
+         * 
+         */
+        virtual void unsetThresholdThickness();
+        /**
+         * Test if the attribute 'ThresholdThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThresholdThickness() const;
         /**
          * Gets the value of the explicit attribute 'TransomThickness'.
          * 
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          */
         virtual void setTransomThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'TransomThickness'.
+         * 
+         */
+        virtual void unsetTransomThickness();
+        /**
+         * Test if the attribute 'TransomThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransomThickness() const;
+        /**
          * Gets the value of the explicit attribute 'TransomOffset'.
          * 
          */
@@ -174,6 +231,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTransomOffset(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'TransomOffset'.
+         * 
+         */
+        virtual void unsetTransomOffset();
+        /**
+         * Test if the attribute 'TransomOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransomOffset() const;
         /**
          * Gets the value of the explicit attribute 'LiningOffset'.
          * 
@@ -192,6 +260,17 @@ namespace ifc2x3 {
          */
         virtual void setLiningOffset(IfcLengthMeasure value);
         /**
+         * unset the attribute 'LiningOffset'.
+         * 
+         */
+        virtual void unsetLiningOffset();
+        /**
+         * Test if the attribute 'LiningOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLiningOffset() const;
+        /**
          * Gets the value of the explicit attribute 'ThresholdOffset'.
          * 
          */
@@ -208,6 +287,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setThresholdOffset(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'ThresholdOffset'.
+         * 
+         */
+        virtual void unsetThresholdOffset();
+        /**
+         * Test if the attribute 'ThresholdOffset' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThresholdOffset() const;
         /**
          * Gets the value of the explicit attribute 'CasingThickness'.
          * 
@@ -226,6 +316,17 @@ namespace ifc2x3 {
          */
         virtual void setCasingThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'CasingThickness'.
+         * 
+         */
+        virtual void unsetCasingThickness();
+        /**
+         * Test if the attribute 'CasingThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCasingThickness() const;
+        /**
          * Gets the value of the explicit attribute 'CasingDepth'.
          * 
          */
@@ -243,6 +344,17 @@ namespace ifc2x3 {
          */
         virtual void setCasingDepth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'CasingDepth'.
+         * 
+         */
+        virtual void unsetCasingDepth();
+        /**
+         * Test if the attribute 'CasingDepth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCasingDepth() const;
+        /**
          * Gets the value of the explicit attribute 'ShapeAspectStyle'.
          * 
          */
@@ -259,6 +371,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value);
+        /**
+         * unset the attribute 'ShapeAspectStyle'.
+         * 
+         */
+        virtual void unsetShapeAspectStyle();
+        /**
+         * Test if the attribute 'ShapeAspectStyle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testShapeAspectStyle() const;
         friend class ExpressDataSet;
 
     protected:

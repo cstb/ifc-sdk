@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcPhysicalSimpleQuantity.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcQuantityWeight Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcQuantityWeight : public IfcPhysicalSimpleQuantity {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWeightValue(IfcMassMeasure value);
+        /**
+         * unset the attribute 'WeightValue'.
+         * 
+         */
+        virtual void unsetWeightValue();
+        /**
+         * Test if the attribute 'WeightValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWeightValue() const;
         friend class ExpressDataSet;
 
     protected:

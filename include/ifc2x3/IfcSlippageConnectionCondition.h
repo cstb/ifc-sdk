@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralConnectionCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralConnectionCondition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSlippageConnectionCondition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSlippageConnectionCondition : public IfcStructuralConnectionCondition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setSlippageX(IfcLengthMeasure value);
         /**
+         * unset the attribute 'SlippageX'.
+         * 
+         */
+        virtual void unsetSlippageX();
+        /**
+         * Test if the attribute 'SlippageX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSlippageX() const;
+        /**
          * Gets the value of the explicit attribute 'SlippageY'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          */
         virtual void setSlippageY(IfcLengthMeasure value);
         /**
+         * unset the attribute 'SlippageY'.
+         * 
+         */
+        virtual void unsetSlippageY();
+        /**
+         * Test if the attribute 'SlippageY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSlippageY() const;
+        /**
          * Gets the value of the explicit attribute 'SlippageZ'.
          * 
          */
@@ -121,6 +145,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSlippageZ(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'SlippageZ'.
+         * 
+         */
+        virtual void unsetSlippageZ();
+        /**
+         * Test if the attribute 'SlippageZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSlippageZ() const;
         friend class ExpressDataSet;
 
     protected:

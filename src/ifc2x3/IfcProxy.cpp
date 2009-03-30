@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProxy::IfcProxy(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -86,6 +83,14 @@ void IfcProxy::setProxyType(IfcObjectTypeEnum value) {
     m_proxyType = value;
 }
 
+void IfcProxy::unsetProxyType() {
+    m_proxyType = IfcObjectTypeEnum_UNSET;
+}
+
+bool IfcProxy::testProxyType() const {
+    return getProxyType() != IfcObjectTypeEnum_UNSET;
+}
+
 IfcLabel IfcProxy::getTag() {
     if (Step::BaseObject::inited()) {
         return m_tag;
@@ -102,6 +107,14 @@ const IfcLabel IfcProxy::getTag() const {
 
 void IfcProxy::setTag(const IfcLabel &value) {
     m_tag = value;
+}
+
+void IfcProxy::unsetTag() {
+    m_tag = Step::getUnset(getTag());
+}
+
+bool IfcProxy::testTag() const {
+    return !Step::isUnset(getTag());
 }
 
 bool IfcProxy::init() {

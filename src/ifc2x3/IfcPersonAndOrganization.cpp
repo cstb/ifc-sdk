@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPersonAndOrganization::IfcPersonAndOrganization(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -98,6 +95,14 @@ void IfcPersonAndOrganization::setThePerson(const Step::RefPtr< IfcPerson > &val
     m_thePerson = value;
 }
 
+void IfcPersonAndOrganization::unsetThePerson() {
+    m_thePerson = Step::getUnset(getThePerson());
+}
+
+bool IfcPersonAndOrganization::testThePerson() const {
+    return !Step::isUnset(getThePerson());
+}
+
 IfcOrganization *IfcPersonAndOrganization::getTheOrganization() {
     if (Step::BaseObject::inited()) {
         return m_theOrganization.get();
@@ -122,6 +127,14 @@ void IfcPersonAndOrganization::setTheOrganization(const Step::RefPtr< IfcOrganiz
     m_theOrganization = value;
 }
 
+void IfcPersonAndOrganization::unsetTheOrganization() {
+    m_theOrganization = Step::getUnset(getTheOrganization());
+}
+
+bool IfcPersonAndOrganization::testTheOrganization() const {
+    return !Step::isUnset(getTheOrganization());
+}
+
 List_IfcActorRole_1_n &IfcPersonAndOrganization::getRoles() {
     if (Step::BaseObject::inited()) {
         return m_roles;
@@ -139,6 +152,15 @@ const List_IfcActorRole_1_n &IfcPersonAndOrganization::getRoles() const {
 
 void IfcPersonAndOrganization::setRoles(const List_IfcActorRole_1_n &value) {
     m_roles = value;
+}
+
+void IfcPersonAndOrganization::unsetRoles() {
+    m_roles.clear();
+    m_roles.setUnset(true);
+}
+
+bool IfcPersonAndOrganization::testRoles() const {
+    return !Step::isUnset(getRoles());
 }
 
 bool IfcPersonAndOrganization::init() {

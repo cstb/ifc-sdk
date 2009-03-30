@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcProduct.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcRelConnectsPortToElement;
 
     /**
+     * Generated class for the IfcPort Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPort : public IfcProduct {
     public:
@@ -84,6 +86,12 @@ namespace ifc2x3 {
          */
         virtual const IfcRelConnectsPortToElement *getContainedIn() const;
         /**
+         * Test if the attribute 'ContainedIn' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContainedIn() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectedFrom'.
          * 
          */
@@ -95,6 +103,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedFrom() const;
         /**
+         * Test if the attribute 'ConnectedFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectedFrom() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectedTo'.
          * 
          */
@@ -105,6 +119,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ConnectedTo'
          */
         virtual const Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedTo() const;
+        /**
+         * Test if the attribute 'ConnectedTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectedTo() const;
         friend class ExpressDataSet;
         friend class IfcRelConnectsPortToElement;
         friend class IfcRelConnectsPorts;

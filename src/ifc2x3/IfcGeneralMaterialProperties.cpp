@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcGeneralMaterialProperties::IfcGeneralMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -86,6 +83,14 @@ void IfcGeneralMaterialProperties::setMolecularWeight(IfcMolecularWeightMeasure 
     m_molecularWeight = value;
 }
 
+void IfcGeneralMaterialProperties::unsetMolecularWeight() {
+    m_molecularWeight = Step::getUnset(getMolecularWeight());
+}
+
+bool IfcGeneralMaterialProperties::testMolecularWeight() const {
+    return !Step::isUnset(getMolecularWeight());
+}
+
 IfcNormalisedRatioMeasure IfcGeneralMaterialProperties::getPorosity() {
     if (Step::BaseObject::inited()) {
         return m_porosity;
@@ -104,6 +109,14 @@ void IfcGeneralMaterialProperties::setPorosity(IfcNormalisedRatioMeasure value) 
     m_porosity = value;
 }
 
+void IfcGeneralMaterialProperties::unsetPorosity() {
+    m_porosity = Step::getUnset(getPorosity());
+}
+
+bool IfcGeneralMaterialProperties::testPorosity() const {
+    return !Step::isUnset(getPorosity());
+}
+
 IfcMassDensityMeasure IfcGeneralMaterialProperties::getMassDensity() {
     if (Step::BaseObject::inited()) {
         return m_massDensity;
@@ -120,6 +133,14 @@ const IfcMassDensityMeasure IfcGeneralMaterialProperties::getMassDensity() const
 
 void IfcGeneralMaterialProperties::setMassDensity(IfcMassDensityMeasure value) {
     m_massDensity = value;
+}
+
+void IfcGeneralMaterialProperties::unsetMassDensity() {
+    m_massDensity = Step::getUnset(getMassDensity());
+}
+
+bool IfcGeneralMaterialProperties::testMassDensity() const {
+    return !Step::isUnset(getMassDensity());
 }
 
 bool IfcGeneralMaterialProperties::init() {

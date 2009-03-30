@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcEnergyProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcEnergyProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcElectricalBaseProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcElectricalBaseProperties : public IfcEnergyProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setElectricCurrentType(IfcElectricCurrentEnum value);
         /**
+         * unset the attribute 'ElectricCurrentType'.
+         * 
+         */
+        virtual void unsetElectricCurrentType();
+        /**
+         * Test if the attribute 'ElectricCurrentType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElectricCurrentType() const;
+        /**
          * Gets the value of the explicit attribute 'InputVoltage'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInputVoltage(IfcElectricVoltageMeasure value);
+        /**
+         * unset the attribute 'InputVoltage'.
+         * 
+         */
+        virtual void unsetInputVoltage();
+        /**
+         * Test if the attribute 'InputVoltage' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInputVoltage() const;
         /**
          * Gets the value of the explicit attribute 'InputFrequency'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setInputFrequency(IfcFrequencyMeasure value);
         /**
+         * unset the attribute 'InputFrequency'.
+         * 
+         */
+        virtual void unsetInputFrequency();
+        /**
+         * Test if the attribute 'InputFrequency' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInputFrequency() const;
+        /**
          * Gets the value of the explicit attribute 'FullLoadCurrent'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFullLoadCurrent(IfcElectricCurrentMeasure value);
+        /**
+         * unset the attribute 'FullLoadCurrent'.
+         * 
+         */
+        virtual void unsetFullLoadCurrent();
+        /**
+         * Test if the attribute 'FullLoadCurrent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFullLoadCurrent() const;
         /**
          * Gets the value of the explicit attribute 'MinimumCircuitCurrent'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setMinimumCircuitCurrent(IfcElectricCurrentMeasure value);
         /**
+         * unset the attribute 'MinimumCircuitCurrent'.
+         * 
+         */
+        virtual void unsetMinimumCircuitCurrent();
+        /**
+         * Test if the attribute 'MinimumCircuitCurrent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMinimumCircuitCurrent() const;
+        /**
          * Gets the value of the explicit attribute 'MaximumPowerInput'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMaximumPowerInput(IfcPowerMeasure value);
+        /**
+         * unset the attribute 'MaximumPowerInput'.
+         * 
+         */
+        virtual void unsetMaximumPowerInput();
+        /**
+         * Test if the attribute 'MaximumPowerInput' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMaximumPowerInput() const;
         /**
          * Gets the value of the explicit attribute 'RatedPowerInput'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setRatedPowerInput(IfcPowerMeasure value);
         /**
+         * unset the attribute 'RatedPowerInput'.
+         * 
+         */
+        virtual void unsetRatedPowerInput();
+        /**
+         * Test if the attribute 'RatedPowerInput' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRatedPowerInput() const;
+        /**
          * Gets the value of the explicit attribute 'InputPhase'.
          * 
          */
@@ -206,6 +285,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInputPhase(Step::Integer value);
+        /**
+         * unset the attribute 'InputPhase'.
+         * 
+         */
+        virtual void unsetInputPhase();
+        /**
+         * Test if the attribute 'InputPhase' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInputPhase() const;
         friend class ExpressDataSet;
 
     protected:

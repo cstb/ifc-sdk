@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRailingType::IfcRailingType(Step::Id id, Step::SPFData *args) : IfcBuildingElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcRailingTypeEnum IfcRailingType::getPredefinedType() const {
 
 void IfcRailingType::setPredefinedType(IfcRailingTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcRailingType::unsetPredefinedType() {
+    m_predefinedType = IfcRailingTypeEnum_UNSET;
+}
+
+bool IfcRailingType::testPredefinedType() const {
+    return getPredefinedType() != IfcRailingTypeEnum_UNSET;
 }
 
 bool IfcRailingType::init() {

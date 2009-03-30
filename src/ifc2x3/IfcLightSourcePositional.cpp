@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightSourcePositional::IfcLightSourcePositional(Step::Id id, Step::SPFData *args) : IfcLightSource(id, args) {
@@ -92,6 +89,14 @@ void IfcLightSourcePositional::setPosition(const Step::RefPtr< IfcCartesianPoint
     m_position = value;
 }
 
+void IfcLightSourcePositional::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcLightSourcePositional::testPosition() const {
+    return !Step::isUnset(getPosition());
+}
+
 IfcPositiveLengthMeasure IfcLightSourcePositional::getRadius() {
     if (Step::BaseObject::inited()) {
         return m_radius;
@@ -108,6 +113,14 @@ const IfcPositiveLengthMeasure IfcLightSourcePositional::getRadius() const {
 
 void IfcLightSourcePositional::setRadius(IfcPositiveLengthMeasure value) {
     m_radius = value;
+}
+
+void IfcLightSourcePositional::unsetRadius() {
+    m_radius = Step::getUnset(getRadius());
+}
+
+bool IfcLightSourcePositional::testRadius() const {
+    return !Step::isUnset(getRadius());
 }
 
 IfcReal IfcLightSourcePositional::getConstantAttenuation() {
@@ -128,6 +141,14 @@ void IfcLightSourcePositional::setConstantAttenuation(IfcReal value) {
     m_constantAttenuation = value;
 }
 
+void IfcLightSourcePositional::unsetConstantAttenuation() {
+    m_constantAttenuation = Step::getUnset(getConstantAttenuation());
+}
+
+bool IfcLightSourcePositional::testConstantAttenuation() const {
+    return !Step::isUnset(getConstantAttenuation());
+}
+
 IfcReal IfcLightSourcePositional::getDistanceAttenuation() {
     if (Step::BaseObject::inited()) {
         return m_distanceAttenuation;
@@ -146,6 +167,14 @@ void IfcLightSourcePositional::setDistanceAttenuation(IfcReal value) {
     m_distanceAttenuation = value;
 }
 
+void IfcLightSourcePositional::unsetDistanceAttenuation() {
+    m_distanceAttenuation = Step::getUnset(getDistanceAttenuation());
+}
+
+bool IfcLightSourcePositional::testDistanceAttenuation() const {
+    return !Step::isUnset(getDistanceAttenuation());
+}
+
 IfcReal IfcLightSourcePositional::getQuadricAttenuation() {
     if (Step::BaseObject::inited()) {
         return m_quadricAttenuation;
@@ -162,6 +191,14 @@ const IfcReal IfcLightSourcePositional::getQuadricAttenuation() const {
 
 void IfcLightSourcePositional::setQuadricAttenuation(IfcReal value) {
     m_quadricAttenuation = value;
+}
+
+void IfcLightSourcePositional::unsetQuadricAttenuation() {
+    m_quadricAttenuation = Step::getUnset(getQuadricAttenuation());
+}
+
+bool IfcLightSourcePositional::testQuadricAttenuation() const {
+    return !Step::isUnset(getQuadricAttenuation());
 }
 
 bool IfcLightSourcePositional::init() {

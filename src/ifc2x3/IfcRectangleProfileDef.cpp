@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRectangleProfileDef::IfcRectangleProfileDef(Step::Id id, Step::SPFData *args) : IfcParameterizedProfileDef(id, args) {
@@ -85,6 +82,14 @@ void IfcRectangleProfileDef::setXDim(IfcPositiveLengthMeasure value) {
     m_xDim = value;
 }
 
+void IfcRectangleProfileDef::unsetXDim() {
+    m_xDim = Step::getUnset(getXDim());
+}
+
+bool IfcRectangleProfileDef::testXDim() const {
+    return !Step::isUnset(getXDim());
+}
+
 IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() {
     if (Step::BaseObject::inited()) {
         return m_yDim;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcRectangleProfileDef::getYDim() const {
 
 void IfcRectangleProfileDef::setYDim(IfcPositiveLengthMeasure value) {
     m_yDim = value;
+}
+
+void IfcRectangleProfileDef::unsetYDim() {
+    m_yDim = Step::getUnset(getYDim());
+}
+
+bool IfcRectangleProfileDef::testYDim() const {
+    return !Step::isUnset(getYDim());
 }
 
 bool IfcRectangleProfileDef::init() {

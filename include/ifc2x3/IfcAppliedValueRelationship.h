@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcAppliedValueRelationship;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcAppliedValueRelationship_Components_type : public Set_IfcAppliedValue_1_n {
     public:
@@ -54,29 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcAppliedValueRelationship *mOwner;
-        /**
-         */
         Inverted_IfcAppliedValueRelationship_Components_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcAppliedValueRelationship *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcAppliedValue > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcAppliedValueRelationship;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcAppliedValueRelationship *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcAppliedValueRelationship *owner);
 
     };
 
     class CopyOp;
-    class IfcAppliedValue;
 
     /**
+     * Generated class for the IfcAppliedValueRelationship Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcAppliedValueRelationship : public Step::BaseEntity {
     public:
@@ -125,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value);
         /**
+         * unset the attribute 'ComponentOfTotal'.
+         * 
+         */
+        virtual void unsetComponentOfTotal();
+        /**
+         * Test if the attribute 'ComponentOfTotal' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testComponentOfTotal() const;
+        /**
          * Gets the value of the explicit attribute 'Components'.
          * 
          */
@@ -135,6 +162,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Components'
          */
         virtual const Set_IfcAppliedValue_1_n &getComponents() const;
+        /**
+         * unset the attribute 'Components'.
+         * 
+         */
+        virtual void unsetComponents();
+        /**
+         * Test if the attribute 'Components' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testComponents() const;
         /**
          * Gets the value of the explicit attribute 'ArithmeticOperator'.
          * 
@@ -153,6 +191,17 @@ namespace ifc2x3 {
          */
         virtual void setArithmeticOperator(IfcArithmeticOperatorEnum value);
         /**
+         * unset the attribute 'ArithmeticOperator'.
+         * 
+         */
+        virtual void unsetArithmeticOperator();
+        /**
+         * Test if the attribute 'ArithmeticOperator' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testArithmeticOperator() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -170,6 +219,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -186,6 +246,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         friend class ExpressDataSet;
 
     protected:

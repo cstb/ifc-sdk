@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBoundaryEdgeCondition::IfcBoundaryEdgeCondition(Step::Id id, Step::SPFData *args) : IfcBoundaryCondition(id, args) {
@@ -89,6 +86,14 @@ void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthX(IfcModulusOfLinearSub
     m_linearStiffnessByLengthX = value;
 }
 
+void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthX() {
+    m_linearStiffnessByLengthX = Step::getUnset(getLinearStiffnessByLengthX());
+}
+
+bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthX() const {
+    return !Step::isUnset(getLinearStiffnessByLengthX());
+}
+
 IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearStiffnessByLengthY() {
     if (Step::BaseObject::inited()) {
         return m_linearStiffnessByLengthY;
@@ -105,6 +110,14 @@ const IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLin
 
 void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthY(IfcModulusOfLinearSubgradeReactionMeasure value) {
     m_linearStiffnessByLengthY = value;
+}
+
+void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthY() {
+    m_linearStiffnessByLengthY = Step::getUnset(getLinearStiffnessByLengthY());
+}
+
+bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthY() const {
+    return !Step::isUnset(getLinearStiffnessByLengthY());
 }
 
 IfcModulusOfLinearSubgradeReactionMeasure IfcBoundaryEdgeCondition::getLinearStiffnessByLengthZ() {
@@ -125,6 +138,14 @@ void IfcBoundaryEdgeCondition::setLinearStiffnessByLengthZ(IfcModulusOfLinearSub
     m_linearStiffnessByLengthZ = value;
 }
 
+void IfcBoundaryEdgeCondition::unsetLinearStiffnessByLengthZ() {
+    m_linearStiffnessByLengthZ = Step::getUnset(getLinearStiffnessByLengthZ());
+}
+
+bool IfcBoundaryEdgeCondition::testLinearStiffnessByLengthZ() const {
+    return !Step::isUnset(getLinearStiffnessByLengthZ());
+}
+
 IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthX() {
     if (Step::BaseObject::inited()) {
         return m_rotationalStiffnessByLengthX;
@@ -141,6 +162,14 @@ const IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::ge
 
 void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthX(IfcModulusOfRotationalSubgradeReactionMeasure value) {
     m_rotationalStiffnessByLengthX = value;
+}
+
+void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthX() {
+    m_rotationalStiffnessByLengthX = Step::getUnset(getRotationalStiffnessByLengthX());
+}
+
+bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthX() const {
+    return !Step::isUnset(getRotationalStiffnessByLengthX());
 }
 
 IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthY() {
@@ -161,6 +190,14 @@ void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthY(IfcModulusOfRotat
     m_rotationalStiffnessByLengthY = value;
 }
 
+void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthY() {
+    m_rotationalStiffnessByLengthY = Step::getUnset(getRotationalStiffnessByLengthY());
+}
+
+bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthY() const {
+    return !Step::isUnset(getRotationalStiffnessByLengthY());
+}
+
 IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::getRotationalStiffnessByLengthZ() {
     if (Step::BaseObject::inited()) {
         return m_rotationalStiffnessByLengthZ;
@@ -177,6 +214,14 @@ const IfcModulusOfRotationalSubgradeReactionMeasure IfcBoundaryEdgeCondition::ge
 
 void IfcBoundaryEdgeCondition::setRotationalStiffnessByLengthZ(IfcModulusOfRotationalSubgradeReactionMeasure value) {
     m_rotationalStiffnessByLengthZ = value;
+}
+
+void IfcBoundaryEdgeCondition::unsetRotationalStiffnessByLengthZ() {
+    m_rotationalStiffnessByLengthZ = Step::getUnset(getRotationalStiffnessByLengthZ());
+}
+
+bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthZ() const {
+    return !Step::isUnset(getRotationalStiffnessByLengthZ());
 }
 
 bool IfcBoundaryEdgeCondition::init() {

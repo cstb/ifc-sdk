@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurve;
 
     /**
+     * Generated class for the IfcCompositeCurveSegment Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCompositeCurveSegment : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setTransition(IfcTransitionCode value);
         /**
+         * unset the attribute 'Transition'.
+         * 
+         */
+        virtual void unsetTransition();
+        /**
+         * Test if the attribute 'Transition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransition() const;
+        /**
          * Gets the value of the explicit attribute 'SameSense'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSameSense(Step::Boolean value);
+        /**
+         * unset the attribute 'SameSense'.
+         * 
+         */
+        virtual void unsetSameSense();
+        /**
+         * Test if the attribute 'SameSense' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSameSense() const;
         /**
          * Gets the value of the explicit attribute 'ParentCurve'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setParentCurve(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'ParentCurve'.
+         * 
+         */
+        virtual void unsetParentCurve();
+        /**
+         * Test if the attribute 'ParentCurve' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testParentCurve() const;
+        /**
          * Gets the value of the inverse attribute 'UsingCurves'.
          * 
          */
@@ -135,13 +170,19 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves() const;
         /**
+         * Test if the attribute 'UsingCurves' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUsingCurves() const;
+        /**
          * Gets the value of the derived attribute 'Dim'.
          * 
          */
         virtual IfcDimensionCount getDim() const;
-        friend class IfcCompositeCurve;
         friend class ExpressDataSet;
         friend class Inverted_IfcCompositeCurve_Segments_type;
+        friend class IfcCompositeCurve;
 
     protected:
         /**

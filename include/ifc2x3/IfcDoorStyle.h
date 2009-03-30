@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcTypeProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcTypeProduct.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDoorStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDoorStyle : public IfcTypeProduct {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setOperationType(IfcDoorStyleOperationEnum value);
         /**
+         * unset the attribute 'OperationType'.
+         * 
+         */
+        virtual void unsetOperationType();
+        /**
+         * Test if the attribute 'OperationType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOperationType() const;
+        /**
          * Gets the value of the explicit attribute 'ConstructionType'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConstructionType(IfcDoorStyleConstructionEnum value);
+        /**
+         * unset the attribute 'ConstructionType'.
+         * 
+         */
+        virtual void unsetConstructionType();
+        /**
+         * Test if the attribute 'ConstructionType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConstructionType() const;
         /**
          * Gets the value of the explicit attribute 'ParameterTakesPrecedence'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setParameterTakesPrecedence(Step::Boolean value);
         /**
+         * unset the attribute 'ParameterTakesPrecedence'.
+         * 
+         */
+        virtual void unsetParameterTakesPrecedence();
+        /**
+         * Test if the attribute 'ParameterTakesPrecedence' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testParameterTakesPrecedence() const;
+        /**
          * Gets the value of the explicit attribute 'Sizeable'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSizeable(Step::Boolean value);
+        /**
+         * unset the attribute 'Sizeable'.
+         * 
+         */
+        virtual void unsetSizeable();
+        /**
+         * Test if the attribute 'Sizeable' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSizeable() const;
         friend class ExpressDataSet;
 
     protected:

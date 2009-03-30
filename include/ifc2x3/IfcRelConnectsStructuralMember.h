@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include <Step/Referenced.h>
-#include <Step/ClassType.h>
-#include <string>
 #include "ifc2x3/IfcRelConnects.h"
+#include <Step/BaseVisitor.h>
+#include <Step/ClassType.h>
+#include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -46,6 +46,8 @@ namespace ifc2x3 {
     class IfcStructuralMember;
 
     /**
+     * Generated class for the IfcRelConnectsStructuralMember Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelConnectsStructuralMember : public IfcRelConnects {
     public:
@@ -94,6 +96,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingStructuralMember(const Step::RefPtr< IfcStructuralMember > &value);
         /**
+         * unset the attribute 'RelatingStructuralMember'.
+         * 
+         */
+        virtual void unsetRelatingStructuralMember();
+        /**
+         * Test if the attribute 'RelatingStructuralMember' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingStructuralMember() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedStructuralConnection'.
          * 
          */
@@ -110,6 +123,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedStructuralConnection(const Step::RefPtr< IfcStructuralConnection > &value);
+        /**
+         * unset the attribute 'RelatedStructuralConnection'.
+         * 
+         */
+        virtual void unsetRelatedStructuralConnection();
+        /**
+         * Test if the attribute 'RelatedStructuralConnection' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedStructuralConnection() const;
         /**
          * Gets the value of the explicit attribute 'AppliedCondition'.
          * 
@@ -128,6 +152,17 @@ namespace ifc2x3 {
          */
         virtual void setAppliedCondition(const Step::RefPtr< IfcBoundaryCondition > &value);
         /**
+         * unset the attribute 'AppliedCondition'.
+         * 
+         */
+        virtual void unsetAppliedCondition();
+        /**
+         * Test if the attribute 'AppliedCondition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAppliedCondition() const;
+        /**
          * Gets the value of the explicit attribute 'AdditionalConditions'.
          * 
          */
@@ -144,6 +179,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAdditionalConditions(const Step::RefPtr< IfcStructuralConnectionCondition > &value);
+        /**
+         * unset the attribute 'AdditionalConditions'.
+         * 
+         */
+        virtual void unsetAdditionalConditions();
+        /**
+         * Test if the attribute 'AdditionalConditions' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAdditionalConditions() const;
         /**
          * Gets the value of the explicit attribute 'SupportedLength'.
          * 
@@ -162,6 +208,17 @@ namespace ifc2x3 {
          */
         virtual void setSupportedLength(IfcLengthMeasure value);
         /**
+         * unset the attribute 'SupportedLength'.
+         * 
+         */
+        virtual void unsetSupportedLength();
+        /**
+         * Test if the attribute 'SupportedLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSupportedLength() const;
+        /**
          * Gets the value of the explicit attribute 'ConditionCoordinateSystem'.
          * 
          */
@@ -178,6 +235,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConditionCoordinateSystem(const Step::RefPtr< IfcAxis2Placement3D > &value);
+        /**
+         * unset the attribute 'ConditionCoordinateSystem'.
+         * 
+         */
+        virtual void unsetConditionCoordinateSystem();
+        /**
+         * Test if the attribute 'ConditionCoordinateSystem' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConditionCoordinateSystem() const;
         friend class ExpressDataSet;
 
     protected:

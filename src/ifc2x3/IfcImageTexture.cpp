@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcImageTexture::IfcImageTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTexture(id, args) {
@@ -83,6 +80,14 @@ const IfcIdentifier IfcImageTexture::getUrlReference() const {
 
 void IfcImageTexture::setUrlReference(const IfcIdentifier &value) {
     m_urlReference = value;
+}
+
+void IfcImageTexture::unsetUrlReference() {
+    m_urlReference = Step::getUnset(getUrlReference());
+}
+
+bool IfcImageTexture::testUrlReference() const {
+    return !Step::isUnset(getUrlReference());
 }
 
 bool IfcImageTexture::init() {

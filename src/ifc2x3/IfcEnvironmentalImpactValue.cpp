@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEnvironmentalImpactValue::IfcEnvironmentalImpactValue(Step::Id id, Step::SPFData *args) : IfcAppliedValue(id, args) {
@@ -87,6 +84,14 @@ void IfcEnvironmentalImpactValue::setImpactType(const IfcLabel &value) {
     m_impactType = value;
 }
 
+void IfcEnvironmentalImpactValue::unsetImpactType() {
+    m_impactType = Step::getUnset(getImpactType());
+}
+
+bool IfcEnvironmentalImpactValue::testImpactType() const {
+    return !Step::isUnset(getImpactType());
+}
+
 IfcEnvironmentalImpactCategoryEnum IfcEnvironmentalImpactValue::getCategory() {
     if (Step::BaseObject::inited()) {
         return m_category;
@@ -105,6 +110,14 @@ void IfcEnvironmentalImpactValue::setCategory(IfcEnvironmentalImpactCategoryEnum
     m_category = value;
 }
 
+void IfcEnvironmentalImpactValue::unsetCategory() {
+    m_category = IfcEnvironmentalImpactCategoryEnum_UNSET;
+}
+
+bool IfcEnvironmentalImpactValue::testCategory() const {
+    return getCategory() != IfcEnvironmentalImpactCategoryEnum_UNSET;
+}
+
 IfcLabel IfcEnvironmentalImpactValue::getUserDefinedCategory() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedCategory;
@@ -121,6 +134,14 @@ const IfcLabel IfcEnvironmentalImpactValue::getUserDefinedCategory() const {
 
 void IfcEnvironmentalImpactValue::setUserDefinedCategory(const IfcLabel &value) {
     m_userDefinedCategory = value;
+}
+
+void IfcEnvironmentalImpactValue::unsetUserDefinedCategory() {
+    m_userDefinedCategory = Step::getUnset(getUserDefinedCategory());
+}
+
+bool IfcEnvironmentalImpactValue::testUserDefinedCategory() const {
+    return !Step::isUnset(getUserDefinedCategory());
 }
 
 bool IfcEnvironmentalImpactValue::init() {

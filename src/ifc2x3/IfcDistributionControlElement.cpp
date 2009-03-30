@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDistributionControlElement::IfcDistributionControlElement(Step::Id id, Step::SPFData *args) : IfcDistributionElement(id, args) {
@@ -88,6 +85,14 @@ void IfcDistributionControlElement::setControlElementId(const IfcIdentifier &val
     m_controlElementId = value;
 }
 
+void IfcDistributionControlElement::unsetControlElementId() {
+    m_controlElementId = Step::getUnset(getControlElementId());
+}
+
+bool IfcDistributionControlElement::testControlElementId() const {
+    return !Step::isUnset(getControlElementId());
+}
+
 Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() {
     if (Step::BaseObject::inited()) {
         return m_assignedToFlowElement;
@@ -101,6 +106,10 @@ Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAss
 const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() const {
     IfcDistributionControlElement * deConstObject = const_cast< IfcDistributionControlElement * > (this);
     return deConstObject->getAssignedToFlowElement();
+}
+
+bool IfcDistributionControlElement::testAssignedToFlowElement() const {
+    return !Step::isUnset(getAssignedToFlowElement());
 }
 
 bool IfcDistributionControlElement::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBuildingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBuildingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCovering Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCovering : public IfcBuildingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPredefinedType(IfcCoveringTypeEnum value);
         /**
+         * unset the attribute 'PredefinedType'.
+         * 
+         */
+        virtual void unsetPredefinedType();
+        /**
+         * Test if the attribute 'PredefinedType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPredefinedType() const;
+        /**
          * Gets the value of the inverse attribute 'CoversSpaces'.
          * 
          */
@@ -99,6 +112,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
         /**
+         * Test if the attribute 'CoversSpaces' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCoversSpaces() const;
+        /**
          * Gets the value of the inverse attribute 'Covers'.
          * 
          */
@@ -109,11 +128,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Covers'
          */
         virtual const Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers() const;
-        friend class Inverted_IfcRelCoversSpaces_RelatedCoverings_type;
-        friend class IfcRelCoversBldgElements;
+        /**
+         * Test if the attribute 'Covers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCovers() const;
         friend class Inverted_IfcRelCoversBldgElements_RelatedCoverings_type;
+        friend class IfcRelCoversBldgElements;
         friend class ExpressDataSet;
         friend class IfcRelCoversSpaces;
+        friend class Inverted_IfcRelCoversSpaces_RelatedCoverings_type;
 
     protected:
         /**

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOpticalMaterialProperties::IfcOpticalMaterialProperties(Step::Id id, Step::SPFData *args) : IfcMaterialProperties(id, args) {
@@ -92,6 +89,14 @@ void IfcOpticalMaterialProperties::setVisibleTransmittance(IfcPositiveRatioMeasu
     m_visibleTransmittance = value;
 }
 
+void IfcOpticalMaterialProperties::unsetVisibleTransmittance() {
+    m_visibleTransmittance = Step::getUnset(getVisibleTransmittance());
+}
+
+bool IfcOpticalMaterialProperties::testVisibleTransmittance() const {
+    return !Step::isUnset(getVisibleTransmittance());
+}
+
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittance() {
     if (Step::BaseObject::inited()) {
         return m_solarTransmittance;
@@ -108,6 +113,14 @@ const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarTransmittanc
 
 void IfcOpticalMaterialProperties::setSolarTransmittance(IfcPositiveRatioMeasure value) {
     m_solarTransmittance = value;
+}
+
+void IfcOpticalMaterialProperties::unsetSolarTransmittance() {
+    m_solarTransmittance = Step::getUnset(getSolarTransmittance());
+}
+
+bool IfcOpticalMaterialProperties::testSolarTransmittance() const {
+    return !Step::isUnset(getSolarTransmittance());
 }
 
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrTransmittance() {
@@ -128,6 +141,14 @@ void IfcOpticalMaterialProperties::setThermalIrTransmittance(IfcPositiveRatioMea
     m_thermalIrTransmittance = value;
 }
 
+void IfcOpticalMaterialProperties::unsetThermalIrTransmittance() {
+    m_thermalIrTransmittance = Step::getUnset(getThermalIrTransmittance());
+}
+
+bool IfcOpticalMaterialProperties::testThermalIrTransmittance() const {
+    return !Step::isUnset(getThermalIrTransmittance());
+}
+
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityBack() {
     if (Step::BaseObject::inited()) {
         return m_thermalIrEmissivityBack;
@@ -144,6 +165,14 @@ const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivi
 
 void IfcOpticalMaterialProperties::setThermalIrEmissivityBack(IfcPositiveRatioMeasure value) {
     m_thermalIrEmissivityBack = value;
+}
+
+void IfcOpticalMaterialProperties::unsetThermalIrEmissivityBack() {
+    m_thermalIrEmissivityBack = Step::getUnset(getThermalIrEmissivityBack());
+}
+
+bool IfcOpticalMaterialProperties::testThermalIrEmissivityBack() const {
+    return !Step::isUnset(getThermalIrEmissivityBack());
 }
 
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getThermalIrEmissivityFront() {
@@ -164,6 +193,14 @@ void IfcOpticalMaterialProperties::setThermalIrEmissivityFront(IfcPositiveRatioM
     m_thermalIrEmissivityFront = value;
 }
 
+void IfcOpticalMaterialProperties::unsetThermalIrEmissivityFront() {
+    m_thermalIrEmissivityFront = Step::getUnset(getThermalIrEmissivityFront());
+}
+
+bool IfcOpticalMaterialProperties::testThermalIrEmissivityFront() const {
+    return !Step::isUnset(getThermalIrEmissivityFront());
+}
+
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceBack() {
     if (Step::BaseObject::inited()) {
         return m_visibleReflectanceBack;
@@ -180,6 +217,14 @@ const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanc
 
 void IfcOpticalMaterialProperties::setVisibleReflectanceBack(IfcPositiveRatioMeasure value) {
     m_visibleReflectanceBack = value;
+}
+
+void IfcOpticalMaterialProperties::unsetVisibleReflectanceBack() {
+    m_visibleReflectanceBack = Step::getUnset(getVisibleReflectanceBack());
+}
+
+bool IfcOpticalMaterialProperties::testVisibleReflectanceBack() const {
+    return !Step::isUnset(getVisibleReflectanceBack());
 }
 
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getVisibleReflectanceFront() {
@@ -200,6 +245,14 @@ void IfcOpticalMaterialProperties::setVisibleReflectanceFront(IfcPositiveRatioMe
     m_visibleReflectanceFront = value;
 }
 
+void IfcOpticalMaterialProperties::unsetVisibleReflectanceFront() {
+    m_visibleReflectanceFront = Step::getUnset(getVisibleReflectanceFront());
+}
+
+bool IfcOpticalMaterialProperties::testVisibleReflectanceFront() const {
+    return !Step::isUnset(getVisibleReflectanceFront());
+}
+
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceFront() {
     if (Step::BaseObject::inited()) {
         return m_solarReflectanceFront;
@@ -218,6 +271,14 @@ void IfcOpticalMaterialProperties::setSolarReflectanceFront(IfcPositiveRatioMeas
     m_solarReflectanceFront = value;
 }
 
+void IfcOpticalMaterialProperties::unsetSolarReflectanceFront() {
+    m_solarReflectanceFront = Step::getUnset(getSolarReflectanceFront());
+}
+
+bool IfcOpticalMaterialProperties::testSolarReflectanceFront() const {
+    return !Step::isUnset(getSolarReflectanceFront());
+}
+
 IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceBack() {
     if (Step::BaseObject::inited()) {
         return m_solarReflectanceBack;
@@ -234,6 +295,14 @@ const IfcPositiveRatioMeasure IfcOpticalMaterialProperties::getSolarReflectanceB
 
 void IfcOpticalMaterialProperties::setSolarReflectanceBack(IfcPositiveRatioMeasure value) {
     m_solarReflectanceBack = value;
+}
+
+void IfcOpticalMaterialProperties::unsetSolarReflectanceBack() {
+    m_solarReflectanceBack = Step::getUnset(getSolarReflectanceBack());
+}
+
+bool IfcOpticalMaterialProperties::testSolarReflectanceBack() const {
+    return !Step::isUnset(getSolarReflectanceBack());
 }
 
 bool IfcOpticalMaterialProperties::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPropertyDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcPropertyDefinition.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPropertySetDefinition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertySetDefinition : public IfcPropertyDefinition {
     public:
@@ -82,6 +84,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelDefinesByProperties_0_1 &getPropertyDefinitionOf() const;
         /**
+         * Test if the attribute 'PropertyDefinitionOf' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPropertyDefinitionOf() const;
+        /**
          * Gets the value of the inverse attribute 'DefinesType'.
          * 
          */
@@ -92,6 +100,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'DefinesType'
          */
         virtual const Inverse_Set_IfcTypeObject_0_1 &getDefinesType() const;
+        /**
+         * Test if the attribute 'DefinesType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDefinesType() const;
         friend class Inverted_IfcTypeObject_HasPropertySets_type;
         friend class IfcRelDefinesByProperties;
         friend class ExpressDataSet;

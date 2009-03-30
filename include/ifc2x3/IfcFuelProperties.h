@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcFuelProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFuelProperties : public IfcMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setCombustionTemperature(IfcThermodynamicTemperatureMeasure value);
         /**
+         * unset the attribute 'CombustionTemperature'.
+         * 
+         */
+        virtual void unsetCombustionTemperature();
+        /**
+         * Test if the attribute 'CombustionTemperature' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCombustionTemperature() const;
+        /**
          * Gets the value of the explicit attribute 'CarbonContent'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCarbonContent(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'CarbonContent'.
+         * 
+         */
+        virtual void unsetCarbonContent();
+        /**
+         * Test if the attribute 'CarbonContent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCarbonContent() const;
         /**
          * Gets the value of the explicit attribute 'LowerHeatingValue'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setLowerHeatingValue(IfcHeatingValueMeasure value);
         /**
+         * unset the attribute 'LowerHeatingValue'.
+         * 
+         */
+        virtual void unsetLowerHeatingValue();
+        /**
+         * Test if the attribute 'LowerHeatingValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLowerHeatingValue() const;
+        /**
          * Gets the value of the explicit attribute 'HigherHeatingValue'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHigherHeatingValue(IfcHeatingValueMeasure value);
+        /**
+         * unset the attribute 'HigherHeatingValue'.
+         * 
+         */
+        virtual void unsetHigherHeatingValue();
+        /**
+         * Test if the attribute 'HigherHeatingValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHigherHeatingValue() const;
         friend class ExpressDataSet;
 
     protected:

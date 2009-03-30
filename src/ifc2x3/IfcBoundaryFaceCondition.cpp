@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBoundaryFaceCondition::IfcBoundaryFaceCondition(Step::Id id, Step::SPFData *args) : IfcBoundaryCondition(id, args) {
@@ -86,6 +83,14 @@ void IfcBoundaryFaceCondition::setLinearStiffnessByAreaX(IfcModulusOfSubgradeRea
     m_linearStiffnessByAreaX = value;
 }
 
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaX() {
+    m_linearStiffnessByAreaX = Step::getUnset(getLinearStiffnessByAreaX());
+}
+
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaX() const {
+    return !Step::isUnset(getLinearStiffnessByAreaX());
+}
+
 IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaY() {
     if (Step::BaseObject::inited()) {
         return m_linearStiffnessByAreaY;
@@ -104,6 +109,14 @@ void IfcBoundaryFaceCondition::setLinearStiffnessByAreaY(IfcModulusOfSubgradeRea
     m_linearStiffnessByAreaY = value;
 }
 
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaY() {
+    m_linearStiffnessByAreaY = Step::getUnset(getLinearStiffnessByAreaY());
+}
+
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaY() const {
+    return !Step::isUnset(getLinearStiffnessByAreaY());
+}
+
 IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearStiffnessByAreaZ() {
     if (Step::BaseObject::inited()) {
         return m_linearStiffnessByAreaZ;
@@ -120,6 +133,14 @@ const IfcModulusOfSubgradeReactionMeasure IfcBoundaryFaceCondition::getLinearSti
 
 void IfcBoundaryFaceCondition::setLinearStiffnessByAreaZ(IfcModulusOfSubgradeReactionMeasure value) {
     m_linearStiffnessByAreaZ = value;
+}
+
+void IfcBoundaryFaceCondition::unsetLinearStiffnessByAreaZ() {
+    m_linearStiffnessByAreaZ = Step::getUnset(getLinearStiffnessByAreaZ());
+}
+
+bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaZ() const {
+    return !Step::isUnset(getLinearStiffnessByAreaZ());
 }
 
 bool IfcBoundaryFaceCondition::init() {

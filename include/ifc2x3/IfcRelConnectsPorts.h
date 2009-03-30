@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcPort;
 
     /**
+     * Generated class for the IfcRelConnectsPorts Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelConnectsPorts : public IfcRelConnects {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingPort(const Step::RefPtr< IfcPort > &value);
         /**
+         * unset the attribute 'RelatingPort'.
+         * 
+         */
+        virtual void unsetRelatingPort();
+        /**
+         * Test if the attribute 'RelatingPort' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingPort() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedPort'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatedPort(const Step::RefPtr< IfcPort > &value);
         /**
+         * unset the attribute 'RelatedPort'.
+         * 
+         */
+        virtual void unsetRelatedPort();
+        /**
+         * Test if the attribute 'RelatedPort' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedPort() const;
+        /**
          * Gets the value of the explicit attribute 'RealizingElement'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRealizingElement(const Step::RefPtr< IfcElement > &value);
+        /**
+         * unset the attribute 'RealizingElement'.
+         * 
+         */
+        virtual void unsetRealizingElement();
+        /**
+         * Test if the attribute 'RealizingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRealizingElement() const;
         friend class ExpressDataSet;
 
     protected:

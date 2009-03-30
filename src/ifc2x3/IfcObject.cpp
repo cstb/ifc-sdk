@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcObject::IfcObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
@@ -88,6 +85,14 @@ void IfcObject::setObjectType(const IfcLabel &value) {
     m_objectType = value;
 }
 
+void IfcObject::unsetObjectType() {
+    m_objectType = Step::getUnset(getObjectType());
+}
+
+bool IfcObject::testObjectType() const {
+    return !Step::isUnset(getObjectType());
+}
+
 Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
     if (Step::BaseObject::inited()) {
         return m_isDefinedBy;
@@ -101,6 +106,10 @@ Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
 const Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() const {
     IfcObject * deConstObject = const_cast< IfcObject * > (this);
     return deConstObject->getIsDefinedBy();
+}
+
+bool IfcObject::testIsDefinedBy() const {
+    return !Step::isUnset(getIsDefinedBy());
 }
 
 bool IfcObject::init() {

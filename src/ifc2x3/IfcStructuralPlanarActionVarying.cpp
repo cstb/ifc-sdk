@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralPlanarActionVarying::IfcStructuralPlanarActionVarying(Step::Id id, Step::SPFData *args) : IfcStructuralPlanarAction(id, args) {
@@ -89,6 +86,14 @@ void IfcStructuralPlanarActionVarying::setVaryingAppliedLoadLocation(const Step:
     m_varyingAppliedLoadLocation = value;
 }
 
+void IfcStructuralPlanarActionVarying::unsetVaryingAppliedLoadLocation() {
+    m_varyingAppliedLoadLocation = Step::getUnset(getVaryingAppliedLoadLocation());
+}
+
+bool IfcStructuralPlanarActionVarying::testVaryingAppliedLoadLocation() const {
+    return !Step::isUnset(getVaryingAppliedLoadLocation());
+}
+
 List_IfcStructuralLoad_2_n &IfcStructuralPlanarActionVarying::getSubsequentAppliedLoads() {
     if (Step::BaseObject::inited()) {
         return m_subsequentAppliedLoads;
@@ -106,6 +111,15 @@ const List_IfcStructuralLoad_2_n &IfcStructuralPlanarActionVarying::getSubsequen
 
 void IfcStructuralPlanarActionVarying::setSubsequentAppliedLoads(const List_IfcStructuralLoad_2_n &value) {
     m_subsequentAppliedLoads = value;
+}
+
+void IfcStructuralPlanarActionVarying::unsetSubsequentAppliedLoads() {
+    m_subsequentAppliedLoads.clear();
+    m_subsequentAppliedLoads.setUnset(true);
+}
+
+bool IfcStructuralPlanarActionVarying::testSubsequentAppliedLoads() const {
+    return !Step::isUnset(getSubsequentAppliedLoads());
 }
 
 bool IfcStructuralPlanarActionVarying::init() {

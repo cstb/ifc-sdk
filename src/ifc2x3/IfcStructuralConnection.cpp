@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralConnection::IfcStructuralConnection(Step::Id id, Step::SPFData *args) : IfcStructuralItem(id, args) {
@@ -90,6 +87,14 @@ void IfcStructuralConnection::setAppliedCondition(const Step::RefPtr< IfcBoundar
     m_appliedCondition = value;
 }
 
+void IfcStructuralConnection::unsetAppliedCondition() {
+    m_appliedCondition = Step::getUnset(getAppliedCondition());
+}
+
+bool IfcStructuralConnection::testAppliedCondition() const {
+    return !Step::isUnset(getAppliedCondition());
+}
+
 Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() {
     if (Step::BaseObject::inited()) {
         return m_connectsStructuralMembers;
@@ -103,6 +108,10 @@ Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConn
 const Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() const {
     IfcStructuralConnection * deConstObject = const_cast< IfcStructuralConnection * > (this);
     return deConstObject->getConnectsStructuralMembers();
+}
+
+bool IfcStructuralConnection::testConnectsStructuralMembers() const {
+    return !Step::isUnset(getConnectsStructuralMembers());
 }
 
 bool IfcStructuralConnection::init() {

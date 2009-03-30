@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDateAndTime::IfcDateAndTime(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcDateAndTime::setDateComponent(const Step::RefPtr< IfcCalendarDate > &val
     m_dateComponent = value;
 }
 
+void IfcDateAndTime::unsetDateComponent() {
+    m_dateComponent = Step::getUnset(getDateComponent());
+}
+
+bool IfcDateAndTime::testDateComponent() const {
+    return !Step::isUnset(getDateComponent());
+}
+
 IfcLocalTime *IfcDateAndTime::getTimeComponent() {
     if (Step::BaseObject::inited()) {
         return m_timeComponent.get();
@@ -106,6 +111,14 @@ const IfcLocalTime *IfcDateAndTime::getTimeComponent() const {
 
 void IfcDateAndTime::setTimeComponent(const Step::RefPtr< IfcLocalTime > &value) {
     m_timeComponent = value;
+}
+
+void IfcDateAndTime::unsetTimeComponent() {
+    m_timeComponent = Step::getUnset(getTimeComponent());
+}
+
+bool IfcDateAndTime::testTimeComponent() const {
+    return !Step::isUnset(getTimeComponent());
 }
 
 bool IfcDateAndTime::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLine::IfcLine(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
@@ -90,6 +87,14 @@ void IfcLine::setPnt(const Step::RefPtr< IfcCartesianPoint > &value) {
     m_pnt = value;
 }
 
+void IfcLine::unsetPnt() {
+    m_pnt = Step::getUnset(getPnt());
+}
+
+bool IfcLine::testPnt() const {
+    return !Step::isUnset(getPnt());
+}
+
 IfcVector *IfcLine::getDir() {
     if (Step::BaseObject::inited()) {
         return m_dir.get();
@@ -106,6 +111,14 @@ const IfcVector *IfcLine::getDir() const {
 
 void IfcLine::setDir(const Step::RefPtr< IfcVector > &value) {
     m_dir = value;
+}
+
+void IfcLine::unsetDir() {
+    m_dir = Step::getUnset(getDir());
+}
+
+bool IfcLine::testDir() const {
+    return !Step::isUnset(getDir());
 }
 
 bool IfcLine::init() {

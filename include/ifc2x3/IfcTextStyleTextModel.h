@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcSizeSelect;
 
     /**
+     * Generated class for the IfcTextStyleTextModel Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextStyleTextModel : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setTextIndent(const Step::RefPtr< IfcSizeSelect > &value);
         /**
+         * unset the attribute 'TextIndent'.
+         * 
+         */
+        virtual void unsetTextIndent();
+        /**
+         * Test if the attribute 'TextIndent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextIndent() const;
+        /**
          * Gets the value of the explicit attribute 'TextAlign'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTextAlign(const IfcTextAlignment &value);
+        /**
+         * unset the attribute 'TextAlign'.
+         * 
+         */
+        virtual void unsetTextAlign();
+        /**
+         * Test if the attribute 'TextAlign' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextAlign() const;
         /**
          * Gets the value of the explicit attribute 'TextDecoration'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setTextDecoration(const IfcTextDecoration &value);
         /**
+         * unset the attribute 'TextDecoration'.
+         * 
+         */
+        virtual void unsetTextDecoration();
+        /**
+         * Test if the attribute 'TextDecoration' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextDecoration() const;
+        /**
          * Gets the value of the explicit attribute 'LetterSpacing'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLetterSpacing(const Step::RefPtr< IfcSizeSelect > &value);
+        /**
+         * unset the attribute 'LetterSpacing'.
+         * 
+         */
+        virtual void unsetLetterSpacing();
+        /**
+         * Test if the attribute 'LetterSpacing' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLetterSpacing() const;
         /**
          * Gets the value of the explicit attribute 'WordSpacing'.
          * 
@@ -159,6 +205,17 @@ namespace ifc2x3 {
          */
         virtual void setWordSpacing(const Step::RefPtr< IfcSizeSelect > &value);
         /**
+         * unset the attribute 'WordSpacing'.
+         * 
+         */
+        virtual void unsetWordSpacing();
+        /**
+         * Test if the attribute 'WordSpacing' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWordSpacing() const;
+        /**
          * Gets the value of the explicit attribute 'TextTransform'.
          * 
          */
@@ -176,6 +233,17 @@ namespace ifc2x3 {
          */
         virtual void setTextTransform(const IfcTextTransformation &value);
         /**
+         * unset the attribute 'TextTransform'.
+         * 
+         */
+        virtual void unsetTextTransform();
+        /**
+         * Test if the attribute 'TextTransform' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTextTransform() const;
+        /**
          * Gets the value of the explicit attribute 'LineHeight'.
          * 
          */
@@ -192,6 +260,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLineHeight(const Step::RefPtr< IfcSizeSelect > &value);
+        /**
+         * unset the attribute 'LineHeight'.
+         * 
+         */
+        virtual void unsetLineHeight();
+        /**
+         * Test if the attribute 'LineHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLineHeight() const;
         friend class ExpressDataSet;
 
     protected:

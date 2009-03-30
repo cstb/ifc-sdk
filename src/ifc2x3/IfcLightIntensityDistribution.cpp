@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightIntensityDistribution::IfcLightIntensityDistribution(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -88,6 +85,14 @@ void IfcLightIntensityDistribution::setLightDistributionCurve(IfcLightDistributi
     m_lightDistributionCurve = value;
 }
 
+void IfcLightIntensityDistribution::unsetLightDistributionCurve() {
+    m_lightDistributionCurve = IfcLightDistributionCurveEnum_UNSET;
+}
+
+bool IfcLightIntensityDistribution::testLightDistributionCurve() const {
+    return getLightDistributionCurve() != IfcLightDistributionCurveEnum_UNSET;
+}
+
 List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistributionData() {
     if (Step::BaseObject::inited()) {
         return m_distributionData;
@@ -105,6 +110,15 @@ const List_IfcLightDistributionData_1_n &IfcLightIntensityDistribution::getDistr
 
 void IfcLightIntensityDistribution::setDistributionData(const List_IfcLightDistributionData_1_n &value) {
     m_distributionData = value;
+}
+
+void IfcLightIntensityDistribution::unsetDistributionData() {
+    m_distributionData.clear();
+    m_distributionData.setUnset(true);
+}
+
+bool IfcLightIntensityDistribution::testDistributionData() const {
+    return !Step::isUnset(getDistributionData());
 }
 
 bool IfcLightIntensityDistribution::init() {

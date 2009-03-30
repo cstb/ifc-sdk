@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyleRendering::IfcSurfaceStyleRendering(Step::Id id, Step::SPFData *args) : IfcSurfaceStyleShading(id, args) {
@@ -95,6 +92,14 @@ void IfcSurfaceStyleRendering::setTransparency(IfcNormalisedRatioMeasure value) 
     m_transparency = value;
 }
 
+void IfcSurfaceStyleRendering::unsetTransparency() {
+    m_transparency = Step::getUnset(getTransparency());
+}
+
+bool IfcSurfaceStyleRendering::testTransparency() const {
+    return !Step::isUnset(getTransparency());
+}
+
 IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() {
     if (Step::BaseObject::inited()) {
         return m_diffuseColour.get();
@@ -111,6 +116,14 @@ const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseColour() const {
 
 void IfcSurfaceStyleRendering::setDiffuseColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_diffuseColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetDiffuseColour() {
+    m_diffuseColour = Step::getUnset(getDiffuseColour());
+}
+
+bool IfcSurfaceStyleRendering::testDiffuseColour() const {
+    return !Step::isUnset(getDiffuseColour());
 }
 
 IfcColourOrFactor *IfcSurfaceStyleRendering::getTransmissionColour() {
@@ -131,6 +144,14 @@ void IfcSurfaceStyleRendering::setTransmissionColour(const Step::RefPtr< IfcColo
     m_transmissionColour = value;
 }
 
+void IfcSurfaceStyleRendering::unsetTransmissionColour() {
+    m_transmissionColour = Step::getUnset(getTransmissionColour());
+}
+
+bool IfcSurfaceStyleRendering::testTransmissionColour() const {
+    return !Step::isUnset(getTransmissionColour());
+}
+
 IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour() {
     if (Step::BaseObject::inited()) {
         return m_diffuseTransmissionColour.get();
@@ -147,6 +168,14 @@ const IfcColourOrFactor *IfcSurfaceStyleRendering::getDiffuseTransmissionColour(
 
 void IfcSurfaceStyleRendering::setDiffuseTransmissionColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_diffuseTransmissionColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetDiffuseTransmissionColour() {
+    m_diffuseTransmissionColour = Step::getUnset(getDiffuseTransmissionColour());
+}
+
+bool IfcSurfaceStyleRendering::testDiffuseTransmissionColour() const {
+    return !Step::isUnset(getDiffuseTransmissionColour());
 }
 
 IfcColourOrFactor *IfcSurfaceStyleRendering::getReflectionColour() {
@@ -167,6 +196,14 @@ void IfcSurfaceStyleRendering::setReflectionColour(const Step::RefPtr< IfcColour
     m_reflectionColour = value;
 }
 
+void IfcSurfaceStyleRendering::unsetReflectionColour() {
+    m_reflectionColour = Step::getUnset(getReflectionColour());
+}
+
+bool IfcSurfaceStyleRendering::testReflectionColour() const {
+    return !Step::isUnset(getReflectionColour());
+}
+
 IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() {
     if (Step::BaseObject::inited()) {
         return m_specularColour.get();
@@ -183,6 +220,14 @@ const IfcColourOrFactor *IfcSurfaceStyleRendering::getSpecularColour() const {
 
 void IfcSurfaceStyleRendering::setSpecularColour(const Step::RefPtr< IfcColourOrFactor > &value) {
     m_specularColour = value;
+}
+
+void IfcSurfaceStyleRendering::unsetSpecularColour() {
+    m_specularColour = Step::getUnset(getSpecularColour());
+}
+
+bool IfcSurfaceStyleRendering::testSpecularColour() const {
+    return !Step::isUnset(getSpecularColour());
 }
 
 IfcSpecularHighlightSelect *IfcSurfaceStyleRendering::getSpecularHighlight() {
@@ -203,6 +248,14 @@ void IfcSurfaceStyleRendering::setSpecularHighlight(const Step::RefPtr< IfcSpecu
     m_specularHighlight = value;
 }
 
+void IfcSurfaceStyleRendering::unsetSpecularHighlight() {
+    m_specularHighlight = Step::getUnset(getSpecularHighlight());
+}
+
+bool IfcSurfaceStyleRendering::testSpecularHighlight() const {
+    return !Step::isUnset(getSpecularHighlight());
+}
+
 IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() {
     if (Step::BaseObject::inited()) {
         return m_reflectanceMethod;
@@ -219,6 +272,14 @@ const IfcReflectanceMethodEnum IfcSurfaceStyleRendering::getReflectanceMethod() 
 
 void IfcSurfaceStyleRendering::setReflectanceMethod(IfcReflectanceMethodEnum value) {
     m_reflectanceMethod = value;
+}
+
+void IfcSurfaceStyleRendering::unsetReflectanceMethod() {
+    m_reflectanceMethod = IfcReflectanceMethodEnum_UNSET;
+}
+
+bool IfcSurfaceStyleRendering::testReflectanceMethod() const {
+    return getReflectanceMethod() != IfcReflectanceMethodEnum_UNSET;
 }
 
 bool IfcSurfaceStyleRendering::init() {

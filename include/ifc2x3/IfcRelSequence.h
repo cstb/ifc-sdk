@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
-#include "ifc2x3/IfcRelConnects.h"
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcProcess;
 
     /**
+     * Generated class for the IfcRelSequence Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelSequence : public IfcRelConnects {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setRelatingProcess(const Step::RefPtr< IfcProcess > &value);
         /**
+         * unset the attribute 'RelatingProcess'.
+         * 
+         */
+        virtual void unsetRelatingProcess();
+        /**
+         * Test if the attribute 'RelatingProcess' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatingProcess() const;
+        /**
          * Gets the value of the explicit attribute 'RelatedProcess'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelatedProcess(const Step::RefPtr< IfcProcess > &value);
+        /**
+         * unset the attribute 'RelatedProcess'.
+         * 
+         */
+        virtual void unsetRelatedProcess();
+        /**
+         * Test if the attribute 'RelatedProcess' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelatedProcess() const;
         /**
          * Gets the value of the explicit attribute 'TimeLag'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTimeLag(IfcTimeMeasure value);
         /**
+         * unset the attribute 'TimeLag'.
+         * 
+         */
+        virtual void unsetTimeLag();
+        /**
+         * Test if the attribute 'TimeLag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeLag() const;
+        /**
          * Gets the value of the explicit attribute 'SequenceType'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSequenceType(IfcSequenceEnum value);
+        /**
+         * unset the attribute 'SequenceType'.
+         * 
+         */
+        virtual void unsetSequenceType();
+        /**
+         * Test if the attribute 'SequenceType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSequenceType() const;
         friend class ExpressDataSet;
 
     protected:

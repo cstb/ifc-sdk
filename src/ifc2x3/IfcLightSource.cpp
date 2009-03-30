@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcLightSource::IfcLightSource(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -92,6 +89,14 @@ void IfcLightSource::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcLightSource::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcLightSource::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcColourRgb *IfcLightSource::getLightColour() {
     if (Step::BaseObject::inited()) {
         return m_lightColour.get();
@@ -108,6 +113,14 @@ const IfcColourRgb *IfcLightSource::getLightColour() const {
 
 void IfcLightSource::setLightColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_lightColour = value;
+}
+
+void IfcLightSource::unsetLightColour() {
+    m_lightColour = Step::getUnset(getLightColour());
+}
+
+bool IfcLightSource::testLightColour() const {
+    return !Step::isUnset(getLightColour());
 }
 
 IfcNormalisedRatioMeasure IfcLightSource::getAmbientIntensity() {
@@ -128,6 +141,14 @@ void IfcLightSource::setAmbientIntensity(IfcNormalisedRatioMeasure value) {
     m_ambientIntensity = value;
 }
 
+void IfcLightSource::unsetAmbientIntensity() {
+    m_ambientIntensity = Step::getUnset(getAmbientIntensity());
+}
+
+bool IfcLightSource::testAmbientIntensity() const {
+    return !Step::isUnset(getAmbientIntensity());
+}
+
 IfcNormalisedRatioMeasure IfcLightSource::getIntensity() {
     if (Step::BaseObject::inited()) {
         return m_intensity;
@@ -144,6 +165,14 @@ const IfcNormalisedRatioMeasure IfcLightSource::getIntensity() const {
 
 void IfcLightSource::setIntensity(IfcNormalisedRatioMeasure value) {
     m_intensity = value;
+}
+
+void IfcLightSource::unsetIntensity() {
+    m_intensity = Step::getUnset(getIntensity());
+}
+
+bool IfcLightSource::testIntensity() const {
+    return !Step::isUnset(getIntensity());
 }
 
 bool IfcLightSource::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStairFlight::IfcStairFlight(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -87,6 +84,14 @@ void IfcStairFlight::setNumberOfRiser(Step::Integer value) {
     m_numberOfRiser = value;
 }
 
+void IfcStairFlight::unsetNumberOfRiser() {
+    m_numberOfRiser = Step::getUnset(getNumberOfRiser());
+}
+
+bool IfcStairFlight::testNumberOfRiser() const {
+    return !Step::isUnset(getNumberOfRiser());
+}
+
 Step::Integer IfcStairFlight::getNumberOfTreads() {
     if (Step::BaseObject::inited()) {
         return m_numberOfTreads;
@@ -103,6 +108,14 @@ const Step::Integer IfcStairFlight::getNumberOfTreads() const {
 
 void IfcStairFlight::setNumberOfTreads(Step::Integer value) {
     m_numberOfTreads = value;
+}
+
+void IfcStairFlight::unsetNumberOfTreads() {
+    m_numberOfTreads = Step::getUnset(getNumberOfTreads());
+}
+
+bool IfcStairFlight::testNumberOfTreads() const {
+    return !Step::isUnset(getNumberOfTreads());
 }
 
 IfcPositiveLengthMeasure IfcStairFlight::getRiserHeight() {
@@ -123,6 +136,14 @@ void IfcStairFlight::setRiserHeight(IfcPositiveLengthMeasure value) {
     m_riserHeight = value;
 }
 
+void IfcStairFlight::unsetRiserHeight() {
+    m_riserHeight = Step::getUnset(getRiserHeight());
+}
+
+bool IfcStairFlight::testRiserHeight() const {
+    return !Step::isUnset(getRiserHeight());
+}
+
 IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() {
     if (Step::BaseObject::inited()) {
         return m_treadLength;
@@ -139,6 +160,14 @@ const IfcPositiveLengthMeasure IfcStairFlight::getTreadLength() const {
 
 void IfcStairFlight::setTreadLength(IfcPositiveLengthMeasure value) {
     m_treadLength = value;
+}
+
+void IfcStairFlight::unsetTreadLength() {
+    m_treadLength = Step::getUnset(getTreadLength());
+}
+
+bool IfcStairFlight::testTreadLength() const {
+    return !Step::isUnset(getTreadLength());
 }
 
 bool IfcStairFlight::init() {

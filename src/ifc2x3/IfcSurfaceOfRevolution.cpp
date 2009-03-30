@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceOfRevolution::IfcSurfaceOfRevolution(Step::Id id, Step::SPFData *args) : IfcSweptSurface(id, args) {
@@ -86,6 +83,14 @@ const IfcAxis1Placement *IfcSurfaceOfRevolution::getAxisPosition() const {
 
 void IfcSurfaceOfRevolution::setAxisPosition(const Step::RefPtr< IfcAxis1Placement > &value) {
     m_axisPosition = value;
+}
+
+void IfcSurfaceOfRevolution::unsetAxisPosition() {
+    m_axisPosition = Step::getUnset(getAxisPosition());
+}
+
+bool IfcSurfaceOfRevolution::testAxisPosition() const {
+    return !Step::isUnset(getAxisPosition());
 }
 
 bool IfcSurfaceOfRevolution::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralConnectionCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralConnectionCondition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcFailureConnectionCondition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFailureConnectionCondition : public IfcStructuralConnectionCondition {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setTensionFailureX(IfcForceMeasure value);
         /**
+         * unset the attribute 'TensionFailureX'.
+         * 
+         */
+        virtual void unsetTensionFailureX();
+        /**
+         * Test if the attribute 'TensionFailureX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTensionFailureX() const;
+        /**
          * Gets the value of the explicit attribute 'TensionFailureY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTensionFailureY(IfcForceMeasure value);
+        /**
+         * unset the attribute 'TensionFailureY'.
+         * 
+         */
+        virtual void unsetTensionFailureY();
+        /**
+         * Test if the attribute 'TensionFailureY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTensionFailureY() const;
         /**
          * Gets the value of the explicit attribute 'TensionFailureZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setTensionFailureZ(IfcForceMeasure value);
         /**
+         * unset the attribute 'TensionFailureZ'.
+         * 
+         */
+        virtual void unsetTensionFailureZ();
+        /**
+         * Test if the attribute 'TensionFailureZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTensionFailureZ() const;
+        /**
          * Gets the value of the explicit attribute 'CompressionFailureX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCompressionFailureX(IfcForceMeasure value);
+        /**
+         * unset the attribute 'CompressionFailureX'.
+         * 
+         */
+        virtual void unsetCompressionFailureX();
+        /**
+         * Test if the attribute 'CompressionFailureX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompressionFailureX() const;
         /**
          * Gets the value of the explicit attribute 'CompressionFailureY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setCompressionFailureY(IfcForceMeasure value);
         /**
+         * unset the attribute 'CompressionFailureY'.
+         * 
+         */
+        virtual void unsetCompressionFailureY();
+        /**
+         * Test if the attribute 'CompressionFailureY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompressionFailureY() const;
+        /**
          * Gets the value of the explicit attribute 'CompressionFailureZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCompressionFailureZ(IfcForceMeasure value);
+        /**
+         * unset the attribute 'CompressionFailureZ'.
+         * 
+         */
+        virtual void unsetCompressionFailureZ();
+        /**
+         * Test if the attribute 'CompressionFailureZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCompressionFailureZ() const;
         friend class ExpressDataSet;
 
     protected:

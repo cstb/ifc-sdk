@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRepresentationContext Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRepresentationContext : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setContextIdentifier(const IfcLabel &value);
         /**
+         * unset the attribute 'ContextIdentifier'.
+         * 
+         */
+        virtual void unsetContextIdentifier();
+        /**
+         * Test if the attribute 'ContextIdentifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContextIdentifier() const;
+        /**
          * Gets the value of the explicit attribute 'ContextType'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setContextType(const IfcLabel &value);
         /**
+         * unset the attribute 'ContextType'.
+         * 
+         */
+        virtual void unsetContextType();
+        /**
+         * Test if the attribute 'ContextType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContextType() const;
+        /**
          * Gets the value of the inverse attribute 'RepresentationsInContext'.
          * 
          */
@@ -116,8 +140,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RepresentationsInContext'
          */
         virtual const Inverse_Set_IfcRepresentation_0_n &getRepresentationsInContext() const;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'RepresentationsInContext' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationsInContext() const;
         friend class IfcRepresentation;
+        friend class ExpressDataSet;
 
     protected:
         /**

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSpatialStructureElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcSpatialStructureElement.h"
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcPostalAddress;
 
     /**
+     * Generated class for the IfcSite Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSite : public IfcSpatialStructureElement {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setRefLatitude(const IfcCompoundPlaneAngleMeasure &value);
         /**
+         * unset the attribute 'RefLatitude'.
+         * 
+         */
+        virtual void unsetRefLatitude();
+        /**
+         * Test if the attribute 'RefLatitude' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRefLatitude() const;
+        /**
          * Gets the value of the explicit attribute 'RefLongitude'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRefLongitude(const IfcCompoundPlaneAngleMeasure &value);
+        /**
+         * unset the attribute 'RefLongitude'.
+         * 
+         */
+        virtual void unsetRefLongitude();
+        /**
+         * Test if the attribute 'RefLongitude' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRefLongitude() const;
         /**
          * Gets the value of the explicit attribute 'RefElevation'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setRefElevation(IfcLengthMeasure value);
         /**
+         * unset the attribute 'RefElevation'.
+         * 
+         */
+        virtual void unsetRefElevation();
+        /**
+         * Test if the attribute 'RefElevation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRefElevation() const;
+        /**
          * Gets the value of the explicit attribute 'LandTitleNumber'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setLandTitleNumber(const IfcLabel &value);
         /**
+         * unset the attribute 'LandTitleNumber'.
+         * 
+         */
+        virtual void unsetLandTitleNumber();
+        /**
+         * Test if the attribute 'LandTitleNumber' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLandTitleNumber() const;
+        /**
          * Gets the value of the explicit attribute 'SiteAddress'.
          * 
          */
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setSiteAddress(const Step::RefPtr< IfcPostalAddress > &value);
+        /**
+         * unset the attribute 'SiteAddress'.
+         * 
+         */
+        virtual void unsetSiteAddress();
+        /**
+         * Test if the attribute 'SiteAddress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSiteAddress() const;
         friend class ExpressDataSet;
 
     protected:

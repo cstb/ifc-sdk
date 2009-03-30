@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,14 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcTableRow;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcTable_Rows_type : public List_IfcTableRow_1_n {
     public:
@@ -53,28 +55,44 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcTable *mOwner;
-        /**
-         */
         Inverted_IfcTable_Rows_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcTable *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void push_back(const Step::RefPtr< IfcTableRow > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual iterator erase(const Step::RefPtr< IfcTableRow > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcTable;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcTable *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcTable *owner);
 
     };
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTable Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTable : public Step::BaseEntity {
     public:
@@ -123,6 +141,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const Step::String &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Rows'.
          * 
          */
@@ -133,6 +162,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'Rows'
          */
         virtual const List_IfcTableRow_1_n &getRows() const;
+        /**
+         * unset the attribute 'Rows'.
+         * 
+         */
+        virtual void unsetRows();
+        /**
+         * Test if the attribute 'Rows' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRows() const;
         /**
          * Gets the value of the derived attribute 'NumberOfCellsInRow'.
          * 

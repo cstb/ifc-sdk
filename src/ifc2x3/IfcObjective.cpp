@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcObjective::IfcObjective(Step::Id id, Step::SPFData *args) : IfcConstraint(id, args) {
@@ -92,6 +89,14 @@ void IfcObjective::setBenchmarkValues(const Step::RefPtr< IfcMetric > &value) {
     m_benchmarkValues = value;
 }
 
+void IfcObjective::unsetBenchmarkValues() {
+    m_benchmarkValues = Step::getUnset(getBenchmarkValues());
+}
+
+bool IfcObjective::testBenchmarkValues() const {
+    return !Step::isUnset(getBenchmarkValues());
+}
+
 IfcMetric *IfcObjective::getResultValues() {
     if (Step::BaseObject::inited()) {
         return m_resultValues.get();
@@ -108,6 +113,14 @@ const IfcMetric *IfcObjective::getResultValues() const {
 
 void IfcObjective::setResultValues(const Step::RefPtr< IfcMetric > &value) {
     m_resultValues = value;
+}
+
+void IfcObjective::unsetResultValues() {
+    m_resultValues = Step::getUnset(getResultValues());
+}
+
+bool IfcObjective::testResultValues() const {
+    return !Step::isUnset(getResultValues());
 }
 
 IfcObjectiveEnum IfcObjective::getObjectiveQualifier() {
@@ -128,6 +141,14 @@ void IfcObjective::setObjectiveQualifier(IfcObjectiveEnum value) {
     m_objectiveQualifier = value;
 }
 
+void IfcObjective::unsetObjectiveQualifier() {
+    m_objectiveQualifier = IfcObjectiveEnum_UNSET;
+}
+
+bool IfcObjective::testObjectiveQualifier() const {
+    return getObjectiveQualifier() != IfcObjectiveEnum_UNSET;
+}
+
 IfcLabel IfcObjective::getUserDefinedQualifier() {
     if (Step::BaseObject::inited()) {
         return m_userDefinedQualifier;
@@ -144,6 +165,14 @@ const IfcLabel IfcObjective::getUserDefinedQualifier() const {
 
 void IfcObjective::setUserDefinedQualifier(const IfcLabel &value) {
     m_userDefinedQualifier = value;
+}
+
+void IfcObjective::unsetUserDefinedQualifier() {
+    m_userDefinedQualifier = Step::getUnset(getUserDefinedQualifier());
+}
+
+bool IfcObjective::testUserDefinedQualifier() const {
+    return !Step::isUnset(getUserDefinedQualifier());
 }
 
 bool IfcObjective::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPhysicalQuantity Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPhysicalQuantity : public Step::BaseEntity {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the inverse attribute 'PartOfComplex'.
          * 
          */
@@ -116,8 +140,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'PartOfComplex'
          */
         virtual const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &getPartOfComplex() const;
-        friend class IfcPhysicalComplexQuantity;
+        /**
+         * Test if the attribute 'PartOfComplex' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPartOfComplex() const;
         friend class Inverted_IfcPhysicalComplexQuantity_HasQuantities_type;
+        friend class IfcPhysicalComplexQuantity;
         friend class ExpressDataSet;
 
     protected:

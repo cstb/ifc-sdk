@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -42,9 +42,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcStructuralAnalysisModel_LoadedBy_type::Inverted_IfcStructuralAnalysisModel_LoadedBy_type() {
@@ -66,6 +63,12 @@ Inverted_IfcStructuralAnalysisModel_LoadedBy_type::size_type Inverted_IfcStructu
     return Set_IfcStructuralLoadGroup_1_n::erase(value);
 }
 
+void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 Inverted_IfcStructuralAnalysisModel_HasResults_type::Inverted_IfcStructuralAnalysisModel_HasResults_type() {
 }
 
@@ -83,6 +86,12 @@ Inverted_IfcStructuralAnalysisModel_HasResults_type::size_type Inverted_IfcStruc
     IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
     inverse->m_resultGroupFor.erase(mOwner);
     return Set_IfcStructuralResultGroup_1_n::erase(value);
+}
+
+void Inverted_IfcStructuralAnalysisModel_HasResults_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
 }
 
 IfcStructuralAnalysisModel::IfcStructuralAnalysisModel(Step::Id id, Step::SPFData *args) : IfcSystem(id, args) {
@@ -135,6 +144,14 @@ void IfcStructuralAnalysisModel::setPredefinedType(IfcAnalysisModelTypeEnum valu
     m_predefinedType = value;
 }
 
+void IfcStructuralAnalysisModel::unsetPredefinedType() {
+    m_predefinedType = IfcAnalysisModelTypeEnum_UNSET;
+}
+
+bool IfcStructuralAnalysisModel::testPredefinedType() const {
+    return getPredefinedType() != IfcAnalysisModelTypeEnum_UNSET;
+}
+
 IfcAxis2Placement3D *IfcStructuralAnalysisModel::getOrientationOf2DPlane() {
     if (Step::BaseObject::inited()) {
         return m_orientationOf2DPlane.get();
@@ -153,6 +170,14 @@ void IfcStructuralAnalysisModel::setOrientationOf2DPlane(const Step::RefPtr< Ifc
     m_orientationOf2DPlane = value;
 }
 
+void IfcStructuralAnalysisModel::unsetOrientationOf2DPlane() {
+    m_orientationOf2DPlane = Step::getUnset(getOrientationOf2DPlane());
+}
+
+bool IfcStructuralAnalysisModel::testOrientationOf2DPlane() const {
+    return !Step::isUnset(getOrientationOf2DPlane());
+}
+
 Set_IfcStructuralLoadGroup_1_n &IfcStructuralAnalysisModel::getLoadedBy() {
     if (Step::BaseObject::inited()) {
         return m_loadedBy;
@@ -168,6 +193,15 @@ const Set_IfcStructuralLoadGroup_1_n &IfcStructuralAnalysisModel::getLoadedBy() 
     return deConstObject->getLoadedBy();
 }
 
+void IfcStructuralAnalysisModel::unsetLoadedBy() {
+    m_loadedBy.clear();
+    m_loadedBy.setUnset(true);
+}
+
+bool IfcStructuralAnalysisModel::testLoadedBy() const {
+    return !Step::isUnset(getLoadedBy());
+}
+
 Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() {
     if (Step::BaseObject::inited()) {
         return m_hasResults;
@@ -181,6 +215,15 @@ Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() {
 const Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() const {
     IfcStructuralAnalysisModel * deConstObject = const_cast< IfcStructuralAnalysisModel * > (this);
     return deConstObject->getHasResults();
+}
+
+void IfcStructuralAnalysisModel::unsetHasResults() {
+    m_hasResults.clear();
+    m_hasResults.setUnset(true);
+}
+
+bool IfcStructuralAnalysisModel::testHasResults() const {
+    return !Step::isUnset(getHasResults());
 }
 
 bool IfcStructuralAnalysisModel::init() {

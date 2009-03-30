@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcClassification::IfcClassification(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -94,6 +91,14 @@ void IfcClassification::setSource(const IfcLabel &value) {
     m_source = value;
 }
 
+void IfcClassification::unsetSource() {
+    m_source = Step::getUnset(getSource());
+}
+
+bool IfcClassification::testSource() const {
+    return !Step::isUnset(getSource());
+}
+
 IfcLabel IfcClassification::getEdition() {
     if (Step::BaseObject::inited()) {
         return m_edition;
@@ -110,6 +115,14 @@ const IfcLabel IfcClassification::getEdition() const {
 
 void IfcClassification::setEdition(const IfcLabel &value) {
     m_edition = value;
+}
+
+void IfcClassification::unsetEdition() {
+    m_edition = Step::getUnset(getEdition());
+}
+
+bool IfcClassification::testEdition() const {
+    return !Step::isUnset(getEdition());
 }
 
 IfcCalendarDate *IfcClassification::getEditionDate() {
@@ -130,6 +143,14 @@ void IfcClassification::setEditionDate(const Step::RefPtr< IfcCalendarDate > &va
     m_editionDate = value;
 }
 
+void IfcClassification::unsetEditionDate() {
+    m_editionDate = Step::getUnset(getEditionDate());
+}
+
+bool IfcClassification::testEditionDate() const {
+    return !Step::isUnset(getEditionDate());
+}
+
 IfcLabel IfcClassification::getName() {
     if (Step::BaseObject::inited()) {
         return m_name;
@@ -148,6 +169,14 @@ void IfcClassification::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcClassification::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcClassification::testName() const {
+    return !Step::isUnset(getName());
+}
+
 Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() {
     if (Step::BaseObject::inited()) {
         return m_contains;
@@ -161,6 +190,10 @@ Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() {
 const Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() const {
     IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
     return deConstObject->getContains();
+}
+
+bool IfcClassification::testContains() const {
+    return !Step::isUnset(getContains());
 }
 
 bool IfcClassification::init() {

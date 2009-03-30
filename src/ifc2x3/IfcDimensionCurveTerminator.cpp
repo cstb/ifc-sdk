@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDimensionCurveTerminator::IfcDimensionCurveTerminator(Step::Id id, Step::SPFData *args) : IfcTerminatorSymbol(id, args) {
@@ -82,6 +79,14 @@ const IfcDimensionExtentUsage IfcDimensionCurveTerminator::getRole() const {
 
 void IfcDimensionCurveTerminator::setRole(IfcDimensionExtentUsage value) {
     m_role = value;
+}
+
+void IfcDimensionCurveTerminator::unsetRole() {
+    m_role = IfcDimensionExtentUsage_UNSET;
+}
+
+bool IfcDimensionCurveTerminator::testRole() const {
+    return getRole() != IfcDimensionExtentUsage_UNSET;
 }
 
 bool IfcDimensionCurveTerminator::init() {

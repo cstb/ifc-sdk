@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::get
     return deConstObject->getLayerAssignments();
 }
 
+bool IfcRepresentationItem::testLayerAssignments() const {
+    return !Step::isUnset(getLayerAssignments());
+}
+
 Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
     if (Step::BaseObject::inited()) {
         return m_styledByItem;
@@ -97,6 +98,10 @@ Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
 const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const {
     IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
     return deConstObject->getStyledByItem();
+}
+
+bool IfcRepresentationItem::testStyledByItem() const {
+    return !Step::isUnset(getStyledByItem());
 }
 
 bool IfcRepresentationItem::init() {

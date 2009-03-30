@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBuildingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBuildingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDoor Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDoor : public IfcBuildingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setOverallHeight(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'OverallHeight'.
+         * 
+         */
+        virtual void unsetOverallHeight();
+        /**
+         * Test if the attribute 'OverallHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOverallHeight() const;
+        /**
          * Gets the value of the explicit attribute 'OverallWidth'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOverallWidth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'OverallWidth'.
+         * 
+         */
+        virtual void unsetOverallWidth();
+        /**
+         * Test if the attribute 'OverallWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOverallWidth() const;
         friend class ExpressDataSet;
 
     protected:

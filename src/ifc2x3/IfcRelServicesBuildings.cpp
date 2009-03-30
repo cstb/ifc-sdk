@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelServicesBuildings_RelatedBuildings_type::Inverted_IfcRelServicesBuildings_RelatedBuildings_type() {
@@ -64,9 +61,14 @@ Inverted_IfcRelServicesBuildings_RelatedBuildings_type::size_type Inverted_IfcRe
     return Set_IfcSpatialStructureElement_1_n::erase(value);
 }
 
+void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelServicesBuildings::IfcRelServicesBuildings(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatingSystem = NULL;
-    m_relatedBuildings.setUnset(true);
     m_relatedBuildings.setOwner(this);
 }
 
@@ -117,6 +119,14 @@ void IfcRelServicesBuildings::setRelatingSystem(const Step::RefPtr< IfcSystem > 
     m_relatingSystem = value;
 }
 
+void IfcRelServicesBuildings::unsetRelatingSystem() {
+    m_relatingSystem = Step::getUnset(getRelatingSystem());
+}
+
+bool IfcRelServicesBuildings::testRelatingSystem() const {
+    return !Step::isUnset(getRelatingSystem());
+}
+
 Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings() {
     if (Step::BaseObject::inited()) {
         return m_relatedBuildings;
@@ -130,6 +140,15 @@ Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings
 const Set_IfcSpatialStructureElement_1_n &IfcRelServicesBuildings::getRelatedBuildings() const {
     IfcRelServicesBuildings * deConstObject = const_cast< IfcRelServicesBuildings * > (this);
     return deConstObject->getRelatedBuildings();
+}
+
+void IfcRelServicesBuildings::unsetRelatedBuildings() {
+    m_relatedBuildings.clear();
+    m_relatedBuildings.setUnset(true);
+}
+
+bool IfcRelServicesBuildings::testRelatedBuildings() const {
+    return !Step::isUnset(getRelatedBuildings());
 }
 
 bool IfcRelServicesBuildings::init() {

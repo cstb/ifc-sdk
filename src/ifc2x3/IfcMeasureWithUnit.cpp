@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMeasureWithUnit::IfcMeasureWithUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcMeasureWithUnit::setValueComponent(const Step::RefPtr< IfcValue > &value
     m_valueComponent = value;
 }
 
+void IfcMeasureWithUnit::unsetValueComponent() {
+    m_valueComponent = Step::getUnset(getValueComponent());
+}
+
+bool IfcMeasureWithUnit::testValueComponent() const {
+    return !Step::isUnset(getValueComponent());
+}
+
 IfcUnit *IfcMeasureWithUnit::getUnitComponent() {
     if (Step::BaseObject::inited()) {
         return m_unitComponent.get();
@@ -107,6 +112,14 @@ const IfcUnit *IfcMeasureWithUnit::getUnitComponent() const {
 
 void IfcMeasureWithUnit::setUnitComponent(const Step::RefPtr< IfcUnit > &value) {
     m_unitComponent = value;
+}
+
+void IfcMeasureWithUnit::unsetUnitComponent() {
+    m_unitComponent = Step::getUnset(getUnitComponent());
+}
+
+bool IfcMeasureWithUnit::testUnitComponent() const {
+    return !Step::isUnset(getUnitComponent());
 }
 
 bool IfcMeasureWithUnit::init() {

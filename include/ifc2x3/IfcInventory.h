@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGroup.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGroup.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcCostValue;
 
     /**
+     * Generated class for the IfcInventory Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcInventory : public IfcGroup {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setInventoryType(IfcInventoryTypeEnum value);
         /**
+         * unset the attribute 'InventoryType'.
+         * 
+         */
+        virtual void unsetInventoryType();
+        /**
+         * Test if the attribute 'InventoryType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInventoryType() const;
+        /**
          * Gets the value of the explicit attribute 'Jurisdiction'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setJurisdiction(const Step::RefPtr< IfcActorSelect > &value);
+        /**
+         * unset the attribute 'Jurisdiction'.
+         * 
+         */
+        virtual void unsetJurisdiction();
+        /**
+         * Test if the attribute 'Jurisdiction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testJurisdiction() const;
         /**
          * Gets the value of the explicit attribute 'ResponsiblePersons'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setResponsiblePersons(const Set_IfcPerson_1_n &value);
         /**
+         * unset the attribute 'ResponsiblePersons'.
+         * 
+         */
+        virtual void unsetResponsiblePersons();
+        /**
+         * Test if the attribute 'ResponsiblePersons' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResponsiblePersons() const;
+        /**
          * Gets the value of the explicit attribute 'LastUpdateDate'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLastUpdateDate(const Step::RefPtr< IfcCalendarDate > &value);
+        /**
+         * unset the attribute 'LastUpdateDate'.
+         * 
+         */
+        virtual void unsetLastUpdateDate();
+        /**
+         * Test if the attribute 'LastUpdateDate' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLastUpdateDate() const;
         /**
          * Gets the value of the explicit attribute 'CurrentValue'.
          * 
@@ -160,6 +206,17 @@ namespace ifc2x3 {
          */
         virtual void setCurrentValue(const Step::RefPtr< IfcCostValue > &value);
         /**
+         * unset the attribute 'CurrentValue'.
+         * 
+         */
+        virtual void unsetCurrentValue();
+        /**
+         * Test if the attribute 'CurrentValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurrentValue() const;
+        /**
          * Gets the value of the explicit attribute 'OriginalValue'.
          * 
          */
@@ -176,6 +233,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOriginalValue(const Step::RefPtr< IfcCostValue > &value);
+        /**
+         * unset the attribute 'OriginalValue'.
+         * 
+         */
+        virtual void unsetOriginalValue();
+        /**
+         * Test if the attribute 'OriginalValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOriginalValue() const;
         friend class ExpressDataSet;
 
     protected:

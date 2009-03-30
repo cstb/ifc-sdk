@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcReferencesValueDocument;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcReferencesValueDocument_ReferencingValues_type : public Set_IfcAppliedValue_1_n {
     public:
@@ -54,22 +55,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcReferencesValueDocument *mOwner;
-        /**
-         */
         Inverted_IfcReferencesValueDocument_ReferencingValues_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcReferencesValueDocument *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcAppliedValue > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcReferencesValueDocument;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcReferencesValueDocument *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcReferencesValueDocument *owner);
 
     };
 
@@ -77,6 +92,8 @@ namespace ifc2x3 {
     class IfcDocumentSelect;
 
     /**
+     * Generated class for the IfcReferencesValueDocument Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcReferencesValueDocument : public Step::BaseEntity {
     public:
@@ -125,6 +142,17 @@ namespace ifc2x3 {
          */
         virtual void setReferencedDocument(const Step::RefPtr< IfcDocumentSelect > &value);
         /**
+         * unset the attribute 'ReferencedDocument'.
+         * 
+         */
+        virtual void unsetReferencedDocument();
+        /**
+         * Test if the attribute 'ReferencedDocument' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencedDocument() const;
+        /**
          * Gets the value of the explicit attribute 'ReferencingValues'.
          * 
          */
@@ -135,6 +163,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ReferencingValues'
          */
         virtual const Set_IfcAppliedValue_1_n &getReferencingValues() const;
+        /**
+         * unset the attribute 'ReferencingValues'.
+         * 
+         */
+        virtual void unsetReferencingValues();
+        /**
+         * Test if the attribute 'ReferencingValues' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencingValues() const;
         /**
          * Gets the value of the explicit attribute 'Name'.
          * 
@@ -153,6 +192,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -169,6 +219,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         friend class ExpressDataSet;
 
     protected:

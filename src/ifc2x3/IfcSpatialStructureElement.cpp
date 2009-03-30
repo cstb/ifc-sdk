@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSpatialStructureElement::IfcSpatialStructureElement(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
@@ -91,6 +88,14 @@ void IfcSpatialStructureElement::setLongName(const IfcLabel &value) {
     m_longName = value;
 }
 
+void IfcSpatialStructureElement::unsetLongName() {
+    m_longName = Step::getUnset(getLongName());
+}
+
+bool IfcSpatialStructureElement::testLongName() const {
+    return !Step::isUnset(getLongName());
+}
+
 IfcElementCompositionEnum IfcSpatialStructureElement::getCompositionType() {
     if (Step::BaseObject::inited()) {
         return m_compositionType;
@@ -109,6 +114,14 @@ void IfcSpatialStructureElement::setCompositionType(IfcElementCompositionEnum va
     m_compositionType = value;
 }
 
+void IfcSpatialStructureElement::unsetCompositionType() {
+    m_compositionType = IfcElementCompositionEnum_UNSET;
+}
+
+bool IfcSpatialStructureElement::testCompositionType() const {
+    return getCompositionType() != IfcElementCompositionEnum_UNSET;
+}
+
 Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() {
     if (Step::BaseObject::inited()) {
         return m_referencesElements;
@@ -122,6 +135,10 @@ Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::
 const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() const {
     IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
     return deConstObject->getReferencesElements();
+}
+
+bool IfcSpatialStructureElement::testReferencesElements() const {
+    return !Step::isUnset(getReferencesElements());
 }
 
 Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() {
@@ -139,6 +156,10 @@ const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getSe
     return deConstObject->getServicedBySystems();
 }
 
+bool IfcSpatialStructureElement::testServicedBySystems() const {
+    return !Step::isUnset(getServicedBySystems());
+}
+
 Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() {
     if (Step::BaseObject::inited()) {
         return m_containsElements;
@@ -152,6 +173,10 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::g
 const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() const {
     IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
     return deConstObject->getContainsElements();
+}
+
+bool IfcSpatialStructureElement::testContainsElements() const {
+    return !Step::isUnset(getContainsElements());
 }
 
 bool IfcSpatialStructureElement::init() {

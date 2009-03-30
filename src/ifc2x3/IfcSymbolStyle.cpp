@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSymbolStyle::IfcSymbolStyle(Step::Id id, Step::SPFData *args) : IfcPresentationStyle(id, args) {
@@ -85,6 +82,14 @@ const IfcSymbolStyleSelect *IfcSymbolStyle::getStyleOfSymbol() const {
 
 void IfcSymbolStyle::setStyleOfSymbol(const Step::RefPtr< IfcSymbolStyleSelect > &value) {
     m_styleOfSymbol = value;
+}
+
+void IfcSymbolStyle::unsetStyleOfSymbol() {
+    m_styleOfSymbol = Step::getUnset(getStyleOfSymbol());
+}
+
+bool IfcSymbolStyle::testStyleOfSymbol() const {
+    return !Step::isUnset(getStyleOfSymbol());
 }
 
 bool IfcSymbolStyle::init() {

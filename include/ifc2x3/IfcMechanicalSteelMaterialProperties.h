@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcMechanicalMaterialProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcMechanicalSteelMaterialProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMechanicalSteelMaterialProperties : public IfcMechanicalMaterialProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setYieldStress(IfcPressureMeasure value);
         /**
+         * unset the attribute 'YieldStress'.
+         * 
+         */
+        virtual void unsetYieldStress();
+        /**
+         * Test if the attribute 'YieldStress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYieldStress() const;
+        /**
          * Gets the value of the explicit attribute 'UltimateStress'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUltimateStress(IfcPressureMeasure value);
+        /**
+         * unset the attribute 'UltimateStress'.
+         * 
+         */
+        virtual void unsetUltimateStress();
+        /**
+         * Test if the attribute 'UltimateStress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUltimateStress() const;
         /**
          * Gets the value of the explicit attribute 'UltimateStrain'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setUltimateStrain(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'UltimateStrain'.
+         * 
+         */
+        virtual void unsetUltimateStrain();
+        /**
+         * Test if the attribute 'UltimateStrain' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUltimateStrain() const;
+        /**
          * Gets the value of the explicit attribute 'HardeningModule'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHardeningModule(IfcModulusOfElasticityMeasure value);
+        /**
+         * unset the attribute 'HardeningModule'.
+         * 
+         */
+        virtual void unsetHardeningModule();
+        /**
+         * Test if the attribute 'HardeningModule' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHardeningModule() const;
         /**
          * Gets the value of the explicit attribute 'ProportionalStress'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setProportionalStress(IfcPressureMeasure value);
         /**
+         * unset the attribute 'ProportionalStress'.
+         * 
+         */
+        virtual void unsetProportionalStress();
+        /**
+         * Test if the attribute 'ProportionalStress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProportionalStress() const;
+        /**
          * Gets the value of the explicit attribute 'PlasticStrain'.
          * 
          */
@@ -173,6 +230,17 @@ namespace ifc2x3 {
          */
         virtual void setPlasticStrain(IfcPositiveRatioMeasure value);
         /**
+         * unset the attribute 'PlasticStrain'.
+         * 
+         */
+        virtual void unsetPlasticStrain();
+        /**
+         * Test if the attribute 'PlasticStrain' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPlasticStrain() const;
+        /**
          * Gets the value of the explicit attribute 'Relaxations'.
          * 
          */
@@ -189,6 +257,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRelaxations(const Set_IfcRelaxation_1_n &value);
+        /**
+         * unset the attribute 'Relaxations'.
+         * 
+         */
+        virtual void unsetRelaxations();
+        /**
+         * Test if the attribute 'Relaxations' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelaxations() const;
         friend class ExpressDataSet;
 
     protected:

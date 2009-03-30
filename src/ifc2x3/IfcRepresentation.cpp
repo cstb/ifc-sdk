@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -44,9 +44,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -102,6 +99,14 @@ void IfcRepresentation::setContextOfItems(const Step::RefPtr< IfcRepresentationC
     m_contextOfItems = value;
 }
 
+void IfcRepresentation::unsetContextOfItems() {
+    m_contextOfItems = Step::getUnset(getContextOfItems());
+}
+
+bool IfcRepresentation::testContextOfItems() const {
+    return !Step::isUnset(getContextOfItems());
+}
+
 IfcLabel IfcRepresentation::getRepresentationIdentifier() {
     if (Step::BaseObject::inited()) {
         return m_representationIdentifier;
@@ -120,6 +125,14 @@ void IfcRepresentation::setRepresentationIdentifier(const IfcLabel &value) {
     m_representationIdentifier = value;
 }
 
+void IfcRepresentation::unsetRepresentationIdentifier() {
+    m_representationIdentifier = Step::getUnset(getRepresentationIdentifier());
+}
+
+bool IfcRepresentation::testRepresentationIdentifier() const {
+    return !Step::isUnset(getRepresentationIdentifier());
+}
+
 IfcLabel IfcRepresentation::getRepresentationType() {
     if (Step::BaseObject::inited()) {
         return m_representationType;
@@ -136,6 +149,14 @@ const IfcLabel IfcRepresentation::getRepresentationType() const {
 
 void IfcRepresentation::setRepresentationType(const IfcLabel &value) {
     m_representationType = value;
+}
+
+void IfcRepresentation::unsetRepresentationType() {
+    m_representationType = Step::getUnset(getRepresentationType());
+}
+
+bool IfcRepresentation::testRepresentationType() const {
+    return !Step::isUnset(getRepresentationType());
 }
 
 Set_IfcRepresentationItem_1_n &IfcRepresentation::getItems() {
@@ -157,6 +178,15 @@ void IfcRepresentation::setItems(const Set_IfcRepresentationItem_1_n &value) {
     m_items = value;
 }
 
+void IfcRepresentation::unsetItems() {
+    m_items.clear();
+    m_items.setUnset(true);
+}
+
+bool IfcRepresentation::testItems() const {
+    return !Step::isUnset(getItems());
+}
+
 Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() {
     if (Step::BaseObject::inited()) {
         return m_representationMap;
@@ -170,6 +200,10 @@ Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() 
 const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() const {
     IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
     return deConstObject->getRepresentationMap();
+}
+
+bool IfcRepresentation::testRepresentationMap() const {
+    return !Step::isUnset(getRepresentationMap());
 }
 
 Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() {
@@ -187,6 +221,10 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLaye
     return deConstObject->getLayerAssignments();
 }
 
+bool IfcRepresentation::testLayerAssignments() const {
+    return !Step::isUnset(getLayerAssignments());
+}
+
 Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_ofProductRepresentation;
@@ -200,6 +238,10 @@ Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductReprese
 const Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() const {
     IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
     return deConstObject->getOfProductRepresentation();
+}
+
+bool IfcRepresentation::testOfProductRepresentation() const {
+    return !Step::isUnset(getOfProductRepresentation());
 }
 
 bool IfcRepresentation::init() {

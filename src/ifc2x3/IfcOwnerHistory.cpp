@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOwnerHistory::IfcOwnerHistory(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -96,6 +93,14 @@ void IfcOwnerHistory::setOwningUser(const Step::RefPtr< IfcPersonAndOrganization
     m_owningUser = value;
 }
 
+void IfcOwnerHistory::unsetOwningUser() {
+    m_owningUser = Step::getUnset(getOwningUser());
+}
+
+bool IfcOwnerHistory::testOwningUser() const {
+    return !Step::isUnset(getOwningUser());
+}
+
 IfcApplication *IfcOwnerHistory::getOwningApplication() {
     if (Step::BaseObject::inited()) {
         return m_owningApplication.get();
@@ -112,6 +117,14 @@ const IfcApplication *IfcOwnerHistory::getOwningApplication() const {
 
 void IfcOwnerHistory::setOwningApplication(const Step::RefPtr< IfcApplication > &value) {
     m_owningApplication = value;
+}
+
+void IfcOwnerHistory::unsetOwningApplication() {
+    m_owningApplication = Step::getUnset(getOwningApplication());
+}
+
+bool IfcOwnerHistory::testOwningApplication() const {
+    return !Step::isUnset(getOwningApplication());
 }
 
 IfcStateEnum IfcOwnerHistory::getState() {
@@ -132,6 +145,14 @@ void IfcOwnerHistory::setState(IfcStateEnum value) {
     m_state = value;
 }
 
+void IfcOwnerHistory::unsetState() {
+    m_state = IfcStateEnum_UNSET;
+}
+
+bool IfcOwnerHistory::testState() const {
+    return getState() != IfcStateEnum_UNSET;
+}
+
 IfcChangeActionEnum IfcOwnerHistory::getChangeAction() {
     if (Step::BaseObject::inited()) {
         return m_changeAction;
@@ -148,6 +169,14 @@ const IfcChangeActionEnum IfcOwnerHistory::getChangeAction() const {
 
 void IfcOwnerHistory::setChangeAction(IfcChangeActionEnum value) {
     m_changeAction = value;
+}
+
+void IfcOwnerHistory::unsetChangeAction() {
+    m_changeAction = IfcChangeActionEnum_UNSET;
+}
+
+bool IfcOwnerHistory::testChangeAction() const {
+    return getChangeAction() != IfcChangeActionEnum_UNSET;
 }
 
 IfcTimeStamp IfcOwnerHistory::getLastModifiedDate() {
@@ -168,6 +197,14 @@ void IfcOwnerHistory::setLastModifiedDate(IfcTimeStamp value) {
     m_lastModifiedDate = value;
 }
 
+void IfcOwnerHistory::unsetLastModifiedDate() {
+    m_lastModifiedDate = Step::getUnset(getLastModifiedDate());
+}
+
+bool IfcOwnerHistory::testLastModifiedDate() const {
+    return !Step::isUnset(getLastModifiedDate());
+}
+
 IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() {
     if (Step::BaseObject::inited()) {
         return m_lastModifyingUser.get();
@@ -184,6 +221,14 @@ const IfcPersonAndOrganization *IfcOwnerHistory::getLastModifyingUser() const {
 
 void IfcOwnerHistory::setLastModifyingUser(const Step::RefPtr< IfcPersonAndOrganization > &value) {
     m_lastModifyingUser = value;
+}
+
+void IfcOwnerHistory::unsetLastModifyingUser() {
+    m_lastModifyingUser = Step::getUnset(getLastModifyingUser());
+}
+
+bool IfcOwnerHistory::testLastModifyingUser() const {
+    return !Step::isUnset(getLastModifyingUser());
 }
 
 IfcApplication *IfcOwnerHistory::getLastModifyingApplication() {
@@ -204,6 +249,14 @@ void IfcOwnerHistory::setLastModifyingApplication(const Step::RefPtr< IfcApplica
     m_lastModifyingApplication = value;
 }
 
+void IfcOwnerHistory::unsetLastModifyingApplication() {
+    m_lastModifyingApplication = Step::getUnset(getLastModifyingApplication());
+}
+
+bool IfcOwnerHistory::testLastModifyingApplication() const {
+    return !Step::isUnset(getLastModifyingApplication());
+}
+
 IfcTimeStamp IfcOwnerHistory::getCreationDate() {
     if (Step::BaseObject::inited()) {
         return m_creationDate;
@@ -220,6 +273,14 @@ const IfcTimeStamp IfcOwnerHistory::getCreationDate() const {
 
 void IfcOwnerHistory::setCreationDate(IfcTimeStamp value) {
     m_creationDate = value;
+}
+
+void IfcOwnerHistory::unsetCreationDate() {
+    m_creationDate = Step::getUnset(getCreationDate());
+}
+
+bool IfcOwnerHistory::testCreationDate() const {
+    return !Step::isUnset(getCreationDate());
 }
 
 bool IfcOwnerHistory::init() {

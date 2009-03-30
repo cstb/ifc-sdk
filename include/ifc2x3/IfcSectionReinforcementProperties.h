@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSectionProperties;
 
     /**
+     * Generated class for the IfcSectionReinforcementProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSectionReinforcementProperties : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setLongitudinalStartPosition(IfcLengthMeasure value);
         /**
+         * unset the attribute 'LongitudinalStartPosition'.
+         * 
+         */
+        virtual void unsetLongitudinalStartPosition();
+        /**
+         * Test if the attribute 'LongitudinalStartPosition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLongitudinalStartPosition() const;
+        /**
          * Gets the value of the explicit attribute 'LongitudinalEndPosition'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLongitudinalEndPosition(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'LongitudinalEndPosition'.
+         * 
+         */
+        virtual void unsetLongitudinalEndPosition();
+        /**
+         * Test if the attribute 'LongitudinalEndPosition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLongitudinalEndPosition() const;
         /**
          * Gets the value of the explicit attribute 'TransversePosition'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setTransversePosition(IfcLengthMeasure value);
         /**
+         * unset the attribute 'TransversePosition'.
+         * 
+         */
+        virtual void unsetTransversePosition();
+        /**
+         * Test if the attribute 'TransversePosition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTransversePosition() const;
+        /**
          * Gets the value of the explicit attribute 'ReinforcementRole'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setReinforcementRole(IfcReinforcingBarRoleEnum value);
+        /**
+         * unset the attribute 'ReinforcementRole'.
+         * 
+         */
+        virtual void unsetReinforcementRole();
+        /**
+         * Test if the attribute 'ReinforcementRole' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReinforcementRole() const;
         /**
          * Gets the value of the explicit attribute 'SectionDefinition'.
          * 
@@ -158,6 +204,17 @@ namespace ifc2x3 {
          */
         virtual void setSectionDefinition(const Step::RefPtr< IfcSectionProperties > &value);
         /**
+         * unset the attribute 'SectionDefinition'.
+         * 
+         */
+        virtual void unsetSectionDefinition();
+        /**
+         * Test if the attribute 'SectionDefinition' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSectionDefinition() const;
+        /**
          * Gets the value of the explicit attribute 'CrossSectionReinforcementDefinitions'.
          * 
          */
@@ -174,6 +231,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCrossSectionReinforcementDefinitions(const Set_IfcReinforcementBarProperties_1_n &value);
+        /**
+         * unset the attribute 'CrossSectionReinforcementDefinitions'.
+         * 
+         */
+        virtual void unsetCrossSectionReinforcementDefinitions();
+        /**
+         * Test if the attribute 'CrossSectionReinforcementDefinitions' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCrossSectionReinforcementDefinitions() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcValveType::IfcValveType(Step::Id id, Step::SPFData *args) : IfcFlowControllerType(id, args) {
@@ -82,6 +79,14 @@ const IfcValveTypeEnum IfcValveType::getPredefinedType() const {
 
 void IfcValveType::setPredefinedType(IfcValveTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcValveType::unsetPredefinedType() {
+    m_predefinedType = IfcValveTypeEnum_UNSET;
+}
+
+bool IfcValveType::testPredefinedType() const {
+    return getPredefinedType() != IfcValveTypeEnum_UNSET;
 }
 
 bool IfcValveType::init() {

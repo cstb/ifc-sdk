@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSubContractResource::IfcSubContractResource(Step::Id id, Step::SPFData *args) : IfcConstructionResource(id, args) {
@@ -89,6 +86,14 @@ void IfcSubContractResource::setSubContractor(const Step::RefPtr< IfcActorSelect
     m_subContractor = value;
 }
 
+void IfcSubContractResource::unsetSubContractor() {
+    m_subContractor = Step::getUnset(getSubContractor());
+}
+
+bool IfcSubContractResource::testSubContractor() const {
+    return !Step::isUnset(getSubContractor());
+}
+
 IfcText IfcSubContractResource::getJobDescription() {
     if (Step::BaseObject::inited()) {
         return m_jobDescription;
@@ -105,6 +110,14 @@ const IfcText IfcSubContractResource::getJobDescription() const {
 
 void IfcSubContractResource::setJobDescription(const IfcText &value) {
     m_jobDescription = value;
+}
+
+void IfcSubContractResource::unsetJobDescription() {
+    m_jobDescription = Step::getUnset(getJobDescription());
+}
+
+bool IfcSubContractResource::testJobDescription() const {
+    return !Step::isUnset(getJobDescription());
 }
 
 bool IfcSubContractResource::init() {

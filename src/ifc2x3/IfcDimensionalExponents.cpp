@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDimensionalExponents::IfcDimensionalExponents(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcDimensionalExponents::setLengthExponent(Step::Integer value) {
     m_lengthExponent = value;
 }
 
+void IfcDimensionalExponents::unsetLengthExponent() {
+    m_lengthExponent = Step::getUnset(getLengthExponent());
+}
+
+bool IfcDimensionalExponents::testLengthExponent() const {
+    return !Step::isUnset(getLengthExponent());
+}
+
 Step::Integer IfcDimensionalExponents::getMassExponent() {
     if (Step::BaseObject::inited()) {
         return m_massExponent;
@@ -106,6 +111,14 @@ const Step::Integer IfcDimensionalExponents::getMassExponent() const {
 
 void IfcDimensionalExponents::setMassExponent(Step::Integer value) {
     m_massExponent = value;
+}
+
+void IfcDimensionalExponents::unsetMassExponent() {
+    m_massExponent = Step::getUnset(getMassExponent());
+}
+
+bool IfcDimensionalExponents::testMassExponent() const {
+    return !Step::isUnset(getMassExponent());
 }
 
 Step::Integer IfcDimensionalExponents::getTimeExponent() {
@@ -126,6 +139,14 @@ void IfcDimensionalExponents::setTimeExponent(Step::Integer value) {
     m_timeExponent = value;
 }
 
+void IfcDimensionalExponents::unsetTimeExponent() {
+    m_timeExponent = Step::getUnset(getTimeExponent());
+}
+
+bool IfcDimensionalExponents::testTimeExponent() const {
+    return !Step::isUnset(getTimeExponent());
+}
+
 Step::Integer IfcDimensionalExponents::getElectricCurrentExponent() {
     if (Step::BaseObject::inited()) {
         return m_electricCurrentExponent;
@@ -142,6 +163,14 @@ const Step::Integer IfcDimensionalExponents::getElectricCurrentExponent() const 
 
 void IfcDimensionalExponents::setElectricCurrentExponent(Step::Integer value) {
     m_electricCurrentExponent = value;
+}
+
+void IfcDimensionalExponents::unsetElectricCurrentExponent() {
+    m_electricCurrentExponent = Step::getUnset(getElectricCurrentExponent());
+}
+
+bool IfcDimensionalExponents::testElectricCurrentExponent() const {
+    return !Step::isUnset(getElectricCurrentExponent());
 }
 
 Step::Integer IfcDimensionalExponents::getThermodynamicTemperatureExponent() {
@@ -162,6 +191,14 @@ void IfcDimensionalExponents::setThermodynamicTemperatureExponent(Step::Integer 
     m_thermodynamicTemperatureExponent = value;
 }
 
+void IfcDimensionalExponents::unsetThermodynamicTemperatureExponent() {
+    m_thermodynamicTemperatureExponent = Step::getUnset(getThermodynamicTemperatureExponent());
+}
+
+bool IfcDimensionalExponents::testThermodynamicTemperatureExponent() const {
+    return !Step::isUnset(getThermodynamicTemperatureExponent());
+}
+
 Step::Integer IfcDimensionalExponents::getAmountOfSubstanceExponent() {
     if (Step::BaseObject::inited()) {
         return m_amountOfSubstanceExponent;
@@ -180,6 +217,14 @@ void IfcDimensionalExponents::setAmountOfSubstanceExponent(Step::Integer value) 
     m_amountOfSubstanceExponent = value;
 }
 
+void IfcDimensionalExponents::unsetAmountOfSubstanceExponent() {
+    m_amountOfSubstanceExponent = Step::getUnset(getAmountOfSubstanceExponent());
+}
+
+bool IfcDimensionalExponents::testAmountOfSubstanceExponent() const {
+    return !Step::isUnset(getAmountOfSubstanceExponent());
+}
+
 Step::Integer IfcDimensionalExponents::getLuminousIntensityExponent() {
     if (Step::BaseObject::inited()) {
         return m_luminousIntensityExponent;
@@ -196,6 +241,14 @@ const Step::Integer IfcDimensionalExponents::getLuminousIntensityExponent() cons
 
 void IfcDimensionalExponents::setLuminousIntensityExponent(Step::Integer value) {
     m_luminousIntensityExponent = value;
+}
+
+void IfcDimensionalExponents::unsetLuminousIntensityExponent() {
+    m_luminousIntensityExponent = Step::getUnset(getLuminousIntensityExponent());
+}
+
+bool IfcDimensionalExponents::testLuminousIntensityExponent() const {
+    return !Step::isUnset(getLuminousIntensityExponent());
 }
 
 bool IfcDimensionalExponents::init() {

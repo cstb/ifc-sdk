@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcNamedUnit::IfcNamedUnit(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcNamedUnit::setDimensions(const Step::RefPtr< IfcDimensionalExponents > &
     m_dimensions = value;
 }
 
+void IfcNamedUnit::unsetDimensions() {
+    m_dimensions = Step::getUnset(getDimensions());
+}
+
+bool IfcNamedUnit::testDimensions() const {
+    return !Step::isUnset(getDimensions());
+}
+
 IfcUnitEnum IfcNamedUnit::getUnitType() {
     if (Step::BaseObject::inited()) {
         return m_unitType;
@@ -105,6 +110,14 @@ const IfcUnitEnum IfcNamedUnit::getUnitType() const {
 
 void IfcNamedUnit::setUnitType(IfcUnitEnum value) {
     m_unitType = value;
+}
+
+void IfcNamedUnit::unsetUnitType() {
+    m_unitType = IfcUnitEnum_UNSET;
+}
+
+bool IfcNamedUnit::testUnitType() const {
+    return getUnitType() != IfcUnitEnum_UNSET;
 }
 
 bool IfcNamedUnit::init() {

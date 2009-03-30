@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDerivedProfileDef::IfcDerivedProfileDef(Step::Id id, Step::SPFData *args) : IfcProfileDef(id, args) {
@@ -91,6 +88,14 @@ void IfcDerivedProfileDef::setParentProfile(const Step::RefPtr< IfcProfileDef > 
     m_parentProfile = value;
 }
 
+void IfcDerivedProfileDef::unsetParentProfile() {
+    m_parentProfile = Step::getUnset(getParentProfile());
+}
+
+bool IfcDerivedProfileDef::testParentProfile() const {
+    return !Step::isUnset(getParentProfile());
+}
+
 IfcCartesianTransformationOperator2D *IfcDerivedProfileDef::getOperator() {
     if (Step::BaseObject::inited()) {
         return m_operator.get();
@@ -109,6 +114,14 @@ void IfcDerivedProfileDef::setOperator(const Step::RefPtr< IfcCartesianTransform
     m_operator = value;
 }
 
+void IfcDerivedProfileDef::unsetOperator() {
+    m_operator = Step::getUnset(getOperator());
+}
+
+bool IfcDerivedProfileDef::testOperator() const {
+    return !Step::isUnset(getOperator());
+}
+
 IfcLabel IfcDerivedProfileDef::getLabel() {
     if (Step::BaseObject::inited()) {
         return m_label;
@@ -125,6 +138,14 @@ const IfcLabel IfcDerivedProfileDef::getLabel() const {
 
 void IfcDerivedProfileDef::setLabel(const IfcLabel &value) {
     m_label = value;
+}
+
+void IfcDerivedProfileDef::unsetLabel() {
+    m_label = Step::getUnset(getLabel());
+}
+
+bool IfcDerivedProfileDef::testLabel() const {
+    return !Step::isUnset(getLabel());
 }
 
 bool IfcDerivedProfileDef::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcStructuralLoadStatic.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStructuralLoadSingleDisplacement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStructuralLoadSingleDisplacement : public IfcStructuralLoadStatic {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setDisplacementX(IfcLengthMeasure value);
         /**
+         * unset the attribute 'DisplacementX'.
+         * 
+         */
+        virtual void unsetDisplacementX();
+        /**
+         * Test if the attribute 'DisplacementX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDisplacementX() const;
+        /**
          * Gets the value of the explicit attribute 'DisplacementY'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDisplacementY(IfcLengthMeasure value);
+        /**
+         * unset the attribute 'DisplacementY'.
+         * 
+         */
+        virtual void unsetDisplacementY();
+        /**
+         * Test if the attribute 'DisplacementY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDisplacementY() const;
         /**
          * Gets the value of the explicit attribute 'DisplacementZ'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setDisplacementZ(IfcLengthMeasure value);
         /**
+         * unset the attribute 'DisplacementZ'.
+         * 
+         */
+        virtual void unsetDisplacementZ();
+        /**
+         * Test if the attribute 'DisplacementZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDisplacementZ() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalDisplacementRX'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalDisplacementRX(IfcPlaneAngleMeasure value);
+        /**
+         * unset the attribute 'RotationalDisplacementRX'.
+         * 
+         */
+        virtual void unsetRotationalDisplacementRX();
+        /**
+         * Test if the attribute 'RotationalDisplacementRX' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalDisplacementRX() const;
         /**
          * Gets the value of the explicit attribute 'RotationalDisplacementRY'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setRotationalDisplacementRY(IfcPlaneAngleMeasure value);
         /**
+         * unset the attribute 'RotationalDisplacementRY'.
+         * 
+         */
+        virtual void unsetRotationalDisplacementRY();
+        /**
+         * Test if the attribute 'RotationalDisplacementRY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalDisplacementRY() const;
+        /**
          * Gets the value of the explicit attribute 'RotationalDisplacementRZ'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRotationalDisplacementRZ(IfcPlaneAngleMeasure value);
+        /**
+         * unset the attribute 'RotationalDisplacementRZ'.
+         * 
+         */
+        virtual void unsetRotationalDisplacementRZ();
+        /**
+         * Test if the attribute 'RotationalDisplacementRZ' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRotationalDisplacementRZ() const;
         friend class ExpressDataSet;
 
     protected:

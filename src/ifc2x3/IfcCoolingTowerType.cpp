@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCoolingTowerType::IfcCoolingTowerType(Step::Id id, Step::SPFData *args) : IfcEnergyConversionDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcCoolingTowerTypeEnum IfcCoolingTowerType::getPredefinedType() const {
 
 void IfcCoolingTowerType::setPredefinedType(IfcCoolingTowerTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcCoolingTowerType::unsetPredefinedType() {
+    m_predefinedType = IfcCoolingTowerTypeEnum_UNSET;
+}
+
+bool IfcCoolingTowerType::testPredefinedType() const {
+    return getPredefinedType() != IfcCoolingTowerTypeEnum_UNSET;
 }
 
 bool IfcCoolingTowerType::init() {

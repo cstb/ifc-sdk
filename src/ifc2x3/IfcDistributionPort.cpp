@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDistributionPort::IfcDistributionPort(Step::Id id, Step::SPFData *args) : IfcPort(id, args) {
@@ -82,6 +79,14 @@ const IfcFlowDirectionEnum IfcDistributionPort::getFlowDirection() const {
 
 void IfcDistributionPort::setFlowDirection(IfcFlowDirectionEnum value) {
     m_flowDirection = value;
+}
+
+void IfcDistributionPort::unsetFlowDirection() {
+    m_flowDirection = IfcFlowDirectionEnum_UNSET;
+}
+
+bool IfcDistributionPort::testFlowDirection() const {
+    return getFlowDirection() != IfcFlowDirectionEnum_UNSET;
 }
 
 bool IfcDistributionPort::init() {

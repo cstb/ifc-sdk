@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcEdgeLoop::IfcEdgeLoop(Step::Id id, Step::SPFData *args) : IfcLoop(id, args) {
@@ -86,6 +83,15 @@ const List_IfcOrientedEdge_1_n &IfcEdgeLoop::getEdgeList() const {
 
 void IfcEdgeLoop::setEdgeList(const List_IfcOrientedEdge_1_n &value) {
     m_edgeList = value;
+}
+
+void IfcEdgeLoop::unsetEdgeList() {
+    m_edgeList.clear();
+    m_edgeList.setUnset(true);
+}
+
+bool IfcEdgeLoop::testEdgeList() const {
+    return !Step::isUnset(getEdgeList());
 }
 
 bool IfcEdgeLoop::init() {

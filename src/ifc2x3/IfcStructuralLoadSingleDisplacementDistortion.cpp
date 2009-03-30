@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadSingleDisplacementDistortion::IfcStructuralLoadSingleDisplacementDistortion(Step::Id id, Step::SPFData *args) : IfcStructuralLoadSingleDisplacement(id, args) {
@@ -82,6 +79,14 @@ const IfcCurvatureMeasure IfcStructuralLoadSingleDisplacementDistortion::getDist
 
 void IfcStructuralLoadSingleDisplacementDistortion::setDistortion(IfcCurvatureMeasure value) {
     m_distortion = value;
+}
+
+void IfcStructuralLoadSingleDisplacementDistortion::unsetDistortion() {
+    m_distortion = Step::getUnset(getDistortion());
+}
+
+bool IfcStructuralLoadSingleDisplacementDistortion::testDistortion() const {
+    return !Step::isUnset(getDistortion());
 }
 
 bool IfcStructuralLoadSingleDisplacementDistortion::init() {

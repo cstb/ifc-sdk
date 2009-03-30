@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyleShading::IfcSurfaceStyleShading(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,14 @@ const IfcColourRgb *IfcSurfaceStyleShading::getSurfaceColour() const {
 
 void IfcSurfaceStyleShading::setSurfaceColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_surfaceColour = value;
+}
+
+void IfcSurfaceStyleShading::unsetSurfaceColour() {
+    m_surfaceColour = Step::getUnset(getSurfaceColour());
+}
+
+bool IfcSurfaceStyleShading::testSurfaceColour() const {
+    return !Step::isUnset(getSurfaceColour());
 }
 
 bool IfcSurfaceStyleShading::init() {

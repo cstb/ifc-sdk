@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBoundedSurface.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcBoundedSurface.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcPlane;
 
     /**
+     * Generated class for the IfcCurveBoundedPlane Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCurveBoundedPlane : public IfcBoundedSurface {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setBasisSurface(const Step::RefPtr< IfcPlane > &value);
         /**
+         * unset the attribute 'BasisSurface'.
+         * 
+         */
+        virtual void unsetBasisSurface();
+        /**
+         * Test if the attribute 'BasisSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBasisSurface() const;
+        /**
          * Gets the value of the explicit attribute 'OuterBoundary'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setOuterBoundary(const Step::RefPtr< IfcCurve > &value);
         /**
+         * unset the attribute 'OuterBoundary'.
+         * 
+         */
+        virtual void unsetOuterBoundary();
+        /**
+         * Test if the attribute 'OuterBoundary' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOuterBoundary() const;
+        /**
          * Gets the value of the explicit attribute 'InnerBoundaries'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInnerBoundaries(const Set_IfcCurve_0_n &value);
+        /**
+         * unset the attribute 'InnerBoundaries'.
+         * 
+         */
+        virtual void unsetInnerBoundaries();
+        /**
+         * Test if the attribute 'InnerBoundaries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInnerBoundaries() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

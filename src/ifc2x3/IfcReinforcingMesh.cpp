@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcReinforcingMesh::IfcReinforcingMesh(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
@@ -91,6 +88,14 @@ void IfcReinforcingMesh::setMeshLength(IfcPositiveLengthMeasure value) {
     m_meshLength = value;
 }
 
+void IfcReinforcingMesh::unsetMeshLength() {
+    m_meshLength = Step::getUnset(getMeshLength());
+}
+
+bool IfcReinforcingMesh::testMeshLength() const {
+    return !Step::isUnset(getMeshLength());
+}
+
 IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() {
     if (Step::BaseObject::inited()) {
         return m_meshWidth;
@@ -107,6 +112,14 @@ const IfcPositiveLengthMeasure IfcReinforcingMesh::getMeshWidth() const {
 
 void IfcReinforcingMesh::setMeshWidth(IfcPositiveLengthMeasure value) {
     m_meshWidth = value;
+}
+
+void IfcReinforcingMesh::unsetMeshWidth() {
+    m_meshWidth = Step::getUnset(getMeshWidth());
+}
+
+bool IfcReinforcingMesh::testMeshWidth() const {
+    return !Step::isUnset(getMeshWidth());
 }
 
 IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarNominalDiameter() {
@@ -127,6 +140,14 @@ void IfcReinforcingMesh::setLongitudinalBarNominalDiameter(IfcPositiveLengthMeas
     m_longitudinalBarNominalDiameter = value;
 }
 
+void IfcReinforcingMesh::unsetLongitudinalBarNominalDiameter() {
+    m_longitudinalBarNominalDiameter = Step::getUnset(getLongitudinalBarNominalDiameter());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarNominalDiameter() const {
+    return !Step::isUnset(getLongitudinalBarNominalDiameter());
+}
+
 IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiameter() {
     if (Step::BaseObject::inited()) {
         return m_transverseBarNominalDiameter;
@@ -143,6 +164,14 @@ const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarNominalDiamet
 
 void IfcReinforcingMesh::setTransverseBarNominalDiameter(IfcPositiveLengthMeasure value) {
     m_transverseBarNominalDiameter = value;
+}
+
+void IfcReinforcingMesh::unsetTransverseBarNominalDiameter() {
+    m_transverseBarNominalDiameter = Step::getUnset(getTransverseBarNominalDiameter());
+}
+
+bool IfcReinforcingMesh::testTransverseBarNominalDiameter() const {
+    return !Step::isUnset(getTransverseBarNominalDiameter());
 }
 
 IfcAreaMeasure IfcReinforcingMesh::getLongitudinalBarCrossSectionArea() {
@@ -163,6 +192,14 @@ void IfcReinforcingMesh::setLongitudinalBarCrossSectionArea(IfcAreaMeasure value
     m_longitudinalBarCrossSectionArea = value;
 }
 
+void IfcReinforcingMesh::unsetLongitudinalBarCrossSectionArea() {
+    m_longitudinalBarCrossSectionArea = Step::getUnset(getLongitudinalBarCrossSectionArea());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarCrossSectionArea() const {
+    return !Step::isUnset(getLongitudinalBarCrossSectionArea());
+}
+
 IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() {
     if (Step::BaseObject::inited()) {
         return m_transverseBarCrossSectionArea;
@@ -179,6 +216,14 @@ const IfcAreaMeasure IfcReinforcingMesh::getTransverseBarCrossSectionArea() cons
 
 void IfcReinforcingMesh::setTransverseBarCrossSectionArea(IfcAreaMeasure value) {
     m_transverseBarCrossSectionArea = value;
+}
+
+void IfcReinforcingMesh::unsetTransverseBarCrossSectionArea() {
+    m_transverseBarCrossSectionArea = Step::getUnset(getTransverseBarCrossSectionArea());
+}
+
+bool IfcReinforcingMesh::testTransverseBarCrossSectionArea() const {
+    return !Step::isUnset(getTransverseBarCrossSectionArea());
 }
 
 IfcPositiveLengthMeasure IfcReinforcingMesh::getLongitudinalBarSpacing() {
@@ -199,6 +244,14 @@ void IfcReinforcingMesh::setLongitudinalBarSpacing(IfcPositiveLengthMeasure valu
     m_longitudinalBarSpacing = value;
 }
 
+void IfcReinforcingMesh::unsetLongitudinalBarSpacing() {
+    m_longitudinalBarSpacing = Step::getUnset(getLongitudinalBarSpacing());
+}
+
+bool IfcReinforcingMesh::testLongitudinalBarSpacing() const {
+    return !Step::isUnset(getLongitudinalBarSpacing());
+}
+
 IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() {
     if (Step::BaseObject::inited()) {
         return m_transverseBarSpacing;
@@ -215,6 +268,14 @@ const IfcPositiveLengthMeasure IfcReinforcingMesh::getTransverseBarSpacing() con
 
 void IfcReinforcingMesh::setTransverseBarSpacing(IfcPositiveLengthMeasure value) {
     m_transverseBarSpacing = value;
+}
+
+void IfcReinforcingMesh::unsetTransverseBarSpacing() {
+    m_transverseBarSpacing = Step::getUnset(getTransverseBarSpacing());
+}
+
+bool IfcReinforcingMesh::testTransverseBarSpacing() const {
+    return !Step::isUnset(getTransverseBarSpacing());
 }
 
 bool IfcReinforcingMesh::init() {

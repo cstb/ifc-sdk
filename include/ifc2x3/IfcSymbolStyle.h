@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcPresentationStyle.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSymbolStyleSelect;
 
     /**
+     * Generated class for the IfcSymbolStyle Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSymbolStyle : public IfcPresentationStyle {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setStyleOfSymbol(const Step::RefPtr< IfcSymbolStyleSelect > &value);
+        /**
+         * unset the attribute 'StyleOfSymbol'.
+         * 
+         */
+        virtual void unsetStyleOfSymbol();
+        /**
+         * Test if the attribute 'StyleOfSymbol' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStyleOfSymbol() const;
         friend class ExpressDataSet;
 
     protected:

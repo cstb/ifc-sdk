@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSectionedSpine::IfcSectionedSpine(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -90,6 +87,14 @@ void IfcSectionedSpine::setSpineCurve(const Step::RefPtr< IfcCompositeCurve > &v
     m_spineCurve = value;
 }
 
+void IfcSectionedSpine::unsetSpineCurve() {
+    m_spineCurve = Step::getUnset(getSpineCurve());
+}
+
+bool IfcSectionedSpine::testSpineCurve() const {
+    return !Step::isUnset(getSpineCurve());
+}
+
 List_IfcProfileDef_2_n &IfcSectionedSpine::getCrossSections() {
     if (Step::BaseObject::inited()) {
         return m_crossSections;
@@ -109,6 +114,15 @@ void IfcSectionedSpine::setCrossSections(const List_IfcProfileDef_2_n &value) {
     m_crossSections = value;
 }
 
+void IfcSectionedSpine::unsetCrossSections() {
+    m_crossSections.clear();
+    m_crossSections.setUnset(true);
+}
+
+bool IfcSectionedSpine::testCrossSections() const {
+    return !Step::isUnset(getCrossSections());
+}
+
 List_IfcAxis2Placement3D_2_n &IfcSectionedSpine::getCrossSectionPositions() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionPositions;
@@ -126,6 +140,15 @@ const List_IfcAxis2Placement3D_2_n &IfcSectionedSpine::getCrossSectionPositions(
 
 void IfcSectionedSpine::setCrossSectionPositions(const List_IfcAxis2Placement3D_2_n &value) {
     m_crossSectionPositions = value;
+}
+
+void IfcSectionedSpine::unsetCrossSectionPositions() {
+    m_crossSectionPositions.clear();
+    m_crossSectionPositions.setUnset(true);
+}
+
+bool IfcSectionedSpine::testCrossSectionPositions() const {
+    return !Step::isUnset(getCrossSectionPositions());
 }
 
 bool IfcSectionedSpine::init() {

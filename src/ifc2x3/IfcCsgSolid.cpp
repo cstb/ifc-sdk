@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCsgSolid::IfcCsgSolid(Step::Id id, Step::SPFData *args) : IfcSolidModel(id, args) {
@@ -85,6 +82,14 @@ const IfcCsgSelect *IfcCsgSolid::getTreeRootExpression() const {
 
 void IfcCsgSolid::setTreeRootExpression(const Step::RefPtr< IfcCsgSelect > &value) {
     m_treeRootExpression = value;
+}
+
+void IfcCsgSolid::unsetTreeRootExpression() {
+    m_treeRootExpression = Step::getUnset(getTreeRootExpression());
+}
+
+bool IfcCsgSolid::testTreeRootExpression() const {
+    return !Step::isUnset(getTreeRootExpression());
 }
 
 bool IfcCsgSolid::init() {

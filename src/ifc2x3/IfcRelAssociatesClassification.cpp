@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssociatesClassification::IfcRelAssociatesClassification(Step::Id id, Step::SPFData *args) : IfcRelAssociates(id, args) {
@@ -85,6 +82,14 @@ const IfcClassificationNotationSelect *IfcRelAssociatesClassification::getRelati
 
 void IfcRelAssociatesClassification::setRelatingClassification(const Step::RefPtr< IfcClassificationNotationSelect > &value) {
     m_relatingClassification = value;
+}
+
+void IfcRelAssociatesClassification::unsetRelatingClassification() {
+    m_relatingClassification = Step::getUnset(getRelatingClassification());
+}
+
+bool IfcRelAssociatesClassification::testRelatingClassification() const {
+    return !Step::isUnset(getRelatingClassification());
 }
 
 bool IfcRelAssociatesClassification::init() {

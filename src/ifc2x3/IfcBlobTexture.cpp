@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcBlobTexture::IfcBlobTexture(Step::Id id, Step::SPFData *args) : IfcSurfaceTexture(id, args) {
@@ -86,6 +83,14 @@ void IfcBlobTexture::setRasterFormat(const IfcIdentifier &value) {
     m_rasterFormat = value;
 }
 
+void IfcBlobTexture::unsetRasterFormat() {
+    m_rasterFormat = Step::getUnset(getRasterFormat());
+}
+
+bool IfcBlobTexture::testRasterFormat() const {
+    return !Step::isUnset(getRasterFormat());
+}
+
 Step::Boolean IfcBlobTexture::getRasterCode() {
     if (Step::BaseObject::inited()) {
         return m_rasterCode;
@@ -102,6 +107,14 @@ const Step::Boolean IfcBlobTexture::getRasterCode() const {
 
 void IfcBlobTexture::setRasterCode(Step::Boolean value) {
     m_rasterCode = value;
+}
+
+void IfcBlobTexture::unsetRasterCode() {
+    m_rasterCode = Step::getUnset(getRasterCode());
+}
+
+bool IfcBlobTexture::testRasterCode() const {
+    return !Step::isUnset(getRasterCode());
 }
 
 bool IfcBlobTexture::init() {

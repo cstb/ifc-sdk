@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProcess::IfcProcess(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() const 
     return deConstObject->getOperatesOn();
 }
 
+bool IfcProcess::testOperatesOn() const {
+    return !Step::isUnset(getOperatesOn());
+}
+
 Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() {
     if (Step::BaseObject::inited()) {
         return m_isSuccessorFrom;
@@ -99,6 +100,10 @@ const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const {
     return deConstObject->getIsSuccessorFrom();
 }
 
+bool IfcProcess::testIsSuccessorFrom() const {
+    return !Step::isUnset(getIsSuccessorFrom());
+}
+
 Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
     if (Step::BaseObject::inited()) {
         return m_isPredecessorTo;
@@ -112,6 +117,10 @@ Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
 const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() const {
     IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
     return deConstObject->getIsPredecessorTo();
+}
+
+bool IfcProcess::testIsPredecessorTo() const {
+    return !Step::isUnset(getIsPredecessorTo());
 }
 
 bool IfcProcess::init() {

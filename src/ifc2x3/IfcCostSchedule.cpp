@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCostSchedule::IfcCostSchedule(Step::Id id, Step::SPFData *args) : IfcControl(id, args) {
@@ -98,6 +95,14 @@ void IfcCostSchedule::setSubmittedBy(const Step::RefPtr< IfcActorSelect > &value
     m_submittedBy = value;
 }
 
+void IfcCostSchedule::unsetSubmittedBy() {
+    m_submittedBy = Step::getUnset(getSubmittedBy());
+}
+
+bool IfcCostSchedule::testSubmittedBy() const {
+    return !Step::isUnset(getSubmittedBy());
+}
+
 IfcActorSelect *IfcCostSchedule::getPreparedBy() {
     if (Step::BaseObject::inited()) {
         return m_preparedBy.get();
@@ -114,6 +119,14 @@ const IfcActorSelect *IfcCostSchedule::getPreparedBy() const {
 
 void IfcCostSchedule::setPreparedBy(const Step::RefPtr< IfcActorSelect > &value) {
     m_preparedBy = value;
+}
+
+void IfcCostSchedule::unsetPreparedBy() {
+    m_preparedBy = Step::getUnset(getPreparedBy());
+}
+
+bool IfcCostSchedule::testPreparedBy() const {
+    return !Step::isUnset(getPreparedBy());
 }
 
 IfcDateTimeSelect *IfcCostSchedule::getSubmittedOn() {
@@ -134,6 +147,14 @@ void IfcCostSchedule::setSubmittedOn(const Step::RefPtr< IfcDateTimeSelect > &va
     m_submittedOn = value;
 }
 
+void IfcCostSchedule::unsetSubmittedOn() {
+    m_submittedOn = Step::getUnset(getSubmittedOn());
+}
+
+bool IfcCostSchedule::testSubmittedOn() const {
+    return !Step::isUnset(getSubmittedOn());
+}
+
 IfcLabel IfcCostSchedule::getStatus() {
     if (Step::BaseObject::inited()) {
         return m_status;
@@ -150,6 +171,14 @@ const IfcLabel IfcCostSchedule::getStatus() const {
 
 void IfcCostSchedule::setStatus(const IfcLabel &value) {
     m_status = value;
+}
+
+void IfcCostSchedule::unsetStatus() {
+    m_status = Step::getUnset(getStatus());
+}
+
+bool IfcCostSchedule::testStatus() const {
+    return !Step::isUnset(getStatus());
 }
 
 Set_IfcActorSelect_1_n &IfcCostSchedule::getTargetUsers() {
@@ -171,6 +200,15 @@ void IfcCostSchedule::setTargetUsers(const Set_IfcActorSelect_1_n &value) {
     m_targetUsers = value;
 }
 
+void IfcCostSchedule::unsetTargetUsers() {
+    m_targetUsers.clear();
+    m_targetUsers.setUnset(true);
+}
+
+bool IfcCostSchedule::testTargetUsers() const {
+    return !Step::isUnset(getTargetUsers());
+}
+
 IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() {
     if (Step::BaseObject::inited()) {
         return m_updateDate.get();
@@ -187,6 +225,14 @@ const IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() const {
 
 void IfcCostSchedule::setUpdateDate(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_updateDate = value;
+}
+
+void IfcCostSchedule::unsetUpdateDate() {
+    m_updateDate = Step::getUnset(getUpdateDate());
+}
+
+bool IfcCostSchedule::testUpdateDate() const {
+    return !Step::isUnset(getUpdateDate());
 }
 
 IfcIdentifier IfcCostSchedule::getID() {
@@ -207,6 +253,14 @@ void IfcCostSchedule::setID(const IfcIdentifier &value) {
     m_iD = value;
 }
 
+void IfcCostSchedule::unsetID() {
+    m_iD = Step::getUnset(getID());
+}
+
+bool IfcCostSchedule::testID() const {
+    return !Step::isUnset(getID());
+}
+
 IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() {
     if (Step::BaseObject::inited()) {
         return m_predefinedType;
@@ -223,6 +277,14 @@ const IfcCostScheduleTypeEnum IfcCostSchedule::getPredefinedType() const {
 
 void IfcCostSchedule::setPredefinedType(IfcCostScheduleTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcCostSchedule::unsetPredefinedType() {
+    m_predefinedType = IfcCostScheduleTypeEnum_UNSET;
+}
+
+bool IfcCostSchedule::testPredefinedType() const {
+    return getPredefinedType() != IfcCostScheduleTypeEnum_UNSET;
 }
 
 bool IfcCostSchedule::init() {

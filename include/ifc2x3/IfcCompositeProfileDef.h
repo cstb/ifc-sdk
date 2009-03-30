@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,15 +32,17 @@
 #include "ifc2x3/IfcProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCompositeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCompositeProfileDef : public IfcProfileDef {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setProfiles(const Set_IfcProfileDef_2_n &value);
         /**
+         * unset the attribute 'Profiles'.
+         * 
+         */
+        virtual void unsetProfiles();
+        /**
+         * Test if the attribute 'Profiles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProfiles() const;
+        /**
          * Gets the value of the explicit attribute 'Label'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLabel(const IfcLabel &value);
+        /**
+         * unset the attribute 'Label'.
+         * 
+         */
+        virtual void unsetLabel();
+        /**
+         * Test if the attribute 'Label' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLabel() const;
         friend class ExpressDataSet;
 
     protected:

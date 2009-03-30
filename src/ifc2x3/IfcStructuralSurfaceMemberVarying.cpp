@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralSurfaceMemberVarying::IfcStructuralSurfaceMemberVarying(Step::Id id, Step::SPFData *args) : IfcStructuralSurfaceMember(id, args) {
@@ -89,6 +86,15 @@ void IfcStructuralSurfaceMemberVarying::setSubsequentThickness(const List_IfcPos
     m_subsequentThickness = value;
 }
 
+void IfcStructuralSurfaceMemberVarying::unsetSubsequentThickness() {
+    m_subsequentThickness.clear();
+    m_subsequentThickness.setUnset(true);
+}
+
+bool IfcStructuralSurfaceMemberVarying::testSubsequentThickness() const {
+    return !Step::isUnset(getSubsequentThickness());
+}
+
 IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLocation() {
     if (Step::BaseObject::inited()) {
         return m_varyingThicknessLocation.get();
@@ -105,6 +111,14 @@ const IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLoca
 
 void IfcStructuralSurfaceMemberVarying::setVaryingThicknessLocation(const Step::RefPtr< IfcShapeAspect > &value) {
     m_varyingThicknessLocation = value;
+}
+
+void IfcStructuralSurfaceMemberVarying::unsetVaryingThicknessLocation() {
+    m_varyingThicknessLocation = Step::getUnset(getVaryingThicknessLocation());
+}
+
+bool IfcStructuralSurfaceMemberVarying::testVaryingThicknessLocation() const {
+    return !Step::isUnset(getVaryingThicknessLocation());
 }
 
 bool IfcStructuralSurfaceMemberVarying::init() {

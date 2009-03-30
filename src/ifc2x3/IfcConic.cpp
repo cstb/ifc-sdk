@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConic::IfcConic(Step::Id id, Step::SPFData *args) : IfcCurve(id, args) {
@@ -85,6 +82,14 @@ const IfcAxis2Placement *IfcConic::getPosition() const {
 
 void IfcConic::setPosition(const Step::RefPtr< IfcAxis2Placement > &value) {
     m_position = value;
+}
+
+void IfcConic::unsetPosition() {
+    m_position = Step::getUnset(getPosition());
+}
+
+bool IfcConic::testPosition() const {
+    return !Step::isUnset(getPosition());
 }
 
 bool IfcConic::init() {

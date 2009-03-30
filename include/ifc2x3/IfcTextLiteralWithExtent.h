@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcTextLiteral.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcTextLiteral.h"
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcPlanarExtent;
 
     /**
+     * Generated class for the IfcTextLiteralWithExtent Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextLiteralWithExtent : public IfcTextLiteral {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setExtent(const Step::RefPtr< IfcPlanarExtent > &value);
         /**
+         * unset the attribute 'Extent'.
+         * 
+         */
+        virtual void unsetExtent();
+        /**
+         * Test if the attribute 'Extent' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testExtent() const;
+        /**
          * Gets the value of the explicit attribute 'BoxAlignment'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBoxAlignment(const IfcBoxAlignment &value);
+        /**
+         * unset the attribute 'BoxAlignment'.
+         * 
+         */
+        virtual void unsetBoxAlignment();
+        /**
+         * Test if the attribute 'BoxAlignment' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoxAlignment() const;
         friend class ExpressDataSet;
 
     protected:

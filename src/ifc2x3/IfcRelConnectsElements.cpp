@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelConnectsElements::IfcRelConnectsElements(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -91,6 +88,14 @@ void IfcRelConnectsElements::setConnectionGeometry(const Step::RefPtr< IfcConnec
     m_connectionGeometry = value;
 }
 
+void IfcRelConnectsElements::unsetConnectionGeometry() {
+    m_connectionGeometry = Step::getUnset(getConnectionGeometry());
+}
+
+bool IfcRelConnectsElements::testConnectionGeometry() const {
+    return !Step::isUnset(getConnectionGeometry());
+}
+
 IfcElement *IfcRelConnectsElements::getRelatingElement() {
     if (Step::BaseObject::inited()) {
         return m_relatingElement.get();
@@ -115,6 +120,14 @@ void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement >
     m_relatingElement = value;
 }
 
+void IfcRelConnectsElements::unsetRelatingElement() {
+    m_relatingElement = Step::getUnset(getRelatingElement());
+}
+
+bool IfcRelConnectsElements::testRelatingElement() const {
+    return !Step::isUnset(getRelatingElement());
+}
+
 IfcElement *IfcRelConnectsElements::getRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_relatedElement.get();
@@ -137,6 +150,14 @@ void IfcRelConnectsElements::setRelatedElement(const Step::RefPtr< IfcElement > 
         value->m_connectedFrom.insert(this);
     }
     m_relatedElement = value;
+}
+
+void IfcRelConnectsElements::unsetRelatedElement() {
+    m_relatedElement = Step::getUnset(getRelatedElement());
+}
+
+bool IfcRelConnectsElements::testRelatedElement() const {
+    return !Step::isUnset(getRelatedElement());
 }
 
 bool IfcRelConnectsElements::init() {

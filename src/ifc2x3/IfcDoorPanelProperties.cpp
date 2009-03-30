@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDoorPanelProperties::IfcDoorPanelProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -92,6 +89,14 @@ void IfcDoorPanelProperties::setPanelDepth(IfcPositiveLengthMeasure value) {
     m_panelDepth = value;
 }
 
+void IfcDoorPanelProperties::unsetPanelDepth() {
+    m_panelDepth = Step::getUnset(getPanelDepth());
+}
+
+bool IfcDoorPanelProperties::testPanelDepth() const {
+    return !Step::isUnset(getPanelDepth());
+}
+
 IfcDoorPanelOperationEnum IfcDoorPanelProperties::getPanelOperation() {
     if (Step::BaseObject::inited()) {
         return m_panelOperation;
@@ -108,6 +113,14 @@ const IfcDoorPanelOperationEnum IfcDoorPanelProperties::getPanelOperation() cons
 
 void IfcDoorPanelProperties::setPanelOperation(IfcDoorPanelOperationEnum value) {
     m_panelOperation = value;
+}
+
+void IfcDoorPanelProperties::unsetPanelOperation() {
+    m_panelOperation = IfcDoorPanelOperationEnum_UNSET;
+}
+
+bool IfcDoorPanelProperties::testPanelOperation() const {
+    return getPanelOperation() != IfcDoorPanelOperationEnum_UNSET;
 }
 
 IfcNormalisedRatioMeasure IfcDoorPanelProperties::getPanelWidth() {
@@ -128,6 +141,14 @@ void IfcDoorPanelProperties::setPanelWidth(IfcNormalisedRatioMeasure value) {
     m_panelWidth = value;
 }
 
+void IfcDoorPanelProperties::unsetPanelWidth() {
+    m_panelWidth = Step::getUnset(getPanelWidth());
+}
+
+bool IfcDoorPanelProperties::testPanelWidth() const {
+    return !Step::isUnset(getPanelWidth());
+}
+
 IfcDoorPanelPositionEnum IfcDoorPanelProperties::getPanelPosition() {
     if (Step::BaseObject::inited()) {
         return m_panelPosition;
@@ -146,6 +167,14 @@ void IfcDoorPanelProperties::setPanelPosition(IfcDoorPanelPositionEnum value) {
     m_panelPosition = value;
 }
 
+void IfcDoorPanelProperties::unsetPanelPosition() {
+    m_panelPosition = IfcDoorPanelPositionEnum_UNSET;
+}
+
+bool IfcDoorPanelProperties::testPanelPosition() const {
+    return getPanelPosition() != IfcDoorPanelPositionEnum_UNSET;
+}
+
 IfcShapeAspect *IfcDoorPanelProperties::getShapeAspectStyle() {
     if (Step::BaseObject::inited()) {
         return m_shapeAspectStyle.get();
@@ -162,6 +191,14 @@ const IfcShapeAspect *IfcDoorPanelProperties::getShapeAspectStyle() const {
 
 void IfcDoorPanelProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
     m_shapeAspectStyle = value;
+}
+
+void IfcDoorPanelProperties::unsetShapeAspectStyle() {
+    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+}
+
+bool IfcDoorPanelProperties::testShapeAspectStyle() const {
+    return !Step::isUnset(getShapeAspectStyle());
 }
 
 bool IfcDoorPanelProperties::init() {

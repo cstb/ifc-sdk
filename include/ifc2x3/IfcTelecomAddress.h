@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcAddress.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcAddress.h"
 #include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcTelecomAddress Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTelecomAddress : public IfcAddress {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setTelephoneNumbers(const List_IfcLabel_1_n &value);
         /**
+         * unset the attribute 'TelephoneNumbers'.
+         * 
+         */
+        virtual void unsetTelephoneNumbers();
+        /**
+         * Test if the attribute 'TelephoneNumbers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTelephoneNumbers() const;
+        /**
          * Gets the value of the explicit attribute 'FacsimileNumbers'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setFacsimileNumbers(const List_IfcLabel_1_n &value);
+        /**
+         * unset the attribute 'FacsimileNumbers'.
+         * 
+         */
+        virtual void unsetFacsimileNumbers();
+        /**
+         * Test if the attribute 'FacsimileNumbers' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFacsimileNumbers() const;
         /**
          * Gets the value of the explicit attribute 'PagerNumber'.
          * 
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          */
         virtual void setPagerNumber(const IfcLabel &value);
         /**
+         * unset the attribute 'PagerNumber'.
+         * 
+         */
+        virtual void unsetPagerNumber();
+        /**
+         * Test if the attribute 'PagerNumber' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPagerNumber() const;
+        /**
          * Gets the value of the explicit attribute 'ElectronicMailAddresses'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          */
         virtual void setElectronicMailAddresses(const List_IfcLabel_1_n &value);
         /**
+         * unset the attribute 'ElectronicMailAddresses'.
+         * 
+         */
+        virtual void unsetElectronicMailAddresses();
+        /**
+         * Test if the attribute 'ElectronicMailAddresses' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElectronicMailAddresses() const;
+        /**
          * Gets the value of the explicit attribute 'WWWHomePageURL'.
          * 
          */
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setWWWHomePageURL(const IfcLabel &value);
+        /**
+         * unset the attribute 'WWWHomePageURL'.
+         * 
+         */
+        virtual void unsetWWWHomePageURL();
+        /**
+         * Test if the attribute 'WWWHomePageURL' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWWWHomePageURL() const;
         friend class ExpressDataSet;
 
     protected:

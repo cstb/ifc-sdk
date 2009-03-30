@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcStructuralLoadSingleForceWarping::IfcStructuralLoadSingleForceWarping(Step::Id id, Step::SPFData *args) : IfcStructuralLoadSingleForce(id, args) {
@@ -82,6 +79,14 @@ const IfcWarpingMomentMeasure IfcStructuralLoadSingleForceWarping::getWarpingMom
 
 void IfcStructuralLoadSingleForceWarping::setWarpingMoment(IfcWarpingMomentMeasure value) {
     m_warpingMoment = value;
+}
+
+void IfcStructuralLoadSingleForceWarping::unsetWarpingMoment() {
+    m_warpingMoment = Step::getUnset(getWarpingMoment());
+}
+
+bool IfcStructuralLoadSingleForceWarping::testWarpingMoment() const {
+    return !Step::isUnset(getWarpingMoment());
 }
 
 bool IfcStructuralLoadSingleForceWarping::init() {

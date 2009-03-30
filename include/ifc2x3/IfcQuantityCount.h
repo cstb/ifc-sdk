@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,14 +32,16 @@
 #include "ifc2x3/IfcPhysicalSimpleQuantity.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcQuantityCount Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcQuantityCount : public IfcPhysicalSimpleQuantity {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCountValue(IfcCountMeasure value);
+        /**
+         * unset the attribute 'CountValue'.
+         * 
+         */
+        virtual void unsetCountValue();
+        /**
+         * Test if the attribute 'CountValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCountValue() const;
         friend class ExpressDataSet;
 
     protected:

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,15 +29,14 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <stdexcept>
-#include <Step/Referenced.h>
-#include <Step/BaseVisitor.h>
-#include <Step/SPFData.h>
-#include <Step/Referenced.h>
-#include <Step/ClassType.h>
 #include <Step/BaseEntity.h>
-#include <string>
+#include <Step/BaseVisitor.h>
+#include <Step/ClassType.h>
+#include <Step/Referenced.h>
+#include <Step/SPFData.h>
 #include <Step/String.h>
+#include <stdexcept>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -45,6 +44,8 @@ namespace ifc2x3 {
     class IfcDocumentReference;
 
     /**
+     * Inverse aggregate helper that keeps track of the owner for inverse operations.
+     * 
      */
     class Inverted_IfcDocumentInformation_DocumentReferences_type : public Set_IfcDocumentReference_1_n {
     public:
@@ -54,22 +55,36 @@ namespace ifc2x3 {
 
         /**
          */
-        IfcDocumentInformation *mOwner;
-        /**
-         */
         Inverted_IfcDocumentInformation_DocumentReferences_type();
         /**
-         * @param owner
-         */
-        void setOwner(IfcDocumentInformation *owner);
-        /**
-         * @param value
+         * Insert a value in the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual void insert(const Step::RefPtr< IfcDocumentReference > &value) throw(std::out_of_range);
         /**
-         * @param value
+         * Remove a value from the aggregate.
+         * 
+         * @param value The object to act upon.
          */
         virtual size_type erase(const Step::RefPtr< IfcDocumentReference > &value);
+        /**
+         * Remove all values from the aggregate.
+         * 
+         */
+        void clear();
+        friend class IfcDocumentInformation;
+
+    protected:
+        /**
+         * The owner of this inverted aggregate.
+         * 
+         */
+        IfcDocumentInformation *mOwner;
+        /**
+         * @param owner The owner of this inverted aggregate.
+         */
+        void setOwner(IfcDocumentInformation *owner);
 
     };
 
@@ -80,6 +95,8 @@ namespace ifc2x3 {
     class IfcDocumentElectronicFormat;
 
     /**
+     * Generated class for the IfcDocumentInformation Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDocumentInformation : public Step::BaseEntity {
     public:
@@ -128,6 +145,17 @@ namespace ifc2x3 {
          */
         virtual void setDocumentId(const IfcIdentifier &value);
         /**
+         * unset the attribute 'DocumentId'.
+         * 
+         */
+        virtual void unsetDocumentId();
+        /**
+         * Test if the attribute 'DocumentId' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDocumentId() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -144,6 +172,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(const IfcLabel &value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         /**
          * Gets the value of the explicit attribute 'Description'.
          * 
@@ -162,6 +201,17 @@ namespace ifc2x3 {
          */
         virtual void setDescription(const IfcText &value);
         /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
+        /**
          * Gets the value of the explicit attribute 'DocumentReferences'.
          * 
          */
@@ -172,6 +222,17 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'DocumentReferences'
          */
         virtual const Set_IfcDocumentReference_1_n &getDocumentReferences() const;
+        /**
+         * unset the attribute 'DocumentReferences'.
+         * 
+         */
+        virtual void unsetDocumentReferences();
+        /**
+         * Test if the attribute 'DocumentReferences' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDocumentReferences() const;
         /**
          * Gets the value of the explicit attribute 'Purpose'.
          * 
@@ -190,6 +251,17 @@ namespace ifc2x3 {
          */
         virtual void setPurpose(const IfcText &value);
         /**
+         * unset the attribute 'Purpose'.
+         * 
+         */
+        virtual void unsetPurpose();
+        /**
+         * Test if the attribute 'Purpose' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPurpose() const;
+        /**
          * Gets the value of the explicit attribute 'IntendedUse'.
          * 
          */
@@ -206,6 +278,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setIntendedUse(const IfcText &value);
+        /**
+         * unset the attribute 'IntendedUse'.
+         * 
+         */
+        virtual void unsetIntendedUse();
+        /**
+         * Test if the attribute 'IntendedUse' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIntendedUse() const;
         /**
          * Gets the value of the explicit attribute 'Scope'.
          * 
@@ -224,6 +307,17 @@ namespace ifc2x3 {
          */
         virtual void setScope(const IfcText &value);
         /**
+         * unset the attribute 'Scope'.
+         * 
+         */
+        virtual void unsetScope();
+        /**
+         * Test if the attribute 'Scope' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testScope() const;
+        /**
          * Gets the value of the explicit attribute 'Revision'.
          * 
          */
@@ -240,6 +334,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRevision(const IfcLabel &value);
+        /**
+         * unset the attribute 'Revision'.
+         * 
+         */
+        virtual void unsetRevision();
+        /**
+         * Test if the attribute 'Revision' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRevision() const;
         /**
          * Gets the value of the explicit attribute 'DocumentOwner'.
          * 
@@ -258,6 +363,17 @@ namespace ifc2x3 {
          */
         virtual void setDocumentOwner(const Step::RefPtr< IfcActorSelect > &value);
         /**
+         * unset the attribute 'DocumentOwner'.
+         * 
+         */
+        virtual void unsetDocumentOwner();
+        /**
+         * Test if the attribute 'DocumentOwner' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDocumentOwner() const;
+        /**
          * Gets the value of the explicit attribute 'Editors'.
          * 
          */
@@ -274,6 +390,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEditors(const Set_IfcActorSelect_1_n &value);
+        /**
+         * unset the attribute 'Editors'.
+         * 
+         */
+        virtual void unsetEditors();
+        /**
+         * Test if the attribute 'Editors' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEditors() const;
         /**
          * Gets the value of the explicit attribute 'CreationTime'.
          * 
@@ -292,6 +419,17 @@ namespace ifc2x3 {
          */
         virtual void setCreationTime(const Step::RefPtr< IfcDateAndTime > &value);
         /**
+         * unset the attribute 'CreationTime'.
+         * 
+         */
+        virtual void unsetCreationTime();
+        /**
+         * Test if the attribute 'CreationTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCreationTime() const;
+        /**
          * Gets the value of the explicit attribute 'LastRevisionTime'.
          * 
          */
@@ -308,6 +446,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setLastRevisionTime(const Step::RefPtr< IfcDateAndTime > &value);
+        /**
+         * unset the attribute 'LastRevisionTime'.
+         * 
+         */
+        virtual void unsetLastRevisionTime();
+        /**
+         * Test if the attribute 'LastRevisionTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLastRevisionTime() const;
         /**
          * Gets the value of the explicit attribute 'ElectronicFormat'.
          * 
@@ -326,6 +475,17 @@ namespace ifc2x3 {
          */
         virtual void setElectronicFormat(const Step::RefPtr< IfcDocumentElectronicFormat > &value);
         /**
+         * unset the attribute 'ElectronicFormat'.
+         * 
+         */
+        virtual void unsetElectronicFormat();
+        /**
+         * Test if the attribute 'ElectronicFormat' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testElectronicFormat() const;
+        /**
          * Gets the value of the explicit attribute 'ValidFrom'.
          * 
          */
@@ -342,6 +502,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setValidFrom(const Step::RefPtr< IfcCalendarDate > &value);
+        /**
+         * unset the attribute 'ValidFrom'.
+         * 
+         */
+        virtual void unsetValidFrom();
+        /**
+         * Test if the attribute 'ValidFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValidFrom() const;
         /**
          * Gets the value of the explicit attribute 'ValidUntil'.
          * 
@@ -360,6 +531,17 @@ namespace ifc2x3 {
          */
         virtual void setValidUntil(const Step::RefPtr< IfcCalendarDate > &value);
         /**
+         * unset the attribute 'ValidUntil'.
+         * 
+         */
+        virtual void unsetValidUntil();
+        /**
+         * Test if the attribute 'ValidUntil' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testValidUntil() const;
+        /**
          * Gets the value of the explicit attribute 'Confidentiality'.
          * 
          */
@@ -376,6 +558,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setConfidentiality(IfcDocumentConfidentialityEnum value);
+        /**
+         * unset the attribute 'Confidentiality'.
+         * 
+         */
+        virtual void unsetConfidentiality();
+        /**
+         * Test if the attribute 'Confidentiality' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConfidentiality() const;
         /**
          * Gets the value of the explicit attribute 'Status'.
          * 
@@ -394,6 +587,17 @@ namespace ifc2x3 {
          */
         virtual void setStatus(IfcDocumentStatusEnum value);
         /**
+         * unset the attribute 'Status'.
+         * 
+         */
+        virtual void unsetStatus();
+        /**
+         * Test if the attribute 'Status' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStatus() const;
+        /**
          * Gets the value of the inverse attribute 'IsPointedTo'.
          * 
          */
@@ -405,6 +609,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcDocumentInformationRelationship_0_n &getIsPointedTo() const;
         /**
+         * Test if the attribute 'IsPointedTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsPointedTo() const;
+        /**
          * Gets the value of the inverse attribute 'IsPointer'.
          * 
          */
@@ -415,8 +625,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsPointer'
          */
         virtual const Inverse_Set_IfcDocumentInformationRelationship_0_1 &getIsPointer() const;
-        friend class Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type;
+        /**
+         * Test if the attribute 'IsPointer' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsPointer() const;
         friend class ExpressDataSet;
+        friend class Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type;
         friend class IfcDocumentInformationRelationship;
 
     protected:

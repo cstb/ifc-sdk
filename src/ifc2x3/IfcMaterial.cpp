@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcMaterial::IfcMaterial(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcMaterial::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcMaterial::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcMaterial::testName() const {
+    return !Step::isUnset(getName());
+}
+
 Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation() {
     if (Step::BaseObject::inited()) {
         return m_hasRepresentation;
@@ -104,6 +109,10 @@ const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRe
     return deConstObject->getHasRepresentation();
 }
 
+bool IfcMaterial::testHasRepresentation() const {
+    return !Step::isUnset(getHasRepresentation());
+}
+
 Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() {
     if (Step::BaseObject::inited()) {
         return m_classifiedAs;
@@ -117,6 +126,10 @@ Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifie
 const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() const {
     IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
     return deConstObject->getClassifiedAs();
+}
+
+bool IfcMaterial::testClassifiedAs() const {
+    return !Step::isUnset(getClassifiedAs());
 }
 
 bool IfcMaterial::init() {

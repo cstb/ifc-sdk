@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -32,9 +32,9 @@
 #include "ifc2x3/IfcTopologicalRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcLoop;
 
     /**
+     * Generated class for the IfcFaceBound Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFaceBound : public IfcTopologicalRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBound(const Step::RefPtr< IfcLoop > &value);
         /**
+         * unset the attribute 'Bound'.
+         * 
+         */
+        virtual void unsetBound();
+        /**
+         * Test if the attribute 'Bound' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBound() const;
+        /**
          * Gets the value of the explicit attribute 'Orientation'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setOrientation(Step::Boolean value);
+        /**
+         * unset the attribute 'Orientation'.
+         * 
+         */
+        virtual void unsetOrientation();
+        /**
+         * Test if the attribute 'Orientation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOrientation() const;
         friend class ExpressDataSet;
 
     protected:

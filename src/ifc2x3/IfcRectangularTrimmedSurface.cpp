@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRectangularTrimmedSurface::IfcRectangularTrimmedSurface(Step::Id id, Step::SPFData *args) : IfcBoundedSurface(id, args) {
@@ -94,6 +91,14 @@ void IfcRectangularTrimmedSurface::setBasisSurface(const Step::RefPtr< IfcSurfac
     m_basisSurface = value;
 }
 
+void IfcRectangularTrimmedSurface::unsetBasisSurface() {
+    m_basisSurface = Step::getUnset(getBasisSurface());
+}
+
+bool IfcRectangularTrimmedSurface::testBasisSurface() const {
+    return !Step::isUnset(getBasisSurface());
+}
+
 IfcParameterValue IfcRectangularTrimmedSurface::getU1() {
     if (Step::BaseObject::inited()) {
         return m_u1;
@@ -110,6 +115,14 @@ const IfcParameterValue IfcRectangularTrimmedSurface::getU1() const {
 
 void IfcRectangularTrimmedSurface::setU1(IfcParameterValue value) {
     m_u1 = value;
+}
+
+void IfcRectangularTrimmedSurface::unsetU1() {
+    m_u1 = Step::getUnset(getU1());
+}
+
+bool IfcRectangularTrimmedSurface::testU1() const {
+    return !Step::isUnset(getU1());
 }
 
 IfcParameterValue IfcRectangularTrimmedSurface::getV1() {
@@ -130,6 +143,14 @@ void IfcRectangularTrimmedSurface::setV1(IfcParameterValue value) {
     m_v1 = value;
 }
 
+void IfcRectangularTrimmedSurface::unsetV1() {
+    m_v1 = Step::getUnset(getV1());
+}
+
+bool IfcRectangularTrimmedSurface::testV1() const {
+    return !Step::isUnset(getV1());
+}
+
 IfcParameterValue IfcRectangularTrimmedSurface::getU2() {
     if (Step::BaseObject::inited()) {
         return m_u2;
@@ -146,6 +167,14 @@ const IfcParameterValue IfcRectangularTrimmedSurface::getU2() const {
 
 void IfcRectangularTrimmedSurface::setU2(IfcParameterValue value) {
     m_u2 = value;
+}
+
+void IfcRectangularTrimmedSurface::unsetU2() {
+    m_u2 = Step::getUnset(getU2());
+}
+
+bool IfcRectangularTrimmedSurface::testU2() const {
+    return !Step::isUnset(getU2());
 }
 
 IfcParameterValue IfcRectangularTrimmedSurface::getV2() {
@@ -166,6 +195,14 @@ void IfcRectangularTrimmedSurface::setV2(IfcParameterValue value) {
     m_v2 = value;
 }
 
+void IfcRectangularTrimmedSurface::unsetV2() {
+    m_v2 = Step::getUnset(getV2());
+}
+
+bool IfcRectangularTrimmedSurface::testV2() const {
+    return !Step::isUnset(getV2());
+}
+
 Step::Boolean IfcRectangularTrimmedSurface::getUsense() {
     if (Step::BaseObject::inited()) {
         return m_usense;
@@ -184,6 +221,14 @@ void IfcRectangularTrimmedSurface::setUsense(Step::Boolean value) {
     m_usense = value;
 }
 
+void IfcRectangularTrimmedSurface::unsetUsense() {
+    m_usense = Step::getUnset(getUsense());
+}
+
+bool IfcRectangularTrimmedSurface::testUsense() const {
+    return !Step::isUnset(getUsense());
+}
+
 Step::Boolean IfcRectangularTrimmedSurface::getVsense() {
     if (Step::BaseObject::inited()) {
         return m_vsense;
@@ -200,6 +245,14 @@ const Step::Boolean IfcRectangularTrimmedSurface::getVsense() const {
 
 void IfcRectangularTrimmedSurface::setVsense(Step::Boolean value) {
     m_vsense = value;
+}
+
+void IfcRectangularTrimmedSurface::unsetVsense() {
+    m_vsense = Step::getUnset(getVsense());
+}
+
+bool IfcRectangularTrimmedSurface::testVsense() const {
+    return !Step::isUnset(getVsense());
 }
 
 bool IfcRectangularTrimmedSurface::init() {

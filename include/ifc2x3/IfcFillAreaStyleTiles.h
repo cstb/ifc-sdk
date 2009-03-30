@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcOneDirectionRepeatFactor;
 
     /**
+     * Generated class for the IfcFillAreaStyleTiles Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcFillAreaStyleTiles : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setTilingPattern(const Step::RefPtr< IfcOneDirectionRepeatFactor > &value);
         /**
+         * unset the attribute 'TilingPattern'.
+         * 
+         */
+        virtual void unsetTilingPattern();
+        /**
+         * Test if the attribute 'TilingPattern' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTilingPattern() const;
+        /**
          * Gets the value of the explicit attribute 'Tiles'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setTiles(const Set_IfcFillAreaStyleTileShapeSelect_1_n &value);
         /**
+         * unset the attribute 'Tiles'.
+         * 
+         */
+        virtual void unsetTiles();
+        /**
+         * Test if the attribute 'Tiles' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTiles() const;
+        /**
          * Gets the value of the explicit attribute 'TilingScale'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTilingScale(IfcPositiveRatioMeasure value);
+        /**
+         * unset the attribute 'TilingScale'.
+         * 
+         */
+        virtual void unsetTilingScale();
+        /**
+         * Test if the attribute 'TilingScale' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTilingScale() const;
         friend class ExpressDataSet;
 
     protected:

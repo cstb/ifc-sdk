@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSurface;
 
     /**
+     * Generated class for the IfcHalfSpaceSolid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcHalfSpaceSolid : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBaseSurface(const Step::RefPtr< IfcSurface > &value);
         /**
+         * unset the attribute 'BaseSurface'.
+         * 
+         */
+        virtual void unsetBaseSurface();
+        /**
+         * Test if the attribute 'BaseSurface' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseSurface() const;
+        /**
          * Gets the value of the explicit attribute 'AgreementFlag'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setAgreementFlag(Step::Boolean value);
+        /**
+         * unset the attribute 'AgreementFlag'.
+         * 
+         */
+        virtual void unsetAgreementFlag();
+        /**
+         * Test if the attribute 'AgreementFlag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testAgreementFlag() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

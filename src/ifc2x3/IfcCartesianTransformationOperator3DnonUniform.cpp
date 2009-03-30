@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCartesianTransformationOperator3DnonUniform::IfcCartesianTransformationOperator3DnonUniform(Step::Id id, Step::SPFData *args) : IfcCartesianTransformationOperator3D(id, args) {
@@ -85,6 +82,14 @@ void IfcCartesianTransformationOperator3DnonUniform::setScale2(Step::Real value)
     m_scale2 = value;
 }
 
+void IfcCartesianTransformationOperator3DnonUniform::unsetScale2() {
+    m_scale2 = Step::getUnset(getScale2());
+}
+
+bool IfcCartesianTransformationOperator3DnonUniform::testScale2() const {
+    return !Step::isUnset(getScale2());
+}
+
 Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale3() {
     if (Step::BaseObject::inited()) {
         return m_scale3;
@@ -101,6 +106,14 @@ const Step::Real IfcCartesianTransformationOperator3DnonUniform::getScale3() con
 
 void IfcCartesianTransformationOperator3DnonUniform::setScale3(Step::Real value) {
     m_scale3 = value;
+}
+
+void IfcCartesianTransformationOperator3DnonUniform::unsetScale3() {
+    m_scale3 = Step::getUnset(getScale3());
+}
+
+bool IfcCartesianTransformationOperator3DnonUniform::testScale3() const {
+    return !Step::isUnset(getScale3());
 }
 
 bool IfcCartesianTransformationOperator3DnonUniform::init() {

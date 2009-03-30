@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProfileProperties.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcProfileProperties.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRibPlateProfileProperties Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRibPlateProfileProperties : public IfcProfileProperties {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'Thickness'.
+         * 
+         */
+        virtual void unsetThickness();
+        /**
+         * Test if the attribute 'Thickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testThickness() const;
+        /**
          * Gets the value of the explicit attribute 'RibHeight'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRibHeight(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'RibHeight'.
+         * 
+         */
+        virtual void unsetRibHeight();
+        /**
+         * Test if the attribute 'RibHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRibHeight() const;
         /**
          * Gets the value of the explicit attribute 'RibWidth'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setRibWidth(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'RibWidth'.
+         * 
+         */
+        virtual void unsetRibWidth();
+        /**
+         * Test if the attribute 'RibWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRibWidth() const;
+        /**
          * Gets the value of the explicit attribute 'RibSpacing'.
          * 
          */
@@ -139,6 +174,17 @@ namespace ifc2x3 {
          */
         virtual void setRibSpacing(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'RibSpacing'.
+         * 
+         */
+        virtual void unsetRibSpacing();
+        /**
+         * Test if the attribute 'RibSpacing' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRibSpacing() const;
+        /**
          * Gets the value of the explicit attribute 'Direction'.
          * 
          */
@@ -155,6 +201,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDirection(IfcRibPlateDirectionEnum value);
+        /**
+         * unset the attribute 'Direction'.
+         * 
+         */
+        virtual void unsetDirection();
+        /**
+         * Test if the attribute 'Direction' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDirection() const;
         friend class ExpressDataSet;
 
     protected:

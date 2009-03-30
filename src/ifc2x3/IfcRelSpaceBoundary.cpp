@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelSpaceBoundary::IfcRelSpaceBoundary(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
@@ -100,6 +97,14 @@ void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value
     m_relatingSpace = value;
 }
 
+void IfcRelSpaceBoundary::unsetRelatingSpace() {
+    m_relatingSpace = Step::getUnset(getRelatingSpace());
+}
+
+bool IfcRelSpaceBoundary::testRelatingSpace() const {
+    return !Step::isUnset(getRelatingSpace());
+}
+
 IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() {
     if (Step::BaseObject::inited()) {
         return m_relatedBuildingElement.get();
@@ -124,6 +129,14 @@ void IfcRelSpaceBoundary::setRelatedBuildingElement(const Step::RefPtr< IfcEleme
     m_relatedBuildingElement = value;
 }
 
+void IfcRelSpaceBoundary::unsetRelatedBuildingElement() {
+    m_relatedBuildingElement = Step::getUnset(getRelatedBuildingElement());
+}
+
+bool IfcRelSpaceBoundary::testRelatedBuildingElement() const {
+    return !Step::isUnset(getRelatedBuildingElement());
+}
+
 IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() {
     if (Step::BaseObject::inited()) {
         return m_connectionGeometry.get();
@@ -140,6 +153,14 @@ const IfcConnectionGeometry *IfcRelSpaceBoundary::getConnectionGeometry() const 
 
 void IfcRelSpaceBoundary::setConnectionGeometry(const Step::RefPtr< IfcConnectionGeometry > &value) {
     m_connectionGeometry = value;
+}
+
+void IfcRelSpaceBoundary::unsetConnectionGeometry() {
+    m_connectionGeometry = Step::getUnset(getConnectionGeometry());
+}
+
+bool IfcRelSpaceBoundary::testConnectionGeometry() const {
+    return !Step::isUnset(getConnectionGeometry());
 }
 
 IfcPhysicalOrVirtualEnum IfcRelSpaceBoundary::getPhysicalOrVirtualBoundary() {
@@ -160,6 +181,14 @@ void IfcRelSpaceBoundary::setPhysicalOrVirtualBoundary(IfcPhysicalOrVirtualEnum 
     m_physicalOrVirtualBoundary = value;
 }
 
+void IfcRelSpaceBoundary::unsetPhysicalOrVirtualBoundary() {
+    m_physicalOrVirtualBoundary = IfcPhysicalOrVirtualEnum_UNSET;
+}
+
+bool IfcRelSpaceBoundary::testPhysicalOrVirtualBoundary() const {
+    return getPhysicalOrVirtualBoundary() != IfcPhysicalOrVirtualEnum_UNSET;
+}
+
 IfcInternalOrExternalEnum IfcRelSpaceBoundary::getInternalOrExternalBoundary() {
     if (Step::BaseObject::inited()) {
         return m_internalOrExternalBoundary;
@@ -176,6 +205,14 @@ const IfcInternalOrExternalEnum IfcRelSpaceBoundary::getInternalOrExternalBounda
 
 void IfcRelSpaceBoundary::setInternalOrExternalBoundary(IfcInternalOrExternalEnum value) {
     m_internalOrExternalBoundary = value;
+}
+
+void IfcRelSpaceBoundary::unsetInternalOrExternalBoundary() {
+    m_internalOrExternalBoundary = IfcInternalOrExternalEnum_UNSET;
+}
+
+bool IfcRelSpaceBoundary::testInternalOrExternalBoundary() const {
+    return getInternalOrExternalBoundary() != IfcInternalOrExternalEnum_UNSET;
 }
 
 bool IfcRelSpaceBoundary::init() {

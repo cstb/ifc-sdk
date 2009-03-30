@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcParameterizedProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcParameterizedProfileDef.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcCraneRailAShapeProfileDef Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcCraneRailAShapeProfileDef : public IfcParameterizedProfileDef {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setOverallHeight(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'OverallHeight'.
+         * 
+         */
+        virtual void unsetOverallHeight();
+        /**
+         * Test if the attribute 'OverallHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOverallHeight() const;
+        /**
          * Gets the value of the explicit attribute 'BaseWidth2'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBaseWidth2(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'BaseWidth2'.
+         * 
+         */
+        virtual void unsetBaseWidth2();
+        /**
+         * Test if the attribute 'BaseWidth2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseWidth2() const;
         /**
          * Gets the value of the explicit attribute 'Radius'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setRadius(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'Radius'.
+         * 
+         */
+        virtual void unsetRadius();
+        /**
+         * Test if the attribute 'Radius' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRadius() const;
+        /**
          * Gets the value of the explicit attribute 'HeadWidth'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHeadWidth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'HeadWidth'.
+         * 
+         */
+        virtual void unsetHeadWidth();
+        /**
+         * Test if the attribute 'HeadWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHeadWidth() const;
         /**
          * Gets the value of the explicit attribute 'HeadDepth2'.
          * 
@@ -156,6 +202,17 @@ namespace ifc2x3 {
          */
         virtual void setHeadDepth2(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'HeadDepth2'.
+         * 
+         */
+        virtual void unsetHeadDepth2();
+        /**
+         * Test if the attribute 'HeadDepth2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHeadDepth2() const;
+        /**
          * Gets the value of the explicit attribute 'HeadDepth3'.
          * 
          */
@@ -172,6 +229,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setHeadDepth3(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'HeadDepth3'.
+         * 
+         */
+        virtual void unsetHeadDepth3();
+        /**
+         * Test if the attribute 'HeadDepth3' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHeadDepth3() const;
         /**
          * Gets the value of the explicit attribute 'WebThickness'.
          * 
@@ -190,6 +258,17 @@ namespace ifc2x3 {
          */
         virtual void setWebThickness(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'WebThickness'.
+         * 
+         */
+        virtual void unsetWebThickness();
+        /**
+         * Test if the attribute 'WebThickness' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testWebThickness() const;
+        /**
          * Gets the value of the explicit attribute 'BaseWidth4'.
          * 
          */
@@ -206,6 +285,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBaseWidth4(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'BaseWidth4'.
+         * 
+         */
+        virtual void unsetBaseWidth4();
+        /**
+         * Test if the attribute 'BaseWidth4' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseWidth4() const;
         /**
          * Gets the value of the explicit attribute 'BaseDepth1'.
          * 
@@ -224,6 +314,17 @@ namespace ifc2x3 {
          */
         virtual void setBaseDepth1(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'BaseDepth1'.
+         * 
+         */
+        virtual void unsetBaseDepth1();
+        /**
+         * Test if the attribute 'BaseDepth1' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseDepth1() const;
+        /**
          * Gets the value of the explicit attribute 'BaseDepth2'.
          * 
          */
@@ -240,6 +341,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBaseDepth2(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'BaseDepth2'.
+         * 
+         */
+        virtual void unsetBaseDepth2();
+        /**
+         * Test if the attribute 'BaseDepth2' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseDepth2() const;
         /**
          * Gets the value of the explicit attribute 'BaseDepth3'.
          * 
@@ -258,6 +370,17 @@ namespace ifc2x3 {
          */
         virtual void setBaseDepth3(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'BaseDepth3'.
+         * 
+         */
+        virtual void unsetBaseDepth3();
+        /**
+         * Test if the attribute 'BaseDepth3' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBaseDepth3() const;
+        /**
          * Gets the value of the explicit attribute 'CentreOfGravityInY'.
          * 
          */
@@ -274,6 +397,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCentreOfGravityInY(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'CentreOfGravityInY'.
+         * 
+         */
+        virtual void unsetCentreOfGravityInY();
+        /**
+         * Test if the attribute 'CentreOfGravityInY' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCentreOfGravityInY() const;
         friend class ExpressDataSet;
 
     protected:

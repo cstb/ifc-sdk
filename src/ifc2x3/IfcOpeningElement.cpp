@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -37,9 +37,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcOpeningElement::IfcOpeningElement(Step::Id id, Step::SPFData *args) : IfcFeatureElementSubtraction(id, args) {
@@ -81,6 +78,10 @@ Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() {
 const Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() const {
     IfcOpeningElement * deConstObject = const_cast< IfcOpeningElement * > (this);
     return deConstObject->getHasFillings();
+}
+
+bool IfcOpeningElement::testHasFillings() const {
+    return !Step::isUnset(getHasFillings());
 }
 
 bool IfcOpeningElement::init() {

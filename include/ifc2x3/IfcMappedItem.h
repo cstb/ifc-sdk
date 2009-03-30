@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcRepresentationItem.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcRepresentationMap;
 
     /**
+     * Generated class for the IfcMappedItem Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcMappedItem : public IfcRepresentationItem {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setMappingSource(const Step::RefPtr< IfcRepresentationMap > &value);
         /**
+         * unset the attribute 'MappingSource'.
+         * 
+         */
+        virtual void unsetMappingSource();
+        /**
+         * Test if the attribute 'MappingSource' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMappingSource() const;
+        /**
          * Gets the value of the explicit attribute 'MappingTarget'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setMappingTarget(const Step::RefPtr< IfcCartesianTransformationOperator > &value);
+        /**
+         * unset the attribute 'MappingTarget'.
+         * 
+         */
+        virtual void unsetMappingTarget();
+        /**
+         * Test if the attribute 'MappingTarget' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testMappingTarget() const;
         friend class ExpressDataSet;
 
     protected:

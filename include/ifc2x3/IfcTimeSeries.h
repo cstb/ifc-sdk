@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -44,6 +44,8 @@ namespace ifc2x3 {
     class IfcUnit;
 
     /**
+     * Generated class for the IfcTimeSeries Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTimeSeries : public Step::BaseEntity {
     public:
@@ -92,6 +94,17 @@ namespace ifc2x3 {
          */
         virtual void setName(const IfcLabel &value);
         /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
+        /**
          * Gets the value of the explicit attribute 'Description'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDescription(const IfcText &value);
+        /**
+         * unset the attribute 'Description'.
+         * 
+         */
+        virtual void unsetDescription();
+        /**
+         * Test if the attribute 'Description' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDescription() const;
         /**
          * Gets the value of the explicit attribute 'StartTime'.
          * 
@@ -126,6 +150,17 @@ namespace ifc2x3 {
          */
         virtual void setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value);
         /**
+         * unset the attribute 'StartTime'.
+         * 
+         */
+        virtual void unsetStartTime();
+        /**
+         * Test if the attribute 'StartTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testStartTime() const;
+        /**
          * Gets the value of the explicit attribute 'EndTime'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setEndTime(const Step::RefPtr< IfcDateTimeSelect > &value);
+        /**
+         * unset the attribute 'EndTime'.
+         * 
+         */
+        virtual void unsetEndTime();
+        /**
+         * Test if the attribute 'EndTime' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testEndTime() const;
         /**
          * Gets the value of the explicit attribute 'TimeSeriesDataType'.
          * 
@@ -160,6 +206,17 @@ namespace ifc2x3 {
          */
         virtual void setTimeSeriesDataType(IfcTimeSeriesDataTypeEnum value);
         /**
+         * unset the attribute 'TimeSeriesDataType'.
+         * 
+         */
+        virtual void unsetTimeSeriesDataType();
+        /**
+         * Test if the attribute 'TimeSeriesDataType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeSeriesDataType() const;
+        /**
          * Gets the value of the explicit attribute 'DataOrigin'.
          * 
          */
@@ -176,6 +233,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDataOrigin(IfcDataOriginEnum value);
+        /**
+         * unset the attribute 'DataOrigin'.
+         * 
+         */
+        virtual void unsetDataOrigin();
+        /**
+         * Test if the attribute 'DataOrigin' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDataOrigin() const;
         /**
          * Gets the value of the explicit attribute 'UserDefinedDataOrigin'.
          * 
@@ -194,6 +262,17 @@ namespace ifc2x3 {
          */
         virtual void setUserDefinedDataOrigin(const IfcLabel &value);
         /**
+         * unset the attribute 'UserDefinedDataOrigin'.
+         * 
+         */
+        virtual void unsetUserDefinedDataOrigin();
+        /**
+         * Test if the attribute 'UserDefinedDataOrigin' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUserDefinedDataOrigin() const;
+        /**
          * Gets the value of the explicit attribute 'Unit'.
          * 
          */
@@ -211,6 +290,17 @@ namespace ifc2x3 {
          */
         virtual void setUnit(const Step::RefPtr< IfcUnit > &value);
         /**
+         * unset the attribute 'Unit'.
+         * 
+         */
+        virtual void unsetUnit();
+        /**
+         * Test if the attribute 'Unit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnit() const;
+        /**
          * Gets the value of the inverse attribute 'DocumentedBy'.
          * 
          */
@@ -221,6 +311,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'DocumentedBy'
          */
         virtual const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &getDocumentedBy() const;
+        /**
+         * Test if the attribute 'DocumentedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDocumentedBy() const;
         friend class IfcTimeSeriesReferenceRelationship;
         friend class ExpressDataSet;
 

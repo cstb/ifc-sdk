@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCalendarDate::IfcCalendarDate(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,14 @@ void IfcCalendarDate::setDayComponent(IfcDayInMonthNumber value) {
     m_dayComponent = value;
 }
 
+void IfcCalendarDate::unsetDayComponent() {
+    m_dayComponent = Step::getUnset(getDayComponent());
+}
+
+bool IfcCalendarDate::testDayComponent() const {
+    return !Step::isUnset(getDayComponent());
+}
+
 IfcMonthInYearNumber IfcCalendarDate::getMonthComponent() {
     if (Step::BaseObject::inited()) {
         return m_monthComponent;
@@ -104,6 +109,14 @@ void IfcCalendarDate::setMonthComponent(IfcMonthInYearNumber value) {
     m_monthComponent = value;
 }
 
+void IfcCalendarDate::unsetMonthComponent() {
+    m_monthComponent = Step::getUnset(getMonthComponent());
+}
+
+bool IfcCalendarDate::testMonthComponent() const {
+    return !Step::isUnset(getMonthComponent());
+}
+
 IfcYearNumber IfcCalendarDate::getYearComponent() {
     if (Step::BaseObject::inited()) {
         return m_yearComponent;
@@ -120,6 +133,14 @@ const IfcYearNumber IfcCalendarDate::getYearComponent() const {
 
 void IfcCalendarDate::setYearComponent(IfcYearNumber value) {
     m_yearComponent = value;
+}
+
+void IfcCalendarDate::unsetYearComponent() {
+    m_yearComponent = Step::getUnset(getYearComponent());
+}
+
+bool IfcCalendarDate::testYearComponent() const {
+    return !Step::isUnset(getYearComponent());
 }
 
 bool IfcCalendarDate::init() {

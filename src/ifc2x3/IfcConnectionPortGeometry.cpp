@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcConnectionPortGeometry::IfcConnectionPortGeometry(Step::Id id, Step::SPFData *args) : IfcConnectionGeometry(id, args) {
@@ -92,6 +89,14 @@ void IfcConnectionPortGeometry::setLocationAtRelatingElement(const Step::RefPtr<
     m_locationAtRelatingElement = value;
 }
 
+void IfcConnectionPortGeometry::unsetLocationAtRelatingElement() {
+    m_locationAtRelatingElement = Step::getUnset(getLocationAtRelatingElement());
+}
+
+bool IfcConnectionPortGeometry::testLocationAtRelatingElement() const {
+    return !Step::isUnset(getLocationAtRelatingElement());
+}
+
 IfcAxis2Placement *IfcConnectionPortGeometry::getLocationAtRelatedElement() {
     if (Step::BaseObject::inited()) {
         return m_locationAtRelatedElement.get();
@@ -110,6 +115,14 @@ void IfcConnectionPortGeometry::setLocationAtRelatedElement(const Step::RefPtr< 
     m_locationAtRelatedElement = value;
 }
 
+void IfcConnectionPortGeometry::unsetLocationAtRelatedElement() {
+    m_locationAtRelatedElement = Step::getUnset(getLocationAtRelatedElement());
+}
+
+bool IfcConnectionPortGeometry::testLocationAtRelatedElement() const {
+    return !Step::isUnset(getLocationAtRelatedElement());
+}
+
 IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() {
     if (Step::BaseObject::inited()) {
         return m_profileOfPort.get();
@@ -126,6 +139,14 @@ const IfcProfileDef *IfcConnectionPortGeometry::getProfileOfPort() const {
 
 void IfcConnectionPortGeometry::setProfileOfPort(const Step::RefPtr< IfcProfileDef > &value) {
     m_profileOfPort = value;
+}
+
+void IfcConnectionPortGeometry::unsetProfileOfPort() {
+    m_profileOfPort = Step::getUnset(getProfileOfPort());
+}
+
+bool IfcConnectionPortGeometry::testProfileOfPort() const {
+    return !Step::isUnset(getProfileOfPort());
 }
 
 bool IfcConnectionPortGeometry::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -84,6 +81,10 @@ const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const {
     return deConstObject->getPlacesObject();
 }
 
+bool IfcObjectPlacement::testPlacesObject() const {
+    return !Step::isUnset(getPlacesObject());
+}
+
 Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
     if (Step::BaseObject::inited()) {
         return m_referencedByPlacements;
@@ -97,6 +98,10 @@ Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements
 const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() const {
     IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
     return deConstObject->getReferencedByPlacements();
+}
+
+bool IfcObjectPlacement::testReferencedByPlacements() const {
+    return !Step::isUnset(getReferencedByPlacements());
 }
 
 bool IfcObjectPlacement::init() {

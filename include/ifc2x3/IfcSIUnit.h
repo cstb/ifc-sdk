@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcNamedUnit.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcNamedUnit.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcSIUnit Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSIUnit : public IfcNamedUnit {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setPrefix(IfcSIPrefix value);
         /**
+         * unset the attribute 'Prefix'.
+         * 
+         */
+        virtual void unsetPrefix();
+        /**
+         * Test if the attribute 'Prefix' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPrefix() const;
+        /**
          * Gets the value of the explicit attribute 'Name'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setName(IfcSIUnitName value);
+        /**
+         * unset the attribute 'Name'.
+         * 
+         */
+        virtual void unsetName();
+        /**
+         * Test if the attribute 'Name' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testName() const;
         /**
          * Gets the value of the derived attribute redeclaration 'Dimensions'.
          * 

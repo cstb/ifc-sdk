@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcRoot.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcRoot.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcPropertyDefinition Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertyDefinition : public IfcRoot {
     public:
@@ -81,8 +83,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasAssociations'
          */
         virtual const Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
-        friend class IfcRelAssociates;
+        /**
+         * Test if the attribute 'HasAssociations' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasAssociations() const;
         friend class Inverted_IfcRelAssociates_RelatedObjects_type;
+        friend class IfcRelAssociates;
         friend class ExpressDataSet;
 
     protected:

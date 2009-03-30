@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProject::IfcProject(Step::Id id, Step::SPFData *args) : IfcObject(id, args) {
@@ -92,6 +89,14 @@ void IfcProject::setLongName(const IfcLabel &value) {
     m_longName = value;
 }
 
+void IfcProject::unsetLongName() {
+    m_longName = Step::getUnset(getLongName());
+}
+
+bool IfcProject::testLongName() const {
+    return !Step::isUnset(getLongName());
+}
+
 IfcLabel IfcProject::getPhase() {
     if (Step::BaseObject::inited()) {
         return m_phase;
@@ -108,6 +113,14 @@ const IfcLabel IfcProject::getPhase() const {
 
 void IfcProject::setPhase(const IfcLabel &value) {
     m_phase = value;
+}
+
+void IfcProject::unsetPhase() {
+    m_phase = Step::getUnset(getPhase());
+}
+
+bool IfcProject::testPhase() const {
+    return !Step::isUnset(getPhase());
 }
 
 Set_IfcRepresentationContext_1_n &IfcProject::getRepresentationContexts() {
@@ -129,6 +142,15 @@ void IfcProject::setRepresentationContexts(const Set_IfcRepresentationContext_1_
     m_representationContexts = value;
 }
 
+void IfcProject::unsetRepresentationContexts() {
+    m_representationContexts.clear();
+    m_representationContexts.setUnset(true);
+}
+
+bool IfcProject::testRepresentationContexts() const {
+    return !Step::isUnset(getRepresentationContexts());
+}
+
 IfcUnitAssignment *IfcProject::getUnitsInContext() {
     if (Step::BaseObject::inited()) {
         return m_unitsInContext.get();
@@ -145,6 +167,14 @@ const IfcUnitAssignment *IfcProject::getUnitsInContext() const {
 
 void IfcProject::setUnitsInContext(const Step::RefPtr< IfcUnitAssignment > &value) {
     m_unitsInContext = value;
+}
+
+void IfcProject::unsetUnitsInContext() {
+    m_unitsInContext = Step::getUnset(getUnitsInContext());
+}
+
+bool IfcProject::testUnitsInContext() const {
+    return !Step::isUnset(getUnitsInContext());
 }
 
 bool IfcProject::init() {

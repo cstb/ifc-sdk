@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,14 +22,12 @@
  *                                                                         *
  ***************************************************************************
 */
-#include <Step/SPFFunctions.h>
-#include <Step/BaseExpressDataSet.h>
-#include <Step/logger.h>
-#include <Step/ASCII_codes.h>
+#include "Step/SPFFunctions.h"
+#include "Step/BaseExpressDataSet.h"
+#include "Step/ASCII_codes.h"
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
+#include "Step/logger.h"
+
 
 using namespace Step;
 using namespace std;

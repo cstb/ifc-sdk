@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObjectDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcObjectDefinition.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcObject Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcObject : public IfcObjectDefinition {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setObjectType(const IfcLabel &value);
         /**
+         * unset the attribute 'ObjectType'.
+         * 
+         */
+        virtual void unsetObjectType();
+        /**
+         * Test if the attribute 'ObjectType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testObjectType() const;
+        /**
          * Gets the value of the inverse attribute 'IsDefinedBy'.
          * 
          */
@@ -99,8 +112,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsDefinedBy'
          */
         virtual const Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy() const;
-        friend class IfcRelDefines;
+        /**
+         * Test if the attribute 'IsDefinedBy' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsDefinedBy() const;
         friend class Inverted_IfcRelDefines_RelatedObjects_type;
+        friend class IfcRelDefines;
         friend class ExpressDataSet;
 
     protected:

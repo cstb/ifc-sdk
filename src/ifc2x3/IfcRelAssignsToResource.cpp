@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRelAssignsToResource::IfcRelAssignsToResource(Step::Id id, Step::SPFData *args) : IfcRelAssigns(id, args) {
@@ -92,6 +89,14 @@ void IfcRelAssignsToResource::setRelatingResource(const Step::RefPtr< IfcResourc
         value->m_resourceOf.insert(this);
     }
     m_relatingResource = value;
+}
+
+void IfcRelAssignsToResource::unsetRelatingResource() {
+    m_relatingResource = Step::getUnset(getRelatingResource());
+}
+
+bool IfcRelAssignsToResource::testRelatingResource() const {
+    return !Step::isUnset(getRelatingResource());
 }
 
 bool IfcRelAssignsToResource::init() {

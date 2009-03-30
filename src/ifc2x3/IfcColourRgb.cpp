@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcColourRgb::IfcColourRgb(Step::Id id, Step::SPFData *args) : IfcColourSpecification(id, args) {
@@ -86,6 +83,14 @@ void IfcColourRgb::setRed(IfcNormalisedRatioMeasure value) {
     m_red = value;
 }
 
+void IfcColourRgb::unsetRed() {
+    m_red = Step::getUnset(getRed());
+}
+
+bool IfcColourRgb::testRed() const {
+    return !Step::isUnset(getRed());
+}
+
 IfcNormalisedRatioMeasure IfcColourRgb::getGreen() {
     if (Step::BaseObject::inited()) {
         return m_green;
@@ -104,6 +109,14 @@ void IfcColourRgb::setGreen(IfcNormalisedRatioMeasure value) {
     m_green = value;
 }
 
+void IfcColourRgb::unsetGreen() {
+    m_green = Step::getUnset(getGreen());
+}
+
+bool IfcColourRgb::testGreen() const {
+    return !Step::isUnset(getGreen());
+}
+
 IfcNormalisedRatioMeasure IfcColourRgb::getBlue() {
     if (Step::BaseObject::inited()) {
         return m_blue;
@@ -120,6 +133,14 @@ const IfcNormalisedRatioMeasure IfcColourRgb::getBlue() const {
 
 void IfcColourRgb::setBlue(IfcNormalisedRatioMeasure value) {
     m_blue = value;
+}
+
+void IfcColourRgb::unsetBlue() {
+    m_blue = Step::getUnset(getBlue());
+}
+
+bool IfcColourRgb::testBlue() const {
+    return !Step::isUnset(getBlue());
 }
 
 bool IfcColourRgb::init() {

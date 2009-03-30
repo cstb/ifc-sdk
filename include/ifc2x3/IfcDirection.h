@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
 #include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcDirection Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcDirection : public IfcGeometricRepresentationItem {
     public:
@@ -87,6 +89,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setDirectionRatios(const List_Real_2_3 &value);
+        /**
+         * unset the attribute 'DirectionRatios'.
+         * 
+         */
+        virtual void unsetDirectionRatios();
+        /**
+         * Test if the attribute 'DirectionRatios' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testDirectionRatios() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

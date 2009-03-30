@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSolidModel.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcSolidModel.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcProfileDef;
 
     /**
+     * Generated class for the IfcSweptAreaSolid Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcSweptAreaSolid : public IfcSolidModel {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setSweptArea(const Step::RefPtr< IfcProfileDef > &value);
         /**
+         * unset the attribute 'SweptArea'.
+         * 
+         */
+        virtual void unsetSweptArea();
+        /**
+         * Test if the attribute 'SweptArea' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testSweptArea() const;
+        /**
          * Gets the value of the explicit attribute 'Position'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPosition(const Step::RefPtr< IfcAxis2Placement3D > &value);
+        /**
+         * unset the attribute 'Position'.
+         * 
+         */
+        virtual void unsetPosition();
+        /**
+         * Test if the attribute 'Position' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPosition() const;
         friend class ExpressDataSet;
 
     protected:

@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,11 +22,13 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_BaseObject_H
-#define STEP_BaseObject_H
+#ifndef Step_BaseObject_h
+#define Step_BaseObject_h
+
+#include "StepDLL.h"
 
 #include "Referenced.h"
-#include "StepDLL.h"
+
 #include "ClientDataHandler.h"
 #include "Types.h"
 #include "ClassType.h"
@@ -36,144 +38,106 @@
 namespace Step {
     class SPFData;
     /*!
-    * \short Base Object for Entity and Select definition
-    */
-    class STEP_DLL_DEF BaseObject : public ClientDataHandler
+     ** \short Base Object for Entity and Select definition
+     */
+    class STEP_DLL_DEF BaseObject: public ClientDataHandler
     {
-
+        ClassType_definitions();
     public:
 
         /*!
-        \short Virtual destructor
-        */
+         ** \short Virtual destructor
+         */
         virtual ~BaseObject();
 
         /*!
-         \short Get the type identifier of this class (static)
-         @return The ClassType value from this class
+         \short Base accept method from the Visitor pattern
+         @param v the visitor
          */
-         static const Step::ClassType& getClassType();
-
-         /*!
-         \short Returns the name of the instance type
-         @return the type name of this instance
-         */
-         virtual const std::string & type() const ;
-
-        /*!
-        \short Get the type identifier of this instance
-        @return The ClassType value of this instance
-        */
-        virtual const Step::ClassType& getType() const;
-
-        /*!
-        \short Check if this instance is of type t
-        @param t the reference type
-        @return true if this instance is of type t or inherits from t
-        */
-        virtual bool isOfType(const Step::ClassType& t) const;
-
-        /*!
-        \short Base accept method from the Visitor pattern
-        @param v the visitor
-        */
         virtual bool acceptVisitor(BaseVisitor* v);
 
         /*!
-        \short Get the ExpressDataSet which owns this instance
-        @return the owning model
-        */
-        BaseExpressDataSet* getExpressDataSet() const {
-            return m_expressDataSet;
-        }
+         \short Get the ExpressDataSet which owns this instance
+         @return the owning model
+         */
+        BaseExpressDataSet* getExpressDataSet() const;
 
         /*!
-        \short Get the SPF arguments
-        @return the parameters from Step-21 file
-        */
-        SPFData* getArgs() {
-            return m_args;
-        }
+         \short Get the SPF arguments
+         @return the parameters from Step-21 file
+         */
+        SPFData* getArgs();
 
         //TODO : Change the visibility of isInited and inited
         /*!
-        \short Returns true if the instance has been inited (Lazy Loading)
-        @return true if the instance has been inited
-        */
-        bool isInited() {
-            return m_inited;
-        }
+         \short Returns true if the instance has been inited (Lazy Loading)
+         @return true if the instance has been inited
+         */
+        bool isInited();
 
         /*!
-        \short Init the instance and returns true if OK (Lazy loading)
-        @return true if the instance has been inited
-        */
+         \short Init the instance and returns true if OK (Lazy loading)
+         @return true if the instance has been inited
+         */
         bool inited();
 
         /*!
-        \short get the ExpressDataSet this object belongs to
-        */
-        BaseExpressDataSet * getExpressDataSet() {
-            return m_expressDataSet;
-        }
+         \short get the ExpressDataSet this object belongs to
+         */
+        BaseExpressDataSet * getExpressDataSet();
 
     protected:
         /*!
-        \short Protected default constructor
-        */
+         \short Protected default constructor
+         */
         BaseObject(SPFData* data);
 
         /*!
-        \short Protected copy method
-        */
+         \short Protected copy method
+         */
         virtual void copy(const BaseObject& obj, const BaseCopyOp& copyop);
         friend class BaseCopyOp;
 
         /*!
-        Set the model which owns this instance
-        @param model the owning model
-        */
-        void setExpressDataSet(BaseExpressDataSet * expressDataSet) {
-            m_expressDataSet = expressDataSet;
-        }
+         Set the model which owns this instance
+         @param expressDataSet The ExpressDataSet that created this Object
+         */
+        void setExpressDataSet(BaseExpressDataSet * expressDataSet);
 
         /*!
-        \short Should be called only by BaseExpressDataSet
-        */
-        virtual void release() {}
-
-
-        BaseExpressDataSet* m_expressDataSet;
+         \short Should be called only by BaseExpressDataSet
+         */
+        virtual void release();
 
         /*!
-        \short Initialize the instance (Lazy loading concept)
-        @return true if the instance was correctly inited
-        */
+         \short Initialize the instance (Lazy loading concept)
+         @return true if the instance was correctly inited
+         */
         virtual bool init()=0;
 
         /*!
-        \short Flag about entity initialization (Lazy Loading)
-        */
+         * Pointer to our data set
+         */
+        BaseExpressDataSet* m_expressDataSet;
+
+
+
+        /*!
+         \short Flag about entity initialization (Lazy Loading)
+         */
         bool m_inited;
 
         /*!
-        \short Data from a Step-21 file (Lazy Loading)
-        */
+         \short Data from a Step-21 file (Lazy Loading)
+         */
         SPFData* m_args;
 
     private:
-        static ClassType s_type;
 
         friend class BaseExpressDataSet;
 
     };
-} // namespace Step
-
-// DEBUGGING tools
-#ifdef _DEBUG_NEW
-#include "debugging.h"
-#endif
+}
 
 #endif
-//BaseObject_H
 

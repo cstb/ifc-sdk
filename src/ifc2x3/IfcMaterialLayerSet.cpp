@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcMaterialLayerSet_MaterialLayers_type::Inverted_IfcMaterialLayerSet_MaterialLayers_type() {
@@ -64,8 +61,13 @@ Inverted_IfcMaterialLayerSet_MaterialLayers_type::iterator Inverted_IfcMaterialL
     return List_IfcMaterialLayer_1_n::erase(value);
 }
 
+void Inverted_IfcMaterialLayerSet_MaterialLayers_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcMaterialLayerSet::IfcMaterialLayerSet(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
-    m_materialLayers.setUnset(true);
     m_materialLayers.setOwner(this);
     m_layerSetName = Step::getUnset(m_layerSetName);
 }
@@ -108,6 +110,15 @@ const List_IfcMaterialLayer_1_n &IfcMaterialLayerSet::getMaterialLayers() const 
     return deConstObject->getMaterialLayers();
 }
 
+void IfcMaterialLayerSet::unsetMaterialLayers() {
+    m_materialLayers.clear();
+    m_materialLayers.setUnset(true);
+}
+
+bool IfcMaterialLayerSet::testMaterialLayers() const {
+    return !Step::isUnset(getMaterialLayers());
+}
+
 IfcLabel IfcMaterialLayerSet::getLayerSetName() {
     if (Step::BaseObject::inited()) {
         return m_layerSetName;
@@ -124,6 +135,14 @@ const IfcLabel IfcMaterialLayerSet::getLayerSetName() const {
 
 void IfcMaterialLayerSet::setLayerSetName(const IfcLabel &value) {
     m_layerSetName = value;
+}
+
+void IfcMaterialLayerSet::unsetLayerSetName() {
+    m_layerSetName = Step::getUnset(getLayerSetName());
+}
+
+bool IfcMaterialLayerSet::testLayerSetName() const {
+    return !Step::isUnset(getLayerSetName());
 }
 
 bool IfcMaterialLayerSet::init() {

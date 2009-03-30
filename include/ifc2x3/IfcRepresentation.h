@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
-#include <Step/String.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <Step/String.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcRepresentationContext;
 
     /**
+     * Generated class for the IfcRepresentation Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRepresentation : public Step::BaseEntity {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value);
         /**
+         * unset the attribute 'ContextOfItems'.
+         * 
+         */
+        virtual void unsetContextOfItems();
+        /**
+         * Test if the attribute 'ContextOfItems' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContextOfItems() const;
+        /**
          * Gets the value of the explicit attribute 'RepresentationIdentifier'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setRepresentationIdentifier(const IfcLabel &value);
+        /**
+         * unset the attribute 'RepresentationIdentifier'.
+         * 
+         */
+        virtual void unsetRepresentationIdentifier();
+        /**
+         * Test if the attribute 'RepresentationIdentifier' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationIdentifier() const;
         /**
          * Gets the value of the explicit attribute 'RepresentationType'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setRepresentationType(const IfcLabel &value);
         /**
+         * unset the attribute 'RepresentationType'.
+         * 
+         */
+        virtual void unsetRepresentationType();
+        /**
+         * Test if the attribute 'RepresentationType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationType() const;
+        /**
          * Gets the value of the explicit attribute 'Items'.
          * 
          */
@@ -142,6 +177,17 @@ namespace ifc2x3 {
          */
         virtual void setItems(const Set_IfcRepresentationItem_1_n &value);
         /**
+         * unset the attribute 'Items'.
+         * 
+         */
+        virtual void unsetItems();
+        /**
+         * Test if the attribute 'Items' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testItems() const;
+        /**
          * Gets the value of the inverse attribute 'RepresentationMap'.
          * 
          */
@@ -152,6 +198,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'RepresentationMap'
          */
         virtual const Inverse_Set_IfcRepresentationMap_0_1 &getRepresentationMap() const;
+        /**
+         * Test if the attribute 'RepresentationMap' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationMap() const;
         /**
          * Gets the value of the inverse attribute 'LayerAssignments'.
          * 
@@ -164,6 +216,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
         /**
+         * Test if the attribute 'LayerAssignments' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLayerAssignments() const;
+        /**
          * Gets the value of the inverse attribute 'OfProductRepresentation'.
          * 
          */
@@ -174,12 +232,18 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'OfProductRepresentation'
          */
         virtual const Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation() const;
-        friend class IfcProductRepresentation;
+        /**
+         * Test if the attribute 'OfProductRepresentation' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testOfProductRepresentation() const;
+        friend class Inverted_IfcPresentationLayerAssignment_AssignedItems_type;
         friend class IfcPresentationLayerAssignment;
-        friend class Inverted_IfcProductRepresentation_Representations_type;
         friend class IfcRepresentationMap;
         friend class ExpressDataSet;
-        friend class Inverted_IfcPresentationLayerAssignment_AssignedItems_type;
+        friend class Inverted_IfcProductRepresentation_Representations_type;
+        friend class IfcProductRepresentation;
 
     protected:
         /**

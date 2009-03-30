@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcProduct.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcProxy Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProxy : public IfcProduct {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setProxyType(IfcObjectTypeEnum value);
         /**
+         * unset the attribute 'ProxyType'.
+         * 
+         */
+        virtual void unsetProxyType();
+        /**
+         * Test if the attribute 'ProxyType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProxyType() const;
+        /**
          * Gets the value of the explicit attribute 'Tag'.
          * 
          */
@@ -105,6 +118,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTag(const IfcLabel &value);
+        /**
+         * unset the attribute 'Tag'.
+         * 
+         */
+        virtual void unsetTag();
+        /**
+         * Test if the attribute 'Tag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTag() const;
         friend class ExpressDataSet;
 
     protected:

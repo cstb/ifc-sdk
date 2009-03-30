@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcProperty::setName(const IfcIdentifier &value) {
     m_name = value;
 }
 
+void IfcProperty::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcProperty::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcProperty::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -108,6 +113,14 @@ void IfcProperty::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcProperty::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcProperty::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() {
     if (Step::BaseObject::inited()) {
         return m_propertyForDependance;
@@ -121,6 +134,10 @@ Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDe
 const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
     return deConstObject->getPropertyForDependance();
+}
+
+bool IfcProperty::testPropertyForDependance() const {
+    return !Step::isUnset(getPropertyForDependance());
 }
 
 Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() {
@@ -138,6 +155,10 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
     return deConstObject->getPropertyDependsOn();
 }
 
+bool IfcProperty::testPropertyDependsOn() const {
+    return !Step::isUnset(getPropertyDependsOn());
+}
+
 Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return m_partOfComplex;
@@ -151,6 +172,10 @@ Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
 const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
     return deConstObject->getPartOfComplex();
+}
+
+bool IfcProperty::testPartOfComplex() const {
+    return !Step::isUnset(getPartOfComplex());
 }
 
 bool IfcProperty::init() {

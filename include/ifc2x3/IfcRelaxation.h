@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcRelaxation Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcRelaxation : public Step::BaseEntity {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setRelaxationValue(IfcNormalisedRatioMeasure value);
         /**
+         * unset the attribute 'RelaxationValue'.
+         * 
+         */
+        virtual void unsetRelaxationValue();
+        /**
+         * Test if the attribute 'RelaxationValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRelaxationValue() const;
+        /**
          * Gets the value of the explicit attribute 'InitialStress'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setInitialStress(IfcNormalisedRatioMeasure value);
+        /**
+         * unset the attribute 'InitialStress'.
+         * 
+         */
+        virtual void unsetInitialStress();
+        /**
+         * Test if the attribute 'InitialStress' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testInitialStress() const;
         friend class ExpressDataSet;
 
     protected:

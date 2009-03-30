@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcReinforcementBarProperties::IfcReinforcementBarProperties(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -90,6 +87,14 @@ void IfcReinforcementBarProperties::setTotalCrossSectionArea(IfcAreaMeasure valu
     m_totalCrossSectionArea = value;
 }
 
+void IfcReinforcementBarProperties::unsetTotalCrossSectionArea() {
+    m_totalCrossSectionArea = Step::getUnset(getTotalCrossSectionArea());
+}
+
+bool IfcReinforcementBarProperties::testTotalCrossSectionArea() const {
+    return !Step::isUnset(getTotalCrossSectionArea());
+}
+
 IfcLabel IfcReinforcementBarProperties::getSteelGrade() {
     if (Step::BaseObject::inited()) {
         return m_steelGrade;
@@ -106,6 +111,14 @@ const IfcLabel IfcReinforcementBarProperties::getSteelGrade() const {
 
 void IfcReinforcementBarProperties::setSteelGrade(const IfcLabel &value) {
     m_steelGrade = value;
+}
+
+void IfcReinforcementBarProperties::unsetSteelGrade() {
+    m_steelGrade = Step::getUnset(getSteelGrade());
+}
+
+bool IfcReinforcementBarProperties::testSteelGrade() const {
+    return !Step::isUnset(getSteelGrade());
 }
 
 IfcReinforcingBarSurfaceEnum IfcReinforcementBarProperties::getBarSurface() {
@@ -126,6 +139,14 @@ void IfcReinforcementBarProperties::setBarSurface(IfcReinforcingBarSurfaceEnum v
     m_barSurface = value;
 }
 
+void IfcReinforcementBarProperties::unsetBarSurface() {
+    m_barSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+}
+
+bool IfcReinforcementBarProperties::testBarSurface() const {
+    return getBarSurface() != IfcReinforcingBarSurfaceEnum_UNSET;
+}
+
 IfcLengthMeasure IfcReinforcementBarProperties::getEffectiveDepth() {
     if (Step::BaseObject::inited()) {
         return m_effectiveDepth;
@@ -142,6 +163,14 @@ const IfcLengthMeasure IfcReinforcementBarProperties::getEffectiveDepth() const 
 
 void IfcReinforcementBarProperties::setEffectiveDepth(IfcLengthMeasure value) {
     m_effectiveDepth = value;
+}
+
+void IfcReinforcementBarProperties::unsetEffectiveDepth() {
+    m_effectiveDepth = Step::getUnset(getEffectiveDepth());
+}
+
+bool IfcReinforcementBarProperties::testEffectiveDepth() const {
+    return !Step::isUnset(getEffectiveDepth());
 }
 
 IfcPositiveLengthMeasure IfcReinforcementBarProperties::getNominalBarDiameter() {
@@ -162,6 +191,14 @@ void IfcReinforcementBarProperties::setNominalBarDiameter(IfcPositiveLengthMeasu
     m_nominalBarDiameter = value;
 }
 
+void IfcReinforcementBarProperties::unsetNominalBarDiameter() {
+    m_nominalBarDiameter = Step::getUnset(getNominalBarDiameter());
+}
+
+bool IfcReinforcementBarProperties::testNominalBarDiameter() const {
+    return !Step::isUnset(getNominalBarDiameter());
+}
+
 IfcCountMeasure IfcReinforcementBarProperties::getBarCount() {
     if (Step::BaseObject::inited()) {
         return m_barCount;
@@ -178,6 +215,14 @@ const IfcCountMeasure IfcReinforcementBarProperties::getBarCount() const {
 
 void IfcReinforcementBarProperties::setBarCount(IfcCountMeasure value) {
     m_barCount = value;
+}
+
+void IfcReinforcementBarProperties::unsetBarCount() {
+    m_barCount = Step::getUnset(getBarCount());
+}
+
+bool IfcReinforcementBarProperties::testBarCount() const {
+    return !Step::isUnset(getBarCount());
 }
 
 bool IfcReinforcementBarProperties::init() {

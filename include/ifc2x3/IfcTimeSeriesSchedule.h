@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
-#include <Step/BaseVisitor.h>
 #include "ifc2x3/IfcControl.h"
+#include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcTimeSeries;
 
     /**
+     * Generated class for the IfcTimeSeriesSchedule Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTimeSeriesSchedule : public IfcControl {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setApplicableDates(const List_IfcDateTimeSelect_1_n &value);
         /**
+         * unset the attribute 'ApplicableDates'.
+         * 
+         */
+        virtual void unsetApplicableDates();
+        /**
+         * Test if the attribute 'ApplicableDates' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testApplicableDates() const;
+        /**
          * Gets the value of the explicit attribute 'TimeSeriesScheduleType'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          */
         virtual void setTimeSeriesScheduleType(IfcTimeSeriesScheduleTypeEnum value);
         /**
+         * unset the attribute 'TimeSeriesScheduleType'.
+         * 
+         */
+        virtual void unsetTimeSeriesScheduleType();
+        /**
+         * Test if the attribute 'TimeSeriesScheduleType' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeSeriesScheduleType() const;
+        /**
          * Gets the value of the explicit attribute 'TimeSeries'.
          * 
          */
@@ -123,6 +147,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTimeSeries(const Step::RefPtr< IfcTimeSeries > &value);
+        /**
+         * unset the attribute 'TimeSeries'.
+         * 
+         */
+        virtual void unsetTimeSeries();
+        /**
+         * Test if the attribute 'TimeSeries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTimeSeries() const;
         friend class ExpressDataSet;
 
     protected:

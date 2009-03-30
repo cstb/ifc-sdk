@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWindow::IfcWindow(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
@@ -85,6 +82,14 @@ void IfcWindow::setOverallHeight(IfcPositiveLengthMeasure value) {
     m_overallHeight = value;
 }
 
+void IfcWindow::unsetOverallHeight() {
+    m_overallHeight = Step::getUnset(getOverallHeight());
+}
+
+bool IfcWindow::testOverallHeight() const {
+    return !Step::isUnset(getOverallHeight());
+}
+
 IfcPositiveLengthMeasure IfcWindow::getOverallWidth() {
     if (Step::BaseObject::inited()) {
         return m_overallWidth;
@@ -101,6 +106,14 @@ const IfcPositiveLengthMeasure IfcWindow::getOverallWidth() const {
 
 void IfcWindow::setOverallWidth(IfcPositiveLengthMeasure value) {
     m_overallWidth = value;
+}
+
+void IfcWindow::unsetOverallWidth() {
+    m_overallWidth = Step::getUnset(getOverallWidth());
+}
+
+bool IfcWindow::testOverallWidth() const {
+    return !Step::isUnset(getOverallWidth());
 }
 
 bool IfcWindow::init() {

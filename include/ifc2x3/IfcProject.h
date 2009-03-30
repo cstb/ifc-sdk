@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,13 +29,13 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
+#include <Step/Referenced.h>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include <Step/Referenced.h>
-#include "ifc2x3/IfcObject.h"
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcUnitAssignment;
 
     /**
+     * Generated class for the IfcProject Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcProject : public IfcObject {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setLongName(const IfcLabel &value);
         /**
+         * unset the attribute 'LongName'.
+         * 
+         */
+        virtual void unsetLongName();
+        /**
+         * Test if the attribute 'LongName' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLongName() const;
+        /**
          * Gets the value of the explicit attribute 'Phase'.
          * 
          */
@@ -107,6 +120,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setPhase(const IfcLabel &value);
+        /**
+         * unset the attribute 'Phase'.
+         * 
+         */
+        virtual void unsetPhase();
+        /**
+         * Test if the attribute 'Phase' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testPhase() const;
         /**
          * Gets the value of the explicit attribute 'RepresentationContexts'.
          * 
@@ -125,6 +149,17 @@ namespace ifc2x3 {
          */
         virtual void setRepresentationContexts(const Set_IfcRepresentationContext_1_n &value);
         /**
+         * unset the attribute 'RepresentationContexts'.
+         * 
+         */
+        virtual void unsetRepresentationContexts();
+        /**
+         * Test if the attribute 'RepresentationContexts' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRepresentationContexts() const;
+        /**
          * Gets the value of the explicit attribute 'UnitsInContext'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUnitsInContext(const Step::RefPtr< IfcUnitAssignment > &value);
+        /**
+         * unset the attribute 'UnitsInContext'.
+         * 
+         */
+        virtual void unsetUnitsInContext();
+        /**
+         * Test if the attribute 'UnitsInContext' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnitsInContext() const;
         friend class ExpressDataSet;
 
     protected:

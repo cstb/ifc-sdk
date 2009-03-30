@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCartesianPoint;
 
     /**
+     * Generated class for the IfcBoundingBox Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcBoundingBox : public IfcGeometricRepresentationItem {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setCorner(const Step::RefPtr< IfcCartesianPoint > &value);
         /**
+         * unset the attribute 'Corner'.
+         * 
+         */
+        virtual void unsetCorner();
+        /**
+         * Test if the attribute 'Corner' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCorner() const;
+        /**
          * Gets the value of the explicit attribute 'XDim'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setXDim(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'XDim'.
+         * 
+         */
+        virtual void unsetXDim();
+        /**
+         * Test if the attribute 'XDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testXDim() const;
         /**
          * Gets the value of the explicit attribute 'YDim'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setYDim(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'YDim'.
+         * 
+         */
+        virtual void unsetYDim();
+        /**
+         * Test if the attribute 'YDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testYDim() const;
+        /**
          * Gets the value of the explicit attribute 'ZDim'.
          * 
          */
@@ -140,6 +175,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setZDim(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'ZDim'.
+         * 
+         */
+        virtual void unsetZDim();
+        /**
+         * Test if the attribute 'ZDim' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testZDim() const;
         /**
          * Gets the value of the derived attribute 'Dim'.
          * 

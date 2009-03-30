@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcRelCoversSpaces_RelatedCoverings_type::Inverted_IfcRelCoversSpaces_RelatedCoverings_type() {
@@ -64,9 +61,14 @@ Inverted_IfcRelCoversSpaces_RelatedCoverings_type::size_type Inverted_IfcRelCove
     return Set_IfcCovering_1_n::erase(value);
 }
 
+void Inverted_IfcRelCoversSpaces_RelatedCoverings_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcRelCoversSpaces::IfcRelCoversSpaces(Step::Id id, Step::SPFData *args) : IfcRelConnects(id, args) {
     m_relatedSpace = NULL;
-    m_relatedCoverings.setUnset(true);
     m_relatedCoverings.setOwner(this);
 }
 
@@ -117,6 +119,14 @@ void IfcRelCoversSpaces::setRelatedSpace(const Step::RefPtr< IfcSpace > &value) 
     m_relatedSpace = value;
 }
 
+void IfcRelCoversSpaces::unsetRelatedSpace() {
+    m_relatedSpace = Step::getUnset(getRelatedSpace());
+}
+
+bool IfcRelCoversSpaces::testRelatedSpace() const {
+    return !Step::isUnset(getRelatedSpace());
+}
+
 Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings() {
     if (Step::BaseObject::inited()) {
         return m_relatedCoverings;
@@ -130,6 +140,15 @@ Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings() {
 const Set_IfcCovering_1_n &IfcRelCoversSpaces::getRelatedCoverings() const {
     IfcRelCoversSpaces * deConstObject = const_cast< IfcRelCoversSpaces * > (this);
     return deConstObject->getRelatedCoverings();
+}
+
+void IfcRelCoversSpaces::unsetRelatedCoverings() {
+    m_relatedCoverings.clear();
+    m_relatedCoverings.setUnset(true);
+}
+
+bool IfcRelCoversSpaces::testRelatedCoverings() const {
+    return !Step::isUnset(getRelatedCoverings());
 }
 
 bool IfcRelCoversSpaces::init() {

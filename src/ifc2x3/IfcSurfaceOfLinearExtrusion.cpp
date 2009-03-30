@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceOfLinearExtrusion::IfcSurfaceOfLinearExtrusion(Step::Id id, Step::SPFData *args) : IfcSweptSurface(id, args) {
@@ -89,6 +86,14 @@ void IfcSurfaceOfLinearExtrusion::setExtrudedDirection(const Step::RefPtr< IfcDi
     m_extrudedDirection = value;
 }
 
+void IfcSurfaceOfLinearExtrusion::unsetExtrudedDirection() {
+    m_extrudedDirection = Step::getUnset(getExtrudedDirection());
+}
+
+bool IfcSurfaceOfLinearExtrusion::testExtrudedDirection() const {
+    return !Step::isUnset(getExtrudedDirection());
+}
+
 IfcLengthMeasure IfcSurfaceOfLinearExtrusion::getDepth() {
     if (Step::BaseObject::inited()) {
         return m_depth;
@@ -105,6 +110,14 @@ const IfcLengthMeasure IfcSurfaceOfLinearExtrusion::getDepth() const {
 
 void IfcSurfaceOfLinearExtrusion::setDepth(IfcLengthMeasure value) {
     m_depth = value;
+}
+
+void IfcSurfaceOfLinearExtrusion::unsetDepth() {
+    m_depth = Step::getUnset(getDepth());
+}
+
+bool IfcSurfaceOfLinearExtrusion::testDepth() const {
+    return !Step::isUnset(getDepth());
 }
 
 bool IfcSurfaceOfLinearExtrusion::init() {

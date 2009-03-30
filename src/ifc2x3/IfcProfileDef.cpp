@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -35,9 +35,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcProfileDef::IfcProfileDef(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -86,6 +83,14 @@ void IfcProfileDef::setProfileType(IfcProfileTypeEnum value) {
     m_profileType = value;
 }
 
+void IfcProfileDef::unsetProfileType() {
+    m_profileType = IfcProfileTypeEnum_UNSET;
+}
+
+bool IfcProfileDef::testProfileType() const {
+    return getProfileType() != IfcProfileTypeEnum_UNSET;
+}
+
 IfcLabel IfcProfileDef::getProfileName() {
     if (Step::BaseObject::inited()) {
         return m_profileName;
@@ -102,6 +107,14 @@ const IfcLabel IfcProfileDef::getProfileName() const {
 
 void IfcProfileDef::setProfileName(const IfcLabel &value) {
     m_profileName = value;
+}
+
+void IfcProfileDef::unsetProfileName() {
+    m_profileName = Step::getUnset(getProfileName());
+}
+
+bool IfcProfileDef::testProfileName() const {
+    return !Step::isUnset(getProfileName());
 }
 
 bool IfcProfileDef::init() {

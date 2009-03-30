@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include <Step/BaseEntity.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcSizeSelect;
 
     /**
+     * Generated class for the IfcTextStyleWithBoxCharacteristics Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcTextStyleWithBoxCharacteristics : public Step::BaseEntity {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setBoxHeight(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'BoxHeight'.
+         * 
+         */
+        virtual void unsetBoxHeight();
+        /**
+         * Test if the attribute 'BoxHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoxHeight() const;
+        /**
          * Gets the value of the explicit attribute 'BoxWidth'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setBoxWidth(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'BoxWidth'.
+         * 
+         */
+        virtual void unsetBoxWidth();
+        /**
+         * Test if the attribute 'BoxWidth' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoxWidth() const;
         /**
          * Gets the value of the explicit attribute 'BoxSlantAngle'.
          * 
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          */
         virtual void setBoxSlantAngle(IfcPlaneAngleMeasure value);
         /**
+         * unset the attribute 'BoxSlantAngle'.
+         * 
+         */
+        virtual void unsetBoxSlantAngle();
+        /**
+         * Test if the attribute 'BoxSlantAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoxSlantAngle() const;
+        /**
          * Gets the value of the explicit attribute 'BoxRotateAngle'.
          * 
          */
@@ -141,6 +176,17 @@ namespace ifc2x3 {
          */
         virtual void setBoxRotateAngle(IfcPlaneAngleMeasure value);
         /**
+         * unset the attribute 'BoxRotateAngle'.
+         * 
+         */
+        virtual void unsetBoxRotateAngle();
+        /**
+         * Test if the attribute 'BoxRotateAngle' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testBoxRotateAngle() const;
+        /**
          * Gets the value of the explicit attribute 'CharacterSpacing'.
          * 
          */
@@ -157,6 +203,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCharacterSpacing(const Step::RefPtr< IfcSizeSelect > &value);
+        /**
+         * unset the attribute 'CharacterSpacing'.
+         * 
+         */
+        virtual void unsetCharacterSpacing();
+        /**
+         * Test if the attribute 'CharacterSpacing' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCharacterSpacing() const;
         friend class ExpressDataSet;
 
     protected:

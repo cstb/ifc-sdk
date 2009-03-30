@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcApplication::IfcApplication(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -92,6 +89,14 @@ void IfcApplication::setApplicationDeveloper(const Step::RefPtr< IfcOrganization
     m_applicationDeveloper = value;
 }
 
+void IfcApplication::unsetApplicationDeveloper() {
+    m_applicationDeveloper = Step::getUnset(getApplicationDeveloper());
+}
+
+bool IfcApplication::testApplicationDeveloper() const {
+    return !Step::isUnset(getApplicationDeveloper());
+}
+
 IfcLabel IfcApplication::getVersion() {
     if (Step::BaseObject::inited()) {
         return m_version;
@@ -108,6 +113,14 @@ const IfcLabel IfcApplication::getVersion() const {
 
 void IfcApplication::setVersion(const IfcLabel &value) {
     m_version = value;
+}
+
+void IfcApplication::unsetVersion() {
+    m_version = Step::getUnset(getVersion());
+}
+
+bool IfcApplication::testVersion() const {
+    return !Step::isUnset(getVersion());
 }
 
 IfcLabel IfcApplication::getApplicationFullName() {
@@ -128,6 +141,14 @@ void IfcApplication::setApplicationFullName(const IfcLabel &value) {
     m_applicationFullName = value;
 }
 
+void IfcApplication::unsetApplicationFullName() {
+    m_applicationFullName = Step::getUnset(getApplicationFullName());
+}
+
+bool IfcApplication::testApplicationFullName() const {
+    return !Step::isUnset(getApplicationFullName());
+}
+
 IfcIdentifier IfcApplication::getApplicationIdentifier() {
     if (Step::BaseObject::inited()) {
         return m_applicationIdentifier;
@@ -144,6 +165,14 @@ const IfcIdentifier IfcApplication::getApplicationIdentifier() const {
 
 void IfcApplication::setApplicationIdentifier(const IfcIdentifier &value) {
     m_applicationIdentifier = value;
+}
+
+void IfcApplication::unsetApplicationIdentifier() {
+    m_applicationIdentifier = Step::getUnset(getApplicationIdentifier());
+}
+
+bool IfcApplication::testApplicationIdentifier() const {
+    return !Step::isUnset(getApplicationIdentifier());
 }
 
 bool IfcApplication::init() {

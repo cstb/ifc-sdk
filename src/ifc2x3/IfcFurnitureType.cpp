@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFurnitureType::IfcFurnitureType(Step::Id id, Step::SPFData *args) : IfcFurnishingElementType(id, args) {
@@ -82,6 +79,14 @@ const IfcAssemblyPlaceEnum IfcFurnitureType::getAssemblyPlace() const {
 
 void IfcFurnitureType::setAssemblyPlace(IfcAssemblyPlaceEnum value) {
     m_assemblyPlace = value;
+}
+
+void IfcFurnitureType::unsetAssemblyPlace() {
+    m_assemblyPlace = IfcAssemblyPlaceEnum_UNSET;
+}
+
+bool IfcFurnitureType::testAssemblyPlace() const {
+    return getAssemblyPlace() != IfcAssemblyPlaceEnum_UNSET;
 }
 
 bool IfcFurnitureType::init() {

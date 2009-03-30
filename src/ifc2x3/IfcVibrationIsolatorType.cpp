@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcVibrationIsolatorType::IfcVibrationIsolatorType(Step::Id id, Step::SPFData *args) : IfcDiscreteAccessoryType(id, args) {
@@ -82,6 +79,14 @@ const IfcVibrationIsolatorTypeEnum IfcVibrationIsolatorType::getPredefinedType()
 
 void IfcVibrationIsolatorType::setPredefinedType(IfcVibrationIsolatorTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcVibrationIsolatorType::unsetPredefinedType() {
+    m_predefinedType = IfcVibrationIsolatorTypeEnum_UNSET;
+}
+
+bool IfcVibrationIsolatorType::testPredefinedType() const {
+    return getPredefinedType() != IfcVibrationIsolatorTypeEnum_UNSET;
 }
 
 bool IfcVibrationIsolatorType::init() {

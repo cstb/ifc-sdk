@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcObject.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcResource Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcResource : public IfcObject {
     public:
@@ -81,8 +83,14 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ResourceOf'
          */
         virtual const Inverse_Set_IfcRelAssignsToResource_0_n &getResourceOf() const;
-        friend class ExpressDataSet;
+        /**
+         * Test if the attribute 'ResourceOf' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testResourceOf() const;
         friend class IfcRelAssignsToResource;
+        friend class ExpressDataSet;
 
     protected:
         /**

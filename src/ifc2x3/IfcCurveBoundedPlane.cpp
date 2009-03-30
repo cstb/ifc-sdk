@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -39,9 +39,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurveBoundedPlane::IfcCurveBoundedPlane(Step::Id id, Step::SPFData *args) : IfcBoundedSurface(id, args) {
@@ -90,6 +87,14 @@ void IfcCurveBoundedPlane::setBasisSurface(const Step::RefPtr< IfcPlane > &value
     m_basisSurface = value;
 }
 
+void IfcCurveBoundedPlane::unsetBasisSurface() {
+    m_basisSurface = Step::getUnset(getBasisSurface());
+}
+
+bool IfcCurveBoundedPlane::testBasisSurface() const {
+    return !Step::isUnset(getBasisSurface());
+}
+
 IfcCurve *IfcCurveBoundedPlane::getOuterBoundary() {
     if (Step::BaseObject::inited()) {
         return m_outerBoundary.get();
@@ -106,6 +111,14 @@ const IfcCurve *IfcCurveBoundedPlane::getOuterBoundary() const {
 
 void IfcCurveBoundedPlane::setOuterBoundary(const Step::RefPtr< IfcCurve > &value) {
     m_outerBoundary = value;
+}
+
+void IfcCurveBoundedPlane::unsetOuterBoundary() {
+    m_outerBoundary = Step::getUnset(getOuterBoundary());
+}
+
+bool IfcCurveBoundedPlane::testOuterBoundary() const {
+    return !Step::isUnset(getOuterBoundary());
 }
 
 Set_IfcCurve_0_n &IfcCurveBoundedPlane::getInnerBoundaries() {
@@ -125,6 +138,15 @@ const Set_IfcCurve_0_n &IfcCurveBoundedPlane::getInnerBoundaries() const {
 
 void IfcCurveBoundedPlane::setInnerBoundaries(const Set_IfcCurve_0_n &value) {
     m_innerBoundaries = value;
+}
+
+void IfcCurveBoundedPlane::unsetInnerBoundaries() {
+    m_innerBoundaries.clear();
+    m_innerBoundaries.setUnset(true);
+}
+
+bool IfcCurveBoundedPlane::testInnerBoundaries() const {
+    return !Step::isUnset(getInnerBoundaries());
 }
 
 bool IfcCurveBoundedPlane::init() {

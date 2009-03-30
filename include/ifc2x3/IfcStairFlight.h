@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,17 +29,19 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcBuildingElement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
-#include "ifc2x3/IfcBuildingElement.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcStairFlight Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcStairFlight : public IfcBuildingElement {
     public:
@@ -88,6 +90,17 @@ namespace ifc2x3 {
          */
         virtual void setNumberOfRiser(Step::Integer value);
         /**
+         * unset the attribute 'NumberOfRiser'.
+         * 
+         */
+        virtual void unsetNumberOfRiser();
+        /**
+         * Test if the attribute 'NumberOfRiser' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNumberOfRiser() const;
+        /**
          * Gets the value of the explicit attribute 'NumberOfTreads'.
          * 
          */
@@ -104,6 +117,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setNumberOfTreads(Step::Integer value);
+        /**
+         * unset the attribute 'NumberOfTreads'.
+         * 
+         */
+        virtual void unsetNumberOfTreads();
+        /**
+         * Test if the attribute 'NumberOfTreads' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testNumberOfTreads() const;
         /**
          * Gets the value of the explicit attribute 'RiserHeight'.
          * 
@@ -122,6 +146,17 @@ namespace ifc2x3 {
          */
         virtual void setRiserHeight(IfcPositiveLengthMeasure value);
         /**
+         * unset the attribute 'RiserHeight'.
+         * 
+         */
+        virtual void unsetRiserHeight();
+        /**
+         * Test if the attribute 'RiserHeight' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testRiserHeight() const;
+        /**
          * Gets the value of the explicit attribute 'TreadLength'.
          * 
          */
@@ -138,6 +173,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setTreadLength(IfcPositiveLengthMeasure value);
+        /**
+         * unset the attribute 'TreadLength'.
+         * 
+         */
+        virtual void unsetTreadLength();
+        /**
+         * Test if the attribute 'TreadLength' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTreadLength() const;
         friend class ExpressDataSet;
 
     protected:

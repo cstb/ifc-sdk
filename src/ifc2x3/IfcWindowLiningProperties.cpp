@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcWindowLiningProperties::IfcWindowLiningProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -96,6 +93,14 @@ void IfcWindowLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value) {
     m_liningDepth = value;
 }
 
+void IfcWindowLiningProperties::unsetLiningDepth() {
+    m_liningDepth = Step::getUnset(getLiningDepth());
+}
+
+bool IfcWindowLiningProperties::testLiningDepth() const {
+    return !Step::isUnset(getLiningDepth());
+}
+
 IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() {
     if (Step::BaseObject::inited()) {
         return m_liningThickness;
@@ -112,6 +117,14 @@ const IfcPositiveLengthMeasure IfcWindowLiningProperties::getLiningThickness() c
 
 void IfcWindowLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value) {
     m_liningThickness = value;
+}
+
+void IfcWindowLiningProperties::unsetLiningThickness() {
+    m_liningThickness = Step::getUnset(getLiningThickness());
+}
+
+bool IfcWindowLiningProperties::testLiningThickness() const {
+    return !Step::isUnset(getLiningThickness());
 }
 
 IfcPositiveLengthMeasure IfcWindowLiningProperties::getTransomThickness() {
@@ -132,6 +145,14 @@ void IfcWindowLiningProperties::setTransomThickness(IfcPositiveLengthMeasure val
     m_transomThickness = value;
 }
 
+void IfcWindowLiningProperties::unsetTransomThickness() {
+    m_transomThickness = Step::getUnset(getTransomThickness());
+}
+
+bool IfcWindowLiningProperties::testTransomThickness() const {
+    return !Step::isUnset(getTransomThickness());
+}
+
 IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() {
     if (Step::BaseObject::inited()) {
         return m_mullionThickness;
@@ -148,6 +169,14 @@ const IfcPositiveLengthMeasure IfcWindowLiningProperties::getMullionThickness() 
 
 void IfcWindowLiningProperties::setMullionThickness(IfcPositiveLengthMeasure value) {
     m_mullionThickness = value;
+}
+
+void IfcWindowLiningProperties::unsetMullionThickness() {
+    m_mullionThickness = Step::getUnset(getMullionThickness());
+}
+
+bool IfcWindowLiningProperties::testMullionThickness() const {
+    return !Step::isUnset(getMullionThickness());
 }
 
 IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstTransomOffset() {
@@ -168,6 +197,14 @@ void IfcWindowLiningProperties::setFirstTransomOffset(IfcNormalisedRatioMeasure 
     m_firstTransomOffset = value;
 }
 
+void IfcWindowLiningProperties::unsetFirstTransomOffset() {
+    m_firstTransomOffset = Step::getUnset(getFirstTransomOffset());
+}
+
+bool IfcWindowLiningProperties::testFirstTransomOffset() const {
+    return !Step::isUnset(getFirstTransomOffset());
+}
+
 IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffset() {
     if (Step::BaseObject::inited()) {
         return m_secondTransomOffset;
@@ -184,6 +221,14 @@ const IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondTransomOffse
 
 void IfcWindowLiningProperties::setSecondTransomOffset(IfcNormalisedRatioMeasure value) {
     m_secondTransomOffset = value;
+}
+
+void IfcWindowLiningProperties::unsetSecondTransomOffset() {
+    m_secondTransomOffset = Step::getUnset(getSecondTransomOffset());
+}
+
+bool IfcWindowLiningProperties::testSecondTransomOffset() const {
+    return !Step::isUnset(getSecondTransomOffset());
 }
 
 IfcNormalisedRatioMeasure IfcWindowLiningProperties::getFirstMullionOffset() {
@@ -204,6 +249,14 @@ void IfcWindowLiningProperties::setFirstMullionOffset(IfcNormalisedRatioMeasure 
     m_firstMullionOffset = value;
 }
 
+void IfcWindowLiningProperties::unsetFirstMullionOffset() {
+    m_firstMullionOffset = Step::getUnset(getFirstMullionOffset());
+}
+
+bool IfcWindowLiningProperties::testFirstMullionOffset() const {
+    return !Step::isUnset(getFirstMullionOffset());
+}
+
 IfcNormalisedRatioMeasure IfcWindowLiningProperties::getSecondMullionOffset() {
     if (Step::BaseObject::inited()) {
         return m_secondMullionOffset;
@@ -222,6 +275,14 @@ void IfcWindowLiningProperties::setSecondMullionOffset(IfcNormalisedRatioMeasure
     m_secondMullionOffset = value;
 }
 
+void IfcWindowLiningProperties::unsetSecondMullionOffset() {
+    m_secondMullionOffset = Step::getUnset(getSecondMullionOffset());
+}
+
+bool IfcWindowLiningProperties::testSecondMullionOffset() const {
+    return !Step::isUnset(getSecondMullionOffset());
+}
+
 IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() {
     if (Step::BaseObject::inited()) {
         return m_shapeAspectStyle.get();
@@ -238,6 +299,14 @@ const IfcShapeAspect *IfcWindowLiningProperties::getShapeAspectStyle() const {
 
 void IfcWindowLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
     m_shapeAspectStyle = value;
+}
+
+void IfcWindowLiningProperties::unsetShapeAspectStyle() {
+    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+}
+
+bool IfcWindowLiningProperties::testShapeAspectStyle() const {
+    return !Step::isUnset(getShapeAspectStyle());
 }
 
 bool IfcWindowLiningProperties::init() {

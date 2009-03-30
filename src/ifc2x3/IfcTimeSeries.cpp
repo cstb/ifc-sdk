@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -41,9 +41,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTimeSeries::IfcTimeSeries(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -98,6 +95,14 @@ void IfcTimeSeries::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcTimeSeries::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcTimeSeries::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcTimeSeries::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -114,6 +119,14 @@ const IfcText IfcTimeSeries::getDescription() const {
 
 void IfcTimeSeries::setDescription(const IfcText &value) {
     m_description = value;
+}
+
+void IfcTimeSeries::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcTimeSeries::testDescription() const {
+    return !Step::isUnset(getDescription());
 }
 
 IfcDateTimeSelect *IfcTimeSeries::getStartTime() {
@@ -134,6 +147,14 @@ void IfcTimeSeries::setStartTime(const Step::RefPtr< IfcDateTimeSelect > &value)
     m_startTime = value;
 }
 
+void IfcTimeSeries::unsetStartTime() {
+    m_startTime = Step::getUnset(getStartTime());
+}
+
+bool IfcTimeSeries::testStartTime() const {
+    return !Step::isUnset(getStartTime());
+}
+
 IfcDateTimeSelect *IfcTimeSeries::getEndTime() {
     if (Step::BaseObject::inited()) {
         return m_endTime.get();
@@ -150,6 +171,14 @@ const IfcDateTimeSelect *IfcTimeSeries::getEndTime() const {
 
 void IfcTimeSeries::setEndTime(const Step::RefPtr< IfcDateTimeSelect > &value) {
     m_endTime = value;
+}
+
+void IfcTimeSeries::unsetEndTime() {
+    m_endTime = Step::getUnset(getEndTime());
+}
+
+bool IfcTimeSeries::testEndTime() const {
+    return !Step::isUnset(getEndTime());
 }
 
 IfcTimeSeriesDataTypeEnum IfcTimeSeries::getTimeSeriesDataType() {
@@ -170,6 +199,14 @@ void IfcTimeSeries::setTimeSeriesDataType(IfcTimeSeriesDataTypeEnum value) {
     m_timeSeriesDataType = value;
 }
 
+void IfcTimeSeries::unsetTimeSeriesDataType() {
+    m_timeSeriesDataType = IfcTimeSeriesDataTypeEnum_UNSET;
+}
+
+bool IfcTimeSeries::testTimeSeriesDataType() const {
+    return getTimeSeriesDataType() != IfcTimeSeriesDataTypeEnum_UNSET;
+}
+
 IfcDataOriginEnum IfcTimeSeries::getDataOrigin() {
     if (Step::BaseObject::inited()) {
         return m_dataOrigin;
@@ -186,6 +223,14 @@ const IfcDataOriginEnum IfcTimeSeries::getDataOrigin() const {
 
 void IfcTimeSeries::setDataOrigin(IfcDataOriginEnum value) {
     m_dataOrigin = value;
+}
+
+void IfcTimeSeries::unsetDataOrigin() {
+    m_dataOrigin = IfcDataOriginEnum_UNSET;
+}
+
+bool IfcTimeSeries::testDataOrigin() const {
+    return getDataOrigin() != IfcDataOriginEnum_UNSET;
 }
 
 IfcLabel IfcTimeSeries::getUserDefinedDataOrigin() {
@@ -206,6 +251,14 @@ void IfcTimeSeries::setUserDefinedDataOrigin(const IfcLabel &value) {
     m_userDefinedDataOrigin = value;
 }
 
+void IfcTimeSeries::unsetUserDefinedDataOrigin() {
+    m_userDefinedDataOrigin = Step::getUnset(getUserDefinedDataOrigin());
+}
+
+bool IfcTimeSeries::testUserDefinedDataOrigin() const {
+    return !Step::isUnset(getUserDefinedDataOrigin());
+}
+
 IfcUnit *IfcTimeSeries::getUnit() {
     if (Step::BaseObject::inited()) {
         return m_unit.get();
@@ -224,6 +277,14 @@ void IfcTimeSeries::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
 }
 
+void IfcTimeSeries::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcTimeSeries::testUnit() const {
+    return !Step::isUnset(getUnit());
+}
+
 Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() {
     if (Step::BaseObject::inited()) {
         return m_documentedBy;
@@ -237,6 +298,10 @@ Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumented
 const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() const {
     IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
     return deConstObject->getDocumentedBy();
+}
+
+bool IfcTimeSeries::testDocumentedBy() const {
+    return !Step::isUnset(getDocumentedBy());
 }
 
 bool IfcTimeSeries::init() {

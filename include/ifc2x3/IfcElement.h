@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,18 +29,20 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
 #include <Step/SPFData.h>
 #include <Step/String.h>
-#include "ifc2x3/IfcProduct.h"
+#include <string>
 
 namespace ifc2x3 {
 
     class CopyOp;
 
     /**
+     * Generated class for the IfcElement Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcElement : public IfcProduct {
     public:
@@ -89,6 +91,17 @@ namespace ifc2x3 {
          */
         virtual void setTag(const IfcIdentifier &value);
         /**
+         * unset the attribute 'Tag'.
+         * 
+         */
+        virtual void unsetTag();
+        /**
+         * Test if the attribute 'Tag' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testTag() const;
+        /**
          * Gets the value of the inverse attribute 'HasStructuralMember'.
          * 
          */
@@ -99,6 +112,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasStructuralMember'
          */
         virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getHasStructuralMember() const;
+        /**
+         * Test if the attribute 'HasStructuralMember' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasStructuralMember() const;
         /**
          * Gets the value of the inverse attribute 'FillsVoids'.
          * 
@@ -111,6 +130,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelFillsElement_0_1 &getFillsVoids() const;
         /**
+         * Test if the attribute 'FillsVoids' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testFillsVoids() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectedTo'.
          * 
          */
@@ -121,6 +146,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ConnectedTo'
          */
         virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedTo() const;
+        /**
+         * Test if the attribute 'ConnectedTo' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectedTo() const;
         /**
          * Gets the value of the inverse attribute 'HasCoverings'.
          * 
@@ -133,6 +164,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelCoversBldgElements_0_n &getHasCoverings() const;
         /**
+         * Test if the attribute 'HasCoverings' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasCoverings() const;
+        /**
          * Gets the value of the inverse attribute 'HasProjections'.
          * 
          */
@@ -143,6 +180,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasProjections'
          */
         virtual const Inverse_Set_IfcRelProjectsElement_0_n &getHasProjections() const;
+        /**
+         * Test if the attribute 'HasProjections' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasProjections() const;
         /**
          * Gets the value of the inverse attribute 'ReferencedInStructures'.
          * 
@@ -155,6 +198,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencedInStructures() const;
         /**
+         * Test if the attribute 'ReferencedInStructures' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testReferencedInStructures() const;
+        /**
          * Gets the value of the inverse attribute 'HasPorts'.
          * 
          */
@@ -165,6 +214,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'HasPorts'
          */
         virtual const Inverse_Set_IfcRelConnectsPortToElement_0_n &getHasPorts() const;
+        /**
+         * Test if the attribute 'HasPorts' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasPorts() const;
         /**
          * Gets the value of the inverse attribute 'HasOpenings'.
          * 
@@ -177,6 +232,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelVoidsElement_0_n &getHasOpenings() const;
         /**
+         * Test if the attribute 'HasOpenings' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testHasOpenings() const;
+        /**
          * Gets the value of the inverse attribute 'IsConnectionRealization'.
          * 
          */
@@ -187,6 +248,12 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'IsConnectionRealization'
          */
         virtual const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &getIsConnectionRealization() const;
+        /**
+         * Test if the attribute 'IsConnectionRealization' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testIsConnectionRealization() const;
         /**
          * Gets the value of the inverse attribute 'ProvidesBoundaries'.
          * 
@@ -199,6 +266,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelSpaceBoundary_0_n &getProvidesBoundaries() const;
         /**
+         * Test if the attribute 'ProvidesBoundaries' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testProvidesBoundaries() const;
+        /**
          * Gets the value of the inverse attribute 'ConnectedFrom'.
          * 
          */
@@ -210,6 +283,12 @@ namespace ifc2x3 {
          */
         virtual const Inverse_Set_IfcRelConnectsElements_0_n &getConnectedFrom() const;
         /**
+         * Test if the attribute 'ConnectedFrom' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testConnectedFrom() const;
+        /**
          * Gets the value of the inverse attribute 'ContainedInStructure'.
          * 
          */
@@ -220,21 +299,27 @@ namespace ifc2x3 {
          * @return the value of the explicit attribute 'ContainedInStructure'
          */
         virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
+        /**
+         * Test if the attribute 'ContainedInStructure' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testContainedInStructure() const;
         friend class IfcRelFillsElement;
-        friend class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type;
         friend class IfcRelProjectsElement;
+        friend class Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type;
         friend class IfcRelConnectsStructuralElement;
         friend class IfcRelConnectsWithRealizingElements;
         friend class ExpressDataSet;
         friend class IfcRelConnectsElements;
         friend class IfcRelContainedInSpatialStructure;
+        friend class Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type;
         friend class IfcRelConnectsPortToElement;
         friend class IfcRelCoversBldgElements;
         friend class IfcRelVoidsElement;
         friend class IfcRelSpaceBoundary;
-        friend class Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type;
         friend class IfcRelReferencedInSpatialStructure;
-        friend class Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type;
+        friend class Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type;
 
     protected:
         /**

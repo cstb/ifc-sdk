@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 Inverted_IfcProductRepresentation_Representations_type::Inverted_IfcProductRepresentation_Representations_type() {
@@ -64,10 +61,15 @@ Inverted_IfcProductRepresentation_Representations_type::iterator Inverted_IfcPro
     return List_IfcRepresentation_1_n::erase(value);
 }
 
+void Inverted_IfcProductRepresentation_Representations_type::clear() {
+    while (size()) {
+        erase(*begin());
+    }
+}
+
 IfcProductRepresentation::IfcProductRepresentation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
-    m_representations.setUnset(true);
     m_representations.setOwner(this);
 }
 
@@ -112,6 +114,14 @@ void IfcProductRepresentation::setName(const IfcLabel &value) {
     m_name = value;
 }
 
+void IfcProductRepresentation::unsetName() {
+    m_name = Step::getUnset(getName());
+}
+
+bool IfcProductRepresentation::testName() const {
+    return !Step::isUnset(getName());
+}
+
 IfcText IfcProductRepresentation::getDescription() {
     if (Step::BaseObject::inited()) {
         return m_description;
@@ -130,6 +140,14 @@ void IfcProductRepresentation::setDescription(const IfcText &value) {
     m_description = value;
 }
 
+void IfcProductRepresentation::unsetDescription() {
+    m_description = Step::getUnset(getDescription());
+}
+
+bool IfcProductRepresentation::testDescription() const {
+    return !Step::isUnset(getDescription());
+}
+
 List_IfcRepresentation_1_n &IfcProductRepresentation::getRepresentations() {
     if (Step::BaseObject::inited()) {
         return m_representations;
@@ -143,6 +161,15 @@ List_IfcRepresentation_1_n &IfcProductRepresentation::getRepresentations() {
 const List_IfcRepresentation_1_n &IfcProductRepresentation::getRepresentations() const {
     IfcProductRepresentation * deConstObject = const_cast< IfcProductRepresentation * > (this);
     return deConstObject->getRepresentations();
+}
+
+void IfcProductRepresentation::unsetRepresentations() {
+    m_representations.clear();
+    m_representations.setUnset(true);
+}
+
+bool IfcProductRepresentation::testRepresentations() const {
+    return !Step::isUnset(getRepresentations());
 }
 
 bool IfcProductRepresentation::init() {

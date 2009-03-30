@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcCurrencyRelationship::IfcCurrencyRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -94,6 +91,14 @@ void IfcCurrencyRelationship::setRelatingMonetaryUnit(const Step::RefPtr< IfcMon
     m_relatingMonetaryUnit = value;
 }
 
+void IfcCurrencyRelationship::unsetRelatingMonetaryUnit() {
+    m_relatingMonetaryUnit = Step::getUnset(getRelatingMonetaryUnit());
+}
+
+bool IfcCurrencyRelationship::testRelatingMonetaryUnit() const {
+    return !Step::isUnset(getRelatingMonetaryUnit());
+}
+
 IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() {
     if (Step::BaseObject::inited()) {
         return m_relatedMonetaryUnit.get();
@@ -110,6 +115,14 @@ const IfcMonetaryUnit *IfcCurrencyRelationship::getRelatedMonetaryUnit() const {
 
 void IfcCurrencyRelationship::setRelatedMonetaryUnit(const Step::RefPtr< IfcMonetaryUnit > &value) {
     m_relatedMonetaryUnit = value;
+}
+
+void IfcCurrencyRelationship::unsetRelatedMonetaryUnit() {
+    m_relatedMonetaryUnit = Step::getUnset(getRelatedMonetaryUnit());
+}
+
+bool IfcCurrencyRelationship::testRelatedMonetaryUnit() const {
+    return !Step::isUnset(getRelatedMonetaryUnit());
 }
 
 IfcPositiveRatioMeasure IfcCurrencyRelationship::getExchangeRate() {
@@ -130,6 +143,14 @@ void IfcCurrencyRelationship::setExchangeRate(IfcPositiveRatioMeasure value) {
     m_exchangeRate = value;
 }
 
+void IfcCurrencyRelationship::unsetExchangeRate() {
+    m_exchangeRate = Step::getUnset(getExchangeRate());
+}
+
+bool IfcCurrencyRelationship::testExchangeRate() const {
+    return !Step::isUnset(getExchangeRate());
+}
+
 IfcDateAndTime *IfcCurrencyRelationship::getRateDateTime() {
     if (Step::BaseObject::inited()) {
         return m_rateDateTime.get();
@@ -148,6 +169,14 @@ void IfcCurrencyRelationship::setRateDateTime(const Step::RefPtr< IfcDateAndTime
     m_rateDateTime = value;
 }
 
+void IfcCurrencyRelationship::unsetRateDateTime() {
+    m_rateDateTime = Step::getUnset(getRateDateTime());
+}
+
+bool IfcCurrencyRelationship::testRateDateTime() const {
+    return !Step::isUnset(getRateDateTime());
+}
+
 IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() {
     if (Step::BaseObject::inited()) {
         return m_rateSource.get();
@@ -164,6 +193,14 @@ const IfcLibraryInformation *IfcCurrencyRelationship::getRateSource() const {
 
 void IfcCurrencyRelationship::setRateSource(const Step::RefPtr< IfcLibraryInformation > &value) {
     m_rateSource = value;
+}
+
+void IfcCurrencyRelationship::unsetRateSource() {
+    m_rateSource = Step::getUnset(getRateSource());
+}
+
+bool IfcCurrencyRelationship::testRateSource() const {
+    return !Step::isUnset(getRateSource());
 }
 
 bool IfcCurrencyRelationship::init() {

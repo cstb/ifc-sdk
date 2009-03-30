@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcDoorLiningProperties::IfcDoorLiningProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -98,6 +95,14 @@ void IfcDoorLiningProperties::setLiningDepth(IfcPositiveLengthMeasure value) {
     m_liningDepth = value;
 }
 
+void IfcDoorLiningProperties::unsetLiningDepth() {
+    m_liningDepth = Step::getUnset(getLiningDepth());
+}
+
+bool IfcDoorLiningProperties::testLiningDepth() const {
+    return !Step::isUnset(getLiningDepth());
+}
+
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness() {
     if (Step::BaseObject::inited()) {
         return m_liningThickness;
@@ -114,6 +119,14 @@ const IfcPositiveLengthMeasure IfcDoorLiningProperties::getLiningThickness() con
 
 void IfcDoorLiningProperties::setLiningThickness(IfcPositiveLengthMeasure value) {
     m_liningThickness = value;
+}
+
+void IfcDoorLiningProperties::unsetLiningThickness() {
+    m_liningThickness = Step::getUnset(getLiningThickness());
+}
+
+bool IfcDoorLiningProperties::testLiningThickness() const {
+    return !Step::isUnset(getLiningThickness());
 }
 
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdDepth() {
@@ -134,6 +147,14 @@ void IfcDoorLiningProperties::setThresholdDepth(IfcPositiveLengthMeasure value) 
     m_thresholdDepth = value;
 }
 
+void IfcDoorLiningProperties::unsetThresholdDepth() {
+    m_thresholdDepth = Step::getUnset(getThresholdDepth());
+}
+
+bool IfcDoorLiningProperties::testThresholdDepth() const {
+    return !Step::isUnset(getThresholdDepth());
+}
+
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness() {
     if (Step::BaseObject::inited()) {
         return m_thresholdThickness;
@@ -150,6 +171,14 @@ const IfcPositiveLengthMeasure IfcDoorLiningProperties::getThresholdThickness() 
 
 void IfcDoorLiningProperties::setThresholdThickness(IfcPositiveLengthMeasure value) {
     m_thresholdThickness = value;
+}
+
+void IfcDoorLiningProperties::unsetThresholdThickness() {
+    m_thresholdThickness = Step::getUnset(getThresholdThickness());
+}
+
+bool IfcDoorLiningProperties::testThresholdThickness() const {
+    return !Step::isUnset(getThresholdThickness());
 }
 
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getTransomThickness() {
@@ -170,6 +199,14 @@ void IfcDoorLiningProperties::setTransomThickness(IfcPositiveLengthMeasure value
     m_transomThickness = value;
 }
 
+void IfcDoorLiningProperties::unsetTransomThickness() {
+    m_transomThickness = Step::getUnset(getTransomThickness());
+}
+
+bool IfcDoorLiningProperties::testTransomThickness() const {
+    return !Step::isUnset(getTransomThickness());
+}
+
 IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset() {
     if (Step::BaseObject::inited()) {
         return m_transomOffset;
@@ -186,6 +223,14 @@ const IfcLengthMeasure IfcDoorLiningProperties::getTransomOffset() const {
 
 void IfcDoorLiningProperties::setTransomOffset(IfcLengthMeasure value) {
     m_transomOffset = value;
+}
+
+void IfcDoorLiningProperties::unsetTransomOffset() {
+    m_transomOffset = Step::getUnset(getTransomOffset());
+}
+
+bool IfcDoorLiningProperties::testTransomOffset() const {
+    return !Step::isUnset(getTransomOffset());
 }
 
 IfcLengthMeasure IfcDoorLiningProperties::getLiningOffset() {
@@ -206,6 +251,14 @@ void IfcDoorLiningProperties::setLiningOffset(IfcLengthMeasure value) {
     m_liningOffset = value;
 }
 
+void IfcDoorLiningProperties::unsetLiningOffset() {
+    m_liningOffset = Step::getUnset(getLiningOffset());
+}
+
+bool IfcDoorLiningProperties::testLiningOffset() const {
+    return !Step::isUnset(getLiningOffset());
+}
+
 IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset() {
     if (Step::BaseObject::inited()) {
         return m_thresholdOffset;
@@ -222,6 +275,14 @@ const IfcLengthMeasure IfcDoorLiningProperties::getThresholdOffset() const {
 
 void IfcDoorLiningProperties::setThresholdOffset(IfcLengthMeasure value) {
     m_thresholdOffset = value;
+}
+
+void IfcDoorLiningProperties::unsetThresholdOffset() {
+    m_thresholdOffset = Step::getUnset(getThresholdOffset());
+}
+
+bool IfcDoorLiningProperties::testThresholdOffset() const {
+    return !Step::isUnset(getThresholdOffset());
 }
 
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingThickness() {
@@ -242,6 +303,14 @@ void IfcDoorLiningProperties::setCasingThickness(IfcPositiveLengthMeasure value)
     m_casingThickness = value;
 }
 
+void IfcDoorLiningProperties::unsetCasingThickness() {
+    m_casingThickness = Step::getUnset(getCasingThickness());
+}
+
+bool IfcDoorLiningProperties::testCasingThickness() const {
+    return !Step::isUnset(getCasingThickness());
+}
+
 IfcPositiveLengthMeasure IfcDoorLiningProperties::getCasingDepth() {
     if (Step::BaseObject::inited()) {
         return m_casingDepth;
@@ -260,6 +329,14 @@ void IfcDoorLiningProperties::setCasingDepth(IfcPositiveLengthMeasure value) {
     m_casingDepth = value;
 }
 
+void IfcDoorLiningProperties::unsetCasingDepth() {
+    m_casingDepth = Step::getUnset(getCasingDepth());
+}
+
+bool IfcDoorLiningProperties::testCasingDepth() const {
+    return !Step::isUnset(getCasingDepth());
+}
+
 IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() {
     if (Step::BaseObject::inited()) {
         return m_shapeAspectStyle.get();
@@ -276,6 +353,14 @@ const IfcShapeAspect *IfcDoorLiningProperties::getShapeAspectStyle() const {
 
 void IfcDoorLiningProperties::setShapeAspectStyle(const Step::RefPtr< IfcShapeAspect > &value) {
     m_shapeAspectStyle = value;
+}
+
+void IfcDoorLiningProperties::unsetShapeAspectStyle() {
+    m_shapeAspectStyle = Step::getUnset(getShapeAspectStyle());
+}
+
+bool IfcDoorLiningProperties::testShapeAspectStyle() const {
+    return !Step::isUnset(getShapeAspectStyle());
 }
 
 bool IfcDoorLiningProperties::init() {

@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRibPlateProfileProperties::IfcRibPlateProfileProperties(Step::Id id, Step::SPFData *args) : IfcProfileProperties(id, args) {
@@ -88,6 +85,14 @@ void IfcRibPlateProfileProperties::setThickness(IfcPositiveLengthMeasure value) 
     m_thickness = value;
 }
 
+void IfcRibPlateProfileProperties::unsetThickness() {
+    m_thickness = Step::getUnset(getThickness());
+}
+
+bool IfcRibPlateProfileProperties::testThickness() const {
+    return !Step::isUnset(getThickness());
+}
+
 IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibHeight() {
     if (Step::BaseObject::inited()) {
         return m_ribHeight;
@@ -104,6 +109,14 @@ const IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibHeight() cons
 
 void IfcRibPlateProfileProperties::setRibHeight(IfcPositiveLengthMeasure value) {
     m_ribHeight = value;
+}
+
+void IfcRibPlateProfileProperties::unsetRibHeight() {
+    m_ribHeight = Step::getUnset(getRibHeight());
+}
+
+bool IfcRibPlateProfileProperties::testRibHeight() const {
+    return !Step::isUnset(getRibHeight());
 }
 
 IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibWidth() {
@@ -124,6 +137,14 @@ void IfcRibPlateProfileProperties::setRibWidth(IfcPositiveLengthMeasure value) {
     m_ribWidth = value;
 }
 
+void IfcRibPlateProfileProperties::unsetRibWidth() {
+    m_ribWidth = Step::getUnset(getRibWidth());
+}
+
+bool IfcRibPlateProfileProperties::testRibWidth() const {
+    return !Step::isUnset(getRibWidth());
+}
+
 IfcPositiveLengthMeasure IfcRibPlateProfileProperties::getRibSpacing() {
     if (Step::BaseObject::inited()) {
         return m_ribSpacing;
@@ -142,6 +163,14 @@ void IfcRibPlateProfileProperties::setRibSpacing(IfcPositiveLengthMeasure value)
     m_ribSpacing = value;
 }
 
+void IfcRibPlateProfileProperties::unsetRibSpacing() {
+    m_ribSpacing = Step::getUnset(getRibSpacing());
+}
+
+bool IfcRibPlateProfileProperties::testRibSpacing() const {
+    return !Step::isUnset(getRibSpacing());
+}
+
 IfcRibPlateDirectionEnum IfcRibPlateProfileProperties::getDirection() {
     if (Step::BaseObject::inited()) {
         return m_direction;
@@ -158,6 +187,14 @@ const IfcRibPlateDirectionEnum IfcRibPlateProfileProperties::getDirection() cons
 
 void IfcRibPlateProfileProperties::setDirection(IfcRibPlateDirectionEnum value) {
     m_direction = value;
+}
+
+void IfcRibPlateProfileProperties::unsetDirection() {
+    m_direction = IfcRibPlateDirectionEnum_UNSET;
+}
+
+bool IfcRibPlateProfileProperties::testDirection() const {
+    return getDirection() != IfcRibPlateDirectionEnum_UNSET;
 }
 
 bool IfcRibPlateProfileProperties::init() {

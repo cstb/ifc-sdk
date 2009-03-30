@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcAnnotationFillArea::IfcAnnotationFillArea(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
@@ -89,6 +86,14 @@ void IfcAnnotationFillArea::setOuterBoundary(const Step::RefPtr< IfcCurve > &val
     m_outerBoundary = value;
 }
 
+void IfcAnnotationFillArea::unsetOuterBoundary() {
+    m_outerBoundary = Step::getUnset(getOuterBoundary());
+}
+
+bool IfcAnnotationFillArea::testOuterBoundary() const {
+    return !Step::isUnset(getOuterBoundary());
+}
+
 Set_IfcCurve_1_n &IfcAnnotationFillArea::getInnerBoundaries() {
     if (Step::BaseObject::inited()) {
         return m_innerBoundaries;
@@ -106,6 +111,15 @@ const Set_IfcCurve_1_n &IfcAnnotationFillArea::getInnerBoundaries() const {
 
 void IfcAnnotationFillArea::setInnerBoundaries(const Set_IfcCurve_1_n &value) {
     m_innerBoundaries = value;
+}
+
+void IfcAnnotationFillArea::unsetInnerBoundaries() {
+    m_innerBoundaries.clear();
+    m_innerBoundaries.setUnset(true);
+}
+
+bool IfcAnnotationFillArea::testInnerBoundaries() const {
+    return !Step::isUnset(getInnerBoundaries());
 }
 
 bool IfcAnnotationFillArea::init() {

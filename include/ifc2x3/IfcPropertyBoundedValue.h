@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcSimpleProperty.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include <string>
-#include <Step/SPFData.h>
-#include "ifc2x3/IfcSimpleProperty.h"
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -43,6 +43,8 @@ namespace ifc2x3 {
     class IfcValue;
 
     /**
+     * Generated class for the IfcPropertyBoundedValue Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcPropertyBoundedValue : public IfcSimpleProperty {
     public:
@@ -91,6 +93,17 @@ namespace ifc2x3 {
          */
         virtual void setUpperBoundValue(const Step::RefPtr< IfcValue > &value);
         /**
+         * unset the attribute 'UpperBoundValue'.
+         * 
+         */
+        virtual void unsetUpperBoundValue();
+        /**
+         * Test if the attribute 'UpperBoundValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUpperBoundValue() const;
+        /**
          * Gets the value of the explicit attribute 'LowerBoundValue'.
          * 
          */
@@ -108,6 +121,17 @@ namespace ifc2x3 {
          */
         virtual void setLowerBoundValue(const Step::RefPtr< IfcValue > &value);
         /**
+         * unset the attribute 'LowerBoundValue'.
+         * 
+         */
+        virtual void unsetLowerBoundValue();
+        /**
+         * Test if the attribute 'LowerBoundValue' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testLowerBoundValue() const;
+        /**
          * Gets the value of the explicit attribute 'Unit'.
          * 
          */
@@ -124,6 +148,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setUnit(const Step::RefPtr< IfcUnit > &value);
+        /**
+         * unset the attribute 'Unit'.
+         * 
+         */
+        virtual void unsetUnit();
+        /**
+         * Test if the attribute 'Unit' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testUnit() const;
         friend class ExpressDataSet;
 
     protected:

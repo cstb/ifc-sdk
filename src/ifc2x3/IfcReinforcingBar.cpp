@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcReinforcingBar::IfcReinforcingBar(Step::Id id, Step::SPFData *args) : IfcReinforcingElement(id, args) {
@@ -88,6 +85,14 @@ void IfcReinforcingBar::setNominalDiameter(IfcPositiveLengthMeasure value) {
     m_nominalDiameter = value;
 }
 
+void IfcReinforcingBar::unsetNominalDiameter() {
+    m_nominalDiameter = Step::getUnset(getNominalDiameter());
+}
+
+bool IfcReinforcingBar::testNominalDiameter() const {
+    return !Step::isUnset(getNominalDiameter());
+}
+
 IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() {
     if (Step::BaseObject::inited()) {
         return m_crossSectionArea;
@@ -104,6 +109,14 @@ const IfcAreaMeasure IfcReinforcingBar::getCrossSectionArea() const {
 
 void IfcReinforcingBar::setCrossSectionArea(IfcAreaMeasure value) {
     m_crossSectionArea = value;
+}
+
+void IfcReinforcingBar::unsetCrossSectionArea() {
+    m_crossSectionArea = Step::getUnset(getCrossSectionArea());
+}
+
+bool IfcReinforcingBar::testCrossSectionArea() const {
+    return !Step::isUnset(getCrossSectionArea());
 }
 
 IfcPositiveLengthMeasure IfcReinforcingBar::getBarLength() {
@@ -124,6 +137,14 @@ void IfcReinforcingBar::setBarLength(IfcPositiveLengthMeasure value) {
     m_barLength = value;
 }
 
+void IfcReinforcingBar::unsetBarLength() {
+    m_barLength = Step::getUnset(getBarLength());
+}
+
+bool IfcReinforcingBar::testBarLength() const {
+    return !Step::isUnset(getBarLength());
+}
+
 IfcReinforcingBarRoleEnum IfcReinforcingBar::getBarRole() {
     if (Step::BaseObject::inited()) {
         return m_barRole;
@@ -142,6 +163,14 @@ void IfcReinforcingBar::setBarRole(IfcReinforcingBarRoleEnum value) {
     m_barRole = value;
 }
 
+void IfcReinforcingBar::unsetBarRole() {
+    m_barRole = IfcReinforcingBarRoleEnum_UNSET;
+}
+
+bool IfcReinforcingBar::testBarRole() const {
+    return getBarRole() != IfcReinforcingBarRoleEnum_UNSET;
+}
+
 IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() {
     if (Step::BaseObject::inited()) {
         return m_barSurface;
@@ -158,6 +187,14 @@ const IfcReinforcingBarSurfaceEnum IfcReinforcingBar::getBarSurface() const {
 
 void IfcReinforcingBar::setBarSurface(IfcReinforcingBarSurfaceEnum value) {
     m_barSurface = value;
+}
+
+void IfcReinforcingBar::unsetBarSurface() {
+    m_barSurface = IfcReinforcingBarSurfaceEnum_UNSET;
+}
+
+bool IfcReinforcingBar::testBarSurface() const {
+    return getBarSurface() != IfcReinforcingBarSurfaceEnum_UNSET;
 }
 
 bool IfcReinforcingBar::init() {

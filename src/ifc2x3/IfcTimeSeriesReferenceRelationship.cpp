@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcTimeSeriesReferenceRelationship::IfcTimeSeriesReferenceRelationship(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -96,6 +93,14 @@ void IfcTimeSeriesReferenceRelationship::setReferencedTimeSeries(const Step::Ref
     m_referencedTimeSeries = value;
 }
 
+void IfcTimeSeriesReferenceRelationship::unsetReferencedTimeSeries() {
+    m_referencedTimeSeries = Step::getUnset(getReferencedTimeSeries());
+}
+
+bool IfcTimeSeriesReferenceRelationship::testReferencedTimeSeries() const {
+    return !Step::isUnset(getReferencedTimeSeries());
+}
+
 Set_IfcDocumentSelect_1_n &IfcTimeSeriesReferenceRelationship::getTimeSeriesReferences() {
     if (Step::BaseObject::inited()) {
         return m_timeSeriesReferences;
@@ -113,6 +118,15 @@ const Set_IfcDocumentSelect_1_n &IfcTimeSeriesReferenceRelationship::getTimeSeri
 
 void IfcTimeSeriesReferenceRelationship::setTimeSeriesReferences(const Set_IfcDocumentSelect_1_n &value) {
     m_timeSeriesReferences = value;
+}
+
+void IfcTimeSeriesReferenceRelationship::unsetTimeSeriesReferences() {
+    m_timeSeriesReferences.clear();
+    m_timeSeriesReferences.setUnset(true);
+}
+
+bool IfcTimeSeriesReferenceRelationship::testTimeSeriesReferences() const {
+    return !Step::isUnset(getTimeSeriesReferences());
 }
 
 bool IfcTimeSeriesReferenceRelationship::init() {

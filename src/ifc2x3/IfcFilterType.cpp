@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -34,9 +34,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcFilterType::IfcFilterType(Step::Id id, Step::SPFData *args) : IfcFlowTreatmentDeviceType(id, args) {
@@ -82,6 +79,14 @@ const IfcFilterTypeEnum IfcFilterType::getPredefinedType() const {
 
 void IfcFilterType::setPredefinedType(IfcFilterTypeEnum value) {
     m_predefinedType = value;
+}
+
+void IfcFilterType::unsetPredefinedType() {
+    m_predefinedType = IfcFilterTypeEnum_UNSET;
+}
+
+bool IfcFilterType::testPredefinedType() const {
+    return getPredefinedType() != IfcFilterTypeEnum_UNSET;
 }
 
 bool IfcFilterType::init() {

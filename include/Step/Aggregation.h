@@ -8,7 +8,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -22,8 +22,8 @@
  *                                                                         *
  ***************************************************************************
 */
-#ifndef STEP_AGGREGATION_H
-#define STEP_AGGREGATION_H
+#ifndef Step_Aggregation_h
+#define Step_Aggregation_h
 
 //#pragma message("Using this file is deprecated please use one of the include files below")
 
@@ -31,7 +31,6 @@
 #include "List.h"
 #include "Bag.h"
 #include "Set.h"
-
 
 #endif
 

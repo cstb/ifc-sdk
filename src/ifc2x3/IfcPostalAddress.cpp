@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -36,9 +36,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPostalAddress::IfcPostalAddress(Step::Id id, Step::SPFData *args) : IfcAddress(id, args) {
@@ -92,6 +89,14 @@ void IfcPostalAddress::setInternalLocation(const IfcLabel &value) {
     m_internalLocation = value;
 }
 
+void IfcPostalAddress::unsetInternalLocation() {
+    m_internalLocation = Step::getUnset(getInternalLocation());
+}
+
+bool IfcPostalAddress::testInternalLocation() const {
+    return !Step::isUnset(getInternalLocation());
+}
+
 List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() {
     if (Step::BaseObject::inited()) {
         return m_addressLines;
@@ -109,6 +114,15 @@ const List_IfcLabel_1_n &IfcPostalAddress::getAddressLines() const {
 
 void IfcPostalAddress::setAddressLines(const List_IfcLabel_1_n &value) {
     m_addressLines = value;
+}
+
+void IfcPostalAddress::unsetAddressLines() {
+    m_addressLines.clear();
+    m_addressLines.setUnset(true);
+}
+
+bool IfcPostalAddress::testAddressLines() const {
+    return !Step::isUnset(getAddressLines());
 }
 
 IfcLabel IfcPostalAddress::getPostalBox() {
@@ -129,6 +143,14 @@ void IfcPostalAddress::setPostalBox(const IfcLabel &value) {
     m_postalBox = value;
 }
 
+void IfcPostalAddress::unsetPostalBox() {
+    m_postalBox = Step::getUnset(getPostalBox());
+}
+
+bool IfcPostalAddress::testPostalBox() const {
+    return !Step::isUnset(getPostalBox());
+}
+
 IfcLabel IfcPostalAddress::getTown() {
     if (Step::BaseObject::inited()) {
         return m_town;
@@ -145,6 +167,14 @@ const IfcLabel IfcPostalAddress::getTown() const {
 
 void IfcPostalAddress::setTown(const IfcLabel &value) {
     m_town = value;
+}
+
+void IfcPostalAddress::unsetTown() {
+    m_town = Step::getUnset(getTown());
+}
+
+bool IfcPostalAddress::testTown() const {
+    return !Step::isUnset(getTown());
 }
 
 IfcLabel IfcPostalAddress::getRegion() {
@@ -165,6 +195,14 @@ void IfcPostalAddress::setRegion(const IfcLabel &value) {
     m_region = value;
 }
 
+void IfcPostalAddress::unsetRegion() {
+    m_region = Step::getUnset(getRegion());
+}
+
+bool IfcPostalAddress::testRegion() const {
+    return !Step::isUnset(getRegion());
+}
+
 IfcLabel IfcPostalAddress::getPostalCode() {
     if (Step::BaseObject::inited()) {
         return m_postalCode;
@@ -183,6 +221,14 @@ void IfcPostalAddress::setPostalCode(const IfcLabel &value) {
     m_postalCode = value;
 }
 
+void IfcPostalAddress::unsetPostalCode() {
+    m_postalCode = Step::getUnset(getPostalCode());
+}
+
+bool IfcPostalAddress::testPostalCode() const {
+    return !Step::isUnset(getPostalCode());
+}
+
 IfcLabel IfcPostalAddress::getCountry() {
     if (Step::BaseObject::inited()) {
         return m_country;
@@ -199,6 +245,14 @@ const IfcLabel IfcPostalAddress::getCountry() const {
 
 void IfcPostalAddress::setCountry(const IfcLabel &value) {
     m_country = value;
+}
+
+void IfcPostalAddress::unsetCountry() {
+    m_country = Step::getUnset(getCountry());
+}
+
+bool IfcPostalAddress::testCountry() const {
+    return !Step::isUnset(getCountry());
 }
 
 bool IfcPostalAddress::init() {

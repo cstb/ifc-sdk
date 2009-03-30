@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSurfaceStyleLighting::IfcSurfaceStyleLighting(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -91,6 +88,14 @@ void IfcSurfaceStyleLighting::setDiffuseTransmissionColour(const Step::RefPtr< I
     m_diffuseTransmissionColour = value;
 }
 
+void IfcSurfaceStyleLighting::unsetDiffuseTransmissionColour() {
+    m_diffuseTransmissionColour = Step::getUnset(getDiffuseTransmissionColour());
+}
+
+bool IfcSurfaceStyleLighting::testDiffuseTransmissionColour() const {
+    return !Step::isUnset(getDiffuseTransmissionColour());
+}
+
 IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseReflectionColour() {
     if (Step::BaseObject::inited()) {
         return m_diffuseReflectionColour.get();
@@ -107,6 +112,14 @@ const IfcColourRgb *IfcSurfaceStyleLighting::getDiffuseReflectionColour() const 
 
 void IfcSurfaceStyleLighting::setDiffuseReflectionColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_diffuseReflectionColour = value;
+}
+
+void IfcSurfaceStyleLighting::unsetDiffuseReflectionColour() {
+    m_diffuseReflectionColour = Step::getUnset(getDiffuseReflectionColour());
+}
+
+bool IfcSurfaceStyleLighting::testDiffuseReflectionColour() const {
+    return !Step::isUnset(getDiffuseReflectionColour());
 }
 
 IfcColourRgb *IfcSurfaceStyleLighting::getTransmissionColour() {
@@ -127,6 +140,14 @@ void IfcSurfaceStyleLighting::setTransmissionColour(const Step::RefPtr< IfcColou
     m_transmissionColour = value;
 }
 
+void IfcSurfaceStyleLighting::unsetTransmissionColour() {
+    m_transmissionColour = Step::getUnset(getTransmissionColour());
+}
+
+bool IfcSurfaceStyleLighting::testTransmissionColour() const {
+    return !Step::isUnset(getTransmissionColour());
+}
+
 IfcColourRgb *IfcSurfaceStyleLighting::getReflectanceColour() {
     if (Step::BaseObject::inited()) {
         return m_reflectanceColour.get();
@@ -143,6 +164,14 @@ const IfcColourRgb *IfcSurfaceStyleLighting::getReflectanceColour() const {
 
 void IfcSurfaceStyleLighting::setReflectanceColour(const Step::RefPtr< IfcColourRgb > &value) {
     m_reflectanceColour = value;
+}
+
+void IfcSurfaceStyleLighting::unsetReflectanceColour() {
+    m_reflectanceColour = Step::getUnset(getReflectanceColour());
+}
+
+bool IfcSurfaceStyleLighting::testReflectanceColour() const {
+    return !Step::isUnset(getReflectanceColour());
 }
 
 bool IfcSurfaceStyleLighting::init() {

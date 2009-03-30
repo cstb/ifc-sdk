@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <Step/logger.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcSoundProperties::IfcSoundProperties(Step::Id id, Step::SPFData *args) : IfcPropertySetDefinition(id, args) {
@@ -89,6 +86,14 @@ void IfcSoundProperties::setIsAttenuating(IfcBoolean value) {
     m_isAttenuating = value;
 }
 
+void IfcSoundProperties::unsetIsAttenuating() {
+    m_isAttenuating = Step::getUnset(getIsAttenuating());
+}
+
+bool IfcSoundProperties::testIsAttenuating() const {
+    return !Step::isUnset(getIsAttenuating());
+}
+
 IfcSoundScaleEnum IfcSoundProperties::getSoundScale() {
     if (Step::BaseObject::inited()) {
         return m_soundScale;
@@ -105,6 +110,14 @@ const IfcSoundScaleEnum IfcSoundProperties::getSoundScale() const {
 
 void IfcSoundProperties::setSoundScale(IfcSoundScaleEnum value) {
     m_soundScale = value;
+}
+
+void IfcSoundProperties::unsetSoundScale() {
+    m_soundScale = IfcSoundScaleEnum_UNSET;
+}
+
+bool IfcSoundProperties::testSoundScale() const {
+    return getSoundScale() != IfcSoundScaleEnum_UNSET;
 }
 
 List_IfcSoundValue_1_8 &IfcSoundProperties::getSoundValues() {
@@ -124,6 +137,15 @@ const List_IfcSoundValue_1_8 &IfcSoundProperties::getSoundValues() const {
 
 void IfcSoundProperties::setSoundValues(const List_IfcSoundValue_1_8 &value) {
     m_soundValues = value;
+}
+
+void IfcSoundProperties::unsetSoundValues() {
+    m_soundValues.clear();
+    m_soundValues.setUnset(true);
+}
+
+bool IfcSoundProperties::testSoundValues() const {
+    return !Step::isUnset(getSoundValues());
 }
 
 bool IfcSoundProperties::init() {

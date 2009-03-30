@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -29,12 +29,12 @@
 #include <ifc2x3/DefinedTypes.h>
 #include <ifc2x3/ifc2x3DLL.h>
 
+#include "ifc2x3/IfcConnectionGeometry.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
-#include "ifc2x3/IfcConnectionGeometry.h"
-#include <string>
-#include <Step/SPFData.h>
 #include <Step/Referenced.h>
+#include <Step/SPFData.h>
+#include <string>
 
 namespace ifc2x3 {
 
@@ -42,6 +42,8 @@ namespace ifc2x3 {
     class IfcCurveOrEdgeCurve;
 
     /**
+     * Generated class for the IfcConnectionCurveGeometry Entity.
+     * 
      */
     class IFC2X3_DLL_DEF IfcConnectionCurveGeometry : public IfcConnectionGeometry {
     public:
@@ -90,6 +92,17 @@ namespace ifc2x3 {
          */
         virtual void setCurveOnRelatingElement(const Step::RefPtr< IfcCurveOrEdgeCurve > &value);
         /**
+         * unset the attribute 'CurveOnRelatingElement'.
+         * 
+         */
+        virtual void unsetCurveOnRelatingElement();
+        /**
+         * Test if the attribute 'CurveOnRelatingElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveOnRelatingElement() const;
+        /**
          * Gets the value of the explicit attribute 'CurveOnRelatedElement'.
          * 
          */
@@ -106,6 +119,17 @@ namespace ifc2x3 {
          * @param value
          */
         virtual void setCurveOnRelatedElement(const Step::RefPtr< IfcCurveOrEdgeCurve > &value);
+        /**
+         * unset the attribute 'CurveOnRelatedElement'.
+         * 
+         */
+        virtual void unsetCurveOnRelatedElement();
+        /**
+         * Test if the attribute 'CurveOnRelatedElement' is set.
+         * 
+         * @return true if set, false if unset
+         */
+        virtual bool testCurveOnRelatedElement() const;
         friend class ExpressDataSet;
 
     protected:

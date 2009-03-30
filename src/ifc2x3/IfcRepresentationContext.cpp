@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -38,9 +38,6 @@
 #include <string>
 #include <vector>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcRepresentationContext::IfcRepresentationContext(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
@@ -89,6 +86,14 @@ void IfcRepresentationContext::setContextIdentifier(const IfcLabel &value) {
     m_contextIdentifier = value;
 }
 
+void IfcRepresentationContext::unsetContextIdentifier() {
+    m_contextIdentifier = Step::getUnset(getContextIdentifier());
+}
+
+bool IfcRepresentationContext::testContextIdentifier() const {
+    return !Step::isUnset(getContextIdentifier());
+}
+
 IfcLabel IfcRepresentationContext::getContextType() {
     if (Step::BaseObject::inited()) {
         return m_contextType;
@@ -107,6 +112,14 @@ void IfcRepresentationContext::setContextType(const IfcLabel &value) {
     m_contextType = value;
 }
 
+void IfcRepresentationContext::unsetContextType() {
+    m_contextType = Step::getUnset(getContextType());
+}
+
+bool IfcRepresentationContext::testContextType() const {
+    return !Step::isUnset(getContextType());
+}
+
 Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() {
     if (Step::BaseObject::inited()) {
         return m_representationsInContext;
@@ -120,6 +133,10 @@ Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsI
 const Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() const {
     IfcRepresentationContext * deConstObject = const_cast< IfcRepresentationContext * > (this);
     return deConstObject->getRepresentationsInContext();
+}
+
+bool IfcRepresentationContext::testRepresentationsInContext() const {
+    return !Step::isUnset(getRepresentationsInContext());
 }
 
 bool IfcRepresentationContext::init() {

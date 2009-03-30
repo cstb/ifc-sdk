@@ -9,7 +9,7 @@
  *                                                                         *
  *     STEP Early Classes C++                                              *
  *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
+ *     Copyright (C) 2009 CSTB                                             *
  *                                                                         *
  *                                                                         *
  *   For further information please contact                                *
@@ -40,9 +40,6 @@
 #include <stdlib.h>
 #include <string>
 
-#ifdef USE_MEMORYMANAGER
-#include <Tools/MemoryManager/mmgr.h>
-#endif
 using namespace ifc2x3;
 
 IfcPropertyBoundedValue::IfcPropertyBoundedValue(Step::Id id, Step::SPFData *args) : IfcSimpleProperty(id, args) {
@@ -92,6 +89,14 @@ void IfcPropertyBoundedValue::setUpperBoundValue(const Step::RefPtr< IfcValue > 
     m_upperBoundValue = value;
 }
 
+void IfcPropertyBoundedValue::unsetUpperBoundValue() {
+    m_upperBoundValue = Step::getUnset(getUpperBoundValue());
+}
+
+bool IfcPropertyBoundedValue::testUpperBoundValue() const {
+    return !Step::isUnset(getUpperBoundValue());
+}
+
 IfcValue *IfcPropertyBoundedValue::getLowerBoundValue() {
     if (Step::BaseObject::inited()) {
         return m_lowerBoundValue.get();
@@ -110,6 +115,14 @@ void IfcPropertyBoundedValue::setLowerBoundValue(const Step::RefPtr< IfcValue > 
     m_lowerBoundValue = value;
 }
 
+void IfcPropertyBoundedValue::unsetLowerBoundValue() {
+    m_lowerBoundValue = Step::getUnset(getLowerBoundValue());
+}
+
+bool IfcPropertyBoundedValue::testLowerBoundValue() const {
+    return !Step::isUnset(getLowerBoundValue());
+}
+
 IfcUnit *IfcPropertyBoundedValue::getUnit() {
     if (Step::BaseObject::inited()) {
         return m_unit.get();
@@ -126,6 +139,14 @@ const IfcUnit *IfcPropertyBoundedValue::getUnit() const {
 
 void IfcPropertyBoundedValue::setUnit(const Step::RefPtr< IfcUnit > &value) {
     m_unit = value;
+}
+
+void IfcPropertyBoundedValue::unsetUnit() {
+    m_unit = Step::getUnset(getUnit());
+}
+
+bool IfcPropertyBoundedValue::testUnit() const {
+    return !Step::isUnset(getUnit());
 }
 
 bool IfcPropertyBoundedValue::init() {
