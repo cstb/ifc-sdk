@@ -2754,10 +2754,16 @@ IfcDimensionCount IfcSweptSurface::getDim() const
 Step::Integer IfcTable::getNumberOfCellsInRow() const
 {
 	LOG_DEBUG("IfcTable::getNumberOfCellsInRow()");
-	if(Step::isUnset(getRows()))
-		return 0;
+	if(testRows())
+	{
+	    if (getRows().size())
+	        return getRows()[0]->getRowCells().size();
+	    else
+	        return 0;
+	}
 	else
-		return getRows()[0]->getRowCells().size();
+		return 0;
+
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -12,7 +12,7 @@
 int main(int argc, char **argv)
 {
 	std::cout << "Simple read/write example of Ifc2x3 SDK" << std::endl;
-	
+
    if (argc < 2)
    {
       std::cout << "no ifc file to read in command line ." << std::endl;
@@ -24,11 +24,11 @@ int main(int argc, char **argv)
    ifcFile.open(argv[1]);
 
    ifc2x3::SPFReader reader;
- 
+
    if ( ifcFile.is_open() )
    {
        std::cout << "reading file ..." << std::endl;
-   } 
+   }
    else
    {
        std::cout << "ERROR: failed to open <" << argv[1] << ">" << std::endl;
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 
    if (result)
       std::cout << "OK!!" << std::endl;
-   else 
+   else
    {
       std::cout << "Ho no, there is a PROBLEM!!" << std::endl;
       return 1;
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
    if (expressDataSet == NULL)
    {
       std::cout << "Ho no ... there is no ExpressDataSet." << std::endl;
-      return (2);        
+      return (2);
    }
 
    // ** Instantiate the model
@@ -74,7 +74,14 @@ int main(int argc, char **argv)
 
    // ** Write the file
    ifc2x3::SPFWriter writer(expressDataSet);
-   result = writer.writeSPF("data/Ifc/saved.ifc");
+   if (argc==3)
+   {
+       return writer.writeSPF(argv[2]);
+   }
+   else
+   {
+       return writer.writeSPF("saved.ifc");
+   }
 
    return 1;
 }

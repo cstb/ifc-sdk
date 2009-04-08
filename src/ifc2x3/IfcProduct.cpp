@@ -119,10 +119,18 @@ const IfcProductRepresentation *IfcProduct::getRepresentation() const {
 }
 
 void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
-    if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
-        ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.insert(this);
-    }
+   // If we already had a representation, remove it from Inverse relation
+   if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
+      ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.erase(this);
+   }
+   // Add new representation to the Inverse relation
+   if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != NULL) {
+      ((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct.insert(this);
+   }
+   // Set the new representation
+   m_representation = value;
 }
+
 
 void IfcProduct::unsetRepresentation() {
     m_representation = Step::getUnset(getRepresentation());
