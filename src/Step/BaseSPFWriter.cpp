@@ -31,6 +31,8 @@
 
 #include "Step/logger.h"
 
+#include <locale>
+
 using namespace Step;
 
 BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e)
@@ -49,7 +51,11 @@ bool BaseSPFWriter::init(const std::string& filepath)
     m_out.open(filepath.c_str());
     if (!m_out.is_open())
         return false;
-    m_out.precision(10);
+    m_out.precision(m_precision);
+
+    // Make sure not to be side tracked by user's locale
+    m_out.imbue(std::locale::classic());
+
     return true;
 }
 
