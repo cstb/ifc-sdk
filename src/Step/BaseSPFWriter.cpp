@@ -195,7 +195,21 @@ void BaseSPFWriter::writeAttribute(Boolean value)
 
 void BaseSPFWriter::writeAttribute(Logical value)
 {
-    m_out << (value == LTrue ? ".T." : (value == LFalse ? ".F." : ".U."));
+    switch (value)
+    {
+    case LTrue:
+        m_out << ".T.";
+        break;
+    case LFalse:
+        m_out << ".F.";
+        break;
+    case LUnknown:
+        m_out << ".U.";
+        break;
+    default:
+        m_out << "$";
+        break;
+    }
 }
 
 void BaseSPFWriter::writeAttribute(const String& value)
