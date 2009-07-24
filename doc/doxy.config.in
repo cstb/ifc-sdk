@@ -25,8 +25,8 @@ ABBREVIATE_BRIEF       = "The $name class   " \
 ALWAYS_DETAILED_SEC    = NO
 INLINE_INHERITED_MEMB  = NO
 FULL_PATH_NAMES        = NO
-STRIP_FROM_PATH        = 
-STRIP_FROM_INC_PATH    = 
+STRIP_FROM_PATH        = "@CMAKE_HOME_DIRECTORY@/src/"
+STRIP_FROM_INC_PATH    = "@CMAKE_HOME_DIRECTORY@/include/"
 SHORT_NAMES            = YES
 JAVADOC_AUTOBRIEF      = NO
 QT_AUTOBRIEF           = NO
@@ -127,7 +127,7 @@ IGNORE_PREFIX          = Ifc
 # configuration options related to the HTML output
 #---------------------------------------------------------------------------
 GENERATE_HTML          = YES
-HTML_OUTPUT            = html
+HTML_OUTPUT            = @HTML_OUTPUT@
 HTML_FILE_EXTENSION    = .html
 HTML_HEADER            = 
 HTML_FOOTER            = 
