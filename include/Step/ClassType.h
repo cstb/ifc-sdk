@@ -27,6 +27,7 @@
 
 #include "StepDLL.h"
 
+#include <map>
 #include <string>
 
 namespace Step {
@@ -81,8 +82,18 @@ namespace Step {
          */
         static const ClassType &Undefined();
 
+        /*!
+         * Find the ClassType of given String name
+         * \return Undefined() if not found
+         */
+        static const ClassType &find(const std::string & name);
+
     private:
+        //! private constructor used to fill the static map
+        ClassType(const std::string& name, long id);
+
         static ClassType sUndefined;
+
         std::string m_name;
         long m_id;
     };
