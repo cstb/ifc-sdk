@@ -53,9 +53,6 @@ bool BaseSPFWriter::init(const std::string& filepath)
         return false;
     m_out.precision(m_precision);
 
-    // Make sure not to be side tracked by user's locale
-    m_out.imbue(std::locale::classic());
-
     return true;
 }
 
@@ -163,6 +160,8 @@ void BaseSPFWriter::writeAttribute(Real value)
     else
     {
         std::stringstream sstream;
+        // Make sure not to be side tracked by user's locale
+        sstream.imbue(std::locale::classic());
         sstream << std::setprecision(m_precision) << std::setiosflags(
                 std::ios_base::uppercase) << value;
         float integer_part = float(int(value));

@@ -93,7 +93,6 @@ namespace Step {
         ClassType(const std::string& name, long id);
 
         static ClassType sUndefined;
-
         std::string m_name;
         long m_id;
     };

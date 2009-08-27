@@ -32,11 +32,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <map>
 #include <list>
 #include <set>
 #include <limits>
+#include <locale>
 
 #if defined (linux)
 #   include <stdexcept>
@@ -249,11 +251,22 @@ namespace Step {
         return !t.valid();
     }
 
+    template<class T>
+        T fromString(const std::string& s)
+    {
+         std::istringstream stream (s);
+         // Make sure not to be side tracked by user's locale
+         stream.imbue(std::locale::classic());
+         T t;
+         stream >> t;
+         return t;
+    }
+
     //! spf parsing for Integer type
     inline Integer spfToInteger(const std::string& s)
     {
         if (s != "$")
-            return atoi(s.c_str());
+            return fromString<Integer>(s);
         else
             return getUnset(Integer(0));
     }
@@ -262,7 +275,7 @@ namespace Step {
     inline Real spfToReal(const std::string& s)
     {
         if (s != "$")
-            return atof(s.c_str());
+            return fromString<Real>(s);
         else
             return getUnset(Real(0));
     }

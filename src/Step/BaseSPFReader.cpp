@@ -31,8 +31,6 @@
 
 #include "Step/logger.h"
 
-#include <locale>
-
 using namespace std;
 using namespace Step;
 
@@ -50,9 +48,6 @@ bool BaseSPFReader::read(std::istream& input)
     char* buffer = new char[bufferLength];
     std::string::size_type i, from;
     m_currentLineNb = 1;
-
-    // Make sure not to be side tracked by user's locale
-    input.imbue(std::locale::classic());
 
     // Parse the header
     if (!m_header.parse(input, m_currentLineNb))
