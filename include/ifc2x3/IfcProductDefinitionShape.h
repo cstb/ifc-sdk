@@ -74,15 +74,17 @@ namespace ifc2x3 {
         virtual bool isOfType(const Step::ClassType &t) const;
         /**
          * Gets the value of the inverse attribute 'ShapeOfProduct'.
+         * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          * 
          */
-        Inverse_Set_IfcProduct_1_1 &getShapeOfProduct();
+        Inverse_Set_IfcProduct_1_n &getShapeOfProduct();
         /**
          * (const) Returns the value of the explicit attribute 'ShapeOfProduct'.
+         * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          * 
          * @return the value of the explicit attribute 'ShapeOfProduct'
          */
-        virtual const Inverse_Set_IfcProduct_1_1 &getShapeOfProduct() const;
+        virtual const Inverse_Set_IfcProduct_1_n &getShapeOfProduct() const;
         /**
          * Test if the attribute 'ShapeOfProduct' is set.
          * 
@@ -131,8 +133,9 @@ namespace ifc2x3 {
          */
         static Step::ClassType s_type;
         /**
+         * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          */
-        Inverse_Set_IfcProduct_1_1 m_shapeOfProduct;
+        Inverse_Set_IfcProduct_1_n m_shapeOfProduct;
         /**
          */
         Inverse_Set_IfcShapeAspect_0_n m_hasShapeAspects;

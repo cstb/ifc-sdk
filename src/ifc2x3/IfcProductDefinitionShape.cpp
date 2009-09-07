@@ -66,7 +66,7 @@ bool IfcProductDefinitionShape::isOfType(const Step::ClassType &t) const {
     return IfcProductDefinitionShape::s_type == t ? true : IfcProductRepresentation::isOfType(t);
 }
 
-Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct() {
+Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() {
     if (Step::BaseObject::inited()) {
         return m_shapeOfProduct;
     }
@@ -76,7 +76,7 @@ Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct() {
     }
 }
 
-const Inverse_Set_IfcProduct_1_1 &IfcProductDefinitionShape::getShapeOfProduct() const {
+const Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() const {
     IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
     return deConstObject->getShapeOfProduct();
 }
