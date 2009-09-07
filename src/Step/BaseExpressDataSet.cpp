@@ -127,9 +127,18 @@ BaseEntity *BaseExpressDataSet::get(Id id)
         // Get the appropriate allocate function
         AllocateFuncType allocFunc =
             static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
-        // Call it and get the result
-        BaseEntity* ret = (*allocFunc)(this, id);
-        return ret;
+
+        if (allocFunc)
+        {
+            // Call it and get the result
+            BaseEntity* ret = (*allocFunc)(this, id);
+            return ret;
+        }
+        else
+        {
+            LOG_WARNING("Entity #" << it->first << " was never declared");
+            return 0;
+        }
     }
     else
         return it->second.get();
@@ -176,14 +185,22 @@ void BaseExpressDataSet::instantiateAll()
     {
         if (it->second->isOfType(BaseSPFObject::getClassType()))
         {
+            LOG_DEBUG("Instantiating #" << it->first)
             // Get the appropriate allocate function
             AllocateFuncType
                     allocFunc =
                             static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
-            // Call it and get the result
-            BaseEntity* ret = (*allocFunc)(this, it->first);
+            if (allocFunc)
+            {
+                // Call it and get the result
+                BaseEntity* ret = (*allocFunc)(this, it->first);
 
-            ret->inited();
+                ret->inited();
+            }
+            else
+            {
+                LOG_WARNING("Entity #" << it->first << " was never declared");
+            }
         }
         else
             it->second->inited();
