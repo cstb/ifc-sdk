@@ -74,18 +74,18 @@ namespace ifc2x3 {
         virtual bool isOfType(const Step::ClassType &t) const;
         /**
          * Gets the value of the inverse attribute 'PlacesObject'.
-         * 
+         * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
          */
-        Inverse_Set_IfcProduct_1_1 &getPlacesObject();
+        Inverse_Set_IfcProduct_1_n &getPlacesObject();
         /**
          * (const) Returns the value of the explicit attribute 'PlacesObject'.
          * 
          * @return the value of the explicit attribute 'PlacesObject'
          */
-        virtual const Inverse_Set_IfcProduct_1_1 &getPlacesObject() const;
+        virtual const Inverse_Set_IfcProduct_1_n &getPlacesObject() const;
         /**
          * Test if the attribute 'PlacesObject' is set.
-         * 
+         * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
          * @return true if set, false if unset
          */
         virtual bool testPlacesObject() const;
@@ -131,8 +131,9 @@ namespace ifc2x3 {
          */
         static Step::ClassType s_type;
         /**
+         * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
          */
-        Inverse_Set_IfcProduct_1_1 m_placesObject;
+        Inverse_Set_IfcProduct_1_n m_placesObject;
         /**
          */
         Inverse_Set_IfcLocalPlacement_0_n m_referencedByPlacements;

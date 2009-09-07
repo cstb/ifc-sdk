@@ -66,7 +66,7 @@ bool IfcObjectPlacement::isOfType(const Step::ClassType &t) const {
     return IfcObjectPlacement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() {
+Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() {
     if (Step::BaseObject::inited()) {
         return m_placesObject;
     }
@@ -76,7 +76,7 @@ Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() {
     }
 }
 
-const Inverse_Set_IfcProduct_1_1 &IfcObjectPlacement::getPlacesObject() const {
+const Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() const {
     IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
     return deConstObject->getPlacesObject();
 }

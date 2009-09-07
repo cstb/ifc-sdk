@@ -2915,6 +2915,10 @@ enum IfcWorkControlTypeEnum {
     typedef Step::Set< Step::ObsPtr< IfcProduct >, 1, 1 > Inverse_Set_IfcProduct_1_1;
 
     /**
+      */
+    typedef Step::Set< Step::ObsPtr< IfcProduct >, 1 > Inverse_Set_IfcProduct_1_n;
+
+    /**
      */
     typedef Step::Set< Step::RefPtr< IfcPropertySetDefinition >, 1 > Set_IfcPropertySetDefinition_1_n;
 
