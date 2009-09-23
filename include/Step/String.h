@@ -76,7 +76,7 @@ namespace Step {
 
 		/**
 		 * Virtual destructor
-		 $/
+		 */
 		virtual ~String();
 		
         /**
