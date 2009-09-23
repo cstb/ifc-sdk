@@ -74,6 +74,11 @@ namespace Step {
          */
         String(const std::string &str);
 
+		/**
+		 * Virtual destructor
+		 $/
+		virtual ~String();
+		
         /**
          * compares to a latin-1 (ISO 8859-1) encoded representation
          * \param str the string to compare too

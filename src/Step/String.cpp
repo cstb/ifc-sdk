@@ -66,6 +66,10 @@ String::String(const std::string &str) :
     buildLatin1(str);
 }
 
+String::~String()
+{
+}
+
 std::string String::toLatin1() const
 {
     std::string result;

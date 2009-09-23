@@ -80,7 +80,7 @@
 //#include "ifc2x3/IfcSIUnitName.h"
 #include "Step/logger.h"
 
-#ifdef linux
+#ifndef WIN32
 # include <cmath>
 #endif
 

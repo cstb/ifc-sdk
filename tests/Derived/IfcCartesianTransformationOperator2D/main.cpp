@@ -7,7 +7,7 @@
 #include <sstream>
 #include <string>
 //#include <math.h>
-#ifdef linux
+#ifndef WIN32
 #include <cmath>
 #endif
 // uncomment the following line to test compilation types checks
