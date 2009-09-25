@@ -63,6 +63,12 @@ void Inverted_IfcRelAssociates_RelatedObjects_type::insert(const Step::RefPtr< I
 
 Inverted_IfcRelAssociates_RelatedObjects_type::size_type Inverted_IfcRelAssociates_RelatedObjects_type::erase(const Step::RefPtr< IfcRoot > &value) {
     IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
+	if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
+        ((IfcObjectDefinition *) (inverse))->m_hasAssociations.erase(mOwner);
+    }
+    if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
+        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations.erase(mOwner);
+    }
     return Set_IfcRoot_1_n::erase(value);
 }
 
