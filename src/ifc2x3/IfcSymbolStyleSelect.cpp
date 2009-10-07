@@ -159,10 +159,10 @@ void IfcSymbolStyleSelect::setIfcPreDefinedColour(IfcPreDefinedColour *value) {
 }
 
 void IfcSymbolStyleSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcColourSpecification::getClassType())) {
+    if (v && v->isOfType(IfcColourSpecification::getClassType())) {
         setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
     }
-    else if (v->isOfType(IfcPreDefinedColour::getClassType())) {
+    else if (v && v->isOfType(IfcPreDefinedColour::getClassType())) {
         setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
     }
 }

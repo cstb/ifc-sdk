@@ -159,10 +159,10 @@ void IfcStructuralActivityAssignmentSelect::setIfcElement(IfcElement *value) {
 }
 
 void IfcStructuralActivityAssignmentSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcStructuralItem::getClassType())) {
+    if (v && v->isOfType(IfcStructuralItem::getClassType())) {
         setIfcStructuralItem(static_cast< IfcStructuralItem* > (v));
     }
-    else if (v->isOfType(IfcElement::getClassType())) {
+    else if (v && v->isOfType(IfcElement::getClassType())) {
         setIfcElement(static_cast< IfcElement* > (v));
     }
 }

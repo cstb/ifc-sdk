@@ -159,10 +159,10 @@ void IfcDocumentSelect::setIfcDocumentInformation(IfcDocumentInformation *value)
 }
 
 void IfcDocumentSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcDocumentReference::getClassType())) {
+    if (v && v->isOfType(IfcDocumentReference::getClassType())) {
         setIfcDocumentReference(static_cast< IfcDocumentReference* > (v));
     }
-    else if (v->isOfType(IfcDocumentInformation::getClassType())) {
+    else if (v && v->isOfType(IfcDocumentInformation::getClassType())) {
         setIfcDocumentInformation(static_cast< IfcDocumentInformation* > (v));
     }
 }

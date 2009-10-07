@@ -148,7 +148,7 @@ void IfcConditionCriterionSelect::setIfcMeasureWithUnit(IfcMeasureWithUnit *valu
 }
 
 void IfcConditionCriterionSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcMeasureWithUnit::getClassType())) {
+    if (v && v->isOfType(IfcMeasureWithUnit::getClassType())) {
         setIfcMeasureWithUnit(static_cast< IfcMeasureWithUnit* > (v));
     }
 }

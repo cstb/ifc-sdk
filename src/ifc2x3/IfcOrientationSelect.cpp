@@ -145,7 +145,7 @@ void IfcOrientationSelect::setIfcDirection(IfcDirection *value) {
 }
 
 void IfcOrientationSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcDirection::getClassType())) {
+    if (v && v->isOfType(IfcDirection::getClassType())) {
         setIfcDirection(static_cast< IfcDirection* > (v));
     }
 }

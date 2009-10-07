@@ -352,25 +352,25 @@ void IfcMetricValueSelect::setIfcCostValue(IfcCostValue *value) {
 }
 
 void IfcMetricValueSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcCalendarDate::getClassType())) {
+    if (v && v->isOfType(IfcCalendarDate::getClassType())) {
         setIfcCalendarDate(static_cast< IfcCalendarDate* > (v));
     }
-    else if (v->isOfType(IfcLocalTime::getClassType())) {
+    else if (v && v->isOfType(IfcLocalTime::getClassType())) {
         setIfcLocalTime(static_cast< IfcLocalTime* > (v));
     }
-    else if (v->isOfType(IfcDateAndTime::getClassType())) {
+    else if (v && v->isOfType(IfcDateAndTime::getClassType())) {
         setIfcDateAndTime(static_cast< IfcDateAndTime* > (v));
     }
-    else if (v->isOfType(IfcMeasureWithUnit::getClassType())) {
+    else if (v && v->isOfType(IfcMeasureWithUnit::getClassType())) {
         setIfcMeasureWithUnit(static_cast< IfcMeasureWithUnit* > (v));
     }
-    else if (v->isOfType(IfcTable::getClassType())) {
+    else if (v && v->isOfType(IfcTable::getClassType())) {
         setIfcTable(static_cast< IfcTable* > (v));
     }
-    else if (v->isOfType(IfcTimeSeries::getClassType())) {
+    else if (v && v->isOfType(IfcTimeSeries::getClassType())) {
         setIfcTimeSeries(static_cast< IfcTimeSeries* > (v));
     }
-    else if (v->isOfType(IfcCostValue::getClassType())) {
+    else if (v && v->isOfType(IfcCostValue::getClassType())) {
         setIfcCostValue(static_cast< IfcCostValue* > (v));
     }
 }

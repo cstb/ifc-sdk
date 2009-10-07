@@ -261,19 +261,19 @@ void IfcMaterialSelect::setIfcMaterialLayer(IfcMaterialLayer *value) {
 }
 
 void IfcMaterialSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcMaterial::getClassType())) {
+    if (v && v->isOfType(IfcMaterial::getClassType())) {
         setIfcMaterial(static_cast< IfcMaterial* > (v));
     }
-    else if (v->isOfType(IfcMaterialList::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialList::getClassType())) {
         setIfcMaterialList(static_cast< IfcMaterialList* > (v));
     }
-    else if (v->isOfType(IfcMaterialLayerSetUsage::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialLayerSetUsage::getClassType())) {
         setIfcMaterialLayerSetUsage(static_cast< IfcMaterialLayerSetUsage* > (v));
     }
-    else if (v->isOfType(IfcMaterialLayerSet::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialLayerSet::getClassType())) {
         setIfcMaterialLayerSet(static_cast< IfcMaterialLayerSet* > (v));
     }
-    else if (v->isOfType(IfcMaterialLayer::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialLayer::getClassType())) {
         setIfcMaterialLayer(static_cast< IfcMaterialLayer* > (v));
     }
 }

@@ -159,10 +159,10 @@ void IfcLibrarySelect::setIfcLibraryInformation(IfcLibraryInformation *value) {
 }
 
 void IfcLibrarySelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcLibraryReference::getClassType())) {
+    if (v && v->isOfType(IfcLibraryReference::getClassType())) {
         setIfcLibraryReference(static_cast< IfcLibraryReference* > (v));
     }
-    else if (v->isOfType(IfcLibraryInformation::getClassType())) {
+    else if (v && v->isOfType(IfcLibraryInformation::getClassType())) {
         setIfcLibraryInformation(static_cast< IfcLibraryInformation* > (v));
     }
 }

@@ -261,19 +261,19 @@ void IfcSurfaceStyleElementSelect::setIfcSurfaceStyleRefraction(IfcSurfaceStyleR
 }
 
 void IfcSurfaceStyleElementSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcSurfaceStyleShading::getClassType())) {
+    if (v && v->isOfType(IfcSurfaceStyleShading::getClassType())) {
         setIfcSurfaceStyleShading(static_cast< IfcSurfaceStyleShading* > (v));
     }
-    else if (v->isOfType(IfcSurfaceStyleLighting::getClassType())) {
+    else if (v && v->isOfType(IfcSurfaceStyleLighting::getClassType())) {
         setIfcSurfaceStyleLighting(static_cast< IfcSurfaceStyleLighting* > (v));
     }
-    else if (v->isOfType(IfcSurfaceStyleWithTextures::getClassType())) {
+    else if (v && v->isOfType(IfcSurfaceStyleWithTextures::getClassType())) {
         setIfcSurfaceStyleWithTextures(static_cast< IfcSurfaceStyleWithTextures* > (v));
     }
-    else if (v->isOfType(IfcExternallyDefinedSurfaceStyle::getClassType())) {
+    else if (v && v->isOfType(IfcExternallyDefinedSurfaceStyle::getClassType())) {
         setIfcExternallyDefinedSurfaceStyle(static_cast< IfcExternallyDefinedSurfaceStyle* > (v));
     }
-    else if (v->isOfType(IfcSurfaceStyleRefraction::getClassType())) {
+    else if (v && v->isOfType(IfcSurfaceStyleRefraction::getClassType())) {
         setIfcSurfaceStyleRefraction(static_cast< IfcSurfaceStyleRefraction* > (v));
     }
 }

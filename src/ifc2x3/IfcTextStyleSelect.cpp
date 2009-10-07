@@ -159,10 +159,10 @@ void IfcTextStyleSelect::setIfcTextStyleTextModel(IfcTextStyleTextModel *value) 
 }
 
 void IfcTextStyleSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcTextStyleWithBoxCharacteristics::getClassType())) {
+    if (v && v->isOfType(IfcTextStyleWithBoxCharacteristics::getClassType())) {
         setIfcTextStyleWithBoxCharacteristics(static_cast< IfcTextStyleWithBoxCharacteristics* > (v));
     }
-    else if (v->isOfType(IfcTextStyleTextModel::getClassType())) {
+    else if (v && v->isOfType(IfcTextStyleTextModel::getClassType())) {
         setIfcTextStyleTextModel(static_cast< IfcTextStyleTextModel* > (v));
     }
 }

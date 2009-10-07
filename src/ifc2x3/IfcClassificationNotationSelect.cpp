@@ -159,10 +159,10 @@ void IfcClassificationNotationSelect::setIfcClassificationReference(IfcClassific
 }
 
 void IfcClassificationNotationSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcClassificationNotation::getClassType())) {
+    if (v && v->isOfType(IfcClassificationNotation::getClassType())) {
         setIfcClassificationNotation(static_cast< IfcClassificationNotation* > (v));
     }
-    else if (v->isOfType(IfcClassificationReference::getClassType())) {
+    else if (v && v->isOfType(IfcClassificationReference::getClassType())) {
         setIfcClassificationReference(static_cast< IfcClassificationReference* > (v));
     }
 }

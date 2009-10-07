@@ -533,43 +533,43 @@ void IfcObjectReferenceSelect::setIfcAppliedValue(IfcAppliedValue *value) {
 }
 
 void IfcObjectReferenceSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcMaterial::getClassType())) {
+    if (v && v->isOfType(IfcMaterial::getClassType())) {
         setIfcMaterial(static_cast< IfcMaterial* > (v));
     }
-    else if (v->isOfType(IfcPerson::getClassType())) {
+    else if (v && v->isOfType(IfcPerson::getClassType())) {
         setIfcPerson(static_cast< IfcPerson* > (v));
     }
-    else if (v->isOfType(IfcDateAndTime::getClassType())) {
+    else if (v && v->isOfType(IfcDateAndTime::getClassType())) {
         setIfcDateAndTime(static_cast< IfcDateAndTime* > (v));
     }
-    else if (v->isOfType(IfcMaterialList::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialList::getClassType())) {
         setIfcMaterialList(static_cast< IfcMaterialList* > (v));
     }
-    else if (v->isOfType(IfcOrganization::getClassType())) {
+    else if (v && v->isOfType(IfcOrganization::getClassType())) {
         setIfcOrganization(static_cast< IfcOrganization* > (v));
     }
-    else if (v->isOfType(IfcCalendarDate::getClassType())) {
+    else if (v && v->isOfType(IfcCalendarDate::getClassType())) {
         setIfcCalendarDate(static_cast< IfcCalendarDate* > (v));
     }
-    else if (v->isOfType(IfcLocalTime::getClassType())) {
+    else if (v && v->isOfType(IfcLocalTime::getClassType())) {
         setIfcLocalTime(static_cast< IfcLocalTime* > (v));
     }
-    else if (v->isOfType(IfcPersonAndOrganization::getClassType())) {
+    else if (v && v->isOfType(IfcPersonAndOrganization::getClassType())) {
         setIfcPersonAndOrganization(static_cast< IfcPersonAndOrganization* > (v));
     }
-    else if (v->isOfType(IfcMaterialLayer::getClassType())) {
+    else if (v && v->isOfType(IfcMaterialLayer::getClassType())) {
         setIfcMaterialLayer(static_cast< IfcMaterialLayer* > (v));
     }
-    else if (v->isOfType(IfcExternalReference::getClassType())) {
+    else if (v && v->isOfType(IfcExternalReference::getClassType())) {
         setIfcExternalReference(static_cast< IfcExternalReference* > (v));
     }
-    else if (v->isOfType(IfcTimeSeries::getClassType())) {
+    else if (v && v->isOfType(IfcTimeSeries::getClassType())) {
         setIfcTimeSeries(static_cast< IfcTimeSeries* > (v));
     }
-    else if (v->isOfType(IfcAddress::getClassType())) {
+    else if (v && v->isOfType(IfcAddress::getClassType())) {
         setIfcAddress(static_cast< IfcAddress* > (v));
     }
-    else if (v->isOfType(IfcAppliedValue::getClassType())) {
+    else if (v && v->isOfType(IfcAppliedValue::getClassType())) {
         setIfcAppliedValue(static_cast< IfcAppliedValue* > (v));
     }
 }

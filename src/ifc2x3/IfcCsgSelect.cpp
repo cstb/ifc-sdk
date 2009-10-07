@@ -159,10 +159,10 @@ void IfcCsgSelect::setIfcCsgPrimitive3D(IfcCsgPrimitive3D *value) {
 }
 
 void IfcCsgSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcBooleanResult::getClassType())) {
+    if (v && v->isOfType(IfcBooleanResult::getClassType())) {
         setIfcBooleanResult(static_cast< IfcBooleanResult* > (v));
     }
-    else if (v->isOfType(IfcCsgPrimitive3D::getClassType())) {
+    else if (v && v->isOfType(IfcCsgPrimitive3D::getClassType())) {
         setIfcCsgPrimitive3D(static_cast< IfcCsgPrimitive3D* > (v));
     }
 }

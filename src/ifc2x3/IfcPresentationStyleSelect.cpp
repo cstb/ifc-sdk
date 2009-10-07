@@ -281,19 +281,19 @@ void IfcPresentationStyleSelect::setIfcSurfaceStyle(IfcSurfaceStyle *value) {
 }
 
 void IfcPresentationStyleSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcCurveStyle::getClassType())) {
+    if (v && v->isOfType(IfcCurveStyle::getClassType())) {
         setIfcCurveStyle(static_cast< IfcCurveStyle* > (v));
     }
-    else if (v->isOfType(IfcSymbolStyle::getClassType())) {
+    else if (v && v->isOfType(IfcSymbolStyle::getClassType())) {
         setIfcSymbolStyle(static_cast< IfcSymbolStyle* > (v));
     }
-    else if (v->isOfType(IfcFillAreaStyle::getClassType())) {
+    else if (v && v->isOfType(IfcFillAreaStyle::getClassType())) {
         setIfcFillAreaStyle(static_cast< IfcFillAreaStyle* > (v));
     }
-    else if (v->isOfType(IfcTextStyle::getClassType())) {
+    else if (v && v->isOfType(IfcTextStyle::getClassType())) {
         setIfcTextStyle(static_cast< IfcTextStyle* > (v));
     }
-    else if (v->isOfType(IfcSurfaceStyle::getClassType())) {
+    else if (v && v->isOfType(IfcSurfaceStyle::getClassType())) {
         setIfcSurfaceStyle(static_cast< IfcSurfaceStyle* > (v));
     }
 }

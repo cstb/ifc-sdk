@@ -159,10 +159,10 @@ void IfcDefinedSymbolSelect::setIfcExternallyDefinedSymbol(IfcExternallyDefinedS
 }
 
 void IfcDefinedSymbolSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcPreDefinedSymbol::getClassType())) {
+    if (v && v->isOfType(IfcPreDefinedSymbol::getClassType())) {
         setIfcPreDefinedSymbol(static_cast< IfcPreDefinedSymbol* > (v));
     }
-    else if (v->isOfType(IfcExternallyDefinedSymbol::getClassType())) {
+    else if (v && v->isOfType(IfcExternallyDefinedSymbol::getClassType())) {
         setIfcExternallyDefinedSymbol(static_cast< IfcExternallyDefinedSymbol* > (v));
     }
 }

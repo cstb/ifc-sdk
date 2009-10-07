@@ -159,10 +159,10 @@ void IfcCurveStyleFontSelect::setIfcCurveStyleFont(IfcCurveStyleFont *value) {
 }
 
 void IfcCurveStyleFontSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcPreDefinedCurveFont::getClassType())) {
+    if (v && v->isOfType(IfcPreDefinedCurveFont::getClassType())) {
         setIfcPreDefinedCurveFont(static_cast< IfcPreDefinedCurveFont* > (v));
     }
-    else if (v->isOfType(IfcCurveStyleFont::getClassType())) {
+    else if (v && v->isOfType(IfcCurveStyleFont::getClassType())) {
         setIfcCurveStyleFont(static_cast< IfcCurveStyleFont* > (v));
     }
 }

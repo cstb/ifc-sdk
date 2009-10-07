@@ -159,10 +159,10 @@ void IfcTextFontSelect::setIfcExternallyDefinedTextFont(IfcExternallyDefinedText
 }
 
 void IfcTextFontSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcPreDefinedTextFont::getClassType())) {
+    if (v && v->isOfType(IfcPreDefinedTextFont::getClassType())) {
         setIfcPreDefinedTextFont(static_cast< IfcPreDefinedTextFont* > (v));
     }
-    else if (v->isOfType(IfcExternallyDefinedTextFont::getClassType())) {
+    else if (v && v->isOfType(IfcExternallyDefinedTextFont::getClassType())) {
         setIfcExternallyDefinedTextFont(static_cast< IfcExternallyDefinedTextFont* > (v));
     }
 }

@@ -145,7 +145,7 @@ void IfcHatchLineDistanceSelect::setIfcPositiveLengthMeasure(IfcPositiveLengthMe
 }
 
 void IfcHatchLineDistanceSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcOneDirectionRepeatFactor::getClassType())) {
+    if (v && v->isOfType(IfcOneDirectionRepeatFactor::getClassType())) {
         setIfcOneDirectionRepeatFactor(static_cast< IfcOneDirectionRepeatFactor* > (v));
     }
 }

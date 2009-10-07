@@ -193,14 +193,16 @@ void IfcActorSelect::setIfcPersonAndOrganization(IfcPersonAndOrganization *value
 }
 
 void IfcActorSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcOrganization::getClassType())) {
-        setIfcOrganization(static_cast< IfcOrganization* > (v));
-    }
-    else if (v->isOfType(IfcPerson::getClassType())) {
-        setIfcPerson(static_cast< IfcPerson* > (v));
-    }
-    else if (v->isOfType(IfcPersonAndOrganization::getClassType())) {
-        setIfcPersonAndOrganization(static_cast< IfcPersonAndOrganization* > (v));
+    if (v) {
+        if (v->isOfType(IfcOrganization::getClassType())) {
+            setIfcOrganization(static_cast< IfcOrganization* > (v));
+        }
+        else if (v->isOfType(IfcPerson::getClassType())) {
+            setIfcPerson(static_cast< IfcPerson* > (v));
+        }
+        else if (v->isOfType(IfcPersonAndOrganization::getClassType())) {
+            setIfcPersonAndOrganization(static_cast< IfcPersonAndOrganization* > (v));
+        }
     }
 }
 

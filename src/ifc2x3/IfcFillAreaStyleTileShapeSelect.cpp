@@ -125,7 +125,7 @@ void IfcFillAreaStyleTileShapeSelect::setIfcFillAreaStyleTileSymbolWithStyle(Ifc
 }
 
 void IfcFillAreaStyleTileShapeSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcFillAreaStyleTileSymbolWithStyle::getClassType())) {
+    if (v && v->isOfType(IfcFillAreaStyleTileSymbolWithStyle::getClassType())) {
         setIfcFillAreaStyleTileSymbolWithStyle(static_cast< IfcFillAreaStyleTileSymbolWithStyle* > (v));
     }
 }

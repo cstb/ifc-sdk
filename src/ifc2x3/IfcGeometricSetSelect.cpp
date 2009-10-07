@@ -193,13 +193,13 @@ void IfcGeometricSetSelect::setIfcSurface(IfcSurface *value) {
 }
 
 void IfcGeometricSetSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcPoint::getClassType())) {
+    if (v && v->isOfType(IfcPoint::getClassType())) {
         setIfcPoint(static_cast< IfcPoint* > (v));
     }
-    else if (v->isOfType(IfcCurve::getClassType())) {
+    else if (v && v->isOfType(IfcCurve::getClassType())) {
         setIfcCurve(static_cast< IfcCurve* > (v));
     }
-    else if (v->isOfType(IfcSurface::getClassType())) {
+    else if (v && v->isOfType(IfcSurface::getClassType())) {
         setIfcSurface(static_cast< IfcSurface* > (v));
     }
 }

@@ -39,7 +39,9 @@ int main (int n, char **p)
 //        footing.getObjectPlacement();
 //        //allIfcFooting
 
+        //eds->get(47228);
         eds->instantiateAll();
+        std::cout << "eds->instantiateAll();" << std::endl;
 
         Step::MapOfEntities::const_iterator end = eds->getAll().end();
         Step::MapOfEntities::const_iterator it  = eds->getAll().begin();

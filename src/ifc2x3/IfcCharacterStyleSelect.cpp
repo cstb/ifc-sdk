@@ -125,7 +125,7 @@ void IfcCharacterStyleSelect::setIfcTextStyleForDefinedFont(IfcTextStyleForDefin
 }
 
 void IfcCharacterStyleSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcTextStyleForDefinedFont::getClassType())) {
+    if (v && v->isOfType(IfcTextStyleForDefinedFont::getClassType())) {
         setIfcTextStyleForDefinedFont(static_cast< IfcTextStyleForDefinedFont* > (v));
     }
 }

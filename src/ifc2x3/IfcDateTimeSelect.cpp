@@ -193,13 +193,13 @@ void IfcDateTimeSelect::setIfcDateAndTime(IfcDateAndTime *value) {
 }
 
 void IfcDateTimeSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcCalendarDate::getClassType())) {
+    if (v && v->isOfType(IfcCalendarDate::getClassType())) {
         setIfcCalendarDate(static_cast< IfcCalendarDate* > (v));
     }
-    else if (v->isOfType(IfcLocalTime::getClassType())) {
+    else if (v && v->isOfType(IfcLocalTime::getClassType())) {
         setIfcLocalTime(static_cast< IfcLocalTime* > (v));
     }
-    else if (v->isOfType(IfcDateAndTime::getClassType())) {
+    else if (v && v->isOfType(IfcDateAndTime::getClassType())) {
         setIfcDateAndTime(static_cast< IfcDateAndTime* > (v));
     }
 }

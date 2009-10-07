@@ -159,10 +159,10 @@ void IfcLightDistributionDataSourceSelect::setIfcLightIntensityDistribution(IfcL
 }
 
 void IfcLightDistributionDataSourceSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcExternalReference::getClassType())) {
+    if (v && v->isOfType(IfcExternalReference::getClassType())) {
         setIfcExternalReference(static_cast< IfcExternalReference* > (v));
     }
-    else if (v->isOfType(IfcLightIntensityDistribution::getClassType())) {
+    else if (v && v->isOfType(IfcLightIntensityDistribution::getClassType())) {
         setIfcLightIntensityDistribution(static_cast< IfcLightIntensityDistribution* > (v));
     }
 }

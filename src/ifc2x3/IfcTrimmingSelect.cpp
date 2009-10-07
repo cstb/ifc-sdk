@@ -145,7 +145,7 @@ void IfcTrimmingSelect::setIfcParameterValue(IfcParameterValue value) {
 }
 
 void IfcTrimmingSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcCartesianPoint::getClassType())) {
+    if (v && v->isOfType(IfcCartesianPoint::getClassType())) {
         setIfcCartesianPoint(static_cast< IfcCartesianPoint* > (v));
     }
 }

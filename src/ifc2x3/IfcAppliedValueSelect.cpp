@@ -165,7 +165,7 @@ void IfcAppliedValueSelect::setIfcMonetaryMeasure(IfcMonetaryMeasure value) {
 }
 
 void IfcAppliedValueSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcMeasureWithUnit::getClassType())) {
+    if (v && v->isOfType(IfcMeasureWithUnit::getClassType())) {
         setIfcMeasureWithUnit(static_cast< IfcMeasureWithUnit* > (v));
     }
 }

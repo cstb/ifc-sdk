@@ -261,19 +261,19 @@ void IfcFillStyleSelect::setIfcExternallyDefinedHatchStyle(IfcExternallyDefinedH
 }
 
 void IfcFillStyleSelect::set(Step::BaseObject *v) {
-    if (v->isOfType(IfcFillAreaStyleHatching::getClassType())) {
+    if (v && v->isOfType(IfcFillAreaStyleHatching::getClassType())) {
         setIfcFillAreaStyleHatching(static_cast< IfcFillAreaStyleHatching* > (v));
     }
-    else if (v->isOfType(IfcFillAreaStyleTiles::getClassType())) {
+    else if (v && v->isOfType(IfcFillAreaStyleTiles::getClassType())) {
         setIfcFillAreaStyleTiles(static_cast< IfcFillAreaStyleTiles* > (v));
     }
-    else if (v->isOfType(IfcColourSpecification::getClassType())) {
+    else if (v && v->isOfType(IfcColourSpecification::getClassType())) {
         setIfcColourSpecification(static_cast< IfcColourSpecification* > (v));
     }
-    else if (v->isOfType(IfcPreDefinedColour::getClassType())) {
+    else if (v && v->isOfType(IfcPreDefinedColour::getClassType())) {
         setIfcPreDefinedColour(static_cast< IfcPreDefinedColour* > (v));
     }
-    else if (v->isOfType(IfcExternallyDefinedHatchStyle::getClassType())) {
+    else if (v && v->isOfType(IfcExternallyDefinedHatchStyle::getClassType())) {
         setIfcExternallyDefinedHatchStyle(static_cast< IfcExternallyDefinedHatchStyle* > (v));
     }
 }
