@@ -787,7 +787,7 @@ int main(int argc, char **argv)
 
    // ** Write to model to a file
    ifc2x3::SPFWriter writer(mDataSet.get());
-   bool result = writer.writeSPF("data/Ifc/builtModel.ifc");
+   writer.writeSPF("data/Ifc/builtModel.ifc");
 
    return 1;
 }
