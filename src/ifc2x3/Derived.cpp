@@ -17,7 +17,7 @@
  ***************************************************************************
 */
 
-#define LOG_DEBUG_ENABLE 1
+#define LOG_DEBUG_ENABLE 0
 
 #include "ifc2x3/ExpressDataSet.h"
 #include "ifc2x3/IfcAxis1Placement.h"
