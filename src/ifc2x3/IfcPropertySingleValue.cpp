@@ -681,10 +681,14 @@ bool IfcPropertySingleValue::init() {
 
 void IfcPropertySingleValue::copy(const IfcPropertySingleValue &obj, const CopyOp &copyop) {
     IfcSimpleProperty::copy(obj, copyop);
-    m_nominalValue = new IfcValue;
-    m_nominalValue->copy(*(obj.m_nominalValue.get()), copyop);
-    m_unit = new IfcUnit;
-    m_unit->copy(*(obj.m_unit.get()), copyop);
+    if (obj.m_nominalValue.valid()) {
+        m_nominalValue = new IfcValue;
+        m_nominalValue->copy(*(obj.m_nominalValue.get()), copyop);
+    }
+    if (obj.m_unit.valid()) {
+        m_unit = new IfcUnit;
+        m_unit->copy(*(obj.m_unit.get()), copyop);
+    }
     return;
 }
 

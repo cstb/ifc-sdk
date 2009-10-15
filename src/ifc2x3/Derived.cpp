@@ -170,7 +170,7 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 		Vec->setOrientation(V);
 		Vec->setMagnitude(1.0);
 
-		NDim = Arg->getOrientation()->getDim(); // TODO: replace by call to getDim when it's done
+		NDim = Arg->getOrientation()->getDim();
 		V->setDirectionRatios(Arg->getOrientation()->getDirectionRatios());
 		Vec->setMagnitude(Arg->getMagnitude());
 		Vec->setOrientation(V);
@@ -321,7 +321,7 @@ END_FUNCTION;
 Step::RefPtr<IfcDirection> IfcOrthogonalComplement(Step::RefPtr<IfcDirection> Arg)
 {
     LOG_DEBUG("IfcOrthogonalComplement()");
-	if(!Arg.valid() || Arg->getDim() != 2) // TODO: replace by call to getDim when it's done
+	if(!Arg.valid() || Arg->getDim() != 2) 
 	{
 		LOG_DEBUG("IfcOrthogonalComplement() End Bad");
 		return 0;
@@ -1085,9 +1085,9 @@ List_IfcDirection_3_3 IfcAxis2Placement3D::getP() const
 	}
 
 	LOG_DEBUG("IfcAxis2Placement3D::getP()::IfcBuildAxes(getAxis(), refDirection)");
+    
+    LOG_DEBUG("IfcAxis2Placement3D::End");
 	return IfcBuildAxes(Axis, refDirection);
-	LOG_DEBUG("IfcAxis2Placement3D::End");
-
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
