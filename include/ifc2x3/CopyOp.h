@@ -2836,6 +2836,11 @@ namespace ifc2x3 {
         virtual bool visitIfcZone(IfcZone *obj) = 0;
         friend class ExpressDataSet;
 
+        /**
+         * @param original
+         */
+        virtual Step::BaseObject *find(const Step::BaseObject *original) const;
+        
     protected:
         /**
          * The reference to the base object to return.
@@ -2847,10 +2852,7 @@ namespace ifc2x3 {
          * @param clone
          */
         virtual void associate(const Step::BaseObject *original, Step::BaseObject *clone) const;
-        /**
-         * @param original
-         */
-        virtual Step::BaseObject *find(const Step::BaseObject *original) const;
+
         /**
          * Returns 0.
          * 
@@ -5117,6 +5119,11 @@ namespace ifc2x3 {
          */
         virtual bool visitIfcZone(IfcZone *obj);
 
+        /**
+         * @param original
+         */
+        virtual Step::BaseObject *find(const Step::BaseObject *original) const;
+        
     protected:
         /**
          * Map storing Original to clones to break circle relationships loops.
@@ -5128,10 +5135,7 @@ namespace ifc2x3 {
          * @param clone
          */
         virtual void associate(const Step::BaseObject *original, Step::BaseObject *clone) const;
-        /**
-         * @param original
-         */
-        virtual Step::BaseObject *find(const Step::BaseObject *original) const;
+
 
     };
 
