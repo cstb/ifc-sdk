@@ -1,22 +1,3 @@
-/* *************************************************************************
- *                                                                         *
- *     STEP Early Classes C++                                              *
- *                                                                         *
- *     Copyright (C) 2008 CSTB                                             *
- *                                                                         *
- *                                                                         *
- *   For further information please contact                                *
- *                                                                         *
- *         eve@cstb.fr                                                     *
- *   or                                                                    *
- *         Mod-Eve, CSTB                                                   *
- *         290, route des Lucioles                                         *
- *         BP 209                                                          *
- *         06904 Sophia Antipolis, France                                  *
- *                                                                         *
- ***************************************************************************
-*/
-
 #define LOG_DEBUG_ENABLE 0
 
 #include "ifc2x3/ExpressDataSet.h"
