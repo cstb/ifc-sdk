@@ -220,7 +220,7 @@ bool IfcGeometricRepresentationContext::init() {
     }
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {
-        m_worldCoordinateSystem = NULL;
+        m_worldCoordinateSystem = new IfcAxis2Placement;
     }
     else {
         m_worldCoordinateSystem = new IfcAxis2Placement;
