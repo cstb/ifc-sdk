@@ -47,7 +47,7 @@ using namespace ifc2x3;
 IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args) : IfcRepresentationContext(id, args) {
     m_coordinateSpaceDimension = Step::getUnset(m_coordinateSpaceDimension);
     m_precision = Step::getUnset(m_precision);
-    m_worldCoordinateSystem = NULL;
+    m_worldCoordinateSystem = new IfcAxis2Placement;
     m_trueNorth = NULL;
 }
 
