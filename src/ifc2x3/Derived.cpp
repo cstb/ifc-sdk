@@ -173,9 +173,9 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 		Vec->setOrientation(V);
 		if(Arg->getMagnitude() == 0.0)
 		{
-			std::cout << "Arg Orientation : [" <<	Arg->getOrientation()->getDirectionRatios()[0] << ";"<<
+			LOG_DEBUG( "Arg Orientation : [" <<	Arg->getOrientation()->getDirectionRatios()[0] << ";"<<
 													Arg->getOrientation()->getDirectionRatios()[1] << ";"<<
-													Arg->getOrientation()->getDirectionRatios()[2] << "]"<<std::endl;
+													Arg->getOrientation()->getDirectionRatios()[2] << "]");
 			LOG_DEBUG("IfcNormalise(IfcVector) return 0 Mag=0");
 			return 0;
 		}
@@ -183,9 +183,9 @@ Step::RefPtr<IfcVector> IfcNormalise(const IfcVector* Arg)
 			Vec->setMagnitude(1.0);
 
 		Mag = 0.0;
-		std::cout << "V : [" <<	V->getDirectionRatios()[0] << ";"<<
+		LOG_DEBUG( "V : [" <<	V->getDirectionRatios()[0] << ";"<<
 								V->getDirectionRatios()[1] << ";"<<
-								V->getDirectionRatios()[2] << "]"<<std::endl;
+								V->getDirectionRatios()[2] << "]");
 		for(Step::Integer i = 0 ; i < NDim ; i++)
 		{
 			Mag = Mag + (V->getDirectionRatios()[i] * V->getDirectionRatios()[i]);
@@ -262,8 +262,8 @@ Step::RefPtr<IfcDirection> IfcNormalise(const IfcDirection *Arg)
               "               Result->getDirectionRatios()[1]=" << Result->getDirectionRatios()[1] << std::endl <<
               "               Result->getDirectionRatios()[2]=" << (NDim == 3 ? Result->getDirectionRatios()[2] : 0.0 ) )
 */
-	//std::cout << "V->getDirectionRatios()[0]" << V->getDirectionRatios()[0] << std::endl;
-	//std::cout << "V->getDirectionRatios()[1]" << V->getDirectionRatios()[1] << std::endl;
+	//LOG_DEBUG( "V->getDirectionRatios()[0]" << V->getDirectionRatios()[0] << std::endl;
+	//LOG_DEBUG( "V->getDirectionRatios()[1]" << V->getDirectionRatios()[1] << std::endl;
 
 	LOG_DEBUG("IfcNormalise::End");
 	return Result;
@@ -756,8 +756,8 @@ Step::RefPtr<IfcVector> IfcCrossProduct(const IfcDirection* Arg1, const IfcDirec
 		Res = static_cast<ifc2x3::ExpressDataSet*>(Arg1->getExpressDataSet())->createIfcDirection(true);
 		Result = static_cast<ifc2x3::ExpressDataSet*>(Arg1->getExpressDataSet())->createIfcVector(true);
 
-		std::cout << "Arg1 = [" << Arg1->getDirectionRatios()[0] << ";" << Arg1->getDirectionRatios()[1] << ";" <<  Arg1->getDirectionRatios()[2]<< "]" << std::endl;
-		std::cout << "Arg2 = [" << Arg2->getDirectionRatios()[0] << ";" << Arg2->getDirectionRatios()[1] << ";" <<  Arg2->getDirectionRatios()[2]<< "]" << std::endl;
+		LOG_DEBUG( "Arg1 = [" << Arg1->getDirectionRatios()[0] << ";" << Arg1->getDirectionRatios()[1] << ";" <<  Arg1->getDirectionRatios()[2]<< "]" << std::endl;
+		LOG_DEBUG( "Arg2 = [" << Arg2->getDirectionRatios()[0] << ";" << Arg2->getDirectionRatios()[1] << ";" <<  Arg2->getDirectionRatios()[2]<< "]" << std::endl;
 
 		LOG_DEBUG("IfcCrossProduct::V1 = IfcNormalise(Arg1)->getDirectionRatios();");
 		Step::RefPtr<IfcDirection> D1 = IfcNormalise(Arg1);
@@ -1068,17 +1068,17 @@ List_IfcDirection_3_3 IfcAxis2Placement3D::getP() const
 		refDirection = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcDirection(true);
 	else
 	{
-		std::cout << "refDirection : [" << refDirection->getDirectionRatios()[0] << ";"<<
+		LOG_DEBUG( "refDirection : [" << refDirection->getDirectionRatios()[0] << ";"<<
 			refDirection->getDirectionRatios()[1] << ";"<<
-			refDirection->getDirectionRatios()[2] << "]"<<std::endl;
+			refDirection->getDirectionRatios()[2] << "]");
 	}
 	if (!Axis.valid() || Axis->getDim()!=3)
 		Axis = static_cast<ifc2x3::ExpressDataSet*>(getExpressDataSet())->createIfcDirection(true);
 	else
 	{
-		std::cout << "Axis : [" << Axis->getDirectionRatios()[0] << ";"<<
+		LOG_DEBUG( "Axis : [" << Axis->getDirectionRatios()[0] << ";"<<
 			Axis->getDirectionRatios()[1] << ";"<<
-			Axis->getDirectionRatios()[2] << "]"<<std::endl;
+			Axis->getDirectionRatios()[2] << "]");
 	}
 
 	LOG_DEBUG("IfcAxis2Placement3D::getP()::IfcBuildAxes(getAxis(), refDirection)");
