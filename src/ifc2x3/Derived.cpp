@@ -756,8 +756,8 @@ Step::RefPtr<IfcVector> IfcCrossProduct(const IfcDirection* Arg1, const IfcDirec
 		Res = static_cast<ifc2x3::ExpressDataSet*>(Arg1->getExpressDataSet())->createIfcDirection(true);
 		Result = static_cast<ifc2x3::ExpressDataSet*>(Arg1->getExpressDataSet())->createIfcVector(true);
 
-		LOG_DEBUG( "Arg1 = [" << Arg1->getDirectionRatios()[0] << ";" << Arg1->getDirectionRatios()[1] << ";" <<  Arg1->getDirectionRatios()[2]<< "]" << std::endl;
-		LOG_DEBUG( "Arg2 = [" << Arg2->getDirectionRatios()[0] << ";" << Arg2->getDirectionRatios()[1] << ";" <<  Arg2->getDirectionRatios()[2]<< "]" << std::endl;
+		LOG_DEBUG( "Arg1 = [" << Arg1->getDirectionRatios()[0] << ";" << Arg1->getDirectionRatios()[1] << ";" <<  Arg1->getDirectionRatios()[2]<< "]" );
+		LOG_DEBUG( "Arg2 = [" << Arg2->getDirectionRatios()[0] << ";" << Arg2->getDirectionRatios()[1] << ";" <<  Arg2->getDirectionRatios()[2]<< "]" );
 
 		LOG_DEBUG("IfcCrossProduct::V1 = IfcNormalise(Arg1)->getDirectionRatios();");
 		Step::RefPtr<IfcDirection> D1 = IfcNormalise(Arg1);
@@ -1657,7 +1657,7 @@ END_FUNCTION;
 IfcDimensionCount IfcCurveDim(const ifc2x3::IfcCurve* Curve)
 {
 	LOG_DEBUG("IfcCurveDim(const ifc2x3::IfcCurve* Curve)");
-	LOG_DEBUG("Type Curve = "<<Curve->getType().getName()<< std::endl);
+	LOG_DEBUG("Type Curve = "<<Curve->getType().getName());
 
 	if(Curve->isOfType(ifc2x3::IfcLine::getClassType()))
 	{
