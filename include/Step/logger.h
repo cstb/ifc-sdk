@@ -79,21 +79,21 @@ namespace Step {
 
 #ifdef LOG_DEBUG_ENABLE
 # define LOG_INFO_ENABLE
-# define LOG_DEBUG(msg) std::cerr <<   "DEBUG :" << msg << std::endl;
+# define LOG_DEBUG(msg) std::cerr <<   "      DEBUG :" << msg << std::endl;
 #else
 # define LOG_DEBUG(msg)
 #endif
 
 #ifdef LOG_INFO_ENABLE
 # define LOG_WARNING_ENABLE
-# define LOG_INFO(msg) std::cerr <<    "INFO :" << msg << std::endl;
+# define LOG_INFO(msg) std::cerr <<    "    INFO    :" << msg << std::endl;
 #else
 # define LOG_INFO(msg)
 #endif
 
 #ifdef LOG_WARNING_ENABLE
 # define LOG_ERROR_ENABLE
-# define LOG_WARNING(msg) std::cerr << "WARNING :" << msg << std::endl;
+# define LOG_WARNING(msg) std::cerr << "  WARNING   :" << msg << std::endl;
 #else
 # define LOG_WARNING(msg)
 #endif
@@ -101,13 +101,13 @@ namespace Step {
 
 #ifdef LOG_ERROR_ENABLE
 # define LOG_ALWAYS_ENABLE
-# define LOG_ERROR(msg) std::cerr <<   "ERROR  :" << msg << std::endl;
+# define LOG_ERROR(msg) std::cerr <<   "ERROR       :" << msg << std::endl;
 #else
 # define LOG_ERROR(msg)
 #endif
 
 #ifdef LOG_ALWAYS_ENABLE
-# define LOG_ALWAYS(msg) std::cerr <<  "ALWAYS :" << msg << std::endl;
+# define LOG_ALWAYS(msg) std::cerr <<  "ALWAYS      :" << msg << std::endl;
 #else
 # define LOG_ALWAYS(msg)
 #endif
