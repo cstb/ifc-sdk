@@ -147,6 +147,11 @@ namespace Step {
          */
         virtual Alphabet getAlphabet() const;
 
+		/**
+		 * set default Alphabet for all subsequent new String creation
+		 */
+		static void setDefaultAlphabet(Alphabet a);
+
     private:
         Alphabet alphabet;
         /// builds from a latin-1 (ISO 8859-1) encoded representation

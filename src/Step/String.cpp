@@ -21,13 +21,15 @@
 
 using namespace Step;
 
+static String::Alphabet defaultAlphabet = String::Unknown;
+
 bool String::operator==(const std::string &str) const
 {
     return (*this == Step::String(str));
 }
 
 String::String() :
-    alphabet(Unknown)
+    alphabet(defaultAlphabet)
 {
 }
 
@@ -37,12 +39,12 @@ String::String(const String& str) :
 }
 
 String::String(const wchar_t *str) :
-    std::wstring(str), alphabet(Unknown)
+    std::wstring(str), alphabet(defaultAlphabet)
 {
 }
 
 String::String(const std::wstring& str) :
-    std::wstring(str), alphabet(Unknown)
+    std::wstring(str), alphabet(defaultAlphabet)
 {
 }
 
@@ -53,7 +55,7 @@ String::String(const char *str) :
 }
 
 String::String(const std::string &str) :
-    alphabet(Western_European)
+    alphabet(defaultAlphabet)
 {
     buildLatin1(str);
 }
@@ -198,6 +200,11 @@ String String::fromUTF8(const std::string &str)
 void String::setAlphabet(Alphabet a)
 {
     alphabet = a;
+}
+
+void String::setDefaultAlphabet(Alphabet a)
+{
+	defaultAlphabet = a;
 }
 
 String::Alphabet String::getAlphabet() const
