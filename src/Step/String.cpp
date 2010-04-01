@@ -21,7 +21,7 @@
 
 using namespace Step;
 
-static String::Alphabet defaultAlphabet = String::Unknown;
+static String::Alphabet defaultAlphabet = String::Western_European;
 
 bool String::operator==(const std::string &str) const
 {
