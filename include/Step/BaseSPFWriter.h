@@ -25,7 +25,7 @@
 #include "BaseEntity.h"
 #include "SimpleTypes.h"
 
-#include <fstream>
+#include <ostream>
 #include <string>
 #include <sstream>
 #include <map>
@@ -63,6 +63,13 @@ namespace Step {
         virtual bool writeSPF(const std::string& filepath) = 0;
 
         /*!
+        ** \short Write the STEP-21 file to an ostream
+        ** @param filestream the output STEP-21 stream
+        ** @return true if the model was correctly saved
+        */
+        virtual bool writeSPF(std::ostream& filestream) = 0;
+
+        /*!
         ** \short Set the decimal precision for writing Real values
         ** The decimal precision determines the maximum number of digits
         ** to be written on insertion operations to express floating-point values.
@@ -72,12 +79,14 @@ namespace Step {
 
     protected:
 
+        std::ostream &outputStream() {return *m_out;}
+
         /*!
         ** \short Init the output stream
-        ** @param filepath the output STEP-21 file path
+        ** @param filestream the output STEP-21 stream
         ** @return true if the output stream was correctly inited
         */
-        bool init(const std::string& filepath);
+        bool init(std::ostream& filestream);
 
         /*!
         ** \short Write SPF header
@@ -141,13 +150,13 @@ namespace Step {
         inline void writeAttribute(Binary<N>& value)
         {
             if (isUnset(value))
-                m_out << "$";
+                *m_out << "$";
             else
-                m_out << "\"" << value.to_spfstring() << "\"";
+                *m_out << "\"" << value.to_spfstring() << "\"";
         }
 
         //! output stream
-        std::ofstream m_out;
+        std::ostream *m_out;
 
         //! a pointer to the data set to write
         BaseExpressDataSet *m_expressDataSet;

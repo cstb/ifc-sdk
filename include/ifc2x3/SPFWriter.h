@@ -747,6 +747,14 @@ namespace ifc2x3 {
          * @param filepath Path to a file to write to.
          */
         virtual bool writeSPF(const std::string &filepath);
+
+        /**
+         * Call this method to write the content of the ExpressDataSet instance to a stream.
+         *
+         * @param filestream Stream to write to.
+         */
+        virtual bool writeSPF(std::ostream& filestream);
+
         /**
          * write the Ifc2DCompositeCurve datatype to m_out.
          * 

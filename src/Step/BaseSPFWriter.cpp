@@ -38,12 +38,12 @@ BaseSPFWriter::~BaseSPFWriter()
 
 }
 
-bool BaseSPFWriter::init(const std::string& filepath)
+bool BaseSPFWriter::init(std::ostream& filestream)
 {
-    m_out.open(filepath.c_str());
-    if (!m_out.is_open())
+    m_out = &filestream;
+    if (!outputStream().good())
         return false;
-    m_out.precision(m_precision);
+    outputStream().precision(m_precision);
 
     return true;
 }
@@ -52,69 +52,68 @@ void BaseSPFWriter::writeHeader()
 {
     SPFHeader& header = m_expressDataSet->getHeader();
     unsigned int i;
-    m_out << "ISO-10303-21;" << std::endl;
-    m_out << "HEADER;" << std::endl;
+    outputStream() << "ISO-10303-21;" << std::endl;
+    outputStream() << "HEADER;" << std::endl;
 
-    m_out << "FILE_DESCRIPTION((";
+    outputStream() << "FILE_DESCRIPTION((";
 
     SPFHeader::FileDescription& file_description = header.getFileDescription();
 
     //std::list<std::string> file_description = m_expressDataSet->get_file_description() ;
     for (i = 0; i < file_description.description.size(); i++)
     {
-        m_out << file_description.description[i].toSPF();
+        outputStream() << file_description.description[i].toSPF();
         if (i != (file_description.description.size() - 1))
-            m_out << ",";
+            outputStream() << ",";
     }
 
-    m_out << "), " << file_description.implementationLevel.toSPF() << ");"
+    outputStream() << "), " << file_description.implementationLevel.toSPF() << ");"
             << std::endl;
 
     SPFHeader::FileName& filename = header.getFileName();
-    m_out << "FILE_NAME(" << filename.name.toSPF() << ","
+    outputStream() << "FILE_NAME(" << filename.name.toSPF() << ","
             << filename.timeStamp.toSPF() << ",(";
 
     std::vector<String> author = filename.author;
     for (i = 0; i < author.size(); i++)
     {
-        m_out << author[i].toSPF();
+        outputStream() << author[i].toSPF();
         if (i != author.size() - 1)
-            m_out << ",";
+            outputStream() << ",";
     }
-    m_out << "),(";
+    outputStream() << "),(";
 
     std::vector<String> organization = filename.organization;
     for (i = 0; i < organization.size(); i++)
     {
-        m_out << organization[i].toSPF();
+        outputStream() << organization[i].toSPF();
         if (i != organization.size() - 1)
-            m_out << ",";
+            outputStream() << ",";
     }
-    m_out << "), " << filename.preprocessorVersion.toSPF() << ", "
+    outputStream() << "), " << filename.preprocessorVersion.toSPF() << ", "
             << filename.originatingSystem.toSPF() << ", "
             << filename.authorization.toSPF() << ");" << std::endl;
 
-    m_out << "FILE_SCHEMA((";
+    outputStream() << "FILE_SCHEMA((";
     std::vector<String> schema_identifiers =
             header.getFileSchema().schemaIdentifiers;
     for (i = 0; i < schema_identifiers.size(); i++)
     {
-        m_out << schema_identifiers[i].toSPF();
+        outputStream() << schema_identifiers[i].toSPF();
         if (i != schema_identifiers.size() - 1)
-            m_out << ", ";
+            outputStream() << ", ";
     }
 
-    m_out << "));" << std::endl;
-    m_out << "ENDSEC;" << std::endl;
-    m_out << "DATA;" << std::endl;
+    outputStream() << "));" << std::endl;
+    outputStream() << "ENDSEC;" << std::endl;
+    outputStream() << "DATA;" << std::endl;
 
 }
 
 void BaseSPFWriter::writeEnder()
 {
-    m_out << "ENDSEC;" << std::endl;
-    m_out << "END-ISO-10303-21;" << std::endl;
-    m_out.close();
+    outputStream() << "ENDSEC;" << std::endl;
+    outputStream() << "END-ISO-10303-21;" << std::endl;
 }
 
 bool BaseSPFWriter::writeIfNotInited(Id id)
@@ -124,12 +123,12 @@ bool BaseSPFWriter::writeIfNotInited(Id id)
 
     if (!args || args->argc() <= 0)
         return false;
-    m_out << CHECK_IF_EXIST(args->at(0));
+    outputStream() << CHECK_IF_EXIST(args->at(0));
     for (int i = 1; i < args->argc(); i++)
     {
-        m_out << "," << CHECK_IF_EXIST(args->at(i));
+        outputStream() << "," << CHECK_IF_EXIST(args->at(i));
     }
-    m_out << ");" << std::endl;
+    outputStream() << ");" << std::endl;
     return true;
 #undef CHECK_IF_EXIST
 }
@@ -138,16 +137,16 @@ void BaseSPFWriter::writeAttribute(BaseEntity* entity)
 {
     Step::Id curId = entity->getKey();
     if (m_expressDataSet->exists(curId))
-        m_out << "#" << curId;
+        outputStream() << "#" << curId;
     else
-        m_out << "$";
+        outputStream() << "$";
 }
 
 void BaseSPFWriter::writeAttribute(Real value)
 {
     if (isUnset(value))
     {
-        m_out << "$";
+        outputStream() << "$";
     }
     else
     {
@@ -167,21 +166,21 @@ void BaseSPFWriter::writeAttribute(Real value)
         {
             str.insert(str.find('E'), ".0");
         }
-        m_out << str;
+        outputStream() << str;
     }
 }
 
 void BaseSPFWriter::writeAttribute(Integer value)
 {
     if (isUnset(value))
-        m_out << "$";
+        outputStream() << "$";
     else
-        m_out << value;
+        outputStream() << value;
 }
 
 void BaseSPFWriter::writeAttribute(Boolean value)
 {
-    m_out << (value == BTrue ? ".T." : (value == BFalse ? ".F." : "$"));
+    outputStream() << (value == BTrue ? ".T." : (value == BFalse ? ".F." : "$"));
 }
 
 void BaseSPFWriter::writeAttribute(Logical value)
@@ -189,16 +188,16 @@ void BaseSPFWriter::writeAttribute(Logical value)
     switch (value)
     {
     case LTrue:
-        m_out << ".T.";
+        outputStream() << ".T.";
         break;
     case LFalse:
-        m_out << ".F.";
+        outputStream() << ".F.";
         break;
     case LUnknown:
-        m_out << ".U.";
+        outputStream() << ".U.";
         break;
     default:
-        m_out << "$";
+        outputStream() << "$";
         break;
     }
 }
@@ -206,9 +205,9 @@ void BaseSPFWriter::writeAttribute(Logical value)
 void BaseSPFWriter::writeAttribute(const String& value)
 {
     if (isUnset(value))
-        m_out << "$";
+        outputStream() << "$";
     else
-        m_out << value.toSPF();
+        outputStream() << value.toSPF();
 }
 
 void BaseSPFWriter::setDecimalPrecision(const int precision)
