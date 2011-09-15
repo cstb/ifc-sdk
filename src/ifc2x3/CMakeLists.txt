@@ -1,11 +1,12 @@
 PROJECT(ifc2x3)
 
 FILE (GLOB PROJECT_SOURCES *.cpp)
+LIST (REMOVE_ITEM PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp")
 
 FILE (GLOB PROJECT_INCLUDES ../../include/ifc2x3/*.h )
 
 if(ENABLE_MSVC_PRECOMPILED_HEADER)
-    ADD_MSVC_PRECOMPILED_HEADER("../precompiled.h" "../precompiled.cpp" PROJECT_SOURCES) 
+    ADD_MSVC_PRECOMPILED_HEADER("precompiled.h" "precompiled.cpp" PROJECT_SOURCES) 
     add_definitions(-DENABLE_MSVC_PRECOMPILED_HEADER)
 endif()
 

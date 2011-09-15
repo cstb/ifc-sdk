@@ -15,8 +15,8 @@
 // Lesser General Public License for more details.
 
 #ifdef ENABLE_MSVC_PRECOMPILED_HEADER
-#include "../precompiled.h"
-#else
+#include "precompiled.h"
+#endif
 
 #include "ifc2x3/IfcProcess.h"
 
@@ -30,7 +30,7 @@
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
-#endif
+
 #include <string>
 #include <vector>
 
