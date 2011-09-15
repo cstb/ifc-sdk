@@ -43,25 +43,51 @@ IF(APPLE)
 	ENDIF (REAL_INSTALL_PREFIX)
 ENDIF(APPLE)
 
+macro(ADD_MSVC_PRECOMPILED_HEADER PrecompiledHeader PrecompiledSource SourcesVar)
+  if(MSVC)
+    get_filename_component(PrecompiledBasename ${PrecompiledHeader} NAME_WE)
+    set(PrecompiledBinary "${CMAKE_CURRENT_BINARY_DIR}/${PrecompiledBasename}.pch")
+    set(Sources ${${SourcesVar}})
+
+    set_source_files_properties(${PrecompiledSource}
+                                PROPERTIES COMPILE_FLAGS "/Yc\"${PrecompiledHeader}\" /Fp\"${PrecompiledBinary}\""
+                                           OBJECT_OUTPUTS "${PrecompiledBinary}")
+    set_source_files_properties(${Sources}
+                                PROPERTIES COMPILE_FLAGS "/Yu\"${PrecompiledBinary}\" /FI\"${PrecompiledBinary}\" /Fp\"${PrecompiledBinary}\""
+                                           OBJECT_DEPENDS "${PrecompiledBinary}")  
+    # Add precompiled header to SourcesVar
+    list(APPEND ${SourcesVar} ${PrecompiledSource})
+  endif(MSVC)
+endmacro(ADD_MSVC_PRECOMPILED_HEADER)
+          
+IF(MSVC)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
+  option(ENABLE_MSVC_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" Off)
+ENDIF(MSVC)
+
+
+
+
 INCLUDE_DIRECTORIES(${CMAKE_HOME_DIRECTORY}/include)
 
-SUBDIRS(src doc examples)
+add_subdirectory(src)
+add_subdirectory(doc EXCLUDE_FROM_ALL)
+add_subdirectory(examples)  
+
 IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
   ENABLE_TESTING()
-    IF(UNIX)
-       set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-    ENDIF(UNIX)
+  IF(UNIX)
+     set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+     set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+     set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+     set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+     set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+  ENDIF(UNIX)  
 
-  SUBDIRS(tests)
+  add_subdirectory(tests)
 ENDIF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
 
-IF(MSVC)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
-ENDIF(MSVC)
+
 
 #Create a package
 

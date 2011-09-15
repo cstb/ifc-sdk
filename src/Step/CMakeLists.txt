@@ -1,4 +1,3 @@
-
 PROJECT(Step)
 
 # The CMake version number.
