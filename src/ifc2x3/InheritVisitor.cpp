@@ -14,6 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_MSVC_PRECOMPILED_HEADER
+#include "../precompiled.h"
+#else
+
 #include "ifc2x3/InheritVisitor.h"
 
 #include "ifc2x3/Ifc2DCompositeCurve.h"
@@ -715,6 +719,8 @@
 #include "ifc2x3/IfcWorkSchedule.h"
 #include "ifc2x3/IfcZShapeProfileDef.h"
 #include "ifc2x3/IfcZone.h"
+
+#endif
 
 using namespace ifc2x3;
 

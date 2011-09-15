@@ -14,12 +14,18 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_MSVC_PRECOMPILED_HEADER
+#include "../precompiled.h"
+#else
+
 #include "ifc2x3/IfcTrimmingSelect.h"
 
 #include "ifc2x3/CopyOp.h"
 #include "ifc2x3/IfcCartesianPoint.h"
 #include "ifc2x3/Visitor.h"
 #include <Step/BaseObject.h>
+
+#endif
 
 using namespace ifc2x3;
 
