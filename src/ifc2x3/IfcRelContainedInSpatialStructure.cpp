@@ -14,6 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_MSVC_PRECOMPILED_HEADER
+#include "../precompiled.h"
+#else
+
 #include "ifc2x3/IfcRelContainedInSpatialStructure.h"
 
 
@@ -31,6 +35,8 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
+
+#endif
 #include <string>
 
 using namespace ifc2x3;
