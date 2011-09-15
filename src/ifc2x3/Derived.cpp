@@ -73,7 +73,7 @@
 #include "ifc2x3/IfcMaterialSelect.h"
 #include "ifc2x3/IfcSIUnit.h"
 //#include "ifc2x3/IfcSIUnitName.h"
-#include "Step/logger.h"
+#include <Step/logger.h>
 
 #ifndef WIN32
 # include <cmath>
