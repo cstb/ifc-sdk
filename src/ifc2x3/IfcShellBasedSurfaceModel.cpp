@@ -15,8 +15,8 @@
 // Lesser General Public License for more details.
 
 #ifdef ENABLE_MSVC_PRECOMPILED_HEADER
-#include "../precompiled.h"
-#else
+#include "precompiled.h"
+#endif
 
 #include "ifc2x3/IfcShellBasedSurfaceModel.h"
 
@@ -31,7 +31,7 @@
 #include <Step/SPFFunctions.h>
 #include <Step/logger.h>
 
-#endif
+
 #include <stdlib.h>
 #include <string>
 

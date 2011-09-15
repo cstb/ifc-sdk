@@ -15,8 +15,8 @@
 // Lesser General Public License for more details.
 
 #ifdef ENABLE_MSVC_PRECOMPILED_HEADER
-#include "../precompiled.h"
-#else
+#include "precompiled.h"
+#endif
 
 #include "ifc2x3/ExpressDataSet.h"
 #include "ifc2x3/IfcAxis1Placement.h"
@@ -79,7 +79,7 @@
 //#include "ifc2x3/IfcSIUnitName.h"
 #include <Step/logger.h>
 
-#endif
+
 
 #ifndef WIN32
 # include <cmath>
