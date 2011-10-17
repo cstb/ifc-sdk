@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -77,23 +77,37 @@ namespace Step {
 // Using std::cerr
 #include <iostream>
 
+#ifdef LOG_STRING_VECTOR
+# include <sstream>
+# define LOG_STREAM(msg)\
+ {\
+    std::stringstream s;\
+    s << msg;\
+    LOG_STRING_VECTOR.push_back(s.str());\
+    std::cerr << msg << std::endl;\
+ }
+#else
+# define LOG_STREAM(msg) std::cerr << msg << std::endl;
+#endif
+
+
 #ifdef LOG_DEBUG_ENABLE
 # define LOG_INFO_ENABLE
-# define LOG_DEBUG(msg) std::cerr <<   "      DEBUG :" << msg << std::endl;
+# define LOG_DEBUG(msg)   LOG_STREAM("      DEBUG :" << msg);
 #else
 # define LOG_DEBUG(msg)
 #endif
 
 #ifdef LOG_INFO_ENABLE
 # define LOG_WARNING_ENABLE
-# define LOG_INFO(msg) std::cerr <<    "    INFO    :" << msg << std::endl;
+# define LOG_INFO(msg)    LOG_STREAM("    INFO    :" << msg);
 #else
 # define LOG_INFO(msg)
 #endif
 
 #ifdef LOG_WARNING_ENABLE
 # define LOG_ERROR_ENABLE
-# define LOG_WARNING(msg) std::cerr << "  WARNING   :" << msg << std::endl;
+# define LOG_WARNING(msg) LOG_STREAM("  WARNING   :" << msg);
 #else
 # define LOG_WARNING(msg)
 #endif
@@ -101,16 +115,17 @@ namespace Step {
 
 #ifdef LOG_ERROR_ENABLE
 # define LOG_ALWAYS_ENABLE
-# define LOG_ERROR(msg) std::cerr <<   "ERROR       :" << msg << std::endl;
+# define LOG_ERROR(msg)   LOG_STREAM("ERROR       :" << msg);
 #else
 # define LOG_ERROR(msg)
 #endif
 
 #ifdef LOG_ALWAYS_ENABLE
-# define LOG_ALWAYS(msg) std::cerr <<  "ALWAYS      :" << msg << std::endl;
+# define LOG_ALWAYS(msg)  LOG_STREAM("ALWAYS      :" << msg);
 #else
 # define LOG_ALWAYS(msg)
 #endif
+
 #endif
 #endif
 #endif

@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -20,6 +20,8 @@
 #include "Step/SPFFunctions.h"
 #include "Step/BaseSPFObject.h"
 #include "Step/BaseExpressDataSet.h"
+
+#define LOG_STRING_VECTOR _errors
 
 #include "Step/logger.h"
 
@@ -36,15 +38,18 @@ BaseSPFReader::~BaseSPFReader()
 
 bool BaseSPFReader::read(std::istream& input)
 {
-    unsigned long bufferLength = 256000;
+    _errors.clear();
+    unsigned long bufferLength = 1024000;
     char* buffer = new char[bufferLength];
     std::string::size_type i, from;
     m_currentLineNb = 1;
 
+    bool status = true;
+
     // Parse the header
     if (!m_header.parse(input, m_currentLineNb))
     {
-        LOG_ERROR("BaseSPFReader : Can't parse m_header section, line ");
+        LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
         delete[] buffer;
         return false;
     }
@@ -55,7 +60,7 @@ bool BaseSPFReader::read(std::istream& input)
     if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str) || str
             != "DATA")
     {
-        LOG_ERROR("BaseSPFReader : Can't find DATA section, line "
+        LOG_ERROR("Can't find DATA section, line "
                 << m_currentLineNb);
         delete[] buffer;
         return false;
@@ -69,7 +74,7 @@ bool BaseSPFReader::read(std::istream& input)
 
         if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str))
         {
-            LOG_ERROR("BaseSPFReader : Unexpected End Of File, line "
+            LOG_ERROR("Unexpected End Of File, line "
                     << m_currentLineNb);
             delete[] buffer;
             return false;
@@ -82,10 +87,12 @@ bool BaseSPFReader::read(std::istream& input)
         i = str.find('=');
         if (i == string::npos || str[0] != '#')
         {
-            LOG_ERROR("BaseSPFReader : Syntax error on entity id, line "
+            LOG_WARNING("Syntax error on entity id, line "
                     << m_currentLineNb);
-            delete[] buffer;
-            return false;
+            //delete[] buffer;
+            //return false;
+            status = false;
+            continue;
         }
 
         m_currentId = atoi(str.substr(1, i - 1).c_str());
@@ -93,11 +100,13 @@ bool BaseSPFReader::read(std::istream& input)
         i = str.find('(', from);
         if (i == string::npos || str[str.length() - 1] != ')')
         {
-            LOG_ERROR(
-                    "BaseSPFReader : Syntax error on entity definition, line "
+            LOG_WARNING(
+                    "Syntax error on entity definition, line "
                     << m_currentLineNb);
-            delete[] buffer;
-            return false;
+            //delete[] buffer;
+            //return false;
+            status = false;
+            continue;
         }
 
         string entityName = str.substr(from, i - from);
@@ -108,11 +117,13 @@ bool BaseSPFReader::read(std::istream& input)
 
         if (!callLoadFunction(str.substr(from, i - from)))
         {
-            LOG_ERROR("BaseSPFReader : Unexpected entity name : "
+            LOG_WARNING("Unexpected entity name : "
                     << str.substr(from, i - from) << " , line "
                     << m_currentLineNb);
-            delete[] buffer;
-            return false;
+            //delete[] buffer;
+            //return false;
+            status = false;
+            continue;
         }
         m_currentObj->setAllocateFunction(m_currentType);
     }
@@ -122,14 +133,14 @@ bool BaseSPFReader::read(std::istream& input)
     if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str) || str
             != "END-ISO-10303-21")
     {
-        LOG_ERROR("BaseSPFReader : Can't find END-ISO-10303-21 token, line "
+        LOG_ERROR("Can't find END-ISO-10303-21 token, line "
                 << m_currentLineNb);
         delete[] buffer;
         return false;
     }
 
     delete[] buffer;
-    return true;
+    return status;
 }
 
 Step::Id readerSeek(const std::string& s, int pos)
