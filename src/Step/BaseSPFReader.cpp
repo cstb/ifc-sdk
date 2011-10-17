@@ -44,8 +44,6 @@ bool BaseSPFReader::read(std::istream& input)
     std::string::size_type i, from;
     m_currentLineNb = 1;
 
-    bool status = true;
-
     // Parse the header
     if (!m_header.parse(input, m_currentLineNb))
     {
@@ -89,9 +87,6 @@ bool BaseSPFReader::read(std::istream& input)
         {
             LOG_WARNING("Syntax error on entity id, line "
                     << m_currentLineNb);
-            //delete[] buffer;
-            //return false;
-            status = false;
             continue;
         }
 
@@ -103,9 +98,6 @@ bool BaseSPFReader::read(std::istream& input)
             LOG_WARNING(
                     "Syntax error on entity definition, line "
                     << m_currentLineNb);
-            //delete[] buffer;
-            //return false;
-            status = false;
             continue;
         }
 
@@ -120,9 +112,6 @@ bool BaseSPFReader::read(std::istream& input)
             LOG_WARNING("Unexpected entity name : "
                     << str.substr(from, i - from) << " , line "
                     << m_currentLineNb);
-            //delete[] buffer;
-            //return false;
-            status = false;
             continue;
         }
         m_currentObj->setAllocateFunction(m_currentType);
@@ -140,7 +129,7 @@ bool BaseSPFReader::read(std::istream& input)
     }
 
     delete[] buffer;
-    return status;
+    return true;
 }
 
 Step::Id readerSeek(const std::string& s, int pos)
