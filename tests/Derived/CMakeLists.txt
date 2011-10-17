@@ -5,11 +5,11 @@ SUBDIRS(	IfcAxis1Placement
 		IfcBoundingBox 
 		IfcBSplineCurve 
 		IfcCartesianPoint
-		IfcCartesianTransformationOperator
-		IfcCartesianTransformationOperator2D
-		IfcCartesianTransformationOperator2DnonUniform
-		IfcCartesianTransformationOperator3D
-		IfcCartesianTransformationOperator3DnonUniform
+		ICTO
+		ICTO2D
+		ICTO2DnonUniform
+		ICTO3D
+		ICTO3DnonUniform
 		IfcCompositeCurve
 		IfcCompositeCurveSegment
 		IfcCsgPrimitive3D
