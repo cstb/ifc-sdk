@@ -28,7 +28,7 @@
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader()
+BaseSPFReader::BaseSPFReader() : _callback(0)
 {
 }
 
@@ -38,7 +38,15 @@ BaseSPFReader::~BaseSPFReader()
 
 bool BaseSPFReader::read(std::istream& input)
 {
+    if(_callback)
+    {
+        // get length of file:
+        input.seekg (0, ios::end);
+        _callback->setMaximum(input.tellg());
+        input.seekg (0, ios::beg);
+    }
     _errors.clear();
+
     unsigned long bufferLength = 1024000;
     char* buffer = new char[bufferLength];
     std::string::size_type i, from;
@@ -52,6 +60,11 @@ bool BaseSPFReader::read(std::istream& input)
         return false;
     }
 
+    if(_callback)
+    {
+        // update progress callback
+        _callback->setProgress(input.tellg());
+    }
     // DATA section
     string str;
 
@@ -62,6 +75,12 @@ bool BaseSPFReader::read(std::istream& input)
                 << m_currentLineNb);
         delete[] buffer;
         return false;
+    }
+
+    if(_callback)
+    {
+        // update progress callback
+        _callback->setProgress(input.tellg());
     }
 
     // #id=ENTITYNAME(......)
@@ -115,6 +134,12 @@ bool BaseSPFReader::read(std::istream& input)
             continue;
         }
         m_currentObj->setAllocateFunction(m_currentType);
+
+        if(_callback)
+        {
+            // update progress callback
+            _callback->setProgress(input.tellg());
+        }
     }
 
     // END-ISO-10303-21
@@ -126,6 +151,12 @@ bool BaseSPFReader::read(std::istream& input)
                 << m_currentLineNb);
         delete[] buffer;
         return false;
+    }
+
+    if(_callback)
+    {
+        // update progress callback
+        _callback->setProgress(input.tellg());
     }
 
     delete[] buffer;

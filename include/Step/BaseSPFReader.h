@@ -22,6 +22,7 @@
 #include "ClassType.h"
 #include "Types.h"
 #include "SPFHeader.h"
+#include "CallBack.h"
 
 #include <istream>
 #include <string>
@@ -31,6 +32,7 @@ namespace Step {
     class SPFData;
     class BaseExpressDataSet;
     class BaseSPFObject;
+
     /*!
     * \short Base class for loading a STEP-21 file. It reads header and entities.
     */
@@ -70,6 +72,8 @@ namespace Step {
 
         std::vector<std::string> errors() const { return _errors; }
 
+        void setCallBack(CallBack *callback) { _callback = callback; }
+
     protected:
 
         /*!
@@ -99,6 +103,9 @@ namespace Step {
 
         //! errors during reading
         std::vector<std::string> _errors;
+
+        //! our callback
+        CallBack *_callback;
     };
 }
 #endif
