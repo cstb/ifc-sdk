@@ -56,6 +56,12 @@ bool BaseSPFReader::read(std::istream& input)
     if (!m_header.parse(input, m_currentLineNb))
     {
         LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
+        if(_callback)
+        {
+            // got to end
+            input.seekg (0, ios::end);
+            _callback->setProgress(input.tellg());
+        }
         delete[] buffer;
         return false;
     }
@@ -73,6 +79,12 @@ bool BaseSPFReader::read(std::istream& input)
     {
         LOG_ERROR("Can't find DATA section, line "
                 << m_currentLineNb);
+        if(_callback)
+        {
+            // got to end
+            input.seekg (0, ios::end);
+            _callback->setProgress(input.tellg());
+        }
         delete[] buffer;
         return false;
     }
@@ -89,10 +101,21 @@ bool BaseSPFReader::read(std::istream& input)
         from = 0;
         LOG_DEBUG("Reading line " << m_currentLineNb);
 
+        if(_callback)
+        {
+            // update progress callback
+            _callback->setProgress(input.tellg());
+        }
         if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str))
         {
             LOG_ERROR("Unexpected End Of File, line "
                     << m_currentLineNb);
+            if(_callback)
+            {
+                // got to end
+                input.seekg (0, ios::end);
+                _callback->setProgress(input.tellg());
+            }
             delete[] buffer;
             return false;
         }
@@ -135,11 +158,6 @@ bool BaseSPFReader::read(std::istream& input)
         }
         m_currentObj->setAllocateFunction(m_currentType);
 
-        if(_callback)
-        {
-            // update progress callback
-            _callback->setProgress(input.tellg());
-        }
     }
 
     // END-ISO-10303-21
@@ -149,13 +167,20 @@ bool BaseSPFReader::read(std::istream& input)
     {
         LOG_ERROR("Can't find END-ISO-10303-21 token, line "
                 << m_currentLineNb);
+        if(_callback)
+        {
+            // got to end
+            input.seekg (0, ios::end);
+            _callback->setProgress(input.tellg());
+        }
         delete[] buffer;
         return false;
     }
 
     if(_callback)
     {
-        // update progress callback
+        // got to end
+        input.seekg (0, ios::end);
         _callback->setProgress(input.tellg());
     }
 
