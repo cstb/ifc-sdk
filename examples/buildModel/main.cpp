@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -93,7 +93,7 @@ ifc2x3::IfcRelContainedInSpatialStructure* linkByContainedInSpatial(
    static unsigned int count = 0;
    char buffer[128];
    Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = (ifc2x3::ExpressDataSet*)relating->getExpressDataSet();
-   ifc2x3::IfcRelContainedInSpatialStructure* contained = 
+   ifc2x3::IfcRelContainedInSpatialStructure* contained =
       mDataSet->createIfcRelContainedInSpatialStructure().get();
 #ifdef WIN32
    sprintf_s(buffer,"%d",count);
@@ -114,7 +114,7 @@ ifc2x3::IfcRelConnectsPathElements* linkByConnectsPathElements(
    static unsigned int count = 0;
    char buffer[128];
    Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = (ifc2x3::ExpressDataSet*)relating->getExpressDataSet();
-   ifc2x3::IfcRelConnectsPathElements* connects = 
+   ifc2x3::IfcRelConnectsPathElements* connects =
       mDataSet->createIfcRelConnectsPathElements().get();
 #ifdef WIN32
    sprintf_s(buffer,"%d",count);
@@ -138,7 +138,7 @@ ifc2x3::IfcRelSpaceBoundary* linkBySpaceBoundary(
    static unsigned int count = 0;
    char buffer[128];
    Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = (ifc2x3::ExpressDataSet*)relating->getExpressDataSet();
-   ifc2x3::IfcRelSpaceBoundary* connects = 
+   ifc2x3::IfcRelSpaceBoundary* connects =
       mDataSet->createIfcRelSpaceBoundary().get();
 #ifdef WIN32
    sprintf_s(buffer,"%d",count);
@@ -161,9 +161,9 @@ ifc2x3::IfcRelVoidsElement* linkByVoidsElement(
 {
    static unsigned int count = 0;
    char buffer[128];
-   Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = 
+   Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet =
       (ifc2x3::ExpressDataSet*)relatingBuildingElement->getExpressDataSet();
-   ifc2x3::IfcRelVoidsElement* relVoidsElement = 
+   ifc2x3::IfcRelVoidsElement* relVoidsElement =
       mDataSet->createIfcRelVoidsElement().get();
 #ifdef WIN32
    sprintf_s(buffer,"%d",count);
@@ -187,9 +187,9 @@ ifc2x3::IfcRelFillsElement* linkByFillsElement(
 {
    static unsigned int count = 0;
    char buffer[128];
-   Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = 
+   Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet =
       (ifc2x3::ExpressDataSet*)relatingOpeningElement->getExpressDataSet();
-   ifc2x3::IfcRelFillsElement* relFillsElement = 
+   ifc2x3::IfcRelFillsElement* relFillsElement =
       mDataSet->createIfcRelFillsElement().get();
 #ifdef WIN32
    sprintf_s(buffer,"%d",count);
@@ -210,7 +210,7 @@ ifc2x3::IfcRelFillsElement* linkByFillsElement(
 int main(int argc, char **argv)
 {
    std::cout << "Ifc2x3 SDK simple example: how to build an Ifc model?" << std::endl;
-	
+
    // ** First build an ExpressDataSet
    Step::RefPtr< ifc2x3::ExpressDataSet > mDataSet = new ifc2x3::ExpressDataSet();
 
@@ -516,7 +516,7 @@ int main(int argc, char **argv)
    cwrv.setLocalPlacement(placement);
    cwrv.setExtrusionDepth(3.5);
    if ( !theWall3->acceptVisitor(&cwrv) ) {
-	   std::cerr << "ERROR while creating wall representation" << std::endl;
+       std::cerr << "ERROR while creating wall representation" << std::endl;
    }
 #else
    // Build another Ifc Wall
@@ -532,7 +532,7 @@ int main(int argc, char **argv)
    placement.push_back(0.0);
    cwrv.setLocalPlacement(placement);
    if ( !theWall3->acceptVisitor(&cwrv) ) {
-	   std::cerr << "ERROR while creating wall representation" << std::endl;
+       std::cerr << "ERROR while creating wall representation" << std::endl;
    }
    // Make this wall composed of several Layers
    // Layer one
@@ -554,7 +554,7 @@ int main(int argc, char **argv)
    cwrv.setLocalPlacement(placement);
    cwrv.setExtrusionDepth(3.5);
    if ( !theWall3_1->acceptVisitor(&cwrv) ) {
-	   std::cerr << "ERROR while creating wall representation" << std::endl;
+       std::cerr << "ERROR while creating wall representation" << std::endl;
    }
    // Link (Wall <--> Wall part)
    linkByAggregate(theWall3.get(), theWall3_1.get());
@@ -586,7 +586,7 @@ int main(int argc, char **argv)
    cwrv.setExtrusionDepth(3.2);
    cwrv.setLocalPlacement(placement);
    if ( !theWall3_2->acceptVisitor(&cwrv) ) {
-	   std::cerr << "ERROR while creating wall representation" << std::endl;
+       std::cerr << "ERROR while creating wall representation" << std::endl;
    }
    // Add several geometric parts
    placement.clear();
@@ -803,7 +803,9 @@ int main(int argc, char **argv)
 
    // ** Write to model to a file
    ifc2x3::SPFWriter writer(mDataSet.get());
-   writer.writeSPF("data/Ifc/builtModel.ifc");
-
-   return 1;
+   std::ofstream filestream;
+   filestream.open("data/Ifc/builtModel.ifc");
+   bool status = writer.write(filestream);
+   filestream.close();
+   return status;
 }

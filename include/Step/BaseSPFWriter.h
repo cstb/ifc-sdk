@@ -57,25 +57,11 @@ namespace Step {
         virtual ~BaseSPFWriter();
 
         /*!
-        ** \short Write the STEP-21 file from a path
-        ** @param filepath the output STEP-21 file path
-        ** @return true if the model was correctly saved
-        */
-        virtual bool writeSPF(const std::string &filepath);
-#ifdef MSVC
-        /*!
-        ** \short Write the STEP-21 file from a path expressed in wide string (only MSVC)
-        ** @param filepath the output STEP-21 file path
-        ** @return true if the model was correctly saved
-        */
-        virtual bool writeSPF(const std::wstring &filepath);
-#endif
-        /*!
         ** \short Write the STEP-21 file to an ostream
         ** @param filestream the output STEP-21 stream
-        ** @return true if the model was correctly saved
+        ** @return true if the model was correctly written
         */
-        virtual bool writeSPF(std::ostream& filestream) = 0;
+        virtual bool write(std::ostream& filestream) = 0;
 
         /*!
         ** \short Set the decimal precision for writing Real values
