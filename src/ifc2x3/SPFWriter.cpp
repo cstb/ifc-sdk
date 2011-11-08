@@ -741,7 +741,8 @@ bool SPFWriter::writeSPF(std::ostream& filestream)
     Step::MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
     Step::MapOfEntities::iterator it_map = mapOfEntities.begin();
     std::vector< Step::BaseEntity * > vectorOfEntities(mapOfEntities.size());
-    std::vector< Step::BaseEntity * >::iterator it_vector = vectorOfEntities.begin();
+    std::vector< Step::BaseEntity * >::iterator it_vector = vectorOfEntities.begin();  
+    
     if (!init(filestream)) {
         return false;
     }
@@ -752,13 +753,28 @@ bool SPFWriter::writeSPF(std::ostream& filestream)
         ++it_map;
         ++it_vector;
     }
-    std::sort(vectorOfEntities.begin(), vectorOfEntities.end(), Step::keySort);
+    std::sort(vectorOfEntities.begin(), vectorOfEntities.end(), Step::keySort);        
+    if(_callback)
+    {
+        _callback->setMaximum(vectorOfEntities.size());
+    }
     it_vector = vectorOfEntities.begin();
+    long nb=0;
     while (it_vector != vectorOfEntities.end()) {
         (*it_vector)->acceptVisitor(this);
         ++it_vector;
+        if(_callback)
+        {
+            // update progress callback
+            _callback->setProgress(++nb);
+        }
     }
     writeEnder();
+    if(_callback)
+    {
+        // update progress callback
+        _callback->setProgress(vectorOfEntities.size());
+    }
     return true;
 }
 

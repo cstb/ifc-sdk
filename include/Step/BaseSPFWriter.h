@@ -24,6 +24,7 @@
 #include "BaseExpressDataSet.h"
 #include "BaseEntity.h"
 #include "SimpleTypes.h"
+#include "CallBack.h"
 
 #include <ostream>
 #include <string>
@@ -76,6 +77,8 @@ namespace Step {
         ** @param precision the new decimal precision to use
         */
         virtual void setDecimalPrecision(const int precision);
+                         
+        void setCallBack(CallBack *callback) { _callback = callback; }
 
     protected:
 
@@ -162,7 +165,10 @@ namespace Step {
         BaseExpressDataSet *m_expressDataSet;
 
         //! the precision with which to write floating point value
-        int m_precision;
+        int m_precision;     
+        
+        //! our callback
+        CallBack *_callback;
     };
 }
 
