@@ -734,14 +734,6 @@ SPFWriter::SPFWriter(ExpressDataSet *expressDataSet) : Step::BaseSPFWriter(expre
 SPFWriter::~SPFWriter() {
 }
 
-bool SPFWriter::writeSPF(const std::string &filepath) {
-    std::ofstream filestream;
-    filestream.open(filepath.c_str());
-    bool status = writeSPF(filestream);
-    filestream.close();
-    return status;
-}
-
 bool SPFWriter::writeSPF(std::ostream& filestream)
 {
     Step::MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
