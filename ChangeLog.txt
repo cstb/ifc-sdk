@@ -1,0 +1,20 @@
+1.0.0 beta3
+===========  
+- added use of precompiled headers thanks to Kike Garcia <kike.garcia@asuni.com> at AsuniCAD contribution
+- added callback to reader/writer 
+- reduced some file names for vs2010...
+- upped buffer length (1024kb) for line size and added log errors
+
+1.0.0 beta2 (12/01/2011)
+===========
+- modify label of the project: with visual 2010 the ':' character doesn't work
+- Added write/read to stream
+- Western by default
+- add no incremental link for msvc
+- add option /Zc:wchar_t- for linking in eveBIM
+- resolved the install lib path to lib64 under linux 64
+- added /bigobj to all MSVC builds 
+
+1.0.0 beta (12/11/2009)
+=======================
+- initial public release of the SDK
