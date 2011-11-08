@@ -14,6 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_PRECOMPILED_HEADER
+#include "precompiled.h"
+#endif
+
 #include "ifc2x3/CopyOp.h"
 
 
@@ -577,6 +581,8 @@
 #include "ifc2x3/IfcZShapeProfileDef.h"
 #include "ifc2x3/IfcZone.h"
 #include <Step/BaseObject.h>
+
+
 
 using namespace ifc2x3;
 

@@ -14,6 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_PRECOMPILED_HEADER
+#include "precompiled.h"
+#endif
+
 #include "ifc2x3/SPFWriter.h"
 
 #include "ifc2x3/ExpressDataSet.h"
@@ -718,6 +722,8 @@
 #include <Step/Aggregation.h>
 #include <Step/BaseEntity.h>
 #include <Step/String.h>
+
+
 #include <vector>
 
 using namespace ifc2x3;

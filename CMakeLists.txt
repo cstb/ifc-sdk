@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.4)
 
 PROJECT(ifc2x3_sdk)
-
+    
 IF(UNIX AND NOT WIN32 AND NOT APPLE)
   IF(CMAKE_SIZEOF_VOID_P MATCHES "8")
       SET(LIB_POSTFIX "64")
@@ -38,36 +38,46 @@ SET_PROPERTY(DIRECTORY ${CMAKE_HOME_DIRECTORY} APPEND PROPERTY COMPILE_DEFINITIO
 SET_PROPERTY(DIRECTORY ${CMAKE_HOME_DIRECTORY} APPEND PROPERTY COMPILE_DEFINITIONS_RELEASE "LOG_WARNING_ENABLE")
 
 IF(APPLE)
-        IF (REAL_INSTALL_PREFIX)
-                SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
-                MESSAGE(STATUS "Setting CMAKE_INSTALL_NAME_DIR to ${REAL_INSTALL_PREFIX}")
-                SET(CMAKE_INSTALL_NAME_DIR "${REAL_INSTALL_PREFIX}")
-                SET(CMAKE_INSTALL_RPATH "${REAL_INSTALL_PREFIX}")
-        ELSE (REAL_INSTALL_PREFIX)
-                SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}")
-        ENDIF (REAL_INSTALL_PREFIX)
+	IF (REAL_INSTALL_PREFIX)
+		SET(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
+		MESSAGE(STATUS "Setting CMAKE_INSTALL_NAME_DIR to ${REAL_INSTALL_PREFIX}")
+		SET(CMAKE_INSTALL_NAME_DIR "${REAL_INSTALL_PREFIX}")
+		SET(CMAKE_INSTALL_RPATH "${REAL_INSTALL_PREFIX}")
+	ELSE (REAL_INSTALL_PREFIX)
+		SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}")
+	ENDIF (REAL_INSTALL_PREFIX)
 ENDIF(APPLE)
 
-INCLUDE_DIRECTORIES(${CMAKE_HOME_DIRECTORY}/include)
-
-SUBDIRS(src doc examples)
-IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
-  ENABLE_TESTING()
-    IF(UNIX)
-       set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-    ENDIF(UNIX)
-
-  SUBDIRS(tests)
-ENDIF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
 
 IF(MSVC)
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
-set(CMAKE_OBJECT_PATH_MAX 220)
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
 ENDIF(MSVC)
+
+include(${CMAKE_HOME_DIRECTORY}/PCHSupport.cmake)
+if(PCHSupport_FOUND)
+    option(ENABLE_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" ON)
+endif()
+
+include_directories(${CMAKE_HOME_DIRECTORY}/include)
+
+add_subdirectory(src)
+add_subdirectory(doc EXCLUDE_FROM_ALL)
+add_subdirectory(examples)  
+
+IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
+  ENABLE_TESTING()
+  IF(UNIX)
+     set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+     set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+     set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+     set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+     set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+  ENDIF(UNIX)  
+
+  add_subdirectory(tests)
+ENDIF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
+
+
 
 #Create a package
 
@@ -101,6 +111,6 @@ IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
       SET(CPACK_TZ "OFF")
       SET(CPACK_ZIP "OFF")
    ENDIF(UNIX)
-   INCLUDE(CPack)
+   INCLUDE(CPack)   
 ENDIF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
 
