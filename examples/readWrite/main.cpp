@@ -113,14 +113,17 @@ int main(int argc, char **argv)
 
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);
+    writer.setCallBack(&cb);
+    std::ofstream filestream;
     if (argc==3)
     {
-        return writer.writeSPF(argv[2]);
+        filestream.open(argv[2]);
     }
     else
     {
-        return writer.writeSPF("saved.ifc");
+        filestream.open("saved.ifc");
     }
-
-    return 1;
+    bool status = writer.write(filestream);
+    filestream.close();
+    return status;
 }

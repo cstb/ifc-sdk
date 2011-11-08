@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -734,13 +734,13 @@ SPFWriter::SPFWriter(ExpressDataSet *expressDataSet) : Step::BaseSPFWriter(expre
 SPFWriter::~SPFWriter() {
 }
 
-bool SPFWriter::writeSPF(std::ostream& filestream)
+bool SPFWriter::write(std::ostream& filestream)
 {
     Step::MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
     Step::MapOfEntities::iterator it_map = mapOfEntities.begin();
     std::vector< Step::BaseEntity * > vectorOfEntities(mapOfEntities.size());
-    std::vector< Step::BaseEntity * >::iterator it_vector = vectorOfEntities.begin();  
-    
+    std::vector< Step::BaseEntity * >::iterator it_vector = vectorOfEntities.begin();
+
     if (!init(filestream)) {
         return false;
     }
@@ -751,7 +751,7 @@ bool SPFWriter::writeSPF(std::ostream& filestream)
         ++it_map;
         ++it_vector;
     }
-    std::sort(vectorOfEntities.begin(), vectorOfEntities.end(), Step::keySort);        
+    std::sort(vectorOfEntities.begin(), vectorOfEntities.end(), Step::keySort);
     if(_callback)
     {
         _callback->setMaximum(vectorOfEntities.size());

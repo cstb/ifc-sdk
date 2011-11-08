@@ -38,24 +38,6 @@ BaseSPFWriter::~BaseSPFWriter()
 
 }
 
-bool BaseSPFWriter::writeSPF(const std::string &filepath) {
-    std::ofstream filestream;
-    filestream.open(filepath.c_str());
-    bool status = writeSPF(filestream);
-    filestream.close();
-    return status;
-}
-
-#ifdef MSVC
-bool BaseSPFWriter::writeSPF(const std::wstring &filepath) {
-    std::ofstream filestream;
-    filestream.open(filepath.c_str());
-    bool status = writeSPF(filestream);
-    filestream.close();
-    return status;
-}
-#endif
-
 bool BaseSPFWriter::init(std::ostream& filestream)
 {
     m_out = &filestream;
