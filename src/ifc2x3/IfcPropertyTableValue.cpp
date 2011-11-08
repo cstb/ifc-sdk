@@ -225,7 +225,7 @@ bool IfcPropertyTableValue::init() {
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
-                    unsigned int i2;
+                    std::string::size_type i2;
                     i2 = str1.find('(');
                     if (i2 != std::string::npos) {
                         type2 = str1.substr(0, i2);
@@ -766,7 +766,7 @@ bool IfcPropertyTableValue::init() {
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
-                    unsigned int i2;
+                    std::string::size_type i2;
                     i2 = str1.find('(');
                     if (i2 != std::string::npos) {
                         type2 = str1.substr(0, i2);
@@ -1308,7 +1308,7 @@ bool IfcPropertyTableValue::init() {
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
-            unsigned int i1;
+            std::string::size_type i1;
             i1 = arg.find('(');
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
@@ -1327,7 +1327,7 @@ bool IfcPropertyTableValue::init() {
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
-            unsigned int i1;
+            std::string::size_type i1;
             i1 = arg.find('(');
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);

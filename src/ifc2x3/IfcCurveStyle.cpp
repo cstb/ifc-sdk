@@ -162,7 +162,7 @@ bool IfcCurveStyle::init() {
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
-            unsigned int i1;
+            std::string::size_type i1;
             i1 = arg.find('(');
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
@@ -181,7 +181,7 @@ bool IfcCurveStyle::init() {
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
-            unsigned int i1;
+            std::string::size_type i1;
             i1 = arg.find('(');
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
@@ -230,7 +230,7 @@ bool IfcCurveStyle::init() {
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
-            unsigned int i1;
+            std::string::size_type i1;
             i1 = arg.find('(');
             if (i1 != std::string::npos) {
                 type1 = arg.substr(0, i1);
