@@ -110,7 +110,7 @@ bool IfcPresentationStyleAssignment::init() {
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
-                    unsigned int i2;
+                    std::string::size_type i2;
                     i2 = str1.find('(');
                     if (i2 != std::string::npos) {
                         type2 = str1.substr(0, i2);
