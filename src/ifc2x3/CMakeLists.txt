@@ -5,12 +5,15 @@ LIST (REMOVE_ITEM PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp")
 
 FILE (GLOB PROJECT_INCLUDES ../../include/ifc2x3/*.h )
 
-if(ENABLE_MSVC_PRECOMPILED_HEADER)
-    ADD_MSVC_PRECOMPILED_HEADER("precompiled.h" "precompiled.cpp" PROJECT_SOURCES) 
-    add_definitions(-DENABLE_MSVC_PRECOMPILED_HEADER)
-endif()
-
 ADD_LIBRARY(ifc2x3 SHARED ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
+
+if(ENABLE_PRECOMPILED_HEADER) 
+    add_definitions(-DENABLE_PRECOMPILED_HEADER)
+    if(NOT MSVC)
+        add_definitions(-Difc2x3_EXPORTS)
+    endif()
+    ADD_PRECOMPILED_HEADER(ifc2x3 "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.h" "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp") 
+endif()
 
 TARGET_LINK_LIBRARIES(ifc2x3 Step )
 

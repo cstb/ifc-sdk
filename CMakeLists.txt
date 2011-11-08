@@ -43,32 +43,17 @@ IF(APPLE)
 	ENDIF (REAL_INSTALL_PREFIX)
 ENDIF(APPLE)
 
-macro(ADD_MSVC_PRECOMPILED_HEADER PrecompiledHeader PrecompiledSource SourcesVar)
-  if(MSVC)
-    get_filename_component(PrecompiledBasename ${PrecompiledHeader} NAME_WE)
-    set(PrecompiledBinary "${CMAKE_CURRENT_BINARY_DIR}/${PrecompiledBasename}.pch")
-    set(Sources ${${SourcesVar}})
 
-    set_source_files_properties(${PrecompiledSource}
-                                PROPERTIES COMPILE_FLAGS "/Yc\"${PrecompiledHeader}\" /Fp\"${PrecompiledBinary}\""
-                                           OBJECT_OUTPUTS "${PrecompiledBinary}")
-    set_source_files_properties(${Sources}
-                                PROPERTIES COMPILE_FLAGS "/Yu\"${PrecompiledBinary}\" /FI\"${PrecompiledBinary}\" /Fp\"${PrecompiledBinary}\""
-                                           OBJECT_DEPENDS "${PrecompiledBinary}")  
-    # Add precompiled header to SourcesVar
-    list(APPEND ${SourcesVar} ${PrecompiledSource})
-  endif(MSVC)
-endmacro(ADD_MSVC_PRECOMPILED_HEADER)
-          
 IF(MSVC)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
-  option(ENABLE_MSVC_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" Off)
 ENDIF(MSVC)
 
+include(${CMAKE_HOME_DIRECTORY}/PCHSupport.cmake)
+if(PCHSupport_FOUND)
+    option(ENABLE_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" ON)
+endif()
 
-
-
-INCLUDE_DIRECTORIES(${CMAKE_HOME_DIRECTORY}/include)
+include_directories(${CMAKE_HOME_DIRECTORY}/include)
 
 add_subdirectory(src)
 add_subdirectory(doc EXCLUDE_FROM_ALL)
