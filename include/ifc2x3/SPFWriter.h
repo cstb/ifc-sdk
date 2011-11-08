@@ -741,12 +741,6 @@ namespace ifc2x3 {
          */
         SPFWriter(ExpressDataSet *expressDataSet);
         virtual ~SPFWriter();
-        /**
-         * Call this method to write the content of the ExpressDataSet instance to the filepath.
-         * 
-         * @param filepath Path to a file to write to.
-         */
-        virtual bool writeSPF(const std::string &filepath);
 
         /**
          * Call this method to write the content of the ExpressDataSet instance to a stream.
