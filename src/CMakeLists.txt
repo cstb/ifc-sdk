@@ -1,1 +1,2 @@
-SUBDIRS(Step ifc2x3)
+add_subdirectory(Step)
+add_subdirectory(ifc2x3)

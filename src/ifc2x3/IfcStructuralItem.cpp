@@ -14,6 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
+#ifdef ENABLE_PRECOMPILED_HEADER
+#include "precompiled.h"
+#endif
+
 #include "ifc2x3/IfcStructuralItem.h"
 
 #include "ifc2x3/CopyOp.h"
@@ -24,6 +28,8 @@
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
+
+
 #include <string>
 #include <vector>
 
