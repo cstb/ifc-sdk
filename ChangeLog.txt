@@ -1,7 +1,8 @@
 1.0.0 beta3
-===========  
+===========
+- removed writeSPF helper method use write(ostream&) instead
 - added use of precompiled headers thanks to Kike Garcia <kike.garcia@asuni.com> at AsuniCAD contribution
-- added callback to reader/writer 
+- added callback to reader/writer
 - reduced some file names for vs2010...
 - upped buffer length (1024kb) for line size and added log errors
 
@@ -13,7 +14,7 @@
 - add no incremental link for msvc
 - add option /Zc:wchar_t- for linking in eveBIM
 - resolved the install lib path to lib64 under linux 64
-- added /bigobj to all MSVC builds 
+- added /bigobj to all MSVC builds
 
 1.0.0 beta (12/11/2009)
 =======================
