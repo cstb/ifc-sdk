@@ -123,7 +123,7 @@ MACRO(GET_PRECOMPILED_HEADER_OUTPUT _targetName _input _output)
 		SET(_output "${CMAKE_CURRENT_BINARY_DIR}/${_name}.pch")
 	ELSE(MSVC)
 		GET_FILENAME_COMPONENT(_name ${_input} NAME)
-		SET(_output "${CMAKE_CURRENT_SOURCE_DIR}/${_name}.gch")
+		SET(_output "${CMAKE_CURRENT_BINARY_DIR}/${_name}.gch")
 	ENDIF(MSVC)
 ENDMACRO(GET_PRECOMPILED_HEADER_OUTPUT _targetName _input)
 
@@ -140,8 +140,9 @@ MACRO(ADD_PRECOMPILED_HEADER_TO_TARGET _targetName _input _pch_output_to_use )
 
 		# for use with distcc and gcc >4.0.1 if preprocessed files are accessible
 		# on all remote machines set
-		# PCH_ADDITIONAL_COMPILER_FLAGS to -fpch-preprocess
-		SET(_target_cflags "${oldProps} ${PCH_ADDITIONAL_COMPILER_FLAGS}-include ${_input} -Winvalid-pch")
+		# PCH_ADDITIONAL_COMPILER_FLAGS to -fpch-preprocess  
+		get_filename_component(_input_stripped_from_path ${_input} NAME)
+		SET(_target_cflags "${oldProps} ${PCH_ADDITIONAL_COMPILER_FLAGS}-include ${_input_stripped_from_path} -Winvalid-pch")
 	ELSE(CMAKE_COMPILER_IS_GNUCXX)
 		IF(MSVC)
 			SET(_target_cflags "${oldProps} /Yu\"${_input}\" /FI\"${_input}\" /Fp\"${_pch_output_to_use}\"")
