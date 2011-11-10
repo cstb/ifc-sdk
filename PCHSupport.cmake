@@ -7,6 +7,8 @@
 #   ADD_PRECOMPILED_HEADER  _targetName _inputh _inputcpp
 #   ADD_PRECOMPILED_HEADER_TO_TARGET _targetName _input _pch_output_to_use
 #   ADD_NATIVE_PRECOMPILED_HEADER _targetName _inputh _inputcpp
+cmake_policy(PUSH)
+cmake_policy(SET CMP0007 OLD)
 
 IF(CMAKE_COMPILER_IS_GNUCXX)
 
@@ -56,20 +58,27 @@ MACRO(_PCH_GET_COMPILE_FLAGS _out_compile_flags)
 	SET(GLOBAL_DEFINITIONS "")
 	GET_DIRECTORY_PROPERTY(DEFINITIONS COMPILE_DEFINITIONS)
 	FOREACH(item ${DEFINITIONS})
-		LIST(APPEND GLOBAL_DEFINITIONS -D${item})
+		IF(CMAKE_COMPILER_IS_GNUCXX)
+			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
+		ELSE()
+			LIST(APPEND GLOBAL_DEFINITIONS /D${item})
+		ENDIF()
 	ENDFOREACH(item)      
 	STRING(TOUPPER "COMPILE_DEFINITIONS_${CMAKE_BUILD_TYPE}" _compile_definitions_build_type)   
 	GET_DIRECTORY_PROPERTY(DEFINITIONS ${_compile_definitions_build_type})     
 	FOREACH(item ${DEFINITIONS})
-		LIST(APPEND GLOBAL_DEFINITIONS -D${item})
+		IF(CMAKE_COMPILER_IS_GNUCXX)
+			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
+		ELSE()
+			LIST(APPEND GLOBAL_DEFINITIONS /D${item})
+		ENDIF()	
 	ENDFOREACH(item)
 
-	GET_DIRECTORY_PROPERTY(_directory_flags DEFINITIONS)
-	GET_DIRECTORY_PROPERTY(_directory_definitions DIRECTORY ${CMAKE_SOURCE_DIR} DEFINITIONS)
 	LIST(APPEND ${_out_compile_flags} ${GLOBAL_DEFINITIONS})
-	LIST(APPEND ${_out_compile_flags} ${_directory_flags})
-	LIST(APPEND ${_out_compile_flags} ${_directory_definitions})
 	LIST(APPEND ${_out_compile_flags} ${CMAKE_CXX_FLAGS})
+	if(MSVC AND ${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+		LIST(APPEND ${_out_compile_flags} "/Gd")
+	endif()
 
 	# Format definitions and remove duplicates
 	SEPARATE_ARGUMENTS(${_out_compile_flags})
@@ -80,13 +89,14 @@ MACRO(_PCH_GET_PDB_FILENAME out_filename _target)
 	# determine output directory based on target type
 	GET_TARGET_PROPERTY(_targetType ${_target} TYPE)
 	IF(${_targetType} STREQUAL EXECUTABLE)
-		SET(_targetOutput ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+		SET(_targetOutput ${EXECUTABLE_OUTPUT_PATH})
 	ELSEIF(${_targetType} STREQUAL STATIC_LIBRARY)
 		SET(_targetOutput ${CMAKE_ARCHIVE_OUTPUT_DIRECTORY})
-	ELSE(${_targetType} STREQUAL EXECUTABLE)
-		SET(_targetOutput ${CMAKE_LIBRARY_OUTPUT_DIRECTORY})
-	ENDIF(${_targetType} STREQUAL EXECUTABLE)
-
+	ELSE(${_targetType} STREQUAL SHARED_LIBRARY)
+		SET(_targetOutput ${LIBRARY_OUTPUT_PATH})
+	ENDIF()
+	SET(_targetOutput ${_targetOutput}/${CMAKE_BUILD_TYPE})
+	
 	# determine target postfix
 	STRING(TOUPPER "${CMAKE_BUILD_TYPE}_POSTFIX" _postfix_var_name)
 	GET_TARGET_PROPERTY(_targetPostfix ${_target} ${_postfix_var_name})
@@ -153,7 +163,9 @@ MACRO(ADD_PRECOMPILED_HEADER_TO_TARGET _targetName _input _pch_output_to_use )
 	IF(oldProps)
 		SET_TARGET_PROPERTIES(${_targetName}_pch_dephelp PROPERTIES COMPILE_FLAGS ${oldProps})
 	ENDIF(oldProps)
+
 	ADD_CUSTOM_TARGET(pch_Generate_${_targetName} DEPENDS ${_pch_output_to_use})
+
 	ADD_DEPENDENCIES(${_targetName} pch_Generate_${_targetName})
 ENDMACRO(ADD_PRECOMPILED_HEADER_TO_TARGET)
 
@@ -188,6 +200,11 @@ MACRO(ADD_PRECOMPILED_HEADER _targetName _inputh _inputcpp)
 	)
 
 	ADD_PRECOMPILED_HEADER_TO_TARGET(${_targetName} ${_inputh} ${_output})
+	IF(MSVC)
+		GET_FILENAME_COMPONENT(_name ${_inputcpp} NAME_WE)
+		SET(_output_obj "${CMAKE_CURRENT_BINARY_DIR}/${_name}.obj")
+		SET(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${_output_obj}")
+	endif()
 ENDMACRO(ADD_PRECOMPILED_HEADER)
 
 MACRO(ADD_NATIVE_PRECOMPILED_HEADER _targetName _inputh _inputcpp)
@@ -229,3 +246,4 @@ MACRO(ADD_NATIVE_PRECOMPILED_HEADER _targetName _inputh _inputcpp)
 	ENDIF(CMAKE_GENERATOR MATCHES Visual*)
 
 ENDMACRO(ADD_NATIVE_PRECOMPILED_HEADER)
+cmake_policy(POP)
