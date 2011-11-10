@@ -1,7 +1,10 @@
 PROJECT(ifc2x3)
 
 FILE (GLOB PROJECT_SOURCES *.cpp)
+
+#if(NOT (ENABLE_PRECOMPILED_HEADER AND MSVC))
 LIST (REMOVE_ITEM PROJECT_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp")
+#endif()
 
 FILE (GLOB PROJECT_INCLUDES ../../include/ifc2x3/*.h )
 
@@ -9,13 +12,13 @@ ADD_LIBRARY(ifc2x3 SHARED ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
 
 if(ENABLE_PRECOMPILED_HEADER) 
     add_definitions(-DENABLE_PRECOMPILED_HEADER)
-    if(NOT MSVC)
-        add_definitions(-Difc2x3_EXPORTS)
-    endif()
-    ADD_PRECOMPILED_HEADER(ifc2x3 "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.h" "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp") 
+    add_definitions(-Difc2x3_EXPORTS)
+    ADD_PRECOMPILED_HEADER(ifc2x3 "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.h" "${CMAKE_CURRENT_SOURCE_DIR}/precompiled.cpp")
 endif()
 
 TARGET_LINK_LIBRARIES(ifc2x3 Step )
+
+#need to also link with "${CMAKE_CURRENT_BINARY_DIR}/precompiled.obj"
 
 IF(MSVC)
   SET_TARGET_PROPERTIES(ifc2x3 PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
