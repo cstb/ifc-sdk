@@ -5,6 +5,10 @@ IF(DOXYGEN_FOUND)
  ELSE(DOXYGEN_DOT_FOUND)
   SET(HAVE_DOT NO)
  ENDIF(DOXYGEN_DOT_FOUND)
+                     
+ if(NOT HTML_OUTPUT_DIRECTORY)
+   set(HTML_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
+ endif()
 
  # click+jump in Emacs and Visual Studio (for doxy.config) (jw)
   IF (CMAKE_BUILD_TOOL MATCHES "(msdev|devenv)")
