@@ -49,6 +49,12 @@ IF(APPLE)
 	ELSE (REAL_INSTALL_PREFIX)
 		SET(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}")
 	ENDIF (REAL_INSTALL_PREFIX)
+	include(CheckCXXCompilerFlag) 
+	CHECK_CXX_COMPILER_FLAG(-stdlib=libc++ CLANG_CXX_FLAG)
+	if(CLANG_CXX_FLAG)  
+	    message(STATUS "Adding -stdlib=libc++ to CMAKE_CXX_FLAGS")  
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")   
+    endif()
 ENDIF(APPLE)
 
 
