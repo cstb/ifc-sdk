@@ -355,7 +355,7 @@ unsigned int fromHex(char c)
 char toHex(unsigned int i)
 {
     char result;
-    if (i >= 0 && i <= 9)
+    if (i <= 9)
         result = '0' + i;
     else
         result = 'A' + i - 10;
@@ -454,17 +454,17 @@ String parseString(const std::string& s)
                     if (code == 0x83)
                         code = 0xC9;
                     else if (code == 0x89)
-                        code = L'â';
+                        code = 0xc3a0; // LATIN SMALL LETTER A WITH GRAVE 
                     else if (code == 0x8D)
-                        code = L'ç';
+                        code = 0xc3a7; // LATIN SMALL LETTER C WITH CEDILLA
                     else if (code == 0x8E)
-                        code = L'é';
+                        code = 0xc3a9; // LATIN SMALL LETTER E WITH ACUTE
                     else if (code == 0x8F)
-                        code = L'è';
+                        code = 0xc3a8; // LATIN SMALL LETTER E WITH GRAVE
                     else if (code == 0x90)
-                        code = L'ê';
+                        code = 0xc3aa; // LATIN SMALL LETTER E WITH CIRCUMFLEX
                     else if (code == 0x99)
-                        code = L'ô';
+                        code = 0xc3b4; // LATIN SMALL LETTER O WITH CIRCUMFLEX
                     else
                         std::cout << "[Step] String::parseString ERROR code 0x" << s[i] << s[i + 1] << " unknown in string : " << s << std::endl;
                 }
