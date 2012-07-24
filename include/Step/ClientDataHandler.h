@@ -79,7 +79,7 @@ namespace Step {
         /*!
          \short Copy, copies every ClientData
          */
-        void copy(const ClientDataHandler& obj, const BaseCopyOp& copyop);
+        virtual void copy(const ClientDataHandler& obj, const BaseCopyOp& copyop);
         friend class BaseCopyOp;
 
     private:
