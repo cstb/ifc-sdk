@@ -73,7 +73,7 @@ ENDIF(APPLE)
 
 
 IF(MSVC)
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zc:wchar_t- /bigobj")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
 ENDIF(MSVC)
 
 include(${CMAKE_HOME_DIRECTORY}/PCHSupport.cmake)
