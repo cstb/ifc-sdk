@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/Ifc2DCompositeCurve.h"
+#include <ifc2x3/Ifc2DCompositeCurve.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCompositeCurve.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCompositeCurve.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void Ifc2DCompositeCurve::copy(const Ifc2DCompositeCurve &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType Ifc2DCompositeCurve::s_type("Ifc2DCompositeCurve");
+IFC2X3_EXPORT Step::ClassType Ifc2DCompositeCurve::s_type("Ifc2DCompositeCurve");

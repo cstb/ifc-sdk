@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTRUCTURALLOADGROUP_H
 #define IFC2X3_IFCSTRUCTURALLOADGROUP_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcGroup.h"
+#include "IfcGroup.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcStructuralLoadGroup Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcStructuralLoadGroup : public IfcGroup {
+    class IFC2X3_EXPORT IfcStructuralLoadGroup : public IfcGroup {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAnnotationCurveOccurrence.h"
+#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationOccurrence.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationOccurrence.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcAnnotationCurveOccurrence::copy(const IfcAnnotationCurveOccurrence &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAnnotationCurveOccurrence::s_type("IfcAnnotationCurveOccurrence");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationCurveOccurrence::s_type("IfcAnnotationCurveOccurrence");

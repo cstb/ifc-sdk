@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRoot.h"
+#include <ifc2x3/IfcRoot.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcOwnerHistory.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcOwnerHistory.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -213,4 +213,4 @@ void IfcRoot::copy(const IfcRoot &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRoot::s_type("IfcRoot");
+IFC2X3_EXPORT Step::ClassType IfcRoot::s_type("IfcRoot");

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTimeSeriesReferenceRelationship.h"
+#include <ifc2x3/IfcTimeSeriesReferenceRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDocumentSelect.h"
-#include "ifc2x3/IfcTimeSeries.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDocumentSelect.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -180,4 +180,4 @@ void IfcTimeSeriesReferenceRelationship::copy(const IfcTimeSeriesReferenceRelati
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTimeSeriesReferenceRelationship::s_type("IfcTimeSeriesReferenceRelationship");
+IFC2X3_EXPORT Step::ClassType IfcTimeSeriesReferenceRelationship::s_type("IfcTimeSeriesReferenceRelationship");

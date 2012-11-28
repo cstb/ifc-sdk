@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelSchedulesCostItems.h"
+#include <ifc2x3/IfcRelSchedulesCostItems.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRelAssignsToControl.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRelAssignsToControl.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcRelSchedulesCostItems::copy(const IfcRelSchedulesCostItems &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelSchedulesCostItems::s_type("IfcRelSchedulesCostItems");
+IFC2X3_EXPORT Step::ClassType IfcRelSchedulesCostItems::s_type("IfcRelSchedulesCostItems");

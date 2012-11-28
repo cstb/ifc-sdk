@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleElementSelect.h"
+#include <ifc2x3/IfcSurfaceStyleElementSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcExternallyDefinedSurfaceStyle.h"
-#include "ifc2x3/IfcSurfaceStyleLighting.h"
-#include "ifc2x3/IfcSurfaceStyleRefraction.h"
-#include "ifc2x3/IfcSurfaceStyleShading.h"
-#include "ifc2x3/IfcSurfaceStyleWithTextures.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcExternallyDefinedSurfaceStyle.h>
+#include <ifc2x3/IfcSurfaceStyleLighting.h>
+#include <ifc2x3/IfcSurfaceStyleRefraction.h>
+#include <ifc2x3/IfcSurfaceStyleShading.h>
+#include <ifc2x3/IfcSurfaceStyleWithTextures.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -274,4 +274,4 @@ void IfcSurfaceStyleElementSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleElementSelect::s_type("IfcSurfaceStyleElementSelect");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleElementSelect::s_type("IfcSurfaceStyleElementSelect");

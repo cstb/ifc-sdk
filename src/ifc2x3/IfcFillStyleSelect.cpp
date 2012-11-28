@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFillStyleSelect.h"
+#include <ifc2x3/IfcFillStyleSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourSpecification.h"
-#include "ifc2x3/IfcExternallyDefinedHatchStyle.h"
-#include "ifc2x3/IfcFillAreaStyleHatching.h"
-#include "ifc2x3/IfcFillAreaStyleTiles.h"
-#include "ifc2x3/IfcPreDefinedColour.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourSpecification.h>
+#include <ifc2x3/IfcExternallyDefinedHatchStyle.h>
+#include <ifc2x3/IfcFillAreaStyleHatching.h>
+#include <ifc2x3/IfcFillAreaStyleTiles.h>
+#include <ifc2x3/IfcPreDefinedColour.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -274,4 +274,4 @@ void IfcFillStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFillStyleSelect::s_type("IfcFillStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcFillStyleSelect::s_type("IfcFillStyleSelect");

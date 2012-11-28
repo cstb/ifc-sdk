@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcWindowLiningProperties.h"
+#include <ifc2x3/IfcWindowLiningProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcShapeAspect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcShapeAspect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -391,4 +391,4 @@ void IfcWindowLiningProperties::copy(const IfcWindowLiningProperties &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcWindowLiningProperties::s_type("IfcWindowLiningProperties");
+IFC2X3_EXPORT Step::ClassType IfcWindowLiningProperties::s_type("IfcWindowLiningProperties");

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 2.8)
 
 PROJECT(ifc2x3_sdk)
     
@@ -18,6 +18,9 @@ SET(ifc2x3_sdk_VERSION_MINOR 0)
 SET(ifc2x3_sdk_VERSION_PATCH beta3)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
+
+SET(ifc2x3_sdk_SOVERSION 1)
+
 
 if(NOT CMAKEMODULES_PATH)
     if ($ENV{CMAKEMODULES_PATH})
@@ -39,7 +42,7 @@ if(NOT CMAKEMODULES_PATH)
 endif()
 
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKEMODULES_PATH})
-SET (CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_HOME_DIRECTORY}/CMake )
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_HOME_DIRECTORY}/CMake )
 
 SET(EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 IF(WIN32)
@@ -49,6 +52,14 @@ ELSE(WIN32)
 ENDIF(WIN32)
 
 SET(CMAKE_DEBUG_POSTFIX "_debug")
+
+OPTION(STATIC_LIBRARIES "Enables building of STATIC libraries need -DIFC2X3_STATIC to link to" OFF)
+
+if(STATIC_LIBRARIES)
+  set(SHARED_OR_STATIC STATIC)
+else()
+  set(SHARED_OR_STATIC SHARED)
+endif()
 
 if(NOT WIN32)
 	if(NOT CMAKE_BUILD_TYPE)
@@ -96,6 +107,9 @@ IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
      set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
      set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
   ENDIF(UNIX)  
+
+  include_directories(${Step_BINARY_DIR})
+  include_directories(${ifc2x3_BINARY_DIR})
 
   add_subdirectory(tests)
 ENDIF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)

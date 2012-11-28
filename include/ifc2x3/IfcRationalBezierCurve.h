@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRATIONALBEZIERCURVE_H
 #define IFC2X3_IFCRATIONALBEZIERCURVE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcBezierCurve.h"
+#include "IfcBezierCurve.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRationalBezierCurve Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRationalBezierCurve : public IfcBezierCurve {
+    class IFC2X3_EXPORT IfcRationalBezierCurve : public IfcBezierCurve {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBooleanClippingResult.h"
+#include <ifc2x3/IfcBooleanClippingResult.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBooleanResult.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBooleanResult.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcBooleanClippingResult::copy(const IfcBooleanClippingResult &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBooleanClippingResult::s_type("IfcBooleanClippingResult");
+IFC2X3_EXPORT Step::ClassType IfcBooleanClippingResult::s_type("IfcBooleanClippingResult");

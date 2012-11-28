@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBuildingElementProxyType.h"
+#include <ifc2x3/IfcBuildingElementProxyType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBuildingElementType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBuildingElementType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcBuildingElementProxyType::copy(const IfcBuildingElementProxyType &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBuildingElementProxyType::s_type("IfcBuildingElementProxyType");
+IFC2X3_EXPORT Step::ClassType IfcBuildingElementProxyType::s_type("IfcBuildingElementProxyType");

@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDateTimeSelect.h"
+#include <ifc2x3/IfcDateTimeSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcDateAndTime.h"
-#include "ifc2x3/IfcLocalTime.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcDateAndTime.h>
+#include <ifc2x3/IfcLocalTime.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -200,4 +200,4 @@ void IfcDateTimeSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDateTimeSelect::s_type("IfcDateTimeSelect");
+IFC2X3_EXPORT Step::ClassType IfcDateTimeSelect::s_type("IfcDateTimeSelect");

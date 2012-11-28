@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPreDefinedPointMarkerSymbol.h"
+#include <ifc2x3/IfcPreDefinedPointMarkerSymbol.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPreDefinedSymbol.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPreDefinedSymbol.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcPreDefinedPointMarkerSymbol::copy(const IfcPreDefinedPointMarkerSymbol &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type("IfcPreDefinedPointMarkerSymbol");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type("IfcPreDefinedPointMarkerSymbol");

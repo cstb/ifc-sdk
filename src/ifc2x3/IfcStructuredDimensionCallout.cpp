@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuredDimensionCallout.h"
+#include <ifc2x3/IfcStructuredDimensionCallout.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDraughtingCallout.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDraughtingCallout.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcStructuredDimensionCallout::copy(const IfcStructuredDimensionCallout &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuredDimensionCallout::s_type("IfcStructuredDimensionCallout");
+IFC2X3_EXPORT Step::ClassType IfcStructuredDimensionCallout::s_type("IfcStructuredDimensionCallout");

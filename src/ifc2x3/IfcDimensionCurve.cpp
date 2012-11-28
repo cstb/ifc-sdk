@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDimensionCurve.h"
+#include <ifc2x3/IfcDimensionCurve.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationCurveOccurrence.h"
-#include "ifc2x3/IfcTerminatorSymbol.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
+#include <ifc2x3/IfcTerminatorSymbol.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -103,4 +103,4 @@ void IfcDimensionCurve::copy(const IfcDimensionCurve &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDimensionCurve::s_type("IfcDimensionCurve");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCurve::s_type("IfcDimensionCurve");

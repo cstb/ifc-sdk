@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFurnitureStandard.h"
+#include <ifc2x3/IfcFurnitureStandard.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcFurnitureStandard::copy(const IfcFurnitureStandard &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFurnitureStandard::s_type("IfcFurnitureStandard");
+IFC2X3_EXPORT Step::ClassType IfcFurnitureStandard::s_type("IfcFurnitureStandard");

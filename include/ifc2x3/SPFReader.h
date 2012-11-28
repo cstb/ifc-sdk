@@ -16,7 +16,7 @@
 
 #ifndef IFC2X3_SPFREADER_H
 #define IFC2X3_SPFREADER_H
-#include <ifc2x3/ifc2x3DLL.h>
+#include "ifc2x3Export.h"
 
 #include <Step/BaseSPFReader.h>
 #include <iostream>
@@ -32,7 +32,7 @@ namespace ifc2x3 {
      * It is used by calling the read method.
      * 
      */
-    class IFC2X3_DLL_DEF SPFReader : public Step::BaseSPFReader {
+    class IFC2X3_EXPORT SPFReader : public Step::BaseSPFReader {
     public:
         /**
          */

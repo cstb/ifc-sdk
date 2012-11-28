@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBlobTexture.h"
+#include <ifc2x3/IfcBlobTexture.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSurfaceTexture.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSurfaceTexture.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -143,4 +143,4 @@ void IfcBlobTexture::copy(const IfcBlobTexture &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBlobTexture::s_type("IfcBlobTexture");
+IFC2X3_EXPORT Step::ClassType IfcBlobTexture::s_type("IfcBlobTexture");

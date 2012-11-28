@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFacetedBrepWithVoids.h"
+#include <ifc2x3/IfcFacetedBrepWithVoids.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcManifoldSolidBrep.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClosedShell.h>
+#include <ifc2x3/IfcManifoldSolidBrep.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -128,4 +128,4 @@ void IfcFacetedBrepWithVoids::copy(const IfcFacetedBrepWithVoids &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFacetedBrepWithVoids::s_type("IfcFacetedBrepWithVoids");
+IFC2X3_EXPORT Step::ClassType IfcFacetedBrepWithVoids::s_type("IfcFacetedBrepWithVoids");

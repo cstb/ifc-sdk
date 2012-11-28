@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLightFixtureType.h"
+#include <ifc2x3/IfcLightFixtureType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowTerminalType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowTerminalType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -118,4 +118,4 @@ void IfcLightFixtureType::copy(const IfcLightFixtureType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLightFixtureType::s_type("IfcLightFixtureType");
+IFC2X3_EXPORT Step::ClassType IfcLightFixtureType::s_type("IfcLightFixtureType");

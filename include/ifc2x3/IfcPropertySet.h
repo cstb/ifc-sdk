@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPROPERTYSET_H
 #define IFC2X3_IFCPROPERTYSET_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPropertySetDefinition.h"
+#include "IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcPropertySet Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcPropertySet : public IfcPropertySetDefinition {
+    class IFC2X3_EXPORT IfcPropertySet : public IfcPropertySetDefinition {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

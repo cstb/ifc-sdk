@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCENVIRONMENTALIMPACTVALUE_H
 #define IFC2X3_IFCENVIRONMENTALIMPACTVALUE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcAppliedValue.h"
+#include "IfcAppliedValue.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcEnvironmentalImpactValue Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcEnvironmentalImpactValue : public IfcAppliedValue {
+    class IFC2X3_EXPORT IfcEnvironmentalImpactValue : public IfcAppliedValue {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

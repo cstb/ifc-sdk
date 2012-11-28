@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralLinearAction.h"
+#include <ifc2x3/IfcStructuralLinearAction.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralAction.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralAction.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcStructuralLinearAction::copy(const IfcStructuralLinearAction &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralLinearAction::s_type("IfcStructuralLinearAction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLinearAction::s_type("IfcStructuralLinearAction");

@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCalendarDate.h"
+#include <ifc2x3/IfcCalendarDate.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -173,4 +173,4 @@ void IfcCalendarDate::copy(const IfcCalendarDate &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCalendarDate::s_type("IfcCalendarDate");
+IFC2X3_EXPORT Step::ClassType IfcCalendarDate::s_type("IfcCalendarDate");

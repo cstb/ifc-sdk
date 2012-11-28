@@ -23,7 +23,7 @@ using namespace Step;
 
 
 
-ClassType_root_implementations(STEP_DLL_DEF,Referenced);
+ClassType_root_implementations(STEP_EXPORT,Referenced);
 
 typedef std::set<Observer*> ObserverSet;
 

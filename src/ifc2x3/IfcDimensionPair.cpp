@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDimensionPair.h"
+#include <ifc2x3/IfcDimensionPair.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDraughtingCalloutRelationship.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDraughtingCalloutRelationship.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcDimensionPair::copy(const IfcDimensionPair &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDimensionPair::s_type("IfcDimensionPair");
+IFC2X3_EXPORT Step::ClassType IfcDimensionPair::s_type("IfcDimensionPair");

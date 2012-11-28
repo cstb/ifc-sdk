@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralLoadSingleForce.h"
+#include <ifc2x3/IfcStructuralLoadSingleForce.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralLoadStatic.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralLoadStatic.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -282,4 +282,4 @@ void IfcStructuralLoadSingleForce::copy(const IfcStructuralLoadSingleForce &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralLoadSingleForce::s_type("IfcStructuralLoadSingleForce");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleForce::s_type("IfcStructuralLoadSingleForce");

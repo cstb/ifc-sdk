@@ -20,7 +20,7 @@
 
 using namespace Step;
 
-ClassType_child_implementations(STEP_DLL_DEF,BaseObject,ClientDataHandler);
+ClassType_child_implementations(STEP_EXPORT,BaseObject,ClientDataHandler);
 
 BaseObject::BaseObject(SPFData* data) :
     m_inited((!data) || (data && (data->argc() == 0))), m_args(data)

@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCurveStyle.h"
+#include <ifc2x3/IfcCurveStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColour.h"
-#include "ifc2x3/IfcCurveFontOrScaledCurveFontSelect.h"
-#include "ifc2x3/IfcPresentationStyle.h"
-#include "ifc2x3/IfcSizeSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColour.h>
+#include <ifc2x3/IfcCurveFontOrScaledCurveFontSelect.h>
+#include <ifc2x3/IfcPresentationStyle.h>
+#include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -252,4 +252,4 @@ void IfcCurveStyle::copy(const IfcCurveStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCurveStyle::s_type("IfcCurveStyle");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyle::s_type("IfcCurveStyle");

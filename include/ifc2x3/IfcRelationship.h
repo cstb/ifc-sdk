@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELATIONSHIP_H
 #define IFC2X3_IFCRELATIONSHIP_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRoot.h"
+#include "IfcRoot.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRelationship Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRelationship : public IfcRoot {
+    class IFC2X3_EXPORT IfcRelationship : public IfcRoot {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPlane.h"
+#include <ifc2x3/IfcPlane.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElementarySurface.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElementarySurface.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcPlane::copy(const IfcPlane &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPlane::s_type("IfcPlane");
+IFC2X3_EXPORT Step::ClassType IfcPlane::s_type("IfcPlane");

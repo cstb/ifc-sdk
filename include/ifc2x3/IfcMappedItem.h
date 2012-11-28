@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCMAPPEDITEM_H
 #define IFC2X3_IFCMAPPEDITEM_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRepresentationItem.h"
+#include "IfcRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcMappedItem Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcMappedItem : public IfcRepresentationItem {
+    class IFC2X3_EXPORT IfcMappedItem : public IfcRepresentationItem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

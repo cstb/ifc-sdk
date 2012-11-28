@@ -17,7 +17,7 @@
 #ifndef Step_SPFFunctions_h
 #define Step_SPFFunctions_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Types.h"
 
@@ -32,7 +32,7 @@ namespace Step {
      @param str1 the result of the extraction
      @return success
      */
-    bool STEP_DLL_DEF getSubParameter(std::string& arg, std::string& str1);
+    bool STEP_EXPORT getSubParameter(std::string& arg, std::string& str1);
     /*!
      reads a line from a ifstream until the ';' is found, update the line counter and uses the the buffer s to build the resulting string
      @param ifs the input stream
@@ -42,7 +42,7 @@ namespace Step {
      @param str the parsed line
      @return success or failure
      */
-    bool STEP_DLL_DEF getLine(std::istream& ifs, unsigned int& counter,
+    bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
             char* buffer, unsigned long bufferLength, std::string& str);
 
     /*!
@@ -51,7 +51,7 @@ namespace Step {
      @param res the resulting list of strings parsed
      @return success or failure
      */
-    bool STEP_DLL_DEF parseList(const char* buffer,
+    bool STEP_EXPORT parseList(const char* buffer,
             std::vector<std::string>& res);
 
     /*!
@@ -59,20 +59,20 @@ namespace Step {
      @param s the string to parse
      @return the Step::Id (can be unset if $ is found
      */
-    Id STEP_DLL_DEF getIdParam(const std::string& s);
+    Id STEP_EXPORT getIdParam(const std::string& s);
     /*!
      constructs a list of Ids from a string
      @param s the string to parse
      @param res the Step::Id (can be unset if $ is found
      @return success or failure
      */
-    bool STEP_DLL_DEF getIdListParam(const std::string& s,
+    bool STEP_EXPORT getIdListParam(const std::string& s,
                     std::vector<Id>& res);
     /*!
      removes the boundary quotes of a string
      @param s the string to operate on
      @return success or failure
      */
-    bool STEP_DLL_DEF removeQuotes(std::string& s);
+    bool STEP_EXPORT removeQuotes(std::string& s);
 }
 #endif

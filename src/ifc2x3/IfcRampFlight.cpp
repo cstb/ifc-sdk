@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRampFlight.h"
+#include <ifc2x3/IfcRampFlight.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBuildingElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBuildingElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcRampFlight::copy(const IfcRampFlight &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRampFlight::s_type("IfcRampFlight");
+IFC2X3_EXPORT Step::ClassType IfcRampFlight::s_type("IfcRampFlight");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcWallStandardCase.h"
+#include <ifc2x3/IfcWallStandardCase.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcWall.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcWall.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcWallStandardCase::copy(const IfcWallStandardCase &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcWallStandardCase::s_type("IfcWallStandardCase");
+IFC2X3_EXPORT Step::ClassType IfcWallStandardCase::s_type("IfcWallStandardCase");

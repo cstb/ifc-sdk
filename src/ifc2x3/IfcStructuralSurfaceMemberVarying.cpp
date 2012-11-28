@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralSurfaceMemberVarying.h"
+#include <ifc2x3/IfcStructuralSurfaceMemberVarying.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcShapeAspect.h"
-#include "ifc2x3/IfcStructuralSurfaceMember.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcShapeAspect.h>
+#include <ifc2x3/IfcStructuralSurfaceMember.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -163,4 +163,4 @@ void IfcStructuralSurfaceMemberVarying::copy(const IfcStructuralSurfaceMemberVar
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralSurfaceMemberVarying::s_type("IfcStructuralSurfaceMemberVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralSurfaceMemberVarying::s_type("IfcStructuralSurfaceMemberVarying");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProjectionElement.h"
+#include <ifc2x3/IfcProjectionElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFeatureElementAddition.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFeatureElementAddition.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcProjectionElement::copy(const IfcProjectionElement &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProjectionElement::s_type("IfcProjectionElement");
+IFC2X3_EXPORT Step::ClassType IfcProjectionElement::s_type("IfcProjectionElement");

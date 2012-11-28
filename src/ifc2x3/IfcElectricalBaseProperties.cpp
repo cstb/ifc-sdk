@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcElectricalBaseProperties.h"
+#include <ifc2x3/IfcElectricalBaseProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyProperties.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyProperties.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -360,4 +360,4 @@ void IfcElectricalBaseProperties::copy(const IfcElectricalBaseProperties &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcElectricalBaseProperties::s_type("IfcElectricalBaseProperties");
+IFC2X3_EXPORT Step::ClassType IfcElectricalBaseProperties::s_type("IfcElectricalBaseProperties");

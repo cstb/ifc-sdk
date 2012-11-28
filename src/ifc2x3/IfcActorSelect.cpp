@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcActorSelect.h"
+#include <ifc2x3/IfcActorSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcOrganization.h"
-#include "ifc2x3/IfcPerson.h"
-#include "ifc2x3/IfcPersonAndOrganization.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcOrganization.h>
+#include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/IfcPersonAndOrganization.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -202,4 +202,4 @@ void IfcActorSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcActorSelect::s_type("IfcActorSelect");
+IFC2X3_EXPORT Step::ClassType IfcActorSelect::s_type("IfcActorSelect");

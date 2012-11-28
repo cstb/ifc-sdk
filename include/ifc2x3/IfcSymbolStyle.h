@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSYMBOLSTYLE_H
 #define IFC2X3_IFCSYMBOLSTYLE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPresentationStyle.h"
+#include "IfcPresentationStyle.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSymbolStyle Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSymbolStyle : public IfcPresentationStyle {
+    class IFC2X3_EXPORT IfcSymbolStyle : public IfcPresentationStyle {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

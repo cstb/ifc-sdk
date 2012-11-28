@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPropertyReferenceValue.h"
+#include <ifc2x3/IfcPropertyReferenceValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObjectReferenceSelect.h"
-#include "ifc2x3/IfcSimpleProperty.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObjectReferenceSelect.h>
+#include <ifc2x3/IfcSimpleProperty.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -159,4 +159,4 @@ void IfcPropertyReferenceValue::copy(const IfcPropertyReferenceValue &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPropertyReferenceValue::s_type("IfcPropertyReferenceValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyReferenceValue::s_type("IfcPropertyReferenceValue");

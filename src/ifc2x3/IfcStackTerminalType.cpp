@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStackTerminalType.h"
+#include <ifc2x3/IfcStackTerminalType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowTerminalType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowTerminalType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -121,4 +121,4 @@ void IfcStackTerminalType::copy(const IfcStackTerminalType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStackTerminalType::s_type("IfcStackTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcStackTerminalType::s_type("IfcStackTerminalType");

@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextStyle.h"
+#include <ifc2x3/IfcTextStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCharacterStyleSelect.h"
-#include "ifc2x3/IfcPresentationStyle.h"
-#include "ifc2x3/IfcTextFontSelect.h"
-#include "ifc2x3/IfcTextStyleSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCharacterStyleSelect.h>
+#include <ifc2x3/IfcPresentationStyle.h>
+#include <ifc2x3/IfcTextFontSelect.h>
+#include <ifc2x3/IfcTextStyleSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -221,4 +221,4 @@ void IfcTextStyle::copy(const IfcTextStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextStyle::s_type("IfcTextStyle");
+IFC2X3_EXPORT Step::ClassType IfcTextStyle::s_type("IfcTextStyle");

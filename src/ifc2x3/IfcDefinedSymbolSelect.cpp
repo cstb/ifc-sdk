@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDefinedSymbolSelect.h"
+#include <ifc2x3/IfcDefinedSymbolSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcExternallyDefinedSymbol.h"
-#include "ifc2x3/IfcPreDefinedSymbol.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcExternallyDefinedSymbol.h>
+#include <ifc2x3/IfcPreDefinedSymbol.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcDefinedSymbolSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDefinedSymbolSelect::s_type("IfcDefinedSymbolSelect");
+IFC2X3_EXPORT Step::ClassType IfcDefinedSymbolSelect::s_type("IfcDefinedSymbolSelect");

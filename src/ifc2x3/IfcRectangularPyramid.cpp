@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRectangularPyramid.h"
+#include <ifc2x3/IfcRectangularPyramid.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCsgPrimitive3D.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCsgPrimitive3D.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -177,4 +177,4 @@ void IfcRectangularPyramid::copy(const IfcRectangularPyramid &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRectangularPyramid::s_type("IfcRectangularPyramid");
+IFC2X3_EXPORT Step::ClassType IfcRectangularPyramid::s_type("IfcRectangularPyramid");

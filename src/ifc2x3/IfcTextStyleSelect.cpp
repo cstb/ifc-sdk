@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextStyleSelect.h"
+#include <ifc2x3/IfcTextStyleSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcTextStyleTextModel.h"
-#include "ifc2x3/IfcTextStyleWithBoxCharacteristics.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcTextStyleTextModel.h>
+#include <ifc2x3/IfcTextStyleWithBoxCharacteristics.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcTextStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextStyleSelect::s_type("IfcTextStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleSelect::s_type("IfcTextStyleSelect");

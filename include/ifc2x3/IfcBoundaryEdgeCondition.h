@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCBOUNDARYEDGECONDITION_H
 #define IFC2X3_IFCBOUNDARYEDGECONDITION_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcBoundaryCondition.h"
+#include "IfcBoundaryCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcBoundaryEdgeCondition Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcBoundaryEdgeCondition : public IfcBoundaryCondition {
+    class IFC2X3_EXPORT IfcBoundaryEdgeCondition : public IfcBoundaryCondition {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

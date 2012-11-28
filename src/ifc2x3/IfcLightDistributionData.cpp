@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLightDistributionData.h"
+#include <ifc2x3/IfcLightDistributionData.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -208,4 +208,4 @@ void IfcLightDistributionData::copy(const IfcLightDistributionData &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLightDistributionData::s_type("IfcLightDistributionData");
+IFC2X3_EXPORT Step::ClassType IfcLightDistributionData::s_type("IfcLightDistributionData");

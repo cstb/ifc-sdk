@@ -17,7 +17,7 @@
 #ifndef Step_ClientDataHandler_h
 #define Step_ClientDataHandler_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 #include "Types.h"
 
 #include <map>
@@ -29,7 +29,7 @@ namespace Step {
     /*!
      * \short A handler of ClientData
      */
-    class STEP_DLL_DEF ClientDataHandler: public Referenced
+    class STEP_EXPORT ClientDataHandler: public Referenced
     {
         ClassType_definitions();
     public:

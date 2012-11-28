@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMaterialLayer.h"
+#include <ifc2x3/IfcMaterialLayer.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/IfcMaterialLayerSet.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/IfcMaterialLayerSet.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -202,4 +202,4 @@ void IfcMaterialLayer::copy(const IfcMaterialLayer &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMaterialLayer::s_type("IfcMaterialLayer");
+IFC2X3_EXPORT Step::ClassType IfcMaterialLayer::s_type("IfcMaterialLayer");

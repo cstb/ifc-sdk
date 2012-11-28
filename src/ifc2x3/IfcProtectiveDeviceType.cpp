@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProtectiveDeviceType.h"
+#include <ifc2x3/IfcProtectiveDeviceType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowControllerType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowControllerType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -130,4 +130,4 @@ void IfcProtectiveDeviceType::copy(const IfcProtectiveDeviceType &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProtectiveDeviceType::s_type("IfcProtectiveDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcProtectiveDeviceType::s_type("IfcProtectiveDeviceType");

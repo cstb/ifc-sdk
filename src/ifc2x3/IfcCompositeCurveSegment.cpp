@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCompositeCurveSegment.h"
+#include <ifc2x3/IfcCompositeCurveSegment.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCompositeCurve.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCompositeCurve.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -222,4 +222,4 @@ void IfcCompositeCurveSegment::copy(const IfcCompositeCurveSegment &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCompositeCurveSegment::s_type("IfcCompositeCurveSegment");
+IFC2X3_EXPORT Step::ClassType IfcCompositeCurveSegment::s_type("IfcCompositeCurveSegment");

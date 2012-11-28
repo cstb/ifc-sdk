@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcGeometricCurveSet.h"
+#include <ifc2x3/IfcGeometricCurveSet.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcGeometricSet.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcGeometricSet.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcGeometricCurveSet::copy(const IfcGeometricCurveSet &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcGeometricCurveSet::s_type("IfcGeometricCurveSet");
+IFC2X3_EXPORT Step::ClassType IfcGeometricCurveSet::s_type("IfcGeometricCurveSet");

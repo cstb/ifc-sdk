@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCurveBoundedPlane.h"
+#include <ifc2x3/IfcCurveBoundedPlane.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBoundedSurface.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/IfcPlane.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBoundedSurface.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcPlane.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -199,4 +199,4 @@ void IfcCurveBoundedPlane::copy(const IfcCurveBoundedPlane &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCurveBoundedPlane::s_type("IfcCurveBoundedPlane");
+IFC2X3_EXPORT Step::ClassType IfcCurveBoundedPlane::s_type("IfcCurveBoundedPlane");

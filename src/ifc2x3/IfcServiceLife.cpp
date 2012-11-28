@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcServiceLife.h"
+#include <ifc2x3/IfcServiceLife.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -156,4 +156,4 @@ void IfcServiceLife::copy(const IfcServiceLife &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcServiceLife::s_type("IfcServiceLife");
+IFC2X3_EXPORT Step::ClassType IfcServiceLife::s_type("IfcServiceLife");

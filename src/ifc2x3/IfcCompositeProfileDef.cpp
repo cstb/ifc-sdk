@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCompositeProfileDef.h"
+#include <ifc2x3/IfcCompositeProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -163,4 +163,4 @@ void IfcCompositeProfileDef::copy(const IfcCompositeProfileDef &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCompositeProfileDef::s_type("IfcCompositeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCompositeProfileDef::s_type("IfcCompositeProfileDef");

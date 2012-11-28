@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFaceSurface.h"
+#include <ifc2x3/IfcFaceSurface.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFace.h"
-#include "ifc2x3/IfcSurface.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFace.h>
+#include <ifc2x3/IfcSurface.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -146,4 +146,4 @@ void IfcFaceSurface::copy(const IfcFaceSurface &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFaceSurface::s_type("IfcFaceSurface");
+IFC2X3_EXPORT Step::ClassType IfcFaceSurface::s_type("IfcFaceSurface");

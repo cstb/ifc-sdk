@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFastener.h"
+#include <ifc2x3/IfcFastener.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElementComponent.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElementComponent.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcFastener::copy(const IfcFastener &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFastener::s_type("IfcFastener");
+IFC2X3_EXPORT Step::ClassType IfcFastener::s_type("IfcFastener");

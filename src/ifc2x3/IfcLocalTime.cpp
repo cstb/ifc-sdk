@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLocalTime.h"
+#include <ifc2x3/IfcLocalTime.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCoordinatedUniversalTimeOffset.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCoordinatedUniversalTimeOffset.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -247,4 +247,4 @@ void IfcLocalTime::copy(const IfcLocalTime &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLocalTime::s_type("IfcLocalTime");
+IFC2X3_EXPORT Step::ClassType IfcLocalTime::s_type("IfcLocalTime");

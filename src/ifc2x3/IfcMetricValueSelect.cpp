@@ -18,17 +18,17 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMetricValueSelect.h"
+#include <ifc2x3/IfcMetricValueSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcCostValue.h"
-#include "ifc2x3/IfcDateAndTime.h"
-#include "ifc2x3/IfcLocalTime.h"
-#include "ifc2x3/IfcMeasureWithUnit.h"
-#include "ifc2x3/IfcTable.h"
-#include "ifc2x3/IfcTimeSeries.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcCostValue.h>
+#include <ifc2x3/IfcDateAndTime.h>
+#include <ifc2x3/IfcLocalTime.h>
+#include <ifc2x3/IfcMeasureWithUnit.h>
+#include <ifc2x3/IfcTable.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -371,4 +371,4 @@ void IfcMetricValueSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMetricValueSelect::s_type("IfcMetricValueSelect");
+IFC2X3_EXPORT Step::ClassType IfcMetricValueSelect::s_type("IfcMetricValueSelect");

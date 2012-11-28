@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCTEXTURECOORDINATE_H
 #define IFC2X3_IFCTEXTURECOORDINATE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcTextureCoordinate Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcTextureCoordinate : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcTextureCoordinate : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

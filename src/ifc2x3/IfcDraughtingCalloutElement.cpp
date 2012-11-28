@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDraughtingCalloutElement.h"
+#include <ifc2x3/IfcDraughtingCalloutElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationCurveOccurrence.h"
-#include "ifc2x3/IfcAnnotationSymbolOccurrence.h"
-#include "ifc2x3/IfcAnnotationTextOccurrence.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
+#include <ifc2x3/IfcAnnotationSymbolOccurrence.h>
+#include <ifc2x3/IfcAnnotationTextOccurrence.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -200,4 +200,4 @@ void IfcDraughtingCalloutElement::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDraughtingCalloutElement::s_type("IfcDraughtingCalloutElement");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutElement::s_type("IfcDraughtingCalloutElement");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBoilerType.h"
+#include <ifc2x3/IfcBoilerType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -118,4 +118,4 @@ void IfcBoilerType::copy(const IfcBoilerType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBoilerType::s_type("IfcBoilerType");
+IFC2X3_EXPORT Step::ClassType IfcBoilerType::s_type("IfcBoilerType");

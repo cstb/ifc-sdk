@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextureMap.h"
+#include <ifc2x3/IfcTextureMap.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcTextureCoordinate.h"
-#include "ifc2x3/IfcVertexBasedTextureMap.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcTextureCoordinate.h>
+#include <ifc2x3/IfcVertexBasedTextureMap.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -128,4 +128,4 @@ void IfcTextureMap::copy(const IfcTextureMap &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextureMap::s_type("IfcTextureMap");
+IFC2X3_EXPORT Step::ClassType IfcTextureMap::s_type("IfcTextureMap");

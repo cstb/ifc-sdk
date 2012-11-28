@@ -17,7 +17,7 @@
 #ifndef Step_BaseVisitor_h
 #define Step_BaseVisitor_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Types.h"
 #include "logger.h"
@@ -36,7 +36,7 @@ namespace Step {
      * obj->acceptVisitor(&visitor); // calls visitor.visitBaseEntity()
      * \endcode
      */
-    class STEP_DLL_DEF BaseVisitor: public Referenced
+    class STEP_EXPORT BaseVisitor: public Referenced
     {
     public:
         BaseVisitor();

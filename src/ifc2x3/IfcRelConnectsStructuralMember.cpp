@@ -18,16 +18,16 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelConnectsStructuralMember.h"
+#include <ifc2x3/IfcRelConnectsStructuralMember.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/IfcBoundaryCondition.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/IfcStructuralConnection.h"
-#include "ifc2x3/IfcStructuralConnectionCondition.h"
-#include "ifc2x3/IfcStructuralMember.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/IfcBoundaryCondition.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcStructuralConnection.h>
+#include <ifc2x3/IfcStructuralConnectionCondition.h>
+#include <ifc2x3/IfcStructuralMember.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -302,4 +302,4 @@ void IfcRelConnectsStructuralMember::copy(const IfcRelConnectsStructuralMember &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsStructuralMember::s_type("IfcRelConnectsStructuralMember");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsStructuralMember::s_type("IfcRelConnectsStructuralMember");

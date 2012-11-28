@@ -17,9 +17,9 @@
 #ifndef IFC2X3_FALSEVISITOR_H
 #define IFC2X3_FALSEVISITOR_H
 
-#include <ifc2x3/ifc2x3DLL.h>
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/Visitor.h"
+#include "Visitor.h"
 
 namespace ifc2x3 {
 
@@ -727,7 +727,7 @@ namespace ifc2x3 {
      * Visitor that implements all of the methods but returning false.
      * 
      */
-    class IFC2X3_DLL_DEF FalseVisitor : public Visitor {
+    class IFC2X3_EXPORT FalseVisitor : public Visitor {
     public:
         /**
          */

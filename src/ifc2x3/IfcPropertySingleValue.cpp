@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPropertySingleValue.h"
+#include <ifc2x3/IfcPropertySingleValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSimpleProperty.h"
-#include "ifc2x3/IfcUnit.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSimpleProperty.h>
+#include <ifc2x3/IfcUnit.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -688,4 +688,4 @@ void IfcPropertySingleValue::copy(const IfcPropertySingleValue &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPropertySingleValue::s_type("IfcPropertySingleValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertySingleValue::s_type("IfcPropertySingleValue");

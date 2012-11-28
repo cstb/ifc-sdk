@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCOMPOSITEPROFILEDEF_H
 #define IFC2X3_IFCCOMPOSITEPROFILEDEF_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcProfileDef.h"
+#include "IfcProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcCompositeProfileDef Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcCompositeProfileDef : public IfcProfileDef {
+    class IFC2X3_EXPORT IfcCompositeProfileDef : public IfcProfileDef {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

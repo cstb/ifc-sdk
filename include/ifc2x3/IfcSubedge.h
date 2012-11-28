@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSUBEDGE_H
 #define IFC2X3_IFCSUBEDGE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcEdge.h"
+#include "IfcEdge.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSubedge Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSubedge : public IfcEdge {
+    class IFC2X3_EXPORT IfcSubedge : public IfcEdge {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcShell.h"
+#include <ifc2x3/IfcShell.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcOpenShell.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClosedShell.h>
+#include <ifc2x3/IfcOpenShell.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcShell::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcShell::s_type("IfcShell");
+IFC2X3_EXPORT Step::ClassType IfcShell::s_type("IfcShell");

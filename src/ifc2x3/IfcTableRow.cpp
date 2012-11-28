@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTableRow.h"
+#include <ifc2x3/IfcTableRow.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcTable.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcTable.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -709,4 +709,4 @@ void IfcTableRow::copy(const IfcTableRow &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTableRow::s_type("IfcTableRow");
+IFC2X3_EXPORT Step::ClassType IfcTableRow::s_type("IfcTableRow");

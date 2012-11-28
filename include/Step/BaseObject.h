@@ -17,7 +17,7 @@
 #ifndef Step_BaseObject_h
 #define Step_BaseObject_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Referenced.h"
 
@@ -32,7 +32,7 @@ namespace Step {
     /*!
      ** \short Base Object for Entity and Select definition
      */
-    class STEP_DLL_DEF BaseObject: public ClientDataHandler
+    class STEP_EXPORT BaseObject: public ClientDataHandler
     {
         ClassType_definitions();
     public:

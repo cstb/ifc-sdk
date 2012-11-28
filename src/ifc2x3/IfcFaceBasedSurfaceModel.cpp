@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFaceBasedSurfaceModel.h"
+#include <ifc2x3/IfcFaceBasedSurfaceModel.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConnectedFaceSet.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConnectedFaceSet.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -128,4 +128,4 @@ void IfcFaceBasedSurfaceModel::copy(const IfcFaceBasedSurfaceModel &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFaceBasedSurfaceModel::s_type("IfcFaceBasedSurfaceModel");
+IFC2X3_EXPORT Step::ClassType IfcFaceBasedSurfaceModel::s_type("IfcFaceBasedSurfaceModel");

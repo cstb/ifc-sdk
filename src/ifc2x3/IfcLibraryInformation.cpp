@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLibraryInformation.h"
+#include <ifc2x3/IfcLibraryInformation.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcLibraryReference.h"
-#include "ifc2x3/IfcOrganization.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcLibraryReference.h>
+#include <ifc2x3/IfcOrganization.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -291,4 +291,4 @@ void IfcLibraryInformation::copy(const IfcLibraryInformation &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation");
+IFC2X3_EXPORT Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation");

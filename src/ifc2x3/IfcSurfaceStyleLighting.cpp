@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleLighting.h"
+#include <ifc2x3/IfcSurfaceStyleLighting.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourRgb.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourRgb.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -212,4 +212,4 @@ void IfcSurfaceStyleLighting::copy(const IfcSurfaceStyleLighting &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleLighting::s_type("IfcSurfaceStyleLighting");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleLighting::s_type("IfcSurfaceStyleLighting");

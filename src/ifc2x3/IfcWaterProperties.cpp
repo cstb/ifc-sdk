@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcWaterProperties.h"
+#include <ifc2x3/IfcWaterProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMaterialProperties.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMaterialProperties.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -317,4 +317,4 @@ void IfcWaterProperties::copy(const IfcWaterProperties &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcWaterProperties::s_type("IfcWaterProperties");
+IFC2X3_EXPORT Step::ClassType IfcWaterProperties::s_type("IfcWaterProperties");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCoilType.h"
+#include <ifc2x3/IfcCoilType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -130,4 +130,4 @@ void IfcCoilType::copy(const IfcCoilType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCoilType::s_type("IfcCoilType");
+IFC2X3_EXPORT Step::ClassType IfcCoilType::s_type("IfcCoilType");

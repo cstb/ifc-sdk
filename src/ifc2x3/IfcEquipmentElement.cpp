@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcEquipmentElement.h"
+#include <ifc2x3/IfcEquipmentElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcEquipmentElement::copy(const IfcEquipmentElement &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcEquipmentElement::s_type("IfcEquipmentElement");
+IFC2X3_EXPORT Step::ClassType IfcEquipmentElement::s_type("IfcEquipmentElement");

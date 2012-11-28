@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFireSuppressionTerminalType.h"
+#include <ifc2x3/IfcFireSuppressionTerminalType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowTerminalType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowTerminalType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -127,4 +127,4 @@ void IfcFireSuppressionTerminalType::copy(const IfcFireSuppressionTerminalType &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFireSuppressionTerminalType::s_type("IfcFireSuppressionTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcFireSuppressionTerminalType::s_type("IfcFireSuppressionTerminalType");

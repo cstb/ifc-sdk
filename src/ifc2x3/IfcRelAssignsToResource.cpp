@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssignsToResource.h"
+#include <ifc2x3/IfcRelAssignsToResource.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRelAssigns.h"
-#include "ifc2x3/IfcResource.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRelAssigns.h>
+#include <ifc2x3/IfcResource.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -117,4 +117,4 @@ void IfcRelAssignsToResource::copy(const IfcRelAssignsToResource &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssignsToResource::s_type("IfcRelAssignsToResource");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToResource::s_type("IfcRelAssignsToResource");

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSoundProperties.h"
+#include <ifc2x3/IfcSoundProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcSoundValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcSoundValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -218,4 +218,4 @@ void IfcSoundProperties::copy(const IfcSoundProperties &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSoundProperties::s_type("IfcSoundProperties");
+IFC2X3_EXPORT Step::ClassType IfcSoundProperties::s_type("IfcSoundProperties");

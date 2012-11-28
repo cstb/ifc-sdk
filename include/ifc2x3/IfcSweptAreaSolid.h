@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSWEPTAREASOLID_H
 #define IFC2X3_IFCSWEPTAREASOLID_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcSolidModel.h"
+#include "IfcSolidModel.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSweptAreaSolid Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSweptAreaSolid : public IfcSolidModel {
+    class IFC2X3_EXPORT IfcSweptAreaSolid : public IfcSolidModel {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

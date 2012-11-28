@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSpaceType.h"
+#include <ifc2x3/IfcSpaceType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSpatialStructureElementType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSpatialStructureElementType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcSpaceType::copy(const IfcSpaceType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSpaceType::s_type("IfcSpaceType");
+IFC2X3_EXPORT Step::ClassType IfcSpaceType::s_type("IfcSpaceType");

@@ -19,7 +19,7 @@
 
 using namespace Step;
 
-ClassType_child_implementations(STEP_DLL_DEF,BaseEntity,BaseObject);
+ClassType_child_implementations(STEP_EXPORT,BaseEntity,BaseObject);
 
 bool BaseEntity::acceptVisitor(BaseVisitor *v)
 {

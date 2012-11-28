@@ -18,16 +18,16 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralAnalysisModel.h"
+#include <ifc2x3/IfcStructuralAnalysisModel.h>
 
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/IfcStructuralLoadGroup.h"
-#include "ifc2x3/IfcStructuralResultGroup.h"
-#include "ifc2x3/IfcSystem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/IfcStructuralLoadGroup.h>
+#include <ifc2x3/IfcStructuralResultGroup.h>
+#include <ifc2x3/IfcSystem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -314,4 +314,4 @@ void IfcStructuralAnalysisModel::copy(const IfcStructuralAnalysisModel &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralAnalysisModel::s_type("IfcStructuralAnalysisModel");
+IFC2X3_EXPORT Step::ClassType IfcStructuralAnalysisModel::s_type("IfcStructuralAnalysisModel");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCTEXTSTYLEFONTMODEL_H
 #define IFC2X3_IFCTEXTSTYLEFONTMODEL_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPreDefinedTextFont.h"
+#include "IfcPreDefinedTextFont.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcTextStyleFontModel Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcTextStyleFontModel : public IfcPreDefinedTextFont {
+    class IFC2X3_EXPORT IfcTextStyleFontModel : public IfcPreDefinedTextFont {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

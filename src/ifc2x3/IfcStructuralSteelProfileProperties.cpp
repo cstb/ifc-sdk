@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralSteelProfileProperties.h"
+#include <ifc2x3/IfcStructuralSteelProfileProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralProfileProperties.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralProfileProperties.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -212,4 +212,4 @@ void IfcStructuralSteelProfileProperties::copy(const IfcStructuralSteelProfilePr
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralSteelProfileProperties::s_type("IfcStructuralSteelProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcStructuralSteelProfileProperties::s_type("IfcStructuralSteelProfileProperties");

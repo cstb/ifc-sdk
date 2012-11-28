@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTRUCTURALANALYSISMODEL_H
 #define IFC2X3_IFCSTRUCTURALANALYSISMODEL_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcSystem.h"
+#include "IfcSystem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -131,7 +131,7 @@ namespace ifc2x3 {
      * Generated class for the IfcStructuralAnalysisModel Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcStructuralAnalysisModel : public IfcSystem {
+    class IFC2X3_EXPORT IfcStructuralAnalysisModel : public IfcSystem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

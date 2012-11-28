@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcColourRgb.h"
+#include <ifc2x3/IfcColourRgb.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourSpecification.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourSpecification.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -177,4 +177,4 @@ void IfcColourRgb::copy(const IfcColourRgb &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcColourRgb::s_type("IfcColourRgb");
+IFC2X3_EXPORT Step::ClassType IfcColourRgb::s_type("IfcColourRgb");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcElectricGeneratorType.h"
+#include <ifc2x3/IfcElectricGeneratorType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcElectricGeneratorType::copy(const IfcElectricGeneratorType &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcElectricGeneratorType::s_type("IfcElectricGeneratorType");
+IFC2X3_EXPORT Step::ClassType IfcElectricGeneratorType::s_type("IfcElectricGeneratorType");

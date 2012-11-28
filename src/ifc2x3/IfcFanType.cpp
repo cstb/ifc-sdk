@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFanType.h"
+#include <ifc2x3/IfcFanType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowMovingDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowMovingDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -133,4 +133,4 @@ void IfcFanType::copy(const IfcFanType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFanType::s_type("IfcFanType");
+IFC2X3_EXPORT Step::ClassType IfcFanType::s_type("IfcFanType");

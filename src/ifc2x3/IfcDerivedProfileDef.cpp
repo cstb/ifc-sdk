@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDerivedProfileDef.h"
+#include <ifc2x3/IfcDerivedProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianTransformationOperator2D.h"
-#include "ifc2x3/IfcProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianTransformationOperator2D.h>
+#include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -182,4 +182,4 @@ void IfcDerivedProfileDef::copy(const IfcDerivedProfileDef &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDerivedProfileDef::s_type("IfcDerivedProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcDerivedProfileDef::s_type("IfcDerivedProfileDef");

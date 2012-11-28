@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFILLAREASTYLEHATCHING_H
 #define IFC2X3_IFCFILLAREASTYLEHATCHING_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
+#include "IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -37,7 +37,7 @@ namespace ifc2x3 {
      * Generated class for the IfcFillAreaStyleHatching Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcFillAreaStyleHatching : public IfcGeometricRepresentationItem {
+    class IFC2X3_EXPORT IfcFillAreaStyleHatching : public IfcGeometricRepresentationItem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

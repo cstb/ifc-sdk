@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcColour.h"
+#include <ifc2x3/IfcColour.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourSpecification.h"
-#include "ifc2x3/IfcPreDefinedColour.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourSpecification.h>
+#include <ifc2x3/IfcPreDefinedColour.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcColour::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcColour::s_type("IfcColour");
+IFC2X3_EXPORT Step::ClassType IfcColour::s_type("IfcColour");

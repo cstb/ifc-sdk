@@ -17,7 +17,7 @@
 #ifndef Step_BaseCopyOp_H
 #define Step_BaseCopyOp_H
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "SimpleTypes.h"
 #include "BaseObject.h"
@@ -29,7 +29,7 @@ namespace Step
     /*!
     ** \short Base class for all copy operator
     */
-    class STEP_DLL_DEF BaseCopyOp
+    class STEP_EXPORT BaseCopyOp
     {
     public:
         BaseCopyOp();

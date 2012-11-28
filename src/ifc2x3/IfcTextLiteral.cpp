@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextLiteral.h"
+#include <ifc2x3/IfcTextLiteral.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -205,4 +205,4 @@ void IfcTextLiteral::copy(const IfcTextLiteral &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextLiteral::s_type("IfcTextLiteral");
+IFC2X3_EXPORT Step::ClassType IfcTextLiteral::s_type("IfcTextLiteral");

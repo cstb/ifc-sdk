@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcServiceLifeFactor.h"
+#include <ifc2x3/IfcServiceLifeFactor.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMeasureValue.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMeasureValue.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -651,4 +651,4 @@ void IfcServiceLifeFactor::copy(const IfcServiceLifeFactor &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcServiceLifeFactor::s_type("IfcServiceLifeFactor");
+IFC2X3_EXPORT Step::ClassType IfcServiceLifeFactor::s_type("IfcServiceLifeFactor");

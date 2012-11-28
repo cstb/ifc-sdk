@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFaceBound.h"
+#include <ifc2x3/IfcFaceBound.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcLoop.h"
-#include "ifc2x3/IfcTopologicalRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcLoop.h>
+#include <ifc2x3/IfcTopologicalRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -146,4 +146,4 @@ void IfcFaceBound::copy(const IfcFaceBound &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFaceBound::s_type("IfcFaceBound");
+IFC2X3_EXPORT Step::ClassType IfcFaceBound::s_type("IfcFaceBound");

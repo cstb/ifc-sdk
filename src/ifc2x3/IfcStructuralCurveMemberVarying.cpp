@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralCurveMemberVarying.h"
+#include <ifc2x3/IfcStructuralCurveMemberVarying.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralCurveMember.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralCurveMember.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcStructuralCurveMemberVarying::copy(const IfcStructuralCurveMemberVarying
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralCurveMemberVarying::s_type("IfcStructuralCurveMemberVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMemberVarying::s_type("IfcStructuralCurveMemberVarying");

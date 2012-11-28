@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCAXIS1PLACEMENT_H
 #define IFC2X3_IFCAXIS1PLACEMENT_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPlacement.h"
+#include "IfcPlacement.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcAxis1Placement Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcAxis1Placement : public IfcPlacement {
+    class IFC2X3_EXPORT IfcAxis1Placement : public IfcPlacement {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

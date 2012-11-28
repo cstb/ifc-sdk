@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCsgSelect.h"
+#include <ifc2x3/IfcCsgSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBooleanResult.h"
-#include "ifc2x3/IfcCsgPrimitive3D.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBooleanResult.h>
+#include <ifc2x3/IfcCsgPrimitive3D.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcCsgSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCsgSelect::s_type("IfcCsgSelect");
+IFC2X3_EXPORT Step::ClassType IfcCsgSelect::s_type("IfcCsgSelect");

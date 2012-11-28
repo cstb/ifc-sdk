@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcClassification.h"
+#include <ifc2x3/IfcClassification.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcClassificationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcClassificationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -243,4 +243,4 @@ void IfcClassification::copy(const IfcClassification &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcClassification::s_type("IfcClassification");
+IFC2X3_EXPORT Step::ClassType IfcClassification::s_type("IfcClassification");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFailureConnectionCondition.h"
+#include <ifc2x3/IfcFailureConnectionCondition.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralConnectionCondition.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralConnectionCondition.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -282,4 +282,4 @@ void IfcFailureConnectionCondition::copy(const IfcFailureConnectionCondition &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFailureConnectionCondition::s_type("IfcFailureConnectionCondition");
+IFC2X3_EXPORT Step::ClassType IfcFailureConnectionCondition::s_type("IfcFailureConnectionCondition");

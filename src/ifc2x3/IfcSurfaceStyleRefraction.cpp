@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleRefraction.h"
+#include <ifc2x3/IfcSurfaceStyleRefraction.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -138,4 +138,4 @@ void IfcSurfaceStyleRefraction::copy(const IfcSurfaceStyleRefraction &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleRefraction::s_type("IfcSurfaceStyleRefraction");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRefraction::s_type("IfcSurfaceStyleRefraction");

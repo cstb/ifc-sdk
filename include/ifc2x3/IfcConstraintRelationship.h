@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCCONSTRAINTRELATIONSHIP_H
 #define IFC2X3_IFCCONSTRAINTRELATIONSHIP_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -84,7 +84,7 @@ namespace ifc2x3 {
      * Generated class for the IfcConstraintRelationship Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcConstraintRelationship : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcConstraintRelationship : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

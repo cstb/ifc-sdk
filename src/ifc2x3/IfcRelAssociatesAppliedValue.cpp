@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssociatesAppliedValue.h"
+#include <ifc2x3/IfcRelAssociatesAppliedValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAppliedValue.h"
-#include "ifc2x3/IfcRelAssociates.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAppliedValue.h>
+#include <ifc2x3/IfcRelAssociates.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcRelAssociatesAppliedValue::copy(const IfcRelAssociatesAppliedValue &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesAppliedValue::s_type("IfcRelAssociatesAppliedValue");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesAppliedValue::s_type("IfcRelAssociatesAppliedValue");

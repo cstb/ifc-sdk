@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMeasureWithUnit.h"
+#include <ifc2x3/IfcMeasureWithUnit.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcUnit.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcUnit.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -680,4 +680,4 @@ void IfcMeasureWithUnit::copy(const IfcMeasureWithUnit &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMeasureWithUnit::s_type("IfcMeasureWithUnit");
+IFC2X3_EXPORT Step::ClassType IfcMeasureWithUnit::s_type("IfcMeasureWithUnit");

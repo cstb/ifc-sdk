@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRoundedRectangleProfileDef.h"
+#include <ifc2x3/IfcRoundedRectangleProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRectangleProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRectangleProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcRoundedRectangleProfileDef::copy(const IfcRoundedRectangleProfileDef &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRoundedRectangleProfileDef::s_type("IfcRoundedRectangleProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcRoundedRectangleProfileDef::s_type("IfcRoundedRectangleProfileDef");

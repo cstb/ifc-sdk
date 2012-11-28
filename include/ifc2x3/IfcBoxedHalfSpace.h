@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCBOXEDHALFSPACE_H
 #define IFC2X3_IFCBOXEDHALFSPACE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcHalfSpaceSolid.h"
+#include "IfcHalfSpaceSolid.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcBoxedHalfSpace Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcBoxedHalfSpace : public IfcHalfSpaceSolid {
+    class IFC2X3_EXPORT IfcBoxedHalfSpace : public IfcHalfSpaceSolid {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

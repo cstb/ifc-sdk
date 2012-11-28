@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcWindowPanelProperties.h"
+#include <ifc2x3/IfcWindowPanelProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcShapeAspect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcShapeAspect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -309,4 +309,4 @@ void IfcWindowPanelProperties::copy(const IfcWindowPanelProperties &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcWindowPanelProperties::s_type("IfcWindowPanelProperties");
+IFC2X3_EXPORT Step::ClassType IfcWindowPanelProperties::s_type("IfcWindowPanelProperties");

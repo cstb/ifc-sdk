@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDuctSilencerType.h"
+#include <ifc2x3/IfcDuctSilencerType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowTreatmentDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowTreatmentDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -121,4 +121,4 @@ void IfcDuctSilencerType::copy(const IfcDuctSilencerType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDuctSilencerType::s_type("IfcDuctSilencerType");
+IFC2X3_EXPORT Step::ClassType IfcDuctSilencerType::s_type("IfcDuctSilencerType");

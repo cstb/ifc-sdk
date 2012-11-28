@@ -18,17 +18,17 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDocumentInformation.h"
+#include <ifc2x3/IfcDocumentInformation.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcDateAndTime.h"
-#include "ifc2x3/IfcDocumentElectronicFormat.h"
-#include "ifc2x3/IfcDocumentInformationRelationship.h"
-#include "ifc2x3/IfcDocumentReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcDateAndTime.h>
+#include <ifc2x3/IfcDocumentElectronicFormat.h>
+#include <ifc2x3/IfcDocumentInformationRelationship.h>
+#include <ifc2x3/IfcDocumentReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -846,4 +846,4 @@ void IfcDocumentInformation::copy(const IfcDocumentInformation &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDocumentInformation::s_type("IfcDocumentInformation");
+IFC2X3_EXPORT Step::ClassType IfcDocumentInformation::s_type("IfcDocumentInformation");

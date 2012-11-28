@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTendonAnchor.h"
+#include <ifc2x3/IfcTendonAnchor.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcReinforcingElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcReinforcingElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcTendonAnchor::copy(const IfcTendonAnchor &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTendonAnchor::s_type("IfcTendonAnchor");
+IFC2X3_EXPORT Step::ClassType IfcTendonAnchor::s_type("IfcTendonAnchor");

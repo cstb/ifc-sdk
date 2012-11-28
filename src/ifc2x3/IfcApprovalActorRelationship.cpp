@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcApprovalActorRelationship.h"
+#include <ifc2x3/IfcApprovalActorRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorRole.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcApproval.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorRole.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcApproval.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -199,4 +199,4 @@ void IfcApprovalActorRelationship::copy(const IfcApprovalActorRelationship &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcApprovalActorRelationship::s_type("IfcApprovalActorRelationship");
+IFC2X3_EXPORT Step::ClassType IfcApprovalActorRelationship::s_type("IfcApprovalActorRelationship");

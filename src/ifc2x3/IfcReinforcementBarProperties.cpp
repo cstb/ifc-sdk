@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcReinforcementBarProperties.h"
+#include <ifc2x3/IfcReinforcementBarProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -284,4 +284,4 @@ void IfcReinforcementBarProperties::copy(const IfcReinforcementBarProperties &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcReinforcementBarProperties::s_type("IfcReinforcementBarProperties");
+IFC2X3_EXPORT Step::ClassType IfcReinforcementBarProperties::s_type("IfcReinforcementBarProperties");

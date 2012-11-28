@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSpecularHighlightSelect.h"
+#include <ifc2x3/IfcSpecularHighlightSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -127,4 +127,4 @@ void IfcSpecularHighlightSelect::setIfcSpecularRoughness(IfcSpecularRoughness va
 void IfcSpecularHighlightSelect::set(Step::BaseObject *v) {
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSpecularHighlightSelect::s_type("IfcSpecularHighlightSelect");
+IFC2X3_EXPORT Step::ClassType IfcSpecularHighlightSelect::s_type("IfcSpecularHighlightSelect");

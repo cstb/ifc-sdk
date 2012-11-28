@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDistributionControlElementType.h"
+#include <ifc2x3/IfcDistributionControlElementType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDistributionElementType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDistributionElementType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcDistributionControlElementType::copy(const IfcDistributionControlElement
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDistributionControlElementType::s_type("IfcDistributionControlElementType");
+IFC2X3_EXPORT Step::ClassType IfcDistributionControlElementType::s_type("IfcDistributionControlElementType");

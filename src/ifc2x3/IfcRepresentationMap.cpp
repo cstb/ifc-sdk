@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRepresentationMap.h"
+#include <ifc2x3/IfcRepresentationMap.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement.h"
-#include "ifc2x3/IfcMappedItem.h"
-#include "ifc2x3/IfcRepresentation.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement.h>
+#include <ifc2x3/IfcMappedItem.h>
+#include <ifc2x3/IfcRepresentation.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -193,4 +193,4 @@ void IfcRepresentationMap::copy(const IfcRepresentationMap &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRepresentationMap::s_type("IfcRepresentationMap");
+IFC2X3_EXPORT Step::ClassType IfcRepresentationMap::s_type("IfcRepresentationMap");

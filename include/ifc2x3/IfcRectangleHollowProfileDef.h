@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRECTANGLEHOLLOWPROFILEDEF_H
 #define IFC2X3_IFCRECTANGLEHOLLOWPROFILEDEF_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRectangleProfileDef.h"
+#include "IfcRectangleProfileDef.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRectangleHollowProfileDef Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRectangleHollowProfileDef : public IfcRectangleProfileDef {
+    class IFC2X3_EXPORT IfcRectangleHollowProfileDef : public IfcRectangleProfileDef {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

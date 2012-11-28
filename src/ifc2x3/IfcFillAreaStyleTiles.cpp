@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFillAreaStyleTiles.h"
+#include <ifc2x3/IfcFillAreaStyleTiles.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFillAreaStyleTileShapeSelect.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/IfcOneDirectionRepeatFactor.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFillAreaStyleTileShapeSelect.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcOneDirectionRepeatFactor.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -213,4 +213,4 @@ void IfcFillAreaStyleTiles::copy(const IfcFillAreaStyleTiles &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFillAreaStyleTiles::s_type("IfcFillAreaStyleTiles");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTiles::s_type("IfcFillAreaStyleTiles");

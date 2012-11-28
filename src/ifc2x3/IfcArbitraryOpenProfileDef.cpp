@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcArbitraryOpenProfileDef.h"
+#include <ifc2x3/IfcArbitraryOpenProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBoundedCurve.h"
-#include "ifc2x3/IfcProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBoundedCurve.h>
+#include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcArbitraryOpenProfileDef::copy(const IfcArbitraryOpenProfileDef &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcArbitraryOpenProfileDef::s_type("IfcArbitraryOpenProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcArbitraryOpenProfileDef::s_type("IfcArbitraryOpenProfileDef");

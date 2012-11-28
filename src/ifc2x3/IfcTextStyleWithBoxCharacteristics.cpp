@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextStyleWithBoxCharacteristics.h"
+#include <ifc2x3/IfcTextStyleWithBoxCharacteristics.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSizeSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSizeSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -290,4 +290,4 @@ void IfcTextStyleWithBoxCharacteristics::copy(const IfcTextStyleWithBoxCharacter
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextStyleWithBoxCharacteristics::s_type("IfcTextStyleWithBoxCharacteristics");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleWithBoxCharacteristics::s_type("IfcTextStyleWithBoxCharacteristics");

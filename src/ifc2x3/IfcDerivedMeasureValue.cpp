@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDerivedMeasureValue.h"
+#include <ifc2x3/IfcDerivedMeasureValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -1456,4 +1456,4 @@ void IfcDerivedMeasureValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMe
 void IfcDerivedMeasureValue::set(Step::BaseObject *v) {
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDerivedMeasureValue::s_type("IfcDerivedMeasureValue");
+IFC2X3_EXPORT Step::ClassType IfcDerivedMeasureValue::s_type("IfcDerivedMeasureValue");

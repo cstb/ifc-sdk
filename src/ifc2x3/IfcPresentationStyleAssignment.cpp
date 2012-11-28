@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPresentationStyleAssignment.h"
+#include <ifc2x3/IfcPresentationStyleAssignment.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPresentationStyleSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPresentationStyleSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -145,4 +145,4 @@ void IfcPresentationStyleAssignment::copy(const IfcPresentationStyleAssignment &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPresentationStyleAssignment::s_type("IfcPresentationStyleAssignment");
+IFC2X3_EXPORT Step::ClassType IfcPresentationStyleAssignment::s_type("IfcPresentationStyleAssignment");

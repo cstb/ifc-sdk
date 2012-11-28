@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCDISTRIBUTIONFLOWELEMENTTYPE_H
 #define IFC2X3_IFCDISTRIBUTIONFLOWELEMENTTYPE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcDistributionElementType.h"
+#include "IfcDistributionElementType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcDistributionFlowElementType Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcDistributionFlowElementType : public IfcDistributionElementType {
+    class IFC2X3_EXPORT IfcDistributionFlowElementType : public IfcDistributionElementType {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

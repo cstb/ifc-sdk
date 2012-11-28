@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssignsToControl.h"
+#include <ifc2x3/IfcRelAssignsToControl.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcRelAssigns.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcRelAssigns.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -117,4 +117,4 @@ void IfcRelAssignsToControl::copy(const IfcRelAssignsToControl &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssignsToControl::s_type("IfcRelAssignsToControl");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToControl::s_type("IfcRelAssignsToControl");

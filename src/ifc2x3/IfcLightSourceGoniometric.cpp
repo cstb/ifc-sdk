@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLightSourceGoniometric.h"
+#include <ifc2x3/IfcLightSourceGoniometric.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/IfcColourRgb.h"
-#include "ifc2x3/IfcLightDistributionDataSourceSelect.h"
-#include "ifc2x3/IfcLightSource.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/IfcColourRgb.h>
+#include <ifc2x3/IfcLightDistributionDataSourceSelect.h>
+#include <ifc2x3/IfcLightSource.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -334,4 +334,4 @@ void IfcLightSourceGoniometric::copy(const IfcLightSourceGoniometric &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLightSourceGoniometric::s_type("IfcLightSourceGoniometric");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceGoniometric::s_type("IfcLightSourceGoniometric");

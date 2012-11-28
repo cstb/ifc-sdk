@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAppliedValueSelect.h"
+#include <ifc2x3/IfcAppliedValueSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMeasureWithUnit.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMeasureWithUnit.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -166,4 +166,4 @@ void IfcAppliedValueSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAppliedValueSelect::s_type("IfcAppliedValueSelect");
+IFC2X3_EXPORT Step::ClassType IfcAppliedValueSelect::s_type("IfcAppliedValueSelect");

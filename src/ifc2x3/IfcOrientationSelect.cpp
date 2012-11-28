@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcOrientationSelect.h"
+#include <ifc2x3/IfcOrientationSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDirection.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDirection.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -146,4 +146,4 @@ void IfcOrientationSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcOrientationSelect::s_type("IfcOrientationSelect");
+IFC2X3_EXPORT Step::ClassType IfcOrientationSelect::s_type("IfcOrientationSelect");

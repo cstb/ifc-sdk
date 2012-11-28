@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCCURVESTYLEFONTPATTERN_H
 #define IFC2X3_IFCCURVESTYLEFONTPATTERN_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcCurveStyleFontPattern Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcCurveStyleFontPattern : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcCurveStyleFontPattern : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

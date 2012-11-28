@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDraughtingPreDefinedColour.h"
+#include <ifc2x3/IfcDraughtingPreDefinedColour.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPreDefinedColour.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPreDefinedColour.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcDraughtingPreDefinedColour::copy(const IfcDraughtingPreDefinedColour &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDraughtingPreDefinedColour::s_type("IfcDraughtingPreDefinedColour");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedColour::s_type("IfcDraughtingPreDefinedColour");

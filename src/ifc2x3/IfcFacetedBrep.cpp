@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFacetedBrep.h"
+#include <ifc2x3/IfcFacetedBrep.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcManifoldSolidBrep.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcManifoldSolidBrep.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcFacetedBrep::copy(const IfcFacetedBrep &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFacetedBrep::s_type("IfcFacetedBrep");
+IFC2X3_EXPORT Step::ClassType IfcFacetedBrep::s_type("IfcFacetedBrep");

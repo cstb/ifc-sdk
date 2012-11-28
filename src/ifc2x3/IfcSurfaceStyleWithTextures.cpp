@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleWithTextures.h"
+#include <ifc2x3/IfcSurfaceStyleWithTextures.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSurfaceTexture.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSurfaceTexture.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -124,4 +124,4 @@ void IfcSurfaceStyleWithTextures::copy(const IfcSurfaceStyleWithTextures &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleWithTextures::s_type("IfcSurfaceStyleWithTextures");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleWithTextures::s_type("IfcSurfaceStyleWithTextures");

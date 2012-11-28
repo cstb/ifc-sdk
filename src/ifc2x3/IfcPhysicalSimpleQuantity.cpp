@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPhysicalSimpleQuantity.h"
+#include <ifc2x3/IfcPhysicalSimpleQuantity.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcNamedUnit.h"
-#include "ifc2x3/IfcPhysicalQuantity.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcNamedUnit.h>
+#include <ifc2x3/IfcPhysicalQuantity.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcPhysicalSimpleQuantity::copy(const IfcPhysicalSimpleQuantity &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPhysicalSimpleQuantity::s_type("IfcPhysicalSimpleQuantity");
+IFC2X3_EXPORT Step::ClassType IfcPhysicalSimpleQuantity::s_type("IfcPhysicalSimpleQuantity");

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralActivityAssignmentSelect.h"
+#include <ifc2x3/IfcStructuralActivityAssignmentSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElement.h"
-#include "ifc2x3/IfcStructuralItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcStructuralItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcStructuralActivityAssignmentSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralActivityAssignmentSelect::s_type("IfcStructuralActivityAssignmentSelect");
+IFC2X3_EXPORT Step::ClassType IfcStructuralActivityAssignmentSelect::s_type("IfcStructuralActivityAssignmentSelect");

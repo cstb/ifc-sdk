@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLayeredItem.h"
+#include <ifc2x3/IfcLayeredItem.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRepresentation.h"
-#include "ifc2x3/IfcRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRepresentation.h>
+#include <ifc2x3/IfcRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcLayeredItem::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLayeredItem::s_type("IfcLayeredItem");
+IFC2X3_EXPORT Step::ClassType IfcLayeredItem::s_type("IfcLayeredItem");

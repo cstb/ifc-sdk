@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcGeometricRepresentationContext.h"
+#include <ifc2x3/IfcGeometricRepresentationContext.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement.h"
-#include "ifc2x3/IfcDirection.h"
-#include "ifc2x3/IfcGeometricRepresentationSubContext.h"
-#include "ifc2x3/IfcRepresentationContext.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement.h>
+#include <ifc2x3/IfcDirection.h>
+#include <ifc2x3/IfcGeometricRepresentationSubContext.h>
+#include <ifc2x3/IfcRepresentationContext.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -261,4 +261,4 @@ void IfcGeometricRepresentationContext::copy(const IfcGeometricRepresentationCon
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcGeometricRepresentationContext::s_type("IfcGeometricRepresentationContext");
+IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationContext::s_type("IfcGeometricRepresentationContext");

@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCurveFontOrScaledCurveFontSelect.h"
+#include <ifc2x3/IfcCurveFontOrScaledCurveFontSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurveStyleFont.h"
-#include "ifc2x3/IfcCurveStyleFontAndScaling.h"
-#include "ifc2x3/IfcPreDefinedCurveFont.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurveStyleFont.h>
+#include <ifc2x3/IfcCurveStyleFontAndScaling.h>
+#include <ifc2x3/IfcPreDefinedCurveFont.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -200,4 +200,4 @@ void IfcCurveFontOrScaledCurveFontSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCurveFontOrScaledCurveFontSelect::s_type("IfcCurveFontOrScaledCurveFontSelect");
+IFC2X3_EXPORT Step::ClassType IfcCurveFontOrScaledCurveFontSelect::s_type("IfcCurveFontOrScaledCurveFontSelect");

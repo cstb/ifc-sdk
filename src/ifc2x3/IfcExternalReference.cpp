@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcExternalReference.h"
+#include <ifc2x3/IfcExternalReference.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -174,4 +174,4 @@ void IfcExternalReference::copy(const IfcExternalReference &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcExternalReference::s_type("IfcExternalReference");
+IFC2X3_EXPORT Step::ClassType IfcExternalReference::s_type("IfcExternalReference");

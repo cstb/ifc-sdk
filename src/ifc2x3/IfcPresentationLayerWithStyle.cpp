@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPresentationLayerWithStyle.h"
+#include <ifc2x3/IfcPresentationLayerWithStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPresentationLayerAssignment.h"
-#include "ifc2x3/IfcPresentationStyleSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPresentationLayerAssignment.h>
+#include <ifc2x3/IfcPresentationStyleSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -254,4 +254,4 @@ void IfcPresentationLayerWithStyle::copy(const IfcPresentationLayerWithStyle &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPresentationLayerWithStyle::s_type("IfcPresentationLayerWithStyle");
+IFC2X3_EXPORT Step::ClassType IfcPresentationLayerWithStyle::s_type("IfcPresentationLayerWithStyle");

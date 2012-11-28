@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSpaceThermalLoadProperties.h"
+#include <ifc2x3/IfcSpaceThermalLoadProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcTimeSeries.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -502,4 +502,4 @@ void IfcSpaceThermalLoadProperties::copy(const IfcSpaceThermalLoadProperties &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSpaceThermalLoadProperties::s_type("IfcSpaceThermalLoadProperties");
+IFC2X3_EXPORT Step::ClassType IfcSpaceThermalLoadProperties::s_type("IfcSpaceThermalLoadProperties");

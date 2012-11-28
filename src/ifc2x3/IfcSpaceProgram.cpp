@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSpaceProgram.h"
+#include <ifc2x3/IfcSpaceProgram.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcRelInteractionRequirements.h"
-#include "ifc2x3/IfcSpatialStructureElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcRelInteractionRequirements.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -309,4 +309,4 @@ void IfcSpaceProgram::copy(const IfcSpaceProgram &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSpaceProgram::s_type("IfcSpaceProgram");
+IFC2X3_EXPORT Step::ClassType IfcSpaceProgram::s_type("IfcSpaceProgram");

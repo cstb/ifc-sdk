@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcOrderAction.h"
+#include <ifc2x3/IfcOrderAction.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcTask.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcTask.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -108,4 +108,4 @@ void IfcOrderAction::copy(const IfcOrderAction &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcOrderAction::s_type("IfcOrderAction");
+IFC2X3_EXPORT Step::ClassType IfcOrderAction::s_type("IfcOrderAction");

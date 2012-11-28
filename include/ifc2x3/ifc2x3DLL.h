@@ -17,14 +17,14 @@
 #ifdef _MSC_VER
 #	pragma warning(disable : 4251) // [...] needs to have dll-interface								//  to be used by clients of [...]
 #	ifdef _STATIC_IFC2X3
-#		define IFC2X3_DLL_DEF
+#		define IFC2X3_EXPORT
 #	else
 #		if defined(ifc2x3_EXPORTS) || defined(IFC2X3_EXPORTS)
-#			define IFC2X3_DLL_DEF __declspec(dllexport)
+#			define IFC2X3_EXPORT __declspec(dllexport)
 #		else
-#			define IFC2X3_DLL_DEF __declspec(dllimport)
+#			define IFC2X3_EXPORT __declspec(dllimport)
 #		endif
 #	endif
 #else
-#	define IFC2X3_DLL_DEF
+#	define IFC2X3_EXPORT
 #endif

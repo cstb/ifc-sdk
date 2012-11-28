@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcWorkControl.h"
+#include <ifc2x3/IfcWorkControl.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/IfcPerson.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -500,4 +500,4 @@ void IfcWorkControl::copy(const IfcWorkControl &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcWorkControl::s_type("IfcWorkControl");
+IFC2X3_EXPORT Step::ClassType IfcWorkControl::s_type("IfcWorkControl");

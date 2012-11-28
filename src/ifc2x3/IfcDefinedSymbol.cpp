@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDefinedSymbol.h"
+#include <ifc2x3/IfcDefinedSymbol.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianTransformationOperator2D.h"
-#include "ifc2x3/IfcDefinedSymbolSelect.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianTransformationOperator2D.h>
+#include <ifc2x3/IfcDefinedSymbolSelect.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -161,4 +161,4 @@ void IfcDefinedSymbol::copy(const IfcDefinedSymbol &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDefinedSymbol::s_type("IfcDefinedSymbol");
+IFC2X3_EXPORT Step::ClassType IfcDefinedSymbol::s_type("IfcDefinedSymbol");

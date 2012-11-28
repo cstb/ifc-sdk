@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMaterialProperties.h"
+#include <ifc2x3/IfcMaterialProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -107,4 +107,4 @@ void IfcMaterialProperties::copy(const IfcMaterialProperties &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMaterialProperties::s_type("IfcMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcMaterialProperties::s_type("IfcMaterialProperties");

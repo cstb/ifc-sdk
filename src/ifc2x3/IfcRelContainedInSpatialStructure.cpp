@@ -18,17 +18,17 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelContainedInSpatialStructure.h"
+#include <ifc2x3/IfcRelContainedInSpatialStructure.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotation.h"
-#include "ifc2x3/IfcElement.h"
-#include "ifc2x3/IfcGrid.h"
-#include "ifc2x3/IfcProduct.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/IfcSpatialStructureElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotation.h>
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcGrid.h>
+#include <ifc2x3/IfcProduct.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -203,4 +203,4 @@ void IfcRelContainedInSpatialStructure::copy(const IfcRelContainedInSpatialStruc
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelContainedInSpatialStructure::s_type("IfcRelContainedInSpatialStructure");
+IFC2X3_EXPORT Step::ClassType IfcRelContainedInSpatialStructure::s_type("IfcRelContainedInSpatialStructure");

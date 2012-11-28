@@ -693,7 +693,7 @@
 #include "IfcRepresentationMap.h"
 #include "ExpressDataSet.h"
 #include "IfcRoot.h"
-#include <ifc2x3/DefinedTypes.h>
+#include "DefinedTypes.h"
 #include "IfcTopologicalRepresentationItem.h"
 #include "IfcFlowInstrumentType.h"
 #include "IfcOffsetCurve2D.h"

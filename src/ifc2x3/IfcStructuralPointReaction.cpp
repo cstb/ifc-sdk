@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralPointReaction.h"
+#include <ifc2x3/IfcStructuralPointReaction.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralReaction.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralReaction.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcStructuralPointReaction::copy(const IfcStructuralPointReaction &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralPointReaction::s_type("IfcStructuralPointReaction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralPointReaction::s_type("IfcStructuralPointReaction");

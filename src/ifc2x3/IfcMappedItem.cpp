@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMappedItem.h"
+#include <ifc2x3/IfcMappedItem.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianTransformationOperator.h"
-#include "ifc2x3/IfcRepresentationItem.h"
-#include "ifc2x3/IfcRepresentationMap.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianTransformationOperator.h>
+#include <ifc2x3/IfcRepresentationItem.h>
+#include <ifc2x3/IfcRepresentationMap.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -153,4 +153,4 @@ void IfcMappedItem::copy(const IfcMappedItem &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMappedItem::s_type("IfcMappedItem");
+IFC2X3_EXPORT Step::ClassType IfcMappedItem::s_type("IfcMappedItem");

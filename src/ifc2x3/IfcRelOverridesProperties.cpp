@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelOverridesProperties.h"
+#include <ifc2x3/IfcRelOverridesProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcProperty.h"
-#include "ifc2x3/IfcRelDefinesByProperties.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/IfcRelDefinesByProperties.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -128,4 +128,4 @@ void IfcRelOverridesProperties::copy(const IfcRelOverridesProperties &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelOverridesProperties::s_type("IfcRelOverridesProperties");
+IFC2X3_EXPORT Step::ClassType IfcRelOverridesProperties::s_type("IfcRelOverridesProperties");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDuctFittingType.h"
+#include <ifc2x3/IfcDuctFittingType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowFittingType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowFittingType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -133,4 +133,4 @@ void IfcDuctFittingType::copy(const IfcDuctFittingType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDuctFittingType::s_type("IfcDuctFittingType");
+IFC2X3_EXPORT Step::ClassType IfcDuctFittingType::s_type("IfcDuctFittingType");

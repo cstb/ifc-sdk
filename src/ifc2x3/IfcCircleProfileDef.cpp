@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCircleProfileDef.h"
+#include <ifc2x3/IfcCircleProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcParameterizedProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcParameterizedProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcCircleProfileDef::copy(const IfcCircleProfileDef &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCircleProfileDef::s_type("IfcCircleProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCircleProfileDef::s_type("IfcCircleProfileDef");

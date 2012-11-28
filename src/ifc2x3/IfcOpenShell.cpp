@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcOpenShell.h"
+#include <ifc2x3/IfcOpenShell.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConnectedFaceSet.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConnectedFaceSet.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcOpenShell::copy(const IfcOpenShell &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcOpenShell::s_type("IfcOpenShell");
+IFC2X3_EXPORT Step::ClassType IfcOpenShell::s_type("IfcOpenShell");

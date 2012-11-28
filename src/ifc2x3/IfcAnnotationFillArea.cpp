@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAnnotationFillArea.h"
+#include <ifc2x3/IfcAnnotationFillArea.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -164,4 +164,4 @@ void IfcAnnotationFillArea::copy(const IfcAnnotationFillArea &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAnnotationFillArea::s_type("IfcAnnotationFillArea");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationFillArea::s_type("IfcAnnotationFillArea");

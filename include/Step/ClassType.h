@@ -17,7 +17,7 @@
 #ifndef Step_ClassType_h
 #define Step_ClassType_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include <map>
 #include <string>
@@ -27,7 +27,7 @@ namespace Step {
     /*!
      * \short Class to define an optimized type identifier
      */
-    class STEP_DLL_DEF ClassType
+    class STEP_EXPORT ClassType
     {
     public:
         /*!

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcEnvironmentalImpactValue.h"
+#include <ifc2x3/IfcEnvironmentalImpactValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAppliedValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAppliedValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -201,4 +201,4 @@ void IfcEnvironmentalImpactValue::copy(const IfcEnvironmentalImpactValue &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcEnvironmentalImpactValue::s_type("IfcEnvironmentalImpactValue");
+IFC2X3_EXPORT Step::ClassType IfcEnvironmentalImpactValue::s_type("IfcEnvironmentalImpactValue");

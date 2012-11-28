@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPerson.h"
+#include <ifc2x3/IfcPerson.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorRole.h"
-#include "ifc2x3/IfcAddress.h"
-#include "ifc2x3/IfcPersonAndOrganization.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorRole.h>
+#include <ifc2x3/IfcAddress.h>
+#include <ifc2x3/IfcPersonAndOrganization.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -497,4 +497,4 @@ void IfcPerson::copy(const IfcPerson &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPerson::s_type("IfcPerson");
+IFC2X3_EXPORT Step::ClassType IfcPerson::s_type("IfcPerson");

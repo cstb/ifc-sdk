@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDocumentElectronicFormat.h"
+#include <ifc2x3/IfcDocumentElectronicFormat.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -174,4 +174,4 @@ void IfcDocumentElectronicFormat::copy(const IfcDocumentElectronicFormat &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDocumentElectronicFormat::s_type("IfcDocumentElectronicFormat");
+IFC2X3_EXPORT Step::ClassType IfcDocumentElectronicFormat::s_type("IfcDocumentElectronicFormat");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcConstructionEquipmentResource.h"
+#include <ifc2x3/IfcConstructionEquipmentResource.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConstructionResource.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConstructionResource.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcConstructionEquipmentResource::copy(const IfcConstructionEquipmentResour
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcConstructionEquipmentResource::s_type("IfcConstructionEquipmentResource");
+IFC2X3_EXPORT Step::ClassType IfcConstructionEquipmentResource::s_type("IfcConstructionEquipmentResource");

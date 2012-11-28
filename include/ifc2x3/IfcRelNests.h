@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELNESTS_H
 #define IFC2X3_IFCRELNESTS_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRelDecomposes.h"
+#include "IfcRelDecomposes.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRelNests Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRelNests : public IfcRelDecomposes {
+    class IFC2X3_EXPORT IfcRelNests : public IfcRelDecomposes {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

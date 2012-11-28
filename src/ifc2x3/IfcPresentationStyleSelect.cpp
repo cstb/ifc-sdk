@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPresentationStyleSelect.h"
+#include <ifc2x3/IfcPresentationStyleSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurveStyle.h"
-#include "ifc2x3/IfcFillAreaStyle.h"
-#include "ifc2x3/IfcSurfaceStyle.h"
-#include "ifc2x3/IfcSymbolStyle.h"
-#include "ifc2x3/IfcTextStyle.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurveStyle.h>
+#include <ifc2x3/IfcFillAreaStyle.h>
+#include <ifc2x3/IfcSurfaceStyle.h>
+#include <ifc2x3/IfcSymbolStyle.h>
+#include <ifc2x3/IfcTextStyle.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -294,4 +294,4 @@ void IfcPresentationStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPresentationStyleSelect::s_type("IfcPresentationStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcPresentationStyleSelect::s_type("IfcPresentationStyleSelect");

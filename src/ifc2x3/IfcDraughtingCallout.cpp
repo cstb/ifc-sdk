@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDraughtingCallout.h"
+#include <ifc2x3/IfcDraughtingCallout.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDraughtingCalloutElement.h"
-#include "ifc2x3/IfcDraughtingCalloutRelationship.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDraughtingCalloutElement.h>
+#include <ifc2x3/IfcDraughtingCalloutRelationship.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -199,4 +199,4 @@ void IfcDraughtingCallout::copy(const IfcDraughtingCallout &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDraughtingCallout::s_type("IfcDraughtingCallout");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingCallout::s_type("IfcDraughtingCallout");

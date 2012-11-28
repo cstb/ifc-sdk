@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleShading.h"
+#include <ifc2x3/IfcSurfaceStyleShading.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourRgb.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourRgb.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -107,4 +107,4 @@ void IfcSurfaceStyleShading::copy(const IfcSurfaceStyleShading &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleShading::s_type("IfcSurfaceStyleShading");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleShading::s_type("IfcSurfaceStyleShading");

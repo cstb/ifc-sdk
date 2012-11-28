@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSimpleProperty.h"
+#include <ifc2x3/IfcSimpleProperty.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcProperty.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcSimpleProperty::copy(const IfcSimpleProperty &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSimpleProperty::s_type("IfcSimpleProperty");
+IFC2X3_EXPORT Step::ClassType IfcSimpleProperty::s_type("IfcSimpleProperty");

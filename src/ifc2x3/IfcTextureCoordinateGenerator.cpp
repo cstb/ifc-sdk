@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextureCoordinateGenerator.h"
+#include <ifc2x3/IfcTextureCoordinateGenerator.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSimpleValue.h"
-#include "ifc2x3/IfcTextureCoordinate.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSimpleValue.h>
+#include <ifc2x3/IfcTextureCoordinate.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -213,4 +213,4 @@ void IfcTextureCoordinateGenerator::copy(const IfcTextureCoordinateGenerator &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextureCoordinateGenerator::s_type("IfcTextureCoordinateGenerator");
+IFC2X3_EXPORT Step::ClassType IfcTextureCoordinateGenerator::s_type("IfcTextureCoordinateGenerator");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCLIGHTSOURCE_H
 #define IFC2X3_IFCLIGHTSOURCE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
+#include "IfcGeometricRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcLightSource Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcLightSource : public IfcGeometricRepresentationItem {
+    class IFC2X3_EXPORT IfcLightSource : public IfcGeometricRepresentationItem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

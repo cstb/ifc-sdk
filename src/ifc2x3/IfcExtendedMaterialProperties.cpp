@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcExtendedMaterialProperties.h"
+#include <ifc2x3/IfcExtendedMaterialProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMaterialProperties.h"
-#include "ifc2x3/IfcProperty.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMaterialProperties.h>
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -199,4 +199,4 @@ void IfcExtendedMaterialProperties::copy(const IfcExtendedMaterialProperties &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcExtendedMaterialProperties::s_type("IfcExtendedMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcExtendedMaterialProperties::s_type("IfcExtendedMaterialProperties");

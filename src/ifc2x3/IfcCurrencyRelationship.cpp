@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCurrencyRelationship.h"
+#include <ifc2x3/IfcCurrencyRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDateAndTime.h"
-#include "ifc2x3/IfcLibraryInformation.h"
-#include "ifc2x3/IfcMonetaryUnit.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDateAndTime.h>
+#include <ifc2x3/IfcLibraryInformation.h>
+#include <ifc2x3/IfcMonetaryUnit.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -249,4 +249,4 @@ void IfcCurrencyRelationship::copy(const IfcCurrencyRelationship &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCurrencyRelationship::s_type("IfcCurrencyRelationship");
+IFC2X3_EXPORT Step::ClassType IfcCurrencyRelationship::s_type("IfcCurrencyRelationship");

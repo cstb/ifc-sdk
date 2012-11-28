@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcExternallyDefinedSurfaceStyle.h"
+#include <ifc2x3/IfcExternallyDefinedSurfaceStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcExternalReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcExternalReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcExternallyDefinedSurfaceStyle::copy(const IfcExternallyDefinedSurfaceSty
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcExternallyDefinedSurfaceStyle::s_type("IfcExternallyDefinedSurfaceStyle");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedSurfaceStyle::s_type("IfcExternallyDefinedSurfaceStyle");

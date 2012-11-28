@@ -17,7 +17,7 @@
 #ifndef Step_SPFHeader_h
 #define Step_SPFHeader_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "SimpleTypes.h"
 
@@ -28,7 +28,7 @@ namespace Step {
     /*!
      ** \short Defines the STEP-21 header
      */
-    class STEP_DLL_DEF SPFHeader
+    class STEP_EXPORT SPFHeader
     {
     public:
         /*!

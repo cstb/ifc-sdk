@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPlanarBox.h"
+#include <ifc2x3/IfcPlanarBox.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement.h"
-#include "ifc2x3/IfcPlanarExtent.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement.h>
+#include <ifc2x3/IfcPlanarExtent.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -123,4 +123,4 @@ void IfcPlanarBox::copy(const IfcPlanarBox &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPlanarBox::s_type("IfcPlanarBox");
+IFC2X3_EXPORT Step::ClassType IfcPlanarBox::s_type("IfcPlanarBox");

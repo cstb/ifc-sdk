@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRationalBezierCurve.h"
+#include <ifc2x3/IfcRationalBezierCurve.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBezierCurve.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBezierCurve.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
@@ -125,4 +125,4 @@ void IfcRationalBezierCurve::copy(const IfcRationalBezierCurve &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRationalBezierCurve::s_type("IfcRationalBezierCurve");
+IFC2X3_EXPORT Step::ClassType IfcRationalBezierCurve::s_type("IfcRationalBezierCurve");

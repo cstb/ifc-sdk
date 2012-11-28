@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPolygonalBoundedHalfSpace.h"
+#include <ifc2x3/IfcPolygonalBoundedHalfSpace.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/IfcBoundedCurve.h"
-#include "ifc2x3/IfcHalfSpaceSolid.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/IfcBoundedCurve.h>
+#include <ifc2x3/IfcHalfSpaceSolid.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -147,4 +147,4 @@ void IfcPolygonalBoundedHalfSpace::copy(const IfcPolygonalBoundedHalfSpace &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPolygonalBoundedHalfSpace::s_type("IfcPolygonalBoundedHalfSpace");
+IFC2X3_EXPORT Step::ClassType IfcPolygonalBoundedHalfSpace::s_type("IfcPolygonalBoundedHalfSpace");

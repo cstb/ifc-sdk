@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcReinforcingElement.h"
+#include <ifc2x3/IfcReinforcingElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBuildingElementComponent.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBuildingElementComponent.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -108,4 +108,4 @@ void IfcReinforcingElement::copy(const IfcReinforcingElement &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcReinforcingElement::s_type("IfcReinforcingElement");
+IFC2X3_EXPORT Step::ClassType IfcReinforcingElement::s_type("IfcReinforcingElement");

@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelInteractionRequirements.h"
+#include <ifc2x3/IfcRelInteractionRequirements.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/IfcSpaceProgram.h"
-#include "ifc2x3/IfcSpatialStructureElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcSpaceProgram.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -264,4 +264,4 @@ void IfcRelInteractionRequirements::copy(const IfcRelInteractionRequirements &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelInteractionRequirements::s_type("IfcRelInteractionRequirements");
+IFC2X3_EXPORT Step::ClassType IfcRelInteractionRequirements::s_type("IfcRelInteractionRequirements");

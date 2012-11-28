@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCableSegmentType.h"
+#include <ifc2x3/IfcCableSegmentType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowSegmentType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowSegmentType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -118,4 +118,4 @@ void IfcCableSegmentType::copy(const IfcCableSegmentType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCableSegmentType::s_type("IfcCableSegmentType");
+IFC2X3_EXPORT Step::ClassType IfcCableSegmentType::s_type("IfcCableSegmentType");

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSweptDiskSolid.h"
+#include <ifc2x3/IfcSweptDiskSolid.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/IfcSolidModel.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcSolidModel.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -251,4 +251,4 @@ void IfcSweptDiskSolid::copy(const IfcSweptDiskSolid &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSweptDiskSolid::s_type("IfcSweptDiskSolid");
+IFC2X3_EXPORT Step::ClassType IfcSweptDiskSolid::s_type("IfcSweptDiskSolid");

@@ -16,9 +16,9 @@
 
 #ifndef IFC2X3_IFCPHYSICALCOMPLEXQUANTITY_H
 #define IFC2X3_IFCPHYSICALCOMPLEXQUANTITY_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
-#include <ifc2x3/IfcPhysicalQuantity.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
+#include "IfcPhysicalQuantity.h"
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
@@ -83,7 +83,7 @@ namespace ifc2x3 {
      * Generated class for the IfcPhysicalComplexQuantity Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcPhysicalComplexQuantity : public IfcPhysicalQuantity {
+    class IFC2X3_EXPORT IfcPhysicalComplexQuantity : public IfcPhysicalQuantity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

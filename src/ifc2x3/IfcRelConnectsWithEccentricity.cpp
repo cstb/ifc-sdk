@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelConnectsWithEccentricity.h"
+#include <ifc2x3/IfcRelConnectsWithEccentricity.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConnectionGeometry.h"
-#include "ifc2x3/IfcRelConnectsStructuralMember.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConnectionGeometry.h>
+#include <ifc2x3/IfcRelConnectsStructuralMember.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcRelConnectsWithEccentricity::copy(const IfcRelConnectsWithEccentricity &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsWithEccentricity::s_type("IfcRelConnectsWithEccentricity");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithEccentricity::s_type("IfcRelConnectsWithEccentricity");

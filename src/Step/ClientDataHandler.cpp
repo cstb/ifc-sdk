@@ -19,7 +19,7 @@
 
 using namespace Step;
 
-ClassType_child_implementations(STEP_DLL_DEF,ClientDataHandler,Referenced);
+ClassType_child_implementations(STEP_EXPORT,ClientDataHandler,Referenced);
 
 
 ClientDataHandler::ClientDataHandler()

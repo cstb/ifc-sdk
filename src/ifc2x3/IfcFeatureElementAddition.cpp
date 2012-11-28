@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFeatureElementAddition.h"
+#include <ifc2x3/IfcFeatureElementAddition.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFeatureElement.h"
-#include "ifc2x3/IfcRelProjectsElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFeatureElement.h>
+#include <ifc2x3/IfcRelProjectsElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -98,4 +98,4 @@ void IfcFeatureElementAddition::copy(const IfcFeatureElementAddition &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition");
+IFC2X3_EXPORT Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition");
