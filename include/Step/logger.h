@@ -19,10 +19,10 @@
 
 // Using log4cplus
 #ifdef USE_LOG4CPLUS
-#include "StepDLL.h"
+#include "StepExport.h"
 #include <log4cplus/logger.h>
 namespace Step {
-    STEP_DLL_DEF extern log4cplus::Logger logger;
+    STEP_EXPORT extern log4cplus::Logger logger;
 }
 #define LOG_ALWAYS(msg) LOG4CPLUS_FATAL(Step::logger, msg)
 #define LOG_ERROR(msg) LOG4CPLUS_ERROR(Step::logger, msg)

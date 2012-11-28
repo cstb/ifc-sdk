@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFC2DCOMPOSITECURVE_H
 #define IFC2X3_IFC2DCOMPOSITECURVE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcCompositeCurve.h"
+#include "IfcCompositeCurve.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the Ifc2DCompositeCurve Entity.
      * 
      */
-    class IFC2X3_DLL_DEF Ifc2DCompositeCurve : public IfcCompositeCurve {
+    class IFC2X3_EXPORT Ifc2DCompositeCurve : public IfcCompositeCurve {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

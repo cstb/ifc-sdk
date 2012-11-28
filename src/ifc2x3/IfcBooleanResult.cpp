@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBooleanResult.h"
+#include <ifc2x3/IfcBooleanResult.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBooleanOperand.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBooleanOperand.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -214,4 +214,4 @@ void IfcBooleanResult::copy(const IfcBooleanResult &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBooleanResult::s_type("IfcBooleanResult");
+IFC2X3_EXPORT Step::ClassType IfcBooleanResult::s_type("IfcBooleanResult");

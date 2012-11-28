@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAsymmetricIShapeProfileDef.h"
+#include <ifc2x3/IfcAsymmetricIShapeProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcIShapeProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcIShapeProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -212,4 +212,4 @@ void IfcAsymmetricIShapeProfileDef::copy(const IfcAsymmetricIShapeProfileDef &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAsymmetricIShapeProfileDef::s_type("IfcAsymmetricIShapeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcAsymmetricIShapeProfileDef::s_type("IfcAsymmetricIShapeProfileDef");

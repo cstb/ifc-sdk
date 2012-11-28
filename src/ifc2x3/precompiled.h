@@ -22,7 +22,7 @@
 #include <Step/SPFHeader.h>
 #include <Step/Set.h>
 #include <Step/SimpleTypes.h>
-#include <Step/StepDLL.h>
+#include <Step/StepExport.h>
 #include <Step/String.h>
 #include <Step/Types.h>
 #include <Step/logger.h> 

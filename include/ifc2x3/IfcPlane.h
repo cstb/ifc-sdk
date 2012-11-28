@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPLANE_H
 #define IFC2X3_IFCPLANE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcElementarySurface.h"
+#include "IfcElementarySurface.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcPlane Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcPlane : public IfcElementarySurface {
+    class IFC2X3_EXPORT IfcPlane : public IfcElementarySurface {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

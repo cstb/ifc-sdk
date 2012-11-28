@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssociatesProfileProperties.h"
+#include <ifc2x3/IfcRelAssociatesProfileProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcOrientationSelect.h"
-#include "ifc2x3/IfcProfileProperties.h"
-#include "ifc2x3/IfcRelAssociates.h"
-#include "ifc2x3/IfcShapeAspect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcOrientationSelect.h>
+#include <ifc2x3/IfcProfileProperties.h>
+#include <ifc2x3/IfcRelAssociates.h>
+#include <ifc2x3/IfcShapeAspect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -202,4 +202,4 @@ void IfcRelAssociatesProfileProperties::copy(const IfcRelAssociatesProfileProper
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesProfileProperties::s_type("IfcRelAssociatesProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesProfileProperties::s_type("IfcRelAssociatesProfileProperties");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCARTESIANTRANSFORMATIONOPERATOR3DNONUNIFORM_H
 #define IFC2X3_IFCCARTESIANTRANSFORMATIONOPERATOR3DNONUNIFORM_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcCartesianTransformationOperator3D.h"
+#include "IfcCartesianTransformationOperator3D.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcCartesianTransformationOperator3DnonUniform Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcCartesianTransformationOperator3DnonUniform : public IfcCartesianTransformationOperator3D {
+    class IFC2X3_EXPORT IfcCartesianTransformationOperator3DnonUniform : public IfcCartesianTransformationOperator3D {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

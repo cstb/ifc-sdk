@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMaterialSelect.h"
+#include <ifc2x3/IfcMaterialSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/IfcMaterialLayer.h"
-#include "ifc2x3/IfcMaterialLayerSet.h"
-#include "ifc2x3/IfcMaterialLayerSetUsage.h"
-#include "ifc2x3/IfcMaterialList.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/IfcMaterialLayer.h>
+#include <ifc2x3/IfcMaterialLayerSet.h>
+#include <ifc2x3/IfcMaterialLayerSetUsage.h>
+#include <ifc2x3/IfcMaterialList.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -274,4 +274,4 @@ void IfcMaterialSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMaterialSelect::s_type("IfcMaterialSelect");
+IFC2X3_EXPORT Step::ClassType IfcMaterialSelect::s_type("IfcMaterialSelect");

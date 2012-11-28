@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelConnectsPathElements.h"
+#include <ifc2x3/IfcRelConnectsPathElements.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRelConnectsElements.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRelConnectsElements.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
@@ -269,4 +269,4 @@ void IfcRelConnectsPathElements::copy(const IfcRelConnectsPathElements &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsPathElements::s_type("IfcRelConnectsPathElements");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsPathElements::s_type("IfcRelConnectsPathElements");

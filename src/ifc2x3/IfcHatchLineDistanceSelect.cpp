@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcHatchLineDistanceSelect.h"
+#include <ifc2x3/IfcHatchLineDistanceSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcOneDirectionRepeatFactor.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcOneDirectionRepeatFactor.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -146,4 +146,4 @@ void IfcHatchLineDistanceSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcHatchLineDistanceSelect::s_type("IfcHatchLineDistanceSelect");
+IFC2X3_EXPORT Step::ClassType IfcHatchLineDistanceSelect::s_type("IfcHatchLineDistanceSelect");

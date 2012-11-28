@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTrimmingSelect.h"
+#include <ifc2x3/IfcTrimmingSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianPoint.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianPoint.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -146,4 +146,4 @@ void IfcTrimmingSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTrimmingSelect::s_type("IfcTrimmingSelect");
+IFC2X3_EXPORT Step::ClassType IfcTrimmingSelect::s_type("IfcTrimmingSelect");

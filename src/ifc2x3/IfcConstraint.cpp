@@ -18,16 +18,16 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcConstraint.h"
+#include <ifc2x3/IfcConstraint.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcConstraintAggregationRelationship.h"
-#include "ifc2x3/IfcConstraintClassificationRelationship.h"
-#include "ifc2x3/IfcConstraintRelationship.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/IfcPropertyConstraintRelationship.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcConstraintAggregationRelationship.h>
+#include <ifc2x3/IfcConstraintClassificationRelationship.h>
+#include <ifc2x3/IfcConstraintRelationship.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcPropertyConstraintRelationship.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -526,4 +526,4 @@ void IfcConstraint::copy(const IfcConstraint &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcConstraint::s_type("IfcConstraint");
+IFC2X3_EXPORT Step::ClassType IfcConstraint::s_type("IfcConstraint");

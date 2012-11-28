@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPreDefinedDimensionSymbol.h"
+#include <ifc2x3/IfcPreDefinedDimensionSymbol.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPreDefinedSymbol.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPreDefinedSymbol.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcPreDefinedDimensionSymbol::copy(const IfcPreDefinedDimensionSymbol &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPreDefinedDimensionSymbol::s_type("IfcPreDefinedDimensionSymbol");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedDimensionSymbol::s_type("IfcPreDefinedDimensionSymbol");

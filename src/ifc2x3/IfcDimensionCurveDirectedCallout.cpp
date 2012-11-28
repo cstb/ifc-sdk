@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDimensionCurveDirectedCallout.h"
+#include <ifc2x3/IfcDimensionCurveDirectedCallout.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDraughtingCallout.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDraughtingCallout.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcDimensionCurveDirectedCallout::copy(const IfcDimensionCurveDirectedCallo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDimensionCurveDirectedCallout::s_type("IfcDimensionCurveDirectedCallout");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCurveDirectedCallout::s_type("IfcDimensionCurveDirectedCallout");

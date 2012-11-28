@@ -17,7 +17,7 @@
 #ifndef Step_BaseSPFWriter_h
 #define Step_BaseSPFWriter_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "ClassType.h"
 #include "Types.h"
@@ -40,7 +40,7 @@ namespace Step {
     /*!
     ** \short Base class to write a STEP-21 file from a Model
     */
-    class STEP_DLL_DEF BaseSPFWriter
+    class STEP_EXPORT BaseSPFWriter
     {
 
     public:

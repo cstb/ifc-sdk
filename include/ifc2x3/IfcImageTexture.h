@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCIMAGETEXTURE_H
 #define IFC2X3_IFCIMAGETEXTURE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcSurfaceTexture.h"
+#include "IfcSurfaceTexture.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcImageTexture Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcImageTexture : public IfcSurfaceTexture {
+    class IFC2X3_EXPORT IfcImageTexture : public IfcSurfaceTexture {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

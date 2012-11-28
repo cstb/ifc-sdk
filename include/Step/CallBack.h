@@ -17,11 +17,11 @@
 #ifndef Step_CallBack_h
 #define Step_CallBack_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 namespace Step {
 
-    class STEP_DLL_DEF CallBack
+    class STEP_EXPORT CallBack
     {
     public:
         virtual ~CallBack() {}

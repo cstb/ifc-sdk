@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSURFACESTYLERENDERING_H
 #define IFC2X3_IFCSURFACESTYLERENDERING_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcSurfaceStyleShading.h"
+#include "IfcSurfaceStyleShading.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSurfaceStyleRendering Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSurfaceStyleRendering : public IfcSurfaceStyleShading {
+    class IFC2X3_EXPORT IfcSurfaceStyleRendering : public IfcSurfaceStyleShading {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

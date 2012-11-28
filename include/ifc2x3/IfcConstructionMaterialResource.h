@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCONSTRUCTIONMATERIALRESOURCE_H
 #define IFC2X3_IFCCONSTRUCTIONMATERIALRESOURCE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcConstructionResource.h"
+#include "IfcConstructionResource.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcConstructionMaterialResource Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcConstructionMaterialResource : public IfcConstructionResource {
+    class IFC2X3_EXPORT IfcConstructionMaterialResource : public IfcConstructionResource {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

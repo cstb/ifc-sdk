@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELASSIGNS_H
 #define IFC2X3_IFCRELASSIGNS_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRelationship.h"
+#include "IfcRelationship.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -83,7 +83,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRelAssigns Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRelAssigns : public IfcRelationship {
+    class IFC2X3_EXPORT IfcRelAssigns : public IfcRelationship {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

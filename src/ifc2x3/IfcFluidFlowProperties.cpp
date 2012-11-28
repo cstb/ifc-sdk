@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFluidFlowProperties.h"
+#include <ifc2x3/IfcFluidFlowProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDerivedMeasureValue.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcTimeSeries.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDerivedMeasureValue.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -996,4 +996,4 @@ void IfcFluidFlowProperties::copy(const IfcFluidFlowProperties &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFluidFlowProperties::s_type("IfcFluidFlowProperties");
+IFC2X3_EXPORT Step::ClassType IfcFluidFlowProperties::s_type("IfcFluidFlowProperties");

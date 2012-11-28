@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBoundaryNodeCondition.h"
+#include <ifc2x3/IfcBoundaryNodeCondition.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBoundaryCondition.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBoundaryCondition.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -282,4 +282,4 @@ void IfcBoundaryNodeCondition::copy(const IfcBoundaryNodeCondition &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBoundaryNodeCondition::s_type("IfcBoundaryNodeCondition");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryNodeCondition::s_type("IfcBoundaryNodeCondition");

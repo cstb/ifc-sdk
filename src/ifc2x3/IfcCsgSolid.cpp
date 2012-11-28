@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCsgSolid.h"
+#include <ifc2x3/IfcCsgSolid.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCsgSelect.h"
-#include "ifc2x3/IfcSolidModel.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCsgSelect.h>
+#include <ifc2x3/IfcSolidModel.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -123,4 +123,4 @@ void IfcCsgSolid::copy(const IfcCsgSolid &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCsgSolid::s_type("IfcCsgSolid");
+IFC2X3_EXPORT Step::ClassType IfcCsgSolid::s_type("IfcCsgSolid");

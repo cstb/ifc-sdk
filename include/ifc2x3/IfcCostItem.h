@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCOSTITEM_H
 #define IFC2X3_IFCCOSTITEM_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcControl.h"
+#include "IfcControl.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcCostItem Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcCostItem : public IfcControl {
+    class IFC2X3_EXPORT IfcCostItem : public IfcControl {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

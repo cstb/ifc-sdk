@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSwitchingDeviceType.h"
+#include <ifc2x3/IfcSwitchingDeviceType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowControllerType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowControllerType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -127,4 +127,4 @@ void IfcSwitchingDeviceType::copy(const IfcSwitchingDeviceType &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSwitchingDeviceType::s_type("IfcSwitchingDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcSwitchingDeviceType::s_type("IfcSwitchingDeviceType");

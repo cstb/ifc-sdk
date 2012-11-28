@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCBOUNDARYNODECONDITIONWARPING_H
 #define IFC2X3_IFCBOUNDARYNODECONDITIONWARPING_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcBoundaryNodeCondition.h"
+#include "IfcBoundaryNodeCondition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcBoundaryNodeConditionWarping Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcBoundaryNodeConditionWarping : public IfcBoundaryNodeCondition {
+    class IFC2X3_EXPORT IfcBoundaryNodeConditionWarping : public IfcBoundaryNodeCondition {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

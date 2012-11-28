@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCovering.h"
+#include <ifc2x3/IfcCovering.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBuildingElement.h"
-#include "ifc2x3/IfcRelCoversBldgElements.h"
-#include "ifc2x3/IfcRelCoversSpaces.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBuildingElement.h>
+#include <ifc2x3/IfcRelCoversBldgElements.h>
+#include <ifc2x3/IfcRelCoversSpaces.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -195,4 +195,4 @@ void IfcCovering::copy(const IfcCovering &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCovering::s_type("IfcCovering");
+IFC2X3_EXPORT Step::ClassType IfcCovering::s_type("IfcCovering");

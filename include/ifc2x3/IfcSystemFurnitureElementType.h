@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSYSTEMFURNITUREELEMENTTYPE_H
 #define IFC2X3_IFCSYSTEMFURNITUREELEMENTTYPE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcFurnishingElementType.h"
+#include "IfcFurnishingElementType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSystemFurnitureElementType Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSystemFurnitureElementType : public IfcFurnishingElementType {
+    class IFC2X3_EXPORT IfcSystemFurnitureElementType : public IfcFurnishingElementType {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

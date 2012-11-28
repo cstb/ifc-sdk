@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSymbolStyle.h"
+#include <ifc2x3/IfcSymbolStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPresentationStyle.h"
-#include "ifc2x3/IfcSymbolStyleSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPresentationStyle.h>
+#include <ifc2x3/IfcSymbolStyleSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -123,4 +123,4 @@ void IfcSymbolStyle::copy(const IfcSymbolStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSymbolStyle::s_type("IfcSymbolStyle");
+IFC2X3_EXPORT Step::ClassType IfcSymbolStyle::s_type("IfcSymbolStyle");

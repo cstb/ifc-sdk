@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelServicesBuildings.h"
+#include <ifc2x3/IfcRelServicesBuildings.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/IfcSpatialStructureElement.h"
-#include "ifc2x3/IfcSystem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/IfcSpatialStructureElement.h>
+#include <ifc2x3/IfcSystem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -193,4 +193,4 @@ void IfcRelServicesBuildings::copy(const IfcRelServicesBuildings &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelServicesBuildings::s_type("IfcRelServicesBuildings");
+IFC2X3_EXPORT Step::ClassType IfcRelServicesBuildings::s_type("IfcRelServicesBuildings");

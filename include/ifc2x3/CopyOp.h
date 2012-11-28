@@ -17,9 +17,9 @@
 #ifndef IFC2X3_COPYOP_H
 #define IFC2X3_COPYOP_H
 #include <map>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/FalseVisitor.h"
+#include "FalseVisitor.h"
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>
@@ -588,7 +588,7 @@ namespace ifc2x3 {
      * The pure virtual base Copy operator class.
      * 
      */
-    class IFC2X3_DLL_DEF CopyOp : public Step::BaseCopyOp, public FalseVisitor {
+    class IFC2X3_EXPORT CopyOp : public Step::BaseCopyOp, public FalseVisitor {
     public:
         /**
          */
@@ -2878,7 +2878,7 @@ namespace ifc2x3 {
      * The entities #3 and #4 where added with the deep copy. #3's second attribute was also duplicated.
      * 
      */
-    class IFC2X3_DLL_DEF DeepCopyOp : public CopyOp {
+    class IFC2X3_EXPORT DeepCopyOp : public CopyOp {
     public:
         /**
          */
@@ -5153,7 +5153,7 @@ namespace ifc2x3 {
      * Tne entity #3 is the added element with the shallow copy. It's second atttribute is not duplicated.
      * 
      */
-    class IFC2X3_DLL_DEF ShallowCopyOp : public CopyOp {
+    class IFC2X3_EXPORT ShallowCopyOp : public CopyOp {
     public:
         /**
          */
@@ -7403,7 +7403,7 @@ namespace ifc2x3 {
      * In this example, with the reparent copy the disc will be attached to the copy_dataset and not anymore to the entity dataset.
      * 
      */
-    class IFC2X3_DLL_DEF ReparentCopyOp : public DeepCopyOp {
+    class IFC2X3_EXPORT ReparentCopyOp : public DeepCopyOp {
     public:
         /**
          * @param dataset

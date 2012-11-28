@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProjectionCurve.h"
+#include <ifc2x3/IfcProjectionCurve.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationCurveOccurrence.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcProjectionCurve::copy(const IfcProjectionCurve &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProjectionCurve::s_type("IfcProjectionCurve");
+IFC2X3_EXPORT Step::ClassType IfcProjectionCurve::s_type("IfcProjectionCurve");

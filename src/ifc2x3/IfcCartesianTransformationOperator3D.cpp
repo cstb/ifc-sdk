@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCartesianTransformationOperator3D.h"
+#include <ifc2x3/IfcCartesianTransformationOperator3D.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianTransformationOperator.h"
-#include "ifc2x3/IfcDirection.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianTransformationOperator.h>
+#include <ifc2x3/IfcDirection.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcCartesianTransformationOperator3D::copy(const IfcCartesianTransformation
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCartesianTransformationOperator3D::s_type("IfcCartesianTransformationOperator3D");
+IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator3D::s_type("IfcCartesianTransformationOperator3D");

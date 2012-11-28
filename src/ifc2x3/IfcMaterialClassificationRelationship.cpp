@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMaterialClassificationRelationship.h"
+#include <ifc2x3/IfcMaterialClassificationRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClassificationNotationSelect.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClassificationNotationSelect.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -180,4 +180,4 @@ void IfcMaterialClassificationRelationship::copy(const IfcMaterialClassification
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMaterialClassificationRelationship::s_type("IfcMaterialClassificationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcMaterialClassificationRelationship::s_type("IfcMaterialClassificationRelationship");

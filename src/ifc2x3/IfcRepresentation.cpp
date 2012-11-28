@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRepresentation.h"
+#include <ifc2x3/IfcRepresentation.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPresentationLayerAssignment.h"
-#include "ifc2x3/IfcProductRepresentation.h"
-#include "ifc2x3/IfcRepresentationContext.h"
-#include "ifc2x3/IfcRepresentationItem.h"
-#include "ifc2x3/IfcRepresentationMap.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPresentationLayerAssignment.h>
+#include <ifc2x3/IfcProductRepresentation.h>
+#include <ifc2x3/IfcRepresentationContext.h>
+#include <ifc2x3/IfcRepresentationItem.h>
+#include <ifc2x3/IfcRepresentationMap.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -323,4 +323,4 @@ void IfcRepresentation::copy(const IfcRepresentation &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRepresentation::s_type("IfcRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcRepresentation::s_type("IfcRepresentation");

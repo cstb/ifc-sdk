@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFLUIDFLOWPROPERTIES_H
 #define IFC2X3_IFCFLUIDFLOWPROPERTIES_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPropertySetDefinition.h"
+#include "IfcPropertySetDefinition.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -38,7 +38,7 @@ namespace ifc2x3 {
      * Generated class for the IfcFluidFlowProperties Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcFluidFlowProperties : public IfcPropertySetDefinition {
+    class IFC2X3_EXPORT IfcFluidFlowProperties : public IfcPropertySetDefinition {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcQuantityWeight.h"
+#include <ifc2x3/IfcQuantityWeight.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPhysicalSimpleQuantity.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPhysicalSimpleQuantity.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcQuantityWeight::copy(const IfcQuantityWeight &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcQuantityWeight::s_type("IfcQuantityWeight");
+IFC2X3_EXPORT Step::ClassType IfcQuantityWeight::s_type("IfcQuantityWeight");

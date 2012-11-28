@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDraughtingPreDefinedCurveFont.h"
+#include <ifc2x3/IfcDraughtingPreDefinedCurveFont.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPreDefinedCurveFont.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPreDefinedCurveFont.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcDraughtingPreDefinedCurveFont::copy(const IfcDraughtingPreDefinedCurveFo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDraughtingPreDefinedCurveFont::s_type("IfcDraughtingPreDefinedCurveFont");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedCurveFont::s_type("IfcDraughtingPreDefinedCurveFont");

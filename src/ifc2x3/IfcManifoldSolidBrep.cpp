@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcManifoldSolidBrep.h"
+#include <ifc2x3/IfcManifoldSolidBrep.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClosedShell.h"
-#include "ifc2x3/IfcSolidModel.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClosedShell.h>
+#include <ifc2x3/IfcSolidModel.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcManifoldSolidBrep::copy(const IfcManifoldSolidBrep &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcManifoldSolidBrep::s_type("IfcManifoldSolidBrep");
+IFC2X3_EXPORT Step::ClassType IfcManifoldSolidBrep::s_type("IfcManifoldSolidBrep");

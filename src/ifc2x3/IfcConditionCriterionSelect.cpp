@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcConditionCriterionSelect.h"
+#include <ifc2x3/IfcConditionCriterionSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMeasureWithUnit.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMeasureWithUnit.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -149,4 +149,4 @@ void IfcConditionCriterionSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcConditionCriterionSelect::s_type("IfcConditionCriterionSelect");
+IFC2X3_EXPORT Step::ClassType IfcConditionCriterionSelect::s_type("IfcConditionCriterionSelect");

@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAsset.h"
+#include <ifc2x3/IfcAsset.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcCostValue.h"
-#include "ifc2x3/IfcGroup.h"
-#include "ifc2x3/IfcPerson.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcCostValue.h>
+#include <ifc2x3/IfcGroup.h>
+#include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -422,4 +422,4 @@ void IfcAsset::copy(const IfcAsset &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAsset::s_type("IfcAsset");
+IFC2X3_EXPORT Step::ClassType IfcAsset::s_type("IfcAsset");

@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMeasureValue.h"
+#include <ifc2x3/IfcMeasureValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -540,4 +540,4 @@ void IfcMeasureValue::setIfcComplexNumber(const IfcComplexNumber &value) {
 void IfcMeasureValue::set(Step::BaseObject *v) {
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMeasureValue::s_type("IfcMeasureValue");
+IFC2X3_EXPORT Step::ClassType IfcMeasureValue::s_type("IfcMeasureValue");

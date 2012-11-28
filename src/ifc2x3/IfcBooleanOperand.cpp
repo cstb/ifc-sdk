@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBooleanOperand.h"
+#include <ifc2x3/IfcBooleanOperand.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcBooleanResult.h"
-#include "ifc2x3/IfcCsgPrimitive3D.h"
-#include "ifc2x3/IfcHalfSpaceSolid.h"
-#include "ifc2x3/IfcSolidModel.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcBooleanResult.h>
+#include <ifc2x3/IfcCsgPrimitive3D.h>
+#include <ifc2x3/IfcHalfSpaceSolid.h>
+#include <ifc2x3/IfcSolidModel.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -237,4 +237,4 @@ void IfcBooleanOperand::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBooleanOperand::s_type("IfcBooleanOperand");
+IFC2X3_EXPORT Step::ClassType IfcBooleanOperand::s_type("IfcBooleanOperand");

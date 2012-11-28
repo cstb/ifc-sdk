@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcJunctionBoxType.h"
+#include <ifc2x3/IfcJunctionBoxType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowFittingType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowFittingType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcJunctionBoxType::copy(const IfcJunctionBoxType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcJunctionBoxType::s_type("IfcJunctionBoxType");
+IFC2X3_EXPORT Step::ClassType IfcJunctionBoxType::s_type("IfcJunctionBoxType");

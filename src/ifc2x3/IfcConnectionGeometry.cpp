@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcConnectionGeometry.h"
+#include <ifc2x3/IfcConnectionGeometry.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -68,4 +68,4 @@ void IfcConnectionGeometry::copy(const IfcConnectionGeometry &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcConnectionGeometry::s_type("IfcConnectionGeometry");
+IFC2X3_EXPORT Step::ClassType IfcConnectionGeometry::s_type("IfcConnectionGeometry");

@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssociatesApproval.h"
+#include <ifc2x3/IfcRelAssociatesApproval.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcApproval.h"
-#include "ifc2x3/IfcRelAssociates.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcApproval.h>
+#include <ifc2x3/IfcRelAssociates.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -111,4 +111,4 @@ void IfcRelAssociatesApproval::copy(const IfcRelAssociatesApproval &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesApproval::s_type("IfcRelAssociatesApproval");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesApproval::s_type("IfcRelAssociatesApproval");

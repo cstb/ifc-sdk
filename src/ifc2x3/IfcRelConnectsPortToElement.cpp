@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelConnectsPortToElement.h"
+#include <ifc2x3/IfcRelConnectsPortToElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElement.h"
-#include "ifc2x3/IfcPort.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcPort.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -159,4 +159,4 @@ void IfcRelConnectsPortToElement::copy(const IfcRelConnectsPortToElement &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsPortToElement::s_type("IfcRelConnectsPortToElement");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsPortToElement::s_type("IfcRelConnectsPortToElement");

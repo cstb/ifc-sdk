@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCoordinatedUniversalTimeOffset.h"
+#include <ifc2x3/IfcCoordinatedUniversalTimeOffset.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -178,4 +178,4 @@ void IfcCoordinatedUniversalTimeOffset::copy(const IfcCoordinatedUniversalTimeOf
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset");
+IFC2X3_EXPORT Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset");

@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTypeObject.h"
+#include <ifc2x3/IfcTypeObject.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObjectDefinition.h"
-#include "ifc2x3/IfcPropertySetDefinition.h"
-#include "ifc2x3/IfcRelDefinesByType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObjectDefinition.h>
+#include <ifc2x3/IfcPropertySetDefinition.h>
+#include <ifc2x3/IfcRelDefinesByType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -218,4 +218,4 @@ void IfcTypeObject::copy(const IfcTypeObject &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTypeObject::s_type("IfcTypeObject");
+IFC2X3_EXPORT Step::ClassType IfcTypeObject::s_type("IfcTypeObject");

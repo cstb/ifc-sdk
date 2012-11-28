@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelConnectsWithRealizingElements.h"
+#include <ifc2x3/IfcRelConnectsWithRealizingElements.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcElement.h"
-#include "ifc2x3/IfcRelConnectsElements.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcElement.h>
+#include <ifc2x3/IfcRelConnectsElements.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -187,4 +187,4 @@ void IfcRelConnectsWithRealizingElements::copy(const IfcRelConnectsWithRealizing
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements");

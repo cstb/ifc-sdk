@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCostSchedule.h"
+#include <ifc2x3/IfcCostSchedule.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -468,4 +468,4 @@ void IfcCostSchedule::copy(const IfcCostSchedule &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCostSchedule::s_type("IfcCostSchedule");
+IFC2X3_EXPORT Step::ClassType IfcCostSchedule::s_type("IfcCostSchedule");

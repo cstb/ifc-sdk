@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcApprovalPropertyRelationship.h"
+#include <ifc2x3/IfcApprovalPropertyRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcApproval.h"
-#include "ifc2x3/IfcProperty.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcApproval.h>
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -160,4 +160,4 @@ void IfcApprovalPropertyRelationship::copy(const IfcApprovalPropertyRelationship
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcApprovalPropertyRelationship::s_type("IfcApprovalPropertyRelationship");
+IFC2X3_EXPORT Step::ClassType IfcApprovalPropertyRelationship::s_type("IfcApprovalPropertyRelationship");

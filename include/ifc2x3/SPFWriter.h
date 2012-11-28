@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_SPFWRITER_H
 #define IFC2X3_SPFWRITER_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/InheritVisitor.h"
+#include "InheritVisitor.h"
 #include <Step/BaseSPFWriter.h>
 #include <string>
 
@@ -732,7 +732,7 @@ namespace ifc2x3 {
      * It is used by calling the writeSPF method.
      *
      */
-    class IFC2X3_DLL_DEF SPFWriter : public Step::BaseSPFWriter, public InheritVisitor {
+    class IFC2X3_EXPORT SPFWriter : public Step::BaseSPFWriter, public InheritVisitor {
     public:
         /**
          * Default Constructor, needs a valid ExpressDataSet.

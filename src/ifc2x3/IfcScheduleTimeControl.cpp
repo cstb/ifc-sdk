@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcScheduleTimeControl.h"
+#include <ifc2x3/IfcScheduleTimeControl.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/IfcRelAssignsTasks.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcRelAssignsTasks.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -847,4 +847,4 @@ void IfcScheduleTimeControl::copy(const IfcScheduleTimeControl &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcScheduleTimeControl::s_type("IfcScheduleTimeControl");
+IFC2X3_EXPORT Step::ClassType IfcScheduleTimeControl::s_type("IfcScheduleTimeControl");

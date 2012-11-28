@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralLoadStatic.h"
+#include <ifc2x3/IfcStructuralLoadStatic.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralLoad.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralLoad.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcStructuralLoadStatic::copy(const IfcStructuralLoadStatic &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralLoadStatic::s_type("IfcStructuralLoadStatic");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadStatic::s_type("IfcStructuralLoadStatic");

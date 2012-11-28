@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSectionProperties.h"
+#include <ifc2x3/IfcSectionProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -182,4 +182,4 @@ void IfcSectionProperties::copy(const IfcSectionProperties &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSectionProperties::s_type("IfcSectionProperties");
+IFC2X3_EXPORT Step::ClassType IfcSectionProperties::s_type("IfcSectionProperties");

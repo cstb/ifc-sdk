@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPROCEDURE_H
 #define IFC2X3_IFCPROCEDURE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcProcess.h"
+#include "IfcProcess.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcProcedure Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcProcedure : public IfcProcess {
+    class IFC2X3_EXPORT IfcProcedure : public IfcProcess {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

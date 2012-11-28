@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralPlanarAction.h"
+#include <ifc2x3/IfcStructuralPlanarAction.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralAction.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralAction.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -112,4 +112,4 @@ void IfcStructuralPlanarAction::copy(const IfcStructuralPlanarAction &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralPlanarAction::s_type("IfcStructuralPlanarAction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralPlanarAction::s_type("IfcStructuralPlanarAction");

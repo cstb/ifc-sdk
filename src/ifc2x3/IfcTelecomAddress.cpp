@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTelecomAddress.h"
+#include <ifc2x3/IfcTelecomAddress.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAddress.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAddress.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/SPFFunctions.h>
@@ -303,4 +303,4 @@ void IfcTelecomAddress::copy(const IfcTelecomAddress &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTelecomAddress::s_type("IfcTelecomAddress");
+IFC2X3_EXPORT Step::ClassType IfcTelecomAddress::s_type("IfcTelecomAddress");

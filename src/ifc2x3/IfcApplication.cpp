@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcApplication.h"
+#include <ifc2x3/IfcApplication.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcOrganization.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcOrganization.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -213,4 +213,4 @@ void IfcApplication::copy(const IfcApplication &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcApplication::s_type("IfcApplication");
+IFC2X3_EXPORT Step::ClassType IfcApplication::s_type("IfcApplication");

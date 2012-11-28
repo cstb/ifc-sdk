@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFillAreaStyleTileShapeSelect.h"
+#include <ifc2x3/IfcFillAreaStyleTileShapeSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFillAreaStyleTileSymbolWithStyle.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFillAreaStyleTileSymbolWithStyle.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -126,4 +126,4 @@ void IfcFillAreaStyleTileShapeSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFillAreaStyleTileShapeSelect::s_type("IfcFillAreaStyleTileShapeSelect");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTileShapeSelect::s_type("IfcFillAreaStyleTileShapeSelect");

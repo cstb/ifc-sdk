@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcHeatExchangerType.h"
+#include <ifc2x3/IfcHeatExchangerType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -118,4 +118,4 @@ void IfcHeatExchangerType::copy(const IfcHeatExchangerType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcHeatExchangerType::s_type("IfcHeatExchangerType");
+IFC2X3_EXPORT Step::ClassType IfcHeatExchangerType::s_type("IfcHeatExchangerType");

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDistributionChamberElementType.h"
+#include <ifc2x3/IfcDistributionChamberElementType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDistributionFlowElementType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDistributionFlowElementType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -136,4 +136,4 @@ void IfcDistributionChamberElementType::copy(const IfcDistributionChamberElement
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDistributionChamberElementType::s_type("IfcDistributionChamberElementType");
+IFC2X3_EXPORT Step::ClassType IfcDistributionChamberElementType::s_type("IfcDistributionChamberElementType");

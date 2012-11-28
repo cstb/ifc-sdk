@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcClassificationNotationFacet.h"
+#include <ifc2x3/IfcClassificationNotationFacet.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -104,4 +104,4 @@ void IfcClassificationNotationFacet::copy(const IfcClassificationNotationFacet &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcClassificationNotationFacet::s_type("IfcClassificationNotationFacet");
+IFC2X3_EXPORT Step::ClassType IfcClassificationNotationFacet::s_type("IfcClassificationNotationFacet");

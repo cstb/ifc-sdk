@@ -24,7 +24,7 @@ namespace Step {
     /*!
      ** Base Class for every entity from the STEP data model
      */
-    class STEP_DLL_DEF BaseEntity: public BaseObject
+    class STEP_EXPORT BaseEntity: public BaseObject
     {
         ClassType_definitions();
     public:
@@ -79,7 +79,7 @@ namespace Step {
         friend class BaseExpressDataSet;
     };
 
-    bool STEP_DLL_DEF keySort(Step::BaseEntity* i, Step::BaseEntity* j);
+    bool STEP_EXPORT keySort(Step::BaseEntity* i, Step::BaseEntity* j);
 }
 
 #endif

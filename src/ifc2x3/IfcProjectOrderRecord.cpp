@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProjectOrderRecord.h"
+#include <ifc2x3/IfcProjectOrderRecord.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcControl.h"
-#include "ifc2x3/IfcRelAssignsToProjectOrder.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcControl.h>
+#include <ifc2x3/IfcRelAssignsToProjectOrder.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -183,4 +183,4 @@ void IfcProjectOrderRecord::copy(const IfcProjectOrderRecord &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProjectOrderRecord::s_type("IfcProjectOrderRecord");
+IFC2X3_EXPORT Step::ClassType IfcProjectOrderRecord::s_type("IfcProjectOrderRecord");

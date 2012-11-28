@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDamperType.h"
+#include <ifc2x3/IfcDamperType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowControllerType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowControllerType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -145,4 +145,4 @@ void IfcDamperType::copy(const IfcDamperType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDamperType::s_type("IfcDamperType");
+IFC2X3_EXPORT Step::ClassType IfcDamperType::s_type("IfcDamperType");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCLASSIFICATIONREFERENCE_H
 #define IFC2X3_IFCCLASSIFICATIONREFERENCE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcExternalReference.h"
+#include "IfcExternalReference.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcClassificationReference Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcClassificationReference : public IfcExternalReference {
+    class IFC2X3_EXPORT IfcClassificationReference : public IfcExternalReference {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

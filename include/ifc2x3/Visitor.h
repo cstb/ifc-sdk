@@ -17,7 +17,7 @@
 #ifndef IFC2X3_VISITOR_H
 #define IFC2X3_VISITOR_H
 
-#include <ifc2x3/ifc2x3DLL.h>
+#include "ifc2x3Export.h"
 
 #include <Step/BaseVisitor.h>
 
@@ -727,7 +727,7 @@ namespace ifc2x3 {
      * Base Visitor (pure virtual) fot this generated schema.
      * 
      */
-    class IFC2X3_DLL_DEF Visitor : public Step::BaseVisitor {
+    class IFC2X3_EXPORT Visitor : public Step::BaseVisitor {
     public:
         /**
          */

@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRepresentationContext.h"
+#include <ifc2x3/IfcRepresentationContext.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRepresentation.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRepresentation.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -170,4 +170,4 @@ void IfcRepresentationContext::copy(const IfcRepresentationContext &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRepresentationContext::s_type("IfcRepresentationContext");
+IFC2X3_EXPORT Step::ClassType IfcRepresentationContext::s_type("IfcRepresentationContext");

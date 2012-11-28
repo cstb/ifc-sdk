@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcApproval.h"
+#include <ifc2x3/IfcApproval.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcApprovalActorRelationship.h"
-#include "ifc2x3/IfcApprovalRelationship.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcApprovalActorRelationship.h>
+#include <ifc2x3/IfcApprovalRelationship.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -415,4 +415,4 @@ void IfcApproval::copy(const IfcApproval &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcApproval::s_type("IfcApproval");
+IFC2X3_EXPORT Step::ClassType IfcApproval::s_type("IfcApproval");

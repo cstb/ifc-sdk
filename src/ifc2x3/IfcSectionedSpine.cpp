@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSectionedSpine.h"
+#include <ifc2x3/IfcSectionedSpine.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/IfcCompositeCurve.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/IfcProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/IfcCompositeCurve.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -217,4 +217,4 @@ void IfcSectionedSpine::copy(const IfcSectionedSpine &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSectionedSpine::s_type("IfcSectionedSpine");
+IFC2X3_EXPORT Step::ClassType IfcSectionedSpine::s_type("IfcSectionedSpine");

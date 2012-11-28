@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCANNOTATIONOCCURRENCE_H
 #define IFC2X3_IFCANNOTATIONOCCURRENCE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcStyledItem.h"
+#include "IfcStyledItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcAnnotationOccurrence Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcAnnotationOccurrence : public IfcStyledItem {
+    class IFC2X3_EXPORT IfcAnnotationOccurrence : public IfcStyledItem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

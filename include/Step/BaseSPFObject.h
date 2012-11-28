@@ -17,7 +17,7 @@
 #ifndef Step_BaseSPFObject_h
 #define Step_BaseSPFObject_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "BaseEntity.h"
 
@@ -28,7 +28,7 @@ namespace Step {
      \short Base Object of a STEP-21 file.
      It belongs to lazy loading concepts. A non-initialized object is an instance from BaseSPFObject.
      */
-    class STEP_DLL_DEF BaseSPFObject: public BaseEntity
+    class STEP_EXPORT BaseSPFObject: public BaseEntity
     {
         ClassType_definitions();
     public:

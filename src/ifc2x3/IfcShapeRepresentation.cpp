@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcShapeRepresentation.h"
+#include <ifc2x3/IfcShapeRepresentation.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcShapeModel.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcShapeModel.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcShapeRepresentation::copy(const IfcShapeRepresentation &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcShapeRepresentation::s_type("IfcShapeRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcShapeRepresentation::s_type("IfcShapeRepresentation");

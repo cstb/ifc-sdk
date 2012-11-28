@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCircle.h"
+#include <ifc2x3/IfcCircle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConic.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConic.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcCircle::copy(const IfcCircle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCircle::s_type("IfcCircle");
+IFC2X3_EXPORT Step::ClassType IfcCircle::s_type("IfcCircle");

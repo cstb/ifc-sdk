@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProduct.h"
+#include <ifc2x3/IfcProduct.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObject.h"
-#include "ifc2x3/IfcObjectPlacement.h"
-#include "ifc2x3/IfcProductDefinitionShape.h"
-#include "ifc2x3/IfcProductRepresentation.h"
-#include "ifc2x3/IfcRelAssignsToProduct.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObject.h>
+#include <ifc2x3/IfcObjectPlacement.h>
+#include <ifc2x3/IfcProductDefinitionShape.h>
+#include <ifc2x3/IfcProductRepresentation.h>
+#include <ifc2x3/IfcRelAssignsToProduct.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -194,4 +194,4 @@ void IfcProduct::copy(const IfcProduct &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProduct::s_type("IfcProduct");
+IFC2X3_EXPORT Step::ClassType IfcProduct::s_type("IfcProduct");

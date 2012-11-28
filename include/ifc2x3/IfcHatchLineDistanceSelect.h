@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCHATCHLINEDISTANCESELECT_H
 #define IFC2X3_IFCHATCHLINEDISTANCESELECT_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseObject.h>
 #include <Step/BaseVisitor.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * .
      * 
      */
-    class IFC2X3_DLL_DEF IfcHatchLineDistanceSelect : public Step::BaseObject {
+    class IFC2X3_EXPORT IfcHatchLineDistanceSelect : public Step::BaseObject {
     public:
         /**
  */

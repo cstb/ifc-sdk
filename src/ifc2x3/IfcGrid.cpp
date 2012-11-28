@@ -18,16 +18,16 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcGrid.h"
+#include <ifc2x3/IfcGrid.h>
 
 
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcGridAxis.h"
-#include "ifc2x3/IfcProduct.h"
-#include "ifc2x3/IfcRelContainedInSpatialStructure.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcGridAxis.h>
+#include <ifc2x3/IfcProduct.h>
+#include <ifc2x3/IfcRelContainedInSpatialStructure.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -332,4 +332,4 @@ void IfcGrid::copy(const IfcGrid &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcGrid::s_type("IfcGrid");
+IFC2X3_EXPORT Step::ClassType IfcGrid::s_type("IfcGrid");

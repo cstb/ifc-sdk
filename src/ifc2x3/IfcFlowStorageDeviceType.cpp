@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcFlowStorageDeviceType.h"
+#include <ifc2x3/IfcFlowStorageDeviceType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDistributionFlowElementType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDistributionFlowElementType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcFlowStorageDeviceType::copy(const IfcFlowStorageDeviceType &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcFlowStorageDeviceType::s_type("IfcFlowStorageDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcFlowStorageDeviceType::s_type("IfcFlowStorageDeviceType");

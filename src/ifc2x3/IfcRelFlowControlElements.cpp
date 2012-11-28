@@ -18,14 +18,14 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelFlowControlElements.h"
+#include <ifc2x3/IfcRelFlowControlElements.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDistributionControlElement.h"
-#include "ifc2x3/IfcDistributionFlowElement.h"
-#include "ifc2x3/IfcRelConnects.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDistributionControlElement.h>
+#include <ifc2x3/IfcDistributionFlowElement.h>
+#include <ifc2x3/IfcRelConnects.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -193,4 +193,4 @@ void IfcRelFlowControlElements::copy(const IfcRelFlowControlElements &obj, const
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelFlowControlElements::s_type("IfcRelFlowControlElements");
+IFC2X3_EXPORT Step::ClassType IfcRelFlowControlElements::s_type("IfcRelFlowControlElements");

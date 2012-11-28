@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLibrarySelect.h"
+#include <ifc2x3/IfcLibrarySelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcLibraryInformation.h"
-#include "ifc2x3/IfcLibraryReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcLibraryInformation.h>
+#include <ifc2x3/IfcLibraryReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcLibrarySelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLibrarySelect::s_type("IfcLibrarySelect");
+IFC2X3_EXPORT Step::ClassType IfcLibrarySelect::s_type("IfcLibrarySelect");

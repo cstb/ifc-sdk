@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAnnotationFillAreaOccurrence.h"
+#include <ifc2x3/IfcAnnotationFillAreaOccurrence.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationOccurrence.h"
-#include "ifc2x3/IfcPoint.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationOccurrence.h>
+#include <ifc2x3/IfcPoint.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -151,4 +151,4 @@ void IfcAnnotationFillAreaOccurrence::copy(const IfcAnnotationFillAreaOccurrence
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAnnotationFillAreaOccurrence::s_type("IfcAnnotationFillAreaOccurrence");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationFillAreaOccurrence::s_type("IfcAnnotationFillAreaOccurrence");

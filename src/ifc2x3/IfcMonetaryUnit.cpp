@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMonetaryUnit.h"
+#include <ifc2x3/IfcMonetaryUnit.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -351,4 +351,4 @@ void IfcMonetaryUnit::copy(const IfcMonetaryUnit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMonetaryUnit::s_type("IfcMonetaryUnit");
+IFC2X3_EXPORT Step::ClassType IfcMonetaryUnit::s_type("IfcMonetaryUnit");

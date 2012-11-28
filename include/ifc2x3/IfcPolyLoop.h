@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPOLYLOOP_H
 #define IFC2X3_IFCPOLYLOOP_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcLoop.h"
+#include "IfcLoop.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcPolyLoop Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcPolyLoop : public IfcLoop {
+    class IFC2X3_EXPORT IfcPolyLoop : public IfcLoop {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

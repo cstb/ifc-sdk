@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDocumentSelect.h"
+#include <ifc2x3/IfcDocumentSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDocumentInformation.h"
-#include "ifc2x3/IfcDocumentReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDocumentInformation.h>
+#include <ifc2x3/IfcDocumentReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcDocumentSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDocumentSelect::s_type("IfcDocumentSelect");
+IFC2X3_EXPORT Step::ClassType IfcDocumentSelect::s_type("IfcDocumentSelect");

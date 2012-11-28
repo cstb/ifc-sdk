@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcStructuralSurfaceConnection.h"
+#include <ifc2x3/IfcStructuralSurfaceConnection.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcStructuralConnection.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcStructuralConnection.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcStructuralSurfaceConnection::copy(const IfcStructuralSurfaceConnection &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcStructuralSurfaceConnection::s_type("IfcStructuralSurfaceConnection");
+IFC2X3_EXPORT Step::ClassType IfcStructuralSurfaceConnection::s_type("IfcStructuralSurfaceConnection");

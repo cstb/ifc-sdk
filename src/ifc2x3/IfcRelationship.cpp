@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelationship.h"
+#include <ifc2x3/IfcRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcRoot.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcRoot.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcRelationship::copy(const IfcRelationship &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelationship::s_type("IfcRelationship");
+IFC2X3_EXPORT Step::ClassType IfcRelationship::s_type("IfcRelationship");

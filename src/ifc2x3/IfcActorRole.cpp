@@ -18,10 +18,10 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcActorRole.h"
+#include <ifc2x3/IfcActorRole.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
@@ -242,4 +242,4 @@ void IfcActorRole::copy(const IfcActorRole &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcActorRole::s_type("IfcActorRole");
+IFC2X3_EXPORT Step::ClassType IfcActorRole::s_type("IfcActorRole");

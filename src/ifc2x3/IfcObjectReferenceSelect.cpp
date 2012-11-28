@@ -18,23 +18,23 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcObjectReferenceSelect.h"
+#include <ifc2x3/IfcObjectReferenceSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAddress.h"
-#include "ifc2x3/IfcAppliedValue.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcDateAndTime.h"
-#include "ifc2x3/IfcExternalReference.h"
-#include "ifc2x3/IfcLocalTime.h"
-#include "ifc2x3/IfcMaterial.h"
-#include "ifc2x3/IfcMaterialLayer.h"
-#include "ifc2x3/IfcMaterialList.h"
-#include "ifc2x3/IfcOrganization.h"
-#include "ifc2x3/IfcPerson.h"
-#include "ifc2x3/IfcPersonAndOrganization.h"
-#include "ifc2x3/IfcTimeSeries.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAddress.h>
+#include <ifc2x3/IfcAppliedValue.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcDateAndTime.h>
+#include <ifc2x3/IfcExternalReference.h>
+#include <ifc2x3/IfcLocalTime.h>
+#include <ifc2x3/IfcMaterial.h>
+#include <ifc2x3/IfcMaterialLayer.h>
+#include <ifc2x3/IfcMaterialList.h>
+#include <ifc2x3/IfcOrganization.h>
+#include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/IfcPersonAndOrganization.h>
+#include <ifc2x3/IfcTimeSeries.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -570,4 +570,4 @@ void IfcObjectReferenceSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcObjectReferenceSelect::s_type("IfcObjectReferenceSelect");
+IFC2X3_EXPORT Step::ClassType IfcObjectReferenceSelect::s_type("IfcObjectReferenceSelect");

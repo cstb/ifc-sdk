@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcExternallyDefinedTextFont.h"
+#include <ifc2x3/IfcExternallyDefinedTextFont.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcExternalReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcExternalReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcExternallyDefinedTextFont::copy(const IfcExternallyDefinedTextFont &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcExternallyDefinedTextFont::s_type("IfcExternallyDefinedTextFont");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedTextFont::s_type("IfcExternallyDefinedTextFont");

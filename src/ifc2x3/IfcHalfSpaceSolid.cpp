@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcHalfSpaceSolid.h"
+#include <ifc2x3/IfcHalfSpaceSolid.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/IfcSurface.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcSurface.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -146,4 +146,4 @@ void IfcHalfSpaceSolid::copy(const IfcHalfSpaceSolid &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcHalfSpaceSolid::s_type("IfcHalfSpaceSolid");
+IFC2X3_EXPORT Step::ClassType IfcHalfSpaceSolid::s_type("IfcHalfSpaceSolid");

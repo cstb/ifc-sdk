@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTextFontSelect.h"
+#include <ifc2x3/IfcTextFontSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcExternallyDefinedTextFont.h"
-#include "ifc2x3/IfcPreDefinedTextFont.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcExternallyDefinedTextFont.h>
+#include <ifc2x3/IfcPreDefinedTextFont.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcTextFontSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTextFontSelect::s_type("IfcTextFontSelect");
+IFC2X3_EXPORT Step::ClassType IfcTextFontSelect::s_type("IfcTextFontSelect");

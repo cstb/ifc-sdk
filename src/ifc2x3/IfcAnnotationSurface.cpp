@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAnnotationSurface.h"
+#include <ifc2x3/IfcAnnotationSurface.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/IfcTextureCoordinate.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcTextureCoordinate.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -152,4 +152,4 @@ void IfcAnnotationSurface::copy(const IfcAnnotationSurface &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAnnotationSurface::s_type("IfcAnnotationSurface");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationSurface::s_type("IfcAnnotationSurface");

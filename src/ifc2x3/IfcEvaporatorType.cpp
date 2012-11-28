@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcEvaporatorType.h"
+#include <ifc2x3/IfcEvaporatorType.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcEnergyConversionDeviceType.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -127,4 +127,4 @@ void IfcEvaporatorType::copy(const IfcEvaporatorType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcEvaporatorType::s_type("IfcEvaporatorType");
+IFC2X3_EXPORT Step::ClassType IfcEvaporatorType::s_type("IfcEvaporatorType");

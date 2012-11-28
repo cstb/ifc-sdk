@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPropertyEnumeration.h"
+#include <ifc2x3/IfcPropertyEnumeration.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcUnit.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcUnit.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -733,4 +733,4 @@ void IfcPropertyEnumeration::copy(const IfcPropertyEnumeration &obj, const CopyO
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPropertyEnumeration::s_type("IfcPropertyEnumeration");
+IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeration::s_type("IfcPropertyEnumeration");

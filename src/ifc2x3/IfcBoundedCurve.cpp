@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcBoundedCurve.h"
+#include <ifc2x3/IfcBoundedCurve.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcBoundedCurve::copy(const IfcBoundedCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcBoundedCurve::s_type("IfcBoundedCurve");
+IFC2X3_EXPORT Step::ClassType IfcBoundedCurve::s_type("IfcBoundedCurve");

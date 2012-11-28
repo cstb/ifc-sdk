@@ -74,7 +74,7 @@ bool Step::getSubParameter(std::string& arg, std::string& str1)
     else {
         std::string::size_type i = 0;
         unsigned int from = 1;
-        unsigned int bracket =0;
+        int bracket =0;
         for (i = 1 ;i < arg.length()-1; i++) {
             if (arg[i] == Apostrophe ) {
                 i = arg.find(Apostrophe,i+1);
@@ -105,7 +105,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
 
     std::string::size_type i = 0;
     unsigned int from = 0;
-    unsigned int bracket =0;
+    int bracket =0;
     for (i = 0;i < str.length(); i++) {
         if (str[i] == Apostrophe) {
             i = str.find(Apostrophe,i+1);

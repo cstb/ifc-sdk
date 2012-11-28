@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAxis2Placement.h"
+#include <ifc2x3/IfcAxis2Placement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAxis2Placement2D.h"
-#include "ifc2x3/IfcAxis2Placement3D.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAxis2Placement2D.h>
+#include <ifc2x3/IfcAxis2Placement3D.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcAxis2Placement::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAxis2Placement::s_type("IfcAxis2Placement");
+IFC2X3_EXPORT Step::ClassType IfcAxis2Placement::s_type("IfcAxis2Placement");

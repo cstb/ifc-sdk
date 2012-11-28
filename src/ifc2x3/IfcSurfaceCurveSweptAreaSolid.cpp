@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceCurveSweptAreaSolid.h"
+#include <ifc2x3/IfcSurfaceCurveSweptAreaSolid.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurve.h"
-#include "ifc2x3/IfcSurface.h"
-#include "ifc2x3/IfcSweptAreaSolid.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurve.h>
+#include <ifc2x3/IfcSurface.h>
+#include <ifc2x3/IfcSweptAreaSolid.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -217,4 +217,4 @@ void IfcSurfaceCurveSweptAreaSolid::copy(const IfcSurfaceCurveSweptAreaSolid &ob
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceCurveSweptAreaSolid::s_type("IfcSurfaceCurveSweptAreaSolid");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceCurveSweptAreaSolid::s_type("IfcSurfaceCurveSweptAreaSolid");

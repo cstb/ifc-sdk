@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPropertyEnumeratedValue.h"
+#include <ifc2x3/IfcPropertyEnumeratedValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPropertyEnumeration.h"
-#include "ifc2x3/IfcSimpleProperty.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPropertyEnumeration.h>
+#include <ifc2x3/IfcSimpleProperty.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -689,4 +689,4 @@ void IfcPropertyEnumeratedValue::copy(const IfcPropertyEnumeratedValue &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPropertyEnumeratedValue::s_type("IfcPropertyEnumeratedValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeratedValue::s_type("IfcPropertyEnumeratedValue");

@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCAPPROVALACTORRELATIONSHIP_H
 #define IFC2X3_IFCAPPROVALACTORRELATIONSHIP_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -37,7 +37,7 @@ namespace ifc2x3 {
      * Generated class for the IfcApprovalActorRelationship Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcApprovalActorRelationship : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcApprovalActorRelationship : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

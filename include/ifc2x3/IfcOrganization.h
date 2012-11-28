@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCORGANIZATION_H
 #define IFC2X3_IFCORGANIZATION_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -84,7 +84,7 @@ namespace ifc2x3 {
      * Generated class for the IfcOrganization Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcOrganization : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcOrganization : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

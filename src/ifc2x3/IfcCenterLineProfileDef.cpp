@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCenterLineProfileDef.h"
+#include <ifc2x3/IfcCenterLineProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcArbitraryOpenProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcArbitraryOpenProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcCenterLineProfileDef::copy(const IfcCenterLineProfileDef &obj, const Cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCenterLineProfileDef::s_type("IfcCenterLineProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCenterLineProfileDef::s_type("IfcCenterLineProfileDef");

@@ -17,7 +17,7 @@
 #ifndef Step_ClientData_h
 #define Step_ClientData_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Types.h"
 
@@ -29,7 +29,7 @@ namespace Step {
     /*!
      * \short A class which encapsulates user data of step objects. It contains meta-data
      */
-    class STEP_DLL_DEF ClientData: public Referenced
+    class STEP_EXPORT ClientData: public Referenced
     {
 
     public:

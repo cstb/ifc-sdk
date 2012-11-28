@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPROJECT_H
 #define IFC2X3_IFCPROJECT_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcObject.h"
+#include "IfcObject.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcProject Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcProject : public IfcObject {
+    class IFC2X3_EXPORT IfcProject : public IfcObject {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

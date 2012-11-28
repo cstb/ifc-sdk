@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcElectricalCircuit.h"
+#include <ifc2x3/IfcElectricalCircuit.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcSystem.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcSystem.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcElectricalCircuit::copy(const IfcElectricalCircuit &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcElectricalCircuit::s_type("IfcElectricalCircuit");
+IFC2X3_EXPORT Step::ClassType IfcElectricalCircuit::s_type("IfcElectricalCircuit");

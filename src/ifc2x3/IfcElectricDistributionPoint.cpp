@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcElectricDistributionPoint.h"
+#include <ifc2x3/IfcElectricDistributionPoint.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcFlowController.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcFlowController.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -175,4 +175,4 @@ void IfcElectricDistributionPoint::copy(const IfcElectricDistributionPoint &obj,
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcElectricDistributionPoint::s_type("IfcElectricDistributionPoint");
+IFC2X3_EXPORT Step::ClassType IfcElectricDistributionPoint::s_type("IfcElectricDistributionPoint");

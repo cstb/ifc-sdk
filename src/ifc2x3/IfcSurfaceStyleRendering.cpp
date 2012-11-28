@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSurfaceStyleRendering.h"
+#include <ifc2x3/IfcSurfaceStyleRendering.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcColourOrFactor.h"
-#include "ifc2x3/IfcSpecularHighlightSelect.h"
-#include "ifc2x3/IfcSurfaceStyleShading.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcColourOrFactor.h>
+#include <ifc2x3/IfcSpecularHighlightSelect.h>
+#include <ifc2x3/IfcSurfaceStyleShading.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -498,4 +498,4 @@ void IfcSurfaceStyleRendering::copy(const IfcSurfaceStyleRendering &obj, const C
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSurfaceStyleRendering::s_type("IfcSurfaceStyleRendering");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRendering::s_type("IfcSurfaceStyleRendering");

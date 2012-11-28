@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcSphere.h"
+#include <ifc2x3/IfcSphere.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCsgPrimitive3D.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCsgPrimitive3D.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -107,4 +107,4 @@ void IfcSphere::copy(const IfcSphere &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcSphere::s_type("IfcSphere");
+IFC2X3_EXPORT Step::ClassType IfcSphere::s_type("IfcSphere");

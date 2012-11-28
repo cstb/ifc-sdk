@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFIRESUPPRESSIONTERMINALTYPE_H
 #define IFC2X3_IFCFIRESUPPRESSIONTERMINALTYPE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcFlowTerminalType.h"
+#include "IfcFlowTerminalType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcFireSuppressionTerminalType Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcFireSuppressionTerminalType : public IfcFlowTerminalType {
+    class IFC2X3_EXPORT IfcFireSuppressionTerminalType : public IfcFlowTerminalType {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

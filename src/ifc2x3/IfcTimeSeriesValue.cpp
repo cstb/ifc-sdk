@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTimeSeriesValue.h"
+#include <ifc2x3/IfcTimeSeriesValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcValue.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcValue.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -649,4 +649,4 @@ void IfcTimeSeriesValue::copy(const IfcTimeSeriesValue &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTimeSeriesValue::s_type("IfcTimeSeriesValue");
+IFC2X3_EXPORT Step::ClassType IfcTimeSeriesValue::s_type("IfcTimeSeriesValue");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTAIRFLIGHTTYPE_H
 #define IFC2X3_IFCSTAIRFLIGHTTYPE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcBuildingElementType.h"
+#include "IfcBuildingElementType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcStairFlightType Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcStairFlightType : public IfcBuildingElementType {
+    class IFC2X3_EXPORT IfcStairFlightType : public IfcBuildingElementType {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

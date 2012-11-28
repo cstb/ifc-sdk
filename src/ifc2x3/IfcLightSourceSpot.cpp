@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLightSourceSpot.h"
+#include <ifc2x3/IfcLightSourceSpot.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDirection.h"
-#include "ifc2x3/IfcLightSourcePositional.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDirection.h>
+#include <ifc2x3/IfcLightSourcePositional.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -216,4 +216,4 @@ void IfcLightSourceSpot::copy(const IfcLightSourceSpot &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLightSourceSpot::s_type("IfcLightSourceSpot");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceSpot::s_type("IfcLightSourceSpot");

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCGRID_H
 #define IFC2X3_IFCGRID_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcProduct.h"
+#include "IfcProduct.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -173,7 +173,7 @@ namespace ifc2x3 {
      * Generated class for the IfcGrid Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcGrid : public IfcProduct {
+    class IFC2X3_EXPORT IfcGrid : public IfcProduct {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

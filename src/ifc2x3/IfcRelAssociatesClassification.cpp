@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssociatesClassification.h"
+#include <ifc2x3/IfcRelAssociatesClassification.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClassificationNotationSelect.h"
-#include "ifc2x3/IfcRelAssociates.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClassificationNotationSelect.h>
+#include <ifc2x3/IfcRelAssociates.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -123,4 +123,4 @@ void IfcRelAssociatesClassification::copy(const IfcRelAssociatesClassification &
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesClassification::s_type("IfcRelAssociatesClassification");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesClassification::s_type("IfcRelAssociatesClassification");

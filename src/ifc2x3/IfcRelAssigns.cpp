@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssigns.h"
+#include <ifc2x3/IfcRelAssigns.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObjectDefinition.h"
-#include "ifc2x3/IfcRelationship.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObjectDefinition.h>
+#include <ifc2x3/IfcRelationship.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -209,4 +209,4 @@ void IfcRelAssigns::copy(const IfcRelAssigns &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssigns::s_type("IfcRelAssigns");
+IFC2X3_EXPORT Step::ClassType IfcRelAssigns::s_type("IfcRelAssigns");

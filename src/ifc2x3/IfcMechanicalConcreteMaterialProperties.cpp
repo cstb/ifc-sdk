@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcMechanicalConcreteMaterialProperties.h"
+#include <ifc2x3/IfcMechanicalConcreteMaterialProperties.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcMechanicalMaterialProperties.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcMechanicalMaterialProperties.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/String.h>
@@ -283,4 +283,4 @@ void IfcMechanicalConcreteMaterialProperties::copy(const IfcMechanicalConcreteMa
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcMechanicalConcreteMaterialProperties::s_type("IfcMechanicalConcreteMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcMechanicalConcreteMaterialProperties::s_type("IfcMechanicalConcreteMaterialProperties");

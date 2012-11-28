@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcProject.h"
+#include <ifc2x3/IfcProject.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObject.h"
-#include "ifc2x3/IfcRepresentationContext.h"
-#include "ifc2x3/IfcUnitAssignment.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObject.h>
+#include <ifc2x3/IfcRepresentationContext.h>
+#include <ifc2x3/IfcUnitAssignment.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -235,4 +235,4 @@ void IfcProject::copy(const IfcProject &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcProject::s_type("IfcProject");
+IFC2X3_EXPORT Step::ClassType IfcProject::s_type("IfcProject");

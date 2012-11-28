@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcGridPlacement.h"
+#include <ifc2x3/IfcGridPlacement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcObjectPlacement.h"
-#include "ifc2x3/IfcVirtualGridIntersection.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcObjectPlacement.h>
+#include <ifc2x3/IfcVirtualGridIntersection.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -146,4 +146,4 @@ void IfcGridPlacement::copy(const IfcGridPlacement &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcGridPlacement::s_type("IfcGridPlacement");
+IFC2X3_EXPORT Step::ClassType IfcGridPlacement::s_type("IfcGridPlacement");

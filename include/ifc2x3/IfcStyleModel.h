@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTYLEMODEL_H
 #define IFC2X3_IFCSTYLEMODEL_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRepresentation.h"
+#include "IfcRepresentation.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcStyleModel Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcStyleModel : public IfcRepresentation {
+    class IFC2X3_EXPORT IfcStyleModel : public IfcRepresentation {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTRUCTURALCURVEMEMBER_H
 #define IFC2X3_IFCSTRUCTURALCURVEMEMBER_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcStructuralMember.h"
+#include "IfcStructuralMember.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcStructuralCurveMember Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcStructuralCurveMember : public IfcStructuralMember {
+    class IFC2X3_EXPORT IfcStructuralCurveMember : public IfcStructuralMember {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCELECTRICDISTRIBUTIONPOINT_H
 #define IFC2X3_IFCELECTRICDISTRIBUTIONPOINT_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcFlowController.h"
+#include "IfcFlowController.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -34,7 +34,7 @@ namespace ifc2x3 {
      * Generated class for the IfcElectricDistributionPoint Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcElectricDistributionPoint : public IfcFlowController {
+    class IFC2X3_EXPORT IfcElectricDistributionPoint : public IfcFlowController {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

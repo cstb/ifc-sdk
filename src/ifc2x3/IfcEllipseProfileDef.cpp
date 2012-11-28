@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcEllipseProfileDef.h"
+#include <ifc2x3/IfcEllipseProfileDef.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcParameterizedProfileDef.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcParameterizedProfileDef.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -142,4 +142,4 @@ void IfcEllipseProfileDef::copy(const IfcEllipseProfileDef &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcEllipseProfileDef::s_type("IfcEllipseProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcEllipseProfileDef::s_type("IfcEllipseProfileDef");

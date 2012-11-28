@@ -18,13 +18,13 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcTerminatorSymbol.h"
+#include <ifc2x3/IfcTerminatorSymbol.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAnnotationCurveOccurrence.h"
-#include "ifc2x3/IfcAnnotationSymbolOccurrence.h"
-#include "ifc2x3/IfcDimensionCurve.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAnnotationCurveOccurrence.h>
+#include <ifc2x3/IfcAnnotationSymbolOccurrence.h>
+#include <ifc2x3/IfcDimensionCurve.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -114,4 +114,4 @@ void IfcTerminatorSymbol::copy(const IfcTerminatorSymbol &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcTerminatorSymbol::s_type("IfcTerminatorSymbol");
+IFC2X3_EXPORT Step::ClassType IfcTerminatorSymbol::s_type("IfcTerminatorSymbol");

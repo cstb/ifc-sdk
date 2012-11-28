@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPropertyConstraintRelationship.h"
+#include <ifc2x3/IfcPropertyConstraintRelationship.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConstraint.h"
-#include "ifc2x3/IfcProperty.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcProperty.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -237,4 +237,4 @@ void IfcPropertyConstraintRelationship::copy(const IfcPropertyConstraintRelation
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPropertyConstraintRelationship::s_type("IfcPropertyConstraintRelationship");
+IFC2X3_EXPORT Step::ClassType IfcPropertyConstraintRelationship::s_type("IfcPropertyConstraintRelationship");

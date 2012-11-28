@@ -17,7 +17,7 @@
 #ifndef Step_Referenced_h
 #define Step_Referenced_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "ClassType.h"
 
@@ -35,7 +35,7 @@ namespace Step {
     /*!
      \short This class provides Reference counting objects. Instances should be used by the RefPtr class
      */
-    class STEP_DLL_DEF Referenced
+    class STEP_EXPORT Referenced
     {
         ClassType_definitions();
 

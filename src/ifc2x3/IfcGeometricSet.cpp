@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcGeometricSet.h"
+#include <ifc2x3/IfcGeometricSet.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcGeometricRepresentationItem.h"
-#include "ifc2x3/IfcGeometricSetSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcGeometricRepresentationItem.h>
+#include <ifc2x3/IfcGeometricSetSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -142,4 +142,4 @@ void IfcGeometricSet::copy(const IfcGeometricSet &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcGeometricSet::s_type("IfcGeometricSet");
+IFC2X3_EXPORT Step::ClassType IfcGeometricSet::s_type("IfcGeometricSet");

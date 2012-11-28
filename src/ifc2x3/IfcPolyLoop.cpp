@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPolyLoop.h"
+#include <ifc2x3/IfcPolyLoop.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCartesianPoint.h"
-#include "ifc2x3/IfcLoop.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCartesianPoint.h>
+#include <ifc2x3/IfcLoop.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -128,4 +128,4 @@ void IfcPolyLoop::copy(const IfcPolyLoop &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPolyLoop::s_type("IfcPolyLoop");
+IFC2X3_EXPORT Step::ClassType IfcPolyLoop::s_type("IfcPolyLoop");

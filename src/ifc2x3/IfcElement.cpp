@@ -18,22 +18,22 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcElement.h"
+#include <ifc2x3/IfcElement.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcProduct.h"
-#include "ifc2x3/IfcRelConnectsElements.h"
-#include "ifc2x3/IfcRelConnectsPortToElement.h"
-#include "ifc2x3/IfcRelConnectsStructuralElement.h"
-#include "ifc2x3/IfcRelConnectsWithRealizingElements.h"
-#include "ifc2x3/IfcRelContainedInSpatialStructure.h"
-#include "ifc2x3/IfcRelCoversBldgElements.h"
-#include "ifc2x3/IfcRelFillsElement.h"
-#include "ifc2x3/IfcRelProjectsElement.h"
-#include "ifc2x3/IfcRelReferencedInSpatialStructure.h"
-#include "ifc2x3/IfcRelSpaceBoundary.h"
-#include "ifc2x3/IfcRelVoidsElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcProduct.h>
+#include <ifc2x3/IfcRelConnectsElements.h>
+#include <ifc2x3/IfcRelConnectsPortToElement.h>
+#include <ifc2x3/IfcRelConnectsStructuralElement.h>
+#include <ifc2x3/IfcRelConnectsWithRealizingElements.h>
+#include <ifc2x3/IfcRelContainedInSpatialStructure.h>
+#include <ifc2x3/IfcRelCoversBldgElements.h>
+#include <ifc2x3/IfcRelFillsElement.h>
+#include <ifc2x3/IfcRelProjectsElement.h>
+#include <ifc2x3/IfcRelReferencedInSpatialStructure.h>
+#include <ifc2x3/IfcRelSpaceBoundary.h>
+#include <ifc2x3/IfcRelVoidsElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -446,4 +446,4 @@ void IfcElement::copy(const IfcElement &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcElement::s_type("IfcElement");
+IFC2X3_EXPORT Step::ClassType IfcElement::s_type("IfcElement");

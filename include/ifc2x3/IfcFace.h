@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFACE_H
 #define IFC2X3_IFCFACE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcTopologicalRepresentationItem.h"
+#include "IfcTopologicalRepresentationItem.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcFace Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcFace : public IfcTopologicalRepresentationItem {
+    class IFC2X3_EXPORT IfcFace : public IfcTopologicalRepresentationItem {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPLATETYPE_H
 #define IFC2X3_IFCPLATETYPE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcBuildingElementType.h"
+#include "IfcBuildingElementType.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcPlateType Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcPlateType : public IfcBuildingElementType {
+    class IFC2X3_EXPORT IfcPlateType : public IfcBuildingElementType {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

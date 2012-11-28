@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELSERVICESBUILDINGS_H
 #define IFC2X3_IFCRELSERVICESBUILDINGS_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRelConnects.h"
+#include "IfcRelConnects.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -84,7 +84,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRelServicesBuildings Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRelServicesBuildings : public IfcRelConnects {
+    class IFC2X3_EXPORT IfcRelServicesBuildings : public IfcRelConnects {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

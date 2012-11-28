@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDocumentInformationRelationship.h"
+#include <ifc2x3/IfcDocumentInformationRelationship.h>
 
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDocumentInformation.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDocumentInformation.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -224,4 +224,4 @@ void IfcDocumentInformationRelationship::copy(const IfcDocumentInformationRelati
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDocumentInformationRelationship::s_type("IfcDocumentInformationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcDocumentInformationRelationship::s_type("IfcDocumentInformationRelationship");

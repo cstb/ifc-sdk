@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDoorStyle.h"
+#include <ifc2x3/IfcDoorStyle.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcTypeProduct.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcTypeProduct.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
@@ -291,4 +291,4 @@ void IfcDoorStyle::copy(const IfcDoorStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDoorStyle::s_type("IfcDoorStyle");
+IFC2X3_EXPORT Step::ClassType IfcDoorStyle::s_type("IfcDoorStyle");

@@ -17,7 +17,7 @@
 #ifndef Step_SPFData_h
 #define Step_SPFData_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Types.h"
 #include "ClassType.h"
@@ -29,7 +29,7 @@ namespace Step {
     /*!
      * \short Base Class to encapsulate data from a line of a STEP-21 file
      */
-    class STEP_DLL_DEF SPFData
+    class STEP_EXPORT SPFData
     {
 
     public:

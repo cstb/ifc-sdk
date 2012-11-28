@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcInventory.h"
+#include <ifc2x3/IfcInventory.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcActorSelect.h"
-#include "ifc2x3/IfcCalendarDate.h"
-#include "ifc2x3/IfcCostValue.h"
-#include "ifc2x3/IfcGroup.h"
-#include "ifc2x3/IfcPerson.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcActorSelect.h>
+#include <ifc2x3/IfcCalendarDate.h>
+#include <ifc2x3/IfcCostValue.h>
+#include <ifc2x3/IfcGroup.h>
+#include <ifc2x3/IfcPerson.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -334,4 +334,4 @@ void IfcInventory::copy(const IfcInventory &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcInventory::s_type("IfcInventory");
+IFC2X3_EXPORT Step::ClassType IfcInventory::s_type("IfcInventory");

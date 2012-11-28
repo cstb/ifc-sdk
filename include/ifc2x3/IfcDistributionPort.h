@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCDISTRIBUTIONPORT_H
 #define IFC2X3_IFCDISTRIBUTIONPORT_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcPort.h"
+#include "IfcPort.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>
@@ -33,7 +33,7 @@ namespace ifc2x3 {
      * Generated class for the IfcDistributionPort Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcDistributionPort : public IfcPort {
+    class IFC2X3_EXPORT IfcDistributionPort : public IfcPort {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

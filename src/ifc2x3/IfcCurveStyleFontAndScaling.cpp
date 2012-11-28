@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcCurveStyleFontAndScaling.h"
+#include <ifc2x3/IfcCurveStyleFontAndScaling.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcCurveStyleFontSelect.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcCurveStyleFontSelect.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -190,4 +190,4 @@ void IfcCurveStyleFontAndScaling::copy(const IfcCurveStyleFontAndScaling &obj, c
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcCurveStyleFontAndScaling::s_type("IfcCurveStyleFontAndScaling");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontAndScaling::s_type("IfcCurveStyleFontAndScaling");

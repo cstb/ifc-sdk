@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSWEPTSURFACE_H
 #define IFC2X3_IFCSWEPTSURFACE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcSurface.h"
+#include "IfcSurface.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -36,7 +36,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSweptSurface Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSweptSurface : public IfcSurface {
+    class IFC2X3_EXPORT IfcSweptSurface : public IfcSurface {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

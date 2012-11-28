@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFACESURFACE_H
 #define IFC2X3_IFCFACESURFACE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcFace.h"
+#include "IfcFace.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcFaceSurface Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcFaceSurface : public IfcFace {
+    class IFC2X3_EXPORT IfcFaceSurface : public IfcFace {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

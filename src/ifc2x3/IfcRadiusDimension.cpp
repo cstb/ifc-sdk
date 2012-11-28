@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRadiusDimension.h"
+#include <ifc2x3/IfcRadiusDimension.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDimensionCurveDirectedCallout.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDimensionCurveDirectedCallout.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcRadiusDimension::copy(const IfcRadiusDimension &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRadiusDimension::s_type("IfcRadiusDimension");
+IFC2X3_EXPORT Step::ClassType IfcRadiusDimension::s_type("IfcRadiusDimension");

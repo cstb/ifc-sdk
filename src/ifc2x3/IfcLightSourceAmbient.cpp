@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcLightSourceAmbient.h"
+#include <ifc2x3/IfcLightSourceAmbient.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcLightSource.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcLightSource.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
 #include <Step/logger.h>
 
@@ -71,4 +71,4 @@ void IfcLightSourceAmbient::copy(const IfcLightSourceAmbient &obj, const CopyOp 
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcLightSourceAmbient::s_type("IfcLightSourceAmbient");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceAmbient::s_type("IfcLightSourceAmbient");

@@ -18,15 +18,15 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcAppliedValue.h"
+#include <ifc2x3/IfcAppliedValue.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcAppliedValueRelationship.h"
-#include "ifc2x3/IfcAppliedValueSelect.h"
-#include "ifc2x3/IfcDateTimeSelect.h"
-#include "ifc2x3/IfcMeasureWithUnit.h"
-#include "ifc2x3/IfcReferencesValueDocument.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcAppliedValueRelationship.h>
+#include <ifc2x3/IfcAppliedValueSelect.h>
+#include <ifc2x3/IfcDateTimeSelect.h>
+#include <ifc2x3/IfcMeasureWithUnit.h>
+#include <ifc2x3/IfcReferencesValueDocument.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -420,4 +420,4 @@ void IfcAppliedValue::copy(const IfcAppliedValue &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcAppliedValue::s_type("IfcAppliedValue");
+IFC2X3_EXPORT Step::ClassType IfcAppliedValue::s_type("IfcAppliedValue");

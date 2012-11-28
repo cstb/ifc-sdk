@@ -17,7 +17,7 @@
 #ifndef Step_BaseExpressDataSet_h
 #define Step_BaseExpressDataSet_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include "Types.h"
 #include "ClassType.h"
@@ -34,7 +34,7 @@ namespace Step {
     /*!
      \short Base definition of a STEP ExpressDataSet
      */
-    class STEP_DLL_DEF BaseExpressDataSet: public Referenced
+    class STEP_EXPORT BaseExpressDataSet: public Referenced
     {
     public:
 

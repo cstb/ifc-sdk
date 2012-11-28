@@ -17,7 +17,7 @@
 #ifndef Step_String_h
 #define Step_String_h
 
-#include "StepDLL.h"
+#include "StepExport.h"
 
 #include <string>
 #include <ostream>
@@ -27,7 +27,7 @@ namespace Step {
      * This is the Step String implementation. It is sub classing the STL wide string
      * It stores the Alphabet used to create it in order to comply with the SPF encoding of strings
      */
-    class STEP_DLL_DEF String : public std::wstring
+    class STEP_EXPORT String : public std::wstring
     {
     public:
         /**
@@ -166,6 +166,6 @@ namespace Step {
  **  is equivalent to calling out << myStepString.toUTF8()
  **  \sa toUTF8()
  */
-STEP_DLL_DEF std::ostream& operator<<(std::ostream &out, const Step::String &s);
+STEP_EXPORT std::ostream& operator<<(std::ostream &out, const Step::String &s);
 
 #endif

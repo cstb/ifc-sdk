@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcClassificationNotationSelect.h"
+#include <ifc2x3/IfcClassificationNotationSelect.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcClassificationNotation.h"
-#include "ifc2x3/IfcClassificationReference.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcClassificationNotation.h>
+#include <ifc2x3/IfcClassificationReference.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcClassificationNotationSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcClassificationNotationSelect::s_type("IfcClassificationNotationSelect");
+IFC2X3_EXPORT Step::ClassType IfcClassificationNotationSelect::s_type("IfcClassificationNotationSelect");

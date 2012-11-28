@@ -18,11 +18,11 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcDerivedUnit.h"
+#include <ifc2x3/IfcDerivedUnit.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcDerivedUnitElement.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcDerivedUnitElement.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseExpressDataSet.h>
@@ -341,4 +341,4 @@ void IfcDerivedUnit::copy(const IfcDerivedUnit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcDerivedUnit::s_type("IfcDerivedUnit");
+IFC2X3_EXPORT Step::ClassType IfcDerivedUnit::s_type("IfcDerivedUnit");

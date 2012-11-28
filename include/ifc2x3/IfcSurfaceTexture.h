@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCSURFACETEXTURE_H
 #define IFC2X3_IFCSURFACETEXTURE_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>
@@ -35,7 +35,7 @@ namespace ifc2x3 {
      * Generated class for the IfcSurfaceTexture Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcSurfaceTexture : public Step::BaseEntity {
+    class IFC2X3_EXPORT IfcSurfaceTexture : public Step::BaseEntity {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.

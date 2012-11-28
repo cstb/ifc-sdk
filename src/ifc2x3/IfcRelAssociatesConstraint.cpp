@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcRelAssociatesConstraint.h"
+#include <ifc2x3/IfcRelAssociatesConstraint.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcConstraint.h"
-#include "ifc2x3/IfcRelAssociates.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcConstraint.h>
+#include <ifc2x3/IfcRelAssociates.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
@@ -147,4 +147,4 @@ void IfcRelAssociatesConstraint::copy(const IfcRelAssociatesConstraint &obj, con
     return;
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcRelAssociatesConstraint::s_type("IfcRelAssociatesConstraint");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesConstraint::s_type("IfcRelAssociatesConstraint");

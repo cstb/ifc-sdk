@@ -18,12 +18,12 @@
 #include "precompiled.h"
 #endif
 
-#include "ifc2x3/IfcPointOrVertexPoint.h"
+#include <ifc2x3/IfcPointOrVertexPoint.h>
 
-#include "ifc2x3/CopyOp.h"
-#include "ifc2x3/IfcPoint.h"
-#include "ifc2x3/IfcVertexPoint.h"
-#include "ifc2x3/Visitor.h"
+#include <ifc2x3/CopyOp.h>
+#include <ifc2x3/IfcPoint.h>
+#include <ifc2x3/IfcVertexPoint.h>
+#include <ifc2x3/Visitor.h>
 #include <Step/BaseObject.h>
 
 
@@ -163,4 +163,4 @@ void IfcPointOrVertexPoint::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_DLL_DEF Step::ClassType IfcPointOrVertexPoint::s_type("IfcPointOrVertexPoint");
+IFC2X3_EXPORT Step::ClassType IfcPointOrVertexPoint::s_type("IfcPointOrVertexPoint");

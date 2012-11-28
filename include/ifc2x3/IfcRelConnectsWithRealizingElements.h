@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELCONNECTSWITHREALIZINGELEMENTS_H
 #define IFC2X3_IFCRELCONNECTSWITHREALIZINGELEMENTS_H
-#include <ifc2x3/DefinedTypes.h>
-#include <ifc2x3/ifc2x3DLL.h>
+#include "DefinedTypes.h"
+#include "ifc2x3Export.h"
 
-#include "ifc2x3/IfcRelConnectsElements.h"
+#include "IfcRelConnectsElements.h"
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>
@@ -84,7 +84,7 @@ namespace ifc2x3 {
      * Generated class for the IfcRelConnectsWithRealizingElements Entity.
      * 
      */
-    class IFC2X3_DLL_DEF IfcRelConnectsWithRealizingElements : public IfcRelConnectsElements {
+    class IFC2X3_EXPORT IfcRelConnectsWithRealizingElements : public IfcRelConnectsElements {
     public:
         /**
          * Accepts a read/write Step::BaseVisitor.
