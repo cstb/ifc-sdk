@@ -107,7 +107,7 @@ IF(MSVC)
         endif(CMAKE_C_FLAGS MATCHES "/W[0-4]")
 
         # add here warnings which should produce an error /weXXXX
-        SET(MSVC_W_ERROR   "/we4101 /we4189")
+        SET(MSVC_W_ERROR   "/we4101") #  /we4189
         # add here warnings which should be disabled /wdXXXX
         SET(MSVC_W_DISABLE "/wd4800 /wd4996 /wd4311 /wd4312 /wd4505 /wd4267 /wd4512 /wd4245 /wd4127 /wd4251")
 
