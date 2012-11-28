@@ -128,6 +128,10 @@ include_directories(${CMAKE_HOME_DIRECTORY}/include)
 
 add_subdirectory(src)
 add_subdirectory(doc EXCLUDE_FROM_ALL)
+
+include_directories(${Step_BINARY_DIR})
+include_directories(${ifc2x3_BINARY_DIR})
+
 add_subdirectory(examples)  
 
 IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
@@ -139,10 +143,7 @@ IF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
      set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
      set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
   ENDIF(UNIX)  
-
-  include_directories(${Step_BINARY_DIR})
-  include_directories(${ifc2x3_BINARY_DIR})
-
+  
   add_subdirectory(tests)
 ENDIF(IS_DIRECTORY ${CMAKE_HOME_DIRECTORY}/tests)
 
