@@ -449,24 +449,9 @@ String parseString(const std::string& s)
                 i += 3;
                 // handle Arbitrary hex string
                 unsigned int code = fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]);
-                if (code >= 0x80 && code <= 0x9F)
+                if (code >127)
                 {
-                    if (code == 0x83)
-                        code = 0xC9;
-                    else if (code == 0x89)
-                        code = 0xc3a0; // LATIN SMALL LETTER A WITH GRAVE 
-                    else if (code == 0x8D)
-                        code = 0xc3a7; // LATIN SMALL LETTER C WITH CEDILLA
-                    else if (code == 0x8E)
-                        code = 0xc3a9; // LATIN SMALL LETTER E WITH ACUTE
-                    else if (code == 0x8F)
-                        code = 0xc3a8; // LATIN SMALL LETTER E WITH GRAVE
-                    else if (code == 0x90)
-                        code = 0xc3aa; // LATIN SMALL LETTER E WITH CIRCUMFLEX
-                    else if (code == 0x99)
-                        code = 0xc3b4; // LATIN SMALL LETTER O WITH CIRCUMFLEX
-                    else
-                        std::cout << "[Step] String::parseString ERROR code 0x" << s[i] << s[i + 1] << " unknown in string : " << s << std::endl;
+                    code = fromISO_8859(alphabet, code-128);
                 }
                 result += code;
                 i += 2;
