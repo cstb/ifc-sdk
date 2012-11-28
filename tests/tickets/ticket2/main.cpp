@@ -114,10 +114,10 @@ void test_parseStrings()
         "'\\X2\\600060A26DBB\\X0\\'",
         "'\\X4\\00020021000200460002020C\\X0\\'",
         "'Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\\X\\0A'",
-        "'D\\X\\8Efaut B\\X\\89timent'",
-        "'Rev\\X\\90t. murs ext.'",
-        "'Murs neufs cl\\X\\99tures'",
-        "'R\\X\\83UNION'"
+        "'D\\X\\E9faut B\\X\\E2timent'",
+        "'Rev\\X\\EAt. murs ext.'",
+        "'Murs neufs cl\\X\\F4tures'",
+        "'R\\X\\C9UNION'"
     };
 
     Step::String expected_result[NB_STRINGS]={
