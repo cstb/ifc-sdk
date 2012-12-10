@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasFillings'.
          * 
          */
-        Inverse_Set_IfcRelFillsElement_0_n &getHasFillings();
+        virtual Inverse_Set_IfcRelFillsElement_0_n &getHasFillings();
         /**
          * (const) Returns the value of the explicit attribute 'HasFillings'.
          * 
          * @return the value of the explicit attribute 'HasFillings'
          */
-        virtual const Inverse_Set_IfcRelFillsElement_0_n &getHasFillings() const;
+        const virtual Inverse_Set_IfcRelFillsElement_0_n &getHasFillings() const;
         /**
          * Test if the attribute 'HasFillings' is set.
          * 

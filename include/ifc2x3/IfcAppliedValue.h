@@ -239,13 +239,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ValuesReferenced'.
          * 
          */
-        Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced();
+        virtual Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced();
         /**
          * (const) Returns the value of the explicit attribute 'ValuesReferenced'.
          * 
          * @return the value of the explicit attribute 'ValuesReferenced'
          */
-        virtual const Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced() const;
+        const virtual Inverse_Set_IfcReferencesValueDocument_0_n &getValuesReferenced() const;
         /**
          * Test if the attribute 'ValuesReferenced' is set.
          * 
@@ -256,13 +256,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ValueOfComponents'.
          * 
          */
-        Inverse_Set_IfcAppliedValueRelationship_0_n &getValueOfComponents();
+        virtual Inverse_Set_IfcAppliedValueRelationship_0_n &getValueOfComponents();
         /**
          * (const) Returns the value of the explicit attribute 'ValueOfComponents'.
          * 
          * @return the value of the explicit attribute 'ValueOfComponents'
          */
-        virtual const Inverse_Set_IfcAppliedValueRelationship_0_n &getValueOfComponents() const;
+        const virtual Inverse_Set_IfcAppliedValueRelationship_0_n &getValueOfComponents() const;
         /**
          * Test if the attribute 'ValueOfComponents' is set.
          * 
@@ -273,13 +273,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsComponentIn'.
          * 
          */
-        Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn();
+        virtual Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsComponentIn'.
          * 
          * @return the value of the explicit attribute 'IsComponentIn'
          */
-        virtual const Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn() const;
+        const virtual Inverse_Set_IfcAppliedValueRelationship_0_n &getIsComponentIn() const;
         /**
          * Test if the attribute 'IsComponentIn' is set.
          * 

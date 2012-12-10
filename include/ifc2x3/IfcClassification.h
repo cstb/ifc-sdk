@@ -181,13 +181,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Contains'.
          * 
          */
-        Inverse_Set_IfcClassificationItem_0_n &getContains();
+        virtual Inverse_Set_IfcClassificationItem_0_n &getContains();
         /**
          * (const) Returns the value of the explicit attribute 'Contains'.
          * 
          * @return the value of the explicit attribute 'Contains'
          */
-        virtual const Inverse_Set_IfcClassificationItem_0_n &getContains() const;
+        const virtual Inverse_Set_IfcClassificationItem_0_n &getContains() const;
         /**
          * Test if the attribute 'Contains' is set.
          * 

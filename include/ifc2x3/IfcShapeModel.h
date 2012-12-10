@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OfShapeAspect'.
          * 
          */
-        Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect();
+        virtual Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect();
         /**
          * (const) Returns the value of the explicit attribute 'OfShapeAspect'.
          * 
          * @return the value of the explicit attribute 'OfShapeAspect'
          */
-        virtual const Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect() const;
+        const virtual Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect() const;
         /**
          * Test if the attribute 'OfShapeAspect' is set.
          * 

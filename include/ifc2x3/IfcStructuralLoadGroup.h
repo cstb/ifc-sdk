@@ -207,13 +207,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'SourceOfResultGroup'.
          * 
          */
-        Inverse_Set_IfcStructuralResultGroup_0_1 &getSourceOfResultGroup();
+        virtual Inverse_Set_IfcStructuralResultGroup_0_1 &getSourceOfResultGroup();
         /**
          * (const) Returns the value of the explicit attribute 'SourceOfResultGroup'.
          * 
          * @return the value of the explicit attribute 'SourceOfResultGroup'
          */
-        virtual const Inverse_Set_IfcStructuralResultGroup_0_1 &getSourceOfResultGroup() const;
+        const virtual Inverse_Set_IfcStructuralResultGroup_0_1 &getSourceOfResultGroup() const;
         /**
          * Test if the attribute 'SourceOfResultGroup' is set.
          * 
@@ -224,13 +224,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'LoadGroupFor'.
          * 
          */
-        Inverse_Set_IfcStructuralAnalysisModel_0_n &getLoadGroupFor();
+        virtual Inverse_Set_IfcStructuralAnalysisModel_0_n &getLoadGroupFor();
         /**
          * (const) Returns the value of the explicit attribute 'LoadGroupFor'.
          * 
          * @return the value of the explicit attribute 'LoadGroupFor'
          */
-        virtual const Inverse_Set_IfcStructuralAnalysisModel_0_n &getLoadGroupFor() const;
+        const virtual Inverse_Set_IfcStructuralAnalysisModel_0_n &getLoadGroupFor() const;
         /**
          * Test if the attribute 'LoadGroupFor' is set.
          * 

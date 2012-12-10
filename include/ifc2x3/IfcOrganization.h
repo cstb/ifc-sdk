@@ -251,13 +251,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedBy'.
          * 
          */
-        Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy();
+        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedBy'.
          * 
          * @return the value of the explicit attribute 'IsRelatedBy'
          */
-        virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
+        const virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
         /**
          * Test if the attribute 'IsRelatedBy' is set.
          * 
@@ -268,13 +268,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Relates'.
          * 
          */
-        Inverse_Set_IfcOrganizationRelationship_0_n &getRelates();
+        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getRelates();
         /**
          * (const) Returns the value of the explicit attribute 'Relates'.
          * 
          * @return the value of the explicit attribute 'Relates'
          */
-        virtual const Inverse_Set_IfcOrganizationRelationship_0_n &getRelates() const;
+        const virtual Inverse_Set_IfcOrganizationRelationship_0_n &getRelates() const;
         /**
          * Test if the attribute 'Relates' is set.
          * 
@@ -285,13 +285,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Engages'.
          * 
          */
-        Inverse_Set_IfcPersonAndOrganization_0_n &getEngages();
+        virtual Inverse_Set_IfcPersonAndOrganization_0_n &getEngages();
         /**
          * (const) Returns the value of the explicit attribute 'Engages'.
          * 
          * @return the value of the explicit attribute 'Engages'
          */
-        virtual const Inverse_Set_IfcPersonAndOrganization_0_n &getEngages() const;
+        const virtual Inverse_Set_IfcPersonAndOrganization_0_n &getEngages() const;
         /**
          * Test if the attribute 'Engages' is set.
          * 

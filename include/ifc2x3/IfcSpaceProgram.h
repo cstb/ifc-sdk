@@ -209,13 +209,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasInteractionReqsFrom'.
          * 
          */
-        Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom();
+        virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom();
         /**
          * (const) Returns the value of the explicit attribute 'HasInteractionReqsFrom'.
          * 
          * @return the value of the explicit attribute 'HasInteractionReqsFrom'
          */
-        virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom() const;
+        const virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom() const;
         /**
          * Test if the attribute 'HasInteractionReqsFrom' is set.
          * 
@@ -226,13 +226,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasInteractionReqsTo'.
          * 
          */
-        Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo();
+        virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo();
         /**
          * (const) Returns the value of the explicit attribute 'HasInteractionReqsTo'.
          * 
          * @return the value of the explicit attribute 'HasInteractionReqsTo'
          */
-        virtual const Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo() const;
+        const virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo() const;
         /**
          * Test if the attribute 'HasInteractionReqsTo' is set.
          * 

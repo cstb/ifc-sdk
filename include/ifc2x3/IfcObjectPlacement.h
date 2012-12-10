@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PlacesObject'.
          * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
          */
-        Inverse_Set_IfcProduct_1_n &getPlacesObject();
+        virtual Inverse_Set_IfcProduct_1_n &getPlacesObject();
         /**
          * (const) Returns the value of the explicit attribute 'PlacesObject'.
          * 
          * @return the value of the explicit attribute 'PlacesObject'
          */
-        virtual const Inverse_Set_IfcProduct_1_n &getPlacesObject() const;
+        const virtual Inverse_Set_IfcProduct_1_n &getPlacesObject() const;
         /**
          * Test if the attribute 'PlacesObject' is set.
          * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferencedByPlacements'.
          * 
          */
-        Inverse_Set_IfcLocalPlacement_0_n &getReferencedByPlacements();
+        virtual Inverse_Set_IfcLocalPlacement_0_n &getReferencedByPlacements();
         /**
          * (const) Returns the value of the explicit attribute 'ReferencedByPlacements'.
          * 
          * @return the value of the explicit attribute 'ReferencedByPlacements'
          */
-        virtual const Inverse_Set_IfcLocalPlacement_0_n &getReferencedByPlacements() const;
+        const virtual Inverse_Set_IfcLocalPlacement_0_n &getReferencedByPlacements() const;
         /**
          * Test if the attribute 'ReferencedByPlacements' is set.
          * 

@@ -94,13 +94,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'CoversSpaces'.
          * 
          */
-        Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces();
+        virtual Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces();
         /**
          * (const) Returns the value of the explicit attribute 'CoversSpaces'.
          * 
          * @return the value of the explicit attribute 'CoversSpaces'
          */
-        virtual const Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
+        const virtual Inverse_Set_IfcRelCoversSpaces_0_1 &getCoversSpaces() const;
         /**
          * Test if the attribute 'CoversSpaces' is set.
          * 
@@ -111,13 +111,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Covers'.
          * 
          */
-        Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers();
+        virtual Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers();
         /**
          * (const) Returns the value of the explicit attribute 'Covers'.
          * 
          * @return the value of the explicit attribute 'Covers'
          */
-        virtual const Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers() const;
+        const virtual Inverse_Set_IfcRelCoversBldgElements_0_1 &getCovers() const;
         /**
          * Test if the attribute 'Covers' is set.
          * 

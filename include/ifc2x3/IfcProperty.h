@@ -123,13 +123,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PropertyForDependance'.
          * 
          */
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyForDependance();
+        virtual Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyForDependance();
         /**
          * (const) Returns the value of the explicit attribute 'PropertyForDependance'.
          * 
          * @return the value of the explicit attribute 'PropertyForDependance'
          */
-        virtual const Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyForDependance() const;
+        const virtual Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyForDependance() const;
         /**
          * Test if the attribute 'PropertyForDependance' is set.
          * 
@@ -140,13 +140,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PropertyDependsOn'.
          * 
          */
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyDependsOn();
+        virtual Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyDependsOn();
         /**
          * (const) Returns the value of the explicit attribute 'PropertyDependsOn'.
          * 
          * @return the value of the explicit attribute 'PropertyDependsOn'
          */
-        virtual const Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyDependsOn() const;
+        const virtual Inverse_Set_IfcPropertyDependencyRelationship_0_n &getPropertyDependsOn() const;
         /**
          * Test if the attribute 'PropertyDependsOn' is set.
          * 
@@ -157,13 +157,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PartOfComplex'.
          * 
          */
-        Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex();
+        virtual Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex();
         /**
          * (const) Returns the value of the explicit attribute 'PartOfComplex'.
          * 
          * @return the value of the explicit attribute 'PartOfComplex'
          */
-        virtual const Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex() const;
+        const virtual Inverse_Set_IfcComplexProperty_0_1 &getPartOfComplex() const;
         /**
          * Test if the attribute 'PartOfComplex' is set.
          * 

@@ -152,13 +152,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'UsingCurves'.
          * 
          */
-        Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves();
+        virtual Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves();
         /**
          * (const) Returns the value of the explicit attribute 'UsingCurves'.
          * 
          * @return the value of the explicit attribute 'UsingCurves'
          */
-        virtual const Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves() const;
+        const virtual Inverse_Set_IfcCompositeCurve_1_n &getUsingCurves() const;
         /**
          * Test if the attribute 'UsingCurves' is set.
          * 

@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OperatesOn'.
          * 
          */
-        Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn();
+        virtual Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn();
         /**
          * (const) Returns the value of the explicit attribute 'OperatesOn'.
          * 
          * @return the value of the explicit attribute 'OperatesOn'
          */
-        virtual const Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn() const;
+        const virtual Inverse_Set_IfcRelAssignsToProcess_0_n &getOperatesOn() const;
         /**
          * Test if the attribute 'OperatesOn' is set.
          * 
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsSuccessorFrom'.
          * 
          */
-        Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom();
+        virtual Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom();
         /**
          * (const) Returns the value of the explicit attribute 'IsSuccessorFrom'.
          * 
          * @return the value of the explicit attribute 'IsSuccessorFrom'
          */
-        virtual const Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom() const;
+        const virtual Inverse_Set_IfcRelSequence_0_n &getIsSuccessorFrom() const;
         /**
          * Test if the attribute 'IsSuccessorFrom' is set.
          * 
@@ -100,13 +100,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsPredecessorTo'.
          * 
          */
-        Inverse_Set_IfcRelSequence_0_n &getIsPredecessorTo();
+        virtual Inverse_Set_IfcRelSequence_0_n &getIsPredecessorTo();
         /**
          * (const) Returns the value of the explicit attribute 'IsPredecessorTo'.
          * 
          * @return the value of the explicit attribute 'IsPredecessorTo'
          */
-        virtual const Inverse_Set_IfcRelSequence_0_n &getIsPredecessorTo() const;
+        const virtual Inverse_Set_IfcRelSequence_0_n &getIsPredecessorTo() const;
         /**
          * Test if the attribute 'IsPredecessorTo' is set.
          * 

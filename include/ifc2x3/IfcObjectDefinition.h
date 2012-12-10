@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasAssignments'.
          * 
          */
-        Inverse_Set_IfcRelAssigns_0_n &getHasAssignments();
+        virtual Inverse_Set_IfcRelAssigns_0_n &getHasAssignments();
         /**
          * (const) Returns the value of the explicit attribute 'HasAssignments'.
          * 
          * @return the value of the explicit attribute 'HasAssignments'
          */
-        virtual const Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
+        const virtual Inverse_Set_IfcRelAssigns_0_n &getHasAssignments() const;
         /**
          * Test if the attribute 'HasAssignments' is set.
          * 
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsDecomposedBy'.
          * 
          */
-        Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy();
+        virtual Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy();
         /**
          * (const) Returns the value of the explicit attribute 'IsDecomposedBy'.
          * 
          * @return the value of the explicit attribute 'IsDecomposedBy'
          */
-        virtual const Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
+        const virtual Inverse_Set_IfcRelDecomposes_0_n &getIsDecomposedBy() const;
         /**
          * Test if the attribute 'IsDecomposedBy' is set.
          * 
@@ -100,13 +100,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Decomposes'.
          * 
          */
-        Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes();
+        virtual Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes();
         /**
          * (const) Returns the value of the explicit attribute 'Decomposes'.
          * 
          * @return the value of the explicit attribute 'Decomposes'
          */
-        virtual const Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
+        const virtual Inverse_Set_IfcRelDecomposes_0_1 &getDecomposes() const;
         /**
          * Test if the attribute 'Decomposes' is set.
          * 
@@ -117,13 +117,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasAssociations'.
          * 
          */
-        Inverse_Set_IfcRelAssociates_0_n &getHasAssociations();
+        virtual Inverse_Set_IfcRelAssociates_0_n &getHasAssociations();
         /**
          * (const) Returns the value of the explicit attribute 'HasAssociations'.
          * 
          * @return the value of the explicit attribute 'HasAssociations'
          */
-        virtual const Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
+        const virtual Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
         /**
          * Test if the attribute 'HasAssociations' is set.
          * 

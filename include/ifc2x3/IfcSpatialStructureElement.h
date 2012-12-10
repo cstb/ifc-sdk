@@ -123,13 +123,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferencesElements'.
          * 
          */
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements();
+        virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements();
         /**
          * (const) Returns the value of the explicit attribute 'ReferencesElements'.
          * 
          * @return the value of the explicit attribute 'ReferencesElements'
          */
-        virtual const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements() const;
+        const virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements() const;
         /**
          * Test if the attribute 'ReferencesElements' is set.
          * 
@@ -140,13 +140,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ServicedBySystems'.
          * 
          */
-        Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems();
+        virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems();
         /**
          * (const) Returns the value of the explicit attribute 'ServicedBySystems'.
          * 
          * @return the value of the explicit attribute 'ServicedBySystems'
          */
-        virtual const Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
+        const virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
         /**
          * Test if the attribute 'ServicedBySystems' is set.
          * 
@@ -157,13 +157,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ContainsElements'.
          * 
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements();
+        virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements();
         /**
          * (const) Returns the value of the explicit attribute 'ContainsElements'.
          * 
          * @return the value of the explicit attribute 'ContainsElements'
          */
-        virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements() const;
+        const virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements() const;
         /**
          * Test if the attribute 'ContainsElements' is set.
          * 

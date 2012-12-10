@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferenceIntoLibrary'.
          * 
          */
-        Inverse_Set_IfcLibraryInformation_0_1 &getReferenceIntoLibrary();
+        virtual Inverse_Set_IfcLibraryInformation_0_1 &getReferenceIntoLibrary();
         /**
          * (const) Returns the value of the explicit attribute 'ReferenceIntoLibrary'.
          * 
          * @return the value of the explicit attribute 'ReferenceIntoLibrary'
          */
-        virtual const Inverse_Set_IfcLibraryInformation_0_1 &getReferenceIntoLibrary() const;
+        const virtual Inverse_Set_IfcLibraryInformation_0_1 &getReferenceIntoLibrary() const;
         /**
          * Test if the attribute 'ReferenceIntoLibrary' is set.
          * 

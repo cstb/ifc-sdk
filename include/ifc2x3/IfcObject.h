@@ -95,13 +95,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsDefinedBy'.
          * 
          */
-        Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy();
+        virtual Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy();
         /**
          * (const) Returns the value of the explicit attribute 'IsDefinedBy'.
          * 
          * @return the value of the explicit attribute 'IsDefinedBy'
          */
-        virtual const Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy() const;
+        const virtual Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy() const;
         /**
          * Test if the attribute 'IsDefinedBy' is set.
          * 

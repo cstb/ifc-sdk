@@ -294,13 +294,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'DocumentedBy'.
          * 
          */
-        Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &getDocumentedBy();
+        virtual Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &getDocumentedBy();
         /**
          * (const) Returns the value of the explicit attribute 'DocumentedBy'.
          * 
          * @return the value of the explicit attribute 'DocumentedBy'
          */
-        virtual const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &getDocumentedBy() const;
+        const virtual Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &getDocumentedBy() const;
         /**
          * Test if the attribute 'DocumentedBy' is set.
          * 

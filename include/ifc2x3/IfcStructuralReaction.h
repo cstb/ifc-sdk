@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Causes'.
          * 
          */
-        Inverse_Set_IfcStructuralAction_0_n &getCauses();
+        virtual Inverse_Set_IfcStructuralAction_0_n &getCauses();
         /**
          * (const) Returns the value of the explicit attribute 'Causes'.
          * 
          * @return the value of the explicit attribute 'Causes'
          */
-        virtual const Inverse_Set_IfcStructuralAction_0_n &getCauses() const;
+        const virtual Inverse_Set_IfcStructuralAction_0_n &getCauses() const;
         /**
          * Test if the attribute 'Causes' is set.
          * 

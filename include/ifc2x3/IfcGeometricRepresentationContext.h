@@ -181,13 +181,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasSubContexts'.
          * 
          */
-        Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts();
+        virtual Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts();
         /**
          * (const) Returns the value of the explicit attribute 'HasSubContexts'.
          * 
          * @return the value of the explicit attribute 'HasSubContexts'
          */
-        virtual const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts() const;
+        const virtual Inverse_Set_IfcGeometricRepresentationSubContext_0_n &getHasSubContexts() const;
         /**
          * Test if the attribute 'HasSubContexts' is set.
          * 

@@ -266,13 +266,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ClassifiedAs'.
          * 
          */
-        Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs();
+        virtual Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs();
         /**
          * (const) Returns the value of the explicit attribute 'ClassifiedAs'.
          * 
          * @return the value of the explicit attribute 'ClassifiedAs'
          */
-        virtual const Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs() const;
+        const virtual Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs() const;
         /**
          * Test if the attribute 'ClassifiedAs' is set.
          * 
@@ -283,13 +283,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'RelatesConstraints'.
          * 
          */
-        Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints();
+        virtual Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints();
         /**
          * (const) Returns the value of the explicit attribute 'RelatesConstraints'.
          * 
          * @return the value of the explicit attribute 'RelatesConstraints'
          */
-        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints() const;
+        const virtual Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints() const;
         /**
          * Test if the attribute 'RelatesConstraints' is set.
          * 
@@ -300,13 +300,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedWith'.
          * 
          */
-        Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
+        virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedWith'.
          * 
          * @return the value of the explicit attribute 'IsRelatedWith'
          */
-        virtual const Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
+        const virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
         /**
          * Test if the attribute 'IsRelatedWith' is set.
          * 
@@ -317,13 +317,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PropertiesForConstraint'.
          * 
          */
-        Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
+        virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
         /**
          * (const) Returns the value of the explicit attribute 'PropertiesForConstraint'.
          * 
          * @return the value of the explicit attribute 'PropertiesForConstraint'
          */
-        virtual const Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
+        const virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
         /**
          * Test if the attribute 'PropertiesForConstraint' is set.
          * 
@@ -334,13 +334,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Aggregates'.
          * 
          */
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
+        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
         /**
          * (const) Returns the value of the explicit attribute 'Aggregates'.
          * 
          * @return the value of the explicit attribute 'Aggregates'
          */
-        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
+        const virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
         /**
          * Test if the attribute 'Aggregates' is set.
          * 
@@ -351,13 +351,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsAggregatedIn'.
          * 
          */
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
+        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsAggregatedIn'.
          * 
          * @return the value of the explicit attribute 'IsAggregatedIn'
          */
-        virtual const Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
+        const virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
         /**
          * Test if the attribute 'IsAggregatedIn' is set.
          * 
