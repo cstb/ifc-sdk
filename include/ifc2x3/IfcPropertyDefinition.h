@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasAssociations'.
          * 
          */
-        Inverse_Set_IfcRelAssociates_0_n &getHasAssociations();
+        virtual Inverse_Set_IfcRelAssociates_0_n &getHasAssociations();
         /**
          * (const) Returns the value of the explicit attribute 'HasAssociations'.
          * 
          * @return the value of the explicit attribute 'HasAssociations'
          */
-        virtual const Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
+        const virtual Inverse_Set_IfcRelAssociates_0_n &getHasAssociations() const;
         /**
          * Test if the attribute 'HasAssociations' is set.
          * 

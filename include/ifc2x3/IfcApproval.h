@@ -265,13 +265,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Actors'.
          * 
          */
-        Inverse_Set_IfcApprovalActorRelationship_0_n &getActors();
+        virtual Inverse_Set_IfcApprovalActorRelationship_0_n &getActors();
         /**
          * (const) Returns the value of the explicit attribute 'Actors'.
          * 
          * @return the value of the explicit attribute 'Actors'
          */
-        virtual const Inverse_Set_IfcApprovalActorRelationship_0_n &getActors() const;
+        const virtual Inverse_Set_IfcApprovalActorRelationship_0_n &getActors() const;
         /**
          * Test if the attribute 'Actors' is set.
          * 
@@ -282,13 +282,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedWith'.
          * 
          */
-        Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith();
+        virtual Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedWith'.
          * 
          * @return the value of the explicit attribute 'IsRelatedWith'
          */
-        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith() const;
+        const virtual Inverse_Set_IfcApprovalRelationship_0_n &getIsRelatedWith() const;
         /**
          * Test if the attribute 'IsRelatedWith' is set.
          * 
@@ -299,13 +299,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Relates'.
          * 
          */
-        Inverse_Set_IfcApprovalRelationship_0_n &getRelates();
+        virtual Inverse_Set_IfcApprovalRelationship_0_n &getRelates();
         /**
          * (const) Returns the value of the explicit attribute 'Relates'.
          * 
          * @return the value of the explicit attribute 'Relates'
          */
-        virtual const Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
+        const virtual Inverse_Set_IfcApprovalRelationship_0_n &getRelates() const;
         /**
          * Test if the attribute 'Relates' is set.
          * 

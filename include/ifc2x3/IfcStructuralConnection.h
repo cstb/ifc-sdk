@@ -96,13 +96,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ConnectsStructuralMembers'.
          * 
          */
-        Inverse_Set_IfcRelConnectsStructuralMember_1_n &getConnectsStructuralMembers();
+        virtual Inverse_Set_IfcRelConnectsStructuralMember_1_n &getConnectsStructuralMembers();
         /**
          * (const) Returns the value of the explicit attribute 'ConnectsStructuralMembers'.
          * 
          * @return the value of the explicit attribute 'ConnectsStructuralMembers'
          */
-        virtual const Inverse_Set_IfcRelConnectsStructuralMember_1_n &getConnectsStructuralMembers() const;
+        const virtual Inverse_Set_IfcRelConnectsStructuralMember_1_n &getConnectsStructuralMembers() const;
         /**
          * Test if the attribute 'ConnectsStructuralMembers' is set.
          * 

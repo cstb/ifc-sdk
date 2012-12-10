@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ContainedInStructure'.
          * 
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure();
+        virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure();
         /**
          * (const) Returns the value of the explicit attribute 'ContainedInStructure'.
          * 
          * @return the value of the explicit attribute 'ContainedInStructure'
          */
-        virtual const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
+        const virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &getContainedInStructure() const;
         /**
          * Test if the attribute 'ContainedInStructure' is set.
          * 

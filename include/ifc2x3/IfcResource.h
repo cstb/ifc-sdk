@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ResourceOf'.
          * 
          */
-        Inverse_Set_IfcRelAssignsToResource_0_n &getResourceOf();
+        virtual Inverse_Set_IfcRelAssignsToResource_0_n &getResourceOf();
         /**
          * (const) Returns the value of the explicit attribute 'ResourceOf'.
          * 
          * @return the value of the explicit attribute 'ResourceOf'
          */
-        virtual const Inverse_Set_IfcRelAssignsToResource_0_n &getResourceOf() const;
+        const virtual Inverse_Set_IfcRelAssignsToResource_0_n &getResourceOf() const;
         /**
          * Test if the attribute 'ResourceOf' is set.
          * 

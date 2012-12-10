@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferencesElement'.
          * 
          */
-        Inverse_Set_IfcRelConnectsStructuralElement_0_n &getReferencesElement();
+        virtual Inverse_Set_IfcRelConnectsStructuralElement_0_n &getReferencesElement();
         /**
          * (const) Returns the value of the explicit attribute 'ReferencesElement'.
          * 
          * @return the value of the explicit attribute 'ReferencesElement'
          */
-        virtual const Inverse_Set_IfcRelConnectsStructuralElement_0_n &getReferencesElement() const;
+        const virtual Inverse_Set_IfcRelConnectsStructuralElement_0_n &getReferencesElement() const;
         /**
          * Test if the attribute 'ReferencesElement' is set.
          * 
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ConnectedBy'.
          * 
          */
-        Inverse_Set_IfcRelConnectsStructuralMember_0_n &getConnectedBy();
+        virtual Inverse_Set_IfcRelConnectsStructuralMember_0_n &getConnectedBy();
         /**
          * (const) Returns the value of the explicit attribute 'ConnectedBy'.
          * 
          * @return the value of the explicit attribute 'ConnectedBy'
          */
-        virtual const Inverse_Set_IfcRelConnectsStructuralMember_0_n &getConnectedBy() const;
+        const virtual Inverse_Set_IfcRelConnectsStructuralMember_0_n &getConnectedBy() const;
         /**
          * Test if the attribute 'ConnectedBy' is set.
          * 

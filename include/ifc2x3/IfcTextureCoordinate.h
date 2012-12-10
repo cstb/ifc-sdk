@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'AnnotatedSurface'.
          * 
          */
-        Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface();
+        virtual Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface();
         /**
          * (const) Returns the value of the explicit attribute 'AnnotatedSurface'.
          * 
          * @return the value of the explicit attribute 'AnnotatedSurface'
          */
-        virtual const Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface() const;
+        const virtual Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface() const;
         /**
          * Test if the attribute 'AnnotatedSurface' is set.
          * 

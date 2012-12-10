@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'LayerAssignments'.
          * 
          */
-        Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
+        virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
         /**
          * (const) Returns the value of the explicit attribute 'LayerAssignments'.
          * 
          * @return the value of the explicit attribute 'LayerAssignments'
          */
-        virtual const Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
+        const virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
         /**
          * Test if the attribute 'LayerAssignments' is set.
          * 
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'StyledByItem'.
          * 
          */
-        Inverse_Set_IfcStyledItem_0_1 &getStyledByItem();
+        virtual Inverse_Set_IfcStyledItem_0_1 &getStyledByItem();
         /**
          * (const) Returns the value of the explicit attribute 'StyledByItem'.
          * 
          * @return the value of the explicit attribute 'StyledByItem'
          */
-        virtual const Inverse_Set_IfcStyledItem_0_1 &getStyledByItem() const;
+        const virtual Inverse_Set_IfcStyledItem_0_1 &getStyledByItem() const;
         /**
          * Test if the attribute 'StyledByItem' is set.
          * 

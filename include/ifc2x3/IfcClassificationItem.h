@@ -154,13 +154,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsClassifiedItemIn'.
          * 
          */
-        Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn();
+        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsClassifiedItemIn'.
          * 
          * @return the value of the explicit attribute 'IsClassifiedItemIn'
          */
-        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
+        const virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
         /**
          * Test if the attribute 'IsClassifiedItemIn' is set.
          * 
@@ -171,13 +171,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsClassifyingItemIn'.
          * 
          */
-        Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
+        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsClassifyingItemIn'.
          * 
          * @return the value of the explicit attribute 'IsClassifyingItemIn'
          */
-        virtual const Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
+        const virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
         /**
          * Test if the attribute 'IsClassifyingItemIn' is set.
          * 

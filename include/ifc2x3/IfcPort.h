@@ -85,13 +85,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ConnectedFrom'.
          * 
          */
-        Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedFrom();
+        virtual Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedFrom();
         /**
          * (const) Returns the value of the explicit attribute 'ConnectedFrom'.
          * 
          * @return the value of the explicit attribute 'ConnectedFrom'
          */
-        virtual const Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedFrom() const;
+        const virtual Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedFrom() const;
         /**
          * Test if the attribute 'ConnectedFrom' is set.
          * 
@@ -102,13 +102,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ConnectedTo'.
          * 
          */
-        Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedTo();
+        virtual Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedTo();
         /**
          * (const) Returns the value of the explicit attribute 'ConnectedTo'.
          * 
          * @return the value of the explicit attribute 'ConnectedTo'
          */
-        virtual const Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedTo() const;
+        const virtual Inverse_Set_IfcRelConnectsPorts_0_1 &getConnectedTo() const;
         /**
          * Test if the attribute 'ConnectedTo' is set.
          * 

@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ServicesBuildings'.
          * 
          */
-        Inverse_Set_IfcRelServicesBuildings_0_1 &getServicesBuildings();
+        virtual Inverse_Set_IfcRelServicesBuildings_0_1 &getServicesBuildings();
         /**
          * (const) Returns the value of the explicit attribute 'ServicesBuildings'.
          * 
          * @return the value of the explicit attribute 'ServicesBuildings'
          */
-        virtual const Inverse_Set_IfcRelServicesBuildings_0_1 &getServicesBuildings() const;
+        const virtual Inverse_Set_IfcRelServicesBuildings_0_1 &getServicesBuildings() const;
         /**
          * Test if the attribute 'ServicesBuildings' is set.
          * 

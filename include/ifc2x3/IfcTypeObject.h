@@ -167,13 +167,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ObjectTypeOf'.
          * 
          */
-        Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf();
+        virtual Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf();
         /**
          * (const) Returns the value of the explicit attribute 'ObjectTypeOf'.
          * 
          * @return the value of the explicit attribute 'ObjectTypeOf'
          */
-        virtual const Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf() const;
+        const virtual Inverse_Set_IfcRelDefinesByType_0_1 &getObjectTypeOf() const;
         /**
          * Test if the attribute 'ObjectTypeOf' is set.
          * 

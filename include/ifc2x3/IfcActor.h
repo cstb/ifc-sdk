@@ -96,13 +96,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsActingUpon'.
          * 
          */
-        Inverse_Set_IfcRelAssignsToActor_0_n &getIsActingUpon();
+        virtual Inverse_Set_IfcRelAssignsToActor_0_n &getIsActingUpon();
         /**
          * (const) Returns the value of the explicit attribute 'IsActingUpon'.
          * 
          * @return the value of the explicit attribute 'IsActingUpon'
          */
-        virtual const Inverse_Set_IfcRelAssignsToActor_0_n &getIsActingUpon() const;
+        const virtual Inverse_Set_IfcRelAssignsToActor_0_n &getIsActingUpon() const;
         /**
          * Test if the attribute 'IsActingUpon' is set.
          * 

@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasControlElements'.
          * 
          */
-        Inverse_Set_IfcRelFlowControlElements_0_1 &getHasControlElements();
+        virtual Inverse_Set_IfcRelFlowControlElements_0_1 &getHasControlElements();
         /**
          * (const) Returns the value of the explicit attribute 'HasControlElements'.
          * 
          * @return the value of the explicit attribute 'HasControlElements'
          */
-        virtual const Inverse_Set_IfcRelFlowControlElements_0_1 &getHasControlElements() const;
+        const virtual Inverse_Set_IfcRelFlowControlElements_0_1 &getHasControlElements() const;
         /**
          * Test if the attribute 'HasControlElements' is set.
          * 

@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Controls'.
          * 
          */
-        Inverse_Set_IfcRelAssignsToControl_0_n &getControls();
+        virtual Inverse_Set_IfcRelAssignsToControl_0_n &getControls();
         /**
          * (const) Returns the value of the explicit attribute 'Controls'.
          * 
          * @return the value of the explicit attribute 'Controls'
          */
-        virtual const Inverse_Set_IfcRelAssignsToControl_0_n &getControls() const;
+        const virtual Inverse_Set_IfcRelAssignsToControl_0_n &getControls() const;
         /**
          * Test if the attribute 'Controls' is set.
          * 
