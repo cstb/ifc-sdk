@@ -86,36 +86,33 @@ ENDIF(APPLE)
 IF(MSVC)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
 
-IF(MSVC)
-        if(MSVC_IDE)
-           add_definitions(-DMSVC_IDE)
-        endif()
-        SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
-        # Use the highest warning level
-        set(CMAKE_CXX_WARNING_LEVEL 4 CACHE TYPE STRING FORCE)
+  if(MSVC_IDE)
+     add_definitions(-DMSVC_IDE)
+  endif()
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+  # Use the highest warning level
+  set(CMAKE_CXX_WARNING_LEVEL 4 CACHE TYPE STRING FORCE)
 
-        if(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
-           STRING(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-        else(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
-           SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
-        endif(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+  if(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+     STRING(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+  else(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
+     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
+  endif(CMAKE_CXX_FLAGS MATCHES "/W[0-4]")
 
-        if(CMAKE_C_FLAGS MATCHES "/W[0-4]")
-           STRING(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
-        else(CMAKE_C_FLAGS MATCHES "/W[0-4]")
-           SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
-        endif(CMAKE_C_FLAGS MATCHES "/W[0-4]")
+  if(CMAKE_C_FLAGS MATCHES "/W[0-4]")
+     STRING(REGEX REPLACE "/W[0-4]" "/W4" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+  else(CMAKE_C_FLAGS MATCHES "/W[0-4]")
+     SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4")
+  endif(CMAKE_C_FLAGS MATCHES "/W[0-4]")
 
-        # add here warnings which should produce an error /weXXXX
-        SET(MSVC_W_ERROR   "/we4101") #  /we4189
-        # add here warnings which should be disabled /wdXXXX
-        SET(MSVC_W_DISABLE "/wd4800 /wd4996 /wd4311 /wd4312 /wd4505 /wd4267 /wd4512 /wd4245 /wd4127 /wd4251")
+  # add here warnings which should produce an error /weXXXX
+  SET(MSVC_W_ERROR   "/we4101") #  /we4189
+  # add here warnings which should be disabled /wdXXXX
+  SET(MSVC_W_DISABLE "/wd4800 /wd4996 /wd4311 /wd4312 /wd4505 /wd4267 /wd4512 /wd4245 /wd4127 /wd4251")
 
-        set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG}         ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
-        set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE}       ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
-        set(CMAKE_CXX_FLAGS_MINSIZEREL  "${CMAKE_CXX_FLAGS_MINSIZEREL}    ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
-
-ENDIF(MSVC)
+  set(CMAKE_CXX_FLAGS_DEBUG       "${CMAKE_CXX_FLAGS_DEBUG}         ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
+  set(CMAKE_CXX_FLAGS_RELEASE     "${CMAKE_CXX_FLAGS_RELEASE}       ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
+  set(CMAKE_CXX_FLAGS_MINSIZEREL  "${CMAKE_CXX_FLAGS_MINSIZEREL}    ${MSVC_W_ERROR} ${MSVC_W_DISABLE}")
 
 ENDIF(MSVC)
 
