@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -204,7 +204,7 @@ void String::setAlphabet(Alphabet a)
 
 void String::setDefaultAlphabet(Alphabet a)
 {
-	defaultAlphabet = a;
+    defaultAlphabet = a;
 }
 
 String::Alphabet String::getAlphabet() const
@@ -342,6 +342,33 @@ char toISO_8859(String::Alphabet alphabet, wchar_t code)
     }
 }
 
+bool isISO_8859(String::Alphabet alphabet, wchar_t code)
+{
+    switch (alphabet)
+    {
+    case String::Western_European:
+        return (code>127 && code < 256);
+    case String::Central_European:
+        return UnicodeToIso8859_2.find(code) != UnicodeToIso8859_2.end();
+    case String::South_European:
+        return UnicodeToIso8859_3.find(code) != UnicodeToIso8859_3.end();
+    case String::North_European:
+        return UnicodeToIso8859_4.find(code) != UnicodeToIso8859_4.end();
+    case String::Cyrillic:
+        return UnicodeToIso8859_5.find(code) != UnicodeToIso8859_5.end();
+    case String::Arabic:
+        return UnicodeToIso8859_6.find(code) != UnicodeToIso8859_6.end();
+    case String::Greek:
+        return UnicodeToIso8859_7.find(code) != UnicodeToIso8859_7.end();
+    case String::Hebrew:
+        return UnicodeToIso8859_8.find(code) != UnicodeToIso8859_8.end();
+    case String::Turkish:
+        return UnicodeToIso8859_9.find(code) != UnicodeToIso8859_9.end();
+    default:
+        return false;
+    }
+}
+
 unsigned int fromHex(char c)
 {
     int result = 0;
@@ -409,7 +436,7 @@ String parseHex4(unsigned int &i, std::string s)
 String parseString(const std::string& s)
 {
     String result;
-    String::Alphabet alphabet = String::Western_European;
+    String::Alphabet alphabet = String::Unknown;
 
     unsigned int i = 0;
     while (i < s.size())
@@ -419,6 +446,7 @@ String parseString(const std::string& s)
             if (s[i + 1] == Apostrophe)
                 ++i;
 
+            alphabet = String::Western_European;
             result += '\'';
             ++i;
         }
@@ -432,6 +460,10 @@ String parseString(const std::string& s)
             }
             else if (s[i + 1] == 'S' && s[i + 2] == BackSlash)
             {
+                if (alphabet == String::Unknown)
+                {
+                    alphabet = String::Western_European;
+                }
                 // handle extended character
                 // BackSlash S BackSlash Character
                 result += fromISO_8859(alphabet, s[i + 3]);
@@ -458,14 +490,14 @@ String parseString(const std::string& s)
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '2' && s[i + 3] == BackSlash)
             {
-                alphabet = String::Unknown;
+                //alphabet = String::Unknown;
                 // handle hex_two string
                 i += 4;
                 result += parseHex2(i, s);
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '4' && s[i + 3] == BackSlash)
             {
-                alphabet = String::Unknown;
+                //alphabet = String::Unknown;
                 // handle hex_two string
                 i += 4;
                 result += parseHex4(i, s);
@@ -473,6 +505,7 @@ String parseString(const std::string& s)
         }
         else
         {
+            alphabet = String::Western_European;
             result += s[i];
             ++i;
         }
@@ -543,41 +576,103 @@ std::string String::toSPF() const
         {
             for (const_iterator it = begin(); it != end(); ++it)
             {
-                unsigned int v = (*it) & 0xff;
-                if (v > 0x7f)
+                unsigned long v = (*it);
+
+                if ( v > 0xff )
                 {
-                    result += "\\S\\";
-                    v &= 0x7F;
-                    result += (char) v;
-                }
-                else if (v == BackSlash || v == Apostrophe)
-                {
-                    result += (char) v;
-                    result += (char) v;
-                }
-                else if (v < 20)
-                {
-                    result += "\\X\\";
-                    result += toHex((v & 0xf0) >> 4);
-                    result += toHex(v & 0x0f);
+                    if (v & 0xffff0000)
+                    {
+                        //X4
+                        result += "\\X4\\";
+                        result += toHex((v & 0xf0000000) >> 28);
+                        result += toHex((v & 0x0f000000) >> 24);
+                        result += toHex((v & 0x00f00000) >> 20);
+                        result += toHex((v & 0x000f0000) >> 16);
+                        result += toHex((v & 0xf000) >> 12);
+                        result += toHex((v & 0x0f00) >> 8);
+                        result += toHex((v & 0x00f0) >> 4);
+                        result += toHex(v & 0x000f);
+                        result += "\\X0\\";
+                    }
+                    else
+                    {
+                        //X2
+                        result += "\\X2\\";
+                        result += toHex((v & 0xf000) >> 12);
+                        result += toHex((v & 0x0f00) >> 8);
+                        result += toHex((v & 0x00f0) >> 4);
+                        result += toHex(v & 0x000f);
+                        result += "\\X0\\";
+                    }
                 }
                 else
-                    result += (char) v;
-
+                {
+                    v &= 0xff;
+                    if (v > 0x7f)
+                    {
+                        result += "\\S\\";
+                        v &= 0x7F;
+                        result += (char) v;
+                    }
+                    else if (v == BackSlash || v == Apostrophe)
+                    {
+                        result += (char) v;
+                        result += (char) v;
+                    }
+                    else if (v < 20)
+                    {
+                        result += "\\X\\";
+                        result += toHex((v & 0xf0) >> 4);
+                        result += toHex(v & 0x0f);
+                    }
+                    else
+                        result += (char) v;
+                }
             }
-        }
-        else
-        {
+        } else {
             result += "\\P";
             result += char((int('A') + int(alphabet)));
             result += "\\";
             for (const_iterator it = begin(); it != end(); ++it)
             {
-                unsigned int v = *it;
+                unsigned long v = *it;
                 if (v > 0x7f)
                 {
-                    result += "\\S\\";
-                    result += toISO_8859(alphabet, v);
+
+                    if (isISO_8859(alphabet, v))
+                    {
+                        // was in table
+                        result += "\\S\\";
+                        result += toISO_8859(alphabet, v);;
+                    }
+                    else
+                    {
+                        if (v & 0xffff0000)
+                        {
+                            //X4
+                            result += "\\X4\\";
+                            result += toHex((v & 0xf0000000) >> 28);
+                            result += toHex((v & 0x0f000000) >> 24);
+                            result += toHex((v & 0x00f00000) >> 20);
+                            result += toHex((v & 0x000f0000) >> 16);
+                            result += toHex((v & 0xf000) >> 12);
+                            result += toHex((v & 0x0f00) >> 8);
+                            result += toHex((v & 0x00f0) >> 4);
+                            result += toHex(v & 0x000f);
+                            result += "\\X0\\";
+                        }
+                        else
+                        {
+                            //X2
+                            result += "\\X2\\";
+                            result += toHex((v & 0xf000) >> 12);
+                            result += toHex((v & 0x0f00) >> 8);
+                            result += toHex((v & 0x00f0) >> 4);
+                            result += toHex(v & 0x000f);
+                            result += "\\X0\\";
+                        }
+                    }
+
                 }
                 else if (v == BackSlash || v == Apostrophe)
                 {
