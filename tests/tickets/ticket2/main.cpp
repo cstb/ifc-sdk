@@ -101,7 +101,7 @@ void test_parseStrings()
 {
     std::cerr << "test_parseStrings" << std::endl;
 
-    #define NB_STRINGS 15
+    #define NB_STRINGS 17
     std::string input[NB_STRINGS]={
         "'CAT'",
         "'Don''t'",
@@ -110,6 +110,7 @@ void test_parseStrings()
         "'\\S\\Drger'",
         "'h\\S\\ttel'",
         "'\\PE\\\\S\\*\\S\\U\\S\\b'",
+        "'\\PE\\\\S\\*\\S\\U\\S\\b\\X2\\2018\\X0\\'",
         "'\\X2\\03930395063A\\X0\\'",
         "'\\X2\\600060A26DBB\\X0\\'",
         "'\\X4\\00020021000200460002020C\\X0\\'",
@@ -117,7 +118,8 @@ void test_parseStrings()
         "'D\\X\\E9faut B\\X\\E2timent'",
         "'Rev\\X\\EAt. murs ext.'",
         "'Murs neufs cl\\X\\F4tures'",
-        "'R\\X\\C9UNION'"
+        "'R\\X\\C9UNION'",
+        "ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE"
     };
 
     Step::String expected_result[NB_STRINGS]={
@@ -125,17 +127,19 @@ void test_parseStrings()
         L"Don't",
         L"'",
         L"",
-        L"Ärger",
-        L"hôtel",
-        L"Њет",
+        L"\u00C4rger",
+        L"h\u00F4tel",
+        L"\u040A\u0435\u0442",
+        L"\u040A\u0435\u0442\u2018",
         L"ΓΕغ",
         L"怀悢涻",
         L"𠀡𠁆𠈌",
         L"Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\n",
-        L"Défaut Bâtiment",
-        L"Revêt. murs ext.",
-        L"Murs neufs clôtures",
-        L"RÉUNION"
+        L"D\u00E9faut B\u00E2timent",
+        L"Rev\u00EAt. murs ext.",
+        L"Murs neufs cl\u00F4tures",
+        L"R\u00C9UNION",
+        L"ENDUIT DE LISSAGE & PRIMAIRE D\u2018ACCROCHAGE"
         };
 
     std::string SPF_expected_result[NB_STRINGS]={
@@ -146,6 +150,7 @@ void test_parseStrings()
         "'\\S\\Drger'",
         "'h\\S\\ttel'",
         "'\\PE\\\\S\\*\\S\\U\\S\\b'",
+        "'\\PE\\\\S\\*\\S\\U\\S\\b\\X2\\2018\\X0\\'",
         "'\\X2\\03930395063A\\X0\\'",
         "'\\X2\\600060A26DBB\\X0\\'",
         "'\\X4\\00020021000200460002020C\\X0\\'",
@@ -153,18 +158,21 @@ void test_parseStrings()
         "'D\\S\\ifaut B\\S\\btiment'",
         "'Rev\\S\\jt. murs ext.'",
         "'Murs neufs cl\\S\\ttures'",
-        "'R\\S\\IUNION'"
+        "'R\\S\\IUNION'",
+        "'ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE'"
     };
 
     for(int i=0;i<NB_STRINGS;++i) {
-        std::cerr << "input = " << input[i] << "    expected_result = " << expected_result[i] << std::endl;
+        std::cerr << " input           = " << input[i] << std::endl <<
+                     " expected_result = " << expected_result[i] << std::endl;
         Step::String result = Step::String::fromSPF(input[i]);
 
-        std::cerr << "result = " << result << std::endl;
+        std::cerr << " result          = " << result << std::endl;
         TEST_ASSERT(expected_result[i] == result);
 
         std::string SPFresult = result.toSPF();
-        std::cerr << "SPFresult = " << SPFresult << "    SPF_expected_result= " << SPF_expected_result[i] << std::endl;
+        std::cerr << " SPFresult          = " << SPFresult << std::endl <<
+                     " SPF_expected_result= " << SPF_expected_result[i] << std::endl;
         TEST_ASSERT(SPF_expected_result[i] == SPFresult);
         std::cerr << std::endl;
     }
