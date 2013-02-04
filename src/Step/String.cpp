@@ -19,6 +19,9 @@
 #include "Step/SPFFunctions.h"
 #include "Step/SimpleTypes.h"
 
+#include <iostream>
+#include <cassert>
+
 using namespace Step;
 
 static String::Alphabet defaultAlphabet = String::Western_European;
@@ -28,188 +31,14 @@ bool String::operator==(const std::string &str) const
     return (*this == Step::String(str));
 }
 
-String::String() :
-    alphabet(defaultAlphabet)
+bool isLatin1(const std::string &str)
 {
-}
-
-String::String(const String& str) :
-    std::wstring(str), alphabet(str.alphabet)
-{
-}
-
-String::String(const wchar_t *str) :
-    std::wstring(str), alphabet(defaultAlphabet)
-{
-}
-
-String::String(const std::wstring& str) :
-    std::wstring(str), alphabet(defaultAlphabet)
-{
-}
-
-String::String(const char *str) :
-    alphabet(Western_European)
-{
-    buildLatin1(std::string(str));
-}
-
-String::String(const std::string &str) :
-    alphabet(defaultAlphabet)
-{
-    buildLatin1(str);
-}
-
-String::~String()
-{
-}
-
-std::string String::toLatin1() const
-{
-    std::string result;
-
-    if (!empty())
-    {
-        for (const_iterator it = begin(); it != end(); ++it)
-        {
-            if ((*it) > 0xff)
-                result += '?';
-            else
-                result += (unsigned char) ((*it) & 0xff);
-        }
-    }
-
-    return result;
-}
-
-String String::fromLatin1(const std::string &str)
-{
-    String s;
-    s.buildLatin1(str);
-    return s;
-}
-
-void String::buildLatin1(const std::string &str)
-{
-    setAlphabet(Western_European);
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
-        *this += (wchar_t) (*it);
+        if((*it)<0)
+            return false;
     }
-}
-
-std::string String::toUTF8() const
-{
-    std::string result;
-
-    if (!empty())
-    {
-        for (const_iterator it = begin(); it != end(); ++it)
-        {
-            unsigned int u = *it;
-            if (u < 0x80)
-            {
-                result += (unsigned char) (*it);
-            }
-            else
-            {
-                if (u < 0x0800)
-                {
-                    result += (unsigned char) (0xc0 | ((unsigned char) (u >> 6)));
-                }
-                else
-                {
-                    if (u > 0xffff)
-                    {
-                        result += 0xf0 | ((unsigned char) (u >> 18));
-                        result += 0x80 | (((unsigned char) (u >> 12)) & 0x3f);
-                    }
-                    else
-                    {
-                        result += 0xe0 | ((unsigned char) (u >> 12));
-                    }
-                    result += 0x80 | (((unsigned char) (u >> 6)) & 0x3f);
-                }
-                result += 0x80 | ((unsigned char) (u & 0x3f));
-            }
-        }
-    }
-
-    return result;
-}
-
-/*
- **  binary UTF-8 representation and Signification
- **    0xxxxxxx                              1 byte coding 1 to 7 bits
- **    110xxxxx 10xxxxxx                  2 bytes coding 8 to 11 bits
- **    1110xxxx 10xxxxxx 10xxxxxx          3 bytes coding 12 to 16 bits
- **    11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  4 bytes coding 17 to 21 bits
- */
-String String::fromUTF8(const std::string &str)
-{
-    String result;
-    unsigned int i = 0;
-
-    for (; i < str.size(); ++i)
-    {
-
-        if (((unsigned char) str[i]) < 128)
-        { // 0xxxxxxx
-            result += str[i];
-        }
-        else if ((str[i] & 0xe0) == 0xc0)
-        { // 110xxxxx 10xxxxxx
-            unsigned int value = str[i] & 0x1f;
-            value *= 1 << 6;
-            value += str[i + 1] & 0x3f;
-            result += value;
-            ++i;
-        }
-        else if ((str[i] & 0xf0) == 0xe0)
-        { // 1110xxxx 10xxxxxx 10xxxxxx
-            unsigned int value = str[i] & 0x0f;
-            value *= 1 << 12;
-            unsigned int value2 = str[i + 1] & 0x3f;
-            value2 *= 1 << 6;
-            value += value2 + (str[i + 2] & 0x3f);
-            result += value;
-            i += 2;
-        }
-        else if ((str[i] & 0xf8) == 0xf0)
-        { // 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-            unsigned int value = str[i] & 0x0f;
-            value *= 1 << 18;
-            unsigned int value2 = str[i + 1] & 0x3f;
-            value2 *= 1 << 12;
-            unsigned int value3 = str[i + 2] & 0x3f;
-            value2 *= 1 << 6;
-            value += value2 + value3 + (str[i + 3] & 0x3f);
-            result += value;
-            i += 3;
-        }
-        else
-        {
-            result += '?';
-        }
-
-    }
-
-    return result;
-}
-
-void String::setAlphabet(Alphabet a)
-{
-    alphabet = a;
-}
-
-void String::setDefaultAlphabet(Alphabet a)
-{
-    defaultAlphabet = a;
-}
-
-String::Alphabet String::getAlphabet() const
-{
-    return alphabet;
+    return true;
 }
 
 std::map<wchar_t, char> buildUnicodeTable(wchar_t table[96])
@@ -342,6 +171,65 @@ char toISO_8859(String::Alphabet alphabet, wchar_t code)
     }
 }
 
+/*
+ **  binary UTF-8 representation and Signification
+ **    0xxxxxxx                              1 byte coding 1 to 7 bits
+ **    110xxxxx 10xxxxxx                     2 bytes coding 8 to 11 bits
+ **    0xC0     0x80
+ **  m 11100000 11000000
+ **    0xE0     0xC0
+ **
+ **    1110xxxx 10xxxxxx 10xxxxxx            3 bytes coding 12 to 16 bits
+ **    0xE0     0x80     0x80
+ **  m 11110000 11000000 11000000
+ **    0xF0     0xC0     0xC0
+ **
+ **    11110xxx 10xxxxxx 10xxxxxx 10xxxxxx   4 bytes coding 17 to 21 bits
+ **    0xF0     0x80     0x80     0x80
+ **  m 11111000 11000000 11000000 11000000
+ **    0xF8     0xC0     0xC0     0xC0
+ */
+bool isUTF8(const char *str)
+{
+    if (*str < 0)
+    {
+        unsigned code = (unsigned char)(*str);
+        if (*(str+1) < 0)
+        {
+            code <<= 8;
+            code += (unsigned char)(*(str+1));
+            if ( *(str+2) <0 )
+            {
+                code <<= 8;
+                code += (unsigned char)(*(str+2));
+                if ( *(str+3) <0 )
+                {
+                    code <<= 8;
+                    code += (unsigned char)(*(str+3));
+                    if ((code & 0xF8C0C0C0) == 0xF0808080)
+                        return true;
+                    else
+                        return false;
+                }
+                else {
+                    if ((code & 0xF0C0C0) == 0xE08080)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            else {
+                if ((code & 0xE0C0) == 0xC080)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        return false;
+    }
+    return false;
+}
+
 bool isISO_8859(String::Alphabet alphabet, wchar_t code)
 {
     switch (alphabet)
@@ -368,6 +256,22 @@ bool isISO_8859(String::Alphabet alphabet, wchar_t code)
         return false;
     }
 }
+
+bool isISO_8859(String::Alphabet alphabet, const std::string& str)
+{
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+    {
+        if((*it)<0)
+        {
+            // the code is outside normal zone
+            // check if it is not a UTF8 encoded character
+            if (isUTF8(&(*it)))
+                return false;
+        }
+    }
+    return true;
+}
+
 
 unsigned int fromHex(char c)
 {
@@ -481,11 +385,7 @@ String parseString(const std::string& s)
                 i += 3;
                 // handle Arbitrary hex string
                 unsigned int code = fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]);
-                if (code >127)
-                {
-                    code = fromISO_8859(alphabet, code-128);
-                }
-                result += code;
+                result += fromISO_8859(alphabet, code-128);
                 i += 2;
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '2' && s[i + 3] == BackSlash)
@@ -514,6 +414,194 @@ String parseString(const std::string& s)
     result.setAlphabet(alphabet);
     return result;
 }
+
+
+
+String::String() :
+    alphabet(defaultAlphabet)
+{
+}
+
+String::String(const String& str) :
+    std::wstring(str), alphabet(str.alphabet)
+{
+}
+
+String::String(const wchar_t *str) :
+    std::wstring(str), alphabet(defaultAlphabet)
+{
+}
+
+String::String(const std::wstring& str) :
+    std::wstring(str), alphabet(defaultAlphabet)
+{
+}
+
+String::String(const char *str): alphabet(defaultAlphabet)
+{
+    if (isISO_8859(alphabet,std::string(str)))
+        buildISO_8859(str);
+    else
+        *this = fromUTF8(str);
+}
+
+String::String(const std::string &str) :
+    alphabet(defaultAlphabet)
+{
+    if (isISO_8859(alphabet,str))
+        buildISO_8859(str);
+    else
+        *this = fromUTF8(str);
+}
+
+String::~String()
+{
+}
+
+std::string String::toISO_8859() const
+{
+    std::string result;
+
+    if (!empty())
+    {
+        for (const_iterator it = begin(); it != end(); ++it)
+        {
+            result += ::toISO_8859(alphabet, (*it));
+        }
+    }
+
+    return result;
+}
+
+
+
+void String::buildISO_8859(const std::string &str)
+{
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+    {
+        int i = *it;
+        if (*it < 0)
+            *this += fromISO_8859(alphabet,128+(*it));
+        else
+            *this += (wchar_t)*it;
+   }
+}
+
+
+std::string String::toUTF8() const
+{
+    std::string result;
+
+    if (!empty())
+    {
+        for (const_iterator it = begin(); it != end(); ++it)
+        {
+            unsigned int u = *it;
+            if (u < 0x80)
+            {
+                result += (unsigned char) (*it);
+            }
+            else
+            {
+                if (u < 0x0800)
+                {
+                    result += (unsigned char) (0xc0 | ((unsigned char) (u >> 6)));
+                }
+                else
+                {
+                    if (u > 0xffff)
+                    {
+                        result += 0xf0 | ((unsigned char) (u >> 18));
+                        result += 0x80 | (((unsigned char) (u >> 12)) & 0x3f);
+                    }
+                    else
+                    {
+                        result += 0xe0 | ((unsigned char) (u >> 12));
+                    }
+                    result += 0x80 | (((unsigned char) (u >> 6)) & 0x3f);
+                }
+                result += 0x80 | ((unsigned char) (u & 0x3f));
+            }
+        }
+    }
+
+    return result;
+}
+
+/*
+ **  binary UTF-8 representation and Signification
+ **    0xxxxxxx                              1 byte coding 1 to 7 bits
+ **    110xxxxx 10xxxxxx                  2 bytes coding 8 to 11 bits
+ **    1110xxxx 10xxxxxx 10xxxxxx          3 bytes coding 12 to 16 bits
+ **    11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  4 bytes coding 17 to 21 bits
+ */
+String String::fromUTF8(const std::string &str)
+{
+    String result;
+    unsigned int i = 0;
+
+    for (; i < str.size(); ++i)
+    {
+
+        if (((unsigned char) str[i]) < 128)
+        { // 0xxxxxxx
+            result += str[i];
+        }
+        else if ((str[i] & 0xe0) == 0xc0)
+        { // 110xxxxx 10xxxxxx
+            unsigned int value = str[i] & 0x1f;
+            value *= 1 << 6;
+            value += str[i + 1] & 0x3f;
+            result += value;
+            ++i;
+        }
+        else if ((str[i] & 0xf0) == 0xe0)
+        { // 1110xxxx 10xxxxxx 10xxxxxx
+            unsigned int value = str[i] & 0x0f;
+            value *= 1 << 12;
+            unsigned int value2 = str[i + 1] & 0x3f;
+            value2 *= 1 << 6;
+            value += value2 + (str[i + 2] & 0x3f);
+            result += value;
+            i += 2;
+        }
+        else if ((str[i] & 0xf8) == 0xf0)
+        { // 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+            unsigned int value = str[i] & 0x0f;
+            value *= 1 << 18;
+            unsigned int value2 = str[i + 1] & 0x3f;
+            value2 *= 1 << 12;
+            unsigned int value3 = str[i + 2] & 0x3f;
+            value2 *= 1 << 6;
+            value += value2 + value3 + (str[i + 3] & 0x3f);
+            result += value;
+            i += 3;
+        }
+        else
+        {
+            result += '?';
+        }
+
+    }
+
+    return result;
+}
+
+void String::setAlphabet(Alphabet a)
+{
+    alphabet = a;
+}
+
+void String::setDefaultAlphabet(Alphabet a)
+{
+    defaultAlphabet = a;
+}
+
+String::Alphabet String::getAlphabet() const
+{
+    return alphabet;
+}
+
 
 String String::fromSPF(const std::string& s)
 {
@@ -643,7 +731,7 @@ std::string String::toSPF() const
                     {
                         // was in table
                         result += "\\S\\";
-                        result += toISO_8859(alphabet, v);;
+                        result += ::toISO_8859(alphabet, v);;
                     }
                     else
                     {
@@ -697,4 +785,16 @@ std::string String::toSPF() const
 std::ostream & operator <<(std::ostream &out, const String& s)
 {
     return out << s.toUTF8();
+}
+
+std::string String::toLatin1() const
+{
+    assert(alphabet==Western_European);
+    return toISO_8859();
+}
+
+String String::fromLatin1(const std::string &str)
+{
+    assert(defaultAlphabet==Western_European);
+    return String(str);
 }
