@@ -178,30 +178,41 @@ void test_parseStrings()
     }
 }
 
+void test_UpperAUmlaut()
+{
+    /* character code of D = x44 (decimal 68) added to x80 (128) is
+     * x44 + x80 (68+128) = xC4 (196); since Ä is defined in ISO 8859-1
+     * it is the default code page and no \P encoding is required. */
+    Step::String a = Step::String::fromSPF("'\\S\\D'");
+    std::cerr << "a="<< a << std::endl;
 
+    /* same as above, but the \PA\ directive at the begin of the string
+     * explicitly defines that the value of xC4 (196) is taken from ISO 8859-1*/
+    Step::String b = Step::String::fromSPF("'\\PA\\\\S\\D'");
+    std::cerr << "b="<< b << std::endl;
+
+    /* character code xC4 as 8-bit character code found in ISO 10646 (first 255
+     * characters - also referred to as "row 0") */
+    Step::String c = Step::String::fromSPF("'\\X\\C4'");
+    std::cerr << "c="<< c << std::endl;
+
+    /* character code xC4 as 16-bit character x00C4 in ISO 10646 (Unicode) */
+    Step::String d = Step::String::fromSPF("'\\X2\\00C4\\X0\\'");
+    std::cerr << "d="<< d << std::endl;
+
+    TEST_ASSERT(a==b);
+    TEST_ASSERT(b==c);
+    TEST_ASSERT(c==d);
+
+
+}
 
 int main (int n, char **p)
 {
-    //test_getLine();
-    //test_removeQuotes();
+    test_getLine();
+    test_removeQuotes();
     test_parseStrings();
-
-    {
-        Step::String s("Crépit");
-        std::cerr << s << " : " << s.toSPF() << std::endl;
-    }
-    {
-        Step::String s("Brïque");
-        std::cerr << s << " : " << s.toSPF() << std::endl;
-    }
-    {
-        Step::String s("Oôptimù");
-        std::cerr << s << " : " << s.toSPF() << std::endl;
-    }
-    {
-        Step::String s("ENDUIT DE LISSAGE & PRIMAIRE D‘ACCROCHAGE");
-        std::cerr << s << " : " << s.toSPF() << std::endl;
-    }
+    test_UpperAUmlaut();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 

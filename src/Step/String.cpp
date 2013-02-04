@@ -382,6 +382,10 @@ String parseString(const std::string& s)
             }
             else if (s[i + 1] == 'X' && s[i + 2] == BackSlash)
             {
+                if (alphabet == String::Unknown)
+                {
+                    alphabet = String::Western_European;
+                }
                 i += 3;
                 // handle Arbitrary hex string
                 unsigned int code = fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]);
