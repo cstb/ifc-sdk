@@ -131,9 +131,9 @@ void test_parseStrings()
         L"h\u00F4tel",
         L"\u040A\u0435\u0442",
         L"\u040A\u0435\u0442\u2018",
-        L"ΓΕغ",
-        L"怀悢涻",
-        L"𠀡𠁆𠈌",
+        L"\u0393\u0395\u063A",
+        L"\u6000\u60A2\u6DBB",
+        L"\U00020021\U00020046\U0002020C",
         L"Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\n",
         L"D\u00E9faut B\u00E2timent",
         L"Rev\u00EAt. murs ext.",
@@ -209,6 +209,15 @@ void test_UpperAUmlaut()
 
 int main (int n, char **p)
 {
+	Step::String test(L"\U00020021\U00020046\U0002020C");
+	wchar_t t = test[0];
+	wchar_t t2 = test[1];
+	Step::String test2 = Step::String::fromSPF("'\\X4\\00020021000200460002020C\\X0\\'");
+
+	 std::cerr << test2.toSPF() << std::endl;
+
+	TEST_ASSERT(test==test2);
+
     test_getLine();
     test_removeQuotes();
     test_parseStrings();
