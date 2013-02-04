@@ -182,11 +182,28 @@ void test_parseStrings()
 
 int main (int n, char **p)
 {
-    test_getLine();
-    test_removeQuotes();
+    //test_getLine();
+    //test_removeQuotes();
     test_parseStrings();
 
-    std::cout << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
+    {
+        Step::String s("Crépit");
+        std::cerr << s << " : " << s.toSPF() << std::endl;
+    }
+    {
+        Step::String s("Brïque");
+        std::cerr << s << " : " << s.toSPF() << std::endl;
+    }
+    {
+        Step::String s("Oôptimù");
+        std::cerr << s << " : " << s.toSPF() << std::endl;
+    }
+    {
+        Step::String s("ENDUIT DE LISSAGE & PRIMAIRE D‘ACCROCHAGE");
+        std::cerr << s << " : " << s.toSPF() << std::endl;
+    }
+
+    std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
     return failure_results;
 }

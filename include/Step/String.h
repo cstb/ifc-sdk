@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -26,6 +26,7 @@ namespace Step {
     /**
      * This is the Step String implementation. It is sub classing the STL wide string
      * It stores the Alphabet used to create it in order to comply with the SPF encoding of strings
+     * characters are stored as unicode characters
      */
     class STEP_EXPORT String : public std::wstring
     {
@@ -55,55 +56,47 @@ namespace Step {
 
         /**
          * Copy constructor, set Alphabet used to Western_European
-         * expects latin-1 encoding
+         * expects ISO 8859-(default alphabet code) encoding
          *  \param str the char array to copy
          */
         String(const char *str);
         /**
          * Copy constructor, set Alphabet used to Western_European
-         * expects latin-1 encoding
+         * expects ISO 8859-(default alphabet code) encoding
          * \param str the std::string to copy
          */
         String(const std::string &str);
 
-		/**
-		 * Virtual destructor
-		 */
-		virtual ~String();
-		
         /**
-         * compares to a latin-1 (ISO 8859-1) encoded representation
+         * Virtual destructor
+         */
+        virtual ~String();
+
+        /**
+         * compares to a String to a ISO 8859-(default alphabet code) encoded representation
          * \param str the string to compare too
          * \return success
          */
         virtual bool operator==(const std::string &str) const;
 
         /**
-         * returns a latin-1 (ISO 8859-1) encoded representation
-         * \return a latin-1 (ISO 8859-1) std::string
+         * returns a ISO 8859-(alphabet code) encoded representation
+         * \return a ISO 8859-(alphabet code) std::string
          */
-        virtual std::string toLatin1() const;
+        virtual std::string toISO_8859() const;
 
         /**
-         * builds from a latin-1 (ISO 8859-1) encoded representation
-         * \param str the string to convert
-         * \return the String created
-         */
-        static String fromLatin1(const std::string &str);
-
-        /**
-         * returns a UTF8 (multi character) encoded representation
-         * \return a UTF8 (multi character) std::string
+         * returns a UTF8 encoded representation
+         * \return a UTF8 std::string
          */
         virtual std::string toUTF8() const;
 
         /**
-         * builds from a UTF8 (multi character) encoded representation
+         * builds from a UTF8 encoded representation
          * \param str the string to convert
          * \return the String created
          */
         static String fromUTF8(const std::string &str);
-
 
         /**
          * returns a ISO 10303-21 SPF encoded string representation
@@ -147,16 +140,27 @@ namespace Step {
          */
         virtual Alphabet getAlphabet() const;
 
-		/**
-		 * set default Alphabet for all subsequent new String creation
-		 */
-		static void setDefaultAlphabet(Alphabet a);
+        /**
+         * set default Alphabet for all subsequent new String creation
+         */
+        static void setDefaultAlphabet(Alphabet a);
+
+        /**
+         * toLatin1() is deprecated
+         * use toISO_8859 when alphabet is set to Western_European
+         */
+        STEP_DEPRECATED_EXPORT virtual std::string toLatin1() const;
+
+        /**
+         * String fromLatin1(const std::string &str) is deprecated
+         * use default Constructor with default alphabet set to Western_European
+         */
+        STEP_DEPRECATED_EXPORT static String fromLatin1(const std::string &str);
+
 
     private:
         Alphabet alphabet;
-        /// builds from a latin-1 (ISO 8859-1) encoded representation
-        virtual void buildLatin1(const std::string &str);
-
+        void buildISO_8859(const std::string &str);
     };
 
 }
