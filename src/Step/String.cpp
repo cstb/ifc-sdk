@@ -864,8 +864,19 @@ std::ostream & operator <<(std::ostream &out, const String& s)
 
 std::string String::toLatin1() const
 {
-    assert(alphabet==Western_European);
-    return toISO_8859();
+	std::string result;
+    if (alphabet!=String::Western_European)
+	{
+		String::Alphabet a = alphabet;
+		const_cast<String *>(this)->setAlphabet(String::Western_European);
+		result = toISO_8859();
+		const_cast<String *>(this)->setAlphabet(a);
+	}
+	else
+	{
+		result = toISO_8859();
+	}
+	return result;
 }
 
 String String::fromLatin1(const std::string &str)

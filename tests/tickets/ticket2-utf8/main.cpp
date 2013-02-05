@@ -223,7 +223,7 @@ void test_Alphabet()
 	std::string spf("'\\X2\\0041007200630068006900760065\\X0\\'");
 	Step::String result = Step::String::fromSPF(spf);
 
-	TEST_ASSERT(result.getAlphabet() == Step::String::Western_European);
+	TEST_ASSERT(result.getAlphabet() == Step::String::Unknown);
 
 	std::cerr << "result=" << result << std::endl;
 
@@ -233,21 +233,12 @@ void test_Alphabet()
 
 int main (int n, char **p)
 {
-	Step::String test(L"\U00020021\U00020046\U0002020C");
-	wchar_t t = test[0];
-	wchar_t t2 = test[1];
-	Step::String test2 = Step::String::fromSPF("'\\X4\\00020021000200460002020C\\X0\\'");
-
-	std::cerr << test2.toSPF() << std::endl;
-
-	TEST_ASSERT(test==test2);
-
     test_getLine();
     test_removeQuotes();
     test_parseStrings();
     test_UpperAUmlaut();
 	test_toLatin1();
-	 test_Alphabet();
+	test_Alphabet();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
