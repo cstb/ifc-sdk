@@ -207,6 +207,17 @@ void test_UpperAUmlaut()
 
 }
 
+void test_toLatin1()
+{
+	Step::String uuid("33Ff7op$XFlubqbkQl5K$B");
+
+	std::string result = uuid.toLatin1();
+
+	std::cerr << "result=" << result << std::endl;
+
+	TEST_ASSERT(result == "33Ff7op$XFlubqbkQl5K$B");
+}
+
 int main (int n, char **p)
 {
 	Step::String test(L"\U00020021\U00020046\U0002020C");
@@ -222,6 +233,7 @@ int main (int n, char **p)
     test_removeQuotes();
     test_parseStrings();
     test_UpperAUmlaut();
+	test_toLatin1();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 

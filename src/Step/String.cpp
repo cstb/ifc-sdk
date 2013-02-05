@@ -522,7 +522,7 @@ std::string String::toISO_8859() const
     {
         for (const_iterator it = begin(); it != end(); ++it)
         {
-            result += ::toISO_8859(alphabet, (*it));
+            result += ::toISO_8859(alphabet, (*it)+128);
         }
     }
 
