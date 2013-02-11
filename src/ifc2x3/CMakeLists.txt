@@ -14,6 +14,7 @@ ADD_COMPILER_EXPORT_FLAGS()
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Step_BINARY_DIR})
+include_directories(${Step_BINARY_DIR}/..)
 message(STATUS "Step_BINARY_DIR=${Step_BINARY_DIR}")
 
 ADD_LIBRARY(ifc2x3 ${SHARED_OR_STATIC} ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
