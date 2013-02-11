@@ -1,3 +1,5 @@
+#ifdef ENABLE_PRECOMPILED_HEADER
+
 #include <Step/ASCII_codes.h>
 #include <Step/Aggregation.h>
 #include <Step/Array.h>
@@ -27,3 +29,5 @@
 #include <Step/Types.h>
 #include <Step/logger.h> 
 #include <ifc2x3/all.h>
+
+#endif
