@@ -84,6 +84,7 @@ ENDIF(APPLE)
 
 
 IF(MSVC)
+  add_definitions(-D_UNICODE)
   SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
 
   if(MSVC_IDE)

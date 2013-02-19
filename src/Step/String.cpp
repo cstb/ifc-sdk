@@ -149,7 +149,7 @@ char toISO_8859(String::Alphabet alphabet, wchar_t code)
     switch (alphabet)
     {
     case String::Western_European:
-        return int(code) - 128;
+        return (char)(int(code) - 128);
     case String::Central_European:
         return UnicodeToIso8859_2[code];
     case String::South_European:
@@ -230,6 +230,31 @@ bool isUTF8(const char *str)
     return false;
 }
 
+/*
+ **  binary UTF-16 representation and Signification
+ **    xxxxxxxxxxxxxxxx                     2 byte coding 1 to 16 bits
+ **    110110xxxxxxxxxx 110111xxxxxxxxxx   4 bytes coding 1 to 20 bits
+ **    0xD800           0xDC00
+ **  m 1111110000000000 1111110000000000
+ **    0xFC00           0xFC00
+ */
+
+bool isUTF16(const wchar_t *str)
+{
+    if (*str != 0)
+    {
+        if (*(str+1) != 0)
+		{
+			if ( ( ((*str    ) & 0xFC00) == 0xD800 ) && 
+				 ( ((*(str+1)) & 0xFC00) == 0xDC00 ) )
+			{
+				return true;
+			}
+		}
+    }
+    return false;
+}
+
 bool isISO_8859(String::Alphabet alphabet, wchar_t code)
 {
     switch (alphabet)
@@ -257,7 +282,7 @@ bool isISO_8859(String::Alphabet alphabet, wchar_t code)
     }
 }
 
-bool isISO_8859(String::Alphabet alphabet, const std::string& str)
+bool isISO_8859(const std::string& str)
 {
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
@@ -287,9 +312,9 @@ char toHex(unsigned int i)
 {
     char result;
     if (i <= 9)
-        result = '0' + i;
+        result = '0' + char(i);
     else
-        result = 'A' + i - 10;
+        result = 'A' + char(i) - 10;
 
     return result;
 }
@@ -328,9 +353,26 @@ String parseHex4(unsigned int &i, std::string s)
         }
         else
         {
-            unsigned int code = (fromHex(s[i]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3])) * (1 << 16)
-                    + fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
-            result += code;
+			unsigned long code = (fromHex(s[i]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3]) ) * (1<< 16) +
+				                 fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
+
+			if (sizeof(wchar_t)==2 && code < 0x110000)
+			{
+				if (code < 0x10000)
+				{
+					result += (wchar_t) code;
+				}
+				else
+				{
+					// UTF-16 encoding
+					result += (0xd800 | (( code & 0xFFC00 )>>11));
+					result += (0xdc00 | (code & 0x3ff));
+				}
+			}
+			else 
+			{
+				result += (wchar_t) code;
+			}
         }
     }
 
@@ -431,19 +473,29 @@ String::String(const String& str) :
 {
 }
 
-String::String(const wchar_t *str) :
-    std::wstring(str), alphabet(defaultAlphabet)
+String::Alphabet detectAlphabet(const wchar_t *str)
 {
+	if ((*str)>0xff)
+		return String::Unknown;
+	else
+		return String::Western_European;
+}
+
+String::String(const wchar_t *str) :
+    std::wstring(str)
+{
+	alphabet = detectAlphabet(str);
 }
 
 String::String(const std::wstring& str) :
-    std::wstring(str), alphabet(defaultAlphabet)
+    std::wstring(str)
 {
+	alphabet = detectAlphabet(str.data());
 }
 
 String::String(const char *str): alphabet(defaultAlphabet)
 {
-    if (isISO_8859(alphabet,std::string(str)))
+    if (isISO_8859(std::string(str)))
         buildISO_8859(str);
     else
         *this = fromUTF8(str);
@@ -452,7 +504,7 @@ String::String(const char *str): alphabet(defaultAlphabet)
 String::String(const std::string &str) :
     alphabet(defaultAlphabet)
 {
-    if (isISO_8859(alphabet,str))
+    if (isISO_8859(str))
         buildISO_8859(str);
     else
         *this = fromUTF8(str);
@@ -470,7 +522,7 @@ std::string String::toISO_8859() const
     {
         for (const_iterator it = begin(); it != end(); ++it)
         {
-            result += ::toISO_8859(alphabet, (*it));
+            result += ::toISO_8859(alphabet, (*it)+128);
         }
     }
 
@@ -630,8 +682,16 @@ std::string String::toSPF() const
             bool x4 = false;
             for (const_iterator it = begin(); it != end() && !x4; ++it)
             {
-                if ((*it) & 0xffff0000)
-                    x4 = true;
+				if (sizeof(wchar_t)==2)
+				{
+					if (isUTF16(&(*it)))
+						x4=true;
+				}
+				else
+				{
+					if ((*it) & 0xffff0000)
+					 x4 = true;
+				}
             }
             if (!x4)
             {
@@ -651,11 +711,22 @@ std::string String::toSPF() const
                 for (const_iterator it = begin(); it != end(); ++it)
                 {
                     unsigned long v = (*it);
-                    result += toHex((v & 0xf0000000) >> 28);
-                    result += toHex((v & 0x0f000000) >> 24);
-                    result += toHex((v & 0x00f00000) >> 20);
-                    result += toHex((v & 0x000f0000) >> 16);
-                    result += toHex((v & 0xf000) >> 12);
+					if (sizeof(wchar_t)==2)
+					{
+						if (isUTF16(&(*it)))
+						{
+							v = (((*it)&0x03ff)<<11);
+							++it;
+							v += ((*it)&0x03ff);
+						}
+					}
+
+					result += toHex((v & 0xf0000000) >> 28);
+					result += toHex((v & 0x0f000000) >> 24);
+					result += toHex((v & 0x00f00000) >> 20);
+					result += toHex((v & 0x000f0000) >> 16);
+					
+					result += toHex((v & 0xf000) >> 12);
                     result += toHex((v & 0x0f00) >> 8);
                     result += toHex((v & 0x00f0) >> 4);
                     result += toHex(v & 0x000f);
@@ -793,8 +864,19 @@ std::ostream & operator <<(std::ostream &out, const String& s)
 
 std::string String::toLatin1() const
 {
-    assert(alphabet==Western_European);
-    return toISO_8859();
+	std::string result;
+    if (alphabet!=String::Western_European)
+	{
+		String::Alphabet a = alphabet;
+		const_cast<String *>(this)->setAlphabet(String::Western_European);
+		result = toISO_8859();
+		const_cast<String *>(this)->setAlphabet(a);
+	}
+	else
+	{
+		result = toISO_8859();
+	}
+	return result;
 }
 
 String String::fromLatin1(const std::string &str)

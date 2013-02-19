@@ -131,9 +131,9 @@ void test_parseStrings()
         L"h\u00F4tel",
         L"\u040A\u0435\u0442",
         L"\u040A\u0435\u0442\u2018",
-        L"ΓΕغ",
-        L"怀悢涻",
-        L"𠀡𠁆𠈌",
+        L"\u0393\u0395\u063A",
+        L"\u6000\u60A2\u6DBB",
+        L"\U00020021\U00020046\U0002020C",
         L"Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\n",
         L"D\u00E9faut B\u00E2timent",
         L"Rev\u00EAt. murs ext.",
@@ -207,12 +207,38 @@ void test_UpperAUmlaut()
 
 }
 
+void test_toLatin1()
+{
+	Step::String uuid("33Ff7op$XFlubqbkQl5K$B");
+
+	std::string result = uuid.toLatin1();
+
+	std::cerr << "result=" << result << std::endl;
+
+	TEST_ASSERT(result == "33Ff7op$XFlubqbkQl5K$B");
+}
+
+void test_Alphabet()
+{
+	std::string spf("'\\X2\\0041007200630068006900760065\\X0\\'");
+	Step::String result = Step::String::fromSPF(spf);
+
+	TEST_ASSERT(result.getAlphabet() == Step::String::Unknown);
+
+	std::cerr << "result=" << result << std::endl;
+
+	TEST_ASSERT(result == "Archive");
+}
+
+
 int main (int n, char **p)
 {
     test_getLine();
     test_removeQuotes();
     test_parseStrings();
     test_UpperAUmlaut();
+	test_toLatin1();
+	test_Alphabet();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
