@@ -132,10 +132,10 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     return true;
 }
 
-bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, unsigned long bufferLength, std::string &str) {
+bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str) {
     str.clear();
-    unsigned long i = 0;
-    unsigned long from = 0;
+    size_t i = 0;
+    size_t from = 0;
     ifs.get(s[0]);
     for (;s[i] != Semicolon && i < bufferLength-1;ifs.get(s[++i])) {
         if (s[i]>=0 && s[i] <= 32) {

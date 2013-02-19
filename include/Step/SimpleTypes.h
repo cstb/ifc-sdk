@@ -39,7 +39,7 @@
 namespace Step {
 
     //! Integer type
-    typedef long Integer;
+    typedef int Integer;
 
     //! Real type
     typedef double Real;
