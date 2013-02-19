@@ -38,16 +38,16 @@ namespace Step
     //!@}
 
     //! The ClientDataKey type definition
-    typedef unsigned long int ClientDataKey;
+    typedef unsigned int ClientDataKey;
 
     //! The Id type definition
-    typedef unsigned long int Id;
+    typedef unsigned int Id;
 
     //! for error handling
-    const unsigned long int Id_UNDEF = UINT_MAX;
+    const Id Id_UNDEF = UINT_MAX;
 
     //! for '$' token
-    const unsigned long int Id_UNSET = 0;
+    const Id Id_UNSET = 0;
 
     //! The allocate function pointer type definition used by generated SPFReader
     typedef BaseEntity* (*AllocateFuncType)(BaseExpressDataSet*, Id);
