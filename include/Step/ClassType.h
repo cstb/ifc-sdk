@@ -82,11 +82,11 @@ namespace Step {
 
     private:
         //! private constructor used to fill the static map
-        ClassType(const std::string& name, long id);
+        ClassType(const std::string& name, int id);
 
         static ClassType sUndefined;
         std::string m_name;
-        long m_id;
+        int m_id;
     };
 
 }
