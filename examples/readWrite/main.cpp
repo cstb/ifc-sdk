@@ -34,7 +34,7 @@ public:
     virtual void setMaximum(size_t max) { _max = max; }
     virtual void setProgress(size_t progress) { std::cerr << double(progress)/double(_max)*100.0 << "%" << std::endl; }
 protected:
-    unsigned long _max;
+    size_t _max;
 };
 
 
