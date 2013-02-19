@@ -141,7 +141,7 @@ namespace Step {
      * \endcode
      */
     template<class T>
-    class RefPtr
+    class STEP_EXPORT RefPtr
     {
     public:
         //! a typedef to our element type
