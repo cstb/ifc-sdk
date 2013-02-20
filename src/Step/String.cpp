@@ -298,25 +298,36 @@ bool isISO_8859(const std::string& str)
 }
 
 
-unsigned int fromHex(char c)
+static unsigned int fromHex(char c)
 {
-    int result = 0;
-    if (c >= '0' && c <= '9')
-        result = c - '0';
-    else if (c >= 'A' && c <= 'F')
-        result = c - 'A' + 10;
-    return result;
+	// ASCII to Hex Table
+	static const unsigned char ASCIIToHex[] =
+	{
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+		0,  1,  2,  3,  4,  5,  6,  7,  8,  9,  0,  0,  0,  0,  0,  0, // 0 - 9
+		0, 10, 11, 12, 13, 14, 15,  0,  0,  0,  0,  0,  0,  0,  0,  0, // A - F
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0, 10, 11, 12, 13, 14, 15,  0,  0,  0,  0,  0,  0,  0,  0,  0, // a - f
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 
+		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+	};
+
+	return ASCIIToHex[(unsigned char)c];
 }
 
-char toHex(unsigned int i)
+static char toHex(unsigned int i)
 {
-    char result;
-    if (i <= 9)
-        result = '0' + char(i);
-    else
-        result = 'A' + char(i) - 10;
-
-    return result;
+	static const char HexToASCII[] = "0123456789ABCDEF";
+	return i < _countof(HexToASCII) ? HexToASCII[i] : '0';
 }
 
 String parseHex2(unsigned int &i, std::string s)
