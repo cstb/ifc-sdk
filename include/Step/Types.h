@@ -38,13 +38,13 @@ namespace Step
     //!@}
 
     //! The ClientDataKey type definition
-    typedef unsigned int ClientDataKey;
+    typedef unsigned long ClientDataKey;
 
     //! The Id type definition
-    typedef unsigned int Id;
+    typedef unsigned long Id;
 
     //! for error handling
-    const Id Id_UNDEF = UINT_MAX;
+    const Id Id_UNDEF = ULONG_MAX;
 
     //! for '$' token
     const Id Id_UNSET = 0;
