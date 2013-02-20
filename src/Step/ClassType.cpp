@@ -20,7 +20,7 @@
 #include <iostream>
 using namespace Step;
 
-static long s_id = 1;
+static int s_id = 1;
 
 std::map<std::string, ClassType > * sClassTypeMapPointer=0;
 
@@ -42,7 +42,7 @@ ClassType::ClassType(const ClassType &ref)
     m_id = ref.m_id;
 }
 
-ClassType::ClassType(const std::string &name, long id) :
+ClassType::ClassType(const std::string &name, int id) :
     m_name(name), m_id(id)
 {
 }
