@@ -145,18 +145,6 @@ namespace Step {
          */
         static void setDefaultAlphabet(Alphabet a);
 
-        /**
-         * toLatin1() is deprecated
-         * use toISO_8859 when alphabet is set to Western_European
-         */
-        STEP_DEPRECATED virtual std::string toLatin1() const;
-
-        /**
-         * String fromLatin1(const std::string &str) is deprecated
-         * use default Constructor with default alphabet set to Western_European
-         */
-        STEP_DEPRECATED static String fromLatin1(const std::string &str);
-
 
     private:
         Alphabet alphabet;

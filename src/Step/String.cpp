@@ -31,16 +31,6 @@ bool String::operator==(const std::string &str) const
     return (*this == Step::String(str));
 }
 
-bool isLatin1(const std::string &str)
-{
-    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
-    {
-        if((*it)<0)
-            return false;
-    }
-    return true;
-}
-
 std::map<wchar_t, char> buildUnicodeTable(wchar_t table[96])
 {
     std::map<wchar_t, char> result;
@@ -873,25 +863,3 @@ std::ostream & operator <<(std::ostream &out, const String& s)
     return out << s.toUTF8();
 }
 
-std::string String::toLatin1() const
-{
-	std::string result;
-    if (alphabet!=String::Western_European)
-	{
-		String::Alphabet a = alphabet;
-		const_cast<String *>(this)->setAlphabet(String::Western_European);
-		result = toISO_8859();
-		const_cast<String *>(this)->setAlphabet(a);
-	}
-	else
-	{
-		result = toISO_8859();
-	}
-	return result;
-}
-
-String String::fromLatin1(const std::string &str)
-{
-    assert(defaultAlphabet==Western_European);
-    return String(str);
-}
