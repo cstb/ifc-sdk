@@ -353,7 +353,7 @@ String parseHex4(unsigned int &i, std::string s)
         }
         else
         {
-			unsigned long code = (fromHex(s[i]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3]) ) * (1<< 16) +
+			unsigned int code = (fromHex(s[i]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3]) ) * (1<< 16) +
 				                 fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
 
 			if (sizeof(wchar_t)==2 && code < 0x110000)
@@ -710,8 +710,8 @@ std::string String::toSPF() const
                 result += "\\X4\\";
                 for (const_iterator it = begin(); it != end(); ++it)
                 {
-                    unsigned long v = (*it);
-					if (sizeof(wchar_t)==2)
+                    unsigned int v = (*it);
+					if (sizeof(wchar_t) == 2)
 					{
 						if (isUTF16(&(*it)))
 						{
@@ -739,7 +739,7 @@ std::string String::toSPF() const
         {
             for (const_iterator it = begin(); it != end(); ++it)
             {
-                unsigned long v = (*it);
+                unsigned int v = (*it);
 
                 if ( v > 0xff )
                 {
@@ -798,7 +798,7 @@ std::string String::toSPF() const
             result += "\\";
             for (const_iterator it = begin(); it != end(); ++it)
             {
-                unsigned long v = *it;
+                unsigned int v = *it;
                 if (v > 0x7f)
                 {
 

@@ -54,7 +54,7 @@ String& SPFHeader::getOtherFields()
 
 bool SPFHeader::parse(std::istream& ifs, unsigned int& counter)
 {
-    unsigned long bufferLength = 256000;
+    static const size_t bufferLength = 256000;
     char* buffer = new char[bufferLength];
     string::size_type i;
     string str;
