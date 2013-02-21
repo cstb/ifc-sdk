@@ -17,10 +17,19 @@
 #ifndef Step_Types_h
 #define Step_Types_h
 
+#include "IntegerTypes.h"
 #include "Referenced.h"
 
 #include <map>
-#include <limits.h>
+#include <limits>
+
+#ifdef min
+#undef min
+#endif
+
+#ifdef max
+#undef max
+#endif
 
 namespace Step
 {
@@ -38,13 +47,13 @@ namespace Step
     //!@}
 
     //! The ClientDataKey type definition
-    typedef unsigned long ClientDataKey;
+    typedef uintptr_t ClientDataKey;
 
     //! The Id type definition
-    typedef unsigned long Id;
+    typedef uint64_t Id;
 
     //! for error handling
-    const Id Id_UNDEF = ULONG_MAX;
+	const Id Id_UNDEF = std::numeric_limits<Id>::max();
 
     //! for '$' token
     const Id Id_UNSET = 0;

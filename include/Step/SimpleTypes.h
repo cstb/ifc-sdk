@@ -17,8 +17,8 @@
 #ifndef Step_SimpleTypes_h
 #define Step_SimpleTypes_h
 
+#include "Types.h"
 #include "Binary.h"
-#include "Referenced.h"
 #include "String.h"
 
 #include <stdio.h>
@@ -139,10 +139,6 @@ namespace Step {
     {
         return NULL;
     }
-
-#ifdef max
-#undef max
-#endif
 
     //! getUnset values the Integer type
     inline Integer getUnset(Integer)
