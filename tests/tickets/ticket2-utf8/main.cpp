@@ -218,18 +218,6 @@ void test_toLatin1()
 	TEST_ASSERT(result == "33Ff7op$XFlubqbkQl5K$B");
 }
 
-void test_Alphabet()
-{
-	std::string spf("'\\X2\\0041007200630068006900760065\\X0\\'");
-	Step::String result = Step::String::fromSPF(spf);
-
-	TEST_ASSERT(result.getAlphabet() == Step::String::Unknown);
-
-	std::cerr << "result=" << result << std::endl;
-
-	TEST_ASSERT(result == "Archive");
-}
-
 
 int main (int n, char **p)
 {
@@ -238,7 +226,6 @@ int main (int n, char **p)
     test_parseStrings();
     test_UpperAUmlaut();
 	test_toLatin1();
-	test_Alphabet();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 

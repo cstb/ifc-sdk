@@ -134,6 +134,24 @@ namespace Step {
          * \return the String created
          */
         static String fromSPF(const std::string &str);
+
+		/**
+         * toLatin1() is deprecated
+         * use toISO_8859 when alphabet is set to Western_European
+         */
+        STEP_DEPRECATED std::string toLatin1() const
+		{
+			return toISO_8859(Western_European);
+		}
+
+        /**
+         * String fromLatin1(const std::string &str) is deprecated
+         * use fromISO_8859 with alphabet set to Western_European
+         */
+        STEP_DEPRECATED static String fromLatin1(const std::string &str)
+		{
+			return fromISO_8859(str, Western_European);
+		}
     };
 
 }
@@ -148,7 +166,7 @@ STEP_EXPORT std::ostream& operator<<(std::ostream &out, const Step::String &s);
 /*!
  **  inputs an UTF8 (multi character) from an encoded std::string representation
  **  is equivalent to calling std:string str; in >> str; String s = String::fromUTF8(str);
- **  \sa toUTF8()
+ **  \sa fromUTF8()
  */
 STEP_EXPORT std::istream& operator>>(std::istream &in, Step::String &s);
 

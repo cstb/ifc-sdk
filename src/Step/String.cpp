@@ -446,8 +446,9 @@ static String parseHex2(std::string::size_type &i, std::string s)
         }
         else
         {
-            unsigned int code = fromHex(s[i]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3]);
-            result += code;
+            uint16_t code = (uint16_t) (fromHex(s[i    ]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) +
+				                        fromHex(s[i + 2]) * (1 <<  4) + fromHex(s[i + 3]));
+            result += (wchar_t) code;
         }
     }
 
@@ -467,9 +468,26 @@ static String parseHex4(std::string::size_type &i, std::string s)
         }
         else
         {
-            unsigned int code = (fromHex(s[i    ]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3])) * (1 << 16)
-                               + fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
-            result += code;
+            uint32_t code = (uint32_t) (fromHex(s[i    ]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3])) * (1 << 16)
+                                      + fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
+
+			if (sizeof(wchar_t) == 2 && code < 0x110000)
+			{
+				if (code < 0x10000)
+				{
+					result += (wchar_t) code;
+				}
+				else
+				{
+					// UTF-16 encoding
+					result += (wchar_t) (0xd800 | (( code & 0xFFC00 ) >> 11));
+					result += (wchar_t) (0xdc00 | (code & 0x3ff));
+				}
+			}
+			else 
+			{
+				result += (wchar_t) code;
+			}
         }
     }
 
@@ -523,8 +541,8 @@ static String parseString(const std::string& s)
             {
                 i += 3;
                 // handle Arbitrary hex character
-                char code = fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]);
-                result += code;
+                char code = (char) (fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]));
+                result += (wchar_t) code;
                 i += 2;
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '2' && s[i + 3] == BackSlash)
