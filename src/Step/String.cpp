@@ -697,9 +697,13 @@ std::string String::toSPF() const
 			}
 			else
 			{
-				for(int a = (str_alphabet == Western_European ? Central_European : Western_European); a <= Turkish; a++)
+				for(int a = Western_European; a <= Turkish; a++)
 				{
-					if(ISO_8859_char = ::toISO_8859((Alphabet)a, c))
+                    if(str_alphabet == (Alphabet) a)
+                        continue; // already tested above
+
+                    ISO_8859_char = ::toISO_8859((Alphabet)a, c);
+                    if(ISO_8859_char)
 					{
 						sizeOfChar = setSizeOfChar(result, sizeOfChar, 1);
 						result += "\\P";
