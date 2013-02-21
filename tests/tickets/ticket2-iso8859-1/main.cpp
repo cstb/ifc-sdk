@@ -4,6 +4,7 @@
 
 #include <sstream>
 
+/// /!\ WARNING this file relies on UTF-8 encoding for string comparison !!!
 
 void test_parseStrings()
 {
@@ -17,9 +18,9 @@ void test_parseStrings()
     };
 
     Step::String expected_result[NB_STRINGS]={
-        "Crépit",
-        "Brïque",
-        "Oôptimù"
+        "CrÃ©pit",
+        "BrÃ¯que",
+        "OÃ´ptimÃ¹"
     };
 
     std::string SPF_expected_result[NB_STRINGS]={
@@ -46,7 +47,6 @@ void test_parseStrings()
 
 int main (int n, char **p)
 {
-    Step::String::setDefaultAlphabet(Step::String::Western_European);
     test_parseStrings();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;

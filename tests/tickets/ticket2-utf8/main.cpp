@@ -150,8 +150,8 @@ void test_parseStrings()
         "'\\S\\Drger'",
         "'h\\S\\ttel'",
         "'\\PE\\\\S\\*\\S\\U\\S\\b'",
-        "'\\PE\\\\S\\*\\S\\U\\S\\b\\X2\\2018\\X0\\'",
-        "'\\X2\\03930395063A\\X0\\'",
+        "'\\PE\\\\S\\*\\S\\U\\S\\b\\PG\\\\S\\!'",
+        "'\\PG\\\\S\\C\\S\\E\\PF\\\\S\\Z'",
         "'\\X2\\600060A26DBB\\X0\\'",
         "'\\X4\\00020021000200460002020C\\X0\\'",
         "'Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\\X\\0A'",
@@ -159,7 +159,7 @@ void test_parseStrings()
         "'Rev\\S\\jt. murs ext.'",
         "'Murs neufs cl\\S\\ttures'",
         "'R\\S\\IUNION'",
-        "'ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE'"
+        "'ENDUIT DE LISSAGE & PRIMAIRE D\\PG\\\\S\\!ACCROCHAGE'"
     };
 
     for(int i=0;i<NB_STRINGS;++i) {
@@ -211,23 +211,11 @@ void test_toLatin1()
 {
 	Step::String uuid("33Ff7op$XFlubqbkQl5K$B");
 
-	std::string result = uuid.toLatin1();
+	std::string result = uuid.toUTF8();
 
 	std::cerr << "result=" << result << std::endl;
 
 	TEST_ASSERT(result == "33Ff7op$XFlubqbkQl5K$B");
-}
-
-void test_Alphabet()
-{
-	std::string spf("'\\X2\\0041007200630068006900760065\\X0\\'");
-	Step::String result = Step::String::fromSPF(spf);
-
-	TEST_ASSERT(result.getAlphabet() == Step::String::Unknown);
-
-	std::cerr << "result=" << result << std::endl;
-
-	TEST_ASSERT(result == "Archive");
 }
 
 
@@ -238,7 +226,6 @@ int main (int n, char **p)
     test_parseStrings();
     test_UpperAUmlaut();
 	test_toLatin1();
-	test_Alphabet();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
