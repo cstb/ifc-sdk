@@ -433,22 +433,59 @@ static char toHex(unsigned int i)
 	return i < _countof(HexToASCII) ? HexToASCII[i] : '0';
 }
 
+static wchar_t parseHex1(std::string::size_type &i, std::string s)
+{
+    int half_bytes_parsed = 0;
+    char code = 0;
+
+    for(; i < s.size(); i++)
+    {
+        const char c = s[i];
+
+        code <<= 4;
+        code |= fromHex(c);
+        half_bytes_parsed++;
+
+        if(half_bytes_parsed % (sizeof(code) * 2) == 0)
+            break;
+    }
+
+    return (wchar_t) code;
+}
+
 static String parseHex2(std::string::size_type &i, std::string s)
 {
     String result;
 
-    for (; i < s.size(); i += 4)
+    int half_bytes_parsed = 0;
+    uint16_t code = 0;
+
+    for(; i < s.size(); i++)
     {
-        if (s[i] == BackSlash && s[i + 1] == 'X' && s[i + 2] == '0' && s[i + 3] == BackSlash)
+        const char c = s[i];
+
+        if(c == BackSlash)
         {
-            i += 4;
-            return result;
+            if(++i < s.size() && s[i] == 'X')
+            if(++i < s.size() && s[i] == '0')
+            if(++i < s.size() && s[i] == BackSlash)
+            {
+				++i;
+            }
+
+            break;
         }
         else
         {
-            uint16_t code = (uint16_t) (fromHex(s[i    ]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) +
-				                        fromHex(s[i + 2]) * (1 <<  4) + fromHex(s[i + 3]));
-            result += (wchar_t) code;
+            code <<= 4;
+            code |= fromHex(c);
+            half_bytes_parsed++;
+        }
+
+        if(half_bytes_parsed % (sizeof(code) * 2) == 0)
+        {
+            result += code;
+            code = 0;
         }
     }
 
@@ -459,35 +496,52 @@ static String parseHex4(std::string::size_type &i, std::string s)
 {
     String result;
 
-    for (; i < s.size(); i += 8)
+    int half_bytes_parsed = 0;
+    uint32_t code = 0;
+
+    for(; i < s.size(); i++)
     {
-        if (s[i] == BackSlash && s[i + 1] == 'X' && s[i + 2] == '0' && s[i + 3] == BackSlash)
+        const char c = s[i];
+
+        if(c == BackSlash)
         {
-            i += 4;
-            return result;
+            if(++i < s.size() && s[i] == 'X')
+            if(++i < s.size() && s[i] == '0')
+            if(++i < s.size() && s[i] == BackSlash)
+            {
+				++i;
+            }
+
+            break;
         }
         else
         {
-            uint32_t code = (uint32_t) (fromHex(s[i    ]) * (1 << 12) + fromHex(s[i + 1]) * (1 << 8) + fromHex(s[i + 2]) * (1 << 4) + fromHex(s[i + 3])) * (1 << 16)
-                                      + fromHex(s[i + 4]) * (1 << 12) + fromHex(s[i + 5]) * (1 << 8) + fromHex(s[i + 6]) * (1 << 4) + fromHex(s[i + 7]);
+            code <<= 4;
+            code |= fromHex(c);
+            half_bytes_parsed++;
+        }
 
-			if (sizeof(wchar_t) == 2 && code < 0x110000)
-			{
-				if (code < 0x10000)
-				{
-					result += (wchar_t) code;
-				}
-				else
-				{
-					// UTF-16 encoding
-					result += (wchar_t) (0xd800 | (( code & 0xFFC00 ) >> 11));
-					result += (wchar_t) (0xdc00 | (code & 0x3ff));
-				}
-			}
-			else 
-			{
-				result += (wchar_t) code;
-			}
+        if(half_bytes_parsed % (sizeof(code) * 2) == 0)
+        {
+            if (sizeof(wchar_t) == 2 && code < 0x110000)
+            {
+                if (code < 0x10000)
+                {
+                    result += (wchar_t) code;
+                }
+                else
+                {
+                    // UTF-16 encoding
+                    result += (wchar_t) (0xd800 | (( code & 0xFFC00 ) >> 11));
+                    result += (wchar_t) (0xdc00 | (code & 0x3ff));
+                }
+            }
+            else 
+            {
+                result += (wchar_t) code;
+            }
+
+            code = 0;
         }
     }
 
@@ -540,21 +594,22 @@ static String parseString(const std::string& s)
             else if (s[i + 1] == 'X' && s[i + 2] == BackSlash)
             {
                 i += 3;
+
                 // handle Arbitrary hex character
-                char code = (char) (fromHex(s[i]) * (1 << 4) + fromHex(s[i + 1]));
-                result += (wchar_t) code;
-                i += 2;
+                result += parseHex1(i, s);
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '2' && s[i + 3] == BackSlash)
             {
-                // handle hex_two string
                 i += 4;
+
+                // handle hex_two string
                 result += parseHex2(i, s);
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '4' && s[i + 3] == BackSlash)
             {
-                // handle hex_two string
                 i += 4;
+
+                // handle hex_four string
                 result += parseHex4(i, s);
             }
 			else
