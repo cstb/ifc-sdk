@@ -150,8 +150,8 @@ void test_parseStrings()
         "'\\S\\Drger'",
         "'h\\S\\ttel'",
         "'\\PE\\\\S\\*\\S\\U\\S\\b'",
-        "'\\PE\\\\S\\*\\S\\U\\S\\b\\X2\\2018\\X0\\'",
-        "'\\X2\\03930395063A\\X0\\'",
+        "'\\PE\\\\S\\*\\S\\U\\S\\b\\PG\\\\S\\!'",
+        "'\\PG\\\\S\\C\\S\\E\\PF\\\\S\\Z'",
         "'\\X2\\600060A26DBB\\X0\\'",
         "'\\X4\\00020021000200460002020C\\X0\\'",
         "'Build Number of the Ifc 2x3 interface: 63089 (04-06-2008)\\X\\0A'",
@@ -159,7 +159,7 @@ void test_parseStrings()
         "'Rev\\S\\jt. murs ext.'",
         "'Murs neufs cl\\S\\ttures'",
         "'R\\S\\IUNION'",
-        "'ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE'"
+        "'ENDUIT DE LISSAGE & PRIMAIRE D\\PG\\\\S\\!ACCROCHAGE'"
     };
 
     for(int i=0;i<NB_STRINGS;++i) {
@@ -211,7 +211,7 @@ void test_toLatin1()
 {
 	Step::String uuid("33Ff7op$XFlubqbkQl5K$B");
 
-	std::string result = uuid.toLatin1();
+	std::string result = uuid.toUTF8();
 
 	std::cerr << "result=" << result << std::endl;
 
