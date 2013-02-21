@@ -529,14 +529,12 @@ static String parseString(const std::string& s)
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '2' && s[i + 3] == BackSlash)
             {
-                alphabet = String::Unknown;
                 // handle hex_two string
                 i += 4;
                 result += parseHex2(i, s);
             }
             else if (s[i + 1] == 'X' && s[i + 2] == '4' && s[i + 3] == BackSlash)
             {
-                alphabet = String::Unknown;
                 // handle hex_two string
                 i += 4;
                 result += parseHex4(i, s);
