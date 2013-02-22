@@ -401,7 +401,7 @@ String String::fromISO_8859(const std::string &str, Alphabet alphabet)
     return result;
 }
 
-static unsigned int fromHex(char c)
+static unsigned int fromHex(unsigned char c)
 {
     // ASCII to Hex Table
     static const unsigned char ASCIIToHex[] =
@@ -424,7 +424,7 @@ static unsigned int fromHex(char c)
         0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
     };
 
-    return ASCIIToHex[(unsigned char)c];
+    return ASCIIToHex[c];
 }
 
 static char toHex(unsigned int i)
@@ -436,19 +436,20 @@ static char toHex(unsigned int i)
 static wchar_t parseHex1(std::string::size_type &i, std::string s)
 {
     int half_bytes_parsed = 0;
-    char code = 0;
+    unsigned char code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         code <<= 4;
         code |= fromHex(c);
-        half_bytes_parsed++;
+        ++half_bytes_parsed;
 
         if(half_bytes_parsed % (sizeof(code) * 2) == 0)
             break;
     }
+    ++i;
 
     return (wchar_t) code;
 }
@@ -460,9 +461,9 @@ static String parseHex2(std::string::size_type &i, std::string s)
     int half_bytes_parsed = 0;
     uint16_t code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         if(c == BackSlash)
         {
@@ -471,7 +472,7 @@ static String parseHex2(std::string::size_type &i, std::string s)
             if(++i < s.size() && s[i] == BackSlash)
             {
 				++i;
-        }
+            }
 
             break;
         }
@@ -486,7 +487,7 @@ static String parseHex2(std::string::size_type &i, std::string s)
         {
             result += code;
             code = 0;
-    }
+        }
     }
 
     return result;
@@ -499,9 +500,9 @@ static String parseHex4(std::string::size_type &i, std::string s)
     int half_bytes_parsed = 0;
     uint32_t code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         if(c == BackSlash)
         {
@@ -510,7 +511,7 @@ static String parseHex4(std::string::size_type &i, std::string s)
             if(++i < s.size() && s[i] == BackSlash)
             {
 				++i;
-        }
+            }
 
             break;
         }

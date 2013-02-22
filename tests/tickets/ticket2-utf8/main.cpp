@@ -101,7 +101,7 @@ void test_parseStrings()
 {
     std::cerr << "test_parseStrings" << std::endl;
 
-    #define NB_STRINGS 17
+    #define NB_STRINGS 18
     std::string input[NB_STRINGS]={
         "'CAT'",
         "'Don''t'",
@@ -119,7 +119,8 @@ void test_parseStrings()
         "'Rev\\X\\EAt. murs ext.'",
         "'Murs neufs cl\\X\\F4tures'",
         "'R\\X\\C9UNION'",
-        "ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE"
+        "ENDUIT DE LISSAGE & PRIMAIRE D\\X2\\2018\\X0\\ACCROCHAGE",
+        "'\\S\\Drgerh\\S\\ttel\\PE\\\\S\\*\\S\\U\\S\\b\\PE\\\\S\\*\\S\\U\\S\\b\\X2\\2018\\X0\\\\X2\\03930395063A\\X0\\\\X2\\600060A26DBB\\X0\\\\X4\\00020021000200460002020C\\X0\\'"
     };
 
     Step::String expected_result[NB_STRINGS]={
@@ -139,7 +140,8 @@ void test_parseStrings()
         L"Rev\u00EAt. murs ext.",
         L"Murs neufs cl\u00F4tures",
         L"R\u00C9UNION",
-        L"ENDUIT DE LISSAGE & PRIMAIRE D\u2018ACCROCHAGE"
+        L"ENDUIT DE LISSAGE & PRIMAIRE D\u2018ACCROCHAGE",
+        L"\u00C4rgerh\u00F4tel\u040A\u0435\u0442\u040A\u0435\u0442\u2018\u0393\u0395\u063A\u6000\u60A2\u6DBB\U00020021\U00020046\U0002020C"
         };
 
     std::string SPF_expected_result[NB_STRINGS]={
@@ -159,7 +161,8 @@ void test_parseStrings()
         "'Rev\\S\\jt. murs ext.'",
         "'Murs neufs cl\\S\\ttures'",
         "'R\\S\\IUNION'",
-        "'ENDUIT DE LISSAGE & PRIMAIRE D\\PG\\\\S\\!ACCROCHAGE'"
+        "'ENDUIT DE LISSAGE & PRIMAIRE D\\PG\\\\S\\!ACCROCHAGE'",
+        "'\\S\\Drgerh\\S\\ttel\\PE\\\\S\\*\\S\\U\\S\\b\\S\\*\\S\\U\\S\\b\\PG\\\\S\\!\\S\\C\\S\\E\\PF\\\\S\\Z\\X2\\600060A26DBB\\X0\\\\X4\\00020021000200460002020C\\X0\\'"
     };
 
     for(int i=0;i<NB_STRINGS;++i) {
