@@ -80,8 +80,13 @@ const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() con
 
 void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
     if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
+    }
+	m_annotatedCurve = value;
+	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.insert(this);
     }
+
 }
 
 void IfcTerminatorSymbol::unsetAnnotatedCurve() {
