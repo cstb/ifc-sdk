@@ -132,7 +132,7 @@ namespace Step {
           * helper method to produce a SPF string representation of a binary
           * \return the string in SPF representation
           */
-        std::string &to_spfstring()
+        std::string &to_spfstring() const
         {
             int i, idx;
             char *t;
@@ -226,7 +226,7 @@ namespace Step {
          * unset status
          * \return the unset status
          */
-        bool is_unset()
+        bool is_unset() const
         {
             return m_unset;
         }
