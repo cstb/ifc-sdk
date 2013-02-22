@@ -592,10 +592,10 @@ CopyOp::CopyOp() {
 CopyOp::~CopyOp() {
 }
 
-void CopyOp::associate(const Step::BaseObject *original, Step::BaseObject *clone) const {
+void CopyOp::associate(const Step::BaseObject * /*original*/, Step::BaseObject * /*clone*/) const {
 }
 
-Step::BaseObject *CopyOp::find(const Step::BaseObject *original) const {
+Step::BaseObject *CopyOp::find(const Step::BaseObject * /*original*/) const {
     return 0;
 }
 
