@@ -64,7 +64,7 @@ bool IfcSpecularHighlightSelect::isOfType(const Step::ClassType &t) const {
     return IfcSpecularHighlightSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcSpecularHighlightSelect::copy(const IfcSpecularHighlightSelect &obj, const CopyOp &copyop) {
+void IfcSpecularHighlightSelect::copy(const IfcSpecularHighlightSelect &obj, const CopyOp &/*copyop*/) {
     switch(obj.m_type) {
     case IFCSPECULAREXPONENT:
         setIfcSpecularExponent(obj.m_IfcSpecularHighlightSelect_union.m_IfcSpecularExponent);
@@ -124,7 +124,7 @@ void IfcSpecularHighlightSelect::setIfcSpecularRoughness(IfcSpecularRoughness va
     m_type = IFCSPECULARROUGHNESS;
 }
 
-void IfcSpecularHighlightSelect::set(Step::BaseObject *v) {
+void IfcSpecularHighlightSelect::set(Step::BaseObject * /*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcSpecularHighlightSelect::s_type("IfcSpecularHighlightSelect");
