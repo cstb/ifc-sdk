@@ -17,6 +17,10 @@
 #ifndef Step_ClassType_h
 #define Step_ClassType_h
 
+#ifdef _MSC_VER
+# pragma warning(disable: 4251)
+#endif
+
 #include "StepExport.h"
 
 #include <map>
