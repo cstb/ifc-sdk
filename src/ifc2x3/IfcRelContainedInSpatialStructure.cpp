@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcRelContainedInSpatialStructure.h>
 
@@ -63,7 +61,6 @@ void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::insert(con
 }
 
 Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::size_type Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::erase(const Step::RefPtr< IfcProduct > &value) {
-    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     return Set_IfcProduct_1_n::erase(value);
 }
 
