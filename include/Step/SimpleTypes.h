@@ -31,9 +31,13 @@
 #include <set>
 #include <limits>
 #include <locale>
+#include <stdexcept>
+#include <cmath>
 
-#if defined (linux)
-#   include <stdexcept>
+#ifdef _MSC_VER
+#ifndef isnan
+#define isnan _isnan
+#endif
 #endif
 
 namespace Step {
@@ -117,9 +121,13 @@ namespace Step {
     };
 
     //! getUnset values the String type
-    inline String getUnset(const String&)
+    inline const String& getUnset(const String&)
     {
-        return "Unset";
+        // Unicode ZERO WIDTH SPACE character
+		static const wchar_t UnsetStr[] = { 0x200B, 0x0000 };
+        static const String Unset(UnsetStr);
+
+        return Unset;
     }
 
     //! getUnset values the const BaseObject type
@@ -135,21 +143,22 @@ namespace Step {
 
     //! getUnset values the RefPtr type
     template<typename T>
-    inline RefPtr<T> getUnset(RefPtr<T>&)
+    inline const RefPtr<T>& getUnset(RefPtr<T>&)
     {
-        return NULL;
+        static const RefPtr<T> Unset(NULL);
+        return Unset;
     }
 
     //! getUnset values the Integer type
     inline Integer getUnset(Integer)
     {
-        return std::numeric_limits<Integer>::max() - 13;
+        return std::numeric_limits<Integer>::min();
     }
 
     //! getUnset values the Real type
     inline Real getUnset(Real)
     {
-        return std::numeric_limits<Real>::max() - 13.0;
+		return std::numeric_limits<Real>::quiet_NaN();
     }
 
     //! getUnset values the Boolean type
@@ -166,9 +175,10 @@ namespace Step {
 
     //! getUnset values the Binary type
     template<int N>
-    inline Binary<N> getUnset(Binary<N> )
+    inline const Binary<N>& getUnset(Binary<N> )
     {
-        return Binary<N> ();
+        static const Binary<N> Unset;
+        return Unset;
     }
 
     //! isUnset method for the String type
@@ -198,7 +208,7 @@ namespace Step {
     //! isUnset method for the Real type
     inline bool isUnset(Real v)
     {
-        return v == getUnset(v);
+		return (isnan(v) != 0);
     }
 
     //! isUnset method for the Enumerated type
@@ -221,7 +231,7 @@ namespace Step {
 
     //! isUnset method for the Binary type
     template<int N>
-    inline bool isUnset(Binary<N> v)
+    inline bool isUnset(const Binary<N>& v)
     {
         return v.is_unset();
     }
