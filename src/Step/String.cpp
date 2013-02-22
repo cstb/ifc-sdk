@@ -123,7 +123,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value = str[i] & 0x1f;
             value *= 1 << 6;
             value += str[i + 1] & 0x3f;
-            result += value;
+            result += (wchar_t)value;
             ++i;
         }
         else if ((str[i] & 0xf0) == 0xe0)
@@ -133,7 +133,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value2 = str[i + 1] & 0x3f;
             value2 *= 1 << 6;
             value += value2 + (str[i + 2] & 0x3f);
-            result += value;
+            result += (wchar_t)value;
             i += 2;
         }
         else if ((str[i] & 0xf8) == 0xf0)
@@ -145,7 +145,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value3 = str[i + 2] & 0x3f;
             value2 *= 1 << 6;
             value += value2 + value3 + (str[i + 3] & 0x3f);
-            result += value;
+            result += (wchar_t)value;
             i += 3;
         }
         else
@@ -401,7 +401,7 @@ String String::fromISO_8859(const std::string &str, Alphabet alphabet)
 	return result;
 }
 
-static unsigned int fromHex(char c)
+static unsigned int fromHex(unsigned char c)
 {
 	// ASCII to Hex Table
 	static const unsigned char ASCIIToHex[] =
@@ -424,7 +424,7 @@ static unsigned int fromHex(char c)
 		0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 	};
 
-	return ASCIIToHex[(unsigned char)c];
+    return ASCIIToHex[c];
 }
 
 static char toHex(unsigned int i)
@@ -436,19 +436,20 @@ static char toHex(unsigned int i)
 static wchar_t parseHex1(std::string::size_type &i, std::string s)
 {
     int half_bytes_parsed = 0;
-    char code = 0;
+    unsigned char code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         code <<= 4;
         code |= fromHex(c);
-        half_bytes_parsed++;
+        ++half_bytes_parsed;
 
         if(half_bytes_parsed % (sizeof(code) * 2) == 0)
             break;
     }
+    ++i;
 
     return (wchar_t) code;
 }
@@ -460,9 +461,9 @@ static String parseHex2(std::string::size_type &i, std::string s)
     int half_bytes_parsed = 0;
     uint16_t code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         if(c == BackSlash)
         {
@@ -499,9 +500,9 @@ static String parseHex4(std::string::size_type &i, std::string s)
     int half_bytes_parsed = 0;
     uint32_t code = 0;
 
-    for(; i < s.size(); i++)
+    for(; i < s.size(); ++i)
     {
-        const char c = s[i];
+        const unsigned char c = s[i];
 
         if(c == BackSlash)
         {

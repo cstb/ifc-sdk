@@ -188,7 +188,7 @@ bool BaseSPFReader::read(std::istream& input)
     return true;
 }
 
-Step::Id readerSeek(const std::string& s, int pos)
+Step::Id readerSeek(const std::string& /*s*/, int /*pos*/)
 {
     return Step::Id_UNDEF;
 }

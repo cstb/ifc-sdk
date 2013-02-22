@@ -18,7 +18,6 @@
 #define Step_Referenced_h
 
 #include "StepExport.h"
-
 #include "ClassType.h"
 
 #include <vector>
