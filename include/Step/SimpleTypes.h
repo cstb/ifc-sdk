@@ -124,7 +124,7 @@ namespace Step {
     inline const String& getUnset(const String&)
     {
         // Unicode ZERO WIDTH SPACE character
-		static const wchar_t UnsetStr[] = { 0x200B, 0x0000 };
+        static const wchar_t UnsetStr[] = { 0x200B, 0x0000 };
         static const String Unset(UnsetStr);
 
         return Unset;
@@ -158,7 +158,7 @@ namespace Step {
     //! getUnset values the Real type
     inline Real getUnset(Real)
     {
-		return std::numeric_limits<Real>::quiet_NaN();
+        return std::numeric_limits<Real>::quiet_NaN();
     }
 
     //! getUnset values the Boolean type
@@ -208,7 +208,7 @@ namespace Step {
     //! isUnset method for the Real type
     inline bool isUnset(Real v)
     {
-		return (isnan(v) != 0);
+        return (isnan(v) != 0);
     }
 
     //! isUnset method for the Enumerated type
@@ -250,7 +250,7 @@ namespace Step {
     }
 
     template<class T>
-        T fromString(const std::string& s)
+    T fromString(const std::string& s)
     {
          std::istringstream stream (s);
          // Make sure not to be side tracked by user's locale
