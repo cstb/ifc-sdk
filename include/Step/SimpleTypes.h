@@ -124,7 +124,7 @@ namespace Step {
     inline const String& getUnset(const String&)
     {
         // Unicode ZERO WIDTH SPACE character
-		static const wchar_t UnsetStr[] = { 0x200B, 0x0000 };
+        static const wchar_t UnsetStr[] = { 0x200B, 0x0000 };
         static const String Unset(UnsetStr);
 
         return Unset;
