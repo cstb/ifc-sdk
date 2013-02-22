@@ -38,6 +38,8 @@
 #ifndef isnan
 #define isnan _isnan
 #endif
+#else
+#define isnan std::isnan
 #endif
 
 #ifdef min
