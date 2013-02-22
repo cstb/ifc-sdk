@@ -17,7 +17,7 @@ point leading to wrong string to real conversions.
 #define REAL_VALUE -0.000000000000009991
 #define REAL_STRING "-0.000000000000009991"
 
-int main (int n, char **p)
+int main (int /*n*/, char ** /*p*/)
 {
     std::string real_string(REAL_STRING);
 

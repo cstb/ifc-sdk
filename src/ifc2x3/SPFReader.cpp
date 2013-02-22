@@ -788,7 +788,7 @@ bool SPFReader::loadIFCRELASSIGNSTOCONTROL(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPARAMETERIZEDPROFILEDEF(bool isFirst) {
+bool SPFReader::loadIFCPARAMETERIZEDPROFILEDEF(bool /*isFirst*/) {
     if (!loadIFCPROFILEDEF(false)) {
         return false;
     }
@@ -930,7 +930,7 @@ bool SPFReader::loadIFCBEAMTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCBUILDINGELEMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCBUILDINGELEMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCELEMENTTYPE(false)) {
         return false;
     }
@@ -1257,7 +1257,7 @@ bool SPFReader::loadIFCOPTICALMATERIALPROPERTIES(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCONSTRAINT(bool isFirst) {
+bool SPFReader::loadIFCCONSTRAINT(bool /*isFirst*/) {
     return true;
 }
 
@@ -1330,7 +1330,7 @@ bool SPFReader::loadIFCOUTLETTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCTIMESERIES(bool isFirst) {
+bool SPFReader::loadIFCTIMESERIES(bool /*isFirst*/) {
     return true;
 }
 
@@ -1367,7 +1367,7 @@ bool SPFReader::loadIFCONEDIRECTIONREPEATFACTOR(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPRODUCT(bool isFirst) {
+bool SPFReader::loadIFCPRODUCT(bool /*isFirst*/) {
     Step::Id currentRef;
     if (!loadIFCOBJECT(false)) {
         return false;
@@ -1399,7 +1399,7 @@ bool SPFReader::loadIFCPRODUCT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCADDRESS(bool isFirst) {
+bool SPFReader::loadIFCADDRESS(bool /*isFirst*/) {
     return true;
 }
 
@@ -1437,7 +1437,7 @@ bool SPFReader::loadIFCSIUNIT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFEATUREELEMENTADDITION(bool isFirst) {
+bool SPFReader::loadIFCFEATUREELEMENTADDITION(bool /*isFirst*/) {
     if (!loadIFCFEATUREELEMENT(false)) {
         return false;
     }
@@ -1598,7 +1598,7 @@ bool SPFReader::loadIFCRELCOVERSBLDGELEMENTS(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCREINFORCINGELEMENT(bool isFirst) {
+bool SPFReader::loadIFCREINFORCINGELEMENT(bool /*isFirst*/) {
     if (!loadIFCBUILDINGELEMENTCOMPONENT(false)) {
         return false;
     }
@@ -1925,7 +1925,7 @@ bool SPFReader::loadIFCLIGHTSOURCEPOSITIONAL(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCRELATIONSHIP(bool isFirst) {
+bool SPFReader::loadIFCRELATIONSHIP(bool /*isFirst*/) {
     if (!loadIFCROOT(false)) {
         return false;
     }
@@ -2140,7 +2140,7 @@ bool SPFReader::loadIFCSURFACEOFREVOLUTION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSPATIALSTRUCTUREELEMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCSPATIALSTRUCTUREELEMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCELEMENTTYPE(false)) {
         return false;
     }
@@ -2202,7 +2202,7 @@ bool SPFReader::loadIFCASYMMETRICISHAPEPROFILEDEF(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCLIGHTSOURCE(bool isFirst) {
+bool SPFReader::loadIFCLIGHTSOURCE(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -2330,7 +2330,7 @@ bool SPFReader::loadIFCRELOCCUPIESSPACES(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCNAMEDUNIT(bool isFirst) {
+bool SPFReader::loadIFCNAMEDUNIT(bool /*isFirst*/) {
     return true;
 }
 
@@ -2412,7 +2412,7 @@ bool SPFReader::loadIFCTENDONANCHOR(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPREDEFINEDSYMBOL(bool isFirst) {
+bool SPFReader::loadIFCPREDEFINEDSYMBOL(bool /*isFirst*/) {
     if (!loadIFCPREDEFINEDITEM(false)) {
         return false;
     }
@@ -2441,7 +2441,7 @@ bool SPFReader::loadIFCCURVESTYLE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPRESENTATIONSTYLE(bool isFirst) {
+bool SPFReader::loadIFCPRESENTATIONSTYLE(bool /*isFirst*/) {
     return true;
 }
 
@@ -2621,7 +2621,7 @@ bool SPFReader::loadIFCTRANSPORTELEMENTTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCMANIFOLDSOLIDBREP(bool isFirst) {
+bool SPFReader::loadIFCMANIFOLDSOLIDBREP(bool /*isFirst*/) {
     if (!loadIFCSOLIDMODEL(false)) {
         return false;
     }
@@ -2650,11 +2650,11 @@ bool SPFReader::loadIFCQUANTITYCOUNT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCOBJECTPLACEMENT(bool isFirst) {
+bool SPFReader::loadIFCOBJECTPLACEMENT(bool /*isFirst*/) {
     return true;
 }
 
-bool SPFReader::loadIFCEXTERNALREFERENCE(bool isFirst) {
+bool SPFReader::loadIFCEXTERNALREFERENCE(bool /*isFirst*/) {
     return true;
 }
 
@@ -2821,7 +2821,7 @@ bool SPFReader::loadIFCCALENDARDATE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALLOAD(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALLOAD(bool /*isFirst*/) {
     return true;
 }
 
@@ -2847,7 +2847,7 @@ bool SPFReader::loadIFCTSHAPEPROFILEDEF(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFLOWTERMINALTYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWTERMINALTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
@@ -2884,7 +2884,7 @@ bool SPFReader::loadIFCRELASSOCIATESMATERIAL(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFEATUREELEMENT(bool isFirst) {
+bool SPFReader::loadIFCFEATUREELEMENT(bool /*isFirst*/) {
     if (!loadIFCELEMENT(false)) {
         return false;
     }
@@ -3011,7 +3011,7 @@ bool SPFReader::loadIFCTENDON(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALACTION(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALACTION(bool /*isFirst*/) {
     Step::Id currentRef;
     if (!loadIFCSTRUCTURALACTIVITY(false)) {
         return false;
@@ -3031,7 +3031,7 @@ bool SPFReader::loadIFCSTRUCTURALACTION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCRELDECOMPOSES(bool isFirst) {
+bool SPFReader::loadIFCRELDECOMPOSES(bool /*isFirst*/) {
     Step::Id currentRef;
     std::vector< Step::Id > currentRefList;
     if (!loadIFCRELATIONSHIP(false)) {
@@ -3110,7 +3110,7 @@ bool SPFReader::loadIFCDRAUGHTINGPREDEFINEDCOLOUR(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCOBJECTDEFINITION(bool isFirst) {
+bool SPFReader::loadIFCOBJECTDEFINITION(bool /*isFirst*/) {
     if (!loadIFCROOT(false)) {
         return false;
     }
@@ -3213,14 +3213,14 @@ bool SPFReader::loadIFCSPHERE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCELEMENT(bool isFirst) {
+bool SPFReader::loadIFCELEMENT(bool /*isFirst*/) {
     if (!loadIFCPRODUCT(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCSURFACETEXTURE(bool isFirst) {
+bool SPFReader::loadIFCSURFACETEXTURE(bool /*isFirst*/) {
     return true;
 }
 
@@ -3312,7 +3312,7 @@ bool SPFReader::loadIFCPROJECT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFLOWSTORAGEDEVICETYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWSTORAGEDEVICETYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
@@ -3508,7 +3508,7 @@ bool SPFReader::loadIFCCARTESIANTRANSFORMATIONOPERATOR3D(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCELEMENTCOMPONENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCELEMENTCOMPONENTTYPE(bool /*isFirst*/) {
     if (!loadIFCELEMENTTYPE(false)) {
         return false;
     }
@@ -3548,7 +3548,7 @@ bool SPFReader::loadIFCVERTEXLOOP(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCARTESIANTRANSFORMATIONOPERATOR(bool isFirst) {
+bool SPFReader::loadIFCCARTESIANTRANSFORMATIONOPERATOR(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -3577,7 +3577,7 @@ bool SPFReader::loadIFCRAILING(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPHYSICALSIMPLEQUANTITY(bool isFirst) {
+bool SPFReader::loadIFCPHYSICALSIMPLEQUANTITY(bool /*isFirst*/) {
     if (!loadIFCPHYSICALQUANTITY(false)) {
         return false;
     }
@@ -3603,7 +3603,7 @@ bool SPFReader::loadIFCDERIVEDUNIT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPROFILEPROPERTIES(bool isFirst) {
+bool SPFReader::loadIFCPROFILEPROPERTIES(bool /*isFirst*/) {
     return true;
 }
 
@@ -3664,7 +3664,7 @@ bool SPFReader::loadIFCFLOWTREATMENTDEVICE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCWORKCONTROL(bool isFirst) {
+bool SPFReader::loadIFCWORKCONTROL(bool /*isFirst*/) {
     if (!loadIFCCONTROL(false)) {
         return false;
     }
@@ -3726,14 +3726,14 @@ bool SPFReader::loadIFCEXTERNALLYDEFINEDHATCHSTYLE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPREDEFINEDTEXTFONT(bool isFirst) {
+bool SPFReader::loadIFCPREDEFINEDTEXTFONT(bool /*isFirst*/) {
     if (!loadIFCPREDEFINEDITEM(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCCURVE(bool isFirst) {
+bool SPFReader::loadIFCCURVE(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -3933,7 +3933,7 @@ bool SPFReader::loadIFCARBITRARYOPENPROFILEDEF(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCANNOTATIONOCCURRENCE(bool isFirst) {
+bool SPFReader::loadIFCANNOTATIONOCCURRENCE(bool /*isFirst*/) {
     if (!loadIFCSTYLEDITEM(false)) {
         return false;
     }
@@ -4025,7 +4025,7 @@ bool SPFReader::loadIFCCOVERING(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSWEPTSURFACE(bool isFirst) {
+bool SPFReader::loadIFCSWEPTSURFACE(bool /*isFirst*/) {
     if (!loadIFCSURFACE(false)) {
         return false;
     }
@@ -4076,7 +4076,7 @@ bool SPFReader::loadIFCCIRCLEPROFILEDEF(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCBSPLINECURVE(bool isFirst) {
+bool SPFReader::loadIFCBSPLINECURVE(bool /*isFirst*/) {
     if (!loadIFCBOUNDEDCURVE(false)) {
         return false;
     }
@@ -4091,7 +4091,7 @@ bool SPFReader::loadIFCSECTIONPROPERTIES(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPLACEMENT(bool isFirst) {
+bool SPFReader::loadIFCPLACEMENT(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -4106,7 +4106,7 @@ bool SPFReader::loadIFCREINFORCEMENTBARPROPERTIES(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCREPRESENTATIONITEM(bool isFirst) {
+bool SPFReader::loadIFCREPRESENTATIONITEM(bool /*isFirst*/) {
     return true;
 }
 
@@ -4236,7 +4236,7 @@ bool SPFReader::loadIFCBUILDINGELEMENTPROXYTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCDISTRIBUTIONFLOWELEMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCDISTRIBUTIONFLOWELEMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONELEMENTTYPE(false)) {
         return false;
     }
@@ -4426,7 +4426,7 @@ bool SPFReader::loadIFCAPPLIEDVALUERELATIONSHIP(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCONIC(bool isFirst) {
+bool SPFReader::loadIFCCONIC(bool /*isFirst*/) {
     if (!loadIFCCURVE(false)) {
         return false;
     }
@@ -4539,7 +4539,7 @@ bool SPFReader::loadIFCSTRUCTURALANALYSISMODEL(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCENERGYCONVERSIONDEVICETYPE(bool isFirst) {
+bool SPFReader::loadIFCENERGYCONVERSIONDEVICETYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
@@ -5018,7 +5018,7 @@ bool SPFReader::loadIFCEVAPORATORTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALACTIVITY(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALACTIVITY(bool /*isFirst*/) {
     if (!loadIFCPRODUCT(false)) {
         return false;
     }
@@ -5036,7 +5036,7 @@ bool SPFReader::loadIFCSTRUCTURALLOADTEMPERATURE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFEATUREELEMENTSUBTRACTION(bool isFirst) {
+bool SPFReader::loadIFCFEATUREELEMENTSUBTRACTION(bool /*isFirst*/) {
     if (!loadIFCFEATUREELEMENT(false)) {
         return false;
     }
@@ -5065,7 +5065,7 @@ bool SPFReader::loadIFCFURNISHINGELEMENTTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCGEOMETRICREPRESENTATIONITEM(bool isFirst) {
+bool SPFReader::loadIFCGEOMETRICREPRESENTATIONITEM(bool /*isFirst*/) {
     if (!loadIFCREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -5216,7 +5216,7 @@ bool SPFReader::loadIFCRELASSOCIATESPROFILEPROPERTIES(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCRELCONNECTS(bool isFirst) {
+bool SPFReader::loadIFCRELCONNECTS(bool /*isFirst*/) {
     if (!loadIFCRELATIONSHIP(false)) {
         return false;
     }
@@ -5242,7 +5242,7 @@ bool SPFReader::loadIFCCSHAPEPROFILEDEF(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFLOWCONTROLLERTYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWCONTROLLERTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
@@ -5514,14 +5514,14 @@ bool SPFReader::loadIFCWORKSCHEDULE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPROPERTYDEFINITION(bool isFirst) {
+bool SPFReader::loadIFCPROPERTYDEFINITION(bool /*isFirst*/) {
     if (!loadIFCROOT(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALITEM(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALITEM(bool /*isFirst*/) {
     if (!loadIFCPRODUCT(false)) {
         return false;
     }
@@ -5572,7 +5572,7 @@ bool SPFReader::loadIFCELECTRICAPPLIANCETYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSWEPTAREASOLID(bool isFirst) {
+bool SPFReader::loadIFCSWEPTAREASOLID(bool /*isFirst*/) {
     if (!loadIFCSOLIDMODEL(false)) {
         return false;
     }
@@ -5601,7 +5601,7 @@ bool SPFReader::loadIFCQUANTITYVOLUME(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCRESOURCE(bool isFirst) {
+bool SPFReader::loadIFCRESOURCE(bool /*isFirst*/) {
     if (!loadIFCOBJECT(false)) {
         return false;
     }
@@ -5663,7 +5663,7 @@ bool SPFReader::loadIFCPERSONANDORGANIZATION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALMEMBER(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALMEMBER(bool /*isFirst*/) {
     if (!loadIFCSTRUCTURALITEM(false)) {
         return false;
     }
@@ -5681,14 +5681,14 @@ bool SPFReader::loadIFCCONNECTIONSURFACEGEOMETRY(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTYLEMODEL(bool isFirst) {
+bool SPFReader::loadIFCSTYLEMODEL(bool /*isFirst*/) {
     if (!loadIFCREPRESENTATION(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCFLOWMOVINGDEVICETYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWMOVINGDEVICETYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
@@ -5728,7 +5728,7 @@ bool SPFReader::loadIFCBOUNDARYNODECONDITIONWARPING(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALCONNECTIONCONDITION(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALCONNECTIONCONDITION(bool /*isFirst*/) {
     return true;
 }
 
@@ -5766,14 +5766,14 @@ bool SPFReader::loadIFCSTYLEDREPRESENTATION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCONTROL(bool isFirst) {
+bool SPFReader::loadIFCCONTROL(bool /*isFirst*/) {
     if (!loadIFCOBJECT(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCPREDEFINEDITEM(bool isFirst) {
+bool SPFReader::loadIFCPREDEFINEDITEM(bool /*isFirst*/) {
     return true;
 }
 
@@ -5992,14 +5992,14 @@ bool SPFReader::loadIFCPLATETYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPORT(bool isFirst) {
+bool SPFReader::loadIFCPORT(bool /*isFirst*/) {
     if (!loadIFCPRODUCT(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCOBJECT(bool isFirst) {
+bool SPFReader::loadIFCOBJECT(bool /*isFirst*/) {
     if (!loadIFCOBJECTDEFINITION(false)) {
         return false;
     }
@@ -6041,7 +6041,7 @@ bool SPFReader::loadIFCANNOTATIONSURFACE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCBUILDINGELEMENTCOMPONENT(bool isFirst) {
+bool SPFReader::loadIFCBUILDINGELEMENTCOMPONENT(bool /*isFirst*/) {
     if (!loadIFCBUILDINGELEMENT(false)) {
         return false;
     }
@@ -6100,7 +6100,7 @@ bool SPFReader::loadIFCDERIVEDUNITELEMENT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALCONNECTION(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALCONNECTION(bool /*isFirst*/) {
     if (!loadIFCSTRUCTURALITEM(false)) {
         return false;
     }
@@ -6151,7 +6151,7 @@ bool SPFReader::loadIFCELECTRICALCIRCUIT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCELEMENTCOMPONENT(bool isFirst) {
+bool SPFReader::loadIFCELEMENTCOMPONENT(bool /*isFirst*/) {
     if (!loadIFCELEMENT(false)) {
         return false;
     }
@@ -6169,7 +6169,7 @@ bool SPFReader::loadIFCANNOTATIONTEXTOCCURRENCE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALREACTION(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALREACTION(bool /*isFirst*/) {
     if (!loadIFCSTRUCTURALACTIVITY(false)) {
         return false;
     }
@@ -6303,7 +6303,7 @@ bool SPFReader::loadIFCREVOLVEDAREASOLID(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPROPERTY(bool isFirst) {
+bool SPFReader::loadIFCPROPERTY(bool /*isFirst*/) {
     return true;
 }
 
@@ -6410,7 +6410,7 @@ bool SPFReader::loadIFCDIMENSIONCURVETERMINATOR(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCROOT(bool isFirst) {
+bool SPFReader::loadIFCROOT(bool /*isFirst*/) {
     return true;
 }
 
@@ -6517,14 +6517,14 @@ bool SPFReader::loadIFCSTACKTERMINALTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPOINT(bool isFirst) {
+bool SPFReader::loadIFCPOINT(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCPREDEFINEDCOLOUR(bool isFirst) {
+bool SPFReader::loadIFCPREDEFINEDCOLOUR(bool /*isFirst*/) {
     if (!loadIFCPREDEFINEDITEM(false)) {
         return false;
     }
@@ -6600,7 +6600,7 @@ bool SPFReader::loadIFCFOOTING(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSPATIALSTRUCTUREELEMENT(bool isFirst) {
+bool SPFReader::loadIFCSPATIALSTRUCTUREELEMENT(bool /*isFirst*/) {
     if (!loadIFCPRODUCT(false)) {
         return false;
     }
@@ -6880,7 +6880,7 @@ bool SPFReader::loadIFCDOCUMENTELECTRONICFORMAT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSIMPLEPROPERTY(bool isFirst) {
+bool SPFReader::loadIFCSIMPLEPROPERTY(bool /*isFirst*/) {
     if (!loadIFCPROPERTY(false)) {
         return false;
     }
@@ -6944,7 +6944,7 @@ bool SPFReader::loadIFCSTRUCTURALPLANARACTION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCOLOURSPECIFICATION(bool isFirst) {
+bool SPFReader::loadIFCCOLOURSPECIFICATION(bool /*isFirst*/) {
     return true;
 }
 
@@ -7055,7 +7055,7 @@ bool SPFReader::loadIFCPLATE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCEDGEFEATURE(bool isFirst) {
+bool SPFReader::loadIFCEDGEFEATURE(bool /*isFirst*/) {
     if (!loadIFCFEATUREELEMENTSUBTRACTION(false)) {
         return false;
     }
@@ -7141,7 +7141,7 @@ bool SPFReader::loadIFCELECTRICDISTRIBUTIONPOINT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCTOPOLOGICALREPRESENTATIONITEM(bool isFirst) {
+bool SPFReader::loadIFCTOPOLOGICALREPRESENTATIONITEM(bool /*isFirst*/) {
     if (!loadIFCREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -7170,14 +7170,14 @@ bool SPFReader::loadIFCAXIS2PLACEMENT3D(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSURFACE(bool isFirst) {
+bool SPFReader::loadIFCSURFACE(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCPROPERTYSETDEFINITION(bool isFirst) {
+bool SPFReader::loadIFCPROPERTYSETDEFINITION(bool /*isFirst*/) {
     if (!loadIFCPROPERTYDEFINITION(false)) {
         return false;
     }
@@ -7214,7 +7214,7 @@ bool SPFReader::loadIFCSTRUCTURALSURFACEMEMBER(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCMATERIALPROPERTIES(bool isFirst) {
+bool SPFReader::loadIFCMATERIALPROPERTIES(bool /*isFirst*/) {
     return true;
 }
 
@@ -7306,32 +7306,32 @@ bool SPFReader::loadIFCPLANAREXTENT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCONSTRUCTIONRESOURCE(bool isFirst) {
+bool SPFReader::loadIFCCONSTRUCTIONRESOURCE(bool /*isFirst*/) {
     if (!loadIFCRESOURCE(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCSHAPEMODEL(bool isFirst) {
+bool SPFReader::loadIFCSHAPEMODEL(bool /*isFirst*/) {
     if (!loadIFCREPRESENTATION(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCFLOWFITTINGTYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWFITTINGTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCPHYSICALQUANTITY(bool isFirst) {
+bool SPFReader::loadIFCPHYSICALQUANTITY(bool /*isFirst*/) {
     return true;
 }
 
-bool SPFReader::loadIFCBOUNDEDCURVE(bool isFirst) {
+bool SPFReader::loadIFCBOUNDEDCURVE(bool /*isFirst*/) {
     if (!loadIFCCURVE(false)) {
         return false;
     }
@@ -7393,14 +7393,14 @@ bool SPFReader::loadIFCVIRTUALELEMENT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCELEMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCELEMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCTYPEPRODUCT(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCTEXTURECOORDINATE(bool isFirst) {
+bool SPFReader::loadIFCTEXTURECOORDINATE(bool /*isFirst*/) {
     return true;
 }
 
@@ -7564,7 +7564,7 @@ bool SPFReader::loadIFCSHAPEASPECT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCRELDEFINES(bool isFirst) {
+bool SPFReader::loadIFCRELDEFINES(bool /*isFirst*/) {
     std::vector< Step::Id > currentRefList;
     if (!loadIFCRELATIONSHIP(false)) {
         return false;
@@ -7684,18 +7684,18 @@ bool SPFReader::loadIFCSTRUCTURALPOINTCONNECTION(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCAPPLIEDVALUE(bool isFirst) {
+bool SPFReader::loadIFCAPPLIEDVALUE(bool /*isFirst*/) {
     return true;
 }
 
-bool SPFReader::loadIFCFLOWSEGMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWSEGMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCRELASSIGNS(bool isFirst) {
+bool SPFReader::loadIFCRELASSIGNS(bool /*isFirst*/) {
     std::vector< Step::Id > currentRefList;
     if (!loadIFCRELATIONSHIP(false)) {
         return false;
@@ -7717,7 +7717,7 @@ bool SPFReader::loadIFCRELASSIGNS(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPROCESS(bool isFirst) {
+bool SPFReader::loadIFCPROCESS(bool /*isFirst*/) {
     if (!loadIFCOBJECT(false)) {
         return false;
     }
@@ -7782,7 +7782,7 @@ bool SPFReader::loadIFCTEXTLITERALWITHEXTENT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCBUILDINGELEMENT(bool isFirst) {
+bool SPFReader::loadIFCBUILDINGELEMENT(bool /*isFirst*/) {
     if (!loadIFCELEMENT(false)) {
         return false;
     }
@@ -7908,7 +7908,7 @@ bool SPFReader::loadIFCCOLOURRGB(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCPROFILEDEF(bool isFirst) {
+bool SPFReader::loadIFCPROFILEDEF(bool /*isFirst*/) {
     return true;
 }
 
@@ -8060,7 +8060,7 @@ bool SPFReader::loadIFCSENSORTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCDISTRIBUTIONCONTROLELEMENTTYPE(bool isFirst) {
+bool SPFReader::loadIFCDISTRIBUTIONCONTROLELEMENTTYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONELEMENTTYPE(false)) {
         return false;
     }
@@ -8199,21 +8199,21 @@ bool SPFReader::loadIFCSLABTYPE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCCSGPRIMITIVE3D(bool isFirst) {
+bool SPFReader::loadIFCCSGPRIMITIVE3D(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCPREDEFINEDCURVEFONT(bool isFirst) {
+bool SPFReader::loadIFCPREDEFINEDCURVEFONT(bool /*isFirst*/) {
     if (!loadIFCPREDEFINEDITEM(false)) {
         return false;
     }
     return true;
 }
 
-bool SPFReader::loadIFCCONNECTIONGEOMETRY(bool isFirst) {
+bool SPFReader::loadIFCCONNECTIONGEOMETRY(bool /*isFirst*/) {
     return true;
 }
 
@@ -8380,7 +8380,7 @@ bool SPFReader::loadIFCWALLSTANDARDCASE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSOLIDMODEL(bool isFirst) {
+bool SPFReader::loadIFCSOLIDMODEL(bool /*isFirst*/) {
     if (!loadIFCGEOMETRICREPRESENTATIONITEM(false)) {
         return false;
     }
@@ -8552,11 +8552,11 @@ bool SPFReader::loadIFCRAMP(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCBOUNDARYCONDITION(bool isFirst) {
+bool SPFReader::loadIFCBOUNDARYCONDITION(bool /*isFirst*/) {
     return true;
 }
 
-bool SPFReader::loadIFCELEMENTARYSURFACE(bool isFirst) {
+bool SPFReader::loadIFCELEMENTARYSURFACE(bool /*isFirst*/) {
     if (!loadIFCSURFACE(false)) {
         return false;
     }
@@ -8728,7 +8728,7 @@ bool SPFReader::loadIFCRELVOIDSELEMENT(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCSTRUCTURALLOADSTATIC(bool isFirst) {
+bool SPFReader::loadIFCSTRUCTURALLOADSTATIC(bool /*isFirst*/) {
     if (!loadIFCSTRUCTURALLOAD(false)) {
         return false;
     }
@@ -8746,7 +8746,7 @@ bool SPFReader::loadIFCPOLYLINE(bool isFirst) {
     return true;
 }
 
-bool SPFReader::loadIFCFLOWTREATMENTDEVICETYPE(bool isFirst) {
+bool SPFReader::loadIFCFLOWTREATMENTDEVICETYPE(bool /*isFirst*/) {
     if (!loadIFCDISTRIBUTIONFLOWELEMENTTYPE(false)) {
         return false;
     }

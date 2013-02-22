@@ -222,7 +222,7 @@ void test_toLatin1()
 }
 
 
-int main (int n, char **p)
+int main (int , char **)
 {
     test_getLine();
     test_removeQuotes();

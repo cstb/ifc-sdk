@@ -55,7 +55,6 @@ void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::insert(co
 }
 
 Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::size_type Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::erase(const Step::RefPtr< IfcProduct > &value) {
-    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     return Set_IfcProduct_1_n::erase(value);
 }
 

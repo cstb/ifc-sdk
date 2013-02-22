@@ -123,7 +123,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value = str[i] & 0x1f;
             value *= 1 << 6;
             value += str[i + 1] & 0x3f;
-            result += value;
+            result += (wchar_t)value;
             ++i;
         }
         else if ((str[i] & 0xf0) == 0xe0)
@@ -133,7 +133,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value2 = str[i + 1] & 0x3f;
             value2 *= 1 << 6;
             value += value2 + (str[i + 2] & 0x3f);
-            result += value;
+            result += (wchar_t)value;
             i += 2;
         }
         else if ((str[i] & 0xf8) == 0xf0)
@@ -145,7 +145,7 @@ String String::fromUTF8(const std::string &str)
             unsigned int value3 = str[i + 2] & 0x3f;
             value2 *= 1 << 6;
             value += value2 + value3 + (str[i + 3] & 0x3f);
-            result += value;
+            result += (wchar_t)value;
             i += 3;
         }
         else

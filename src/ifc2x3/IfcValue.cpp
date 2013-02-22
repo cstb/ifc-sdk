@@ -64,7 +64,7 @@ bool IfcValue::isOfType(const Step::ClassType &t) const {
     return IfcValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcValue::copy(const IfcValue &obj, const CopyOp &copyop) {
+void IfcValue::copy(const IfcValue &obj, const CopyOp &/*copyop*/) {
     Step::Array< Step::Real, 1, 2 >::const_iterator it_IfcComplexNumber;
     Step::Array< Step::Real, 1, 2 >::iterator it_current_IfcComplexNumber;
     Step::List< Step::Integer, 3, 4 >::const_iterator it_IfcCompoundPlaneAngleMeasure;
@@ -2053,7 +2053,7 @@ void IfcValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMeasure value) {
     m_type = IFCIONCONCENTRATIONMEASURE;
 }
 
-void IfcValue::set(Step::BaseObject *v) {
+void IfcValue::set(Step::BaseObject * /*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcValue::s_type("IfcValue");

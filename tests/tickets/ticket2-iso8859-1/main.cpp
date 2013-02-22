@@ -45,7 +45,7 @@ void test_parseStrings()
     }
 }
 
-int main (int n, char **p)
+int main (int , char **)
 {
     test_parseStrings();
 
