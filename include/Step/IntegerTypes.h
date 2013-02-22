@@ -1,10 +1,13 @@
 // stdint.h workaround for Microsoft Compiler prior to 16.00
 //
-#if _MSC_VER && (_CPPLIB_VER < 520)
+#if _MSC_VER 
+
+#include <yvals.h>
+
+#if (_CPPLIB_VER < 520)
 #ifndef _STDINT
 #define _STDINT
 
-#include <yvals.h>
 #include <vadefs.h>
 
 typedef   signed char         int8_t;
@@ -44,7 +47,9 @@ typedef _ULonglong            uint64_t;
 #endif
 
 #endif // _STDINT
-
+#else
+#include <stdint.h>
+#endif
 #else
 #include <stdint.h>
 #endif

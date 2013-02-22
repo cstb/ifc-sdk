@@ -38,6 +38,16 @@
 #ifndef isnan
 #define isnan _isnan
 #endif
+#else
+#define isnan std::isnan
+#endif
+
+#ifdef min
+#undef min
+#endif
+
+#ifdef max
+#undef max
 #endif
 
 namespace Step {
