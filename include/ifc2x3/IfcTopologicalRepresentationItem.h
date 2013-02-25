@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCTOPOLOGICALREPRESENTATIONITEM_H
 #define IFC2X3_IFCTOPOLOGICALREPRESENTATIONITEM_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcRepresentationItem.h"
+#include <ifc2x3/IfcRepresentationItem.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

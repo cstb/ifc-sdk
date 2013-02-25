@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_SPFWRITER_H
 #define IFC2X3_SPFWRITER_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "InheritVisitor.h"
+#include <ifc2x3/InheritVisitor.h>
 #include <Step/BaseSPFWriter.h>
 #include <string>
 

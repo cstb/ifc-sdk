@@ -19,7 +19,7 @@
 
 // Using log4cplus
 #ifdef USE_LOG4CPLUS
-#include "StepExport.h"
+#include <Step/Export.h>
 #include <log4cplus/logger.h>
 namespace Step {
     STEP_EXPORT extern log4cplus::Logger logger;

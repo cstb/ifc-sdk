@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCLINE_H
 #define IFC2X3_IFCLINE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcCurve.h"
+#include <ifc2x3/IfcCurve.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSPACETYPE_H
 #define IFC2X3_IFCSPACETYPE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcSpatialStructureElementType.h"
+#include <ifc2x3/IfcSpatialStructureElementType.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

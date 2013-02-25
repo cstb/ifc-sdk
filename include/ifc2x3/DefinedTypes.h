@@ -18,7 +18,7 @@
 #define IFC2X3_DEFINEDTYPES_H
 #include <Step/Aggregation.h>
 #include <Step/SimpleTypes.h>
-#include "fwDecl.h"
+#include <ifc2x3/fwDecl.h>
 
 namespace ifc2x3 {
 

@@ -17,9 +17,9 @@
 #ifndef Step_SPFHeader_h
 #define Step_SPFHeader_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "SimpleTypes.h"
+#include <Step/SimpleTypes.h>
 
 #include <istream>
 #include <vector>

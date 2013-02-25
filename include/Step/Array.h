@@ -17,7 +17,7 @@
 #ifndef Step_Array_h
 #define Step_Array_h
 
-#include "SimpleTypes.h"
+#include <Step/SimpleTypes.h>
 
 #include <vector>
 #include <stdexcept>

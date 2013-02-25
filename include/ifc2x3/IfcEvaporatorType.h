@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCEVAPORATORTYPE_H
 #define IFC2X3_IFCEVAPORATORTYPE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcEnergyConversionDeviceType.h"
+#include <ifc2x3/IfcEnergyConversionDeviceType.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

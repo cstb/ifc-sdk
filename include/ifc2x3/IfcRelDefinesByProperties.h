@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELDEFINESBYPROPERTIES_H
 #define IFC2X3_IFCRELDEFINESBYPROPERTIES_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcRelDefines.h"
+#include <ifc2x3/IfcRelDefines.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

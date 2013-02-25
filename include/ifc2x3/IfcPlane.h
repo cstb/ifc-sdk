@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPLANE_H
 #define IFC2X3_IFCPLANE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcElementarySurface.h"
+#include <ifc2x3/IfcElementarySurface.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

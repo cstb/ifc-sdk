@@ -17,7 +17,7 @@
 #ifndef Step_Bag_h
 #define Step_Bag_h
 
-#include "SimpleTypes.h"
+#include <Step/SimpleTypes.h>
 
 #include <set>
 #include <stdexcept>

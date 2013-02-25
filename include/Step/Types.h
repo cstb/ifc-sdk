@@ -17,8 +17,8 @@
 #ifndef Step_Types_h
 #define Step_Types_h
 
-#include "IntegerTypes.h"
-#include "Referenced.h"
+#include <Step/IntegerTypes.h>
+#include <Step/Referenced.h>
 
 #include <map>
 #include <limits>

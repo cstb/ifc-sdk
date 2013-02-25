@@ -16,9 +16,9 @@
 
 #ifndef IFC2X3_IFCPHYSICALCOMPLEXQUANTITY_H
 #define IFC2X3_IFCPHYSICALCOMPLEXQUANTITY_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
-#include "IfcPhysicalQuantity.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
+#include <ifc2x3/IfcPhysicalQuantity.h>
 
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>

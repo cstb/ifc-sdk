@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCFILTERTYPE_H
 #define IFC2X3_IFCFILTERTYPE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcFlowTreatmentDeviceType.h"
+#include <ifc2x3/IfcFlowTreatmentDeviceType.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

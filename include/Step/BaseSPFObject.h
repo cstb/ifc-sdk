@@ -17,9 +17,9 @@
 #ifndef Step_BaseSPFObject_h
 #define Step_BaseSPFObject_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "BaseEntity.h"
+#include <Step/BaseEntity.h>
 
 namespace Step {
     class SPFData;

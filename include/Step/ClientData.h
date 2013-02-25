@@ -17,9 +17,9 @@
 #ifndef Step_ClientData_h
 #define Step_ClientData_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
+#include <Step/Types.h>
 
 #include <string>
 #include <map>

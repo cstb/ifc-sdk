@@ -17,8 +17,8 @@
 #ifndef Step_RefLinkedList_h
 #define Step_RefLinkedList_h
 
-#include "Types.h"
-#include "BaseSPFObject.h"
+#include <Step/Types.h>
+#include <Step/BaseSPFObject.h>
 
 #include <iterator>
 #include <map>

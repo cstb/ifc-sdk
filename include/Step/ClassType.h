@@ -21,7 +21,7 @@
 # pragma warning(disable: 4251)
 #endif
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
 #include <map>
 #include <string>

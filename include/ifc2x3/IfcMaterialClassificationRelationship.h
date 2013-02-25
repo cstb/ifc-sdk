@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCMATERIALCLASSIFICATIONRELATIONSHIP_H
 #define IFC2X3_IFCMATERIALCLASSIFICATIONRELATIONSHIP_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
 #include <Step/BaseEntity.h>
 #include <Step/BaseVisitor.h>

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCBOOLEANCLIPPINGRESULT_H
 #define IFC2X3_IFCBOOLEANCLIPPINGRESULT_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcBooleanResult.h"
+#include <ifc2x3/IfcBooleanResult.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

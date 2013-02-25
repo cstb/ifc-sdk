@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCPROPERTYDEFINITION_H
 #define IFC2X3_IFCPROPERTYDEFINITION_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcRoot.h"
+#include <ifc2x3/IfcRoot.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

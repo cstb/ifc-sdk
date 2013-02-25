@@ -17,7 +17,7 @@
 #ifndef Step_CallBack_h
 #define Step_CallBack_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
 namespace Step {
 
