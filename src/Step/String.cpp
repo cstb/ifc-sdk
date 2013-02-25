@@ -716,7 +716,7 @@ std::string String::toSPF() const
                 }
             }
 
-            if(ISO_8859_char)
+            if(ISO_8859_char && (ISO_8859_char != 0x7F))
             {
                 // ISO_8859_XX characters
                 result += "\\S\\";

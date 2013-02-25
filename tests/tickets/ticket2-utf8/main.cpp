@@ -210,6 +210,31 @@ void test_UpperAUmlaut()
 
 }
 
+void test_LATINSMALLLETTERYWITHDIAERESIS()
+{
+    /* ÿ */
+    Step::String a(L"ÿ");
+    std::cerr << "a="<< a << std::endl;
+
+    /* character code xFF as 8-bit character code found in ISO 10646 (first 255
+     * characters - also referred to as "row 0") */
+    Step::String b = Step::String::fromSPF("'\\X\\FF'");
+    std::cerr << "b="<< b << std::endl;
+
+    /* character code xFF as 16-bit character x00FF in ISO 10646 (Unicode) */
+    Step::String c = Step::String::fromSPF("'\\X2\\00FF\\X0\\'");
+    std::cerr << "c="<< c << std::endl;
+
+    TEST_ASSERT(a==b);
+    TEST_ASSERT(b==c);
+
+    std::cerr << "c.toSPF()="<< c.toSPF() << std::endl;
+
+    TEST_ASSERT( c.toSPF() == "'\\X\\FF'");
+
+}
+
+
 void test_toLatin1()
 {
 	Step::String uuid("33Ff7op$XFlubqbkQl5K$B");
@@ -229,6 +254,7 @@ int main (int , char **)
     test_parseStrings();
     test_UpperAUmlaut();
 	test_toLatin1();
+    test_LATINSMALLLETTERYWITHDIAERESIS();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
