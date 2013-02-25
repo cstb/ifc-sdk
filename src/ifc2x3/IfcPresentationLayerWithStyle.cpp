@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcPresentationLayerWithStyle.h>
 
@@ -222,7 +220,7 @@ bool IfcPresentationLayerWithStyle::init() {
                         type2 = str1.substr(0, i2);
                         str1 = str1.substr(i2 + 1, str1.length() - i2 - 2);
                         if (type2 == "IFCNULLSTYLE") {
-                            IfcNullStyle tmp_attr2;
+                            IfcNullStyle tmp_attr2 = IfcNullStyle_UNSET;
                             if (str1 == ".NULL.") {
                                 tmp_attr2 = IfcNullStyle_NULL;
                             }

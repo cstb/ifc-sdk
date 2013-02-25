@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcMeasureValue.h>
 
@@ -64,7 +62,7 @@ bool IfcMeasureValue::isOfType(const Step::ClassType &t) const {
     return IfcMeasureValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcMeasureValue::copy(const IfcMeasureValue &obj, const CopyOp &copyop) {
+void IfcMeasureValue::copy(const IfcMeasureValue &obj, const CopyOp &/*copyop*/) {
     Step::Array< Step::Real, 1, 2 >::const_iterator it_IfcComplexNumber;
     Step::Array< Step::Real, 1, 2 >::iterator it_current_IfcComplexNumber;
     switch(obj.m_type) {
@@ -537,7 +535,7 @@ void IfcMeasureValue::setIfcComplexNumber(const IfcComplexNumber &value) {
     m_type = IFCCOMPLEXNUMBER;
 }
 
-void IfcMeasureValue::set(Step::BaseObject *v) {
+void IfcMeasureValue::set(Step::BaseObject */*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcMeasureValue::s_type("IfcMeasureValue");
