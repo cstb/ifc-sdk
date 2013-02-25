@@ -1,6 +1,6 @@
 // stdint.h workaround for Microsoft Compiler prior to 16.00
 //
-#if _MSC_VER 
+#if _MSC_VER
 
 #include <yvals.h>
 
