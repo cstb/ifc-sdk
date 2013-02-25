@@ -88,6 +88,9 @@ void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCur
 }
 
 void IfcTerminatorSymbol::unsetAnnotatedCurve() {
+    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
+    }
     m_annotatedCurve = Step::getUnset(getAnnotatedCurve());
 }
 
