@@ -17,7 +17,7 @@
 #ifndef Step_BaseEntity_h
 #define Step_BaseEntity_h
 
-#include "BaseObject.h"
+#include <Step/BaseObject.h>
 
 namespace Step {
 

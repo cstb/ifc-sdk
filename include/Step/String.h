@@ -17,7 +17,7 @@
 #ifndef Step_String_h
 #define Step_String_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
 #ifdef _MSC_VER
 # pragma warning(disable: 4251)

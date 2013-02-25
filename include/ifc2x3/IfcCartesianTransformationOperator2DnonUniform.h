@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCARTESIANTRANSFORMATIONOPERATOR2DNONUNIFORM_H
 #define IFC2X3_IFCCARTESIANTRANSFORMATIONOPERATOR2DNONUNIFORM_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcCartesianTransformationOperator2D.h"
+#include <ifc2x3/IfcCartesianTransformationOperator2D.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

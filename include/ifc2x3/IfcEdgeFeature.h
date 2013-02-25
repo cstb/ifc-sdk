@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCEDGEFEATURE_H
 #define IFC2X3_IFCEDGEFEATURE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcFeatureElementSubtraction.h"
+#include <ifc2x3/IfcFeatureElementSubtraction.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

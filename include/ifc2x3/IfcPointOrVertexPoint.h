@@ -16,8 +16,8 @@
 
 #ifndef IFC2X3_IFCPOINTORVERTEXPOINT_H
 #define IFC2X3_IFCPOINTORVERTEXPOINT_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
 #include <Step/BaseObject.h>
 #include <Step/BaseVisitor.h>

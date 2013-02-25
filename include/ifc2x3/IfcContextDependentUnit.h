@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCCONTEXTDEPENDENTUNIT_H
 #define IFC2X3_IFCCONTEXTDEPENDENTUNIT_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcNamedUnit.h"
+#include <ifc2x3/IfcNamedUnit.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

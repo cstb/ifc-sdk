@@ -17,15 +17,15 @@
 #ifndef Step_BaseObject_h
 #define Step_BaseObject_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Referenced.h"
+#include <Step/Referenced.h>
 
-#include "ClientDataHandler.h"
-#include "Types.h"
-#include "ClassType.h"
-#include "BaseExpressDataSet.h"
-#include "BaseCopyOp.h"
+#include <Step/ClientDataHandler.h>
+#include <Step/Types.h>
+#include <Step/ClassType.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseCopyOp.h>
 
 namespace Step {
     class SPFData;

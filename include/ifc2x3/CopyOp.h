@@ -17,9 +17,9 @@
 #ifndef IFC2X3_COPYOP_H
 #define IFC2X3_COPYOP_H
 #include <map>
-#include "ifc2x3Export.h"
+#include <ifc2x3/Export.h>
 
-#include "FalseVisitor.h"
+#include <ifc2x3/FalseVisitor.h>
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseObject.h>
 #include <Step/Referenced.h>

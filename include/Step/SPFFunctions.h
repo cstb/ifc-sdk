@@ -17,9 +17,9 @@
 #ifndef Step_SPFFunctions_h
 #define Step_SPFFunctions_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
+#include <Step/Types.h>
 
 #include <vector>
 #include <string>

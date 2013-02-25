@@ -17,10 +17,10 @@
 #ifndef Step_BaseCopyOp_H
 #define Step_BaseCopyOp_H
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "SimpleTypes.h"
-#include "BaseObject.h"
+#include <Step/SimpleTypes.h>
+#include <Step/BaseObject.h>
 
 namespace Step
 {
