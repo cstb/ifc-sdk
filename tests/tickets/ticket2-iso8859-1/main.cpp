@@ -42,6 +42,10 @@ void test_parseStrings()
         std::cerr << " SPFresult          = " << SPFresult << std::endl <<
                      " SPF_expected_result= " << SPF_expected_result[i] << std::endl;
         TEST_ASSERT(SPF_expected_result[i] == SPFresult);
+
+		Step::String fromI = Step::String::fromISO_8859(expected_result[i],Step::String::Western_European);
+
+		TEST_ASSERT( expected_result[i] == fromI.toISO_8859(Step::String::Western_European));
         std::cerr << std::endl;
     }
 }

@@ -382,7 +382,7 @@ String String::fromISO_8859(const std::string &str, Alphabet alphabet)
 
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
-        const char code = *it;
+        const unsigned char code = *it;
 
         if(code <= 0x7F)
         {
