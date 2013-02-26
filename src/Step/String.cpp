@@ -664,7 +664,7 @@ std::string String::toSPF() const
     String::Alphabet str_alphabet = String::Western_European;
     int sizeOfChar = 1;
 
-    for(const_iterator i = begin(); i != end(); i++)
+    for(const_iterator i = begin(); i != end(); ++i)
     {
         wchar_t c = *i;
         if(c < 0x7F)
@@ -731,28 +731,78 @@ std::string String::toSPF() const
                 result += toHex((c & 0x00f0) >> 4);
                 result += toHex( c & 0x000f      );
             }
-            else if(c <= 0xFFFF)
-            {
-                sizeOfChar = setSizeOfChar(result, sizeOfChar, 2);
+			else
+			{
+				if (sizeof(wchar_t) == 2)
+				{
+					++i;
+					if (i!=end())
+					{
+						wchar_t c1 = *i;
+						if ( (c&0xd800)==0xd800 && (c1&0xdc00) == 0xdc00)
+						{
+							// utf16 encoded
+							uint32_t ui = (c&~0xd800)<<11;
+							ui +=  c1&~0xdc00;
+							sizeOfChar = setSizeOfChar(result, sizeOfChar, 4);
+							result += toHex((ui & 0xf0000000) >> 28);
+							result += toHex((ui & 0x0f000000) >> 24);
+							result += toHex((ui & 0x00f00000) >> 20);
+							result += toHex((ui & 0x000f0000) >> 16);
+							result += toHex((ui & 0x0000f000) >> 12);
+							result += toHex((ui & 0x00000f00) >>  8);
+							result += toHex((ui & 0x000000f0) >>  4);
+							result += toHex( ui & 0x0000000f       );
+						} 
+						else
+						{
+							// revert jump
+							--i;
+							sizeOfChar = setSizeOfChar(result, sizeOfChar, 2);
 
-                result += toHex((c & 0xf000) >> 12);
-                result += toHex((c & 0x0f00) >>  8);
-                result += toHex((c & 0x00f0) >>  4);
-                result += toHex( c & 0x000f       );
+							result += toHex((c & 0xf000) >> 12);
+							result += toHex((c & 0x0f00) >>  8);
+							result += toHex((c & 0x00f0) >>  4);
+							result += toHex( c & 0x000f       );
+						}
+					}
+					else
+					{
+						// revert jump
+						--i;
+						sizeOfChar = setSizeOfChar(result, sizeOfChar, 2);
 
-            }
-            else if(c <= 0xFFFFFFFF)
-            {
-                sizeOfChar = setSizeOfChar(result, sizeOfChar, 4);
-                result += toHex((c & 0xf0000000) >> 28);
-                result += toHex((c & 0x0f000000) >> 24);
-                result += toHex((c & 0x00f00000) >> 20);
-                result += toHex((c & 0x000f0000) >> 16);
-                result += toHex((c & 0x0000f000) >> 12);
-                result += toHex((c & 0x00000f00) >>  8);
-                result += toHex((c & 0x000000f0) >>  4);
-                result += toHex( c & 0x0000000f       );
-            }
+						result += toHex((c & 0xf000) >> 12);
+						result += toHex((c & 0x0f00) >>  8);
+						result += toHex((c & 0x00f0) >>  4);
+						result += toHex( c & 0x000f       );
+					}
+				}
+				else {
+					if(c <= 0xFFFF)
+					{
+						sizeOfChar = setSizeOfChar(result, sizeOfChar, 2);
+
+						result += toHex((c & 0xf000) >> 12);
+						result += toHex((c & 0x0f00) >>  8);
+						result += toHex((c & 0x00f0) >>  4);
+						result += toHex( c & 0x000f       );
+
+					}
+					else if(c <= 0xFFFFFFFF)
+					{
+						sizeOfChar = setSizeOfChar(result, sizeOfChar, 4);
+						result += toHex((c & 0xf0000000) >> 28);
+						result += toHex((c & 0x0f000000) >> 24);
+						result += toHex((c & 0x00f00000) >> 20);
+						result += toHex((c & 0x000f0000) >> 16);
+						result += toHex((c & 0x0000f000) >> 12);
+						result += toHex((c & 0x00000f00) >>  8);
+						result += toHex((c & 0x000000f0) >>  4);
+						result += toHex( c & 0x0000000f       );
+					}
+				}
+			}
         }
     }
 
