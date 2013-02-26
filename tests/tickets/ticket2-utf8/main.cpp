@@ -1,9 +1,10 @@
-#include <Step/SPFFunctions.h>
+﻿#include <Step/SPFFunctions.h>
 #include <Step/String.h>
 #include "../../tests.h"
 
 #include <sstream>
 
+#pragma execution_character_set("utf-8");
 
 /// tests for ticket2
 
@@ -213,7 +214,7 @@ void test_UpperAUmlaut()
 void test_LATINSMALLLETTERYWITHDIAERESIS()
 {
     /* ÿ */
-    Step::String a(L"ÿ");
+    Step::String a("ÿ");
     std::cerr << "a="<< a << std::endl;
 
     /* character code xFF as 8-bit character code found in ISO 10646 (first 255
