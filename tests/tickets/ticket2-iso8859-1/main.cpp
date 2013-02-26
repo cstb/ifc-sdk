@@ -17,10 +17,10 @@ void test_parseStrings()
         "'O\\S\\tptim\\S\\y'"
     };
 
-    Step::String expected_result[NB_STRINGS]={
-        "CrÃ©pit",
-        "BrÃ¯que",
-        "OÃ´ptimÃ¹"
+    std::string expected_result[NB_STRINGS]={
+        "Crépit",
+        "Brïque",
+        "Oôptimù"
     };
 
     std::string SPF_expected_result[NB_STRINGS]={
@@ -34,8 +34,9 @@ void test_parseStrings()
                      " expected_result = " << expected_result[i] << std::endl;
         Step::String result = Step::String::fromSPF(input[i]);
 
-        std::cerr << " result          = " << result << std::endl;
-        TEST_ASSERT(expected_result[i] == result);
+        std::cerr << " result          = " << result.toISO_8859(Step::String::Western_European) << std::endl;
+
+		TEST_ASSERT( expected_result[i] == result.toISO_8859(Step::String::Western_European));
 
         std::string SPFresult = result.toSPF();
         std::cerr << " SPFresult          = " << SPFresult << std::endl <<
