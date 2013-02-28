@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTRUCTURALACTIVITY_H
 #define IFC2X3_IFCSTRUCTURALACTIVITY_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcProduct.h"
+#include <ifc2x3/IfcProduct.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

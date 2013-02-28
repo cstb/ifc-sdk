@@ -14,15 +14,9 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/CopyOp.h>
-
-
-
-
 #include <ifc2x3/ExpressDataSet.h>
 #include <ifc2x3/Ifc2DCompositeCurve.h>
 #include <ifc2x3/IfcActionRequest.h>
@@ -592,10 +586,10 @@ CopyOp::CopyOp() {
 CopyOp::~CopyOp() {
 }
 
-void CopyOp::associate(const Step::BaseObject *original, Step::BaseObject *clone) const {
+void CopyOp::associate(const Step::BaseObject * /*original*/, Step::BaseObject * /*clone*/) const {
 }
 
-Step::BaseObject *CopyOp::find(const Step::BaseObject *original) const {
+Step::BaseObject *CopyOp::find(const Step::BaseObject * /*original*/) const {
     return 0;
 }
 

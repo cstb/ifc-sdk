@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCOBJECTIVE_H
 #define IFC2X3_IFCOBJECTIVE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcConstraint.h"
+#include <ifc2x3/IfcConstraint.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

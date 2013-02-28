@@ -17,10 +17,19 @@
 #ifndef Step_Types_h
 #define Step_Types_h
 
-#include "Referenced.h"
+#include <Step/IntegerTypes.h>
+#include <Step/Referenced.h>
 
 #include <map>
-#include <limits.h>
+#include <limits>
+
+#ifdef min
+#undef min
+#endif
+
+#ifdef max
+#undef max
+#endif
 
 namespace Step
 {
@@ -38,16 +47,16 @@ namespace Step
     //!@}
 
     //! The ClientDataKey type definition
-    typedef unsigned long int ClientDataKey;
+    typedef uintptr_t ClientDataKey;
 
     //! The Id type definition
-    typedef unsigned long int Id;
+    typedef uint64_t Id;
 
     //! for error handling
-    const unsigned long int Id_UNDEF = UINT_MAX;
+	const Id Id_UNDEF = std::numeric_limits<Id>::max();
 
     //! for '$' token
-    const unsigned long int Id_UNSET = 0;
+    const Id Id_UNSET = 0;
 
     //! The allocate function pointer type definition used by generated SPFReader
     typedef BaseEntity* (*AllocateFuncType)(BaseExpressDataSet*, Id);

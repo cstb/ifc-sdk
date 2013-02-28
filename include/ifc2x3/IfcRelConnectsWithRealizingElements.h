@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELCONNECTSWITHREALIZINGELEMENTS_H
 #define IFC2X3_IFCRELCONNECTSWITHREALIZINGELEMENTS_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcRelConnectsElements.h"
+#include <ifc2x3/IfcRelConnectsElements.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

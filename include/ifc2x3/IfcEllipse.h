@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCELLIPSE_H
 #define IFC2X3_IFCELLIPSE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcConic.h"
+#include <ifc2x3/IfcConic.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

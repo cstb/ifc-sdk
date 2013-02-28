@@ -17,14 +17,14 @@
 #ifndef Step_BaseSPFWriter_h
 #define Step_BaseSPFWriter_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "ClassType.h"
-#include "Types.h"
-#include "BaseExpressDataSet.h"
-#include "BaseEntity.h"
-#include "SimpleTypes.h"
-#include "CallBack.h"
+#include <Step/ClassType.h>
+#include <Step/Types.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/BaseEntity.h>
+#include <Step/SimpleTypes.h>
+#include <Step/CallBack.h>
 
 #include <ostream>
 #include <string>

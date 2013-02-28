@@ -17,11 +17,11 @@
 #ifndef Step_BaseExpressDataSet_h
 #define Step_BaseExpressDataSet_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
-#include "ClassType.h"
-#include "SPFHeader.h"
+#include <Step/Types.h>
+#include <Step/ClassType.h>
+#include <Step/SPFHeader.h>
 
 #include <map>
 #include <string>

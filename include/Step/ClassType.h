@@ -17,7 +17,11 @@
 #ifndef Step_ClassType_h
 #define Step_ClassType_h
 
-#include "StepExport.h"
+#ifdef _MSC_VER
+# pragma warning(disable: 4251)
+#endif
+
+#include <Step/Export.h>
 
 #include <map>
 #include <string>
@@ -82,11 +86,11 @@ namespace Step {
 
     private:
         //! private constructor used to fill the static map
-        ClassType(const std::string& name, long id);
+        ClassType(const std::string& name, int id);
 
         static ClassType sUndefined;
         std::string m_name;
-        long m_id;
+        int m_id;
     };
 
 }

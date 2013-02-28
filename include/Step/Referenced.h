@@ -17,9 +17,8 @@
 #ifndef Step_Referenced_h
 #define Step_Referenced_h
 
-#include "StepExport.h"
-
-#include "ClassType.h"
+#include <Step/Export.h>
+#include <Step/ClassType.h>
 
 #include <vector>
 

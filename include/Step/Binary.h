@@ -132,7 +132,7 @@ namespace Step {
           * helper method to produce a SPF string representation of a binary
           * \return the string in SPF representation
           */
-        std::string &to_spfstring()
+        std::string &to_spfstring() const
         {
             int i, idx;
             char *t;
@@ -197,7 +197,7 @@ namespace Step {
 
 #undef TEST
             // Precede the sequence with the 4bit representation of m_n
-            t[0] = m_n;
+            t[0] = (char)m_n;
 
             // If the decimal value of a 4-bit group is <= 9 add 48
             // else add 55 to create the 8bit char.
@@ -226,7 +226,7 @@ namespace Step {
          * unset status
          * \return the unset status
          */
-        bool is_unset()
+        bool is_unset() const
         {
             return m_unset;
         }

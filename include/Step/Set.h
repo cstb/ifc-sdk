@@ -17,7 +17,7 @@
 #ifndef Step_Set_h
 #define Step_Set_h
 
-#include "SimpleTypes.h"
+#include <Step/SimpleTypes.h>
 
 #include <set>
 #include <stdexcept>

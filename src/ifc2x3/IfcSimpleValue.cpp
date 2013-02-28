@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcSimpleValue.h>
 
@@ -64,7 +62,7 @@ bool IfcSimpleValue::isOfType(const Step::ClassType &t) const {
     return IfcSimpleValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcSimpleValue::copy(const IfcSimpleValue &obj, const CopyOp &copyop) {
+void IfcSimpleValue::copy(const IfcSimpleValue &obj, const CopyOp &/*copyop*/) {
     switch(obj.m_type) {
     case IFCINTEGER:
         setIfcInteger(obj.m_IfcSimpleValue_union.m_IfcInteger);
@@ -235,7 +233,7 @@ void IfcSimpleValue::setIfcLogical(IfcLogical value) {
     m_type = IFCLOGICAL;
 }
 
-void IfcSimpleValue::set(Step::BaseObject *v) {
+void IfcSimpleValue::set(Step::BaseObject * /*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcSimpleValue::s_type("IfcSimpleValue");

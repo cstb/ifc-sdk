@@ -17,12 +17,12 @@
 #ifndef Step_BaseSPFReader_h
 #define Step_BaseSPFReader_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "ClassType.h"
-#include "Types.h"
-#include "SPFHeader.h"
-#include "CallBack.h"
+#include <Step/ClassType.h>
+#include <Step/Types.h>
+#include <Step/SPFHeader.h>
+#include <Step/CallBack.h>
 
 #include <istream>
 #include <string>

@@ -17,7 +17,7 @@
 #ifndef Step_CallBack_h
 #define Step_CallBack_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
 namespace Step {
 
@@ -25,8 +25,8 @@ namespace Step {
     {
     public:
         virtual ~CallBack() {}
-        virtual void setMaximum(unsigned long max) = 0;
-        virtual void setProgress(unsigned long progress) = 0;
+        virtual void setMaximum(size_t max) = 0;
+        virtual void setProgress(size_t progress) = 0;
     };
 }
 

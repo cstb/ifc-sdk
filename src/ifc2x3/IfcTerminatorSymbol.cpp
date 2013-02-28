@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcTerminatorSymbol.h>
 
@@ -80,11 +78,19 @@ const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() con
 
 void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
     if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
+    }
+	m_annotatedCurve = value;
+	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
         ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.insert(this);
     }
+
 }
 
 void IfcTerminatorSymbol::unsetAnnotatedCurve() {
+    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
+        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols.erase(this);
+    }
     m_annotatedCurve = Step::getUnset(getAnnotatedCurve());
 }
 

@@ -1,3 +1,4 @@
+#ifdef ENABLE_PRECOMPILED_HEADER
 #include <Step/ASCII_codes.h>
 #include <Step/Aggregation.h>
 #include <Step/Array.h>
@@ -22,8 +23,9 @@
 #include <Step/SPFHeader.h>
 #include <Step/Set.h>
 #include <Step/SimpleTypes.h>
-#include <Step/StepExport.h>
+#include <Step/Export.h>
 #include <Step/String.h>
 #include <Step/Types.h>
 #include <Step/logger.h> 
 #include <ifc2x3/all.h>
+#endif

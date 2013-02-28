@@ -17,9 +17,9 @@
 #ifndef Step_SPFFunctions_h
 #define Step_SPFFunctions_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
+#include <Step/Types.h>
 
 #include <vector>
 #include <string>
@@ -43,7 +43,7 @@ namespace Step {
      @return success or failure
      */
     bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
-            char* buffer, unsigned long bufferLength, std::string& str);
+            char* buffer, size_t bufferLength, std::string& str);
 
     /*!
      parses a list of strings

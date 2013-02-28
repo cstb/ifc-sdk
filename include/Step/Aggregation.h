@@ -19,10 +19,10 @@
 
 //#pragma message("Using this file is deprecated please use one of the include files below")
 
-#include "Array.h"
-#include "List.h"
-#include "Bag.h"
-#include "Set.h"
+#include <Step/Array.h>
+#include <Step/List.h>
+#include <Step/Bag.h>
+#include <Step/Set.h>
 
 #endif
 

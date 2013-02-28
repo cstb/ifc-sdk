@@ -17,8 +17,8 @@
 #ifndef Step_ClientDataHandler_h
 #define Step_ClientDataHandler_h
 
-#include "StepExport.h"
-#include "Types.h"
+#include <Step/Export.h>
+#include <Step/Types.h>
 
 #include <map>
 
@@ -45,7 +45,7 @@ namespace Step {
         ~ClientDataHandler();
 
         /*!
-         \short Get a pointer to a ClientData from an Id (an unsigned int)
+         \short Get a pointer to a ClientData from an Id (an uintptr_t)
          ID can be a pointer to an Eve module for example.
          IMPORTANT : Uniqueness of Ids belongs to programmer
          responsibility... Otherwise you may replace existing ClientData
@@ -85,7 +85,7 @@ namespace Step {
     private:
 
         /*!
-         \short Map of ClientData, the key is an unsigned int
+         \short Map of ClientData, the key is an uintptr_t
          */
         std::map<ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
     };
