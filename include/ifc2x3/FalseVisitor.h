@@ -17,9 +17,9 @@
 #ifndef IFC2X3_FALSEVISITOR_H
 #define IFC2X3_FALSEVISITOR_H
 
-#include "ifc2x3Export.h"
+#include <ifc2x3/Export.h>
 
-#include "Visitor.h"
+#include <ifc2x3/Visitor.h>
 
 namespace ifc2x3 {
 

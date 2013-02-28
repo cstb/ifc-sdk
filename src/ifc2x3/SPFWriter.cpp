@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/SPFWriter.h>
 
@@ -757,7 +755,7 @@ bool SPFWriter::write(std::ostream& filestream)
         _callback->setMaximum(vectorOfEntities.size());
     }
     it_vector = vectorOfEntities.begin();
-    long nb=0;
+    size_t nb=0;
     while (it_vector != vectorOfEntities.end()) {
         (*it_vector)->acceptVisitor(this);
         ++it_vector;

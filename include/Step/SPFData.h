@@ -17,10 +17,10 @@
 #ifndef Step_SPFData_h
 #define Step_SPFData_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
-#include "ClassType.h"
+#include <Step/Types.h>
+#include <Step/ClassType.h>
 
 #include <map>
 #include <string>

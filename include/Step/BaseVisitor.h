@@ -17,10 +17,10 @@
 #ifndef Step_BaseVisitor_h
 #define Step_BaseVisitor_h
 
-#include "StepExport.h"
+#include <Step/Export.h>
 
-#include "Types.h"
-#include "logger.h"
+#include <Step/Types.h>
+#include <Step/logger.h>
 
 namespace Step {
     /*!

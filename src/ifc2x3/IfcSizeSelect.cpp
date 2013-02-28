@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcSizeSelect.h>
 
@@ -64,7 +62,7 @@ bool IfcSizeSelect::isOfType(const Step::ClassType &t) const {
     return IfcSizeSelect::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcSizeSelect::copy(const IfcSizeSelect &obj, const CopyOp &copyop) {
+void IfcSizeSelect::copy(const IfcSizeSelect &obj, const CopyOp &/*copyop*/) {
     switch(obj.m_type) {
     case IFCRATIOMEASURE:
         setIfcRatioMeasure(obj.m_IfcSizeSelect_union.m_IfcRatioMeasure);
@@ -209,7 +207,7 @@ void IfcSizeSelect::setIfcPositiveRatioMeasure(IfcPositiveRatioMeasure value) {
     m_type = IFCPOSITIVERATIOMEASURE;
 }
 
-void IfcSizeSelect::set(Step::BaseObject *v) {
+void IfcSizeSelect::set(Step::BaseObject * /*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcSizeSelect::s_type("IfcSizeSelect");

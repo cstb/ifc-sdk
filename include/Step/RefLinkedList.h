@@ -17,8 +17,8 @@
 #ifndef Step_RefLinkedList_h
 #define Step_RefLinkedList_h
 
-#include "Types.h"
-#include "BaseSPFObject.h"
+#include <Step/Types.h>
+#include <Step/BaseSPFObject.h>
 
 #include <iterator>
 #include <map>
@@ -60,7 +60,7 @@ namespace Step {
          * \param index position in the refLinkedList
          * \param refLinkedList the list this iterator is iterating
          */
-        RefLinkedList_iterator(unsigned int index, RefLinkedList_type* refLinkedList)
+        RefLinkedList_iterator(unsigned int index, const RefLinkedList_type* refLinkedList)
         : m_index(index), m_refLinkedList(refLinkedList)
         {}
 
@@ -70,7 +70,7 @@ namespace Step {
          * \param refLinkedList the list this iterator is iterating
          * \param currentIt iterator in the refLinkedList
          */
-        RefLinkedList_iterator(unsigned int index, RefLinkedList_type* refLinkedList, const typename element_type::iterator currentIt)
+        RefLinkedList_iterator(unsigned int index, const RefLinkedList_type* refLinkedList, const typename element_type::iterator currentIt)
         : m_index(index), m_refLinkedList(refLinkedList), m_currentIt(currentIt)
         {}
 
@@ -202,7 +202,7 @@ namespace Step {
     private:
 
         unsigned int m_index;
-        RefLinkedList<_Ty> * m_refLinkedList;
+        const RefLinkedList<_Ty> * m_refLinkedList;
         typename element_type::iterator m_currentIt;
 
     };
@@ -241,7 +241,7 @@ namespace Step {
         typedef RefLinkedList_iterator<_Ty> iterator;
 
         //! typedef to our const iterator type
-        typedef const RefLinkedList_iterator<_Ty> const_iterator;
+        typedef RefLinkedList_iterator<const _Ty> const_iterator;
 
         //! typedef to our difference_type
         typedef int difference_type;
@@ -297,10 +297,10 @@ namespace Step {
          * Returns an iterator referring to the first element in the RefLinkedList container.
          * \return An iterator to the beginning of the sequence.
          */
-        const_iterator begin()
+        iterator begin()
         {
             if (m_refList.empty())
-            return RefLinkedList_iterator<_Ty>(0, 0);
+            return iterator(0, 0);
             // return iterator for beginning of non-mutable sequence
             unsigned index=0;
             while (index<m_refList.size() && m_refList[index]->empty())
@@ -308,25 +308,52 @@ namespace Step {
 
             if (index==m_refList.size())
             { // we didn't find any filled list
-                return RefLinkedList_iterator<_Ty>(index-1, this, m_refList[index-1]->end());
+                return iterator(index-1, this, m_refList[index-1]->end());
             }
             else
             {
-                return RefLinkedList_iterator<_Ty>(index, this, m_refList[index]->begin());
+                return iterator(index, this, m_refList[index]->begin());
             }
         }
 
+        const_iterator begin() const
+        {
+            if (m_refList.empty())
+            return const_iterator(0, 0);
+            // return iterator for beginning of non-mutable sequence
+            unsigned index=0;
+            while (index<m_refList.size() && m_refList[index]->empty())
+            ++index;
+
+            if (index==m_refList.size())
+            { // we didn't find any filled list
+                return const_iterator(index-1, reinterpret_cast<const RefLinkedList<const _Ty> *>(this), m_refList[index-1]->end());
+            }
+            else
+            {
+                return const_iterator(index, reinterpret_cast<const RefLinkedList<const _Ty> *>(this), m_refList[index]->begin());
+            }
+        }
         /*!
          * Returns an iterator referring to the past-the-end element in the RefLinkedList container.
          * \return An iterator to the element past the end of the sequence.
          */
-        const_iterator end()
+        iterator end()
         {
             if (m_refList.empty())
-            return RefLinkedList_iterator<_Ty>(0, 0);
+            return iterator(0, 0);
             // return iterator for end of non-mutable sequence
             unsigned int x = m_refList.size()-1;
-            return RefLinkedList_iterator<_Ty>(x, this, m_refList[x]->end());
+            return iterator(x, this, m_refList[x]->end());
+        }
+
+		const_iterator end() const
+        {
+            if (m_refList.empty())
+            return const_iterator(0, 0);
+            // return iterator for end of non-mutable sequence
+            unsigned int x = m_refList.size()-1;
+            return const_iterator(x, reinterpret_cast<const RefLinkedList<const _Ty> *>(this), m_refList[x]->end());
         }
 
         /*!
@@ -348,11 +375,16 @@ namespace Step {
             return m_refList.at(position);
         }
 
+        refList_type::const_reference refListAt(refList_type::size_type position) const
+        {
+            return m_refList.at(position);
+        }
+
         /*!
          * The number of elements that conform the RefLinkedList's content.
          * \return The number of elements that conform the RefLinkedList's content.
          */
-        refList_type::size_type refListSize()
+        refList_type::size_type refListSize() const
         {
             return m_refList.size();
         }
@@ -361,7 +393,7 @@ namespace Step {
          * Returns whether or not the RefLinkedList is empty
          * \return Whether or not the RefLinkedList is empty
          */
-        bool refListEmpty()
+        bool refListEmpty() const
         {
             return m_refList.empty();
         }

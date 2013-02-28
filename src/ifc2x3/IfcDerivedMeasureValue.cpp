@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/IfcDerivedMeasureValue.h>
 
@@ -64,7 +62,7 @@ bool IfcDerivedMeasureValue::isOfType(const Step::ClassType &t) const {
     return IfcDerivedMeasureValue::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-void IfcDerivedMeasureValue::copy(const IfcDerivedMeasureValue &obj, const CopyOp &copyop) {
+void IfcDerivedMeasureValue::copy(const IfcDerivedMeasureValue &obj, const CopyOp &/*copyop*/) {
     Step::List< Step::Integer, 3, 4 >::const_iterator it_IfcCompoundPlaneAngleMeasure;
     switch(obj.m_type) {
     case IFCVOLUMETRICFLOWRATEMEASURE:
@@ -1453,7 +1451,7 @@ void IfcDerivedMeasureValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMe
     m_type = IFCIONCONCENTRATIONMEASURE;
 }
 
-void IfcDerivedMeasureValue::set(Step::BaseObject *v) {
+void IfcDerivedMeasureValue::set(Step::BaseObject * /*v*/) {
 }
 
 IFC2X3_EXPORT Step::ClassType IfcDerivedMeasureValue::s_type("IfcDerivedMeasureValue");

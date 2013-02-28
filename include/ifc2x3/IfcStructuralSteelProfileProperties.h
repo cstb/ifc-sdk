@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCSTRUCTURALSTEELPROFILEPROPERTIES_H
 #define IFC2X3_IFCSTRUCTURALSTEELPROFILEPROPERTIES_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcStructuralProfileProperties.h"
+#include <ifc2x3/IfcStructuralProfileProperties.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

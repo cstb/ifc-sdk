@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRELSCHEDULESCOSTITEMS_H
 #define IFC2X3_IFCRELSCHEDULESCOSTITEMS_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcRelAssignsToControl.h"
+#include <ifc2x3/IfcRelAssignsToControl.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCRECTANGULARTRIMMEDSURFACE_H
 #define IFC2X3_IFCRECTANGULARTRIMMEDSURFACE_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcBoundedSurface.h"
+#include <ifc2x3/IfcBoundedSurface.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/Referenced.h>

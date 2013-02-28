@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCTEXTUREMAP_H
 #define IFC2X3_IFCTEXTUREMAP_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcTextureCoordinate.h"
+#include <ifc2x3/IfcTextureCoordinate.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

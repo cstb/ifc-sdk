@@ -16,10 +16,10 @@
 
 #ifndef IFC2X3_IFCQUANTITYVOLUME_H
 #define IFC2X3_IFCQUANTITYVOLUME_H
-#include "DefinedTypes.h"
-#include "ifc2x3Export.h"
+#include <ifc2x3/DefinedTypes.h>
+#include <ifc2x3/Export.h>
 
-#include "IfcPhysicalSimpleQuantity.h"
+#include <ifc2x3/IfcPhysicalSimpleQuantity.h>
 #include <Step/BaseVisitor.h>
 #include <Step/ClassType.h>
 #include <Step/SPFData.h>

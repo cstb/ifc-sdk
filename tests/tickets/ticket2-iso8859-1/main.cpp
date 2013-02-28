@@ -4,6 +4,7 @@
 
 #include <sstream>
 
+/// /!\ WARNING this file relies on UTF-8 encoding for string comparison !!!
 
 void test_parseStrings()
 {
@@ -16,7 +17,7 @@ void test_parseStrings()
         "'O\\S\\tptim\\S\\y'"
     };
 
-    Step::String expected_result[NB_STRINGS]={
+    std::string expected_result[NB_STRINGS]={
         "Crépit",
         "Brïque",
         "Oôptimù"
@@ -33,20 +34,24 @@ void test_parseStrings()
                      " expected_result = " << expected_result[i] << std::endl;
         Step::String result = Step::String::fromSPF(input[i]);
 
-        std::cerr << " result          = " << result << std::endl;
-        TEST_ASSERT(expected_result[i] == result);
+        std::cerr << " result          = " << result.toISO_8859(Step::String::Western_European) << std::endl;
+
+		TEST_ASSERT( expected_result[i] == result.toISO_8859(Step::String::Western_European));
 
         std::string SPFresult = result.toSPF();
         std::cerr << " SPFresult          = " << SPFresult << std::endl <<
                      " SPF_expected_result= " << SPF_expected_result[i] << std::endl;
         TEST_ASSERT(SPF_expected_result[i] == SPFresult);
+
+		Step::String fromI = Step::String::fromISO_8859(expected_result[i],Step::String::Western_European);
+
+		TEST_ASSERT( expected_result[i] == fromI.toISO_8859(Step::String::Western_European));
         std::cerr << std::endl;
     }
 }
 
-int main (int n, char **p)
+int main (int , char **)
 {
-    Step::String::setDefaultAlphabet(Step::String::Western_European);
     test_parseStrings();
 
     std::cerr << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;

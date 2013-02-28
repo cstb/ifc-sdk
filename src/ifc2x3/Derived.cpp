@@ -14,9 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#ifdef ENABLE_PRECOMPILED_HEADER
 #include "precompiled.h"
-#endif
 
 #include <ifc2x3/ExpressDataSet.h>
 #include <ifc2x3/IfcAxis1Placement.h>
@@ -1405,7 +1403,7 @@ List_IfcDirection_3_3 IfcBaseAxis(Step::Integer Dim, const IfcDirection* Axis1, 
 	return U;
 }
 
-List_IfcDirection_2_2 IfcBaseAxis(Step::Integer Dim, const IfcDirection* Axis1, const IfcDirection* Axis2, ifc2x3::ExpressDataSet *_ExpressDataSet)
+List_IfcDirection_2_2 IfcBaseAxis(Step::Integer /*Dim*/, const IfcDirection* Axis1, const IfcDirection* Axis2, ifc2x3::ExpressDataSet *_ExpressDataSet)
 {
 	LOG_DEBUG("IfcBaseAxis(Step::Integer Dim, Step::RefPtr<IfcDirection> Axis1, Step::RefPtr<IfcDirection> Axis2)");
 	List_IfcDirection_2_2 U;

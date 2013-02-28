@@ -17,7 +17,7 @@
 #ifndef Step_List_h
 #define Step_List_h
 
-#include "SimpleTypes.h"
+#include <Step/SimpleTypes.h>
 
 #include <vector>
 #include <algorithm>
