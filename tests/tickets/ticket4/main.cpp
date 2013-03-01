@@ -24,7 +24,9 @@ int main (int /*n*/, char ** /*p*/)
     Step::Real real_value =
         Step::spfToReal(real_string);
 
-    TEST_ASSERT(real_value == REAL_VALUE)
+	Step::Real diff = real_value - REAL_VALUE;
+    TEST_ASSERT( -0.000000000000000001 < diff);
+	TEST_ASSERT( diff < 0.000000000000000001 );
 
     std::cout << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
 
