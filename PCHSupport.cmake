@@ -10,7 +10,12 @@
 cmake_policy(PUSH)
 cmake_policy(SET CMP0007 OLD)
 
-IF(CMAKE_COMPILER_IS_GNUCXX)
+SET(PCHSupport_FOUND FALSE)
+
+IF(WIN32)
+	SET(PCHSupport_FOUND TRUE) # for experimental msvc support
+	SET(_PCH_include_prefix "/I")
+ELSE()
 
 	EXEC_PROGRAM(
 		${CMAKE_CXX_COMPILER}
@@ -26,28 +31,18 @@ IF(CMAKE_COMPILER_IS_GNUCXX)
 	ENDIF(gcc_compiler_version MATCHES "4\\.[0-9]\\.[0-9]")
 
 	SET(_PCH_include_prefix "-I")
-
-ELSE(CMAKE_COMPILER_IS_GNUCXX)
-
-	IF(WIN32)
-		SET(PCHSupport_FOUND TRUE) # for experimental msvc support
-		SET(_PCH_include_prefix "/I")
-	ELSE(WIN32)
-		SET(PCHSupport_FOUND FALSE)
-	ENDIF(WIN32)
-
-ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+ENDIF()
 
 MACRO(_PCH_GET_COMPILE_FLAGS _out_compile_flags)
 	STRING(TOUPPER "CMAKE_CXX_FLAGS_${CMAKE_BUILD_TYPE}" _flags_var_name)
 	SET(${_out_compile_flags} ${${_flags_var_name}} )
 
-	IF(CMAKE_COMPILER_IS_GNUCXX)
+	IF(NOT MSVC)
 		GET_TARGET_PROPERTY(_targetType ${_PCH_current_target} TYPE)
 		IF(${_targetType} STREQUAL SHARED_LIBRARY OR ${_targetType} STREQUAL MODULE_LIBRARY)
 			LIST(APPEND ${_out_compile_flags} "-fPIC")
 		ENDIF(${_targetType} STREQUAL SHARED_LIBRARY OR ${_targetType} STREQUAL MODULE_LIBRARY)
-	ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+	ENDIF()
 
 	GET_DIRECTORY_PROPERTY(DIRINC INCLUDE_DIRECTORIES )
 	FOREACH(item ${DIRINC})
@@ -58,25 +53,26 @@ MACRO(_PCH_GET_COMPILE_FLAGS _out_compile_flags)
 	SET(GLOBAL_DEFINITIONS "")
 	GET_DIRECTORY_PROPERTY(DEFINITIONS COMPILE_DEFINITIONS)
 	FOREACH(item ${DEFINITIONS})
-		IF(CMAKE_COMPILER_IS_GNUCXX)
-			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
-		ELSE()
+		IF(MSVC)
 			LIST(APPEND GLOBAL_DEFINITIONS /D${item})
+		ELSE()
+			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
 		ENDIF()
 	ENDFOREACH(item)      
 	STRING(TOUPPER "COMPILE_DEFINITIONS_${CMAKE_BUILD_TYPE}" _compile_definitions_build_type)   
 	GET_DIRECTORY_PROPERTY(DEFINITIONS ${_compile_definitions_build_type})     
 	FOREACH(item ${DEFINITIONS})
-		IF(CMAKE_COMPILER_IS_GNUCXX)
-			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
-		ELSE()
+		IF(MSVC)
 			LIST(APPEND GLOBAL_DEFINITIONS /D${item})
+		ELSE()
+			LIST(APPEND GLOBAL_DEFINITIONS -D${item})
 		ENDIF()	
 	ENDFOREACH(item)
 
 	LIST(APPEND ${_out_compile_flags} ${GLOBAL_DEFINITIONS})
 	LIST(APPEND ${_out_compile_flags} ${CMAKE_CXX_FLAGS})
-	if(MSVC AND ${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+
+	if(MSVC)
 		LIST(APPEND ${_out_compile_flags} "/Gd")
 	endif()
 
@@ -115,16 +111,16 @@ MACRO(_PCH_GET_COMPILE_COMMAND out_command _input _inputcpp _output)
 		SET(pchsupport_compiler_cxx_arg1 "")
 	ENDIF(CMAKE_CXX_COMPILER_ARG1)
 
-	IF(CMAKE_COMPILER_IS_GNUCXX)
-		SET(${out_command}
-			${CMAKE_CXX_COMPILER} ${pchsupport_compiler_cxx_arg1} ${_compile_FLAGS}	-x c++-header -o ${_output} -c ${_input}
-			)
-	ELSE(CMAKE_COMPILER_IS_GNUCXX)
-		_PCH_GET_PDB_FILENAME(PDB_FILE ${_PCH_current_target})
+	IF(MSVC)
+				_PCH_GET_PDB_FILENAME(PDB_FILE ${_PCH_current_target})
 		SET(${out_command}
 			${CMAKE_CXX_COMPILER} ${pchsupport_compiler_cxx_arg1} ${_compile_FLAGS}	/Yc  /Fp\"${_output}\" ${_inputcpp} /c /Fd\"${PDB_FILE}\"
 			)
-	ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+	ELSE()
+		SET(${out_command}
+			${CMAKE_CXX_COMPILER} ${pchsupport_compiler_cxx_arg1} ${_compile_FLAGS}	-x c++-header -o ${_output} -c ${_input}
+			)
+	ENDIF()
 ENDMACRO(_PCH_GET_COMPILE_COMMAND )
 
 MACRO(GET_PRECOMPILED_HEADER_OUTPUT _targetName _input _output)
@@ -143,7 +139,9 @@ MACRO(ADD_PRECOMPILED_HEADER_TO_TARGET _targetName _input _pch_output_to_use )
 		SET(oldProps "")
 	ENDIF(${oldProps} MATCHES NOTFOUND)
 
-	IF(CMAKE_COMPILER_IS_GNUCXX)
+	IF(MSVC)
+		SET(_target_cflags "${oldProps} /Yu\"${_input}\" /FI\"${_input}\" /Fp\"${_pch_output_to_use}\"")
+	ELSE()
 		# to do: test whether compiler flags match between target  _targetName
 		# and _pch_output_to_use
 		FILE(TO_NATIVE_PATH ${_pch_output_to_use} _native_pch_path)
@@ -153,13 +151,11 @@ MACRO(ADD_PRECOMPILED_HEADER_TO_TARGET _targetName _input _pch_output_to_use )
 		# PCH_ADDITIONAL_COMPILER_FLAGS to -fpch-preprocess  
 		get_filename_component(_input_stripped_from_path ${_input} NAME)
 		SET(_target_cflags "${oldProps} ${PCH_ADDITIONAL_COMPILER_FLAGS}-include ${_input_stripped_from_path} -Winvalid-pch")
-	ELSE(CMAKE_COMPILER_IS_GNUCXX)
-		IF(MSVC)
-			SET(_target_cflags "${oldProps} /Yu\"${_input}\" /FI\"${_input}\" /Fp\"${_pch_output_to_use}\"")
-		ENDIF(MSVC)
-	ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+	ENDIF()
 
-	SET_TARGET_PROPERTIES(${_targetName} PROPERTIES COMPILE_FLAGS ${_target_cflags})
+	if (_target_cflags)
+		SET_TARGET_PROPERTIES(${_targetName} PROPERTIES COMPILE_FLAGS ${_target_cflags})
+	endif()
 	IF(oldProps)
 		SET_TARGET_PROPERTIES(${_targetName}_pch_dephelp PROPERTIES COMPILE_FLAGS ${oldProps})
 	ENDIF(oldProps)
