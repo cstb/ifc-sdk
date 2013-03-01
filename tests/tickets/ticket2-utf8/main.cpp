@@ -214,7 +214,7 @@ void test_UpperAUmlaut()
 void test_LATINSMALLLETTERYWITHDIAERESIS()
 {
     /* ÿ */
-    Step::String a("ÿ");
+    Step::String a(L"\u00FF");
     std::cerr << "a="<< a << std::endl;
 
     /* character code xFF as 8-bit character code found in ISO 10646 (first 255
