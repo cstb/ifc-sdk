@@ -35,11 +35,11 @@
 #include <cmath>
 
 #ifdef _MSC_VER
-#ifndef isnan
-#define isnan _isnan
+#ifndef STEP_ISNAN
+#define STEP_ISNAN _isnan
 #endif
 #else
-#define isnan std::isnan
+#define STEP_ISNAN std::isnan
 #endif
 
 #ifdef min
@@ -218,7 +218,7 @@ namespace Step {
     //! isUnset method for the Real type
     inline bool isUnset(Real v)
     {
-        return (isnan(v) != 0);
+        return (STEP_ISNAN(v) != 0);
     }
 
     //! isUnset method for the Enumerated type
