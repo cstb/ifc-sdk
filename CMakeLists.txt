@@ -15,7 +15,7 @@ ENDIF(NOT DEFINED LIB_POSTFIX)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1)
 SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta3)
+SET(ifc2x3_sdk_VERSION_PATCH beta4)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
 
