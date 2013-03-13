@@ -24,13 +24,14 @@
 #include "Step/logger.h"
 
 #include <locale>
+#include <assert.h>
 
 using namespace Step;
 
 BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) : _callback(0)
 {
     m_expressDataSet = e;
-    m_precision = 16;
+    m_precision = DBL_DIG + 1;
 }
 
 BaseSPFWriter::~BaseSPFWriter()
@@ -150,23 +151,59 @@ void BaseSPFWriter::writeAttribute(Real value)
     }
     else
     {
-        std::stringstream sstream;
-        // Make sure not to be side tracked by user's locale
-        sstream.imbue(std::locale::classic());
-        sstream << std::setprecision(m_precision) << std::setiosflags(
-                std::ios_base::uppercase) << value;
-        float integer_part = float(int(value));
-        if (integer_part == value)
+        const double fabs_value = fabs(value);
+
+        if(fabs_value < pow(10.0, -m_precision) * 0.5)
         {
-            sstream << ".0";
+            outputStream() << "0.";
         }
-        std::string str = sstream.str();
-        if (str.find('.') == std::string::npos && str.find('E')
-                != std::string::npos)
+        else
         {
-            str.insert(str.find('E'), ".0");
+            std::string str;
+            std::stringstream stream;
+            stream.imbue(std::locale::classic());
+
+            const double exp = log10(fabs_value);
+
+            size_t end = -1;
+            if(exp > DBL_DIG + 1)
+            {
+                stream << std::setprecision(DBL_DIG + 1)
+                       << std::setiosflags (std::ios_base::scientific | std::ios_base::uppercase | std::ios_base::showpoint)
+                       << value;
+
+                str = stream.str();
+                end = str.find('E');
+            }
+            else
+            {
+                const int digits = exp < 0.0 ? 0 : ((int) exp);
+
+                stream << std::setprecision(std::min(m_precision, DBL_DIG + 1 - digits))
+                       << std::setiosflags (std::ios_base::fixed | std::ios_base::uppercase | std::ios_base::showpoint)
+                       << value;
+
+                str = stream.str();
+                end = str.size();
+            }
+
+            size_t begin = str.find('.');
+            size_t it = end;
+
+            // Remove trailing zeros
+            while(--it > begin)
+            {
+                if(str[it] != '0')
+                    break;
+            }
+
+            it++;
+            str.erase(it, end - it);
+
+            assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
+
+            outputStream() << str;
         }
-        outputStream() << str;
     }
 }
 
@@ -212,5 +249,6 @@ void BaseSPFWriter::writeAttribute(const String& value)
 
 void BaseSPFWriter::setDecimalPrecision(const int precision)
 {
-    m_precision = precision;
+    if(precision >= 0)
+        m_precision = precision;
 }
