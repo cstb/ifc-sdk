@@ -28,6 +28,10 @@
 
 using namespace Step;
 
+#ifndef DBL_DIG
+#  define DBL_DIG __DBL_DIG__
+#endif
+
 BaseSPFWriter::BaseSPFWriter(BaseExpressDataSet * e) : _callback(0)
 {
     m_expressDataSet = e;
