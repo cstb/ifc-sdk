@@ -58,8 +58,13 @@ std::string expected_result[NB_TEST]={
     "-0.000000000000001",
     "0.",
     "0.5",
+#ifdef WIN32
+    "1.E+030",
+    "1.E+098",
+#else
     "1.E+30",
     "1.E+98",
+#endif
 };
 
 void test_Real()
