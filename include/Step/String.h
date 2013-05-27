@@ -127,6 +127,15 @@ namespace Step {
         static String fromISO_8859(const std::string &str, Alphabet alphabet);
 
         /**
+         * builds from a (windows 125X) encoded representation
+         * \param str the string to convert
+         * \param the pagecode to convert str from
+         * \return the String created
+         */
+        static String fromWindows(const std::string &str, int pagecode);
+
+
+        /**
          * returns a ISO 10303-21 SPF encoded string representation
          * \return a ISO 10303-21 SPF std::string
          */
