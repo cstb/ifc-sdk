@@ -35,6 +35,51 @@ namespace Step {
     class STEP_EXPORT String : public std::wstring
     {
     public:
+
+        /**
+         * The list of Alphabet supported
+         */
+        typedef enum
+        {
+            Unknown = -1,
+            Western_European,
+            Central_European,
+            South_European,
+            North_European,
+            Cyrillic,
+            Arabic,
+            Greek,
+            Hebrew,
+            Turkish
+        } Alphabet;
+
+
+        /**
+         * The list of supported code pages
+         */
+        typedef enum
+        {
+            UTF8 = -1,
+            Windows1250,
+            Windows1251,
+            Windows1252,
+            Windows1253,
+            Windows1254,
+            Windows1255,
+            Windows1256,
+            Windows1257,
+            Windows1258
+        } CodePage;
+
+        /**
+         * @brief setDefaultCodePage
+         *
+         * Default Code Page set to Windows1256 on windows platforms and UTF8 on others
+         * @param codepage the codepage to build char * and std::string encoded characters
+         * @sa String(const char *str), String(const std::string &str)
+         */
+        static void setDefaultCodePage(CodePage codepage);
+
         /**
          * Default constructor
          */
@@ -59,12 +104,14 @@ namespace Step {
         String(const std::wstring& str);
 
         /**
-         * Copy constructor, expects UTF8 encoding
+         * Copy constructor, expects default CodePage encoding
+         * default Code Page can be changed via setDefaultCodePage
          *  \param str the char array to copy
          */
         String(const char *str);
         /**
-         * Copy constructor, expects UTF8 encoding
+         * Copy constructor, expects default CodePage encoding
+         * default Code Page can be changed via setDefaultCodePage
          * \param str the std::string to copy
          */
         String(const std::string &str);
@@ -94,23 +141,7 @@ namespace Step {
          */
         static String fromUTF8(const std::string &str);
 
-		/**
-         * The list of Alphabet supported
-         */
-        typedef enum
-        {
-            Unknown = -1,
-            Western_European,
-            Central_European,
-            South_European,
-            North_European,
-            Cyrillic,
-            Arabic,
-            Greek,
-            Hebrew,
-            Turkish
-        } Alphabet;
-		
+
         /**
          * returns a (ISO 8859-X) encoded representation
          * \param alphabet the alphabet used to encode returned string
@@ -165,6 +196,8 @@ namespace Step {
 		{
 			return fromISO_8859(str, Western_European);
 		}
+    protected:
+        static CodePage _codepage;
     };
 
 }

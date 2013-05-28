@@ -20,6 +20,17 @@
 
 using namespace Step;
 
+#ifdef WIN32
+    String::CodePage String::_codepage = String::Windows1250;
+#else
+    String::CodePage String::_codepage = String::UTF8;
+#endif
+
+void String::setDefaultCodePage(String::CodePage codepage)
+{
+    _codepage = codepage;
+}
+
 String::String()
 {
 }
@@ -41,12 +52,26 @@ String::String(const std::wstring& str) :
 
 String::String(const char *str)
 {
-    *this = fromUTF8(std::string(str));
+    switch(_codepage)
+    {
+    case UTF8:
+        *this = fromUTF8(std::string(str));
+        break;
+    default:
+        *this = fromWindows(std::string(str),(int)_codepage);
+    }
 }
 
 String::String(const std::string &str)
 {
-    *this = fromUTF8(str);
+    switch(_codepage)
+    {
+    case UTF8:
+        *this = fromUTF8(str);
+        break;
+    default:
+        *this = fromWindows(str,(int)_codepage);
+    }
 }
 
 String::~String()

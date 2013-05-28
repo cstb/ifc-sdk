@@ -4,11 +4,7 @@
 
 #include <sstream>
 
-#pragma execution_character_set("utf-8");
-
 /// tests for ticket2
-
-/// /!\ WARNING this file relies on UTF-8 encoding for string comparison !!!
 
 /**
 In tas_arm_support\src\Step\SPFFunctions.cpp line 157 and further

@@ -4,10 +4,9 @@
 
 #include <sstream>
 
-/// /!\ WARNING this file relies on UTF-8 encoding for string comparison !!!
-
 void test_parseStrings()
 {
+    Step::String::setDefaultCodePage(Step::String::UTF8);
     std::cerr << "test_parseStrings" << std::endl;
 
     #define NB_STRINGS 3
@@ -18,9 +17,9 @@ void test_parseStrings()
     };
 
     std::string expected_result[NB_STRINGS]={
-        "Crépit",
-        "Brïque",
-        "Oôptimù"
+        "Cr\xE9pit",
+        "Br\xEFque",
+        "O\xF4ptim\xF9"
     };
 
     std::string SPF_expected_result[NB_STRINGS]={
