@@ -43,7 +43,6 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
     {
         // get length of file:
         _callback->setMaximum(bytesAvailable);
-        input.seekg (0, ios::beg);
     }
     _errors.clear();
 
