@@ -43,7 +43,7 @@ namespace Step {
      @return success or failure
      */
     bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
-            char* buffer, size_t bufferLength, std::string& str);
+            char* buffer, size_t bufferLength, std::string& str, std::streamsize &countSize);
 
     /*!
      parses a list of strings

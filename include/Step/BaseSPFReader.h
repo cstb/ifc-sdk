@@ -56,7 +56,7 @@ namespace Step {
         ** @param input input stream to read from
         ** @return true if the stream was correctly read
         */
-        virtual bool read(std::istream& input);
+        virtual bool read(std::istream& input, size_t bytesAvailable = 0);
 
         /*!
         ** \short Get the ExpressDataSet after the loading of the file

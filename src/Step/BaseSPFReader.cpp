@@ -36,13 +36,13 @@ BaseSPFReader::~BaseSPFReader()
 {
 }
 
-bool BaseSPFReader::read(std::istream& input)
+bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
 {
+    std::streamsize progress = 0;
     if(_callback)
     {
         // get length of file:
-        input.seekg (0, ios::end);
-        _callback->setMaximum(input.tellg());
+        _callback->setMaximum(bytesAvailable);
         input.seekg (0, ios::beg);
     }
     _errors.clear();
@@ -53,14 +53,13 @@ bool BaseSPFReader::read(std::istream& input)
     m_currentLineNb = 1;
 
     // Parse the header
-    if (!m_header.parse(input, m_currentLineNb))
+    if (!m_header.parse(input, m_currentLineNb,progress))
     {
         LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
         if(_callback)
         {
-            // got to end
-            input.seekg (0, ios::end);
-            _callback->setProgress(input.tellg());
+            // got to end of progress bar
+            _callback->setProgress(bytesAvailable);
         }
         delete[] buffer;
         return false;
@@ -69,12 +68,13 @@ bool BaseSPFReader::read(std::istream& input)
     if(_callback)
     {
         // update progress callback
-        _callback->setProgress(input.tellg());
+        _callback->setProgress(progress);
+
     }
     // DATA section
     string str;
 
-    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str) || str
+    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
             != "DATA")
     {
         LOG_ERROR("Can't find DATA section, line "
@@ -82,8 +82,7 @@ bool BaseSPFReader::read(std::istream& input)
         if(_callback)
         {
             // got to end
-            input.seekg (0, ios::end);
-            _callback->setProgress(input.tellg());
+            _callback->setProgress(bytesAvailable);
         }
         delete[] buffer;
         return false;
@@ -92,7 +91,10 @@ bool BaseSPFReader::read(std::istream& input)
     if(_callback)
     {
         // update progress callback
-        _callback->setProgress(input.tellg());
+       // _callback->setProgress(input.tellg());
+        //std::streamsize bytes = input.gcount();
+        // progress += str.size();
+        _callback->setProgress(progress);
     }
 
     // #id=ENTITYNAME(......)
@@ -104,17 +106,16 @@ bool BaseSPFReader::read(std::istream& input)
         if(_callback)
         {
             // update progress callback
-            _callback->setProgress(input.tellg());
+            _callback->setProgress(progress);
         }
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str))
+        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
         {
             LOG_ERROR("Unexpected End Of File, line "
                     << m_currentLineNb);
             if(_callback)
             {
                 // got to end
-                input.seekg (0, ios::end);
-                _callback->setProgress(input.tellg());
+                _callback->setProgress(bytesAvailable);
             }
             delete[] buffer;
             return false;
@@ -162,7 +163,7 @@ bool BaseSPFReader::read(std::istream& input)
 
     // END-ISO-10303-21
 
-    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str) || str
+    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
             != "END-ISO-10303-21")
     {
         LOG_ERROR("Can't find END-ISO-10303-21 token, line "
@@ -170,8 +171,8 @@ bool BaseSPFReader::read(std::istream& input)
         if(_callback)
         {
             // got to end
-            input.seekg (0, ios::end);
-            _callback->setProgress(input.tellg());
+            _callback->setProgress(bytesAvailable);
+
         }
         delete[] buffer;
         return false;
@@ -180,8 +181,7 @@ bool BaseSPFReader::read(std::istream& input)
     if(_callback)
     {
         // got to end
-        input.seekg (0, ios::end);
-        _callback->setProgress(input.tellg());
+        _callback->setProgress(bytesAvailable);
     }
 
     delete[] buffer;
