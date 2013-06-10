@@ -30,9 +30,9 @@ void test_getLine()
     unsigned int counter=0;
     char buffer[1024];
     std::string result;
-    std::streamsize counterSize = 0;
+    std::streamsize progress = 0;
 
-    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,counterSize));
+    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,progress));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;
@@ -50,7 +50,7 @@ void test_getLine()
     result = "";
 
     std::istringstream in2(input);
-    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result,counterSize));
+    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result,progress));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;
