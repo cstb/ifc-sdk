@@ -52,14 +52,14 @@ String& SPFHeader::getOtherFields()
     return m_otherFields;
 }
 
-bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize &countSize )
+bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize &progress )
 {
     static const size_t bufferLength = 256000;
     char* buffer = new char[bufferLength];
     string::size_type i;
     string str;
     // ISO-10303-21
-    if (!getLine(ifs, counter, buffer, bufferLength, str,countSize) || str
+    if (!getLine(ifs, counter, buffer, bufferLength, str,progress) || str
             != "ISO-10303-21")
     {
         LOG_ERROR("SPFHeader : Bad file type, should be ISO-10303-21.");
@@ -68,7 +68,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize 
     }
 
     // HEADER
-    if (!getLine(ifs, counter, buffer, bufferLength, str,countSize) || str != "HEADER")
+    if (!getLine(ifs, counter, buffer, bufferLength, str,progress) || str != "HEADER")
     {
         LOG_ERROR("SPFHeader : Can't find the HEADER section.");
         delete[] buffer;
@@ -76,7 +76,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize 
     }
 
     // FILE_DESCRIPTION(...,...)
-    getLine(ifs, counter, buffer, bufferLength, str,countSize);
+    getLine(ifs, counter, buffer, bufferLength, str,progress);
     i = str.find('(');
     if (i == string::npos || str.substr(0, i) != "FILE_DESCRIPTION")
     {
@@ -123,7 +123,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize 
     m_fileDescription.implementationLevel = String::fromSPF(currentParam[1]);
 
     // FILE_NAME arguments
-    getLine(ifs, counter, buffer, bufferLength, str,countSize);
+    getLine(ifs, counter, buffer, bufferLength, str,progress);
     i = str.find('(');
     if (i == string::npos || str.substr(0, i) != "FILE_NAME")
     {
@@ -187,7 +187,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize 
     // arg 7
     m_fileName.authorization = String::fromSPF(currentParam[6]);
 
-    getLine(ifs, counter, buffer, bufferLength, str,countSize);
+    getLine(ifs, counter, buffer, bufferLength, str,progress);
     i = str.find('(');
     if (i == string::npos || str.substr(0, i) != "FILE_SCHEMA")
     {
@@ -223,7 +223,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, std::streamsize 
     bool found = false;
     for (unsigned int k = 0; k < 6; k++)
     {
-        if (!getLine(ifs, counter, buffer, bufferLength, str,countSize))
+        if (!getLine(ifs, counter, buffer, bufferLength, str,progress))
         {
             delete[] buffer;
             return false;

@@ -36,13 +36,13 @@ BaseSPFReader::~BaseSPFReader()
 {
 }
 
-bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
+bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 {
     std::streamsize progress = 0;
     if(_callback)
     {
         // get length of file:
-        _callback->setMaximum(bytesAvailable);
+        _callback->setMaximum(inputSize);
     }
     _errors.clear();
 
@@ -58,7 +58,7 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
         if(_callback)
         {
             // got to end of progress bar
-            _callback->setProgress(bytesAvailable);
+            _callback->setProgress(inputSize);
         }
         delete[] buffer;
         return false;
@@ -80,8 +80,8 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
                 << m_currentLineNb);
         if(_callback)
         {
-            // got to end
-            _callback->setProgress(bytesAvailable);
+            // set to end
+            _callback->setProgress(inputSize);
         }
         delete[] buffer;
         return false;
@@ -90,9 +90,6 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
     if(_callback)
     {
         // update progress callback
-       // _callback->setProgress(input.tellg());
-        //std::streamsize bytes = input.gcount();
-        // progress += str.size();
         _callback->setProgress(progress);
     }
 
@@ -113,8 +110,8 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
                     << m_currentLineNb);
             if(_callback)
             {
-                // got to end
-                _callback->setProgress(bytesAvailable);
+                // set to end
+                _callback->setProgress(inputSize);
             }
             delete[] buffer;
             return false;
@@ -169,8 +166,8 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
                 << m_currentLineNb);
         if(_callback)
         {
-            // got to end
-            _callback->setProgress(bytesAvailable);
+            // set to end
+            _callback->setProgress(inputSize);
 
         }
         delete[] buffer;
@@ -179,8 +176,8 @@ bool BaseSPFReader::read(std::istream& input, size_t bytesAvailable)
 
     if(_callback)
     {
-        // got to end
-        _callback->setProgress(bytesAvailable);
+        // set to end
+        _callback->setProgress(inputSize);
     }
 
     delete[] buffer;

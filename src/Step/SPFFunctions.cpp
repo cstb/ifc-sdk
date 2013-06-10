@@ -132,7 +132,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     return true;
 }
 
-bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, std::streamsize &countSize) {
+bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, std::streamsize &progress) {
     str.clear();
     size_t i = 0;
     size_t from = 0;
@@ -164,7 +164,7 @@ bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t buf
                 }
                 if (i >= bufferLength) {
                     std::cerr <<("Malformed string, comments not ended by */ ");
-                    countSize += i+1;
+                    progress += i+1;
                     return false;
                 }
             }
@@ -180,20 +180,20 @@ bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t buf
             }
             if (i >= bufferLength) {
                 std::cerr <<("Malformed string, odd number of \" ' \" ");
-                countSize += i+1;
+                progress += i+1;
                 return false;
             }
         }
     }
     if (i >= bufferLength) {
         std::cerr <<("String too long ");
-        countSize += i+1;
+        progress += i+1;
         return false;
     }
     if (from < i)
         str = str + std::string(&s[from], i-from);
 
-    countSize += i+1;
+    progress += i+1;
     return true;
 }
 
