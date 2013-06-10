@@ -45,7 +45,7 @@ namespace ifc2x3 {
          * @param ifs The input stream to read from
          * @return Success.
          */
-        virtual bool read(std::istream &ifs);
+        virtual bool read(std::istream &ifs, size_t bytesAvailable = 0);
 
     protected:
         /**

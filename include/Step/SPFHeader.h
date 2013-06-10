@@ -112,7 +112,7 @@ namespace Step {
          @param counter an integer for line counting. This method updates the counter
          @return true if the header has no syntax error.
          */
-        bool parse(std::istream& ifs, unsigned int& counter);
+        bool parse(std::istream& ifs, unsigned int& counter, std::streamsize &countSize);
 
     private:
         FileDescription m_fileDescription;
