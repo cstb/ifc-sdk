@@ -17,6 +17,7 @@
 #ifndef Step_SimpleTypes_h
 #define Step_SimpleTypes_h
 
+#include <Step/Config.h>
 #include <Step/Types.h>
 #include <Step/Binary.h>
 #include <Step/String.h>
