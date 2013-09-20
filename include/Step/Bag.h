@@ -46,7 +46,7 @@ namespace Step {
          * iterators definitions
          * \{
          */
-typedef        typename std::multiset<T>::iterator iterator;
+        typedef typename std::multiset<T>::iterator iterator;
         typedef typename std::multiset<T>::const_iterator const_iterator;
         typedef typename std::multiset<T>::reverse_iterator reverse_iterator;
         typedef typename std::multiset<T>::const_reverse_iterator
@@ -55,7 +55,7 @@ typedef        typename std::multiset<T>::iterator iterator;
 
         /// default constructor not unset by default
         Bag(bool unset=false) :
-        Aggregate(unset)
+            Aggregate(unset)
         {
         }
 
@@ -63,50 +63,69 @@ typedef        typename std::multiset<T>::iterator iterator;
          * constructor with initialization with an array
          * \param value an array of values
          * \param count the number of elements to insert from the array in value
+#ifdef STEP_CHECK_RANGE
          * \throws std::range_error
          */
-        Bag(const T value[], Integer count) throw(std::range_error)
+        Bag(const T value[], Integer count)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (count<_lo)
-            throw std::range_error("Bag : array not big enough");
+                throw std::range_error("Bag : array not big enough");
             if (_hi>0)
-            if (count>=_hi)
-            throw std::range_error("Bag size is not big enough for the array");
+                if (count>=_hi)
+                    throw std::range_error("Bag size is not big enough for the array");
 
+#endif
             for (Integer i=0; i<count; ++i)
-            insert(value[i]);
+                insert(value[i]);
         }
         /**
          * constructor with initialization with a std::vector
          * \param value a vector of values
+#ifdef STEP_CHECK_RANGE
          * \throws std::range_error
          */
-        Bag(const std::vector<T>& value) throw(std::range_error)
+        Bag(const std::vector<T>& value)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (Integer(value.size())<_lo)
-            throw std::range_error("Bag : vector not big enough");
+                throw std::range_error("Bag : vector not big enough");
             if (_hi>0)
-            if (Integer(value.size())>=_hi)
-            throw std::range_error("Bag size is not big enough for the vector");
+                if (Integer(value.size())>=_hi)
+                    throw std::range_error("Bag size is not big enough for the vector");
+#endif
 
             for (unsigned i=0;i<value.size();++i)
-            insert(value[i]);
+                insert(value[i]);
         }
 
 #ifndef GLIBCXX_HAS_DEFECTS
         /**
          * constructor with initialization with a std::list
          * \param value a list of values
+#ifdef STEP_CHECK_RANGE
          * \throws std::range_error
+#endif
          */
-        Bag(const std::list<T>& value) throw(std::range_error)
+        Bag(const std::list<T>& value)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (Integer(value.size())<_lo)
-            throw std::range_error("Bag : list not big enough");
+                throw std::range_error("Bag : list not big enough");
             if (_hi>0)
-            if (Integer(value.size())>=_hi)
-            throw std::range_error("Bag size is not big enough for the list");
+                if (Integer(value.size())>=_hi)
+                    throw std::range_error("Bag size is not big enough for the list");
 
+#endif
             std::copy(value.begin(),value.end(),this->begin());
         }
 #endif
@@ -120,11 +139,16 @@ typedef        typename std::multiset<T>::iterator iterator;
         /**
          * inserts a value into the Bag
          * \param value the value to insert
+#ifdef STEP_CHECK_RANGE
          * \throws std::out_of_range
+#endif
          */
         virtual void insert(const T& value = getUnset(T()))
+#ifdef STEP_CHECK_RANGE
         throw( std::out_of_range)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (_hi>0)
             {
                 if (Integer(std::multiset<T>::size())==_hi)
@@ -133,6 +157,7 @@ typedef        typename std::multiset<T>::iterator iterator;
                 }
             }
 
+#endif
             std::multiset<T>::insert(value);
             setUnset(false);
         }
