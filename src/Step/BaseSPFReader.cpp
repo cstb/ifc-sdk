@@ -46,7 +46,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     _errors.clear();
 
-    static const size_t bufferLength = 1024000;
+    static const size_t bufferLength = 8388608; // 8Mb
     char* buffer = new char[bufferLength];
     std::string::size_type i, from;
     m_currentLineNb = 1;
