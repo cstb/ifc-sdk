@@ -142,7 +142,7 @@ namespace Step {
         ** \short Write an Attribute (Binary value)
         ** @param value an EXPRESS binary value
         */
-        template<int N>
+        template<unsigned N>
         inline void writeAttribute(Binary<N>& value)
         {
             if (isUnset(value))
