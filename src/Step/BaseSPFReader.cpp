@@ -38,7 +38,7 @@ BaseSPFReader::~BaseSPFReader()
 
 bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 {
-    std::streamsize progress = 0;
+    size_t progress = 0;
     if(_callback)
     {
         // get length of file:
@@ -129,7 +129,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             continue;
         }
 
-        m_currentId = atoi(str.substr(1, i - 1).c_str());
+        m_currentId = (Id)atol(str.substr(1, i - 1).c_str());
         from = i + 1;
         i = str.find('(', from);
         if (i == string::npos || str[str.length() - 1] != ')')

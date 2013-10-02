@@ -296,7 +296,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_diffuseColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_diffuseColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_diffuseColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -320,7 +320,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_transmissionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_transmissionColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_transmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -344,7 +344,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_diffuseTransmissionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_diffuseTransmissionColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_diffuseTransmissionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -368,7 +368,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_reflectionColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_reflectionColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_reflectionColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -392,7 +392,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_specularColour = new IfcColourOrFactor;
         if (arg[0] == '#') {
-            m_specularColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_specularColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -416,7 +416,7 @@ bool IfcSurfaceStyleRendering::init() {
     else {
         m_specularHighlight = new IfcSpecularHighlightSelect;
         if (arg[0] == '#') {
-            m_specularHighlight->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_specularHighlight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

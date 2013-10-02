@@ -123,7 +123,7 @@ void BaseSPFWriter::writeEnder()
 
 bool BaseSPFWriter::writeIfNotInited(Id id)
 {
-#define CHECK_IF_EXIST(str) (str[0] == '#'?(m_expressDataSet->exists(atoi(str.substr(1).c_str()))?str:"$"):str)
+#define CHECK_IF_EXIST(str) (str[0] == '#'?(m_expressDataSet->exists((unsigned)atol(str.substr(1).c_str()))?str:"$"):str)
     SPFData* args = m_expressDataSet->getArgs(id);
 
     if (!args || args->argc() <= 0)
@@ -169,7 +169,7 @@ void BaseSPFWriter::writeAttribute(Real value)
 
             const double exp = log10(fabs_value);
 
-            size_t end = -1;
+            size_t end;
             if(exp > DBL_DIG + 1)
             {
                 stream << std::setprecision(DBL_DIG + 1)
@@ -237,6 +237,7 @@ void BaseSPFWriter::writeAttribute(Logical value)
     case LUnknown:
         outputStream() << ".U.";
         break;
+    case LUnset:
     default:
         outputStream() << "$";
         break;

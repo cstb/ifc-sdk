@@ -76,20 +76,20 @@ void IfcActorSelect::copy(const IfcActorSelect &obj, const CopyOp &copyop) {
     case IFCPERSONANDORGANIZATION:
         setIfcPersonAndOrganization((IfcPersonAndOrganization *) (copyop(obj.m_IfcActorSelect_union.m_IfcPersonAndOrganization)));
         break;
-        }
+    case UNSET:
+        break;
+    }
 }
 
 std::string IfcActorSelect::currentTypeName() const {
     switch(m_type) {
     case IFCORGANIZATION:
         return "IfcOrganization";
-        break;
     case IFCPERSON:
         return "IfcPerson";
-        break;
     case IFCPERSONANDORGANIZATION:
         return "IfcPersonAndOrganization";
-        break;
+    case UNSET:
     default:
         return "UNSET";
     }
@@ -110,7 +110,9 @@ void IfcActorSelect::deleteUnion() {
     case IFCPERSONANDORGANIZATION:
         m_IfcActorSelect_union.m_IfcPersonAndOrganization->unref();
         break;
-        }
+    case UNSET:
+        break;
+    }
     m_type = UNSET;
 }
 

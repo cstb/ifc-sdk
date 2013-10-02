@@ -125,7 +125,7 @@ bool IfcMeasureWithUnit::init() {
     else {
         m_valueComponent = new IfcValue;
         if (arg[0] == '#') {
-            m_valueComponent->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_valueComponent->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -654,7 +654,7 @@ bool IfcMeasureWithUnit::init() {
     else {
         m_unitComponent = new IfcUnit;
         if (arg[0] == '#') {
-            m_unitComponent->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_unitComponent->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

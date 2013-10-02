@@ -275,7 +275,7 @@ namespace Step {
          */
         size_type max_size() const
         {
-            return -1;
+            return size_type(-1);
         }
 
         /*!

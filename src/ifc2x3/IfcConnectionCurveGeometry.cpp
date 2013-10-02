@@ -126,7 +126,7 @@ bool IfcConnectionCurveGeometry::init() {
     else {
         m_curveOnRelatingElement = new IfcCurveOrEdgeCurve;
         if (arg[0] == '#') {
-            m_curveOnRelatingElement->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_curveOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -145,7 +145,7 @@ bool IfcConnectionCurveGeometry::init() {
     else {
         m_curveOnRelatedElement = new IfcCurveOrEdgeCurve;
         if (arg[0] == '#') {
-            m_curveOnRelatedElement->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_curveOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

@@ -30,7 +30,7 @@ Id Step::getIdParam(const std::string& s)
         return Id_UNSET;
     }
 
-    Id res = atoi(s.substr(1,s.length() - 1).c_str());
+    Id res = (Id)atol(s.substr(1,s.length() - 1).c_str());
     if (res==0)
         return Id_UNDEF;
     else
@@ -53,7 +53,7 @@ bool Step::getIdListParam(const std::string& s, std::vector<Id>& res)
 
     else {
         for (unsigned int i=0; i< resStr.size();i++) {
-            Id current = atoi(resStr[i].c_str() + 1);
+            Id current = (Id)atol(resStr[i].c_str() + 1);
             if (current ==0) {
                 res.push_back(Id_UNDEF);
                 return false;
@@ -132,7 +132,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     return true;
 }
 
-bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, std::streamsize &progress) {
+bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress) {
     str.clear();
     size_t i = 0;
     size_t from = 0;

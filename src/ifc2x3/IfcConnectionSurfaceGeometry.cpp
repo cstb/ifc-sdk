@@ -126,7 +126,7 @@ bool IfcConnectionSurfaceGeometry::init() {
     else {
         m_surfaceOnRelatingElement = new IfcSurfaceOrFaceSurface;
         if (arg[0] == '#') {
-            m_surfaceOnRelatingElement->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_surfaceOnRelatingElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -145,7 +145,7 @@ bool IfcConnectionSurfaceGeometry::init() {
     else {
         m_surfaceOnRelatedElement = new IfcSurfaceOrFaceSurface;
         if (arg[0] == '#') {
-            m_surfaceOnRelatedElement->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_surfaceOnRelatedElement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
