@@ -241,7 +241,7 @@ namespace Step {
     }
 
     //! isUnset method for the Binary type
-    template<int N>
+    template<unsigned N>
     inline bool isUnset(const Binary<N>& v)
     {
         return v.is_unset();

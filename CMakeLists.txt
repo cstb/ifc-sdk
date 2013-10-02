@@ -152,13 +152,13 @@ if(APPLE)
                     -Wsign-conversion
                     -Wstrict-prototypes
                     -Wstrict-selector-match
-                    -Wswitch
+#                    -Wswitch
                     -Wswitch-default
                     -Wswitch-enum
                     -Wundeclared-selector
                     -Wuninitialized
                     -Wunknown-pragmas
-                    -Wunreachable-code
+#                    -Wunreachable-code
                     -Wunused-function
                     -Wunused-label
                     -Wunused-parameter
