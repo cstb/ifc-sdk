@@ -185,7 +185,7 @@ namespace Step {
     }
 
     //! getUnset values the Binary type
-    template<int N>
+    template<unsigned N>
     inline const Binary<N>& getUnset(Binary<N> )
     {
         static const Binary<N> Unset;
