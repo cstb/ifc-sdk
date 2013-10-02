@@ -355,7 +355,7 @@ bool IfcWorkControl::init() {
     else {
         m_creationDate = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_creationDate->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_creationDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -414,7 +414,7 @@ bool IfcWorkControl::init() {
     else {
         m_startTime = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_startTime->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_startTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -433,7 +433,7 @@ bool IfcWorkControl::init() {
     else {
         m_finishTime = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_finishTime->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_finishTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

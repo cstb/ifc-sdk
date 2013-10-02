@@ -30,7 +30,7 @@ void test_getLine()
     unsigned int counter=0;
     char buffer[1024];
     std::string result;
-    std::streamsize progress = 0;
+    size_t progress = 0;
 
     TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,progress));
 

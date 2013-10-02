@@ -113,7 +113,7 @@ namespace Step {
          @param progress used to store the current progress of the parsing by the callback
          @return true if the header has no syntax error.
          */
-        bool parse(std::istream& ifs, unsigned int& counter, std::streamsize &progress);
+        bool parse(std::istream& ifs, unsigned int& counter, size_t &progress);
 
     private:
         FileDescription m_fileDescription;

@@ -119,7 +119,7 @@ namespace Step {
                 }
             }
 #endif
-            std::vector<T>::resize(newsize, value);
+            std::vector<T>::resize((size_t)newsize, value);
         }
 
         /**
@@ -185,7 +185,7 @@ namespace Step {
 #       else
         {
 #       endif
-            return std::vector<T>::at(position);
+            return std::vector<T>::at((size_t)position);
         }
 
         /**
@@ -201,7 +201,7 @@ namespace Step {
 #       else
         {
 #       endif
-            return std::vector<T>::at(position);
+            return std::vector<T>::at((size_t)position);
         }
 
         /**
@@ -217,7 +217,7 @@ namespace Step {
 #       else
         {
 #       endif
-            return std::vector<T>::operator[](position);
+            return std::vector<T>::operator[]( size_t(position) ) ;
         }
 
         /**
@@ -233,7 +233,7 @@ namespace Step {
 #       else
         {
 #       endif
-            return std::vector<T>::operator[](position);
+            return std::vector<T>::operator[]( size_t(position) );
         }
 
         /**

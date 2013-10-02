@@ -15,7 +15,7 @@ ENDIF(NOT DEFINED LIB_POSTFIX)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1)
 SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta4)
+SET(ifc2x3_sdk_VERSION_PATCH beta5)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
 
@@ -117,12 +117,64 @@ IF(MSVC)
 
 ENDIF(MSVC)
 
+if(APPLE)
+    foreach(flag
+#                    -Wall
+#                    -Wbad-function-cast
+#                    -Wcast-align
+#                    -Wconversion
+#                    -Wdeclaration-after-statement
+#                    -Wdeprecated-implementations
+#                    -Wextra
+#                    -Wfloat-equal
+#                    -Wformat=2
+#                    -Wformat-nonliteral
+#                    -Wfour-char-constants
+#                    -Wimplicit-atomic-properties
+#                    -Wmissing-braces
+#                    -Wmissing-declarations
+#                    -Wmissing-field-initializers
+#                    -Wmissing-format-attribute
+                    -Wmissing-noreturn
+#                    -Wmissing-prototypes
+#                    -Wnested-externs
+#                    -Wnewline-eof
+#                    -Wold-style-definition
+#                    -Woverlength-strings
+#                    -Wparentheses
+#                    -Wpointer-arith
+#                    -Wredundant-decls
+                    -Wreturn-type
+#                    -Wsequence-point
+#                    -Wshadow
+#                    -Wshorten-64-to-32
+                    -Wsign-compare
+                    -Wsign-conversion
+                    -Wstrict-prototypes
+                    -Wstrict-selector-match
+                    -Wswitch
+                    -Wswitch-default
+                    -Wswitch-enum
+                    -Wundeclared-selector
+                    -Wuninitialized
+                    -Wunknown-pragmas
+                    -Wunreachable-code
+                    -Wunused-function
+                    -Wunused-label
+                    -Wunused-parameter
+                    -Wunused-value
+                    -Wunused-variable
+                    -Wwrite-strings )
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${flag}")
+    endforeach(flag)
+endif()
+
 include(${CMAKE_CURRENT_SOURCE_DIR}/PCHSupport.cmake)
 if(PCHSupport_FOUND)
     option(ENABLE_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" ON)
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(src)
 add_subdirectory(doc EXCLUDE_FROM_ALL)
