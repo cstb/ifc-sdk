@@ -34,7 +34,7 @@ namespace Step {
      */
     class STEP_EXPORT BaseObject: public ClientDataHandler
     {
-        ClassType_definitions();
+        ClassType_definitions()
     public:
 
         /*!

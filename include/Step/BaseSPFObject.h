@@ -30,7 +30,7 @@ namespace Step {
      */
     class STEP_EXPORT BaseSPFObject: public BaseEntity
     {
-        ClassType_definitions();
+        ClassType_definitions()
     public:
         /*!
          * Virtual destructor.

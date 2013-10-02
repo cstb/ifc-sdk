@@ -160,7 +160,7 @@ namespace Step {
         /**
          * builds from a (windows 125X) encoded representation
          * \param str the string to convert
-         * \param the pagecode to convert str from
+         * \param pagecode the pagecode to convert str from
          * \return the String created
          */
         static String fromWindows(const std::string &str, int pagecode);

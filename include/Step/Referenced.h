@@ -36,7 +36,7 @@ namespace Step {
      */
     class STEP_EXPORT Referenced
     {
-        ClassType_definitions();
+        ClassType_definitions()
 
     public:
 

@@ -24,7 +24,7 @@ namespace Step {
     /*!
      * \short C++ Implementation of the EXPRESS Binary type
      */
-    template<int N> class Binary: public std::bitset<N>
+    template<unsigned N> class Binary: public std::bitset<N>
     {
 
     public:
@@ -32,8 +32,10 @@ namespace Step {
         Binary()
         {
             m_width = N;
-            m_n = !(m_width % 4) ? 0 : !((m_width + 1) % 4) ? 1 : !((m_width
-                    + 2) % 4) ? 2 : 3;
+            m_n = !(m_width % 4) ?
+                        0 : !((m_width + 1) % 4) ?
+                            1 : !((m_width + 2) % 4) ?
+                                2 : 3;
             m_k = m_n + m_width;
             m_unset = true;
 #ifdef __GNUG__
@@ -49,7 +51,7 @@ namespace Step {
          */
         Binary(const Binary<N>& b) :
             m_width(b.m_width), m_k(b.m_k),
-                    m_n(b.m_n), m_unset(b.m_unset)
+            m_n(b.m_n), m_unset(b.m_unset)
         {
         }
 
@@ -59,11 +61,11 @@ namespace Step {
          */
         void from_spfstring(const std::string &s)
         {
-            int i, idx;
+            unsigned i, idx;
 
             m_width = N;
             m_n = !(m_width % 4) ? 0 : !((m_width + 1) % 4) ? 1 : !((m_width
-                    + 2) % 4) ? 2 : 3;
+                                                                     + 2) % 4) ? 2 : 3;
             m_k = m_n + m_width;
 
 #ifdef __GNUG__
@@ -134,7 +136,7 @@ namespace Step {
           */
         std::string &to_spfstring() const
         {
-            int i, idx;
+            unsigned i, idx;
             char *t;
             std::string *s;
             if (m_unset)
@@ -217,7 +219,7 @@ namespace Step {
          * Number of bits the binary holds
          * \return the width of the binary
          */
-        int width() const
+        unsigned width() const
         {
             return m_width;
         }
@@ -234,9 +236,9 @@ namespace Step {
     protected:
 
     private:
-        int m_k;
-        int m_n;
-        int m_width;
+        unsigned m_k;
+        unsigned m_n;
+        unsigned m_width;
         bool m_unset;
     };
 
