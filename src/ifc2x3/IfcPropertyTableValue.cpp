@@ -1351,10 +1351,16 @@ void IfcPropertyTableValue::copy(const IfcPropertyTableValue &obj, const CopyOp 
         m_definedValues.push_back(copyTarget.get());
     }
     setExpression(obj.m_expression);
-    m_definingUnit = new IfcUnit;
-    m_definingUnit->copy(*(obj.m_definingUnit.get()), copyop);
-    m_definedUnit = new IfcUnit;
-    m_definedUnit->copy(*(obj.m_definedUnit.get()), copyop);
+    if (obj.m_definingUnit.valid())
+    {
+        m_definingUnit = new IfcUnit;
+        m_definingUnit->copy(*(obj.m_definingUnit.get()), copyop);
+    }
+    if (obj.m_definedUnit.valid())
+    {
+        m_definedUnit = new IfcUnit;
+        m_definedUnit->copy(*(obj.m_definedUnit.get()), copyop);
+    }
     return;
 }
 
