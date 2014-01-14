@@ -118,6 +118,30 @@ IF(MSVC)
 ENDIF(MSVC)
 
 if(APPLE)
+    MACRO(REMOVE_CXX_FLAG flag)
+      STRING(REPLACE "${flag}" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+    ENDMACRO()
+    SET(CXX_LANGUAGE_STANDARD "C++98" CACHE STRING "set the c++ language standard (C++98 / C++11)" )
+    MARK_AS_ADVANCED(CXX_LANGUAGE_STANDARD)
+    # remove existing flags
+    REMOVE_CXX_FLAG(-std=c++98)
+    REMOVE_CXX_FLAG(-std=c++11)
+    REMOVE_CXX_FLAG(-stdlib=libstdc++)
+    REMOVE_CXX_FLAG(-stdlib=libc++)
+
+    IF(${CXX_LANGUAGE_STANDARD} STREQUAL "c++98" OR ${CXX_LANGUAGE_STANDARD} STREQUAL "C++98")
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++98")
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libstdc++")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98 -stdlib=libstdc++")
+    ELSE()
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++11")
+        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
+    ENDIF()
+
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -Wno-conversion")
+    set(WARNING_CFLAGS "")
+      
     foreach(flag
 #                    -Wall
 #                    -Wbad-function-cast
