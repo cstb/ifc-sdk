@@ -54,9 +54,10 @@ namespace Step {
         /*!
         ** \short Load a file from a path
         ** @param input input stream to read from
+        ** @param inputSize the size of the stream to read from if available, used for the callback
         ** @return true if the stream was correctly read
         */
-        virtual bool read(std::istream& input);
+        virtual bool read(std::istream& input, size_t inputSize = 0);
 
         /*!
         ** \short Get the ExpressDataSet after the loading of the file

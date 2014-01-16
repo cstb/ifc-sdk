@@ -37,8 +37,8 @@ namespace Step {
      */
 
     template<typename T, Integer _lo = 0, Integer _hi = -1> class Set :
-        public std::set<T>,
-        public Aggregate
+            public std::set<T>,
+            public Aggregate
     {
     public:
         //! the size_type
@@ -64,13 +64,18 @@ namespace Step {
          * constructor with initialization with an array
          * \param value an array of values
          * \param count the number of elements to insert from the array in value
+##ifdef STEP_CHECK_RANGE
          * \throws std::range_error
+#endif
          */
-        Set(const T value[], Integer count) throw(std::range_error)
+        Set(const T value[], Integer count)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
             for (Integer i=0; i<count; ++i)
-            insert(value[i]);
-
+                insert(value[i]);
+#ifdef STEP_CHECK_RANGE
             if (Integer(std::set<T>::size())<_lo)
             {
                 std::set<T>::clear();
@@ -84,15 +89,22 @@ namespace Step {
                     throw std::range_error("Set size is not big enough for the array");
                 }
             }
+#endif
         }
 
         /**
          * constructor with initialization with a std::vector
          * \param value a list of values
+##ifdef STEP_CHECK_RANGE
          * \throws std::range_error
+#endif
          */
-        Set(const std::vector<T>& value) throw(std::range_error)
+        Set(const std::vector<T>& value)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (Integer(std::set<T>::size())<_lo)
             {
                 std::set<T>::clear();
@@ -107,6 +119,7 @@ namespace Step {
                     throw std::range_error("Set size is not big enough for the vector");
                 }
             }
+#endif
             for (unsigned i=0;i<value.size();++i)
             {
                 insert(value[i]);
@@ -117,10 +130,16 @@ namespace Step {
         /**
          * constructor with initialization with a std::list
          * \param value a list of values
+#ifdef STEP_CHECK_RANGE
          * \throws std::range_error
+#endif
          */
-        Set(const std::list<T>& value) throw(std::range_error)
+        Set(const std::list<T>& value)
+#ifdef STEP_CHECK_RANGE
+        throw(std::range_error)
+#endif
         {
+#ifdef STEP_CHECK_RANGE
             if (Integer(std::set<T>::size())<_lo)
             {
                 std::set<T>::clear();
@@ -134,6 +153,7 @@ namespace Step {
                     throw std::range_error("Set size is not big enough for the list");
                 }
             }
+#endif
             std::copy(value.begin(),value.end(),this->begin());
         }
 #endif
@@ -144,12 +164,18 @@ namespace Step {
         /**
          * The set container is extended by inserting a single new element
          * \param value value to insert
-         * \throws std::range_error
+##ifdef STEP_CHECK_RANGE
+         * \throws std::out_of_range
+#endif
          */
-        virtual void insert(const T& value = getUnset(T())) throw(std::out_of_range)
+        virtual void insert(const T& value = getUnset(T()))
+#ifdef STEP_CHECK_RANGE
+        throw(std::out_of_range)
+#endif
         {
             setUnset(false);
             std::set<T>::insert(value);
+#ifdef STEP_CHECK_RANGE
             if (_hi>0)
             {
                 if (Integer(std::set<T>::size())>_hi)
@@ -158,6 +184,7 @@ namespace Step {
                     throw std::out_of_range("Set is full");
                 }
             }
+#endif
         }
 
         /**

@@ -112,7 +112,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
 
     if (it == m_Id2BaseObject.end())
     {
-		LOG_WARNING("Entity #" << it->first << " was never declared");
+        LOG_WARNING("Entity #" << id << " was never declared");
         return 0;
     }
     else if (it->second->isOfType(BaseSPFObject::getClassType()))
@@ -129,7 +129,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
         }
         else
         {
-            LOG_WARNING("Entity #" << it->first << " cannot be allocated");
+            LOG_WARNING("Entity #" << id << " cannot be allocated");
             return 0;
         }
     }

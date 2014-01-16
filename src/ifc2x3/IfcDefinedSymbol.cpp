@@ -129,7 +129,7 @@ bool IfcDefinedSymbol::init() {
     else {
         m_definition = new IfcDefinedSymbolSelect;
         if (arg[0] == '#') {
-            m_definition->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_definition->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

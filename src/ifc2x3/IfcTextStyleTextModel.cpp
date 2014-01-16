@@ -258,7 +258,7 @@ bool IfcTextStyleTextModel::init() {
     else {
         m_textIndent = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_textIndent->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_textIndent->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -321,7 +321,7 @@ bool IfcTextStyleTextModel::init() {
     else {
         m_letterSpacing = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_letterSpacing->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_letterSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -370,7 +370,7 @@ bool IfcTextStyleTextModel::init() {
     else {
         m_wordSpacing = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_wordSpacing->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_wordSpacing->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -426,7 +426,7 @@ bool IfcTextStyleTextModel::init() {
     else {
         m_lineHeight = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_lineHeight->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_lineHeight->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

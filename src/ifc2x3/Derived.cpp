@@ -1117,32 +1117,26 @@ IfcDimensionCount IfcBooleanResult::getDim() const
 			LOG_DEBUG("IfcBooleanResult::getDim()::IFCSOLIDMODEL");
 			return getFirstOperand()->getIfcSolidModel()->getDim();
 		}
-			break;
 		case IfcBooleanOperand::IFCHALFSPACESOLID:
 		{
 			LOG_DEBUG("IfcBooleanResult::getDim()::IFCHALFSPACESOLID");
 			return getFirstOperand()->getIfcHalfSpaceSolid()->getDim();
 		}
-			break;
 		case IfcBooleanOperand::IFCBOOLEANRESULT:
 		{
 			LOG_DEBUG("IfcBooleanResult::getDim()::IFCBOOLEANRESULT");
 			return getFirstOperand()->getIfcBooleanResult()->getDim();
 		}
-			break;
 		case IfcBooleanOperand::IFCCSGPRIMITIVE3D:
 		{
 			LOG_DEBUG("IfcBooleanResult::getDim()::IFCCSGPRIMITIVE3D");
 			return getFirstOperand()->getIfcCsgPrimitive3D()->getDim();
 		}
-			break;
 		case IfcBooleanOperand::UNSET:
 		{
 			return 0;
 		}
-			break;
 	}
-	return 0;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1206,7 +1200,6 @@ Array_IfcCartesianPoint_0_255 IfcListToArray(List_IfcCartesianPoint_2_n Lis, Ste
 	if(N != (U-Low))
 	{
 		LOG_ERROR("IfcListToArray");
-		return NULL;
 	}
 	else
 	{
@@ -1214,8 +1207,8 @@ Array_IfcCartesianPoint_0_255 IfcListToArray(List_IfcCartesianPoint_2_n Lis, Ste
 		{
 			Res[Low+i] = Lis[i];
 		}
-		return Res;
 	}
+    return Res;
 }
 /*
 ENTITY IfcBSplineCurve
@@ -2033,7 +2026,7 @@ IfcLengthMeasure IfcMlsTotalThickness(const IfcMaterialLayerSet* LayerSet)
 	{
 		Max = LayerSet->getMaterialLayers()[0]->getLayerThickness();
 		if(LayerSet->getMaterialLayers().size() > 1)
-			for(unsigned int i = 1; i < (LayerSet->getMaterialLayers().size()); i++)
+            for(int i = 1; i < int(LayerSet->getMaterialLayers().size()); i++)
 				Max = Max + LayerSet->getMaterialLayers()[i]->getLayerThickness();
 	}
 	else
@@ -2422,97 +2415,67 @@ Step::RefPtr<IfcDimensionalExponents> IfcDimensionsForSiUnit(ifc2x3::ExpressData
 	{
 	case IfcSIUnitName_METRE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,1, 0, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_SQUARE_METRE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 0, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_CUBIC_METRE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,3, 0, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_GRAM :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 1, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_SECOND :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 1, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_AMPERE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_KELVIN :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 1, 0, 0);
-		break;
 	case IfcSIUnitName_MOLE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 1, 0);
-		break;
 	case IfcSIUnitName_CANDELA :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 1);
-		break;
 	case IfcSIUnitName_RADIAN :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_STERADIAN :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_HERTZ :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, -1, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_NEWTON :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,1, 1, -2, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_PASCAL :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,-1, 1, -2, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_JOULE :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -2, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_WATT :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -3, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_COULOMB :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 1, 1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_VOLT :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -3, -1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_FARAD :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,-2, -1, 4, 1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_OHM :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -3, -2, 0, 0, 0);
-		break;
 	case IfcSIUnitName_SIEMENS :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,-2, -1, 3, 2, 0, 0, 0);
-		break;
 	case IfcSIUnitName_WEBER :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -2, -1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_TESLA :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 1, -2, -1, 0, 0, 0);
-		break;
 	case IfcSIUnitName_HENRY :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 1, -2, -2, 0, 0, 0);
-		break;
 	case IfcSIUnitName_DEGREE_CELSIUS :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 1, 0, 0);
-		break;
 	case IfcSIUnitName_LUMEN :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 1);
-		break;
 	case IfcSIUnitName_LUX :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,-2, 0, 0, 0, 0, 0, 1);
-		break;
 	case IfcSIUnitName_BECQUEREL :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, -1, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_GRAY :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 0, -2, 0, 0, 0, 0);
-		break;
 	case IfcSIUnitName_SIEVERT :
 		return ReturnIfcDimensionalExponents(_ExpressDataSet,2, 0, -2, 0, 0, 0, 0);
-		break;
-	default:
-		return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 0);
-		break;
+    case IfcSIUnitName_UNSET:
+    default:
+        return ReturnIfcDimensionalExponents(_ExpressDataSet,0, 0, 0, 0, 0, 0, 0);
 	}
 }
 /*
@@ -2662,7 +2625,7 @@ Step::List< Step::RefPtr< T >, Low2> IfcAddToBeginOfList( const T* AScalar, cons
     }
     for(unsigned int i=0;i<AList.size();i++)
     {
-        Result.push_back(AList[i]);
+        Result.push_back(AList[(Step::Integer)i]);
     }
 
     return Result;
@@ -2774,7 +2737,7 @@ Step::Integer IfcTable::getNumberOfHeadings() const
 	if(!Step::isUnset(getRows()))
 	{
 		List_IfcTableRow_1_n ListIfcTableRow = getRows();
-		for(unsigned int i=0; i<ListIfcTableRow.size(); i++)
+        for(int i=0; i< int(ListIfcTableRow.size()); i++)
 		{
 			if(ListIfcTableRow[i]->getIsHeading()==Step::BTrue)
 				Res++;
@@ -2794,7 +2757,7 @@ Step::Integer IfcTable::getNumberOfDataRows() const
 		List_IfcTableRow_1_n ListIfcTableRow = getRows();
 		for(unsigned int i=0; i<ListIfcTableRow.size(); i++)
 		{
-			if(ListIfcTableRow[i]->getIsHeading()!=Step::BTrue)
+            if(ListIfcTableRow[Step::Integer(i)]->getIsHeading()!=Step::BTrue)
 				Res++;
 		}
 	}

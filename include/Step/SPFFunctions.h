@@ -40,10 +40,11 @@ namespace Step {
      @param buffer the buffer to store the lines read directly from the ifs
      @param bufferLength the length of the buffer
      @param str the parsed line
+     @param progress used to store the current progress of the parsing by the callback
      @return success or failure
      */
     bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
-            char* buffer, size_t bufferLength, std::string& str);
+            char* buffer, size_t bufferLength, std::string& str, size_t &progress);
 
     /*!
      parses a list of strings

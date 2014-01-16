@@ -141,7 +141,7 @@ bool IfcLocalPlacement::init() {
     else {
         m_relativePlacement = new IfcAxis2Placement;
         if (arg[0] == '#') {
-            m_relativePlacement->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_relativePlacement->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
