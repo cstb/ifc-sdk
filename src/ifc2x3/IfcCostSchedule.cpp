@@ -294,7 +294,7 @@ bool IfcCostSchedule::init() {
     else {
         m_submittedBy = new IfcActorSelect;
         if (arg[0] == '#') {
-            m_submittedBy->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_submittedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -313,7 +313,7 @@ bool IfcCostSchedule::init() {
     else {
         m_preparedBy = new IfcActorSelect;
         if (arg[0] == '#') {
-            m_preparedBy->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_preparedBy->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -332,7 +332,7 @@ bool IfcCostSchedule::init() {
     else {
         m_submittedOn = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_submittedOn->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_submittedOn->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -364,7 +364,7 @@ bool IfcCostSchedule::init() {
                 Step::RefPtr< IfcActorSelect > attr2;
                 attr2 = new IfcActorSelect;
                 if (str1[0] == '#') {
-                    attr2->set(m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                    attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
@@ -389,7 +389,7 @@ bool IfcCostSchedule::init() {
     else {
         m_updateDate = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_updateDate->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_updateDate->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

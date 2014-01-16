@@ -1,0 +1,6 @@
+#ifndef Step_Config_h
+#define Step_Config_h
+
+#cmakedefine STEP_CHECK_RANGE
+
+#endif

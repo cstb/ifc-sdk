@@ -579,7 +579,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_actualStart = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_actualStart->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_actualStart->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -598,7 +598,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_earlyStart = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_earlyStart->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_earlyStart->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -617,7 +617,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_lateStart = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_lateStart->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_lateStart->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -636,7 +636,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_scheduleStart = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_scheduleStart->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_scheduleStart->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -655,7 +655,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_actualFinish = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_actualFinish->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_actualFinish->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -674,7 +674,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_earlyFinish = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_earlyFinish->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_earlyFinish->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -693,7 +693,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_lateFinish = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_lateFinish->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_lateFinish->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -712,7 +712,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_scheduleFinish = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_scheduleFinish->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_scheduleFinish->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -773,7 +773,7 @@ bool IfcScheduleTimeControl::init() {
     else {
         m_statusTime = new IfcDateTimeSelect;
         if (arg[0] == '#') {
-            m_statusTime->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_statusTime->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

@@ -99,7 +99,7 @@ bool IfcRelAssociatesLibrary::init() {
     else {
         m_relatingLibrary = new IfcLibrarySelect;
         if (arg[0] == '#') {
-            m_relatingLibrary->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_relatingLibrary->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

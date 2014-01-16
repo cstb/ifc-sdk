@@ -4,11 +4,7 @@
 
 #include <sstream>
 
-#pragma execution_character_set("utf-8");
-
 /// tests for ticket2
-
-/// /!\ WARNING this file relies on UTF-8 encoding for string comparison !!!
 
 /**
 In tas_arm_support\src\Step\SPFFunctions.cpp line 157 and further
@@ -34,8 +30,9 @@ void test_getLine()
     unsigned int counter=0;
     char buffer[1024];
     std::string result;
+    size_t progress = 0;
 
-    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result));
+    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,progress));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;
@@ -53,7 +50,7 @@ void test_getLine()
     result = "";
 
     std::istringstream in2(input);
-    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result));
+    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result,progress));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;

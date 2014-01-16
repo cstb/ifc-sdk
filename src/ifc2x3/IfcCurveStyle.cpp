@@ -156,7 +156,7 @@ bool IfcCurveStyle::init() {
     else {
         m_curveFont = new IfcCurveFontOrScaledCurveFontSelect;
         if (arg[0] == '#') {
-            m_curveFont->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_curveFont->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -175,7 +175,7 @@ bool IfcCurveStyle::init() {
     else {
         m_curveWidth = new IfcSizeSelect;
         if (arg[0] == '#') {
-            m_curveWidth->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_curveWidth->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;
@@ -224,7 +224,7 @@ bool IfcCurveStyle::init() {
     else {
         m_curveColour = new IfcColour;
         if (arg[0] == '#') {
-            m_curveColour->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_curveColour->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

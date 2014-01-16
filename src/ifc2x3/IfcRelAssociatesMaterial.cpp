@@ -99,7 +99,7 @@ bool IfcRelAssociatesMaterial::init() {
     else {
         m_relatingMaterial = new IfcMaterialSelect;
         if (arg[0] == '#') {
-            m_relatingMaterial->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_relatingMaterial->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

@@ -43,9 +43,10 @@ namespace ifc2x3 {
          * It constructs a specific ExpressDataSet from a SPF stream.
          * 
          * @param ifs The input stream to read from
+         * @param inputSize the size of the stream to read from if available, used for the callback
          * @return Success.
          */
-        virtual bool read(std::istream &ifs);
+        virtual bool read(std::istream &ifs, size_t inputSize = 0);
 
     protected:
         /**

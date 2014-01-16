@@ -26,7 +26,7 @@ namespace Step {
      */
     class STEP_EXPORT BaseEntity: public BaseObject
     {
-        ClassType_definitions();
+        ClassType_definitions()
     public:
 
         /**

@@ -17,6 +17,7 @@
 #ifndef Step_SimpleTypes_h
 #define Step_SimpleTypes_h
 
+#include <Step/Config.h>
 #include <Step/Types.h>
 #include <Step/Binary.h>
 #include <Step/String.h>
@@ -184,7 +185,7 @@ namespace Step {
     }
 
     //! getUnset values the Binary type
-    template<int N>
+    template<unsigned N>
     inline const Binary<N>& getUnset(Binary<N> )
     {
         static const Binary<N> Unset;
@@ -240,7 +241,7 @@ namespace Step {
     }
 
     //! isUnset method for the Binary type
-    template<int N>
+    template<unsigned N>
     inline bool isUnset(const Binary<N>& v)
     {
         return v.is_unset();

@@ -167,7 +167,7 @@ bool IfcPropertyEnumeration::init() {
                 Step::RefPtr< IfcValue > attr2;
                 attr2 = new IfcValue;
                 if (str1[0] == '#') {
-                    attr2->set(m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                    attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
@@ -702,7 +702,7 @@ bool IfcPropertyEnumeration::init() {
     else {
         m_unit = new IfcUnit;
         if (arg[0] == '#') {
-            m_unit->set(m_expressDataSet->get(atoi(arg.c_str() + 1)));
+            m_unit->set(m_expressDataSet->get((Step::Id)atol(arg.c_str() + 1)));
         }
         else if (arg[arg.length() - 1] == ')') {
             std::string type1;

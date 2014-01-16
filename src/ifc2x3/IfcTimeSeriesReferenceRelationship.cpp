@@ -145,7 +145,7 @@ bool IfcTimeSeriesReferenceRelationship::init() {
                 Step::RefPtr< IfcDocumentSelect > attr2;
                 attr2 = new IfcDocumentSelect;
                 if (str1[0] == '#') {
-                    attr2->set(m_expressDataSet->get(atoi(str1.c_str() + 1)));
+                    attr2->set(m_expressDataSet->get((Step::Id)atol(str1.c_str() + 1)));
                 }
                 else if (str1[str1.length() - 1] == ')') {
                     std::string type2;
