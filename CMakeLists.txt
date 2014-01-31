@@ -74,7 +74,7 @@ SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} APPEND PROPERTY COMPILE_DEFIN
 if(APPLE)
     set(CMAKE_OSX_ARCHITECTURES "x86_64")
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.7")
-    set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk")
+    set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk")
 endif()
 
 IF(MSVC)
