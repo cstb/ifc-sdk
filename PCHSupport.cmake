@@ -76,6 +76,15 @@ MACRO(_PCH_GET_COMPILE_FLAGS _out_compile_flags)
 		LIST(APPEND ${_out_compile_flags} "/Gd")
 	endif()
 
+	if (APPLE)
+		if (CMAKE_OSX_DEPLOYMENT_TARGET)
+			LIST(APPEND ${_out_compile_flags} "-mmacosx-version-min=${CMAKE_OSX_DEPLOYMENT_TARGET}")
+		endif()
+		if(CMAKE_OSX_SYSROOT)
+			LIST(APPEND ${_out_compile_flags} "-isysroot ${CMAKE_OSX_SYSROOT}")
+		endif()
+	endif()
+
 	# Format definitions and remove duplicates
 	SEPARATE_ARGUMENTS(${_out_compile_flags})
 	LIST(REMOVE_DUPLICATES ${_out_compile_flags})
