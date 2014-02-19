@@ -140,11 +140,17 @@ bool BaseSPFWriter::writeIfNotInited(Id id)
 
 void BaseSPFWriter::writeAttribute(BaseEntity* entity)
 {
-    Step::Id curId = entity->getKey();
-    if (m_expressDataSet->exists(curId))
-        outputStream() << "#" << curId;
-    else
-        outputStream() << "$";
+    if (entity)
+    {
+        Step::Id curId = entity->getKey();
+        if (m_expressDataSet->exists(curId))
+        {
+            outputStream() << "#" << curId;
+            return ;
+        }
+    }
+
+    outputStream() << "$";
 }
 
 void BaseSPFWriter::writeAttribute(Real value)
