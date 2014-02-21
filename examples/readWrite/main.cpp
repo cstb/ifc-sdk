@@ -48,6 +48,12 @@ int main(int argc, char **argv)
         return 1;
     }
 
+    bool inMemory = true;
+    if (argc < 4)
+    {
+        inMemory = false;
+    }
+
     // ** open, load, close the file
     std::ifstream ifcFile;
     ifcFile.open(argv[1]);
@@ -65,7 +71,13 @@ int main(int argc, char **argv)
         std::cout << "ERROR: failed to open <" << argv[1] << ">" << std::endl;
         return 1;
     }
-    bool result = reader.read(ifcFile);
+
+    // get length of file
+    ifcFile.seekg (0, ifcFile.end);
+    std::ifstream::pos_type length = ifcFile.tellg();
+    ifcFile.seekg (0, ifcFile.beg);
+
+    bool result = reader.read(ifcFile, inMemory ? length : (std::ifstream::pos_type)0);
     ifcFile.close();
 
     if (result)
@@ -104,18 +116,18 @@ int main(int argc, char **argv)
         std::cout << "Strange ... there more than one IfcProject" << std::endl;
     } else {
         Step::RefPtr< ifc2x3::IfcProject > project = &*(projects.begin());
-        std::cout << "Project name is: " << project->getName().toLatin1() << std::endl;
-        if ( Step::isUnset(project->getLongName().toLatin1()) ) {
+        std::cout << "Project name is: " << project->getName().toISO_8859(Step::String::Western_European) << std::endl;
+        if ( Step::isUnset(project->getLongName().toISO_8859(Step::String::Western_European) ) ) {
             project->setLongName("Je lui donne le nom que je veux");
         }
-        std::cout << "Project long name is: " << project->getLongName().toLatin1() << std::endl;
+        std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
     }
 
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);
     writer.setCallBack(&cb);
     std::ofstream filestream;
-    if (argc==3)
+    if (argc<4)
     {
         filestream.open(argv[2]);
     }

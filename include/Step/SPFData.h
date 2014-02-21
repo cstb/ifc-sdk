@@ -50,7 +50,7 @@ namespace Step {
         /*!
          \short Gets next parameter
          */
-        virtual std::string getNext();
+        virtual const std::string &getNext();
 
         /*!
          \short Gets information about an inverse link
@@ -93,7 +93,7 @@ namespace Step {
          */
         inline const std::string& operator[](int i) const
         {
-            return m_argv[i];
+            return *(m_argv[i]);
         }
 
         /*!
@@ -103,7 +103,7 @@ namespace Step {
          */
         inline const std::string& at(int i) const
         {
-            return m_argv[i];
+            return *(m_argv[i]);
         }
 
         /*!
@@ -124,7 +124,7 @@ namespace Step {
     private:
         int m_argc;
         int m_index;
-        std::string* m_argv;
+        std::string** m_argv;
         std::map<std::pair<ClassType, int>, std::vector<Step::Id> > m_inverses;
     };
 }

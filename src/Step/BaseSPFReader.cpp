@@ -38,6 +38,8 @@ BaseSPFReader::~BaseSPFReader()
 
 bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 {
+    bool inMemory = inputSize > 0;
+
     size_t progress = 0;
     if(_callback)
     {
@@ -46,22 +48,51 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     _errors.clear();
 
-    static const size_t bufferLength = 8388608; // 8Mb
-    char* buffer = new char[bufferLength];
+    size_t bufferLength=0 ;
+    char* buffer=0;
+
+    if(inMemory)
+    {
+        bufferLength = inputSize;
+        buffer = new char[bufferLength];
+        input.read(buffer,bufferLength);
+    }
+    else
+    {
+        bufferLength = 8388608; // 8Mb
+        buffer = new char[bufferLength];
+    }
     std::string::size_type i, from;
     m_currentLineNb = 1;
 
     // Parse the header
-    if (!m_header.parse(input, m_currentLineNb,progress))
+    if (inMemory)
     {
-        LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
-        if(_callback)
+        if (!m_header.parse(buffer, bufferLength, m_currentLineNb, progress))
         {
-            // got to end of progress bar
-            _callback->setProgress(inputSize);
+            LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
+            if(_callback)
+            {
+                // got to end of progress bar
+                _callback->setProgress(inputSize);
+            }
+            delete[] buffer;
+            return false;
         }
-        delete[] buffer;
-        return false;
+    }
+    else
+    {
+        if (!m_header.parse(input, m_currentLineNb,progress))
+        {
+            LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
+            if(_callback)
+            {
+                // got to end of progress bar
+                _callback->setProgress(inputSize);
+            }
+            delete[] buffer;
+            return false;
+        }
     }
 
     if(_callback)
@@ -73,19 +104,39 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     // DATA section
     string str;
 
-    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
-            != "DATA")
+    if (inMemory)
     {
-        LOG_ERROR("Can't find DATA section, line "
-                << m_currentLineNb);
-        if(_callback)
+        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                != "DATA")
         {
-            // set to end
-            _callback->setProgress(inputSize);
+            LOG_ERROR("Can't find DATA section, line "
+                    << m_currentLineNb);
+            if(_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+            }
+            delete[] buffer;
+            return false;
         }
-        delete[] buffer;
-        return false;
     }
+    else
+    {
+        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                != "DATA")
+        {
+            LOG_ERROR("Can't find DATA section, line "
+                    << m_currentLineNb);
+            if(_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+            }
+            delete[] buffer;
+            return false;
+        }
+    }
+
 
     if(_callback)
     {
@@ -104,17 +155,36 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             // update progress callback
             _callback->setProgress(progress);
         }
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
+
+        if (inMemory)
         {
-            LOG_ERROR("Unexpected End Of File, line "
-                    << m_currentLineNb);
-            if(_callback)
+            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress))
             {
-                // set to end
-                _callback->setProgress(inputSize);
+                LOG_ERROR("Unexpected End Of File, line "
+                        << m_currentLineNb);
+                if(_callback)
+                {
+                    // set to end
+                    _callback->setProgress(inputSize);
+                }
+                delete[] buffer;
+                return false;
             }
-            delete[] buffer;
-            return false;
+        }
+        else
+        {
+            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
+            {
+                LOG_ERROR("Unexpected End Of File, line "
+                        << m_currentLineNb);
+                if(_callback)
+                {
+                    // set to end
+                    _callback->setProgress(inputSize);
+                }
+                delete[] buffer;
+                return false;
+            }
         }
 
         //ENDSEC detection
@@ -146,7 +216,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         m_currentObj = m_expressDataSet->getSPFObject(m_currentId);
         m_currentObj->getArgs()->setParams(line.c_str());
 
-        if (!callLoadFunction(str.substr(from, i - from)))
+        if (!callLoadFunction(entityName))
         {
             LOG_WARNING("Unexpected entity name : "
                     << str.substr(from, i - from) << " , line "
@@ -159,19 +229,39 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
     // END-ISO-10303-21
 
-    if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
-            != "END-ISO-10303-21")
+    if (inMemory)
     {
-        LOG_ERROR("Can't find END-ISO-10303-21 token, line "
-                << m_currentLineNb);
-        if(_callback)
+        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                != "END-ISO-10303-21")
         {
-            // set to end
-            _callback->setProgress(inputSize);
+            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
+                    << m_currentLineNb);
+            if(_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
 
+            }
+            delete[] buffer;
+            return false;
         }
-        delete[] buffer;
-        return false;
+    }
+    else
+    {
+        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                != "END-ISO-10303-21")
+        {
+            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
+                    << m_currentLineNb);
+            if(_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+
+            }
+            delete[] buffer;
+            return false;
+        }
     }
 
     if(_callback)
