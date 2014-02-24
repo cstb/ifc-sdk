@@ -21,6 +21,8 @@
 #include "Step/BaseSPFObject.h"
 #include "Step/BaseExpressDataSet.h"
 
+#include <algorithm>
+
 #define LOG_STRING_VECTOR _errors
 
 #include "Step/logger.h"
@@ -28,7 +30,7 @@
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader() : _callback(0)
+BaseSPFReader::BaseSPFReader(const std::string &SPFDataCacheFile) : _SPFDataCacheFile(SPFDataCacheFile), _callback(0)
 {
 }
 
@@ -144,28 +146,194 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         _callback->setProgress(progress);
     }
 
-    // #id=ENTITYNAME(......)
-    while (true)
+    bool readSPFDataCache = false;
+    bool writeSPFDataCache = false;
+    std::ifstream spfCacheInFile;
+    std::ofstream spfCacheOutFile;
+    if (_SPFDataCacheFile.size())
     {
-        from = 0;
-        LOG_DEBUG("Reading line " << m_currentLineNb);
-
-        if(_callback)
+        spfCacheInFile.open(_SPFDataCacheFile.c_str(), ios_base::in);
+        readSPFDataCache = spfCacheInFile.is_open();
+        if (!readSPFDataCache)
         {
-            // update progress callback
-            _callback->setProgress(progress);
+            spfCacheOutFile.open(_SPFDataCacheFile.c_str(), ios_base::out);
+            writeSPFDataCache = spfCacheOutFile.is_open();
+        }
+    }
+
+    // if we'll write spf data cache, we need to keep all classes type parsed
+    typedef std::set<std::string> EntitySet;
+    typedef EntitySet::iterator EntitySetIt;
+    EntitySet entitySet;
+
+    // and for each Id, we'll keep an iterator to its associated class name
+    typedef std::map<Id, EntitySetIt> Id2EntityIdx;
+    typedef Id2EntityIdx::iterator Id2EntityIdxIt;
+    Id2EntityIdx id2EntityIdx;
+
+    if (readSPFDataCache)
+    {
+        // we will directly fill map of entities in our express data set
+        MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
+
+        std::string buffer;
+
+        // read in nb of SPFData struct
+        unsigned int nbElement = 0;
+        if (std::getline(spfCacheInFile, buffer))
+        {
+            stringstream ss(buffer);
+            ss >> nbElement;
         }
 
+        for(unsigned int i=0; i<nbElement;++i)
+        {
+            // read in Step Id
+            if (std::getline(spfCacheInFile, buffer))
+            {
+                stringstream ss(buffer);
+                ss >> m_currentId;
+            }
+            else
+            {
+                LOG_WARNING("Missing or wrong Step Id at line : "
+                        << m_currentLineNb);
+                break;
+            }
+            ++m_currentLineNb;
+
+            // read in its class name (in uppercase)
+            std::string entityName;
+            std::getline(spfCacheInFile, entityName);
+            if (entityName.empty())
+            {
+                LOG_WARNING("Empty entity name at line : "
+                        << m_currentLineNb);
+                break;
+            }
+            ++m_currentLineNb;
+
+            // create base spf object and insert it express data set
+            Step::SPFData *spfData = new Step::SPFData;
+            m_currentObj = new BaseSPFObject(m_currentId, spfData);
+            m_currentObj->setExpressDataSet(m_expressDataSet);
+            mapOfEntities[m_currentId] = m_currentObj;
+            m_expressDataSet->updateMaxId(m_currentId);
+
+            // read in all string data
+            spfCacheInFile >> *spfData;
+            //
+            if (!callLoadFunction(entityName))
+            {
+                LOG_WARNING("Unexpected entity name : "
+                        << entityName << " , line "
+                        << m_currentLineNb);
+                continue;
+            }
+            m_currentLineNb += (m_currentObj->getArgs()->argc()+1);
+            m_currentObj->setAllocateFunction(m_currentType);
+        }
+    }
+    else
+    {
+        // #id=ENTITYNAME(......)
+        while (true)
+        {
+            from = 0;
+            LOG_DEBUG("Reading line " << m_currentLineNb);
+
+            if(_callback)
+            {
+                // update progress callback
+                _callback->setProgress(progress);
+            }
+
+            if (inMemory)
+            {
+                if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress))
+                {
+                    LOG_ERROR("Unexpected End Of File, line "
+                            << m_currentLineNb);
+                    if(_callback)
+                    {
+                        // set to end
+                        _callback->setProgress(inputSize);
+                    }
+                    delete[] buffer;
+                    return false;
+                }
+            }
+            else
+            {
+                if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
+                {
+                    LOG_ERROR("Unexpected End Of File, line "
+                            << m_currentLineNb);
+                    if(_callback)
+                    {
+                        // set to end
+                        _callback->setProgress(inputSize);
+                    }
+                    delete[] buffer;
+                    return false;
+                }
+            }
+
+            //ENDSEC detection
+            if (str == "ENDSEC")
+                break;
+
+            i = str.find('=');
+            if (i == string::npos || str[0] != '#')
+            {
+                LOG_WARNING("Syntax error on entity id, line "
+                        << m_currentLineNb);
+                continue;
+            }
+
+            m_currentId = (Id)atol(str.substr(1, i - 1).c_str());
+            from = i + 1;
+            i = str.find('(', from);
+            if (i == string::npos || str[str.length() - 1] != ')')
+            {
+                LOG_WARNING(
+                        "Syntax error on entity definition, line "
+                        << m_currentLineNb);
+                continue;
+            }
+
+            string entityName = str.substr(from, i - from);
+            string line = str.substr(i + 1, str.length() - i - 2);
+
+            m_currentObj = m_expressDataSet->getSPFObject(m_currentId);
+            m_currentObj->getArgs()->setParams(line.c_str());
+            if (!callLoadFunction(entityName))
+            {
+                LOG_WARNING("Unexpected entity name : "
+                        << entityName << " , line "
+                        << m_currentLineNb);
+                continue;
+            }
+            m_currentObj->setAllocateFunction(m_currentType);
+            if (writeSPFDataCache)
+            {
+                std::pair<EntitySetIt, bool> itb = entitySet.insert(entityName);
+                id2EntityIdx[m_currentId] = itb.first;
+            }
+        }
+        // END-ISO-10303-21
         if (inMemory)
         {
-            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress))
+            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                    != "END-ISO-10303-21")
             {
-                LOG_ERROR("Unexpected End Of File, line "
+                LOG_ERROR("Can't find END-ISO-10303-21 token, line "
                         << m_currentLineNb);
                 if(_callback)
                 {
                     // set to end
                     _callback->setProgress(inputSize);
+
                 }
                 delete[] buffer;
                 return false;
@@ -173,94 +341,41 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         }
         else
         {
-            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
+            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
+                    != "END-ISO-10303-21")
             {
-                LOG_ERROR("Unexpected End Of File, line "
+                LOG_ERROR("Can't find END-ISO-10303-21 token, line "
                         << m_currentLineNb);
                 if(_callback)
                 {
                     // set to end
                     _callback->setProgress(inputSize);
+
                 }
                 delete[] buffer;
                 return false;
             }
         }
-
-        //ENDSEC detection
-        if (str == "ENDSEC")
-            break;
-
-        i = str.find('=');
-        if (i == string::npos || str[0] != '#')
-        {
-            LOG_WARNING("Syntax error on entity id, line "
-                    << m_currentLineNb);
-            continue;
-        }
-
-        m_currentId = (Id)atol(str.substr(1, i - 1).c_str());
-        from = i + 1;
-        i = str.find('(', from);
-        if (i == string::npos || str[str.length() - 1] != ')')
-        {
-            LOG_WARNING(
-                    "Syntax error on entity definition, line "
-                    << m_currentLineNb);
-            continue;
-        }
-
-        string entityName = str.substr(from, i - from);
-        string line = str.substr(i + 1, str.length() - i - 2);
-
-        m_currentObj = m_expressDataSet->getSPFObject(m_currentId);
-        m_currentObj->getArgs()->setParams(line.c_str());
-
-        if (!callLoadFunction(entityName))
-        {
-            LOG_WARNING("Unexpected entity name : "
-                    << str.substr(from, i - from) << " , line "
-                    << m_currentLineNb);
-            continue;
-        }
-        m_currentObj->setAllocateFunction(m_currentType);
-
     }
 
-    // END-ISO-10303-21
 
-    if (inMemory)
+    if (writeSPFDataCache)
     {
-        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
-                != "END-ISO-10303-21")
+        MapOfEntities &m = m_expressDataSet->getAll();
+        unsigned int size = m.size();
+        // write nb of entities
+        spfCacheOutFile << size << endl;
+        for (MapOfEntities::iterator it = m.begin();
+             it != m.end(); ++it)
         {
-            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-
-            }
-            delete[] buffer;
-            return false;
-        }
-    }
-    else
-    {
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
-                != "END-ISO-10303-21")
-        {
-            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-
-            }
-            delete[] buffer;
-            return false;
+            // write its Id
+            spfCacheOutFile << it->first << endl;
+            // write its className in uppercase
+            std::string className = *(id2EntityIdx[it->first]);
+            std::transform(className.begin(), className.end(),className.begin(), ::toupper);
+            spfCacheOutFile << className << endl;
+            // write all its args
+            spfCacheOutFile << *it->second->getArgs();
         }
     }
 

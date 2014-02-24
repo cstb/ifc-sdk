@@ -58,9 +58,10 @@ int main(int argc, char **argv)
     std::ifstream ifcFile;
     ifcFile.open(argv[1]);
 
-    ifc2x3::SPFReader reader;
+    std::string SPFDataCache(std::string(argv[1])+".spfdata");
+    ifc2x3::SPFReader reader(SPFDataCache);
     ConsoleCallBack cb;
-    reader.setCallBack(&cb);
+    //reader.setCallBack(&cb);
 
     if ( ifcFile.is_open() )
     {
@@ -105,6 +106,7 @@ int main(int argc, char **argv)
         return (2);
     }
 
+    //return 1;
     // ** Instantiate the model
     expressDataSet->instantiateAll();
 
@@ -125,7 +127,7 @@ int main(int argc, char **argv)
 
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);
-    writer.setCallBack(&cb);
+    //writer.setCallBack(&cb);
     std::ofstream filestream;
     if (argc<4)
     {

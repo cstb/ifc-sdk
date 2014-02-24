@@ -44,7 +44,7 @@ namespace Step {
         /*!
         ** \short Constructor. It does nothing.
         */
-        BaseSPFReader();
+        BaseSPFReader(const std::string &SPFDataCacheFile = "");
 
         /*!
         ** \short Virtual Destructor
@@ -97,7 +97,7 @@ namespace Step {
         unsigned int m_currentLineNb;
 
         //! A pointer to the current Entity
-        BaseSPFObject*  m_currentObj;
+        Step::RefPtr<BaseSPFObject>  m_currentObj;
 
         //! the SPF header
         SPFHeader m_header;
@@ -107,6 +107,9 @@ namespace Step {
 
         //! our callback
         CallBack *_callback;
+
+        //! do we have an SPFData cache file to save/read
+        std::string _SPFDataCacheFile;
     };
 }
 #endif

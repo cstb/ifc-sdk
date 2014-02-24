@@ -18,6 +18,8 @@
 #include "Step/BaseExpressDataSet.h"
 #include "Step/SPFFunctions.h"
 
+#include <assert.h>
+
 using namespace std;
 using namespace Step;
 
@@ -28,8 +30,8 @@ SPFData::~SPFData()
     if (m_argv)
     {
         for (int i=0; i < m_argc; ++i)
-            delete m_argv[i];
-        delete []m_argv;
+            delete (*m_argv)[i];
+        delete m_argv;
     }
 }
 
@@ -38,7 +40,7 @@ const std::string &SPFData::getNext()
     if (m_index>=m_argc)
         return sEmptyString;
     else
-        return *m_argv[m_index++];
+        return *(*m_argv)[m_index++];
 }
 
 std::vector<Id>* SPFData::getInverses(ClassType cl, int i)
@@ -62,11 +64,50 @@ bool SPFData::setParams(const char *s)
     if (!parseList(s,v)) {
         return false;
     }
-    m_argv = new std::string*[v.size()];
+    m_argv = new std::vector<std::string*>(v.size());
     for (unsigned int i = 0; i < v.size(); ++i) {
-        m_argv[i] = v[i];
+        (*m_argv)[i] = v[i];
     }
     m_argc = v.size();
     m_index = 0;
     return true;
+}
+
+std::ostream& Step::operator<<(std::ostream& out, const Step::SPFData &data)
+{
+    out << data.m_argc << endl;
+    for(int i=0; i < data.m_argc; ++i)
+    {
+        out << *(*data.m_argv)[i] << endl;
+    }
+    return out;
+}
+
+std::istream& Step::operator>>(std::istream& in, Step::SPFData &data)
+{
+    int nbParam = 0;
+    std::string buffer;
+    // read in Step Id
+    if (std::getline(in, buffer))
+    {
+        stringstream ss(buffer);
+        ss >> nbParam;
+    }
+    else
+        return in;
+    if (nbParam > 0)
+    {
+        data.m_argv = new std::vector<std::string*>(nbParam,NULL);
+        assert(data.m_argv != NULL);
+    }
+    for(int i=0; i<nbParam; ++i)
+    {
+        if (std::getline(in, buffer))
+        {
+            (*(data.m_argv))[i] = new std::string(buffer);
+        }
+        assert( (*data.m_argv)[i] != NULL);
+    }
+    data.m_argc = nbParam;
+    return in;
 }

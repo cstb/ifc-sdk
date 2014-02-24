@@ -164,10 +164,10 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
         {
             m_maxId = id;
         };
-        BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
+        Step::RefPtr<BaseSPFObject> bo = new BaseSPFObject(id, new SPFData());
         bo->setExpressDataSet(this);
-        m_Id2BaseObject.insert(std::make_pair(id,bo));
-        return bo;
+        m_Id2BaseObject[id] = bo;
+        return bo.get();
     }
     else
         return static_cast<BaseSPFObject*> (it->second.get());
@@ -179,7 +179,7 @@ SPFData* BaseExpressDataSet::getArgs(Id id)
     if (!exists(id))
     {
         updateMaxId(id);
-        BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
+        Step::RefPtr<BaseSPFObject> bo = new BaseSPFObject(id, new SPFData());
         bo->setExpressDataSet(this);
         m_Id2BaseObject[id] = bo;
         return bo->getArgs();

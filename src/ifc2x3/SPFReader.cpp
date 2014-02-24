@@ -106,7 +106,7 @@
 
 using namespace ifc2x3;
 
-SPFReader::SPFReader() {
+SPFReader::SPFReader(const std::string &SPFDataCacheFile) : BaseSPFReader(SPFDataCacheFile) {
     m_Str2LoadFn["IFCRELASSIGNSTOCONTROL"] = &SPFReader::loadIFCRELASSIGNSTOCONTROL;
     m_Str2LoadFn["IFCPARAMETERIZEDPROFILEDEF"] = &SPFReader::loadIFCPARAMETERIZEDPROFILEDEF;
     m_Str2LoadFn["IFCTUBEBUNDLETYPE"] = &SPFReader::loadIFCTUBEBUNDLETYPE;

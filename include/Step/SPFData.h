@@ -93,7 +93,7 @@ namespace Step {
          */
         inline const std::string& operator[](int i) const
         {
-            return *(m_argv[i]);
+            return *(*m_argv)[i];
         }
 
         /*!
@@ -103,7 +103,7 @@ namespace Step {
          */
         inline const std::string& at(int i) const
         {
-            return *(m_argv[i]);
+            return *(*m_argv)[i];
         }
 
         /*!
@@ -122,10 +122,15 @@ namespace Step {
         bool setParams(const char* s);
 
     private:
+        friend std::ostream& operator<<(std::ostream&, const Step::SPFData &);
+        friend std::istream& operator>>(std::istream&, Step::SPFData &);
+
         int m_argc;
         int m_index;
-        std::string** m_argv;
+        std::vector<std::string*> *m_argv;
         std::map<std::pair<ClassType, int>, std::vector<Step::Id> > m_inverses;
     };
+    STEP_EXPORT std::ostream& operator<<(std::ostream&, const Step::SPFData &);
+    STEP_EXPORT std::istream& operator>>(std::istream&, Step::SPFData &);
 }
 #endif

@@ -36,7 +36,7 @@ namespace ifc2x3 {
     public:
         /**
          */
-        SPFReader();
+        SPFReader(const std::string &SPFDataCacheFile = "");
         /**
          * This is the method to call to parse a SPF stream and create an ExpressDataSet.
          * 
