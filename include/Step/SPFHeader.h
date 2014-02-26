@@ -86,24 +86,28 @@ namespace Step {
          \short Gets the file description structure from the header
          @return the file description structure from the header
          */
+        const FileDescription& getFileDescription() const;
         FileDescription& getFileDescription();
 
         /*!
          \short Gets the file name structure from the header
          @return the file name structure from the header
          */
+        const FileName& getFileName() const;
         FileName& getFileName();
 
         /*!
          \short Gets the file schema structure from the header
          @return the file schema structure from the header
          */
+        const FileSchema& getFileSchema() const;
         FileSchema& getFileSchema();
 
         /*!
          \short Gets other optional fields from the header
          @return other optional fields from the header
          */
+        const String& getOtherFields() const;
         String& getOtherFields();
 
         /*!
@@ -123,4 +127,16 @@ namespace Step {
         String m_otherFields;
     };
 }
+
+STEP_EXPORT std::ostream& operator<<(std::ostream &, const Step::SPFHeader::FileDescription &);
+STEP_EXPORT std::ostream& operator<<(std::ostream &, const Step::SPFHeader::FileName &);
+STEP_EXPORT std::ostream& operator<<(std::ostream &, const Step::SPFHeader::FileSchema &);
+STEP_EXPORT std::ostream& operator<<(std::ostream &, const Step::SPFHeader &);
+
+STEP_EXPORT std::istream& operator>>(std::istream &, Step::SPFHeader::FileDescription &);
+STEP_EXPORT std::istream& operator>>(std::istream &, Step::SPFHeader::FileName &);
+STEP_EXPORT std::istream& operator>>(std::istream &, Step::SPFHeader::FileSchema &);
+
+STEP_EXPORT std::istream& operator>>(std::istream &, Step::SPFHeader &);
+
 #endif

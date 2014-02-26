@@ -22,6 +22,7 @@
 #include "Step/BaseExpressDataSet.h"
 
 #include <algorithm>
+#include <assert.h>
 
 #define LOG_STRING_VECTOR _errors
 
@@ -30,12 +31,67 @@
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader(const std::string &SPFDataCacheFile) : _SPFDataCacheFile(SPFDataCacheFile), _callback(0)
+BaseSPFReader::BaseSPFReader(const std::string &SPFDataCacheFile)
+    : _SPFDataCacheFile(SPFDataCacheFile), _callback(0)
 {
 }
 
 BaseSPFReader::~BaseSPFReader()
 {
+}
+
+bool BaseSPFReader::readBin(std::istream& in)
+{
+    _errors.clear();
+
+    // read in header
+    operator>>(in, m_header);
+
+    // read in vector of different entity type strings
+    std::vector<std::string> entityTypeStrings;
+    binary_read(in, entityTypeStrings);
+
+    // now, read in nb of entities
+    unsigned int nbOfEntities;
+    binary_read(in, nbOfEntities);
+
+    // we will directly fill map of entities in our express data set
+    MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
+
+    // for each entity
+    for(unsigned int i=0; i < nbOfEntities; ++i)
+    {
+        // read in its current id
+        binary_read(in, m_currentId);
+
+        // read in its class name idx
+        int classNameIdx;
+        binary_read(in, classNameIdx);
+
+        // create SPFData reading stream
+        Step::SPFData *spfData = new Step::SPFData(in);
+
+        // create base spf object given its current ID and SPFData
+        m_currentObj = new BaseSPFObject(m_currentId, spfData);
+        m_currentObj->setExpressDataSet(m_expressDataSet);
+
+        // fill our entity map
+        mapOfEntities[m_currentId] = m_currentObj;
+        // check to update max Id
+        m_expressDataSet->updateMaxId(m_currentId);
+
+        // find its alloc funct
+        if (!callLoadFunction(entityTypeStrings[classNameIdx]))
+        {
+            LOG_WARNING("Unexpected entity name : "
+                    << entityTypeStrings[classNameIdx] << " , line "
+                    << m_currentLineNb);
+            continue;
+        }
+        // set it
+        m_currentObj->setAllocateFunction(m_currentType);
+    }
+    return true;
 }
 
 bool BaseSPFReader::read(std::istream& input, size_t inputSize)
@@ -148,14 +204,30 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
     bool readSPFDataCache = false;
     bool writeSPFDataCache = false;
+
+/*
+    std::ifstream spfCacheInBinFile;
+    std::ofstream spfCacheOutBinFile;
+*/
     std::ifstream spfCacheInFile;
     std::ofstream spfCacheOutFile;
+
     if (_SPFDataCacheFile.size())
     {
+/*
+        std::string binFileName = _SPFDataCacheFile + ".bin";
+        spfCacheInBinFile.open(binFileName.c_str(), ios_base::in | ios_base::binary);
+        readSPFDataCache = spfCacheInBinFile.is_open();
+*/
         spfCacheInFile.open(_SPFDataCacheFile.c_str(), ios_base::in);
         readSPFDataCache = spfCacheInFile.is_open();
+
         if (!readSPFDataCache)
         {
+/*
+            std::string binFileName = _SPFDataCacheFile + ".bin";
+            spfCacheOutBinFile.open(binFileName.c_str(), ios_base::out | ios_base::binary);
+*/
             spfCacheOutFile.open(_SPFDataCacheFile.c_str(), ios_base::out);
             writeSPFDataCache = spfCacheOutFile.is_open();
         }
@@ -358,27 +430,6 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         }
     }
 
-
-    if (writeSPFDataCache)
-    {
-        MapOfEntities &m = m_expressDataSet->getAll();
-        unsigned int size = m.size();
-        // write nb of entities
-        spfCacheOutFile << size << endl;
-        for (MapOfEntities::iterator it = m.begin();
-             it != m.end(); ++it)
-        {
-            // write its Id
-            spfCacheOutFile << it->first << endl;
-            // write its className in uppercase
-            std::string className = *(id2EntityIdx[it->first]);
-            std::transform(className.begin(), className.end(),className.begin(), ::toupper);
-            spfCacheOutFile << className << endl;
-            // write all its args
-            spfCacheOutFile << *it->second->getArgs();
-        }
-    }
-
     if(_callback)
     {
         // set to end
@@ -397,6 +448,11 @@ Step::Id readerSeek(const std::string& /*s*/, int /*pos*/)
 BaseExpressDataSet* BaseSPFReader::getExpressDataSet()
 {
     return m_expressDataSet;
+}
+
+const SPFHeader& BaseSPFReader::getHeader() const
+{
+    return m_header;
 }
 
 SPFHeader& BaseSPFReader::getHeader()

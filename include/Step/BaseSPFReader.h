@@ -60,10 +60,23 @@ namespace Step {
         virtual bool read(std::istream& input, size_t inputSize = 0);
 
         /*!
+        ** \short Load a binary file from a path
+        ** @param input input stream to read from
+        ** @return true if the stream was correctly read
+        */
+        virtual bool readBin(std::istream& input);
+
+        /*!
         ** \short Get the ExpressDataSet after the loading of the file
         ** @return the BaseExpressDataSet created from the input file
         */
         virtual BaseExpressDataSet* getExpressDataSet();
+
+        /*!
+        ** \short Get the SPF Header
+        ** @return the header from the input file
+        */
+        virtual const SPFHeader& getHeader() const;
 
         /*!
         ** \short Get the SPF Header
@@ -83,6 +96,20 @@ namespace Step {
         ** @return true if the function was correctly called
         */
         virtual bool callLoadFunction(const std::string& s) = 0;
+
+        /*!
+        ** \short Return a unique entity type code for given entity type name
+        ** @param s the name of the entity
+        ** @return int >= 0 or -1 if entity type name doesn't exist
+        */
+        virtual int entityTypeCode(const std::string& s) const = 0;
+
+        /*!
+        ** \short Return entity type name given an integer code
+        ** @param s the internal code of the entity
+        ** @return entity name or empty string if code is wrong
+        */
+        virtual const std::string &entityTypeName(int) const = 0;
 
         //! pointer to the data set created while reading the stream
         BaseExpressDataSet* m_expressDataSet;

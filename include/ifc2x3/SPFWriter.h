@@ -750,6 +750,13 @@ namespace ifc2x3 {
         virtual bool write(std::ostream& filestream);
 
         /**
+         * Call this method to write the content of the ExpressDataSet instance to a binary stream.
+         *
+         * @param filestream Stream to write to.
+         */
+        virtual bool writeBin(std::ostream& filestream);
+
+        /**
          * write the Ifc2DCompositeCurve datatype to m_out.
          *
          * @param value the Ifc2DCompositeCurve datatype to write

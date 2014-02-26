@@ -25,6 +25,7 @@
 
 #include <string>
 #include <ostream>
+#include <vector>
 
 namespace Step {
     /**
@@ -215,5 +216,10 @@ STEP_EXPORT std::ostream& operator<<(std::ostream &out, const Step::String &s);
  **  \sa fromUTF8()
  */
 STEP_EXPORT std::istream& operator>>(std::istream &in, Step::String &s);
+
+STEP_EXPORT std::ostream& binary_write(std::ostream& out, const Step::String& value);
+STEP_EXPORT std::ostream& binary_write(std::ostream& out, const std::vector<Step::String>& value);
+STEP_EXPORT std::istream& binary_read(std::istream& in, Step::String& value);
+STEP_EXPORT std::istream& binary_read(std::istream& in, std::vector<Step::String>& value);
 
 #endif

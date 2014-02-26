@@ -79,4 +79,13 @@ namespace Step {
      */
     bool STEP_EXPORT removeQuotes(std::string& s);
 }
+
+template<typename T> std::istream& binary_read(std::istream& , T& );
+template<typename T> std::ostream& binary_write(std::ostream& , const T& );
+
+STEP_EXPORT std::istream& binary_read_string(std::istream& stream, std::string& value);
+STEP_EXPORT std::istream& binary_read(std::istream& in, std::vector<std::string>& value);
+STEP_EXPORT std::ostream& binary_write_string(std::ostream& stream, const std::string& value);
+STEP_EXPORT std::ostream& binary_write(std::ostream& stream, std::vector<std::string>& value);
+
 #endif

@@ -20,6 +20,76 @@
 
 #include "Step/logger.h"
 
+std::ostream& operator<<(std::ostream &out, const Step::SPFHeader::FileDescription &fd)
+{
+    binary_write(out, fd.description);
+    binary_write(out, fd.implementationLevel);
+    return out;
+}
+
+std::ostream& operator<<(std::ostream &out, const Step::SPFHeader::FileName &fn)
+{
+    binary_write(out, fn.name);
+    binary_write(out, fn.timeStamp);
+    binary_write(out, fn.author);
+    binary_write(out, fn.organization);
+    binary_write(out, fn.preprocessorVersion);
+    binary_write(out, fn.originatingSystem);
+    binary_write(out, fn.authorization);
+    return out;
+}
+
+std::ostream& operator<<(std::ostream &out, const Step::SPFHeader::FileSchema &fs)
+{
+    binary_write(out, fs.schemaIdentifiers);
+    return out;
+}
+
+std::ostream& operator<<(std::ostream &out, const Step::SPFHeader &h)
+{
+    out << h.getFileDescription();
+    out << h.getFileName();
+    out << h.getFileSchema();
+    binary_write(out, h.getOtherFields());
+    return out;
+}
+
+std::istream& operator>>(std::istream &in, Step::SPFHeader::FileDescription &fd)
+{
+    binary_read(in, fd.description);
+    binary_read(in, fd.implementationLevel);
+    return in;
+}
+
+std::istream& operator>>(std::istream &in, Step::SPFHeader::FileName &fn)
+{
+    binary_read(in, fn.name);
+    binary_read(in, fn.timeStamp);
+    binary_read(in, fn.author);
+    binary_read(in, fn.organization);
+    binary_read(in, fn.preprocessorVersion);
+    binary_read(in, fn.originatingSystem);
+    binary_read(in, fn.authorization);
+    return in;
+}
+
+std::istream& operator>>(std::istream &in, Step::SPFHeader::FileSchema &fs)
+{
+    binary_read(in, fs.schemaIdentifiers);
+    return in;
+}
+
+
+std::istream& operator>>(std::istream &in, Step::SPFHeader &h)
+{
+    in >> h.getFileDescription();
+    in >> h.getFileName();
+    in >> h.getFileSchema();
+    binary_read(in, h.getOtherFields());
+    return in;
+}
+
+
 using namespace std;
 using namespace Step;
 
@@ -32,9 +102,19 @@ SPFHeader::~SPFHeader()
 {
 }
 
+const SPFHeader::FileDescription& SPFHeader::getFileDescription() const
+{
+    return m_fileDescription;
+}
+
 SPFHeader::FileDescription& SPFHeader::getFileDescription()
 {
     return m_fileDescription;
+}
+
+const SPFHeader::FileName& SPFHeader::getFileName() const
+{
+    return m_fileName;
 }
 
 SPFHeader::FileName& SPFHeader::getFileName()
@@ -42,9 +122,19 @@ SPFHeader::FileName& SPFHeader::getFileName()
     return m_fileName;
 }
 
+const SPFHeader::FileSchema& SPFHeader::getFileSchema() const
+{
+    return m_fileSchema;
+}
+
 SPFHeader::FileSchema& SPFHeader::getFileSchema()
 {
     return m_fileSchema;
+}
+
+const String& SPFHeader::getOtherFields() const
+{
+    return m_otherFields;
 }
 
 String& SPFHeader::getOtherFields()
@@ -420,3 +510,4 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     delete[] buffer;
     return true;
 }
+

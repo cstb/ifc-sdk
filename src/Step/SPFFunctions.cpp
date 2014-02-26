@@ -24,6 +24,67 @@
 using namespace Step;
 using namespace std;
 
+template<typename T>
+std::istream & binary_read(std::istream& stream, T& value)
+{
+    return stream.read(reinterpret_cast<char*>(&value), sizeof(T));
+}
+
+template<typename T>
+std::ostream& binary_write(std::ostream& stream, const T& value)
+{
+    return stream.write(reinterpret_cast<const char*>(&value), sizeof(T));
+}
+
+template STEP_EXPORT
+std::istream & binary_read(std::istream& stream, int& value);
+template STEP_EXPORT
+std::istream & binary_read(std::istream& stream, unsigned int& value);
+template STEP_EXPORT
+std::istream & binary_read(std::istream& stream, unsigned long& value);
+
+template STEP_EXPORT
+std::ostream& binary_write(std::ostream& stream, const int& value);
+template STEP_EXPORT
+std::ostream& binary_write(std::ostream& stream, const unsigned int& value);
+template STEP_EXPORT
+std::ostream& binary_write(std::ostream& stream, const unsigned long& value);
+
+std::istream & binary_read_string(std::istream& stream, std::string& value)
+{
+    std::string::size_type sz;
+    binary_read(stream, sz);
+    std::vector<char> buf(sz);
+    stream.read(&buf[0], sz);
+    value.assign(buf.begin(), buf.end());
+    return stream;
+}
+
+std::istream & binary_read(std::istream& in, std::vector<std::string>& value)
+{
+    size_t size;
+    binary_read(in, size);
+    value.resize(size);
+    for(int i=0; i < size; ++i)
+        binary_read_string(in, value[i]);
+    return in;
+}
+
+std::ostream& binary_write_string(std::ostream& stream, const std::string& value)
+{
+    std::string::size_type sz = value.size();
+    stream.write(reinterpret_cast<char*>(&sz), sizeof(std::string::size_type));
+    return stream.write(value.data(), sz);
+}
+
+std::ostream & binary_write(std::ostream& out, const std::vector<std::string>& value)
+{
+    binary_write(out, value.size());
+    for(size_t i=0; i < value.size(); ++i)
+        binary_write_string(out, value[i]);
+    return out;
+}
+
 Id Step::getIdParam(const std::string& s)
 {
     if (s[0] == DollarSign ) {
@@ -270,4 +331,3 @@ bool Step::removeQuotes(std::string& s) {
         return true;
     }
 }
-

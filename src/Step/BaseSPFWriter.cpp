@@ -62,7 +62,7 @@ void BaseSPFWriter::writeHeader()
 
     outputStream() << "FILE_DESCRIPTION((";
 
-    SPFHeader::FileDescription& file_description = header.getFileDescription();
+    const SPFHeader::FileDescription& file_description = header.getFileDescription();
 
     //std::list<std::string> file_description = m_expressDataSet->get_file_description() ;
     for (i = 0; i < file_description.description.size(); i++)
@@ -75,7 +75,7 @@ void BaseSPFWriter::writeHeader()
     outputStream() << "), " << file_description.implementationLevel.toSPF() << ");"
             << std::endl;
 
-    SPFHeader::FileName& filename = header.getFileName();
+    const SPFHeader::FileName& filename = header.getFileName();
     outputStream() << "FILE_NAME(" << filename.name.toSPF() << ","
             << filename.timeStamp.toSPF() << ",(";
 

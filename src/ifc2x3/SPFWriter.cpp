@@ -385,6 +385,7 @@
 #include <ifc2x3/IfcOpenShell.h>
 #include <ifc2x3/IfcOpeningElement.h>
 #include <ifc2x3/IfcOpticalMaterialProperties.h>
+
 #include <ifc2x3/IfcOrderAction.h>
 #include <ifc2x3/IfcOrganization.h>
 #include <ifc2x3/IfcOrganizationRelationship.h>
@@ -705,6 +706,7 @@
 #include <ifc2x3/IfcVirtualGridIntersection.h>
 #include <ifc2x3/IfcWall.h>
 #include <ifc2x3/IfcWallStandardCase.h>
+
 #include <ifc2x3/IfcWallType.h>
 #include <ifc2x3/IfcWasteTerminalType.h>
 #include <ifc2x3/IfcWaterProperties.h>
@@ -720,7 +722,7 @@
 #include <Step/Aggregation.h>
 #include <Step/BaseEntity.h>
 #include <Step/String.h>
-
+#include <Step/SPFFunctions.h>
 
 #include <vector>
 
@@ -771,6 +773,86 @@ bool SPFWriter::write(std::ostream& filestream)
         // update progress callback
         _callback->setProgress(vectorOfEntities.size());
     }
+    return true;
+}
+
+bool SPFWriter::writeBin(std::ostream& filestream)
+{
+    filestream << m_expressDataSet->getHeader();
+
+    ///TODO:: finish code
+/*    Step::MapOfEntities &m = m_expressDataSet->getAll();
+
+    // to write spf data cache, we need to gather all existing class types
+    // for uniqueness of type string, we use a set
+    typedef std::set<std::string> EntitySet;
+    typedef EntitySet::iterator EntitySetIt;
+    EntitySet entitySet;
+
+    // and for each Id, we'll keep an iterator to its associated class name
+    typedef std::map<Step::Id, EntitySetIt> Id2EntityIdx;
+    typedef Id2EntityIdx::iterator Id2EntityIdxIt;
+    Id2EntityIdx id2EntityIdx;
+
+    for (Step::MapOfEntities::iterator it = m.begin();
+         it != m.end(); ++it)
+    {
+        EntitySetIt entitySetIt = entitySet.insert(it->)
+    }
+
+
+    // write nb of entity type strings
+    binary_write(filestream, entitySet.size());
+
+    std::map<std::string, int> entityToIdx;
+    // first we write all entity type strings inserted in entitySet set
+    // they are normally sort in alphabetical order
+    int idx = 0;
+    for (EntitySetIt it=entitySet.begin(); it != entitySet.end(); ++it)
+    {
+        binary_write_string(filestream, *it);
+        entityToIdx[*it] = idx++;
+    }
+
+    // write nb of entities
+    binary_write(filestream, m.size());
+    // for each entity, write its Id, its type, and its nb of params
+    for (Step::MapOfEntities::iterator it = m.begin();
+         it != m.end(); ++it)
+    {
+        // write Id
+        binary_write(filestream, it->first);
+
+        // write its className index
+        std::string className = *(id2EntityIdx[it->first]);
+        std::transform(className.begin(), className.end(),className.begin(), ::toupper);
+        binary_write(spfCacheOutBinFile, entityToIdx[className]);
+
+        filestream << *it->second->getArgs();
+    }
+*/
+
+
+
+#if 0
+    /*
+        unsigned int size = m.size();
+        // write nb of entities
+        spfCacheOutFile << size << endl;
+        for (MapOfEntities::iterator it = m.begin();
+             it != m.end(); ++it)
+        {
+            // write its Step Id
+            spfCacheOutFile << it->first << endl;
+            // write its className in uppercase
+            std::string className = *(id2EntityIdx[it->first]);
+            std::transform(className.begin(), className.end(),className.begin(), ::toupper);
+            spfCacheOutFile << className << endl;
+            // write all its args
+            spfCacheOutFile << *it->second->getArgs();
+        }
+*/
+#endif
     return true;
 }
 

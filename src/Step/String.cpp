@@ -18,6 +18,51 @@
 #include "Step/SPFFunctions.h"
 #include "Step/SimpleTypes.h"
 
+std::ostream & operator<<(std::ostream &out, const Step::String& s)
+{
+    return out << s.toUTF8();
+}
+
+std::istream & operator>>(std::istream &in, Step::String& s)
+{
+    std::string str;
+    in >> str;
+    s = Step::String::fromUTF8(str);
+
+    return in;
+}
+
+std::ostream& binary_write(std::ostream& out, const Step::String& value)
+{
+    binary_write_string(out, value.toUTF8());
+}
+
+std::ostream& binary_write(std::ostream& out, const std::vector<Step::String>& value)
+{
+    size_t size = value.size();
+    binary_write(out, size);
+    for(size_t i=0; i<size;++i)
+        binary_write_string(out, value[i].toUTF8());
+}
+
+std::istream & binary_read(std::istream& in, Step::String& value)
+{
+    std::string buf;
+    binary_read_string(in, buf);
+    value = Step::String::fromUTF8(buf);
+    return in;
+}
+
+std::istream & binary_read(std::istream& in, std::vector<Step::String>& value)
+{
+    size_t size;
+    binary_read(in, size);
+    value.resize(size);
+    for(int i=0; i < size; ++i)
+        binary_read(in, value[i]);
+    return in;
+}
+
 using namespace Step;
 
 #ifdef WIN32
@@ -1011,18 +1056,4 @@ std::string String::toSPF() const
 
     result += "'";
     return result;
-}
-
-std::ostream & operator <<(std::ostream &out, const String& s)
-{
-    return out << s.toUTF8();
-}
-
-std::istream & operator >>(std::istream &in, String& s)
-{
-    std::string str;
-    in >> str;
-    s = String::fromUTF8(str);
-
-    return in;
 }
