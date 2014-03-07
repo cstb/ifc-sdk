@@ -1,2 +1,4 @@
 add_subdirectory(Step)
-add_subdirectory(ifc2x3)
+if(NOT STEP_ONLY)
+	add_subdirectory(ifc2x3)
+endif()
