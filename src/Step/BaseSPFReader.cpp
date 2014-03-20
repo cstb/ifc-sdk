@@ -47,16 +47,12 @@ bool BaseSPFReader::readBin(std::istream& in)
     // read in header
     operator>>(in, m_header);
 
-    // read in vector of different entity type strings
-    std::vector<std::string> entityTypeStrings;
-    binary_read(in, entityTypeStrings);
-
-    // now, read in nb of entities
-    unsigned int nbOfEntities;
-    binary_read(in, nbOfEntities);
-
     // we will directly fill map of entities in our express data set
     MapOfEntities &mapOfEntities = m_expressDataSet->getAll();
+
+    // now, read in nb of entities
+    MapOfEntities::size_type nbOfEntities;
+    binary_read(in, nbOfEntities);
 
     // for each entity
     for(unsigned int i=0; i < nbOfEntities; ++i)
@@ -64,9 +60,9 @@ bool BaseSPFReader::readBin(std::istream& in)
         // read in its current id
         binary_read(in, m_currentId);
 
-        // read in its class name idx
-        int classNameIdx;
-        binary_read(in, classNameIdx);
+        // read in its class name code
+        int classNameCode;
+        binary_read(in, classNameCode);
 
         // create SPFData reading stream
         Step::SPFData *spfData = new Step::SPFData(in);
@@ -80,17 +76,27 @@ bool BaseSPFReader::readBin(std::istream& in)
         // check to update max Id
         m_expressDataSet->updateMaxId(m_currentId);
 
-        // find its alloc funct
-        if (!callLoadFunction(entityTypeStrings[classNameIdx]))
+        std::string entityName = BaseSPFObject::entityTypeName(classNameCode);
+        if (entityName.empty())
         {
-            LOG_WARNING("Unexpected entity name : "
-                    << entityTypeStrings[classNameIdx] << " , line "
+            LOG_WARNING("Can't get entity class name from entity code : "
+                    << classNameCode << " , line "
+                    << m_currentLineNb);
+            continue;
+        }
+
+        // find its alloc funct
+        if (!callLoadFunction(entityName))
+        {
+            LOG_WARNING("Can't find load function for entity name : "
+                    << entityName << " , line "
                     << m_currentLineNb);
             continue;
         }
         // set it
-        m_currentObj->setAllocateFunction(m_currentType);
+        m_currentObj->setAllocateFunction(m_currentType, entityName);
     }
+
     return true;
 }
 
@@ -205,7 +211,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     bool readSPFDataCache = false;
     bool writeSPFDataCache = false;
 
-/*
+/*_SPFDataCacheFile
     std::ifstream spfCacheInBinFile;
     std::ofstream spfCacheOutBinFile;
 */
@@ -303,7 +309,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                 continue;
             }
             m_currentLineNb += (m_currentObj->getArgs()->argc()+1);
-            m_currentObj->setAllocateFunction(m_currentType);
+            m_currentObj->setAllocateFunction(m_currentType, entityName);
         }
     }
     else
@@ -386,7 +392,8 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                         << m_currentLineNb);
                 continue;
             }
-            m_currentObj->setAllocateFunction(m_currentType);
+            m_currentObj->setAllocateFunction(m_currentType, entityName);
+
             if (writeSPFDataCache)
             {
                 std::pair<EntitySetIt, bool> itb = entitySet.insert(entityName);
@@ -459,3 +466,4 @@ SPFHeader& BaseSPFReader::getHeader()
 {
     return m_header;
 }
+

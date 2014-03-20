@@ -145,13 +145,13 @@ void SPFData::addInverse(ClassType cl,int i , Id id)
 
 bool SPFData::setParams(const char *s)
 {
-    std::vector<std::string *> v;
+    std::vector<std::string> v;
     if (!parseList(s,v)) {
         return false;
     }
     m_argv = new std::string* [v.size()];
     for (unsigned int i = 0; i < v.size(); ++i) {
-        m_argv[i] = v[i];
+        m_argv[i] = new std::string(v[i]);
     }
     m_argc = v.size();
     m_index = 0;

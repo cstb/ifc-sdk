@@ -111,7 +111,6 @@ typedef bool (ifc2x3::SPFReader::*LoadFn) (bool) ;
 struct LoadFnStruct
 {
     LoadFn _loadFn; // load method
-    int _indexInEntityNameVector; // index in entity name vector
 };
 
 /**
@@ -120,12 +119,6 @@ struct LoadFnStruct
  */
 typedef std::map< std::string, LoadFnStruct> Str2LoadFn;
 Str2LoadFn s_Str2LoadFn;
-
-/**
- * Vector of entity name
- *
- */
-std::vector<std::string> s_StrVector;
 
 bool SPFReader::InitFnMap()
 {
@@ -783,13 +776,6 @@ bool SPFReader::InitFnMap()
     s_Str2LoadFn["IFCPOLYLINE"]._loadFn = &SPFReader::loadIFCPOLYLINE;
     s_Str2LoadFn["IFCFLOWTREATMENTDEVICETYPE"]._loadFn = &SPFReader::loadIFCFLOWTREATMENTDEVICETYPE;
 
-    s_StrVector.resize(s_Str2LoadFn.size());
-    unsigned int index = 0;
-    for(Str2LoadFn::iterator it = s_Str2LoadFn.begin(); it != s_Str2LoadFn.end(); ++it)
-    {
-        s_StrVector[index] = it->first;
-        it->second._indexInEntityNameVector = index++;
-    }
     return true;
 }
 
@@ -8800,26 +8786,6 @@ bool SPFReader::callLoadFunction(const std::string &s) {
     else {
         return (this->*(it->second._loadFn))(true);
     }
-}
-
-int SPFReader::entityTypeCode(const std::string& s) const
-{
-    Str2LoadFn::iterator it = s_Str2LoadFn.find(s);
-    if (it == s_Str2LoadFn.end()) {
-        return -1;
-    }
-    else {
-        return it->second._indexInEntityNameVector;
-    }
-}
-
-static std::string sEmptyString("");
-const std::string &SPFReader::entityTypeName(int code) const
-{
-    if (code < s_StrVector.size())
-        return s_StrVector[code];
-    else
-        return sEmptyString;
 }
 
 bool SPFReader::read(std::istream &ifs, size_t inputSize) {

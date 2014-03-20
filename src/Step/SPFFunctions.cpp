@@ -106,7 +106,7 @@ bool Step::getIdListParam(const std::string& s, std::vector<Id>& res)
         return true;
     }
 
-    std::vector<std::string *> resStr;
+    std::vector<std::string> resStr;
     if (!parseList(s.substr(1,s.length() - 2).c_str(), resStr)) {
         res.push_back(Id_UNDEF);
         return false;
@@ -114,7 +114,7 @@ bool Step::getIdListParam(const std::string& s, std::vector<Id>& res)
 
     else {
         for (unsigned int i=0; i< resStr.size(); ++i) {
-            Id current = (Id)atol(resStr[i]->c_str() + 1);
+            Id current = (Id)atol(resStr[i].c_str() + 1);
             if (current ==0) {
                 res.push_back(Id_UNDEF);
                 return false;
@@ -160,7 +160,7 @@ bool Step::getSubParameter(std::string& arg, std::string& str1)
     }
 }
 
-bool Step::parseList(const char* s, std::vector<std::string *>& res) {
+bool Step::parseList(const char* s, std::vector<std::string>& res) {
     res.clear();
     std::string str(s);
 
@@ -181,12 +181,12 @@ bool Step::parseList(const char* s, std::vector<std::string *>& res) {
             }
         }
         else if (str[i] == Comma && bracket == 0) {
-            res.push_back(new std::string(str.substr(from,i-from)));
+            res.push_back(str.substr(from,i-from));
             from = i + 1;
         }
     }
     if (from<i)
-        res.push_back(new std::string(str.substr(from,i-from)));
+        res.push_back(str.substr(from,i-from));
     if (bracket>0) {
         return false;
     }

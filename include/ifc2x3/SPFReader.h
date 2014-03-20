@@ -36,7 +36,7 @@ namespace ifc2x3 {
     public:
         /**
          */
-        SPFReader(const std::string &SPFDataCacheFile = "");
+        explicit SPFReader(const std::string &SPFDataCacheFile = "");
         /**
          * This is the method to call to parse a SPF stream and create an ExpressDataSet.
          * 
@@ -59,6 +59,19 @@ namespace ifc2x3 {
         virtual bool readBin(std::istream &ifs);
 
         static bool InitFnMap();
+        /*!
+        ** \short Return a unique entity type code for given entity type name
+        ** @param s the name of the entity
+        ** @return int >= 0 or -1 if entity type name doesn't exist
+        */
+        static int entityTypeCode(const std::string& s);
+
+        /*!
+        ** \short Return entity type name given an integer code
+        ** @param s the internal code of the entity
+        ** @return entity name or empty string if code is wrong
+        */
+        static const std::string &entityTypeName(int);
 
     protected:
         friend bool InitFnMap();
@@ -2679,20 +2692,6 @@ namespace ifc2x3 {
          * @param s
          */
         bool callLoadFunction(const std::string &s);
-
-        /*!
-        ** \short Return a unique entity type code for given entity type name
-        ** @param s the name of the entity
-        ** @return int >= 0 or -1 if entity type name doesn't exist
-        */
-        virtual int entityTypeCode(const std::string& s) const;
-
-        /*!
-        ** \short Return entity type name given an integer code
-        ** @param s the internal code of the entity
-        ** @return entity name or empty string if code is wrong
-        */
-        virtual const std::string &entityTypeName(int) const;
     };
 }
 

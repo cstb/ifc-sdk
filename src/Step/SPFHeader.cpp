@@ -171,7 +171,7 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     }
 
     // FILE_DESCRIPTION arguments
-    vector<string *> currentParam;
+    vector<string> currentParam;
     if (!parseList(str.substr(i + 1, str.length() - i - 2).c_str(),
             currentParam) || currentParam.size() != 2)
     {
@@ -182,9 +182,9 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     }
     // FILE_DESCRIPTION arguments
     // arg 1
-    vector<string *> vec;
+    vector<string> vec;
     if (!parseList(
-            currentParam[0]->substr(1, currentParam[0]->length() - 2).c_str(),
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_DESCRIPTION");
@@ -198,12 +198,12 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
         //   delete []buffer;
         //   return false;
         //  }
-        m_fileDescription.description.push_back(String::fromSPF(*vec[k]));
+        m_fileDescription.description.push_back(String::fromSPF(vec[k]));
     }
 
     // FILE_DESCRIPTION arguments
     // arg 2
-    m_fileDescription.implementationLevel = String::fromSPF(*currentParam[1]);
+    m_fileDescription.implementationLevel = String::fromSPF(currentParam[1]);
 
     // FILE_NAME arguments
     getLine(progress, counter, buffer, bufferLength, str,progress);
@@ -224,14 +224,14 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     }
 
     // arg 1
-    m_fileName.name = String::fromSPF(*currentParam[0]);
+    m_fileName.name = String::fromSPF(currentParam[0]);
 
     // arg 2
-    m_fileName.timeStamp = String::fromSPF(*currentParam[1]);
+    m_fileName.timeStamp = String::fromSPF(currentParam[1]);
 
     // arg 3
     if (!parseList(
-            currentParam[2]->substr(1, currentParam[2]->length() - 2).c_str(),
+            currentParam[2].substr(1, currentParam[2].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 3 of FILE_NAME");
@@ -240,12 +240,12 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
 
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
-        m_fileName.author.push_back(String::fromSPF(*vec[k]));
+        m_fileName.author.push_back(String::fromSPF(vec[k]));
     }
 
     // arg 4
     if (!parseList(
-            currentParam[3]->substr(1, currentParam[3]->length() - 2).c_str(),
+            currentParam[3].substr(1, currentParam[3].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 4 of FILE_NAME");
@@ -254,17 +254,17 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
 
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
-        m_fileName.organization.push_back(String::fromSPF(*vec[k]));
+        m_fileName.organization.push_back(String::fromSPF(vec[k]));
     }
 
     // arg 5
-    m_fileName.preprocessorVersion = String::fromSPF(*currentParam[4]);
+    m_fileName.preprocessorVersion = String::fromSPF(currentParam[4]);
 
     // arg 6
-    m_fileName.originatingSystem = String::fromSPF(*currentParam[5]);
+    m_fileName.originatingSystem = String::fromSPF(currentParam[5]);
 
     // arg 7
-    m_fileName.authorization = String::fromSPF(*currentParam[6]);
+    m_fileName.authorization = String::fromSPF(currentParam[6]);
 
     getLine(progress, counter, buffer, bufferLength, str,progress);
     i = str.find('(');
@@ -284,7 +284,7 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     }
 
     if (!parseList(
-            currentParam[0]->substr(1, currentParam[0]->length() - 2).c_str(),
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_SCHEMA");
@@ -292,7 +292,7 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     }
     for (unsigned int k = 0; k < vec.size(); k++)
     {
-        m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(*vec[k]));
+        m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(vec[k]));
     }
 
     m_otherFields = "";
@@ -352,7 +352,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     }
 
     // FILE_DESCRIPTION arguments
-    vector<string *> currentParam;
+    vector<string> currentParam;
     if (!parseList(str.substr(i + 1, str.length() - i - 2).c_str(),
             currentParam) || currentParam.size() != 2)
     {
@@ -364,9 +364,9 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     }
     // FILE_DESCRIPTION arguments
     // arg 1
-    vector<string *> vec;
+    vector<string> vec;
     if (!parseList(
-            currentParam[0]->substr(1, currentParam[0]->length() - 2).c_str(),
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_DESCRIPTION");
@@ -381,12 +381,12 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
         //   delete []buffer;
         //   return false;
         //  }
-        m_fileDescription.description.push_back(String::fromSPF(*vec[k]));
+        m_fileDescription.description.push_back(String::fromSPF(vec[k]));
     }
 
     // FILE_DESCRIPTION arguments
     // arg 2
-    m_fileDescription.implementationLevel = String::fromSPF(*currentParam[1]);
+    m_fileDescription.implementationLevel = String::fromSPF(currentParam[1]);
 
     // FILE_NAME arguments
     getLine(ifs, counter, buffer, bufferLength, str,progress);
@@ -409,14 +409,14 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     }
 
     // arg 1
-    m_fileName.name = String::fromSPF(*currentParam[0]);
+    m_fileName.name = String::fromSPF(currentParam[0]);
 
     // arg 2
-    m_fileName.timeStamp = String::fromSPF(*currentParam[1]);
+    m_fileName.timeStamp = String::fromSPF(currentParam[1]);
 
     // arg 3
     if (!parseList(
-            currentParam[2]->substr(1, currentParam[2]->length() - 2).c_str(),
+            currentParam[2].substr(1, currentParam[2].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 3 of FILE_NAME");
@@ -426,12 +426,12 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
 
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
-        m_fileName.author.push_back(String::fromSPF(*vec[k]));
+        m_fileName.author.push_back(String::fromSPF(vec[k]));
     }
 
     // arg 4
     if (!parseList(
-            currentParam[3]->substr(1, currentParam[3]->length() - 2).c_str(),
+            currentParam[3].substr(1, currentParam[3].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 4 of FILE_NAME");
@@ -441,17 +441,17 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
 
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
-        m_fileName.organization.push_back(String::fromSPF(*vec[k]));
+        m_fileName.organization.push_back(String::fromSPF(vec[k]));
     }
 
     // arg 5
-    m_fileName.preprocessorVersion = String::fromSPF(*currentParam[4]);
+    m_fileName.preprocessorVersion = String::fromSPF(currentParam[4]);
 
     // arg 6
-    m_fileName.originatingSystem = String::fromSPF(*currentParam[5]);
+    m_fileName.originatingSystem = String::fromSPF(currentParam[5]);
 
     // arg 7
-    m_fileName.authorization = String::fromSPF(*currentParam[6]);
+    m_fileName.authorization = String::fromSPF(currentParam[6]);
 
     getLine(ifs, counter, buffer, bufferLength, str,progress);
     i = str.find('(');
@@ -473,7 +473,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     }
 
     if (!parseList(
-            currentParam[0]->substr(1, currentParam[0]->length() - 2).c_str(),
+            currentParam[0].substr(1, currentParam[0].length() - 2).c_str(),
             vec))
     {
         LOG_ERROR("SPFHeader : Syntax Error in arg 1 of FILE_SCHEMA");
@@ -482,7 +482,7 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     }
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
-        m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(*vec[k]));
+        m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(vec[k]));
     }
 
     m_otherFields = "";

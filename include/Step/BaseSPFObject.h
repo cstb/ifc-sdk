@@ -37,6 +37,11 @@ namespace Step {
          */
         virtual ~BaseSPFObject();
 
+        const std::string &getEntityClassName() const;
+
+        static int entityTypeCode(const std::string&);
+        static const std::string &entityTypeName(int);
+
     protected:
         /*!
          * Constructor. It needs SPF arguments and the entity Type
@@ -54,8 +59,9 @@ namespace Step {
         /*!
          * Set the function to create the real object
          * @param type A pointer to the allocation function
+         * @param entitytClassName class name (uppercase) of allocated object with this function
          */
-        void setAllocateFunction(AllocateFuncType type);
+        void setAllocateFunction(AllocateFuncType type, const std::string &entityClassName);
 
         /*!
          * Initialize the instance (Lazy loading concept)
