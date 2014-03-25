@@ -43,14 +43,12 @@ void Inverted_IfcCompositeCurve_Segments_type::setOwner(IfcCompositeCurve *owner
 }
 
 void Inverted_IfcCompositeCurve_Segments_type::push_back(const Step::RefPtr< IfcCompositeCurveSegment > &value) throw(std::out_of_range) {
-    IfcCompositeCurveSegment *inverse = const_cast< IfcCompositeCurveSegment * > (value.get());
     List_IfcCompositeCurveSegment_1_n::push_back(value);
-    inverse->m_usingCurves->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_usingCurves, Inverse_Set_IfcCompositeCurve_1_n, mOwner);
 }
 
 Inverted_IfcCompositeCurve_Segments_type::iterator Inverted_IfcCompositeCurve_Segments_type::erase(const Step::RefPtr< IfcCompositeCurveSegment > &value) {
-    IfcCompositeCurveSegment *inverse = const_cast< IfcCompositeCurveSegment * > (value.get());
-    inverse->m_usingCurves->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_usingCurves, mOwner);
     return List_IfcCompositeCurveSegment_1_n::erase(value);
 }
 

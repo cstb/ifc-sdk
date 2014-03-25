@@ -39,10 +39,10 @@ int main(int n, char **p)
     theWall->setRepresentation(representation2.get());
     Step::RefPtr<ifc2x3::IfcProductDefinitionShape> representation2_get = (ifc2x3::IfcProductDefinitionShape*) theWall->getRepresentation();
     TEST_VALIDITY(representation2_get);
-    if (representation2_get.valid())
+    if (representation2_get.valid() && representation2_get->getShapeOfProduct().valid())
     {
         // test the inverse
-        TEST_ASSERT(*representation2_get->getShapeOfProduct().begin() == theWall.get());
+        TEST_ASSERT(*representation2_get->getShapeOfProduct()->begin() == theWall.get());
     }
 
     // One more time to test the inverse
@@ -50,15 +50,15 @@ int main(int n, char **p)
     theWall->setRepresentation(representation3.get());
     Step::RefPtr<ifc2x3::IfcProductDefinitionShape> representation3_get = (ifc2x3::IfcProductDefinitionShape*) theWall->getRepresentation();
     TEST_VALIDITY(representation3_get);
-    if (representation2_get.valid())
+    if (representation2_get.valid() && representation2_get->getShapeOfProduct().valid())
     {
         // test the inverse
-        TEST_ASSERT(representation2_get->getShapeOfProduct().empty());
+        TEST_ASSERT(representation2_get->getShapeOfProduct()->empty());
     }
-    if (representation3_get.valid())
+    if (representation3_get.valid() && representation3_get->getShapeOfProduct().valid())
     {
         // test the inverse
-        TEST_ASSERT(*representation3_get->getShapeOfProduct().begin() == theWall.get());
+        TEST_ASSERT(*representation3_get->getShapeOfProduct()->begin() == theWall.get());
     }
 
     // And a last one
@@ -67,15 +67,15 @@ int main(int n, char **p)
     representation1_get = theWall->getRepresentation();
     // Test if it is valid
     TEST_VALIDITY(representation1_get);
-    if (representation2_get.valid())
+    if (representation2_get.valid() && representation2_get->getShapeOfProduct().valid())
     {
         // test the inverse
-        TEST_ASSERT(representation2_get->getShapeOfProduct().empty());
+        TEST_ASSERT(representation2_get->getShapeOfProduct()->empty());
     }
-    if (representation3_get.valid())
+    if (representation3_get.valid() && representation3_get->getShapeOfProduct().valid())
     {
         // test the inverse
-        TEST_ASSERT(representation3_get->getShapeOfProduct().empty());
+        TEST_ASSERT(representation3_get->getShapeOfProduct()->empty());
     }
 
     std::cout << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;
