@@ -554,7 +554,7 @@ bool IfcDocumentInformation::testStatus() const {
     return getStatus() != IfcDocumentStatusEnum_UNSET;
 }
 
-Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation::getIsPointedTo() {
+Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &IfcDocumentInformation::getIsPointedTo() {
     if (Step::BaseObject::inited()) {
         return m_isPointedTo;
     }
@@ -564,7 +564,7 @@ Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation::getI
     }
 }
 
-const Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation::getIsPointedTo() const {
+const Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &IfcDocumentInformation::getIsPointedTo() const {
     IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
     return deConstObject->getIsPointedTo();
 }
@@ -573,7 +573,7 @@ bool IfcDocumentInformation::testIsPointedTo() const {
     return !Step::isUnset(getIsPointedTo());
 }
 
-Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getIsPointer() {
+Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &IfcDocumentInformation::getIsPointer() {
     if (Step::BaseObject::inited()) {
         return m_isPointer;
     }
@@ -583,7 +583,7 @@ Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getI
     }
 }
 
-const Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getIsPointer() const {
+const Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &IfcDocumentInformation::getIsPointer() const {
     IfcDocumentInformation * deConstObject = const_cast< IfcDocumentInformation * > (this);
     return deConstObject->getIsPointer();
 }

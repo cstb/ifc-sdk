@@ -125,13 +125,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'MapUsage'.
          * 
          */
-        virtual Inverse_Set_IfcMappedItem_0_n &getMapUsage();
+        virtual Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &getMapUsage();
         /**
          * (const) Returns the value of the explicit attribute 'MapUsage'.
          * 
          * @return the value of the explicit attribute 'MapUsage'
          */
-        const virtual Inverse_Set_IfcMappedItem_0_n &getMapUsage() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &getMapUsage() const;
         /**
          * Test if the attribute 'MapUsage' is set.
          * 

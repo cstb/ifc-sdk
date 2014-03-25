@@ -148,7 +148,7 @@ bool IfcTypeObject::testHasPropertySets() const {
     return !Step::isUnset(getHasPropertySets());
 }
 
-Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
+Step::RefPtr< Inverse_Set_IfcRelDefinesByType_0_1 > &IfcTypeObject::getObjectTypeOf() {
     if (Step::BaseObject::inited()) {
         return *m_objectTypeOf;
     }
@@ -159,7 +159,7 @@ Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
     }
 }
 
-const Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() const {
+const Step::RefPtr< Inverse_Set_IfcRelDefinesByType_0_1 > &IfcTypeObject::getObjectTypeOf() const {
     IfcTypeObject * deConstObject = const_cast< IfcTypeObject * > (this);
     return deConstObject->getObjectTypeOf();
 }

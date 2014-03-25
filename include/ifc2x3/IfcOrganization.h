@@ -251,13 +251,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedBy'.
          * 
          */
-        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy();
+        virtual Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &getIsRelatedBy();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedBy'.
          * 
          * @return the value of the explicit attribute 'IsRelatedBy'
          */
-        const virtual Inverse_Set_IfcOrganizationRelationship_0_n &getIsRelatedBy() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &getIsRelatedBy() const;
         /**
          * Test if the attribute 'IsRelatedBy' is set.
          * 
@@ -268,13 +268,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Relates'.
          * 
          */
-        virtual Inverse_Set_IfcOrganizationRelationship_0_n &getRelates();
+        virtual Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &getRelates();
         /**
          * (const) Returns the value of the explicit attribute 'Relates'.
          * 
          * @return the value of the explicit attribute 'Relates'
          */
-        const virtual Inverse_Set_IfcOrganizationRelationship_0_n &getRelates() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &getRelates() const;
         /**
          * Test if the attribute 'Relates' is set.
          * 
@@ -285,13 +285,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Engages'.
          * 
          */
-        virtual Inverse_Set_IfcPersonAndOrganization_0_n &getEngages();
+        virtual Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &getEngages();
         /**
          * (const) Returns the value of the explicit attribute 'Engages'.
          * 
          * @return the value of the explicit attribute 'Engages'
          */
-        const virtual Inverse_Set_IfcPersonAndOrganization_0_n &getEngages() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &getEngages() const;
         /**
          * Test if the attribute 'Engages' is set.
          * 

@@ -252,7 +252,7 @@ bool IfcApproval::testIdentifier() const {
     return !Step::isUnset(getIdentifier());
 }
 
-Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() {
+Step::RefPtr< Inverse_Set_IfcApprovalActorRelationship_0_n > &IfcApproval::getActors() {
     if (Step::BaseObject::inited()) {
         return m_actors;
     }
@@ -262,7 +262,7 @@ Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() {
     }
 }
 
-const Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() const {
+const Step::RefPtr< Inverse_Set_IfcApprovalActorRelationship_0_n > &IfcApproval::getActors() const {
     IfcApproval * deConstObject = const_cast< IfcApproval * > (this);
     return deConstObject->getActors();
 }
@@ -271,7 +271,7 @@ bool IfcApproval::testActors() const {
     return !Step::isUnset(getActors());
 }
 
-Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() {
+Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getIsRelatedWith() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedWith;
     }
@@ -281,7 +281,7 @@ Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() {
     }
 }
 
-const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() const {
+const Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getIsRelatedWith() const {
     IfcApproval * deConstObject = const_cast< IfcApproval * > (this);
     return deConstObject->getIsRelatedWith();
 }
@@ -290,7 +290,7 @@ bool IfcApproval::testIsRelatedWith() const {
     return !Step::isUnset(getIsRelatedWith());
 }
 
-Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() {
+Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getRelates() {
     if (Step::BaseObject::inited()) {
         return m_relates;
     }
@@ -300,7 +300,7 @@ Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() {
     }
 }
 
-const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() const {
+const Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getRelates() const {
     IfcApproval * deConstObject = const_cast< IfcApproval * > (this);
     return deConstObject->getRelates();
 }

@@ -89,7 +89,7 @@ bool IfcStructuralConnection::testAppliedCondition() const {
     return !Step::isUnset(getAppliedCondition());
 }
 
-Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_1_n > &IfcStructuralConnection::getConnectsStructuralMembers() {
     if (Step::BaseObject::inited()) {
         return m_connectsStructuralMembers;
     }
@@ -99,7 +99,7 @@ Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConn
     }
 }
 
-const Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::getConnectsStructuralMembers() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_1_n > &IfcStructuralConnection::getConnectsStructuralMembers() const {
     IfcStructuralConnection * deConstObject = const_cast< IfcStructuralConnection * > (this);
     return deConstObject->getConnectsStructuralMembers();
 }

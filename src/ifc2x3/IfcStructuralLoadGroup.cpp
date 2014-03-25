@@ -196,7 +196,7 @@ bool IfcStructuralLoadGroup::testPurpose() const {
     return !Step::isUnset(getPurpose());
 }
 
-Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourceOfResultGroup() {
+Step::RefPtr< Inverse_Set_IfcStructuralResultGroup_0_1 > &IfcStructuralLoadGroup::getSourceOfResultGroup() {
     if (Step::BaseObject::inited()) {
         return m_sourceOfResultGroup;
     }
@@ -206,7 +206,7 @@ Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourceOfRes
     }
 }
 
-const Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourceOfResultGroup() const {
+const Step::RefPtr< Inverse_Set_IfcStructuralResultGroup_0_1 > &IfcStructuralLoadGroup::getSourceOfResultGroup() const {
     IfcStructuralLoadGroup * deConstObject = const_cast< IfcStructuralLoadGroup * > (this);
     return deConstObject->getSourceOfResultGroup();
 }
@@ -215,7 +215,7 @@ bool IfcStructuralLoadGroup::testSourceOfResultGroup() const {
     return !Step::isUnset(getSourceOfResultGroup());
 }
 
-Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroupFor() {
+Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_n > &IfcStructuralLoadGroup::getLoadGroupFor() {
     if (Step::BaseObject::inited()) {
         return m_loadGroupFor;
     }
@@ -225,7 +225,7 @@ Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroup
     }
 }
 
-const Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroupFor() const {
+const Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_n > &IfcStructuralLoadGroup::getLoadGroupFor() const {
     IfcStructuralLoadGroup * deConstObject = const_cast< IfcStructuralLoadGroup * > (this);
     return deConstObject->getLoadGroupFor();
 }

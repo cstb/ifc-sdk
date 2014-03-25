@@ -198,7 +198,7 @@ bool IfcSpaceProgram::testStandardRequiredArea() const {
     return !Step::isUnset(getStandardRequiredArea());
 }
 
-Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsFrom() {
+Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsFrom() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsFrom;
     }
@@ -208,7 +208,7 @@ Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractio
     }
 }
 
-const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsFrom() const {
+const Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsFrom() const {
     IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
     return deConstObject->getHasInteractionReqsFrom();
 }
@@ -217,7 +217,7 @@ bool IfcSpaceProgram::testHasInteractionReqsFrom() const {
     return !Step::isUnset(getHasInteractionReqsFrom());
 }
 
-Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() {
+Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsTo() {
     if (Step::BaseObject::inited()) {
         return m_hasInteractionReqsTo;
     }
@@ -227,7 +227,7 @@ Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractio
     }
 }
 
-const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() const {
+const Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsTo() const {
     IfcSpaceProgram * deConstObject = const_cast< IfcSpaceProgram * > (this);
     return deConstObject->getHasInteractionReqsTo();
 }

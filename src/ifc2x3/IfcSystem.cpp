@@ -59,7 +59,7 @@ bool IfcSystem::isOfType(const Step::ClassType &t) const {
     return IfcSystem::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
-Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() {
+Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_1 > &IfcSystem::getServicesBuildings() {
     if (Step::BaseObject::inited()) {
         return m_servicesBuildings;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() {
     }
 }
 
-const Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings() const {
+const Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_1 > &IfcSystem::getServicesBuildings() const {
     IfcSystem * deConstObject = const_cast< IfcSystem * > (this);
     return deConstObject->getServicesBuildings();
 }

@@ -92,7 +92,7 @@ bool IfcObject::testObjectType() const {
     return !Step::isUnset(getObjectType());
 }
 
-Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
+Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &IfcObject::getIsDefinedBy() {
     if (Step::BaseObject::inited()) {
         return *m_isDefinedBy;
     }
@@ -103,7 +103,7 @@ Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
     }
 }
 
-const Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() const {
+const Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &IfcObject::getIsDefinedBy() const {
     IfcObject * deConstObject = const_cast< IfcObject * > (this);
     return deConstObject->getIsDefinedBy();
 }

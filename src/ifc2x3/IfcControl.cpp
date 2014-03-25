@@ -59,7 +59,7 @@ bool IfcControl::isOfType(const Step::ClassType &t) const {
     return IfcControl::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() {
+Step::RefPtr< Inverse_Set_IfcRelAssignsToControl_0_n > &IfcControl::getControls() {
     if (Step::BaseObject::inited()) {
         return m_controls;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() {
     }
 }
 
-const Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssignsToControl_0_n > &IfcControl::getControls() const {
     IfcControl * deConstObject = const_cast< IfcControl * > (this);
     return deConstObject->getControls();
 }

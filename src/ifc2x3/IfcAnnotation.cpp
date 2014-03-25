@@ -59,7 +59,7 @@ bool IfcAnnotation::isOfType(const Step::ClassType &t) const {
     return IfcAnnotation::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedInStructure() {
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcAnnotation::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedIn
     }
 }
 
-const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getContainedInStructure() const {
+const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcAnnotation::getContainedInStructure() const {
     IfcAnnotation * deConstObject = const_cast< IfcAnnotation * > (this);
     return deConstObject->getContainedInStructure();
 }

@@ -591,13 +591,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsPointedTo'.
          * 
          */
-        virtual Inverse_Set_IfcDocumentInformationRelationship_0_n &getIsPointedTo();
+        virtual Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &getIsPointedTo();
         /**
          * (const) Returns the value of the explicit attribute 'IsPointedTo'.
          * 
          * @return the value of the explicit attribute 'IsPointedTo'
          */
-        const virtual Inverse_Set_IfcDocumentInformationRelationship_0_n &getIsPointedTo() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &getIsPointedTo() const;
         /**
          * Test if the attribute 'IsPointedTo' is set.
          * 
@@ -608,13 +608,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsPointer'.
          * 
          */
-        virtual Inverse_Set_IfcDocumentInformationRelationship_0_1 &getIsPointer();
+        virtual Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &getIsPointer();
         /**
          * (const) Returns the value of the explicit attribute 'IsPointer'.
          * 
          * @return the value of the explicit attribute 'IsPointer'
          */
-        const virtual Inverse_Set_IfcDocumentInformationRelationship_0_1 &getIsPointer() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &getIsPointer() const;
         /**
          * Test if the attribute 'IsPointer' is set.
          * 

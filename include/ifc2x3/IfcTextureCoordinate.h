@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'AnnotatedSurface'.
          * 
          */
-        virtual Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface();
+        virtual Step::RefPtr< Inverse_Set_IfcAnnotationSurface_1_1 > &getAnnotatedSurface();
         /**
          * (const) Returns the value of the explicit attribute 'AnnotatedSurface'.
          * 
          * @return the value of the explicit attribute 'AnnotatedSurface'
          */
-        const virtual Inverse_Set_IfcAnnotationSurface_1_1 &getAnnotatedSurface() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcAnnotationSurface_1_1 > &getAnnotatedSurface() const;
         /**
          * Test if the attribute 'AnnotatedSurface' is set.
          * 

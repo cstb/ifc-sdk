@@ -64,7 +64,7 @@ bool IfcDistributionFlowElement::isOfType(const Step::ClassType &t) const {
     return IfcDistributionFlowElement::s_type == t ? true : IfcDistributionElement::isOfType(t);
 }
 
-Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasControlElements() {
+Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionFlowElement::getHasControlElements() {
     if (Step::BaseObject::inited()) {
         return *m_hasControlElements;
     }
@@ -75,7 +75,7 @@ Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasCon
     }
 }
 
-const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasControlElements() const {
+const Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionFlowElement::getHasControlElements() const {
     IfcDistributionFlowElement * deConstObject = const_cast< IfcDistributionFlowElement * > (this);
     return deConstObject->getHasControlElements();
 }

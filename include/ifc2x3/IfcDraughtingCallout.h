@@ -94,13 +94,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedFromCallout'.
          * 
          */
-        virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout();
+        virtual Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &getIsRelatedFromCallout();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedFromCallout'.
          * 
          * @return the value of the explicit attribute 'IsRelatedFromCallout'
          */
-        const virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedFromCallout() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &getIsRelatedFromCallout() const;
         /**
          * Test if the attribute 'IsRelatedFromCallout' is set.
          * 
@@ -111,13 +111,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedToCallout'.
          * 
          */
-        virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedToCallout();
+        virtual Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &getIsRelatedToCallout();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedToCallout'.
          * 
          * @return the value of the explicit attribute 'IsRelatedToCallout'
          */
-        const virtual Inverse_Set_IfcDraughtingCalloutRelationship_0_n &getIsRelatedToCallout() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &getIsRelatedToCallout() const;
         /**
          * Test if the attribute 'IsRelatedToCallout' is set.
          * 

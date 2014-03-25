@@ -60,7 +60,7 @@ bool IfcStructuralMember::isOfType(const Step::ClassType &t) const {
     return IfcStructuralMember::s_type == t ? true : IfcStructuralItem::isOfType(t);
 }
 
-Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getReferencesElement() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcStructuralMember::getReferencesElement() {
     if (Step::BaseObject::inited()) {
         return m_referencesElement;
     }
@@ -70,7 +70,7 @@ Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getReferen
     }
 }
 
-const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getReferencesElement() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcStructuralMember::getReferencesElement() const {
     IfcStructuralMember * deConstObject = const_cast< IfcStructuralMember * > (this);
     return deConstObject->getReferencesElement();
 }
@@ -79,7 +79,7 @@ bool IfcStructuralMember::testReferencesElement() const {
     return !Step::isUnset(getReferencesElement());
 }
 
-Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_0_n > &IfcStructuralMember::getConnectedBy() {
     if (Step::BaseObject::inited()) {
         return m_connectedBy;
     }
@@ -89,7 +89,7 @@ Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnecte
     }
 }
 
-const Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_0_n > &IfcStructuralMember::getConnectedBy() const {
     IfcStructuralMember * deConstObject = const_cast< IfcStructuralMember * > (this);
     return deConstObject->getConnectedBy();
 }

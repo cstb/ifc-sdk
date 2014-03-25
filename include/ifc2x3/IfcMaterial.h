@@ -95,13 +95,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasRepresentation'.
          *
          */
-        virtual Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &getHasRepresentation();
+        virtual Step::RefPtr< Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 > &getHasRepresentation();
         /**
          * (const) Returns the value of the explicit attribute 'HasRepresentation'.
          *
          * @return the value of the explicit attribute 'HasRepresentation'
          */
-        const virtual Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &getHasRepresentation() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 > &getHasRepresentation() const;
         /**
          * Test if the attribute 'HasRepresentation' is set.
          *
@@ -112,13 +112,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ClassifiedAs'.
          *
          */
-        virtual Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs();
+        virtual Step::RefPtr< Inverse_Set_IfcMaterialClassificationRelationship_0_1 > &getClassifiedAs();
         /**
          * (const) Returns the value of the explicit attribute 'ClassifiedAs'.
          *
          * @return the value of the explicit attribute 'ClassifiedAs'
          */
-        const virtual Inverse_Set_IfcMaterialClassificationRelationship_0_1 &getClassifiedAs() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcMaterialClassificationRelationship_0_1 > &getClassifiedAs() const;
         /**
          * Test if the attribute 'ClassifiedAs' is set.
          *

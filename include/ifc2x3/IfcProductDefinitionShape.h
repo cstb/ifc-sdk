@@ -67,14 +67,14 @@ namespace ifc2x3 {
          * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          * 
          */
-        virtual Inverse_Set_IfcProduct_1_n &getShapeOfProduct();
+        virtual Step::RefPtr< Inverse_Set_IfcProduct_1_n > &getShapeOfProduct();
         /**
          * (const) Returns the value of the explicit attribute 'ShapeOfProduct'.
          * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          * 
          * @return the value of the explicit attribute 'ShapeOfProduct'
          */
-        const virtual Inverse_Set_IfcProduct_1_n &getShapeOfProduct() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcProduct_1_n > &getShapeOfProduct() const;
         /**
          * Test if the attribute 'ShapeOfProduct' is set.
          * 
@@ -85,13 +85,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasShapeAspects'.
          * 
          */
-        virtual Inverse_Set_IfcShapeAspect_0_n &getHasShapeAspects();
+        virtual Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &getHasShapeAspects();
         /**
          * (const) Returns the value of the explicit attribute 'HasShapeAspects'.
          * 
          * @return the value of the explicit attribute 'HasShapeAspects'
          */
-        const virtual Inverse_Set_IfcShapeAspect_0_n &getHasShapeAspects() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &getHasShapeAspects() const;
         /**
          * Test if the attribute 'HasShapeAspects' is set.
          * 

@@ -64,7 +64,7 @@ bool IfcPropertyDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertyDefinition::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
-Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() {
+Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcPropertyDefinition::getHasAssociations() {
     if (Step::BaseObject::inited()) {
         return *m_hasAssociations;
     }
@@ -75,7 +75,7 @@ Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() {
     }
 }
 
-const Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcPropertyDefinition::getHasAssociations() const {
     IfcPropertyDefinition * deConstObject = const_cast< IfcPropertyDefinition * > (this);
     return deConstObject->getHasAssociations();
 }

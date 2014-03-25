@@ -59,7 +59,7 @@ bool IfcLibraryReference::isOfType(const Step::ClassType &t) const {
     return IfcLibraryReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibrary() {
+Step::RefPtr< Inverse_Set_IfcLibraryInformation_0_1 > &IfcLibraryReference::getReferenceIntoLibrary() {
     if (Step::BaseObject::inited()) {
         return m_referenceIntoLibrary;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibr
     }
 }
 
-const Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIntoLibrary() const {
+const Step::RefPtr< Inverse_Set_IfcLibraryInformation_0_1 > &IfcLibraryReference::getReferenceIntoLibrary() const {
     IfcLibraryReference * deConstObject = const_cast< IfcLibraryReference * > (this);
     return deConstObject->getReferenceIntoLibrary();
 }

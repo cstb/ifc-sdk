@@ -123,13 +123,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'RepresentationsInContext'.
          * 
          */
-        virtual Inverse_Set_IfcRepresentation_0_n &getRepresentationsInContext();
+        virtual Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &getRepresentationsInContext();
         /**
          * (const) Returns the value of the explicit attribute 'RepresentationsInContext'.
          * 
          * @return the value of the explicit attribute 'RepresentationsInContext'
          */
-        const virtual Inverse_Set_IfcRepresentation_0_n &getRepresentationsInContext() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &getRepresentationsInContext() const;
         /**
          * Test if the attribute 'RepresentationsInContext' is set.
          * 

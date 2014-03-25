@@ -152,13 +152,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ResultGroupFor'.
          * 
          */
-        virtual Inverse_Set_IfcStructuralAnalysisModel_0_1 &getResultGroupFor();
+        virtual Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &getResultGroupFor();
         /**
          * (const) Returns the value of the explicit attribute 'ResultGroupFor'.
          * 
          * @return the value of the explicit attribute 'ResultGroupFor'
          */
-        const virtual Inverse_Set_IfcStructuralAnalysisModel_0_1 &getResultGroupFor() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &getResultGroupFor() const;
         /**
          * Test if the attribute 'ResultGroupFor' is set.
          * 

@@ -114,7 +114,7 @@ bool IfcPhysicalQuantity::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() {
+Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &IfcPhysicalQuantity::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return m_partOfComplex;
     }
@@ -124,7 +124,7 @@ Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComple
     }
 }
 
-const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOfComplex() const {
+const Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &IfcPhysicalQuantity::getPartOfComplex() const {
     IfcPhysicalQuantity * deConstObject = const_cast< IfcPhysicalQuantity * > (this);
     return deConstObject->getPartOfComplex();
 }

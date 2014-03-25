@@ -313,7 +313,7 @@ bool IfcPerson::testAddresses() const {
     return !Step::isUnset(getAddresses());
 }
 
-Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
+Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcPerson::getEngagedIn() {
     if (Step::BaseObject::inited()) {
         return m_engagedIn;
     }
@@ -323,7 +323,7 @@ Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
     }
 }
 
-const Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() const {
+const Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcPerson::getEngagedIn() const {
     IfcPerson * deConstObject = const_cast< IfcPerson * > (this);
     return deConstObject->getEngagedIn();
 }

@@ -95,13 +95,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'AssignedToFlowElement'.
          * 
          */
-        virtual Inverse_Set_IfcRelFlowControlElements_0_1 &getAssignedToFlowElement();
+        virtual Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &getAssignedToFlowElement();
         /**
          * (const) Returns the value of the explicit attribute 'AssignedToFlowElement'.
          * 
          * @return the value of the explicit attribute 'AssignedToFlowElement'
          */
-        const virtual Inverse_Set_IfcRelFlowControlElements_0_1 &getAssignedToFlowElement() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &getAssignedToFlowElement() const;
         /**
          * Test if the attribute 'AssignedToFlowElement' is set.
          * 

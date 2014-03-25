@@ -59,7 +59,7 @@ bool IfcDocumentReference::isOfType(const Step::ClassType &t) const {
     return IfcDocumentReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocument() {
+Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &IfcDocumentReference::getReferenceToDocument() {
     if (Step::BaseObject::inited()) {
         return m_referenceToDocument;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocu
     }
 }
 
-const Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReferenceToDocument() const {
+const Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &IfcDocumentReference::getReferenceToDocument() const {
     IfcDocumentReference * deConstObject = const_cast< IfcDocumentReference * > (this);
     return deConstObject->getReferenceToDocument();
 }

@@ -68,7 +68,7 @@ bool IfcRepresentationItem::isOfType(const Step::ClassType &t) const {
     return IfcRepresentationItem::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() {
+Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentationItem::getLayerAssignments() {
     if (Step::BaseObject::inited()) {
         return *m_layerAssignments;
     }
@@ -79,7 +79,7 @@ Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerA
     }
 }
 
-const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() const {
+const Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentationItem::getLayerAssignments() const {
     IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
     return deConstObject->getLayerAssignments();
 }
@@ -88,7 +88,7 @@ bool IfcRepresentationItem::testLayerAssignments() const {
     return !Step::isUnset(getLayerAssignments());
 }
 
-Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
+Step::RefPtr< Inverse_Set_IfcStyledItem_0_1 > &IfcRepresentationItem::getStyledByItem() {
     if (Step::BaseObject::inited()) {
         return *m_styledByItem;
     }
@@ -99,7 +99,7 @@ Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
     }
 }
 
-const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const {
+const Step::RefPtr< Inverse_Set_IfcStyledItem_0_1 > &IfcRepresentationItem::getStyledByItem() const {
     IfcRepresentationItem * deConstObject = const_cast< IfcRepresentationItem * > (this);
     return deConstObject->getStyledByItem();
 }

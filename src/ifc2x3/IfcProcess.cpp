@@ -60,7 +60,7 @@ bool IfcProcess::isOfType(const Step::ClassType &t) const {
     return IfcProcess::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() {
+Step::RefPtr< Inverse_Set_IfcRelAssignsToProcess_0_n > &IfcProcess::getOperatesOn() {
     if (Step::BaseObject::inited()) {
         return m_operatesOn;
     }
@@ -70,7 +70,7 @@ Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() {
     }
 }
 
-const Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssignsToProcess_0_n > &IfcProcess::getOperatesOn() const {
     IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
     return deConstObject->getOperatesOn();
 }
@@ -79,7 +79,7 @@ bool IfcProcess::testOperatesOn() const {
     return !Step::isUnset(getOperatesOn());
 }
 
-Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() {
+Step::RefPtr< Inverse_Set_IfcRelSequence_0_n > &IfcProcess::getIsSuccessorFrom() {
     if (Step::BaseObject::inited()) {
         return m_isSuccessorFrom;
     }
@@ -89,7 +89,7 @@ Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() {
     }
 }
 
-const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const {
+const Step::RefPtr< Inverse_Set_IfcRelSequence_0_n > &IfcProcess::getIsSuccessorFrom() const {
     IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
     return deConstObject->getIsSuccessorFrom();
 }
@@ -98,7 +98,7 @@ bool IfcProcess::testIsSuccessorFrom() const {
     return !Step::isUnset(getIsSuccessorFrom());
 }
 
-Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
+Step::RefPtr< Inverse_Set_IfcRelSequence_0_n > &IfcProcess::getIsPredecessorTo() {
     if (Step::BaseObject::inited()) {
         return m_isPredecessorTo;
     }
@@ -108,7 +108,7 @@ Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
     }
 }
 
-const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() const {
+const Step::RefPtr< Inverse_Set_IfcRelSequence_0_n > &IfcProcess::getIsPredecessorTo() const {
     IfcProcess * deConstObject = const_cast< IfcProcess * > (this);
     return deConstObject->getIsPredecessorTo();
 }

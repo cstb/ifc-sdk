@@ -227,7 +227,7 @@ bool IfcOrganization::testAddresses() const {
     return !Step::isUnset(getAddresses());
 }
 
-Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() {
+Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &IfcOrganization::getIsRelatedBy() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedBy;
     }
@@ -237,7 +237,7 @@ Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() {
     }
 }
 
-const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() const {
+const Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &IfcOrganization::getIsRelatedBy() const {
     IfcOrganization * deConstObject = const_cast< IfcOrganization * > (this);
     return deConstObject->getIsRelatedBy();
 }
@@ -246,7 +246,7 @@ bool IfcOrganization::testIsRelatedBy() const {
     return !Step::isUnset(getIsRelatedBy());
 }
 
-Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates() {
+Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &IfcOrganization::getRelates() {
     if (Step::BaseObject::inited()) {
         return m_relates;
     }
@@ -256,7 +256,7 @@ Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates() {
     }
 }
 
-const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates() const {
+const Step::RefPtr< Inverse_Set_IfcOrganizationRelationship_0_n > &IfcOrganization::getRelates() const {
     IfcOrganization * deConstObject = const_cast< IfcOrganization * > (this);
     return deConstObject->getRelates();
 }
@@ -265,7 +265,7 @@ bool IfcOrganization::testRelates() const {
     return !Step::isUnset(getRelates());
 }
 
-Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() {
+Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcOrganization::getEngages() {
     if (Step::BaseObject::inited()) {
         return m_engages;
     }
@@ -275,7 +275,7 @@ Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() {
     }
 }
 
-const Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() const {
+const Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcOrganization::getEngages() const {
     IfcOrganization * deConstObject = const_cast< IfcOrganization * > (this);
     return deConstObject->getEngages();
 }

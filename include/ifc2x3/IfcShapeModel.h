@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OfShapeAspect'.
          * 
          */
-        virtual Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect();
+        virtual Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &getOfShapeAspect();
         /**
          * (const) Returns the value of the explicit attribute 'OfShapeAspect'.
          * 
          * @return the value of the explicit attribute 'OfShapeAspect'
          */
-        const virtual Inverse_Set_IfcShapeAspect_0_1 &getOfShapeAspect() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &getOfShapeAspect() const;
         /**
          * Test if the attribute 'OfShapeAspect' is set.
          * 

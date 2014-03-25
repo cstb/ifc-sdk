@@ -266,13 +266,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ClassifiedAs'.
          * 
          */
-        virtual Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs();
+        virtual Step::RefPtr< Inverse_Set_IfcConstraintClassificationRelationship_0_n > &getClassifiedAs();
         /**
          * (const) Returns the value of the explicit attribute 'ClassifiedAs'.
          * 
          * @return the value of the explicit attribute 'ClassifiedAs'
          */
-        const virtual Inverse_Set_IfcConstraintClassificationRelationship_0_n &getClassifiedAs() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcConstraintClassificationRelationship_0_n > &getClassifiedAs() const;
         /**
          * Test if the attribute 'ClassifiedAs' is set.
          * 
@@ -283,13 +283,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'RelatesConstraints'.
          * 
          */
-        virtual Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints();
+        virtual Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &getRelatesConstraints();
         /**
          * (const) Returns the value of the explicit attribute 'RelatesConstraints'.
          * 
          * @return the value of the explicit attribute 'RelatesConstraints'
          */
-        const virtual Inverse_Set_IfcConstraintRelationship_0_n &getRelatesConstraints() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &getRelatesConstraints() const;
         /**
          * Test if the attribute 'RelatesConstraints' is set.
          * 
@@ -300,13 +300,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsRelatedWith'.
          * 
          */
-        virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith();
+        virtual Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &getIsRelatedWith();
         /**
          * (const) Returns the value of the explicit attribute 'IsRelatedWith'.
          * 
          * @return the value of the explicit attribute 'IsRelatedWith'
          */
-        const virtual Inverse_Set_IfcConstraintRelationship_0_n &getIsRelatedWith() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &getIsRelatedWith() const;
         /**
          * Test if the attribute 'IsRelatedWith' is set.
          * 
@@ -317,13 +317,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PropertiesForConstraint'.
          * 
          */
-        virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint();
+        virtual Step::RefPtr< Inverse_Set_IfcPropertyConstraintRelationship_0_n > &getPropertiesForConstraint();
         /**
          * (const) Returns the value of the explicit attribute 'PropertiesForConstraint'.
          * 
          * @return the value of the explicit attribute 'PropertiesForConstraint'
          */
-        const virtual Inverse_Set_IfcPropertyConstraintRelationship_0_n &getPropertiesForConstraint() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcPropertyConstraintRelationship_0_n > &getPropertiesForConstraint() const;
         /**
          * Test if the attribute 'PropertiesForConstraint' is set.
          * 
@@ -334,13 +334,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'Aggregates'.
          * 
          */
-        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates();
+        virtual Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &getAggregates();
         /**
          * (const) Returns the value of the explicit attribute 'Aggregates'.
          * 
          * @return the value of the explicit attribute 'Aggregates'
          */
-        const virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getAggregates() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &getAggregates() const;
         /**
          * Test if the attribute 'Aggregates' is set.
          * 
@@ -351,13 +351,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsAggregatedIn'.
          * 
          */
-        virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn();
+        virtual Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &getIsAggregatedIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsAggregatedIn'.
          * 
          * @return the value of the explicit attribute 'IsAggregatedIn'
          */
-        const virtual Inverse_Set_IfcConstraintAggregationRelationship_0_n &getIsAggregatedIn() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &getIsAggregatedIn() const;
         /**
          * Test if the attribute 'IsAggregatedIn' is set.
          * 

@@ -151,13 +151,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OfPerson'.
          * 
          */
-        virtual Inverse_Set_IfcPerson_0_n &getOfPerson();
+        virtual Step::RefPtr< Inverse_Set_IfcPerson_0_n > &getOfPerson();
         /**
          * (const) Returns the value of the explicit attribute 'OfPerson'.
          * 
          * @return the value of the explicit attribute 'OfPerson'
          */
-        const virtual Inverse_Set_IfcPerson_0_n &getOfPerson() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcPerson_0_n > &getOfPerson() const;
         /**
          * Test if the attribute 'OfPerson' is set.
          * 
@@ -168,13 +168,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OfOrganization'.
          * 
          */
-        virtual Inverse_Set_IfcOrganization_0_n &getOfOrganization();
+        virtual Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &getOfOrganization();
         /**
          * (const) Returns the value of the explicit attribute 'OfOrganization'.
          * 
          * @return the value of the explicit attribute 'OfOrganization'
          */
-        const virtual Inverse_Set_IfcOrganization_0_n &getOfOrganization() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &getOfOrganization() const;
         /**
          * Test if the attribute 'OfOrganization' is set.
          * 

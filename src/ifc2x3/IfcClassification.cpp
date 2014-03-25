@@ -171,7 +171,7 @@ bool IfcClassification::testName() const {
     return !Step::isUnset(getName());
 }
 
-Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() {
+Step::RefPtr< Inverse_Set_IfcClassificationItem_0_n > &IfcClassification::getContains() {
     if (Step::BaseObject::inited()) {
         return m_contains;
     }
@@ -181,7 +181,7 @@ Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() {
     }
 }
 
-const Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() const {
+const Step::RefPtr< Inverse_Set_IfcClassificationItem_0_n > &IfcClassification::getContains() const {
     IfcClassification * deConstObject = const_cast< IfcClassification * > (this);
     return deConstObject->getContains();
 }

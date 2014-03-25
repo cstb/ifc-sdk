@@ -88,7 +88,7 @@ bool IfcActor::testTheActor() const {
     return !Step::isUnset(getTheActor());
 }
 
-Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() {
+Step::RefPtr< Inverse_Set_IfcRelAssignsToActor_0_n > &IfcActor::getIsActingUpon() {
     if (Step::BaseObject::inited()) {
         return m_isActingUpon;
     }
@@ -98,7 +98,7 @@ Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() {
     }
 }
 
-const Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssignsToActor_0_n > &IfcActor::getIsActingUpon() const {
     IfcActor * deConstObject = const_cast< IfcActor * > (this);
     return deConstObject->getIsActingUpon();
 }

@@ -92,7 +92,7 @@ bool IfcDistributionControlElement::testControlElementId() const {
     return !Step::isUnset(getControlElementId());
 }
 
-Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() {
+Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionControlElement::getAssignedToFlowElement() {
     if (Step::BaseObject::inited()) {
         return *m_assignedToFlowElement;
     }
@@ -103,7 +103,7 @@ Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAss
     }
 }
 
-const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() const {
+const Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionControlElement::getAssignedToFlowElement() const {
     IfcDistributionControlElement * deConstObject = const_cast< IfcDistributionControlElement * > (this);
     return deConstObject->getAssignedToFlowElement();
 }

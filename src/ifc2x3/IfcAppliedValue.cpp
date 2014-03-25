@@ -229,7 +229,7 @@ bool IfcAppliedValue::testFixedUntilDate() const {
     return !Step::isUnset(getFixedUntilDate());
 }
 
-Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() {
+Step::RefPtr< Inverse_Set_IfcReferencesValueDocument_0_n > &IfcAppliedValue::getValuesReferenced() {
     if (Step::BaseObject::inited()) {
         return m_valuesReferenced;
     }
@@ -239,7 +239,7 @@ Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced
     }
 }
 
-const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesReferenced() const {
+const Step::RefPtr< Inverse_Set_IfcReferencesValueDocument_0_n > &IfcAppliedValue::getValuesReferenced() const {
     IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
     return deConstObject->getValuesReferenced();
 }
@@ -248,7 +248,7 @@ bool IfcAppliedValue::testValuesReferenced() const {
     return !Step::isUnset(getValuesReferenced());
 }
 
-Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() {
+Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getValueOfComponents() {
     if (Step::BaseObject::inited()) {
         return m_valueOfComponents;
     }
@@ -258,7 +258,7 @@ Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponen
     }
 }
 
-const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() const {
+const Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getValueOfComponents() const {
     IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
     return deConstObject->getValueOfComponents();
 }
@@ -267,7 +267,7 @@ bool IfcAppliedValue::testValueOfComponents() const {
     return !Step::isUnset(getValueOfComponents());
 }
 
-Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() {
+Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getIsComponentIn() {
     if (Step::BaseObject::inited()) {
         return m_isComponentIn;
     }
@@ -277,7 +277,7 @@ Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn()
     }
 }
 
-const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() const {
+const Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getIsComponentIn() const {
     IfcAppliedValue * deConstObject = const_cast< IfcAppliedValue * > (this);
     return deConstObject->getIsComponentIn();
 }

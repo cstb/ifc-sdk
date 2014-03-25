@@ -95,7 +95,7 @@ bool IfcCovering::testPredefinedType() const {
     return getPredefinedType() != IfcCoveringTypeEnum_UNSET;
 }
 
-Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() {
+Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_1 > &IfcCovering::getCoversSpaces() {
     if (Step::BaseObject::inited()) {
         return *m_coversSpaces;
     }
@@ -106,7 +106,7 @@ Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() {
     }
 }
 
-const Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() const {
+const Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_1 > &IfcCovering::getCoversSpaces() const {
     IfcCovering * deConstObject = const_cast< IfcCovering * > (this);
     return deConstObject->getCoversSpaces();
 }
@@ -115,7 +115,7 @@ bool IfcCovering::testCoversSpaces() const {
     return !Step::isUnset(getCoversSpaces());
 }
 
-Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
+Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_1 > &IfcCovering::getCovers() {
     if (Step::BaseObject::inited()) {
         return *m_covers;
     }
@@ -126,7 +126,7 @@ Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
     }
 }
 
-const Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() const {
+const Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_1 > &IfcCovering::getCovers() const {
     IfcCovering * deConstObject = const_cast< IfcCovering * > (this);
     return deConstObject->getCovers();
 }

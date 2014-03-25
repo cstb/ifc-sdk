@@ -177,7 +177,7 @@ bool IfcGeometricRepresentationContext::testTrueNorth() const {
     return !Step::isUnset(getTrueNorth());
 }
 
-Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() {
+Step::RefPtr< Inverse_Set_IfcGeometricRepresentationSubContext_0_n > &IfcGeometricRepresentationContext::getHasSubContexts() {
     if (Step::BaseObject::inited()) {
         return *m_hasSubContexts;
     }
@@ -188,7 +188,7 @@ Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentation
     }
 }
 
-const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() const {
+const Step::RefPtr< Inverse_Set_IfcGeometricRepresentationSubContext_0_n > &IfcGeometricRepresentationContext::getHasSubContexts() const {
     IfcGeometricRepresentationContext * deConstObject = const_cast< IfcGeometricRepresentationContext * > (this);
     return deConstObject->getHasSubContexts();
 }

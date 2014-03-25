@@ -127,7 +127,7 @@ bool IfcSpatialStructureElement::testCompositionType() const {
     return getCompositionType() != IfcElementCompositionEnum_UNSET;
 }
 
-Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() {
+Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcSpatialStructureElement::getReferencesElements() {
     if (Step::BaseObject::inited()) {
         return *m_referencesElements;
     }
@@ -138,7 +138,7 @@ Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::
     }
 }
 
-const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() const {
+const Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcSpatialStructureElement::getReferencesElements() const {
     IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
     return deConstObject->getReferencesElements();
 }
@@ -147,7 +147,7 @@ bool IfcSpatialStructureElement::testReferencesElements() const {
     return !Step::isUnset(getReferencesElements());
 }
 
-Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() {
+Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &IfcSpatialStructureElement::getServicedBySystems() {
     if (Step::BaseObject::inited()) {
         return *m_servicedBySystems;
     }
@@ -158,7 +158,7 @@ Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServiced
     }
 }
 
-const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() const {
+const Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &IfcSpatialStructureElement::getServicedBySystems() const {
     IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
     return deConstObject->getServicedBySystems();
 }
@@ -167,7 +167,7 @@ bool IfcSpatialStructureElement::testServicedBySystems() const {
     return !Step::isUnset(getServicedBySystems());
 }
 
-Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() {
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &IfcSpatialStructureElement::getContainsElements() {
     if (Step::BaseObject::inited()) {
         return *m_containsElements;
     }
@@ -178,7 +178,7 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::g
     }
 }
 
-const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() const {
+const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &IfcSpatialStructureElement::getContainsElements() const {
     IfcSpatialStructureElement * deConstObject = const_cast< IfcSpatialStructureElement * > (this);
     return deConstObject->getContainsElements();
 }

@@ -122,13 +122,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasCoverings'.
          * 
          */
-        virtual Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings();
+        virtual Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &getHasCoverings();
         /**
          * (const) Returns the value of the explicit attribute 'HasCoverings'.
          * 
          * @return the value of the explicit attribute 'HasCoverings'
          */
-        const virtual Inverse_Set_IfcRelCoversSpaces_0_n &getHasCoverings() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &getHasCoverings() const;
         /**
          * Test if the attribute 'HasCoverings' is set.
          * 
@@ -139,13 +139,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'BoundedBy'.
          * 
          */
-        virtual Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy();
+        virtual Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &getBoundedBy();
         /**
          * (const) Returns the value of the explicit attribute 'BoundedBy'.
          * 
          * @return the value of the explicit attribute 'BoundedBy'
          */
-        const virtual Inverse_Set_IfcRelSpaceBoundary_0_n &getBoundedBy() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &getBoundedBy() const;
         /**
          * Test if the attribute 'BoundedBy' is set.
          * 

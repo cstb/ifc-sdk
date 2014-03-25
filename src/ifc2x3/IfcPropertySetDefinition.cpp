@@ -68,7 +68,7 @@ bool IfcPropertySetDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertySetDefinition::s_type == t ? true : IfcPropertyDefinition::isOfType(t);
 }
 
-Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPropertyDefinitionOf() {
+Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &IfcPropertySetDefinition::getPropertyDefinitionOf() {
     if (Step::BaseObject::inited()) {
         return *m_propertyDefinitionOf;
     }
@@ -79,7 +79,7 @@ Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getProperty
     }
 }
 
-const Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPropertyDefinitionOf() const {
+const Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &IfcPropertySetDefinition::getPropertyDefinitionOf() const {
     IfcPropertySetDefinition * deConstObject = const_cast< IfcPropertySetDefinition * > (this);
     return deConstObject->getPropertyDefinitionOf();
 }
@@ -88,7 +88,7 @@ bool IfcPropertySetDefinition::testPropertyDefinitionOf() const {
     return !Step::isUnset(getPropertyDefinitionOf());
 }
 
-Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
+Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &IfcPropertySetDefinition::getDefinesType() {
     if (Step::BaseObject::inited()) {
         return *m_definesType;
     }
@@ -99,7 +99,7 @@ Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
     }
 }
 
-const Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() const {
+const Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &IfcPropertySetDefinition::getDefinesType() const {
     IfcPropertySetDefinition * deConstObject = const_cast< IfcPropertySetDefinition * > (this);
     return deConstObject->getDefinesType();
 }

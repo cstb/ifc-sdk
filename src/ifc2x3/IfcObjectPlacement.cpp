@@ -68,7 +68,7 @@ bool IfcObjectPlacement::isOfType(const Step::ClassType &t) const {
     return IfcObjectPlacement::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() {
+Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcObjectPlacement::getPlacesObject() {
     if (Step::BaseObject::inited()) {
         return *m_placesObject;
     }
@@ -79,7 +79,7 @@ Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() {
     }
 }
 
-const Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() const {
+const Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcObjectPlacement::getPlacesObject() const {
     IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
     return deConstObject->getPlacesObject();
 }
@@ -88,7 +88,7 @@ bool IfcObjectPlacement::testPlacesObject() const {
     return !Step::isUnset(getPlacesObject());
 }
 
-Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
+Step::RefPtr< Inverse_Set_IfcLocalPlacement_0_n > &IfcObjectPlacement::getReferencedByPlacements() {
     if (Step::BaseObject::inited()) {
         return *m_referencedByPlacements;
     }
@@ -99,7 +99,7 @@ Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements
     }
 }
 
-const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() const {
+const Step::RefPtr< Inverse_Set_IfcLocalPlacement_0_n > &IfcObjectPlacement::getReferencedByPlacements() const {
     IfcObjectPlacement * deConstObject = const_cast< IfcObjectPlacement * > (this);
     return deConstObject->getReferencedByPlacements();
 }

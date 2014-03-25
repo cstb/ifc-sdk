@@ -78,7 +78,7 @@ bool IfcPort::testContainedIn() const {
     return !Step::isUnset(getContainedIn());
 }
 
-Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedFrom() {
     if (Step::BaseObject::inited()) {
         return m_connectedFrom;
     }
@@ -88,7 +88,7 @@ Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() {
     }
 }
 
-const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedFrom() const {
     IfcPort * deConstObject = const_cast< IfcPort * > (this);
     return deConstObject->getConnectedFrom();
 }
@@ -97,7 +97,7 @@ bool IfcPort::testConnectedFrom() const {
     return !Step::isUnset(getConnectedFrom());
 }
 
-Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedTo() {
     if (Step::BaseObject::inited()) {
         return m_connectedTo;
     }
@@ -107,7 +107,7 @@ Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
     }
 }
 
-const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedTo() const {
     IfcPort * deConstObject = const_cast< IfcPort * > (this);
     return deConstObject->getConnectedTo();
 }

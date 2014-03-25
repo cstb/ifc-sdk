@@ -91,7 +91,7 @@ bool IfcDraughtingCallout::testContents() const {
     return !Step::isUnset(getContents());
 }
 
-Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() {
+Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &IfcDraughtingCallout::getIsRelatedFromCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedFromCallout;
     }
@@ -101,7 +101,7 @@ Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRel
     }
 }
 
-const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedFromCallout() const {
+const Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &IfcDraughtingCallout::getIsRelatedFromCallout() const {
     IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
     return deConstObject->getIsRelatedFromCallout();
 }
@@ -110,7 +110,7 @@ bool IfcDraughtingCallout::testIsRelatedFromCallout() const {
     return !Step::isUnset(getIsRelatedFromCallout());
 }
 
-Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() {
+Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &IfcDraughtingCallout::getIsRelatedToCallout() {
     if (Step::BaseObject::inited()) {
         return m_isRelatedToCallout;
     }
@@ -120,7 +120,7 @@ Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRel
     }
 }
 
-const Inverse_Set_IfcDraughtingCalloutRelationship_0_n &IfcDraughtingCallout::getIsRelatedToCallout() const {
+const Step::RefPtr< Inverse_Set_IfcDraughtingCalloutRelationship_0_n > &IfcDraughtingCallout::getIsRelatedToCallout() const {
     IfcDraughtingCallout * deConstObject = const_cast< IfcDraughtingCallout * > (this);
     return deConstObject->getIsRelatedToCallout();
 }

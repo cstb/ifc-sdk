@@ -154,13 +154,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsClassifiedItemIn'.
          * 
          */
-        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn();
+        virtual Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &getIsClassifiedItemIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsClassifiedItemIn'.
          * 
          * @return the value of the explicit attribute 'IsClassifiedItemIn'
          */
-        const virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifiedItemIn() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &getIsClassifiedItemIn() const;
         /**
          * Test if the attribute 'IsClassifiedItemIn' is set.
          * 
@@ -171,13 +171,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsClassifyingItemIn'.
          * 
          */
-        virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn();
+        virtual Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &getIsClassifyingItemIn();
         /**
          * (const) Returns the value of the explicit attribute 'IsClassifyingItemIn'.
          * 
          * @return the value of the explicit attribute 'IsClassifyingItemIn'
          */
-        const virtual Inverse_Set_IfcClassificationItemRelationship_0_1 &getIsClassifyingItemIn() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &getIsClassifyingItemIn() const;
         /**
          * Test if the attribute 'IsClassifyingItemIn' is set.
          * 

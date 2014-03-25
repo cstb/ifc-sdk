@@ -181,13 +181,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'RepresentationMap'.
          * 
          */
-        virtual Inverse_Set_IfcRepresentationMap_0_1 &getRepresentationMap();
+        virtual Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &getRepresentationMap();
         /**
          * (const) Returns the value of the explicit attribute 'RepresentationMap'.
          * 
          * @return the value of the explicit attribute 'RepresentationMap'
          */
-        const virtual Inverse_Set_IfcRepresentationMap_0_1 &getRepresentationMap() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &getRepresentationMap() const;
         /**
          * Test if the attribute 'RepresentationMap' is set.
          * 
@@ -198,13 +198,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'LayerAssignments'.
          * 
          */
-        virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments();
+        virtual Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &getLayerAssignments();
         /**
          * (const) Returns the value of the explicit attribute 'LayerAssignments'.
          * 
          * @return the value of the explicit attribute 'LayerAssignments'
          */
-        const virtual Inverse_Set_IfcPresentationLayerAssignment_0_n &getLayerAssignments() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &getLayerAssignments() const;
         /**
          * Test if the attribute 'LayerAssignments' is set.
          * 
@@ -215,13 +215,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'OfProductRepresentation'.
          * 
          */
-        virtual Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation();
+        virtual Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &getOfProductRepresentation();
         /**
          * (const) Returns the value of the explicit attribute 'OfProductRepresentation'.
          * 
          * @return the value of the explicit attribute 'OfProductRepresentation'
          */
-        const virtual Inverse_Set_IfcProductRepresentation_0_1 &getOfProductRepresentation() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &getOfProductRepresentation() const;
         /**
          * Test if the attribute 'OfProductRepresentation' is set.
          * 

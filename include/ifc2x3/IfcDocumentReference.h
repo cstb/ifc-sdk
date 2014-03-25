@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferenceToDocument'.
          * 
          */
-        virtual Inverse_Set_IfcDocumentInformation_0_1 &getReferenceToDocument();
+        virtual Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &getReferenceToDocument();
         /**
          * (const) Returns the value of the explicit attribute 'ReferenceToDocument'.
          * 
          * @return the value of the explicit attribute 'ReferenceToDocument'
          */
-        const virtual Inverse_Set_IfcDocumentInformation_0_1 &getReferenceToDocument() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &getReferenceToDocument() const;
         /**
          * Test if the attribute 'ReferenceToDocument' is set.
          * 

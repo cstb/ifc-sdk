@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'AnnotatedBySymbols'.
          * 
          */
-        virtual Inverse_Set_IfcTerminatorSymbol_0_2 &getAnnotatedBySymbols();
+        virtual Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &getAnnotatedBySymbols();
         /**
          * (const) Returns the value of the explicit attribute 'AnnotatedBySymbols'.
          * 
          * @return the value of the explicit attribute 'AnnotatedBySymbols'
          */
-        const virtual Inverse_Set_IfcTerminatorSymbol_0_2 &getAnnotatedBySymbols() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &getAnnotatedBySymbols() const;
         /**
          * Test if the attribute 'AnnotatedBySymbols' is set.
          * 

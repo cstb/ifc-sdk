@@ -209,13 +209,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasInteractionReqsFrom'.
          * 
          */
-        virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom();
+        virtual Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &getHasInteractionReqsFrom();
         /**
          * (const) Returns the value of the explicit attribute 'HasInteractionReqsFrom'.
          * 
          * @return the value of the explicit attribute 'HasInteractionReqsFrom'
          */
-        const virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsFrom() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &getHasInteractionReqsFrom() const;
         /**
          * Test if the attribute 'HasInteractionReqsFrom' is set.
          * 
@@ -226,13 +226,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasInteractionReqsTo'.
          * 
          */
-        virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo();
+        virtual Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &getHasInteractionReqsTo();
         /**
          * (const) Returns the value of the explicit attribute 'HasInteractionReqsTo'.
          * 
          * @return the value of the explicit attribute 'HasInteractionReqsTo'
          */
-        const virtual Inverse_Set_IfcRelInteractionRequirements_0_n &getHasInteractionReqsTo() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &getHasInteractionReqsTo() const;
         /**
          * Test if the attribute 'HasInteractionReqsTo' is set.
          * 

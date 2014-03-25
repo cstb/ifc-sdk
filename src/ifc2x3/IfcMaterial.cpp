@@ -96,7 +96,7 @@ bool IfcMaterial::testName() const {
     return !Step::isUnset(getName());
 }
 
-Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation() {
+Step::RefPtr< Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 > &IfcMaterial::getHasRepresentation() {
     if (Step::BaseObject::inited()) {
         return *m_hasRepresentation;
     }
@@ -107,7 +107,7 @@ Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresen
     }
 }
 
-const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRepresentation() const {
+const Step::RefPtr< Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 > &IfcMaterial::getHasRepresentation() const {
     IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
     return deConstObject->getHasRepresentation();
 }
@@ -116,7 +116,7 @@ bool IfcMaterial::testHasRepresentation() const {
     return !Step::isUnset(getHasRepresentation());
 }
 
-Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() {
+Step::RefPtr< Inverse_Set_IfcMaterialClassificationRelationship_0_1 > &IfcMaterial::getClassifiedAs() {
     if (Step::BaseObject::inited()) {
         return *m_classifiedAs;
     }
@@ -127,7 +127,7 @@ Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifie
     }
 }
 
-const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() const {
+const Step::RefPtr< Inverse_Set_IfcMaterialClassificationRelationship_0_1 > &IfcMaterial::getClassifiedAs() const {
     IfcMaterial * deConstObject = const_cast< IfcMaterial * > (this);
     return deConstObject->getClassifiedAs();
 }

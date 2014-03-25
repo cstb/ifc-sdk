@@ -123,13 +123,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferencesElements'.
          * 
          */
-        virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements();
+        virtual Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &getReferencesElements();
         /**
          * (const) Returns the value of the explicit attribute 'ReferencesElements'.
          * 
          * @return the value of the explicit attribute 'ReferencesElements'
          */
-        const virtual Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &getReferencesElements() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &getReferencesElements() const;
         /**
          * Test if the attribute 'ReferencesElements' is set.
          * 
@@ -140,13 +140,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ServicedBySystems'.
          * 
          */
-        virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems();
+        virtual Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &getServicedBySystems();
         /**
          * (const) Returns the value of the explicit attribute 'ServicedBySystems'.
          * 
          * @return the value of the explicit attribute 'ServicedBySystems'
          */
-        const virtual Inverse_Set_IfcRelServicesBuildings_0_n &getServicedBySystems() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &getServicedBySystems() const;
         /**
          * Test if the attribute 'ServicedBySystems' is set.
          * 
@@ -157,13 +157,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ContainsElements'.
          * 
          */
-        virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements();
+        virtual Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &getContainsElements();
         /**
          * (const) Returns the value of the explicit attribute 'ContainsElements'.
          * 
          * @return the value of the explicit attribute 'ContainsElements'
          */
-        const virtual Inverse_Set_IfcRelContainedInSpatialStructure_0_n &getContainsElements() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &getContainsElements() const;
         /**
          * Test if the attribute 'ContainsElements' is set.
          * 

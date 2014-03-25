@@ -126,7 +126,7 @@ bool IfcProperty::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() {
+Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyForDependance() {
     if (Step::BaseObject::inited()) {
         return *m_propertyForDependance;
     }
@@ -137,7 +137,7 @@ Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDe
     }
 }
 
-const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() const {
+const Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyForDependance() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
     return deConstObject->getPropertyForDependance();
 }
@@ -146,7 +146,7 @@ bool IfcProperty::testPropertyForDependance() const {
     return !Step::isUnset(getPropertyForDependance());
 }
 
-Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() {
+Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyDependsOn() {
     if (Step::BaseObject::inited()) {
         return *m_propertyDependsOn;
     }
@@ -157,7 +157,7 @@ Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDepen
     }
 }
 
-const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() const {
+const Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyDependsOn() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
     return deConstObject->getPropertyDependsOn();
 }
@@ -166,7 +166,7 @@ bool IfcProperty::testPropertyDependsOn() const {
     return !Step::isUnset(getPropertyDependsOn());
 }
 
-Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
+Step::RefPtr< Inverse_Set_IfcComplexProperty_0_1 > &IfcProperty::getPartOfComplex() {
     if (Step::BaseObject::inited()) {
         return *m_partOfComplex;
     }
@@ -177,7 +177,7 @@ Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
     }
 }
 
-const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const {
+const Step::RefPtr< Inverse_Set_IfcComplexProperty_0_1 > &IfcProperty::getPartOfComplex() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
     return deConstObject->getPartOfComplex();
 }

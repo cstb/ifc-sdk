@@ -192,7 +192,7 @@ bool IfcRepresentation::testItems() const {
     return !Step::isUnset(getItems());
 }
 
-Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() {
+Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &IfcRepresentation::getRepresentationMap() {
     if (Step::BaseObject::inited()) {
         return *m_representationMap;
     }
@@ -203,7 +203,7 @@ Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() 
     }
 }
 
-const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() const {
+const Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &IfcRepresentation::getRepresentationMap() const {
     IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
     return deConstObject->getRepresentationMap();
 }
@@ -212,7 +212,7 @@ bool IfcRepresentation::testRepresentationMap() const {
     return !Step::isUnset(getRepresentationMap());
 }
 
-Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() {
+Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentation::getLayerAssignments() {
     if (Step::BaseObject::inited()) {
         return *m_layerAssignments;
     }
@@ -223,7 +223,7 @@ Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssig
     }
 }
 
-const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() const {
+const Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentation::getLayerAssignments() const {
     IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
     return deConstObject->getLayerAssignments();
 }
@@ -232,7 +232,7 @@ bool IfcRepresentation::testLayerAssignments() const {
     return !Step::isUnset(getLayerAssignments());
 }
 
-Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() {
+Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &IfcRepresentation::getOfProductRepresentation() {
     if (Step::BaseObject::inited()) {
         return *m_ofProductRepresentation;
     }
@@ -243,7 +243,7 @@ Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductReprese
     }
 }
 
-const Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() const {
+const Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &IfcRepresentation::getOfProductRepresentation() const {
     IfcRepresentation * deConstObject = const_cast< IfcRepresentation * > (this);
     return deConstObject->getOfProductRepresentation();
 }

@@ -142,7 +142,7 @@ bool IfcAddress::testUserDefinedPurpose() const {
     return !Step::isUnset(getUserDefinedPurpose());
 }
 
-Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() {
+Step::RefPtr< Inverse_Set_IfcPerson_0_n > &IfcAddress::getOfPerson() {
     if (Step::BaseObject::inited()) {
         return m_ofPerson;
     }
@@ -152,7 +152,7 @@ Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() {
     }
 }
 
-const Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() const {
+const Step::RefPtr< Inverse_Set_IfcPerson_0_n > &IfcAddress::getOfPerson() const {
     IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
     return deConstObject->getOfPerson();
 }
@@ -161,7 +161,7 @@ bool IfcAddress::testOfPerson() const {
     return !Step::isUnset(getOfPerson());
 }
 
-Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
+Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &IfcAddress::getOfOrganization() {
     if (Step::BaseObject::inited()) {
         return m_ofOrganization;
     }
@@ -171,7 +171,7 @@ Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
     }
 }
 
-const Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() const {
+const Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &IfcAddress::getOfOrganization() const {
     IfcAddress * deConstObject = const_cast< IfcAddress * > (this);
     return deConstObject->getOfOrganization();
 }

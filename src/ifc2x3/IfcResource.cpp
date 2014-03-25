@@ -59,7 +59,7 @@ bool IfcResource::isOfType(const Step::ClassType &t) const {
     return IfcResource::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() {
+Step::RefPtr< Inverse_Set_IfcRelAssignsToResource_0_n > &IfcResource::getResourceOf() {
     if (Step::BaseObject::inited()) {
         return m_resourceOf;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() {
     }
 }
 
-const Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssignsToResource_0_n > &IfcResource::getResourceOf() const {
     IfcResource * deConstObject = const_cast< IfcResource * > (this);
     return deConstObject->getResourceOf();
 }

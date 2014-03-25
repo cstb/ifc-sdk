@@ -119,7 +119,7 @@ bool IfcRepresentationContext::testContextType() const {
     return !Step::isUnset(getContextType());
 }
 
-Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() {
+Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &IfcRepresentationContext::getRepresentationsInContext() {
     if (Step::BaseObject::inited()) {
         return *m_representationsInContext;
     }
@@ -130,7 +130,7 @@ Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsI
     }
 }
 
-const Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() const {
+const Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &IfcRepresentationContext::getRepresentationsInContext() const {
     IfcRepresentationContext * deConstObject = const_cast< IfcRepresentationContext * > (this);
     return deConstObject->getRepresentationsInContext();
 }

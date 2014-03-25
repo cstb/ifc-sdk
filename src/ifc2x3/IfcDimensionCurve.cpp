@@ -64,7 +64,7 @@ bool IfcDimensionCurve::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCurve::s_type == t ? true : IfcAnnotationCurveOccurrence::isOfType(t);
 }
 
-Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() {
+Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &IfcDimensionCurve::getAnnotatedBySymbols() {
     if (Step::BaseObject::inited()) {
         return *m_annotatedBySymbols;
     }
@@ -75,7 +75,7 @@ Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() 
     }
 }
 
-const Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() const {
+const Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &IfcDimensionCurve::getAnnotatedBySymbols() const {
     IfcDimensionCurve * deConstObject = const_cast< IfcDimensionCurve * > (this);
     return deConstObject->getAnnotatedBySymbols();
 }

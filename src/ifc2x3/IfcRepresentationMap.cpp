@@ -129,7 +129,7 @@ bool IfcRepresentationMap::testMappedRepresentation() const {
     return !Step::isUnset(getMappedRepresentation());
 }
 
-Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
+Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &IfcRepresentationMap::getMapUsage() {
     if (Step::BaseObject::inited()) {
         return *m_mapUsage;
     }
@@ -140,7 +140,7 @@ Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
     }
 }
 
-const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const {
+const Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &IfcRepresentationMap::getMapUsage() const {
     IfcRepresentationMap * deConstObject = const_cast< IfcRepresentationMap * > (this);
     return deConstObject->getMapUsage();
 }

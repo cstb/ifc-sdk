@@ -114,7 +114,7 @@ bool IfcSpace::testElevationWithFlooring() const {
     return !Step::isUnset(getElevationWithFlooring());
 }
 
-Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() {
+Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &IfcSpace::getHasCoverings() {
     if (Step::BaseObject::inited()) {
         return m_hasCoverings;
     }
@@ -124,7 +124,7 @@ Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() {
     }
 }
 
-const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const {
+const Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &IfcSpace::getHasCoverings() const {
     IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
     return deConstObject->getHasCoverings();
 }
@@ -133,7 +133,7 @@ bool IfcSpace::testHasCoverings() const {
     return !Step::isUnset(getHasCoverings());
 }
 
-Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
+Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcSpace::getBoundedBy() {
     if (Step::BaseObject::inited()) {
         return m_boundedBy;
     }
@@ -143,7 +143,7 @@ Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
     }
 }
 
-const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const {
+const Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcSpace::getBoundedBy() const {
     IfcSpace * deConstObject = const_cast< IfcSpace * > (this);
     return deConstObject->getBoundedBy();
 }

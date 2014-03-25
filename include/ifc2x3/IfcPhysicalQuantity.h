@@ -123,13 +123,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PartOfComplex'.
          * 
          */
-        virtual Inverse_Set_IfcPhysicalComplexQuantity_0_1 &getPartOfComplex();
+        virtual Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &getPartOfComplex();
         /**
          * (const) Returns the value of the explicit attribute 'PartOfComplex'.
          * 
          * @return the value of the explicit attribute 'PartOfComplex'
          */
-        const virtual Inverse_Set_IfcPhysicalComplexQuantity_0_1 &getPartOfComplex() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &getPartOfComplex() const;
         /**
          * Test if the attribute 'PartOfComplex' is set.
          * 

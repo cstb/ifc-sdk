@@ -59,7 +59,7 @@ bool IfcStructuralItem::isOfType(const Step::ClassType &t) const {
     return IfcStructuralItem::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssignedStructuralActivity() {
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &IfcStructuralItem::getAssignedStructuralActivity() {
     if (Step::BaseObject::inited()) {
         return m_assignedStructuralActivity;
     }
@@ -69,7 +69,7 @@ Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssigned
     }
 }
 
-const Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAssignedStructuralActivity() const {
+const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &IfcStructuralItem::getAssignedStructuralActivity() const {
     IfcStructuralItem * deConstObject = const_cast< IfcStructuralItem * > (this);
     return deConstObject->getAssignedStructuralActivity();
 }

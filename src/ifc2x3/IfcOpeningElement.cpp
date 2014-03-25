@@ -64,7 +64,7 @@ bool IfcOpeningElement::isOfType(const Step::ClassType &t) const {
     return IfcOpeningElement::s_type == t ? true : IfcFeatureElementSubtraction::isOfType(t);
 }
 
-Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() {
+Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_n > &IfcOpeningElement::getHasFillings() {
     if (Step::BaseObject::inited()) {
         return *m_hasFillings;
     }
@@ -75,7 +75,7 @@ Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() {
     }
 }
 
-const Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() const {
+const Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_n > &IfcOpeningElement::getHasFillings() const {
     IfcOpeningElement * deConstObject = const_cast< IfcOpeningElement * > (this);
     return deConstObject->getHasFillings();
 }

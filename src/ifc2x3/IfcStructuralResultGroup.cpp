@@ -149,7 +149,7 @@ bool IfcStructuralResultGroup::testIsLinear() const {
     return !Step::isUnset(getIsLinear());
 }
 
-Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() {
+Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &IfcStructuralResultGroup::getResultGroupFor() {
     if (Step::BaseObject::inited()) {
         return m_resultGroupFor;
     }
@@ -159,7 +159,7 @@ Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultG
     }
 }
 
-const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getResultGroupFor() const {
+const Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &IfcStructuralResultGroup::getResultGroupFor() const {
     IfcStructuralResultGroup * deConstObject = const_cast< IfcStructuralResultGroup * > (this);
     return deConstObject->getResultGroupFor();
 }

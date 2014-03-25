@@ -153,13 +153,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PartOfW'.
          * 
          */
-        virtual Inverse_Set_IfcGrid_0_1 &getPartOfW();
+        virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfW();
         /**
          * (const) Returns the value of the explicit attribute 'PartOfW'.
          * 
          * @return the value of the explicit attribute 'PartOfW'
          */
-        const virtual Inverse_Set_IfcGrid_0_1 &getPartOfW() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfW() const;
         /**
          * Test if the attribute 'PartOfW' is set.
          * 
@@ -170,13 +170,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PartOfV'.
          * 
          */
-        virtual Inverse_Set_IfcGrid_0_1 &getPartOfV();
+        virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfV();
         /**
          * (const) Returns the value of the explicit attribute 'PartOfV'.
          * 
          * @return the value of the explicit attribute 'PartOfV'
          */
-        const virtual Inverse_Set_IfcGrid_0_1 &getPartOfV() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfV() const;
         /**
          * Test if the attribute 'PartOfV' is set.
          * 
@@ -187,13 +187,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PartOfU'.
          * 
          */
-        virtual Inverse_Set_IfcGrid_0_1 &getPartOfU();
+        virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfU();
         /**
          * (const) Returns the value of the explicit attribute 'PartOfU'.
          * 
          * @return the value of the explicit attribute 'PartOfU'
          */
-        const virtual Inverse_Set_IfcGrid_0_1 &getPartOfU() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &getPartOfU() const;
         /**
          * Test if the attribute 'PartOfU' is set.
          * 
@@ -204,13 +204,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'HasIntersections'.
          * 
          */
-        virtual Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections();
+        virtual Step::RefPtr< Inverse_Set_IfcVirtualGridIntersection_0_n > &getHasIntersections();
         /**
          * (const) Returns the value of the explicit attribute 'HasIntersections'.
          * 
          * @return the value of the explicit attribute 'HasIntersections'
          */
-        const virtual Inverse_Set_IfcVirtualGridIntersection_0_n &getHasIntersections() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcVirtualGridIntersection_0_n > &getHasIntersections() const;
         /**
          * Test if the attribute 'HasIntersections' is set.
          * 

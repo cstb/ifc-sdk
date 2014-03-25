@@ -62,7 +62,7 @@ bool IfcShapeModel::isOfType(const Step::ClassType &t) const {
     return IfcShapeModel::s_type == t ? true : IfcRepresentation::isOfType(t);
 }
 
-Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
+Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &IfcShapeModel::getOfShapeAspect() {
     if (Step::BaseObject::inited()) {
         return *m_ofShapeAspect;
     }
@@ -73,7 +73,7 @@ Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
     }
 }
 
-const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const {
+const Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &IfcShapeModel::getOfShapeAspect() const {
     IfcShapeModel * deConstObject = const_cast< IfcShapeModel * > (this);
     return deConstObject->getOfShapeAspect();
 }

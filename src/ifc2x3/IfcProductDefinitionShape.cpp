@@ -68,7 +68,7 @@ bool IfcProductDefinitionShape::isOfType(const Step::ClassType &t) const {
     return IfcProductDefinitionShape::s_type == t ? true : IfcProductRepresentation::isOfType(t);
 }
 
-Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() {
+Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcProductDefinitionShape::getShapeOfProduct() {
     if (Step::BaseObject::inited()) {
         return *m_shapeOfProduct;
     }
@@ -79,7 +79,7 @@ Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() {
     }
 }
 
-const Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() const {
+const Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcProductDefinitionShape::getShapeOfProduct() const {
     IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
     return deConstObject->getShapeOfProduct();
 }
@@ -88,7 +88,7 @@ bool IfcProductDefinitionShape::testShapeOfProduct() const {
     return !Step::isUnset(getShapeOfProduct());
 }
 
-Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() {
+Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &IfcProductDefinitionShape::getHasShapeAspects() {
     if (Step::BaseObject::inited()) {
         return *m_hasShapeAspects;
     }
@@ -99,7 +99,7 @@ Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() 
     }
 }
 
-const Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() const {
+const Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &IfcProductDefinitionShape::getHasShapeAspects() const {
     IfcProductDefinitionShape * deConstObject = const_cast< IfcProductDefinitionShape * > (this);
     return deConstObject->getHasShapeAspects();
 }

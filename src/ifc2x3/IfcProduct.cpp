@@ -134,7 +134,7 @@ bool IfcProduct::testRepresentation() const {
     return !Step::isUnset(getRepresentation());
 }
 
-Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() {
+Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &IfcProduct::getReferencedBy() {
     if (Step::BaseObject::inited()) {
         return m_referencedBy;
     }
@@ -144,7 +144,7 @@ Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() {
     }
 }
 
-const Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() const {
+const Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &IfcProduct::getReferencedBy() const {
     IfcProduct * deConstObject = const_cast< IfcProduct * > (this);
     return deConstObject->getReferencedBy();
 }

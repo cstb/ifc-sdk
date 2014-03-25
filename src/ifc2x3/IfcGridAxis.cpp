@@ -145,7 +145,7 @@ bool IfcGridAxis::testSameSense() const {
     return !Step::isUnset(getSameSense());
 }
 
-Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() {
+Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfW() {
     if (Step::BaseObject::inited()) {
         return m_partOfW;
     }
@@ -155,7 +155,7 @@ Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() {
     }
 }
 
-const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() const {
+const Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfW() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getPartOfW();
 }
@@ -164,7 +164,7 @@ bool IfcGridAxis::testPartOfW() const {
     return !Step::isUnset(getPartOfW());
 }
 
-Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() {
+Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfV() {
     if (Step::BaseObject::inited()) {
         return m_partOfV;
     }
@@ -174,7 +174,7 @@ Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() {
     }
 }
 
-const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const {
+const Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfV() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getPartOfV();
 }
@@ -183,7 +183,7 @@ bool IfcGridAxis::testPartOfV() const {
     return !Step::isUnset(getPartOfV());
 }
 
-Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() {
+Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfU() {
     if (Step::BaseObject::inited()) {
         return m_partOfU;
     }
@@ -193,7 +193,7 @@ Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() {
     }
 }
 
-const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() const {
+const Step::RefPtr< Inverse_Set_IfcGrid_0_1 > &IfcGridAxis::getPartOfU() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getPartOfU();
 }
@@ -202,7 +202,7 @@ bool IfcGridAxis::testPartOfU() const {
     return !Step::isUnset(getPartOfU());
 }
 
-Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
+Step::RefPtr< Inverse_Set_IfcVirtualGridIntersection_0_n > &IfcGridAxis::getHasIntersections() {
     if (Step::BaseObject::inited()) {
         return m_hasIntersections;
     }
@@ -212,7 +212,7 @@ Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
     }
 }
 
-const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() const {
+const Step::RefPtr< Inverse_Set_IfcVirtualGridIntersection_0_n > &IfcGridAxis::getHasIntersections() const {
     IfcGridAxis * deConstObject = const_cast< IfcGridAxis * > (this);
     return deConstObject->getHasIntersections();
 }

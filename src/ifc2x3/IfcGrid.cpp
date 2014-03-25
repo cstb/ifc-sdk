@@ -216,7 +216,7 @@ bool IfcGrid::testWAxes() const {
     return !Step::isUnset(getWAxes());
 }
 
-Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() {
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcGrid::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
         return m_containedInStructure;
     }
@@ -226,7 +226,7 @@ Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStruct
     }
 }
 
-const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() const {
+const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcGrid::getContainedInStructure() const {
     IfcGrid * deConstObject = const_cast< IfcGrid * > (this);
     return deConstObject->getContainedInStructure();
 }

@@ -279,7 +279,7 @@ bool IfcTimeSeries::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() {
+Step::RefPtr< Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 > &IfcTimeSeries::getDocumentedBy() {
     if (Step::BaseObject::inited()) {
         return m_documentedBy;
     }
@@ -289,7 +289,7 @@ Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumented
     }
 }
 
-const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocumentedBy() const {
+const Step::RefPtr< Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 > &IfcTimeSeries::getDocumentedBy() const {
     IfcTimeSeries * deConstObject = const_cast< IfcTimeSeries * > (this);
     return deConstObject->getDocumentedBy();
 }

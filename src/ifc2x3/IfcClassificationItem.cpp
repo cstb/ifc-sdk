@@ -151,7 +151,7 @@ bool IfcClassificationItem::testTitle() const {
     return !Step::isUnset(getTitle());
 }
 
-Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() {
+Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifiedItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifiedItemIn;
     }
@@ -161,7 +161,7 @@ Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsC
     }
 }
 
-const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifiedItemIn() const {
+const Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifiedItemIn() const {
     IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
     return deConstObject->getIsClassifiedItemIn();
 }
@@ -170,7 +170,7 @@ bool IfcClassificationItem::testIsClassifiedItemIn() const {
     return !Step::isUnset(getIsClassifiedItemIn());
 }
 
-Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() {
+Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifyingItemIn() {
     if (Step::BaseObject::inited()) {
         return m_isClassifyingItemIn;
     }
@@ -180,7 +180,7 @@ Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsC
     }
 }
 
-const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() const {
+const Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifyingItemIn() const {
     IfcClassificationItem * deConstObject = const_cast< IfcClassificationItem * > (this);
     return deConstObject->getIsClassifyingItemIn();
 }

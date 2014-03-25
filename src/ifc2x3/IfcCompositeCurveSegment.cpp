@@ -148,7 +148,7 @@ bool IfcCompositeCurveSegment::testParentCurve() const {
     return !Step::isUnset(getParentCurve());
 }
 
-Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
+Step::RefPtr< Inverse_Set_IfcCompositeCurve_1_n > &IfcCompositeCurveSegment::getUsingCurves() {
     if (Step::BaseObject::inited()) {
         return *m_usingCurves;
     }
@@ -159,7 +159,7 @@ Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
     }
 }
 
-const Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() const {
+const Step::RefPtr< Inverse_Set_IfcCompositeCurve_1_n > &IfcCompositeCurveSegment::getUsingCurves() const {
     IfcCompositeCurveSegment * deConstObject = const_cast< IfcCompositeCurveSegment * > (this);
     return deConstObject->getUsingCurves();
 }

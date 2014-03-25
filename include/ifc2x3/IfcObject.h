@@ -95,13 +95,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'IsDefinedBy'.
          * 
          */
-        virtual Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy();
+        virtual Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &getIsDefinedBy();
         /**
          * (const) Returns the value of the explicit attribute 'IsDefinedBy'.
          * 
          * @return the value of the explicit attribute 'IsDefinedBy'
          */
-        const virtual Inverse_Set_IfcRelDefines_0_n &getIsDefinedBy() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &getIsDefinedBy() const;
         /**
          * Test if the attribute 'IsDefinedBy' is set.
          * 

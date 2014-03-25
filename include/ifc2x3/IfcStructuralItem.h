@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'AssignedStructuralActivity'.
          * 
          */
-        virtual Inverse_Set_IfcRelConnectsStructuralActivity_0_n &getAssignedStructuralActivity();
+        virtual Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &getAssignedStructuralActivity();
         /**
          * (const) Returns the value of the explicit attribute 'AssignedStructuralActivity'.
          * 
          * @return the value of the explicit attribute 'AssignedStructuralActivity'
          */
-        const virtual Inverse_Set_IfcRelConnectsStructuralActivity_0_n &getAssignedStructuralActivity() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &getAssignedStructuralActivity() const;
         /**
          * Test if the attribute 'AssignedStructuralActivity' is set.
          * 

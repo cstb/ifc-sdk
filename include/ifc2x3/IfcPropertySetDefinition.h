@@ -66,13 +66,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'PropertyDefinitionOf'.
          * 
          */
-        virtual Inverse_Set_IfcRelDefinesByProperties_0_1 &getPropertyDefinitionOf();
+        virtual Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &getPropertyDefinitionOf();
         /**
          * (const) Returns the value of the explicit attribute 'PropertyDefinitionOf'.
          * 
          * @return the value of the explicit attribute 'PropertyDefinitionOf'
          */
-        const virtual Inverse_Set_IfcRelDefinesByProperties_0_1 &getPropertyDefinitionOf() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &getPropertyDefinitionOf() const;
         /**
          * Test if the attribute 'PropertyDefinitionOf' is set.
          * 
@@ -83,13 +83,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'DefinesType'.
          * 
          */
-        virtual Inverse_Set_IfcTypeObject_0_1 &getDefinesType();
+        virtual Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &getDefinesType();
         /**
          * (const) Returns the value of the explicit attribute 'DefinesType'.
          * 
          * @return the value of the explicit attribute 'DefinesType'
          */
-        const virtual Inverse_Set_IfcTypeObject_0_1 &getDefinesType() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &getDefinesType() const;
         /**
          * Test if the attribute 'DefinesType' is set.
          * 

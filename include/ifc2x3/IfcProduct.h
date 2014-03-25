@@ -125,13 +125,13 @@ namespace ifc2x3 {
          * Gets the value of the inverse attribute 'ReferencedBy'.
          * 
          */
-        virtual Inverse_Set_IfcRelAssignsToProduct_0_n &getReferencedBy();
+        virtual Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &getReferencedBy();
         /**
          * (const) Returns the value of the explicit attribute 'ReferencedBy'.
          * 
          * @return the value of the explicit attribute 'ReferencedBy'
          */
-        const virtual Inverse_Set_IfcRelAssignsToProduct_0_n &getReferencedBy() const;
+        const virtual Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &getReferencedBy() const;
         /**
          * Test if the attribute 'ReferencedBy' is set.
          * 
