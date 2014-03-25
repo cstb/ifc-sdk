@@ -137,7 +137,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcBoundaryCondition > m_appliedCondition;
         /**
          */
-        Inverse_Set_IfcRelConnectsStructuralMember_1_n m_connectsStructuralMembers;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsStructuralMember_1_n> m_connectsStructuralMembers;
 
     };
 

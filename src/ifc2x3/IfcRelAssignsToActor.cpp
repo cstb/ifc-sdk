@@ -78,12 +78,8 @@ const IfcActor *IfcRelAssignsToActor::getRelatingActor() const {
 }
 
 void IfcRelAssignsToActor::setRelatingActor(const Step::RefPtr< IfcActor > &value) {
-    if (m_relatingActor.valid()) {
-        m_relatingActor->m_isActingUpon.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isActingUpon.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingActor, m_isActingUpon, this);
+    INSERT_INVERSE_VALUE(value, m_isActingUpon, Inverse_Set_IfcRelAssignsToActor_0_n, this);
     m_relatingActor = value;
 }
 

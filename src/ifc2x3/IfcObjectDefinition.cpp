@@ -45,14 +45,6 @@ IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args)
 }
 
 IfcObjectDefinition::~IfcObjectDefinition() {
-    if (m_hasAssignments)
-        delete m_hasAssignments;
-    if (m_isDecomposedBy)
-        delete m_isDecomposedBy;
-    if (m_decomposes)
-        delete m_decomposes;
-    if (m_hasAssociations)
-        delete m_hasAssociations;
 }
 
 bool IfcObjectDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -75,15 +67,9 @@ bool IfcObjectDefinition::isOfType(const Step::ClassType &t) const {
     return IfcObjectDefinition::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssigns_0_n > &IfcObjectDefinition::getHasAssignments() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasAssignments;
-    }
-    else {
-        Inverse_Set_IfcRelAssigns_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssigns_0_n > & IfcObjectDefinition::getHasAssignments() {
+    Step::BaseObject::inited();
+    return m_hasAssignments;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssigns_0_n > &IfcObjectDefinition::getHasAssignments() const {
@@ -95,15 +81,9 @@ bool IfcObjectDefinition::testHasAssignments() const {
     return !Step::isUnset(getHasAssignments());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_n > &IfcObjectDefinition::getIsDecomposedBy() {
-    if (Step::BaseObject::inited()) {
-        return *m_isDecomposedBy;
-    }
-    else {
-        Inverse_Set_IfcRelDecomposes_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_n > & IfcObjectDefinition::getIsDecomposedBy() {
+    Step::BaseObject::inited();
+    return m_isDecomposedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_n > &IfcObjectDefinition::getIsDecomposedBy() const {
@@ -115,15 +95,9 @@ bool IfcObjectDefinition::testIsDecomposedBy() const {
     return !Step::isUnset(getIsDecomposedBy());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_1 > &IfcObjectDefinition::getDecomposes() {
-    if (Step::BaseObject::inited()) {
-        return *m_decomposes;
-    }
-    else {
-        Inverse_Set_IfcRelDecomposes_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_1 > & IfcObjectDefinition::getDecomposes() {
+    Step::BaseObject::inited();
+    return m_decomposes;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelDecomposes_0_1 > &IfcObjectDefinition::getDecomposes() const {
@@ -135,15 +109,9 @@ bool IfcObjectDefinition::testDecomposes() const {
     return !Step::isUnset(getDecomposes());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcObjectDefinition::getHasAssociations() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasAssociations;
-    }
-    else {
-        Inverse_Set_IfcRelAssociates_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > & IfcObjectDefinition::getHasAssociations() {
+    Step::BaseObject::inited();
+    return m_hasAssociations;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcObjectDefinition::getHasAssociations() const {

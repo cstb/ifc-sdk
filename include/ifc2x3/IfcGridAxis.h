@@ -256,16 +256,16 @@ namespace ifc2x3 {
         Step::Boolean m_sameSense;
         /**
          */
-        Inverse_Set_IfcGrid_0_1 m_partOfW;
+        Step::RefPtr<Inverse_Set_IfcGrid_0_1> m_partOfW;
         /**
          */
-        Inverse_Set_IfcGrid_0_1 m_partOfV;
+        Step::RefPtr<Inverse_Set_IfcGrid_0_1> m_partOfV;
         /**
          */
-        Inverse_Set_IfcGrid_0_1 m_partOfU;
+        Step::RefPtr<Inverse_Set_IfcGrid_0_1> m_partOfU;
         /**
          */
-        Inverse_Set_IfcVirtualGridIntersection_0_n m_hasIntersections;
+        Step::RefPtr<Inverse_Set_IfcVirtualGridIntersection_0_n> m_hasIntersections;
 
     };
 

@@ -44,14 +44,12 @@ void Inverted_IfcConstraintRelationship_RelatedConstraints_type::setOwner(IfcCon
 }
 
 void Inverted_IfcConstraintRelationship_RelatedConstraints_type::insert(const Step::RefPtr< IfcConstraint > &value) throw(std::out_of_range) {
-    IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
     Set_IfcConstraint_1_n::insert(value);
-    inverse->m_isRelatedWith.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_isRelatedWith, Inverse_Set_IfcConstraintRelationship_0_n, mOwner);
 }
 
 Inverted_IfcConstraintRelationship_RelatedConstraints_type::size_type Inverted_IfcConstraintRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value) {
-    IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
-    inverse->m_isRelatedWith.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_isRelatedWith, mOwner);
     return Set_IfcConstraint_1_n::erase(value);
 }
 
@@ -158,12 +156,8 @@ const IfcConstraint *IfcConstraintRelationship::getRelatingConstraint() const {
 }
 
 void IfcConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_relatingConstraint.valid()) {
-        m_relatingConstraint->m_relatesConstraints.erase(this);
-    }
-    if (value.valid()) {
-        value->m_relatesConstraints.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingConstraint, m_relatesConstraints, this);
+    INSERT_INVERSE_VALUE(value, m_relatesConstraints, Inverse_Set_IfcConstraintRelationship_0_n, this);
     m_relatingConstraint = value;
 }
 

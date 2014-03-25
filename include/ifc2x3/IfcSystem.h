@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelServicesBuildings_0_1 m_servicesBuildings;
+        Step::RefPtr<Inverse_Set_IfcRelServicesBuildings_0_1> m_servicesBuildings;
 
     };
 

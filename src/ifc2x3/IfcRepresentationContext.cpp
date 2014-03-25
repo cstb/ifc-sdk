@@ -43,8 +43,6 @@ IfcRepresentationContext::IfcRepresentationContext(Step::Id id, Step::SPFData *a
 }
 
 IfcRepresentationContext::~IfcRepresentationContext() {
-    if (m_representationsInContext)
-        delete m_representationsInContext;
 }
 
 bool IfcRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -119,15 +117,9 @@ bool IfcRepresentationContext::testContextType() const {
     return !Step::isUnset(getContextType());
 }
 
-Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &IfcRepresentationContext::getRepresentationsInContext() {
-    if (Step::BaseObject::inited()) {
-        return *m_representationsInContext;
-    }
-    else {
-        Inverse_Set_IfcRepresentation_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > & IfcRepresentationContext::getRepresentationsInContext() {
+    Step::BaseObject::inited();
+    return m_representationsInContext;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRepresentation_0_n > &IfcRepresentationContext::getRepresentationsInContext() const {

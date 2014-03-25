@@ -59,14 +59,9 @@ bool IfcAnnotation::isOfType(const Step::ClassType &t) const {
     return IfcAnnotation::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcAnnotation::getContainedInStructure() {
-    if (Step::BaseObject::inited()) {
-        return m_containedInStructure;
-    }
-    else {
-        m_containedInStructure.setUnset(true);
-        return m_containedInStructure;
-    }
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > & IfcAnnotation::getContainedInStructure() {
+    Step::BaseObject::inited();
+    return m_containedInStructure;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcAnnotation::getContainedInStructure() const {
@@ -88,9 +83,10 @@ bool IfcAnnotation::init() {
     inverses = m_args->getInverses(IfcRelContainedInSpatialStructure::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_containedInStructure.setUnset(false);
+        m_containedInStructure = new Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+        m_containedInStructure->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_containedInStructure.insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_containedInStructure->insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

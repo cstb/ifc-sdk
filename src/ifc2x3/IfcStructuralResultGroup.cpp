@@ -107,10 +107,10 @@ const IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() 
 
 void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
     if (m_resultForLoadGroup.valid()) {
-        m_resultForLoadGroup->m_sourceOfResultGroup.erase(this);
+        m_resultForLoadGroup->getSourceOfResultGroup()->erase(this);
     }
     if (value.valid()) {
-        value->m_sourceOfResultGroup.insert(this);
+        value->getSourceOfResultGroup()->insert(this);
     }
     m_resultForLoadGroup = value;
 }
@@ -149,14 +149,9 @@ bool IfcStructuralResultGroup::testIsLinear() const {
     return !Step::isUnset(getIsLinear());
 }
 
-Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &IfcStructuralResultGroup::getResultGroupFor() {
-    if (Step::BaseObject::inited()) {
-        return m_resultGroupFor;
-    }
-    else {
-        m_resultGroupFor.setUnset(true);
-        return m_resultGroupFor;
-    }
+Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > & IfcStructuralResultGroup::getResultGroupFor() {
+    Step::BaseObject::inited();
+    return m_resultGroupFor;
 }
 
 const Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_1 > &IfcStructuralResultGroup::getResultGroupFor() const {
@@ -216,9 +211,10 @@ bool IfcStructuralResultGroup::init() {
     inverses = m_args->getInverses(IfcStructuralAnalysisModel::getClassType(), 8);
     if (inverses) {
         unsigned int i;
-        m_resultGroupFor.setUnset(false);
+        m_resultGroupFor = new Inverse_Set_IfcStructuralAnalysisModel_0_1;
+        m_resultGroupFor->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_resultGroupFor.insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
+            m_resultGroupFor->insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

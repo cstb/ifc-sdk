@@ -114,14 +114,9 @@ bool IfcSpace::testElevationWithFlooring() const {
     return !Step::isUnset(getElevationWithFlooring());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &IfcSpace::getHasCoverings() {
-    if (Step::BaseObject::inited()) {
-        return m_hasCoverings;
-    }
-    else {
-        m_hasCoverings.setUnset(true);
-        return m_hasCoverings;
-    }
+Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > & IfcSpace::getHasCoverings() {
+    Step::BaseObject::inited();
+    return m_hasCoverings;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_n > &IfcSpace::getHasCoverings() const {
@@ -133,14 +128,9 @@ bool IfcSpace::testHasCoverings() const {
     return !Step::isUnset(getHasCoverings());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcSpace::getBoundedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_boundedBy;
-    }
-    else {
-        m_boundedBy.setUnset(true);
-        return m_boundedBy;
-    }
+Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > & IfcSpace::getBoundedBy() {
+    Step::BaseObject::inited();
+    return m_boundedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcSpace::getBoundedBy() const {
@@ -184,17 +174,19 @@ bool IfcSpace::init() {
     inverses = m_args->getInverses(IfcRelCoversSpaces::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasCoverings.setUnset(false);
+        m_hasCoverings = new Inverse_Set_IfcRelCoversSpaces_0_n;
+        m_hasCoverings->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasCoverings.insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasCoverings->insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelSpaceBoundary::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_boundedBy.setUnset(false);
+        m_boundedBy = new Inverse_Set_IfcRelSpaceBoundary_0_n;
+        m_boundedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_boundedBy.insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
+            m_boundedBy->insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

@@ -132,12 +132,8 @@ const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatingDraught
 }
 
 void IfcDraughtingCalloutRelationship::setRelatingDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
-    if (m_relatingDraughtingCallout.valid()) {
-        m_relatingDraughtingCallout->m_isRelatedToCallout.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isRelatedToCallout.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingDraughtingCallout, m_isRelatedToCallout, this);
+    INSERT_INVERSE_VALUE(value, m_isRelatedToCallout, Inverse_Set_IfcDraughtingCalloutRelationship_0_n, this);
     m_relatingDraughtingCallout = value;
 }
 
@@ -164,12 +160,8 @@ const IfcDraughtingCallout *IfcDraughtingCalloutRelationship::getRelatedDraughti
 }
 
 void IfcDraughtingCalloutRelationship::setRelatedDraughtingCallout(const Step::RefPtr< IfcDraughtingCallout > &value) {
-    if (m_relatedDraughtingCallout.valid()) {
-        m_relatedDraughtingCallout->m_isRelatedFromCallout.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isRelatedFromCallout.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedDraughtingCallout, m_isRelatedFromCallout, this);
+    INSERT_INVERSE_VALUE(value, m_isRelatedFromCallout, Inverse_Set_IfcDraughtingCalloutRelationship_0_n, this);
     m_relatedDraughtingCallout = value;
 }
 

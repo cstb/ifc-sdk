@@ -78,12 +78,8 @@ const IfcConstraint *IfcConstraintClassificationRelationship::getClassifiedConst
 }
 
 void IfcConstraintClassificationRelationship::setClassifiedConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_classifiedConstraint.valid()) {
-        m_classifiedConstraint->m_classifiedAs.erase(this);
-    }
-    if (value.valid()) {
-        value->m_classifiedAs.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_classifiedConstraint, m_classifiedAs, this);
+    INSERT_INVERSE_VALUE(value, m_classifiedAs, Inverse_Set_IfcConstraintClassificationRelationship_0_n, this);
     m_classifiedConstraint = value;
 }
 

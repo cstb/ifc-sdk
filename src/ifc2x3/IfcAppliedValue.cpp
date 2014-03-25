@@ -229,14 +229,9 @@ bool IfcAppliedValue::testFixedUntilDate() const {
     return !Step::isUnset(getFixedUntilDate());
 }
 
-Step::RefPtr< Inverse_Set_IfcReferencesValueDocument_0_n > &IfcAppliedValue::getValuesReferenced() {
-    if (Step::BaseObject::inited()) {
-        return m_valuesReferenced;
-    }
-    else {
-        m_valuesReferenced.setUnset(true);
-        return m_valuesReferenced;
-    }
+Step::RefPtr< Inverse_Set_IfcReferencesValueDocument_0_n > & IfcAppliedValue::getValuesReferenced() {
+    Step::BaseObject::inited();
+    return m_valuesReferenced;
 }
 
 const Step::RefPtr< Inverse_Set_IfcReferencesValueDocument_0_n > &IfcAppliedValue::getValuesReferenced() const {
@@ -248,14 +243,9 @@ bool IfcAppliedValue::testValuesReferenced() const {
     return !Step::isUnset(getValuesReferenced());
 }
 
-Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getValueOfComponents() {
-    if (Step::BaseObject::inited()) {
-        return m_valueOfComponents;
-    }
-    else {
-        m_valueOfComponents.setUnset(true);
-        return m_valueOfComponents;
-    }
+Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > & IfcAppliedValue::getValueOfComponents() {
+    Step::BaseObject::inited();
+    return m_valueOfComponents;
 }
 
 const Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getValueOfComponents() const {
@@ -267,14 +257,9 @@ bool IfcAppliedValue::testValueOfComponents() const {
     return !Step::isUnset(getValueOfComponents());
 }
 
-Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getIsComponentIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isComponentIn;
-    }
-    else {
-        m_isComponentIn.setUnset(true);
-        return m_isComponentIn;
-    }
+Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > & IfcAppliedValue::getIsComponentIn() {
+    Step::BaseObject::inited();
+    return m_isComponentIn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcAppliedValueRelationship_0_n > &IfcAppliedValue::getIsComponentIn() const {
@@ -380,25 +365,28 @@ bool IfcAppliedValue::init() {
     inverses = m_args->getInverses(IfcReferencesValueDocument::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_valuesReferenced.setUnset(false);
+        m_valuesReferenced = new Inverse_Set_IfcReferencesValueDocument_0_n;
+        m_valuesReferenced->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_valuesReferenced.insert(static_cast< IfcReferencesValueDocument * > (m_expressDataSet->get((*inverses)[i])));
+            m_valuesReferenced->insert(static_cast< IfcReferencesValueDocument * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcAppliedValueRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_valueOfComponents.setUnset(false);
+        m_valueOfComponents = new Inverse_Set_IfcAppliedValueRelationship_0_n;
+        m_valueOfComponents->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_valueOfComponents.insert(static_cast< IfcAppliedValueRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_valueOfComponents->insert(static_cast< IfcAppliedValueRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcAppliedValueRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_isComponentIn.setUnset(false);
+        m_isComponentIn = new Inverse_Set_IfcAppliedValueRelationship_0_n;
+        m_isComponentIn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isComponentIn.insert(static_cast< IfcAppliedValueRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isComponentIn->insert(static_cast< IfcAppliedValueRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

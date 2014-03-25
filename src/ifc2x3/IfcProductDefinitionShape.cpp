@@ -42,10 +42,6 @@ IfcProductDefinitionShape::IfcProductDefinitionShape(Step::Id id, Step::SPFData 
 }
 
 IfcProductDefinitionShape::~IfcProductDefinitionShape() {
-    if (m_shapeOfProduct)
-        delete m_shapeOfProduct;
-    if (m_hasShapeAspects)
-        delete m_hasShapeAspects;
 }
 
 bool IfcProductDefinitionShape::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -68,15 +64,9 @@ bool IfcProductDefinitionShape::isOfType(const Step::ClassType &t) const {
     return IfcProductDefinitionShape::s_type == t ? true : IfcProductRepresentation::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcProductDefinitionShape::getShapeOfProduct() {
-    if (Step::BaseObject::inited()) {
-        return *m_shapeOfProduct;
-    }
-    else {
-        Inverse_Set_IfcProduct_1_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcProduct_1_n > & IfcProductDefinitionShape::getShapeOfProduct() {
+    Step::BaseObject::inited();
+    return m_shapeOfProduct;
 }
 
 const Step::RefPtr< Inverse_Set_IfcProduct_1_n > &IfcProductDefinitionShape::getShapeOfProduct() const {
@@ -88,15 +78,9 @@ bool IfcProductDefinitionShape::testShapeOfProduct() const {
     return !Step::isUnset(getShapeOfProduct());
 }
 
-Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &IfcProductDefinitionShape::getHasShapeAspects() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasShapeAspects;
-    }
-    else {
-        Inverse_Set_IfcShapeAspect_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > & IfcProductDefinitionShape::getHasShapeAspects() {
+    Step::BaseObject::inited();
+    return m_hasShapeAspects;
 }
 
 const Step::RefPtr< Inverse_Set_IfcShapeAspect_0_n > &IfcProductDefinitionShape::getHasShapeAspects() const {

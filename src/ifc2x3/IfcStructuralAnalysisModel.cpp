@@ -46,14 +46,12 @@ void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::setOwner(IfcStructuralAn
 }
 
 void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::insert(const Step::RefPtr< IfcStructuralLoadGroup > &value) throw(std::out_of_range) {
-    IfcStructuralLoadGroup *inverse = const_cast< IfcStructuralLoadGroup * > (value.get());
     Set_IfcStructuralLoadGroup_1_n::insert(value);
-    inverse->m_loadGroupFor.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_loadGroupFor, Inverse_Set_IfcStructuralAnalysisModel_0_n, mOwner);
 }
 
 Inverted_IfcStructuralAnalysisModel_LoadedBy_type::size_type Inverted_IfcStructuralAnalysisModel_LoadedBy_type::erase(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
-    IfcStructuralLoadGroup *inverse = const_cast< IfcStructuralLoadGroup * > (value.get());
-    inverse->m_loadGroupFor.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_loadGroupFor, mOwner);
     return Set_IfcStructuralLoadGroup_1_n::erase(value);
 }
 
@@ -71,14 +69,12 @@ void Inverted_IfcStructuralAnalysisModel_HasResults_type::setOwner(IfcStructural
 }
 
 void Inverted_IfcStructuralAnalysisModel_HasResults_type::insert(const Step::RefPtr< IfcStructuralResultGroup > &value) throw(std::out_of_range) {
-    IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
     Set_IfcStructuralResultGroup_1_n::insert(value);
-    inverse->m_resultGroupFor.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_resultGroupFor, Inverse_Set_IfcStructuralAnalysisModel_0_1, mOwner);
 }
 
 Inverted_IfcStructuralAnalysisModel_HasResults_type::size_type Inverted_IfcStructuralAnalysisModel_HasResults_type::erase(const Step::RefPtr< IfcStructuralResultGroup > &value) {
-    IfcStructuralResultGroup *inverse = const_cast< IfcStructuralResultGroup * > (value.get());
-    inverse->m_resultGroupFor.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_resultGroupFor, mOwner);
     return Set_IfcStructuralResultGroup_1_n::erase(value);
 }
 

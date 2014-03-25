@@ -78,14 +78,9 @@ bool IfcPort::testContainedIn() const {
     return !Step::isUnset(getContainedIn());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedFrom() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedFrom;
-    }
-    else {
-        m_connectedFrom.setUnset(true);
-        return m_connectedFrom;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > & IfcPort::getConnectedFrom() {
+    Step::BaseObject::inited();
+    return m_connectedFrom;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedFrom() const {
@@ -97,14 +92,9 @@ bool IfcPort::testConnectedFrom() const {
     return !Step::isUnset(getConnectedFrom());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedTo() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedTo;
-    }
-    else {
-        m_connectedTo.setUnset(true);
-        return m_connectedTo;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > & IfcPort::getConnectedTo() {
+    Step::BaseObject::inited();
+    return m_connectedTo;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsPorts_0_1 > &IfcPort::getConnectedTo() const {
@@ -130,17 +120,19 @@ bool IfcPort::init() {
     inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_connectedFrom.setUnset(false);
+        m_connectedFrom = new Inverse_Set_IfcRelConnectsPorts_0_1;
+        m_connectedFrom->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectedFrom.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectedFrom->insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsPorts::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_connectedTo.setUnset(false);
+        m_connectedTo = new Inverse_Set_IfcRelConnectsPorts_0_1;
+        m_connectedTo->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectedTo.insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectedTo->insert(static_cast< IfcRelConnectsPorts * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

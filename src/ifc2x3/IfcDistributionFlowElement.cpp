@@ -40,8 +40,6 @@ IfcDistributionFlowElement::IfcDistributionFlowElement(Step::Id id, Step::SPFDat
 }
 
 IfcDistributionFlowElement::~IfcDistributionFlowElement() {
-    if (m_hasControlElements)
-        delete m_hasControlElements;
 }
 
 bool IfcDistributionFlowElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -64,15 +62,9 @@ bool IfcDistributionFlowElement::isOfType(const Step::ClassType &t) const {
     return IfcDistributionFlowElement::s_type == t ? true : IfcDistributionElement::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionFlowElement::getHasControlElements() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasControlElements;
-    }
-    else {
-        Inverse_Set_IfcRelFlowControlElements_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > & IfcDistributionFlowElement::getHasControlElements() {
+    Step::BaseObject::inited();
+    return m_hasControlElements;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionFlowElement::getHasControlElements() const {

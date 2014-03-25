@@ -105,7 +105,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcDocumentInformation_0_1 m_referenceToDocument;
+        Step::RefPtr<Inverse_Set_IfcDocumentInformation_0_1> m_referenceToDocument;
 
     };
 

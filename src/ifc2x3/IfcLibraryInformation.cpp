@@ -46,14 +46,12 @@ void Inverted_IfcLibraryInformation_LibraryReference_type::setOwner(IfcLibraryIn
 }
 
 void Inverted_IfcLibraryInformation_LibraryReference_type::insert(const Step::RefPtr< IfcLibraryReference > &value) throw(std::out_of_range) {
-    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
     Set_IfcLibraryReference_1_n::insert(value);
-    inverse->m_referenceIntoLibrary.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_referenceIntoLibrary, Inverse_Set_IfcLibraryInformation_0_1, mOwner);
 }
 
 Inverted_IfcLibraryInformation_LibraryReference_type::size_type Inverted_IfcLibraryInformation_LibraryReference_type::erase(const Step::RefPtr< IfcLibraryReference > &value) {
-    IfcLibraryReference *inverse = const_cast< IfcLibraryReference * > (value.get());
-    inverse->m_referenceIntoLibrary.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_referenceIntoLibrary, mOwner);
     return Set_IfcLibraryReference_1_n::erase(value);
 }
 

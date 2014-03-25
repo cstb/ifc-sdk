@@ -200,7 +200,7 @@ namespace ifc2x3 {
         Step::Boolean m_isLinear;
         /**
          */
-        Inverse_Set_IfcStructuralAnalysisModel_0_1 m_resultGroupFor;
+        Step::RefPtr<Inverse_Set_IfcStructuralAnalysisModel_0_1> m_resultGroupFor;
 
     };
 

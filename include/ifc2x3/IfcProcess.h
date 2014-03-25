@@ -139,13 +139,13 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelAssignsToProcess_0_n m_operatesOn;
+        Step::RefPtr<Inverse_Set_IfcRelAssignsToProcess_0_n> m_operatesOn;
         /**
          */
-        Inverse_Set_IfcRelSequence_0_n m_isSuccessorFrom;
+        Step::RefPtr<Inverse_Set_IfcRelSequence_0_n> m_isSuccessorFrom;
         /**
          */
-        Inverse_Set_IfcRelSequence_0_n m_isPredecessorTo;
+        Step::RefPtr<Inverse_Set_IfcRelSequence_0_n> m_isPredecessorTo;
 
     };
 

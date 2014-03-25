@@ -255,14 +255,9 @@ bool IfcConstraint::testUserDefinedGrade() const {
     return !Step::isUnset(getUserDefinedGrade());
 }
 
-Step::RefPtr< Inverse_Set_IfcConstraintClassificationRelationship_0_n > &IfcConstraint::getClassifiedAs() {
-    if (Step::BaseObject::inited()) {
-        return m_classifiedAs;
-    }
-    else {
-        m_classifiedAs.setUnset(true);
-        return m_classifiedAs;
-    }
+Step::RefPtr< Inverse_Set_IfcConstraintClassificationRelationship_0_n > & IfcConstraint::getClassifiedAs() {
+    Step::BaseObject::inited();
+    return m_classifiedAs;
 }
 
 const Step::RefPtr< Inverse_Set_IfcConstraintClassificationRelationship_0_n > &IfcConstraint::getClassifiedAs() const {
@@ -274,14 +269,9 @@ bool IfcConstraint::testClassifiedAs() const {
     return !Step::isUnset(getClassifiedAs());
 }
 
-Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &IfcConstraint::getRelatesConstraints() {
-    if (Step::BaseObject::inited()) {
-        return m_relatesConstraints;
-    }
-    else {
-        m_relatesConstraints.setUnset(true);
-        return m_relatesConstraints;
-    }
+Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > & IfcConstraint::getRelatesConstraints() {
+    Step::BaseObject::inited();
+    return m_relatesConstraints;
 }
 
 const Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &IfcConstraint::getRelatesConstraints() const {
@@ -293,14 +283,9 @@ bool IfcConstraint::testRelatesConstraints() const {
     return !Step::isUnset(getRelatesConstraints());
 }
 
-Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &IfcConstraint::getIsRelatedWith() {
-    if (Step::BaseObject::inited()) {
-        return m_isRelatedWith;
-    }
-    else {
-        m_isRelatedWith.setUnset(true);
-        return m_isRelatedWith;
-    }
+Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > & IfcConstraint::getIsRelatedWith() {
+    Step::BaseObject::inited();
+    return m_isRelatedWith;
 }
 
 const Step::RefPtr< Inverse_Set_IfcConstraintRelationship_0_n > &IfcConstraint::getIsRelatedWith() const {
@@ -312,14 +297,9 @@ bool IfcConstraint::testIsRelatedWith() const {
     return !Step::isUnset(getIsRelatedWith());
 }
 
-Step::RefPtr< Inverse_Set_IfcPropertyConstraintRelationship_0_n > &IfcConstraint::getPropertiesForConstraint() {
-    if (Step::BaseObject::inited()) {
-        return m_propertiesForConstraint;
-    }
-    else {
-        m_propertiesForConstraint.setUnset(true);
-        return m_propertiesForConstraint;
-    }
+Step::RefPtr< Inverse_Set_IfcPropertyConstraintRelationship_0_n > & IfcConstraint::getPropertiesForConstraint() {
+    Step::BaseObject::inited();
+    return m_propertiesForConstraint;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPropertyConstraintRelationship_0_n > &IfcConstraint::getPropertiesForConstraint() const {
@@ -331,14 +311,9 @@ bool IfcConstraint::testPropertiesForConstraint() const {
     return !Step::isUnset(getPropertiesForConstraint());
 }
 
-Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &IfcConstraint::getAggregates() {
-    if (Step::BaseObject::inited()) {
-        return m_aggregates;
-    }
-    else {
-        m_aggregates.setUnset(true);
-        return m_aggregates;
-    }
+Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > & IfcConstraint::getAggregates() {
+    Step::BaseObject::inited();
+    return m_aggregates;
 }
 
 const Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &IfcConstraint::getAggregates() const {
@@ -350,14 +325,9 @@ bool IfcConstraint::testAggregates() const {
     return !Step::isUnset(getAggregates());
 }
 
-Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &IfcConstraint::getIsAggregatedIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isAggregatedIn;
-    }
-    else {
-        m_isAggregatedIn.setUnset(true);
-        return m_isAggregatedIn;
-    }
+Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > & IfcConstraint::getIsAggregatedIn() {
+    Step::BaseObject::inited();
+    return m_isAggregatedIn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcConstraintAggregationRelationship_0_n > &IfcConstraint::getIsAggregatedIn() const {
@@ -462,49 +432,55 @@ bool IfcConstraint::init() {
     inverses = m_args->getInverses(IfcConstraintClassificationRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_classifiedAs.setUnset(false);
+        m_classifiedAs = new Inverse_Set_IfcConstraintClassificationRelationship_0_n;
+        m_classifiedAs->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_classifiedAs.insert(static_cast< IfcConstraintClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_classifiedAs->insert(static_cast< IfcConstraintClassificationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_relatesConstraints.setUnset(false);
+        m_relatesConstraints = new Inverse_Set_IfcConstraintRelationship_0_n;
+        m_relatesConstraints->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_relatesConstraints.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_relatesConstraints->insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcConstraintRelationship::getClassType(), 3);
     if (inverses) {
         unsigned int i;
-        m_isRelatedWith.setUnset(false);
+        m_isRelatedWith = new Inverse_Set_IfcConstraintRelationship_0_n;
+        m_isRelatedWith->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isRelatedWith.insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isRelatedWith->insert(static_cast< IfcConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcPropertyConstraintRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_propertiesForConstraint.setUnset(false);
+        m_propertiesForConstraint = new Inverse_Set_IfcPropertyConstraintRelationship_0_n;
+        m_propertiesForConstraint->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_propertiesForConstraint.insert(static_cast< IfcPropertyConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_propertiesForConstraint->insert(static_cast< IfcPropertyConstraintRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcConstraintAggregationRelationship::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_aggregates.setUnset(false);
+        m_aggregates = new Inverse_Set_IfcConstraintAggregationRelationship_0_n;
+        m_aggregates->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_aggregates.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_aggregates->insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcConstraintAggregationRelationship::getClassType(), 3);
     if (inverses) {
         unsigned int i;
-        m_isAggregatedIn.setUnset(false);
+        m_isAggregatedIn = new Inverse_Set_IfcConstraintAggregationRelationship_0_n;
+        m_isAggregatedIn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isAggregatedIn.insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isAggregatedIn->insert(static_cast< IfcConstraintAggregationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

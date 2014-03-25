@@ -46,8 +46,6 @@ IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *a
 }
 
 IfcCompositeCurveSegment::~IfcCompositeCurveSegment() {
-    if (m_usingCurves)
-        delete m_usingCurves;
 }
 
 bool IfcCompositeCurveSegment::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -148,15 +146,9 @@ bool IfcCompositeCurveSegment::testParentCurve() const {
     return !Step::isUnset(getParentCurve());
 }
 
-Step::RefPtr< Inverse_Set_IfcCompositeCurve_1_n > &IfcCompositeCurveSegment::getUsingCurves() {
-    if (Step::BaseObject::inited()) {
-        return *m_usingCurves;
-    }
-    else {
-        Inverse_Set_IfcCompositeCurve_1_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcCompositeCurve_1_n > & IfcCompositeCurveSegment::getUsingCurves() {
+    Step::BaseObject::inited();
+    return m_usingCurves;
 }
 
 const Step::RefPtr< Inverse_Set_IfcCompositeCurve_1_n > &IfcCompositeCurveSegment::getUsingCurves() const {

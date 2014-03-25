@@ -76,12 +76,8 @@ const IfcProduct *IfcRelAssignsToProduct::getRelatingProduct() const {
 }
 
 void IfcRelAssignsToProduct::setRelatingProduct(const Step::RefPtr< IfcProduct > &value) {
-    if (m_relatingProduct.valid()) {
-        m_relatingProduct->m_referencedBy.erase(this);
-    }
-    if (value.valid()) {
-        value->m_referencedBy.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingProduct, m_referencedBy, this);
+    INSERT_INVERSE_VALUE(value, m_referencedBy, Inverse_Set_IfcRelAssignsToProduct_0_n, this);
     m_relatingProduct = value;
 }
 

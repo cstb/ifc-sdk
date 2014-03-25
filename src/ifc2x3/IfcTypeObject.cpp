@@ -74,8 +74,6 @@ IfcTypeObject::IfcTypeObject(Step::Id id, Step::SPFData *args)
 }
 
 IfcTypeObject::~IfcTypeObject() {
-    if (m_objectTypeOf)
-        delete m_objectTypeOf;
 }
 
 bool IfcTypeObject::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -148,15 +146,9 @@ bool IfcTypeObject::testHasPropertySets() const {
     return !Step::isUnset(getHasPropertySets());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelDefinesByType_0_1 > &IfcTypeObject::getObjectTypeOf() {
-    if (Step::BaseObject::inited()) {
-        return *m_objectTypeOf;
-    }
-    else {
-        Inverse_Set_IfcRelDefinesByType_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelDefinesByType_0_1 > & IfcTypeObject::getObjectTypeOf() {
+    Step::BaseObject::inited();
+    return m_objectTypeOf;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelDefinesByType_0_1 > &IfcTypeObject::getObjectTypeOf() const {

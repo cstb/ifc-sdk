@@ -44,14 +44,12 @@ void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::setO
 }
 
 void Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::push_back(const Step::RefPtr< IfcConstraint > &value) throw(std::out_of_range) {
-    IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
     List_IfcConstraint_1_n::push_back(value);
-    inverse->m_isAggregatedIn.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_isAggregatedIn, Inverse_Set_IfcConstraintAggregationRelationship_0_n, mOwner);
 }
 
 Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::iterator Inverted_IfcConstraintAggregationRelationship_RelatedConstraints_type::erase(const Step::RefPtr< IfcConstraint > &value) {
-    IfcConstraint *inverse = const_cast< IfcConstraint * > (value.get());
-    inverse->m_isAggregatedIn.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_isAggregatedIn, mOwner);
     return List_IfcConstraint_1_n::erase(value);
 }
 
@@ -159,12 +157,8 @@ const IfcConstraint *IfcConstraintAggregationRelationship::getRelatingConstraint
 }
 
 void IfcConstraintAggregationRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_relatingConstraint.valid()) {
-        m_relatingConstraint->m_aggregates.erase(this);
-    }
-    if (value.valid()) {
-        value->m_aggregates.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingConstraint, m_aggregates, this);
+    INSERT_INVERSE_VALUE(value, m_aggregates, Inverse_Set_IfcConstraintAggregationRelationship_0_n, this);
     m_relatingConstraint = value;
 }
 

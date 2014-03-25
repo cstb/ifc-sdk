@@ -415,22 +415,22 @@ namespace ifc2x3 {
         Step::String m_userDefinedGrade;
         /**
          */
-        Inverse_Set_IfcConstraintClassificationRelationship_0_n m_classifiedAs;
+        Step::RefPtr<Inverse_Set_IfcConstraintClassificationRelationship_0_n> m_classifiedAs;
         /**
          */
-        Inverse_Set_IfcConstraintRelationship_0_n m_relatesConstraints;
+        Step::RefPtr<Inverse_Set_IfcConstraintRelationship_0_n> m_relatesConstraints;
         /**
          */
-        Inverse_Set_IfcConstraintRelationship_0_n m_isRelatedWith;
+        Step::RefPtr<Inverse_Set_IfcConstraintRelationship_0_n> m_isRelatedWith;
         /**
          */
-        Inverse_Set_IfcPropertyConstraintRelationship_0_n m_propertiesForConstraint;
+        Step::RefPtr<Inverse_Set_IfcPropertyConstraintRelationship_0_n> m_propertiesForConstraint;
         /**
          */
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_aggregates;
+        Step::RefPtr<Inverse_Set_IfcConstraintAggregationRelationship_0_n> m_aggregates;
         /**
          */
-        Inverse_Set_IfcConstraintAggregationRelationship_0_n m_isAggregatedIn;
+        Step::RefPtr<Inverse_Set_IfcConstraintAggregationRelationship_0_n> m_isAggregatedIn;
 
     };
 

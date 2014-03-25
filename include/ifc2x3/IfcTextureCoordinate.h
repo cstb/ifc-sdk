@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcAnnotationSurface_1_1 m_annotatedSurface;
+        Step::RefPtr<Inverse_Set_IfcAnnotationSurface_1_1> m_annotatedSurface;
 
     };
 

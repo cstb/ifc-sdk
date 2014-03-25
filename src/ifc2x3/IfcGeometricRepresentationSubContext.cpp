@@ -79,14 +79,8 @@ const IfcGeometricRepresentationContext *IfcGeometricRepresentationSubContext::g
 }
 
 void IfcGeometricRepresentationSubContext::setParentContext(const Step::RefPtr< IfcGeometricRepresentationContext > &value) {
-    if (m_parentContext.valid() && m_parentContext->m_hasSubContexts) {
-        m_parentContext->m_hasSubContexts->erase(this);
-    }
-    if (value.valid()) {
-        if (!value->m_hasSubContexts)
-
-        value->m_hasSubContexts->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_parentContext, m_hasSubContexts, this);
+    INSERT_INVERSE_VALUE(value, m_hasSubContexts, Inverse_Set_IfcGeometricRepresentationSubContext_0_n, this);
     m_parentContext = value;
 }
 

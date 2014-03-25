@@ -104,12 +104,8 @@ const IfcSystem *IfcRelServicesBuildings::getRelatingSystem() const {
 }
 
 void IfcRelServicesBuildings::setRelatingSystem(const Step::RefPtr< IfcSystem > &value) {
-    if (m_relatingSystem.valid()) {
-        m_relatingSystem->m_servicesBuildings.erase(this);
-    }
-    if (value.valid()) {
-        value->m_servicesBuildings.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingSystem, m_servicesBuildings, this);
+    INSERT_INVERSE_VALUE(value, m_servicesBuildings, Inverse_Set_IfcRelServicesBuildings_0_1, this);
     m_relatingSystem = value;
 }
 

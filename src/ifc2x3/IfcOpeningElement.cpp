@@ -40,8 +40,6 @@ IfcOpeningElement::IfcOpeningElement(Step::Id id, Step::SPFData *args)
 }
 
 IfcOpeningElement::~IfcOpeningElement() {
-    if (m_hasFillings)
-        delete m_hasFillings;
 }
 
 bool IfcOpeningElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -64,15 +62,9 @@ bool IfcOpeningElement::isOfType(const Step::ClassType &t) const {
     return IfcOpeningElement::s_type == t ? true : IfcFeatureElementSubtraction::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_n > &IfcOpeningElement::getHasFillings() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasFillings;
-    }
-    else {
-        Inverse_Set_IfcRelFillsElement_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_n > & IfcOpeningElement::getHasFillings() {
+    Step::BaseObject::inited();
+    return m_hasFillings;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_n > &IfcOpeningElement::getHasFillings() const {

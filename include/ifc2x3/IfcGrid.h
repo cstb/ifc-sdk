@@ -320,7 +320,7 @@ namespace ifc2x3 {
         Inverted_IfcGrid_WAxes_type m_wAxes;
         /**
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 m_containedInStructure;
+        Step::RefPtr<Inverse_Set_IfcRelContainedInSpatialStructure_0_1> m_containedInStructure;
 
     };
 

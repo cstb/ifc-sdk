@@ -79,12 +79,8 @@ const IfcProcess *IfcRelSequence::getRelatingProcess() const {
 }
 
 void IfcRelSequence::setRelatingProcess(const Step::RefPtr< IfcProcess > &value) {
-    if (m_relatingProcess.valid()) {
-        m_relatingProcess->m_isPredecessorTo.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isPredecessorTo.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingProcess, m_isPredecessorTo, this);
+    INSERT_INVERSE_VALUE(value, m_isPredecessorTo, Inverse_Set_IfcRelSequence_0_n, this);
     m_relatingProcess = value;
 }
 
@@ -111,12 +107,8 @@ const IfcProcess *IfcRelSequence::getRelatedProcess() const {
 }
 
 void IfcRelSequence::setRelatedProcess(const Step::RefPtr< IfcProcess > &value) {
-    if (m_relatedProcess.valid()) {
-        m_relatedProcess->m_isSuccessorFrom.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isSuccessorFrom.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedProcess, m_isSuccessorFrom, this);
+    INSERT_INVERSE_VALUE(value, m_isSuccessorFrom, Inverse_Set_IfcRelSequence_0_n, this);
     m_relatedProcess = value;
 }
 

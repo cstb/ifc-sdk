@@ -78,12 +78,8 @@ const IfcTimeSeries *IfcTimeSeriesReferenceRelationship::getReferencedTimeSeries
 }
 
 void IfcTimeSeriesReferenceRelationship::setReferencedTimeSeries(const Step::RefPtr< IfcTimeSeries > &value) {
-    if (m_referencedTimeSeries.valid()) {
-        m_referencedTimeSeries->m_documentedBy.erase(this);
-    }
-    if (value.valid()) {
-        value->m_documentedBy.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_referencedTimeSeries, m_documentedBy, this);
+    INSERT_INVERSE_VALUE(value, m_documentedBy, Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1, this);
     m_referencedTimeSeries = value;
 }
 

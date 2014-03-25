@@ -82,7 +82,14 @@ const IfcStructuralActivityAssignmentSelect *IfcRelConnectsStructuralActivity::g
 void IfcRelConnectsStructuralActivity::setRelatingElement(const Step::RefPtr< IfcStructuralActivityAssignmentSelect > &value) {
     if (m_relatingElement->getIfcStructuralItem() != NULL) {
         IfcStructuralItem * object = m_relatingElement->getIfcStructuralItem();
-        object->m_assignedStructuralActivity.insert(this);
+
+        if (!object->m_assignedStructuralActivity.valid())
+        {
+            object->m_assignedStructuralActivity = new Inverse_Set_IfcRelConnectsStructuralActivity_0_n;
+            object->m_assignedStructuralActivity->setUnset(false);
+        }
+        object->m_assignedStructuralActivity->insert(this);
+
     }
     m_relatingElement = value;
 }

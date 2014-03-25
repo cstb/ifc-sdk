@@ -103,12 +103,8 @@ const IfcTextureCoordinate *IfcAnnotationSurface::getTextureCoordinates() const 
 }
 
 void IfcAnnotationSurface::setTextureCoordinates(const Step::RefPtr< IfcTextureCoordinate > &value) {
-    if (m_textureCoordinates.valid()) {
-        m_textureCoordinates->m_annotatedSurface.erase(this);
-    }
-    if (value.valid()) {
-        value->m_annotatedSurface.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_textureCoordinates, m_annotatedSurface, this);
+    INSERT_INVERSE_VALUE(value, m_annotatedSurface, Inverse_Set_IfcAnnotationSurface_1_1, this);
     m_textureCoordinates = value;
 }
 

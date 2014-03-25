@@ -46,17 +46,28 @@ void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::setOwner(I
     mOwner = owner;
 }
 
+#define INSERT_OWNER_IN_CONTAINED_IN_STRUCTURE_VALUE(object)   \
+        if (!(object)->m_containedInStructure.valid())         \
+        {                                                      \
+            (object)->m_containedInStructure = new Inverse_Set_IfcRelContainedInSpatialStructure_0_1; \
+            (object)->m_containedInStructure->setUnset(false); \
+        }                                                      \
+        (object)->m_containedInStructure->insert(mOwner);      \
+
 void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range) {
     IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     Set_IfcProduct_1_n::insert(value);
-    if (dynamic_cast< IfcAnnotation * > (inverse) != NULL) {
-        ((IfcAnnotation *) (inverse))->m_containedInStructure.insert(mOwner);
+    if (value->isOfType(IfcAnnotation::getClassType()))
+    {
+        INSERT_OWNER_IN_CONTAINED_IN_STRUCTURE_VALUE(static_cast<IfcAnnotation *>(inverse));
     }
-    if (dynamic_cast< IfcElement * > (inverse) != NULL) {
-        ((IfcElement *) (inverse))->m_containedInStructure->insert(mOwner);
+    else if (value->isOfType(IfcElement::getClassType()))
+    {
+        INSERT_OWNER_IN_CONTAINED_IN_STRUCTURE_VALUE(static_cast<IfcElement *>(inverse));
     }
-    if (dynamic_cast< IfcGrid * > (inverse) != NULL) {
-        ((IfcGrid *) (inverse))->m_containedInStructure.insert(mOwner);
+    else if (value->isOfType(IfcGrid::getClassType()))
+    {
+        INSERT_OWNER_IN_CONTAINED_IN_STRUCTURE_VALUE(static_cast<IfcGrid *>(inverse));
     }
 }
 

@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelAssignsToControl_0_n m_controls;
+        Step::RefPtr<Inverse_Set_IfcRelAssignsToControl_0_n> m_controls;
 
     };
 

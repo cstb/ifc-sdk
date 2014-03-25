@@ -44,14 +44,12 @@ void Inverted_IfcAppliedValueRelationship_Components_type::setOwner(IfcAppliedVa
 }
 
 void Inverted_IfcAppliedValueRelationship_Components_type::insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
     Set_IfcAppliedValue_1_n::insert(value);
-    inverse->m_isComponentIn.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_isComponentIn, Inverse_Set_IfcAppliedValueRelationship_0_n, mOwner);
 }
 
 Inverted_IfcAppliedValueRelationship_Components_type::size_type Inverted_IfcAppliedValueRelationship_Components_type::erase(const Step::RefPtr< IfcAppliedValue > &value) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
-    inverse->m_isComponentIn.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_isComponentIn, mOwner);
     return Set_IfcAppliedValue_1_n::erase(value);
 }
 
@@ -107,12 +105,8 @@ const IfcAppliedValue *IfcAppliedValueRelationship::getComponentOfTotal() const 
 }
 
 void IfcAppliedValueRelationship::setComponentOfTotal(const Step::RefPtr< IfcAppliedValue > &value) {
-    if (m_componentOfTotal.valid()) {
-        m_componentOfTotal->m_valueOfComponents.erase(this);
-    }
-    if (value.valid()) {
-        value->m_valueOfComponents.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_componentOfTotal, m_valueOfComponents, this);
+    INSERT_INVERSE_VALUE(value, m_valueOfComponents, Inverse_Set_IfcAppliedValueRelationship_0_n, this);
     m_componentOfTotal = value;
 }
 

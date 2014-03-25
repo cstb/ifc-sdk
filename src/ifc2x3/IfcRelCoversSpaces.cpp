@@ -104,12 +104,8 @@ const IfcSpace *IfcRelCoversSpaces::getRelatedSpace() const {
 }
 
 void IfcRelCoversSpaces::setRelatedSpace(const Step::RefPtr< IfcSpace > &value) {
-    if (m_relatedSpace.valid()) {
-        m_relatedSpace->m_hasCoverings.erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasCoverings.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedSpace, m_hasCoverings, this);
+    INSERT_INVERSE_VALUE(value, m_hasCoverings, Inverse_Set_IfcRelCoversSpaces_0_n, this);
     m_relatedSpace = value;
 }
 

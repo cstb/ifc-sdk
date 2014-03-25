@@ -76,12 +76,8 @@ const IfcResource *IfcRelAssignsToResource::getRelatingResource() const {
 }
 
 void IfcRelAssignsToResource::setRelatingResource(const Step::RefPtr< IfcResource > &value) {
-    if (m_relatingResource.valid()) {
-        m_relatingResource->m_resourceOf.erase(this);
-    }
-    if (value.valid()) {
-        value->m_resourceOf.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingResource, m_resourceOf, this);
+    INSERT_INVERSE_VALUE(value, m_resourceOf, Inverse_Set_IfcRelAssignsToResource_0_n, this);
     m_relatingResource = value;
 }
 

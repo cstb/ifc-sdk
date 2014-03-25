@@ -159,12 +159,8 @@ const IfcSpaceProgram *IfcRelInteractionRequirements::getRelatedSpaceProgram() c
 }
 
 void IfcRelInteractionRequirements::setRelatedSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value) {
-    if (m_relatedSpaceProgram.valid()) {
-        m_relatedSpaceProgram->m_hasInteractionReqsFrom.erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasInteractionReqsFrom.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedSpaceProgram, m_hasInteractionReqsFrom, this);
+    INSERT_INVERSE_VALUE(value, m_hasInteractionReqsFrom, Inverse_Set_IfcRelInteractionRequirements_0_n, this);
     m_relatedSpaceProgram = value;
 }
 
@@ -191,12 +187,8 @@ const IfcSpaceProgram *IfcRelInteractionRequirements::getRelatingSpaceProgram() 
 }
 
 void IfcRelInteractionRequirements::setRelatingSpaceProgram(const Step::RefPtr< IfcSpaceProgram > &value) {
-    if (m_relatingSpaceProgram.valid()) {
-        m_relatingSpaceProgram->m_hasInteractionReqsTo.erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasInteractionReqsTo.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingSpaceProgram, m_hasInteractionReqsTo, this);
+    INSERT_INVERSE_VALUE(value, m_hasInteractionReqsTo, Inverse_Set_IfcRelInteractionRequirements_0_n, this);
     m_relatingSpaceProgram = value;
 }
 

@@ -47,12 +47,6 @@ IfcSpatialStructureElement::IfcSpatialStructureElement(Step::Id id, Step::SPFDat
 }
 
 IfcSpatialStructureElement::~IfcSpatialStructureElement() {
-    if (m_referencesElements)
-        delete m_referencesElements;
-    if (m_servicedBySystems)
-        delete m_servicedBySystems;
-    if (m_containsElements)
-        delete m_containsElements;
 }
 
 bool IfcSpatialStructureElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -127,15 +121,9 @@ bool IfcSpatialStructureElement::testCompositionType() const {
     return getCompositionType() != IfcElementCompositionEnum_UNSET;
 }
 
-Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcSpatialStructureElement::getReferencesElements() {
-    if (Step::BaseObject::inited()) {
-        return *m_referencesElements;
-    }
-    else {
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > & IfcSpatialStructureElement::getReferencesElements() {
+    Step::BaseObject::inited();
+    return m_referencesElements;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcSpatialStructureElement::getReferencesElements() const {
@@ -147,15 +135,9 @@ bool IfcSpatialStructureElement::testReferencesElements() const {
     return !Step::isUnset(getReferencesElements());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &IfcSpatialStructureElement::getServicedBySystems() {
-    if (Step::BaseObject::inited()) {
-        return *m_servicedBySystems;
-    }
-    else {
-        Inverse_Set_IfcRelServicesBuildings_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > & IfcSpatialStructureElement::getServicedBySystems() {
+    Step::BaseObject::inited();
+    return m_servicedBySystems;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_n > &IfcSpatialStructureElement::getServicedBySystems() const {
@@ -167,15 +149,9 @@ bool IfcSpatialStructureElement::testServicedBySystems() const {
     return !Step::isUnset(getServicedBySystems());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &IfcSpatialStructureElement::getContainsElements() {
-    if (Step::BaseObject::inited()) {
-        return *m_containsElements;
-    }
-    else {
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > & IfcSpatialStructureElement::getContainsElements() {
+    Step::BaseObject::inited();
+    return m_containsElements;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_n > &IfcSpatialStructureElement::getContainsElements() const {

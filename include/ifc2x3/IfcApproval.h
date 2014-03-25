@@ -359,13 +359,13 @@ namespace ifc2x3 {
         Step::String m_identifier;
         /**
          */
-        Inverse_Set_IfcApprovalActorRelationship_0_n m_actors;
+        Step::RefPtr<Inverse_Set_IfcApprovalActorRelationship_0_n> m_actors;
         /**
          */
-        Inverse_Set_IfcApprovalRelationship_0_n m_isRelatedWith;
+        Step::RefPtr<Inverse_Set_IfcApprovalRelationship_0_n> m_isRelatedWith;
         /**
          */
-        Inverse_Set_IfcApprovalRelationship_0_n m_relates;
+        Step::RefPtr<Inverse_Set_IfcApprovalRelationship_0_n> m_relates;
 
     };
 

@@ -107,12 +107,8 @@ const IfcApproval *IfcApprovalActorRelationship::getApproval() const {
 }
 
 void IfcApprovalActorRelationship::setApproval(const Step::RefPtr< IfcApproval > &value) {
-    if (m_approval.valid()) {
-        m_approval->m_actors.erase(this);
-    }
-    if (value.valid()) {
-        value->m_actors.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_approval, m_actors, this);
+    INSERT_INVERSE_VALUE(value, m_actors, Inverse_Set_IfcApprovalActorRelationship_0_n, this);
     m_approval = value;
 }
 

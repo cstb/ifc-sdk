@@ -219,10 +219,10 @@ namespace ifc2x3 {
         Step::String m_title;
         /**
          */
-        Inverse_Set_IfcClassificationItemRelationship_0_1 m_isClassifiedItemIn;
+        Step::RefPtr<Inverse_Set_IfcClassificationItemRelationship_0_1> m_isClassifiedItemIn;
         /**
          */
-        Inverse_Set_IfcClassificationItemRelationship_0_1 m_isClassifyingItemIn;
+        Step::RefPtr<Inverse_Set_IfcClassificationItemRelationship_0_1> m_isClassifyingItemIn;
 
     };
 

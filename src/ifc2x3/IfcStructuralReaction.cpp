@@ -59,14 +59,9 @@ bool IfcStructuralReaction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralReaction::s_type == t ? true : IfcStructuralActivity::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcStructuralAction_0_n > &IfcStructuralReaction::getCauses() {
-    if (Step::BaseObject::inited()) {
-        return m_causes;
-    }
-    else {
-        m_causes.setUnset(true);
-        return m_causes;
-    }
+Step::RefPtr< Inverse_Set_IfcStructuralAction_0_n > & IfcStructuralReaction::getCauses() {
+    Step::BaseObject::inited();
+    return m_causes;
 }
 
 const Step::RefPtr< Inverse_Set_IfcStructuralAction_0_n > &IfcStructuralReaction::getCauses() const {
@@ -88,9 +83,10 @@ bool IfcStructuralReaction::init() {
     inverses = m_args->getInverses(IfcStructuralAction::getClassType(), 10);
     if (inverses) {
         unsigned int i;
-        m_causes.setUnset(false);
+        m_causes = new Inverse_Set_IfcStructuralAction_0_n;
+        m_causes->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_causes.insert(static_cast< IfcStructuralAction * > (m_expressDataSet->get((*inverses)[i])));
+            m_causes->insert(static_cast< IfcStructuralAction * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

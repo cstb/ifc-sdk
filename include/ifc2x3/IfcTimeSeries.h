@@ -356,7 +356,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcUnit > m_unit;
         /**
          */
-        Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 m_documentedBy;
+        Step::RefPtr<Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1> m_documentedBy;
 
     };
 

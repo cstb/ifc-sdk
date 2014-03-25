@@ -80,12 +80,8 @@ const IfcApproval *IfcApprovalRelationship::getRelatedApproval() const {
 }
 
 void IfcApprovalRelationship::setRelatedApproval(const Step::RefPtr< IfcApproval > &value) {
-    if (m_relatedApproval.valid()) {
-        m_relatedApproval->m_isRelatedWith.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isRelatedWith.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedApproval, m_isRelatedWith, this);
+    INSERT_INVERSE_VALUE(value, m_isRelatedWith, Inverse_Set_IfcApprovalRelationship_0_n, this);
     m_relatedApproval = value;
 }
 
@@ -112,12 +108,8 @@ const IfcApproval *IfcApprovalRelationship::getRelatingApproval() const {
 }
 
 void IfcApprovalRelationship::setRelatingApproval(const Step::RefPtr< IfcApproval > &value) {
-    if (m_relatingApproval.valid()) {
-        m_relatingApproval->m_relates.erase(this);
-    }
-    if (value.valid()) {
-        value->m_relates.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingApproval, m_relates, this);
+    INSERT_INVERSE_VALUE(value, m_relates, Inverse_Set_IfcApprovalRelationship_0_n, this);
     m_relatingApproval = value;
 }
 

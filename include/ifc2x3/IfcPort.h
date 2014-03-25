@@ -144,10 +144,10 @@ namespace ifc2x3 {
         Step::ObsPtr< IfcRelConnectsPortToElement > m_containedIn;
         /**
          */
-        Inverse_Set_IfcRelConnectsPorts_0_1 m_connectedFrom;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsPorts_0_1> m_connectedFrom;
         /**
          */
-        Inverse_Set_IfcRelConnectsPorts_0_1 m_connectedTo;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsPorts_0_1> m_connectedTo;
 
     };
 

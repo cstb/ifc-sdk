@@ -279,10 +279,10 @@ namespace ifc2x3 {
         Step::String m_purpose;
         /**
          */
-        Inverse_Set_IfcStructuralResultGroup_0_1 m_sourceOfResultGroup;
+        Step::RefPtr<Inverse_Set_IfcStructuralResultGroup_0_1> m_sourceOfResultGroup;
         /**
          */
-        Inverse_Set_IfcStructuralAnalysisModel_0_n m_loadGroupFor;
+        Step::RefPtr<Inverse_Set_IfcStructuralAnalysisModel_0_n> m_loadGroupFor;
 
     };
 

@@ -59,14 +59,9 @@ bool IfcResource::isOfType(const Step::ClassType &t) const {
     return IfcResource::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssignsToResource_0_n > &IfcResource::getResourceOf() {
-    if (Step::BaseObject::inited()) {
-        return m_resourceOf;
-    }
-    else {
-        m_resourceOf.setUnset(true);
-        return m_resourceOf;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssignsToResource_0_n > & IfcResource::getResourceOf() {
+    Step::BaseObject::inited();
+    return m_resourceOf;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssignsToResource_0_n > &IfcResource::getResourceOf() const {
@@ -88,9 +83,10 @@ bool IfcResource::init() {
     inverses = m_args->getInverses(IfcRelAssignsToResource::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_resourceOf.setUnset(false);
+        m_resourceOf = new Inverse_Set_IfcRelAssignsToResource_0_n;
+        m_resourceOf->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_resourceOf.insert(static_cast< IfcRelAssignsToResource * > (m_expressDataSet->get((*inverses)[i])));
+            m_resourceOf->insert(static_cast< IfcRelAssignsToResource * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

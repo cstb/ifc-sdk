@@ -108,12 +108,8 @@ const IfcClassification *IfcClassificationItem::getItemOf() const {
 }
 
 void IfcClassificationItem::setItemOf(const Step::RefPtr< IfcClassification > &value) {
-    if (m_itemOf.valid()) {
-        m_itemOf->m_contains.erase(this);
-    }
-    if (value.valid()) {
-        value->m_contains.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_itemOf, m_contains, this);
+    INSERT_INVERSE_VALUE(value, m_contains, Inverse_Set_IfcClassificationItem_0_n, this);
     m_itemOf = value;
 }
 
@@ -151,14 +147,9 @@ bool IfcClassificationItem::testTitle() const {
     return !Step::isUnset(getTitle());
 }
 
-Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifiedItemIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isClassifiedItemIn;
-    }
-    else {
-        m_isClassifiedItemIn.setUnset(true);
-        return m_isClassifiedItemIn;
-    }
+Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > & IfcClassificationItem::getIsClassifiedItemIn() {
+    Step::BaseObject::inited();
+    return m_isClassifiedItemIn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifiedItemIn() const {
@@ -170,14 +161,9 @@ bool IfcClassificationItem::testIsClassifiedItemIn() const {
     return !Step::isUnset(getIsClassifiedItemIn());
 }
 
-Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifyingItemIn() {
-    if (Step::BaseObject::inited()) {
-        return m_isClassifyingItemIn;
-    }
-    else {
-        m_isClassifyingItemIn.setUnset(true);
-        return m_isClassifyingItemIn;
-    }
+Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > & IfcClassificationItem::getIsClassifyingItemIn() {
+    Step::BaseObject::inited();
+    return m_isClassifyingItemIn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcClassificationItemRelationship_0_1 > &IfcClassificationItem::getIsClassifyingItemIn() const {
@@ -216,17 +202,19 @@ bool IfcClassificationItem::init() {
     inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_isClassifiedItemIn.setUnset(false);
+        m_isClassifiedItemIn = new Inverse_Set_IfcClassificationItemRelationship_0_1;
+        m_isClassifiedItemIn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isClassifiedItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isClassifiedItemIn->insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcClassificationItemRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_isClassifyingItemIn.setUnset(false);
+        m_isClassifyingItemIn = new Inverse_Set_IfcClassificationItemRelationship_0_1;
+        m_isClassifyingItemIn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isClassifyingItemIn.insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isClassifyingItemIn->insert(static_cast< IfcClassificationItemRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

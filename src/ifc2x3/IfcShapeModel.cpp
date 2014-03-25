@@ -38,8 +38,6 @@ IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args)
 }
 
 IfcShapeModel::~IfcShapeModel() {
-    if (m_ofShapeAspect)
-        delete m_ofShapeAspect;
 }
 
 bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -62,15 +60,9 @@ bool IfcShapeModel::isOfType(const Step::ClassType &t) const {
     return IfcShapeModel::s_type == t ? true : IfcRepresentation::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &IfcShapeModel::getOfShapeAspect() {
-    if (Step::BaseObject::inited()) {
-        return *m_ofShapeAspect;
-    }
-    else {
-        Inverse_Set_IfcShapeAspect_0_1 shape;
-        shape.setUnset(true);
-        return shape;
-    }
+Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > & IfcShapeModel::getOfShapeAspect() {
+    Step::BaseObject::inited();
+    return m_ofShapeAspect;
 }
 
 const Step::RefPtr< Inverse_Set_IfcShapeAspect_0_1 > &IfcShapeModel::getOfShapeAspect() const {

@@ -698,10 +698,10 @@ namespace ifc2x3 {
         IfcDocumentStatusEnum m_status;
         /**
          */
-        Inverse_Set_IfcDocumentInformationRelationship_0_n m_isPointedTo;
+        Step::RefPtr<Inverse_Set_IfcDocumentInformationRelationship_0_n> m_isPointedTo;
         /**
          */
-        Inverse_Set_IfcDocumentInformationRelationship_0_1 m_isPointer;
+        Step::RefPtr<Inverse_Set_IfcDocumentInformationRelationship_0_1> m_isPointer;
 
     };
 

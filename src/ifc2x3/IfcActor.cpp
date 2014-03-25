@@ -88,14 +88,9 @@ bool IfcActor::testTheActor() const {
     return !Step::isUnset(getTheActor());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssignsToActor_0_n > &IfcActor::getIsActingUpon() {
-    if (Step::BaseObject::inited()) {
-        return m_isActingUpon;
-    }
-    else {
-        m_isActingUpon.setUnset(true);
-        return m_isActingUpon;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssignsToActor_0_n > & IfcActor::getIsActingUpon() {
+    Step::BaseObject::inited();
+    return m_isActingUpon;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssignsToActor_0_n > &IfcActor::getIsActingUpon() const {
@@ -136,9 +131,10 @@ bool IfcActor::init() {
     inverses = m_args->getInverses(IfcRelAssignsToActor::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_isActingUpon.setUnset(false);
+        m_isActingUpon = new Inverse_Set_IfcRelAssignsToActor_0_n;
+        m_isActingUpon->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isActingUpon.insert(static_cast< IfcRelAssignsToActor * > (m_expressDataSet->get((*inverses)[i])));
+            m_isActingUpon->insert(static_cast< IfcRelAssignsToActor * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

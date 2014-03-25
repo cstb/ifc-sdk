@@ -46,14 +46,12 @@ void Inverted_IfcReferencesValueDocument_ReferencingValues_type::setOwner(IfcRef
 }
 
 void Inverted_IfcReferencesValueDocument_ReferencingValues_type::insert(const Step::RefPtr< IfcAppliedValue > &value) throw(std::out_of_range) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
     Set_IfcAppliedValue_1_n::insert(value);
-    inverse->m_valuesReferenced.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_valuesReferenced, Inverse_Set_IfcReferencesValueDocument_0_n, mOwner);
 }
 
 Inverted_IfcReferencesValueDocument_ReferencingValues_type::size_type Inverted_IfcReferencesValueDocument_ReferencingValues_type::erase(const Step::RefPtr< IfcAppliedValue > &value) {
-    IfcAppliedValue *inverse = const_cast< IfcAppliedValue * > (value.get());
-    inverse->m_valuesReferenced.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_valuesReferenced, mOwner);
     return Set_IfcAppliedValue_1_n::erase(value);
 }
 

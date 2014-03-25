@@ -46,12 +46,6 @@ IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args)
 }
 
 IfcProperty::~IfcProperty() {
-    if (m_propertyForDependance)
-        delete m_propertyForDependance;
-    if (m_propertyDependsOn)
-        delete m_propertyDependsOn;
-    if (m_partOfComplex)
-        delete m_partOfComplex;
 }
 
 bool IfcProperty::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -126,15 +120,9 @@ bool IfcProperty::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyForDependance() {
-    if (Step::BaseObject::inited()) {
-        return *m_propertyForDependance;
-    }
-    else {
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > & IfcProperty::getPropertyForDependance() {
+    Step::BaseObject::inited();
+    return m_propertyForDependance;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyForDependance() const {
@@ -146,15 +134,9 @@ bool IfcProperty::testPropertyForDependance() const {
     return !Step::isUnset(getPropertyForDependance());
 }
 
-Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyDependsOn() {
-    if (Step::BaseObject::inited()) {
-        return *m_propertyDependsOn;
-    }
-    else {
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > & IfcProperty::getPropertyDependsOn() {
+    Step::BaseObject::inited();
+    return m_propertyDependsOn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPropertyDependencyRelationship_0_n > &IfcProperty::getPropertyDependsOn() const {
@@ -166,15 +148,9 @@ bool IfcProperty::testPropertyDependsOn() const {
     return !Step::isUnset(getPropertyDependsOn());
 }
 
-Step::RefPtr< Inverse_Set_IfcComplexProperty_0_1 > &IfcProperty::getPartOfComplex() {
-    if (Step::BaseObject::inited()) {
-        return *m_partOfComplex;
-    }
-    else {
-        Inverse_Set_IfcComplexProperty_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcComplexProperty_0_1 > & IfcProperty::getPartOfComplex() {
+    Step::BaseObject::inited();
+    return m_partOfComplex;
 }
 
 const Step::RefPtr< Inverse_Set_IfcComplexProperty_0_1 > &IfcProperty::getPartOfComplex() const {

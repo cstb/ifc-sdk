@@ -84,7 +84,7 @@ namespace Step {
      \short Base Class for Aggregations which need a flag 'unset'
      This flag is used to distinguish a parameter with an empty list from an unset parameter
      */
-    class Aggregate /*: public Referenced*/
+    class Aggregate : public Referenced
     {
 
     public:
@@ -260,6 +260,13 @@ namespace Step {
         return !t.valid();
     }
 
+    //! isUnset method for the RefPtr type
+    template<typename T>
+    inline bool isUnset(const RefPtr<T>&t)
+    {
+        return !t.valid();
+    }
+
     template<class T>
     T fromString(const std::string& s)
     {
@@ -322,5 +329,20 @@ namespace Step {
         return b;
     }
 }
+
+#define INSERT_INVERSE_VALUE(object, attribute, type, value) \
+    if (object.valid()) {                             \
+        if (!object->attribute.valid())               \
+        {                                            \
+            object->attribute = new type;             \
+            object->attribute->setUnset(false);       \
+        }                                            \
+        object->attribute->insert(value);              \
+    }
+
+#define ERASE_INVERSE_VALUE(object, attribute, value)        \
+    if (object.valid() && object->attribute.valid()) { \
+        object->attribute->erase(value);               \
+    }
 
 #endif

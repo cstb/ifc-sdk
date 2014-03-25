@@ -59,14 +59,9 @@ bool IfcStructuralItem::isOfType(const Step::ClassType &t) const {
     return IfcStructuralItem::s_type == t ? true : IfcProduct::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &IfcStructuralItem::getAssignedStructuralActivity() {
-    if (Step::BaseObject::inited()) {
-        return m_assignedStructuralActivity;
-    }
-    else {
-        m_assignedStructuralActivity.setUnset(true);
-        return m_assignedStructuralActivity;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > & IfcStructuralItem::getAssignedStructuralActivity() {
+    Step::BaseObject::inited();
+    return m_assignedStructuralActivity;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralActivity_0_n > &IfcStructuralItem::getAssignedStructuralActivity() const {
@@ -88,9 +83,10 @@ bool IfcStructuralItem::init() {
     inverses = m_args->getInverses(IfcRelConnectsStructuralActivity::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_assignedStructuralActivity.setUnset(false);
+        m_assignedStructuralActivity = new Inverse_Set_IfcRelConnectsStructuralActivity_0_n;
+        m_assignedStructuralActivity->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_assignedStructuralActivity.insert(static_cast< IfcRelConnectsStructuralActivity * > (m_expressDataSet->get((*inverses)[i])));
+            m_assignedStructuralActivity->insert(static_cast< IfcRelConnectsStructuralActivity * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

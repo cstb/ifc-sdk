@@ -79,12 +79,8 @@ const IfcPort *IfcRelConnectsPorts::getRelatingPort() const {
 }
 
 void IfcRelConnectsPorts::setRelatingPort(const Step::RefPtr< IfcPort > &value) {
-    if (m_relatingPort.valid()) {
-        m_relatingPort->m_connectedTo.erase(this);
-    }
-    if (value.valid()) {
-        value->m_connectedTo.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingPort, m_connectedTo, this);
+    INSERT_INVERSE_VALUE(value, m_connectedTo, Inverse_Set_IfcRelConnectsPorts_0_1, this);
     m_relatingPort = value;
 }
 
@@ -111,12 +107,8 @@ const IfcPort *IfcRelConnectsPorts::getRelatedPort() const {
 }
 
 void IfcRelConnectsPorts::setRelatedPort(const Step::RefPtr< IfcPort > &value) {
-    if (m_relatedPort.valid()) {
-        m_relatedPort->m_connectedFrom.erase(this);
-    }
-    if (value.valid()) {
-        value->m_connectedFrom.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedPort, m_connectedFrom, this);
+    INSERT_INVERSE_VALUE(value, m_connectedFrom, Inverse_Set_IfcRelConnectsPorts_0_1, this);
     m_relatedPort = value;
 }
 

@@ -64,30 +64,6 @@ IfcElement::IfcElement(Step::Id id, Step::SPFData *args)
 }
 
 IfcElement::~IfcElement() {
-    if (m_hasStructuralMember)
-        delete m_hasStructuralMember;
-    if (m_fillsVoids)
-        delete m_fillsVoids;
-    if (m_connectedTo)
-        delete m_connectedTo;
-    if (m_hasCoverings)
-        delete m_hasCoverings;
-    if (m_hasProjections)
-        delete m_hasProjections;
-    if (m_referencedInStructures)
-        delete m_referencedInStructures;
-    if (m_hasPorts)
-        delete m_hasPorts;
-    if (m_hasOpenings)
-        delete m_hasOpenings;
-    if (m_isConnectionRealization)
-        delete m_isConnectionRealization;
-    if (m_providesBoundaries)
-        delete m_providesBoundaries;
-    if (m_connectedFrom)
-        delete m_connectedFrom;
-    if (m_containedInStructure)
-        delete m_containedInStructure;
 }
 
 bool IfcElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -136,15 +112,9 @@ bool IfcElement::testTag() const {
     return !Step::isUnset(getTag());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcElement::getHasStructuralMember() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasStructuralMember;
-    }
-    else {
-        Inverse_Set_IfcRelConnectsStructuralElement_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > & IfcElement::getHasStructuralMember() {
+    Step::BaseObject::inited();
+    return m_hasStructuralMember;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcElement::getHasStructuralMember() const {
@@ -156,15 +126,9 @@ bool IfcElement::testHasStructuralMember() const {
     return !Step::isUnset(getHasStructuralMember());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_1 > &IfcElement::getFillsVoids() {
-    if (Step::BaseObject::inited()) {
-        return *m_fillsVoids;
-    }
-    else {
-        Inverse_Set_IfcRelFillsElement_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_1 > & IfcElement::getFillsVoids() {
+    Step::BaseObject::inited();
+    return m_fillsVoids;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelFillsElement_0_1 > &IfcElement::getFillsVoids() const {
@@ -176,15 +140,9 @@ bool IfcElement::testFillsVoids() const {
     return !Step::isUnset(getFillsVoids());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > &IfcElement::getConnectedTo() {
-    if (Step::BaseObject::inited()) {
-        return *m_connectedTo;
-    }
-    else {
-        Inverse_Set_IfcRelConnectsElements_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > & IfcElement::getConnectedTo() {
+    Step::BaseObject::inited();
+    return m_connectedTo;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > &IfcElement::getConnectedTo() const {
@@ -196,15 +154,9 @@ bool IfcElement::testConnectedTo() const {
     return !Step::isUnset(getConnectedTo());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_n > &IfcElement::getHasCoverings() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasCoverings;
-    }
-    else {
-        Inverse_Set_IfcRelCoversBldgElements_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_n > & IfcElement::getHasCoverings() {
+    Step::BaseObject::inited();
+    return m_hasCoverings;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_n > &IfcElement::getHasCoverings() const {
@@ -216,15 +168,9 @@ bool IfcElement::testHasCoverings() const {
     return !Step::isUnset(getHasCoverings());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelProjectsElement_0_n > &IfcElement::getHasProjections() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasProjections;
-    }
-    else {
-        Inverse_Set_IfcRelProjectsElement_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelProjectsElement_0_n > & IfcElement::getHasProjections() {
+    Step::BaseObject::inited();
+    return m_hasProjections;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelProjectsElement_0_n > &IfcElement::getHasProjections() const {
@@ -236,15 +182,9 @@ bool IfcElement::testHasProjections() const {
     return !Step::isUnset(getHasProjections());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcElement::getReferencedInStructures() {
-    if (Step::BaseObject::inited()) {
-        return *m_referencedInStructures;
-    }
-    else {
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > & IfcElement::getReferencedInStructures() {
+    Step::BaseObject::inited();
+    return m_referencedInStructures;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > &IfcElement::getReferencedInStructures() const {
@@ -256,15 +196,9 @@ bool IfcElement::testReferencedInStructures() const {
     return !Step::isUnset(getReferencedInStructures());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsPortToElement_0_n > &IfcElement::getHasPorts() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasPorts;
-    }
-    else {
-        Inverse_Set_IfcRelConnectsPortToElement_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsPortToElement_0_n > & IfcElement::getHasPorts() {
+    Step::BaseObject::inited();
+    return m_hasPorts;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsPortToElement_0_n > &IfcElement::getHasPorts() const {
@@ -276,15 +210,9 @@ bool IfcElement::testHasPorts() const {
     return !Step::isUnset(getHasPorts());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelVoidsElement_0_n > &IfcElement::getHasOpenings() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasOpenings;
-    }
-    else {
-        Inverse_Set_IfcRelVoidsElement_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelVoidsElement_0_n > & IfcElement::getHasOpenings() {
+    Step::BaseObject::inited();
+    return m_hasOpenings;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelVoidsElement_0_n > &IfcElement::getHasOpenings() const {
@@ -296,15 +224,9 @@ bool IfcElement::testHasOpenings() const {
     return !Step::isUnset(getHasOpenings());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsWithRealizingElements_0_n > &IfcElement::getIsConnectionRealization() {
-    if (Step::BaseObject::inited()) {
-        return *m_isConnectionRealization;
-    }
-    else {
-        Inverse_Set_IfcRelConnectsWithRealizingElements_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsWithRealizingElements_0_n > & IfcElement::getIsConnectionRealization() {
+    Step::BaseObject::inited();
+    return m_isConnectionRealization;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsWithRealizingElements_0_n > &IfcElement::getIsConnectionRealization() const {
@@ -316,15 +238,9 @@ bool IfcElement::testIsConnectionRealization() const {
     return !Step::isUnset(getIsConnectionRealization());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcElement::getProvidesBoundaries() {
-    if (Step::BaseObject::inited()) {
-        return *m_providesBoundaries;
-    }
-    else {
-        Inverse_Set_IfcRelSpaceBoundary_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > & IfcElement::getProvidesBoundaries() {
+    Step::BaseObject::inited();
+    return m_providesBoundaries;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelSpaceBoundary_0_n > &IfcElement::getProvidesBoundaries() const {
@@ -336,15 +252,9 @@ bool IfcElement::testProvidesBoundaries() const {
     return !Step::isUnset(getProvidesBoundaries());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > &IfcElement::getConnectedFrom() {
-    if (Step::BaseObject::inited()) {
-        return *m_connectedFrom;
-    }
-    else {
-        Inverse_Set_IfcRelConnectsElements_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > & IfcElement::getConnectedFrom() {
+    Step::BaseObject::inited();
+    return m_connectedFrom;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsElements_0_n > &IfcElement::getConnectedFrom() const {
@@ -356,15 +266,9 @@ bool IfcElement::testConnectedFrom() const {
     return !Step::isUnset(getConnectedFrom());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcElement::getContainedInStructure() {
-    if (Step::BaseObject::inited()) {
-        return *m_containedInStructure;
-    }
-    else {
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > & IfcElement::getContainedInStructure() {
+    Step::BaseObject::inited();
+    return m_containedInStructure;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcElement::getContainedInStructure() const {

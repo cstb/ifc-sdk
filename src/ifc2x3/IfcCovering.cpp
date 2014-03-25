@@ -43,10 +43,6 @@ IfcCovering::IfcCovering(Step::Id id, Step::SPFData *args)
 }
 
 IfcCovering::~IfcCovering() {
-    if (m_coversSpaces)
-        delete m_coversSpaces;
-    if (m_covers)
-        delete m_covers;
 }
 
 bool IfcCovering::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -95,15 +91,9 @@ bool IfcCovering::testPredefinedType() const {
     return getPredefinedType() != IfcCoveringTypeEnum_UNSET;
 }
 
-Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_1 > &IfcCovering::getCoversSpaces() {
-    if (Step::BaseObject::inited()) {
-        return *m_coversSpaces;
-    }
-    else {
-        Inverse_Set_IfcRelCoversSpaces_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_1 > & IfcCovering::getCoversSpaces() {
+    Step::BaseObject::inited();
+    return m_coversSpaces;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelCoversSpaces_0_1 > &IfcCovering::getCoversSpaces() const {
@@ -115,15 +105,9 @@ bool IfcCovering::testCoversSpaces() const {
     return !Step::isUnset(getCoversSpaces());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_1 > &IfcCovering::getCovers() {
-    if (Step::BaseObject::inited()) {
-        return *m_covers;
-    }
-    else {
-        Inverse_Set_IfcRelCoversBldgElements_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_1 > & IfcCovering::getCovers() {
+    Step::BaseObject::inited();
+    return m_covers;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelCoversBldgElements_0_1 > &IfcCovering::getCovers() const {

@@ -60,14 +60,9 @@ bool IfcStructuralMember::isOfType(const Step::ClassType &t) const {
     return IfcStructuralMember::s_type == t ? true : IfcStructuralItem::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcStructuralMember::getReferencesElement() {
-    if (Step::BaseObject::inited()) {
-        return m_referencesElement;
-    }
-    else {
-        m_referencesElement.setUnset(true);
-        return m_referencesElement;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > & IfcStructuralMember::getReferencesElement() {
+    Step::BaseObject::inited();
+    return m_referencesElement;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralElement_0_n > &IfcStructuralMember::getReferencesElement() const {
@@ -79,14 +74,9 @@ bool IfcStructuralMember::testReferencesElement() const {
     return !Step::isUnset(getReferencesElement());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_0_n > &IfcStructuralMember::getConnectedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_connectedBy;
-    }
-    else {
-        m_connectedBy.setUnset(true);
-        return m_connectedBy;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_0_n > & IfcStructuralMember::getConnectedBy() {
+    Step::BaseObject::inited();
+    return m_connectedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_0_n > &IfcStructuralMember::getConnectedBy() const {
@@ -108,17 +98,19 @@ bool IfcStructuralMember::init() {
     inverses = m_args->getInverses(IfcRelConnectsStructuralElement::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_referencesElement.setUnset(false);
+        m_referencesElement = new Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+        m_referencesElement->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referencesElement.insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_referencesElement->insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsStructuralMember::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_connectedBy.setUnset(false);
+        m_connectedBy = new Inverse_Set_IfcRelConnectsStructuralMember_0_n;
+        m_connectedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectedBy.insert(static_cast< IfcRelConnectsStructuralMember * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectedBy->insert(static_cast< IfcRelConnectsStructuralMember * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

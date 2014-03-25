@@ -122,10 +122,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelConnectsStructuralElement_0_n m_referencesElement;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsStructuralElement_0_n> m_referencesElement;
         /**
          */
-        Inverse_Set_IfcRelConnectsStructuralMember_0_n m_connectedBy;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsStructuralMember_0_n> m_connectedBy;
 
     };
 

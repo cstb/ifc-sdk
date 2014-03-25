@@ -196,14 +196,9 @@ bool IfcStructuralLoadGroup::testPurpose() const {
     return !Step::isUnset(getPurpose());
 }
 
-Step::RefPtr< Inverse_Set_IfcStructuralResultGroup_0_1 > &IfcStructuralLoadGroup::getSourceOfResultGroup() {
-    if (Step::BaseObject::inited()) {
-        return m_sourceOfResultGroup;
-    }
-    else {
-        m_sourceOfResultGroup.setUnset(true);
-        return m_sourceOfResultGroup;
-    }
+Step::RefPtr< Inverse_Set_IfcStructuralResultGroup_0_1 > & IfcStructuralLoadGroup::getSourceOfResultGroup() {
+    Step::BaseObject::inited();
+    return m_sourceOfResultGroup;
 }
 
 const Step::RefPtr< Inverse_Set_IfcStructuralResultGroup_0_1 > &IfcStructuralLoadGroup::getSourceOfResultGroup() const {
@@ -215,14 +210,9 @@ bool IfcStructuralLoadGroup::testSourceOfResultGroup() const {
     return !Step::isUnset(getSourceOfResultGroup());
 }
 
-Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_n > &IfcStructuralLoadGroup::getLoadGroupFor() {
-    if (Step::BaseObject::inited()) {
-        return m_loadGroupFor;
-    }
-    else {
-        m_loadGroupFor.setUnset(true);
-        return m_loadGroupFor;
-    }
+Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_n > & IfcStructuralLoadGroup::getLoadGroupFor() {
+    Step::BaseObject::inited();
+    return m_loadGroupFor;
 }
 
 const Step::RefPtr< Inverse_Set_IfcStructuralAnalysisModel_0_n > &IfcStructuralLoadGroup::getLoadGroupFor() const {
@@ -390,17 +380,19 @@ bool IfcStructuralLoadGroup::init() {
     inverses = m_args->getInverses(IfcStructuralResultGroup::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_sourceOfResultGroup.setUnset(false);
+        m_sourceOfResultGroup = new Inverse_Set_IfcStructuralResultGroup_0_1;
+        m_sourceOfResultGroup->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_sourceOfResultGroup.insert(static_cast< IfcStructuralResultGroup * > (m_expressDataSet->get((*inverses)[i])));
+            m_sourceOfResultGroup->insert(static_cast< IfcStructuralResultGroup * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcStructuralAnalysisModel::getClassType(), 7);
     if (inverses) {
         unsigned int i;
-        m_loadGroupFor.setUnset(false);
+        m_loadGroupFor = new Inverse_Set_IfcStructuralAnalysisModel_0_n;
+        m_loadGroupFor->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_loadGroupFor.insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
+            m_loadGroupFor->insert(static_cast< IfcStructuralAnalysisModel * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

@@ -89,14 +89,9 @@ bool IfcStructuralConnection::testAppliedCondition() const {
     return !Step::isUnset(getAppliedCondition());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_1_n > &IfcStructuralConnection::getConnectsStructuralMembers() {
-    if (Step::BaseObject::inited()) {
-        return m_connectsStructuralMembers;
-    }
-    else {
-        m_connectsStructuralMembers.setUnset(true);
-        return m_connectsStructuralMembers;
-    }
+Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_1_n > & IfcStructuralConnection::getConnectsStructuralMembers() {
+    Step::BaseObject::inited();
+    return m_connectsStructuralMembers;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelConnectsStructuralMember_1_n > &IfcStructuralConnection::getConnectsStructuralMembers() const {
@@ -125,9 +120,10 @@ bool IfcStructuralConnection::init() {
     inverses = m_args->getInverses(IfcRelConnectsStructuralMember::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_connectsStructuralMembers.setUnset(false);
+        m_connectsStructuralMembers = new Inverse_Set_IfcRelConnectsStructuralMember_1_n;
+        m_connectsStructuralMembers->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectsStructuralMembers.insert(static_cast< IfcRelConnectsStructuralMember * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectsStructuralMembers->insert(static_cast< IfcRelConnectsStructuralMember * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

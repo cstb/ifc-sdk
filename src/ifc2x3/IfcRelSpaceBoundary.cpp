@@ -83,10 +83,10 @@ const IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() const {
 
 void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value) {
     if (m_relatingSpace.valid()) {
-        m_relatingSpace->m_boundedBy.erase(this);
+        m_relatingSpace->getBoundedBy()->erase(this);
     }
     if (value.valid()) {
-        value->m_boundedBy.insert(this);
+        value->getBoundedBy()->insert(this);
     }
     m_relatingSpace = value;
 }

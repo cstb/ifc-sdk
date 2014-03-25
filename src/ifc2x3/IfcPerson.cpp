@@ -47,14 +47,12 @@ void Inverted_IfcPerson_Addresses_type::setOwner(IfcPerson *owner) {
 }
 
 void Inverted_IfcPerson_Addresses_type::push_back(const Step::RefPtr< IfcAddress > &value) throw(std::out_of_range) {
-    IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
     List_IfcAddress_1_n::push_back(value);
-    inverse->m_ofPerson.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_ofPerson, Inverse_Set_IfcPerson_0_n, mOwner);
 }
 
 Inverted_IfcPerson_Addresses_type::iterator Inverted_IfcPerson_Addresses_type::erase(const Step::RefPtr< IfcAddress > &value) {
-    IfcAddress *inverse = const_cast< IfcAddress * > (value.get());
-    inverse->m_ofPerson.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_ofPerson, mOwner);
     return List_IfcAddress_1_n::erase(value);
 }
 
@@ -313,14 +311,9 @@ bool IfcPerson::testAddresses() const {
     return !Step::isUnset(getAddresses());
 }
 
-Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcPerson::getEngagedIn() {
-    if (Step::BaseObject::inited()) {
-        return m_engagedIn;
-    }
-    else {
-        m_engagedIn.setUnset(true);
-        return m_engagedIn;
-    }
+Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > & IfcPerson::getEngagedIn() {
+    Step::BaseObject::inited();
+    return m_engagedIn;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPersonAndOrganization_0_n > &IfcPerson::getEngagedIn() const {
@@ -454,9 +447,10 @@ bool IfcPerson::init() {
     inverses = m_args->getInverses(IfcPersonAndOrganization::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_engagedIn.setUnset(false);
+        m_engagedIn = new Inverse_Set_IfcPersonAndOrganization_0_n;
+        m_engagedIn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_engagedIn.insert(static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get((*inverses)[i])));
+            m_engagedIn->insert(static_cast< IfcPersonAndOrganization * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

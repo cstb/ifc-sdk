@@ -171,7 +171,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcProductRepresentation > m_representation;
         /**
          */
-        Inverse_Set_IfcRelAssignsToProduct_0_n m_referencedBy;
+        Step::RefPtr<Inverse_Set_IfcRelAssignsToProduct_0_n> m_referencedBy;
 
     };
 

@@ -184,10 +184,10 @@ namespace ifc2x3 {
         Step::Real m_elevationWithFlooring;
         /**
          */
-        Inverse_Set_IfcRelCoversSpaces_0_n m_hasCoverings;
+        Step::RefPtr<Inverse_Set_IfcRelCoversSpaces_0_n> m_hasCoverings;
         /**
          */
-        Inverse_Set_IfcRelSpaceBoundary_0_n m_boundedBy;
+        Step::RefPtr<Inverse_Set_IfcRelSpaceBoundary_0_n> m_boundedBy;
 
     };
 

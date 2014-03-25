@@ -114,14 +114,9 @@ bool IfcPhysicalQuantity::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &IfcPhysicalQuantity::getPartOfComplex() {
-    if (Step::BaseObject::inited()) {
-        return m_partOfComplex;
-    }
-    else {
-        m_partOfComplex.setUnset(true);
-        return m_partOfComplex;
-    }
+Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > & IfcPhysicalQuantity::getPartOfComplex() {
+    Step::BaseObject::inited();
+    return m_partOfComplex;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPhysicalComplexQuantity_0_1 > &IfcPhysicalQuantity::getPartOfComplex() const {
@@ -153,9 +148,10 @@ bool IfcPhysicalQuantity::init() {
     inverses = m_args->getInverses(IfcPhysicalComplexQuantity::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_partOfComplex.setUnset(false);
+        m_partOfComplex = new Inverse_Set_IfcPhysicalComplexQuantity_0_1;
+        m_partOfComplex->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_partOfComplex.insert(static_cast< IfcPhysicalComplexQuantity * > (m_expressDataSet->get((*inverses)[i])));
+            m_partOfComplex->insert(static_cast< IfcPhysicalComplexQuantity * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

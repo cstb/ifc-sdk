@@ -103,12 +103,8 @@ const IfcStructuralReaction *IfcStructuralAction::getCausedBy() const {
 }
 
 void IfcStructuralAction::setCausedBy(const Step::RefPtr< IfcStructuralReaction > &value) {
-    if (m_causedBy.valid()) {
-        m_causedBy->m_causes.erase(this);
-    }
-    if (value.valid()) {
-        value->m_causes.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_causedBy, m_causes, this);
+    INSERT_INVERSE_VALUE(value, m_causes, Inverse_Set_IfcStructuralAction_0_n, this);
     m_causedBy = value;
 }
 

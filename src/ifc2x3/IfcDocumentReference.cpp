@@ -59,14 +59,9 @@ bool IfcDocumentReference::isOfType(const Step::ClassType &t) const {
     return IfcDocumentReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &IfcDocumentReference::getReferenceToDocument() {
-    if (Step::BaseObject::inited()) {
-        return m_referenceToDocument;
-    }
-    else {
-        m_referenceToDocument.setUnset(true);
-        return m_referenceToDocument;
-    }
+Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > & IfcDocumentReference::getReferenceToDocument() {
+    Step::BaseObject::inited();
+    return m_referenceToDocument;
 }
 
 const Step::RefPtr< Inverse_Set_IfcDocumentInformation_0_1 > &IfcDocumentReference::getReferenceToDocument() const {
@@ -88,9 +83,10 @@ bool IfcDocumentReference::init() {
     inverses = m_args->getInverses(IfcDocumentInformation::getClassType(), 3);
     if (inverses) {
         unsigned int i;
-        m_referenceToDocument.setUnset(false);
+        m_referenceToDocument = new Inverse_Set_IfcDocumentInformation_0_1;
+        m_referenceToDocument->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referenceToDocument.insert(static_cast< IfcDocumentInformation * > (m_expressDataSet->get((*inverses)[i])));
+            m_referenceToDocument->insert(static_cast< IfcDocumentInformation * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

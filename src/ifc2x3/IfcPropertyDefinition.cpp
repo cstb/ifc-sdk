@@ -40,8 +40,6 @@ IfcPropertyDefinition::IfcPropertyDefinition(Step::Id id, Step::SPFData *args)
 }
 
 IfcPropertyDefinition::~IfcPropertyDefinition() {
-    if( m_hasAssociations)
-        delete m_hasAssociations;
 }
 
 bool IfcPropertyDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -64,15 +62,9 @@ bool IfcPropertyDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertyDefinition::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcPropertyDefinition::getHasAssociations() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasAssociations;
-    }
-    else {
-        Inverse_Set_IfcRelAssociates_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > & IfcPropertyDefinition::getHasAssociations() {
+    Step::BaseObject::inited();
+    return m_hasAssociations;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssociates_0_n > &IfcPropertyDefinition::getHasAssociations() const {

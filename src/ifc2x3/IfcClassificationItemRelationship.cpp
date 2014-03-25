@@ -43,14 +43,12 @@ void Inverted_IfcClassificationItemRelationship_RelatedItems_type::setOwner(IfcC
 }
 
 void Inverted_IfcClassificationItemRelationship_RelatedItems_type::insert(const Step::RefPtr< IfcClassificationItem > &value) throw(std::out_of_range) {
-    IfcClassificationItem *inverse = const_cast< IfcClassificationItem * > (value.get());
     Set_IfcClassificationItem_1_n::insert(value);
-    inverse->m_isClassifiedItemIn.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_isClassifiedItemIn, Inverse_Set_IfcClassificationItemRelationship_0_1, mOwner);
 }
 
 Inverted_IfcClassificationItemRelationship_RelatedItems_type::size_type Inverted_IfcClassificationItemRelationship_RelatedItems_type::erase(const Step::RefPtr< IfcClassificationItem > &value) {
-    IfcClassificationItem *inverse = const_cast< IfcClassificationItem * > (value.get());
-    inverse->m_isClassifiedItemIn.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_isClassifiedItemIn, mOwner);
     return Set_IfcClassificationItem_1_n::erase(value);
 }
 
@@ -103,12 +101,8 @@ const IfcClassificationItem *IfcClassificationItemRelationship::getRelatingItem(
 }
 
 void IfcClassificationItemRelationship::setRelatingItem(const Step::RefPtr< IfcClassificationItem > &value) {
-    if (m_relatingItem.valid()) {
-        m_relatingItem->m_isClassifyingItemIn.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isClassifyingItemIn.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingItem, m_isClassifyingItemIn, this);
+    INSERT_INVERSE_VALUE(value, m_isClassifyingItemIn, Inverse_Set_IfcClassificationItemRelationship_0_1, this);
     m_relatingItem = value;
 }
 

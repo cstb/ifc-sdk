@@ -59,14 +59,9 @@ bool IfcSystem::isOfType(const Step::ClassType &t) const {
     return IfcSystem::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_1 > &IfcSystem::getServicesBuildings() {
-    if (Step::BaseObject::inited()) {
-        return m_servicesBuildings;
-    }
-    else {
-        m_servicesBuildings.setUnset(true);
-        return m_servicesBuildings;
-    }
+Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_1 > & IfcSystem::getServicesBuildings() {
+    Step::BaseObject::inited();
+    return m_servicesBuildings;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelServicesBuildings_0_1 > &IfcSystem::getServicesBuildings() const {
@@ -88,9 +83,10 @@ bool IfcSystem::init() {
     inverses = m_args->getInverses(IfcRelServicesBuildings::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_servicesBuildings.setUnset(false);
+        m_servicesBuildings = new Inverse_Set_IfcRelServicesBuildings_0_1;
+        m_servicesBuildings->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_servicesBuildings.insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
+            m_servicesBuildings->insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

@@ -59,14 +59,9 @@ bool IfcLibraryReference::isOfType(const Step::ClassType &t) const {
     return IfcLibraryReference::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcLibraryInformation_0_1 > &IfcLibraryReference::getReferenceIntoLibrary() {
-    if (Step::BaseObject::inited()) {
-        return m_referenceIntoLibrary;
-    }
-    else {
-        m_referenceIntoLibrary.setUnset(true);
-        return m_referenceIntoLibrary;
-    }
+Step::RefPtr< Inverse_Set_IfcLibraryInformation_0_1 > & IfcLibraryReference::getReferenceIntoLibrary() {
+    Step::BaseObject::inited();
+    return m_referenceIntoLibrary;
 }
 
 const Step::RefPtr< Inverse_Set_IfcLibraryInformation_0_1 > &IfcLibraryReference::getReferenceIntoLibrary() const {
@@ -88,9 +83,10 @@ bool IfcLibraryReference::init() {
     inverses = m_args->getInverses(IfcLibraryInformation::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_referenceIntoLibrary.setUnset(false);
+        m_referenceIntoLibrary = new Inverse_Set_IfcLibraryInformation_0_1;
+        m_referenceIntoLibrary->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referenceIntoLibrary.insert(static_cast< IfcLibraryInformation * > (m_expressDataSet->get((*inverses)[i])));
+            m_referenceIntoLibrary->insert(static_cast< IfcLibraryInformation * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

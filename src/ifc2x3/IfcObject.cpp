@@ -42,8 +42,6 @@ IfcObject::IfcObject(Step::Id id, Step::SPFData *args)
 }
 
 IfcObject::~IfcObject() {
-    if (m_isDefinedBy)
-        delete m_isDefinedBy;
 }
 
 bool IfcObject::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -92,15 +90,9 @@ bool IfcObject::testObjectType() const {
     return !Step::isUnset(getObjectType());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &IfcObject::getIsDefinedBy() {
-    if (Step::BaseObject::inited()) {
-        return *m_isDefinedBy;
-    }
-    else {
-        Inverse_Set_IfcRelDefines_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > & IfcObject::getIsDefinedBy() {
+    Step::BaseObject::inited();
+    return m_isDefinedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelDefines_0_n > &IfcObject::getIsDefinedBy() const {

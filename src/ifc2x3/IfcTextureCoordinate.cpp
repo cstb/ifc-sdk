@@ -60,13 +60,8 @@ bool IfcTextureCoordinate::isOfType(const Step::ClassType &t) const {
 }
 
 Step::RefPtr< Inverse_Set_IfcAnnotationSurface_1_1 > &IfcTextureCoordinate::getAnnotatedSurface() {
-    if (Step::BaseObject::inited()) {
-        return m_annotatedSurface;
-    }
-    else {
-        m_annotatedSurface.setUnset(true);
-        return m_annotatedSurface;
-    }
+    Step::BaseObject::inited();
+    return m_annotatedSurface;
 }
 
 const Step::RefPtr< Inverse_Set_IfcAnnotationSurface_1_1 > &IfcTextureCoordinate::getAnnotatedSurface() const {
@@ -84,9 +79,10 @@ bool IfcTextureCoordinate::init() {
     inverses = m_args->getInverses(IfcAnnotationSurface::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_annotatedSurface.setUnset(false);
+        m_annotatedSurface = new Inverse_Set_IfcAnnotationSurface_1_1;
+        m_annotatedSurface->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_annotatedSurface.insert(static_cast< IfcAnnotationSurface * > (m_expressDataSet->get((*inverses)[i])));
+            m_annotatedSurface->insert(static_cast< IfcAnnotationSurface * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

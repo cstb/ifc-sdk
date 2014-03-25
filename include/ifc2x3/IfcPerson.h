@@ -397,7 +397,7 @@ namespace ifc2x3 {
         Inverted_IfcPerson_Addresses_type m_addresses;
         /**
          */
-        Inverse_Set_IfcPersonAndOrganization_0_n m_engagedIn;
+        Step::RefPtr<Inverse_Set_IfcPersonAndOrganization_0_n> m_engagedIn;
 
     };
 

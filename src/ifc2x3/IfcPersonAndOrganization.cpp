@@ -80,12 +80,8 @@ const IfcPerson *IfcPersonAndOrganization::getThePerson() const {
 }
 
 void IfcPersonAndOrganization::setThePerson(const Step::RefPtr< IfcPerson > &value) {
-    if (m_thePerson.valid()) {
-        m_thePerson->m_engagedIn.erase(this);
-    }
-    if (value.valid()) {
-        value->m_engagedIn.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_thePerson, m_engagedIn, this);
+    INSERT_INVERSE_VALUE(value, m_engagedIn, Inverse_Set_IfcPersonAndOrganization_0_n, this);
     m_thePerson = value;
 }
 
@@ -112,12 +108,8 @@ const IfcOrganization *IfcPersonAndOrganization::getTheOrganization() const {
 }
 
 void IfcPersonAndOrganization::setTheOrganization(const Step::RefPtr< IfcOrganization > &value) {
-    if (m_theOrganization.valid()) {
-        m_theOrganization->m_engages.erase(this);
-    }
-    if (value.valid()) {
-        value->m_engages.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_theOrganization, m_engages, this);
+    INSERT_INVERSE_VALUE(value, m_engages, Inverse_Set_IfcPersonAndOrganization_0_n, this);
     m_theOrganization = value;
 }
 

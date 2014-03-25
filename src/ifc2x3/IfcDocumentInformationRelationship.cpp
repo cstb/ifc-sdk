@@ -44,14 +44,12 @@ void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::setOwner
 }
 
 void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::insert(const Step::RefPtr< IfcDocumentInformation > &value) throw(std::out_of_range) {
-    IfcDocumentInformation *inverse = const_cast< IfcDocumentInformation * > (value.get());
     Set_IfcDocumentInformation_1_n::insert(value);
-    inverse->m_isPointedTo.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_isPointedTo, Inverse_Set_IfcDocumentInformationRelationship_0_n, mOwner);
 }
 
 Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::size_type Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::erase(const Step::RefPtr< IfcDocumentInformation > &value) {
-    IfcDocumentInformation *inverse = const_cast< IfcDocumentInformation * > (value.get());
-    inverse->m_isPointedTo.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_isPointedTo, mOwner);
     return Set_IfcDocumentInformation_1_n::erase(value);
 }
 
@@ -105,12 +103,8 @@ const IfcDocumentInformation *IfcDocumentInformationRelationship::getRelatingDoc
 }
 
 void IfcDocumentInformationRelationship::setRelatingDocument(const Step::RefPtr< IfcDocumentInformation > &value) {
-    if (m_relatingDocument.valid()) {
-        m_relatingDocument->m_isPointer.erase(this);
-    }
-    if (value.valid()) {
-        value->m_isPointer.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingDocument, m_isPointer, this);
+    INSERT_INVERSE_VALUE(value, m_isPointer, Inverse_Set_IfcDocumentInformationRelationship_0_1, this);
     m_relatingDocument = value;
 }
 

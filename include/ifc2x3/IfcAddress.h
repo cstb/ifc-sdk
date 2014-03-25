@@ -218,10 +218,10 @@ namespace ifc2x3 {
         Step::String m_userDefinedPurpose;
         /**
          */
-        Inverse_Set_IfcPerson_0_n m_ofPerson;
+        Step::RefPtr<Inverse_Set_IfcPerson_0_n> m_ofPerson;
         /**
          */
-        Inverse_Set_IfcOrganization_0_n m_ofOrganization;
+        Step::RefPtr<Inverse_Set_IfcOrganization_0_n> m_ofOrganization;
 
     };
 

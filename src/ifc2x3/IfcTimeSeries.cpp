@@ -279,14 +279,9 @@ bool IfcTimeSeries::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-Step::RefPtr< Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 > &IfcTimeSeries::getDocumentedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_documentedBy;
-    }
-    else {
-        m_documentedBy.setUnset(true);
-        return m_documentedBy;
-    }
+Step::RefPtr< Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 > & IfcTimeSeries::getDocumentedBy() {
+    Step::BaseObject::inited();
+    return m_documentedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 > &IfcTimeSeries::getDocumentedBy() const {
@@ -430,9 +425,10 @@ bool IfcTimeSeries::init() {
     inverses = m_args->getInverses(IfcTimeSeriesReferenceRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_documentedBy.setUnset(false);
+        m_documentedBy = new Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1;
+        m_documentedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_documentedBy.insert(static_cast< IfcTimeSeriesReferenceRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_documentedBy->insert(static_cast< IfcTimeSeriesReferenceRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

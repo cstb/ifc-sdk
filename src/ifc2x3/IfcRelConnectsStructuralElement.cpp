@@ -78,12 +78,8 @@ const IfcElement *IfcRelConnectsStructuralElement::getRelatingElement() const {
 }
 
 void IfcRelConnectsStructuralElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingElement.valid()) {
-        m_relatingElement->m_hasStructuralMember->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasStructuralMember->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingElement, m_hasStructuralMember, this);
+    INSERT_INVERSE_VALUE(value, m_hasStructuralMember, Inverse_Set_IfcRelConnectsStructuralElement_0_n, this);
     m_relatingElement = value;
 }
 
@@ -110,12 +106,8 @@ const IfcStructuralMember *IfcRelConnectsStructuralElement::getRelatedStructural
 }
 
 void IfcRelConnectsStructuralElement::setRelatedStructuralMember(const Step::RefPtr< IfcStructuralMember > &value) {
-    if (m_relatedStructuralMember.valid()) {
-        m_relatedStructuralMember->m_referencesElement.erase(this);
-    }
-    if (value.valid()) {
-        value->m_referencesElement.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedStructuralMember, m_referencesElement, this);
+    INSERT_INVERSE_VALUE(value, m_referencesElement, Inverse_Set_IfcRelConnectsStructuralElement_0_n, this);
     m_relatedStructuralMember = value;
 }
 

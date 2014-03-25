@@ -52,12 +52,6 @@ IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args)
 }
 
 IfcRepresentation::~IfcRepresentation() {
-    if (m_representationMap)
-        delete m_representationMap;
-    if (m_layerAssignments)
-        delete m_layerAssignments;
-    if (m_ofProductRepresentation)
-        delete m_ofProductRepresentation;
 }
 
 bool IfcRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -192,15 +186,9 @@ bool IfcRepresentation::testItems() const {
     return !Step::isUnset(getItems());
 }
 
-Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &IfcRepresentation::getRepresentationMap() {
-    if (Step::BaseObject::inited()) {
-        return *m_representationMap;
-    }
-    else {
-        Inverse_Set_IfcRepresentationMap_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > & IfcRepresentation::getRepresentationMap() {
+    Step::BaseObject::inited();
+    return m_representationMap;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRepresentationMap_0_1 > &IfcRepresentation::getRepresentationMap() const {
@@ -212,15 +200,9 @@ bool IfcRepresentation::testRepresentationMap() const {
     return !Step::isUnset(getRepresentationMap());
 }
 
-Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentation::getLayerAssignments() {
-    if (Step::BaseObject::inited()) {
-        return *m_layerAssignments;
-    }
-    else {
-        Inverse_Set_IfcPresentationLayerAssignment_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > & IfcRepresentation::getLayerAssignments() {
+    Step::BaseObject::inited();
+    return m_layerAssignments;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPresentationLayerAssignment_0_n > &IfcRepresentation::getLayerAssignments() const {
@@ -232,15 +214,9 @@ bool IfcRepresentation::testLayerAssignments() const {
     return !Step::isUnset(getLayerAssignments());
 }
 
-Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &IfcRepresentation::getOfProductRepresentation() {
-    if (Step::BaseObject::inited()) {
-        return *m_ofProductRepresentation;
-    }
-    else {
-        Inverse_Set_IfcProductRepresentation_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > & IfcRepresentation::getOfProductRepresentation() {
+    Step::BaseObject::inited();
+    return m_ofProductRepresentation;
 }
 
 const Step::RefPtr< Inverse_Set_IfcProductRepresentation_0_1 > &IfcRepresentation::getOfProductRepresentation() const {

@@ -231,7 +231,7 @@ namespace ifc2x3 {
         Step::String m_name;
         /**
          */
-        Inverse_Set_IfcClassificationItem_0_n m_contains;
+        Step::RefPtr<Inverse_Set_IfcClassificationItem_0_n> m_contains;
 
     };
 

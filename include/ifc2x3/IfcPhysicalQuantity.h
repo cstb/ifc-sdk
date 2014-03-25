@@ -168,7 +168,7 @@ namespace ifc2x3 {
         Step::String m_description;
         /**
          */
-        Inverse_Set_IfcPhysicalComplexQuantity_0_1 m_partOfComplex;
+        Step::RefPtr<Inverse_Set_IfcPhysicalComplexQuantity_0_1> m_partOfComplex;
 
     };
 

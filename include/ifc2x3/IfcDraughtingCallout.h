@@ -152,10 +152,10 @@ namespace ifc2x3 {
         Set_IfcDraughtingCalloutElement_1_n m_contents;
         /**
          */
-        Inverse_Set_IfcDraughtingCalloutRelationship_0_n m_isRelatedFromCallout;
+        Step::RefPtr<Inverse_Set_IfcDraughtingCalloutRelationship_0_n> m_isRelatedFromCallout;
         /**
          */
-        Inverse_Set_IfcDraughtingCalloutRelationship_0_n m_isRelatedToCallout;
+        Step::RefPtr<Inverse_Set_IfcDraughtingCalloutRelationship_0_n> m_isRelatedToCallout;
 
     };
 

@@ -332,13 +332,13 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDateTimeSelect > m_fixedUntilDate;
         /**
          */
-        Inverse_Set_IfcReferencesValueDocument_0_n m_valuesReferenced;
+        Step::RefPtr<Inverse_Set_IfcReferencesValueDocument_0_n> m_valuesReferenced;
         /**
          */
-        Inverse_Set_IfcAppliedValueRelationship_0_n m_valueOfComponents;
+        Step::RefPtr<Inverse_Set_IfcAppliedValueRelationship_0_n> m_valueOfComponents;
         /**
          */
-        Inverse_Set_IfcAppliedValueRelationship_0_n m_isComponentIn;
+        Step::RefPtr<Inverse_Set_IfcAppliedValueRelationship_0_n> m_isComponentIn;
 
     };
 

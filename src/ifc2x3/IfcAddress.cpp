@@ -142,14 +142,9 @@ bool IfcAddress::testUserDefinedPurpose() const {
     return !Step::isUnset(getUserDefinedPurpose());
 }
 
-Step::RefPtr< Inverse_Set_IfcPerson_0_n > &IfcAddress::getOfPerson() {
-    if (Step::BaseObject::inited()) {
-        return m_ofPerson;
-    }
-    else {
-        m_ofPerson.setUnset(true);
-        return m_ofPerson;
-    }
+Step::RefPtr< Inverse_Set_IfcPerson_0_n > & IfcAddress::getOfPerson() {
+    Step::BaseObject::inited();
+    return m_ofPerson;
 }
 
 const Step::RefPtr< Inverse_Set_IfcPerson_0_n > &IfcAddress::getOfPerson() const {
@@ -161,14 +156,9 @@ bool IfcAddress::testOfPerson() const {
     return !Step::isUnset(getOfPerson());
 }
 
-Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &IfcAddress::getOfOrganization() {
-    if (Step::BaseObject::inited()) {
-        return m_ofOrganization;
-    }
-    else {
-        m_ofOrganization.setUnset(true);
-        return m_ofOrganization;
-    }
+Step::RefPtr< Inverse_Set_IfcOrganization_0_n > & IfcAddress::getOfOrganization() {
+    Step::BaseObject::inited();
+    return m_ofOrganization;
 }
 
 const Step::RefPtr< Inverse_Set_IfcOrganization_0_n > &IfcAddress::getOfOrganization() const {
@@ -221,17 +211,19 @@ bool IfcAddress::init() {
     inverses = m_args->getInverses(IfcPerson::getClassType(), 7);
     if (inverses) {
         unsigned int i;
-        m_ofPerson.setUnset(false);
+        m_ofPerson = new Inverse_Set_IfcPerson_0_n;
+        m_ofPerson->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_ofPerson.insert(static_cast< IfcPerson * > (m_expressDataSet->get((*inverses)[i])));
+            m_ofPerson->insert(static_cast< IfcPerson * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcOrganization::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_ofOrganization.setUnset(false);
+        m_ofOrganization = new Inverse_Set_IfcOrganization_0_n;
+        m_ofOrganization->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_ofOrganization.insert(static_cast< IfcOrganization * > (m_expressDataSet->get((*inverses)[i])));
+            m_ofOrganization->insert(static_cast< IfcOrganization * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

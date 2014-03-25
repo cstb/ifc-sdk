@@ -80,12 +80,8 @@ const IfcConstraint *IfcPropertyConstraintRelationship::getRelatingConstraint() 
 }
 
 void IfcPropertyConstraintRelationship::setRelatingConstraint(const Step::RefPtr< IfcConstraint > &value) {
-    if (m_relatingConstraint.valid()) {
-        m_relatingConstraint->m_propertiesForConstraint.erase(this);
-    }
-    if (value.valid()) {
-        value->m_propertiesForConstraint.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingConstraint, m_propertiesForConstraint, this);
+    INSERT_INVERSE_VALUE(value, m_propertiesForConstraint, Inverse_Set_IfcPropertyConstraintRelationship_0_n, this);
     m_relatingConstraint = value;
 }
 

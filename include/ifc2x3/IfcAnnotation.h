@@ -105,7 +105,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 m_containedInStructure;
+        Step::RefPtr<Inverse_Set_IfcRelContainedInSpatialStructure_0_1> m_containedInStructure;
 
     };
 

@@ -59,14 +59,9 @@ bool IfcControl::isOfType(const Step::ClassType &t) const {
     return IfcControl::s_type == t ? true : IfcObject::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssignsToControl_0_n > &IfcControl::getControls() {
-    if (Step::BaseObject::inited()) {
-        return m_controls;
-    }
-    else {
-        m_controls.setUnset(true);
-        return m_controls;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssignsToControl_0_n > & IfcControl::getControls() {
+    Step::BaseObject::inited();
+    return m_controls;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssignsToControl_0_n > &IfcControl::getControls() const {
@@ -88,9 +83,10 @@ bool IfcControl::init() {
     inverses = m_args->getInverses(IfcRelAssignsToControl::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_controls.setUnset(false);
+        m_controls = new Inverse_Set_IfcRelAssignsToControl_0_n;
+        m_controls->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_controls.insert(static_cast< IfcRelAssignsToControl * > (m_expressDataSet->get((*inverses)[i])));
+            m_controls->insert(static_cast< IfcRelAssignsToControl * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

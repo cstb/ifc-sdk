@@ -78,12 +78,8 @@ const IfcProcess *IfcRelAssignsToProcess::getRelatingProcess() const {
 }
 
 void IfcRelAssignsToProcess::setRelatingProcess(const Step::RefPtr< IfcProcess > &value) {
-    if (m_relatingProcess.valid()) {
-        m_relatingProcess->m_operatesOn.erase(this);
-    }
-    if (value.valid()) {
-        value->m_operatesOn.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingProcess, m_operatesOn, this);
+    INSERT_INVERSE_VALUE(value, m_operatesOn, Inverse_Set_IfcRelAssignsToProcess_0_n, this);
     m_relatingProcess = value;
 }
 

@@ -134,14 +134,9 @@ bool IfcProduct::testRepresentation() const {
     return !Step::isUnset(getRepresentation());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &IfcProduct::getReferencedBy() {
-    if (Step::BaseObject::inited()) {
-        return m_referencedBy;
-    }
-    else {
-        m_referencedBy.setUnset(true);
-        return m_referencedBy;
-    }
+Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > & IfcProduct::getReferencedBy() {
+    Step::BaseObject::inited();
+    return m_referencedBy;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelAssignsToProduct_0_n > &IfcProduct::getReferencedBy() const {
@@ -177,9 +172,10 @@ bool IfcProduct::init() {
     inverses = m_args->getInverses(IfcRelAssignsToProduct::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_referencedBy.setUnset(false);
+        m_referencedBy = new Inverse_Set_IfcRelAssignsToProduct_0_n;
+        m_referencedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referencedBy.insert(static_cast< IfcRelAssignsToProduct * > (m_expressDataSet->get((*inverses)[i])));
+            m_referencedBy->insert(static_cast< IfcRelAssignsToProduct * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

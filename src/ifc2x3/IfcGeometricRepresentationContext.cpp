@@ -49,8 +49,6 @@ IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id
 }
 
 IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext() {
-    if (m_hasSubContexts)
-        delete m_hasSubContexts;
 }
 
 bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -177,15 +175,9 @@ bool IfcGeometricRepresentationContext::testTrueNorth() const {
     return !Step::isUnset(getTrueNorth());
 }
 
-Step::RefPtr< Inverse_Set_IfcGeometricRepresentationSubContext_0_n > &IfcGeometricRepresentationContext::getHasSubContexts() {
-    if (Step::BaseObject::inited()) {
-        return *m_hasSubContexts;
-    }
-    else {
-        Inverse_Set_IfcGeometricRepresentationSubContext_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcGeometricRepresentationSubContext_0_n > & IfcGeometricRepresentationContext::getHasSubContexts() {
+    Step::BaseObject::inited();
+    return m_hasSubContexts;
 }
 
 const Step::RefPtr< Inverse_Set_IfcGeometricRepresentationSubContext_0_n > &IfcGeometricRepresentationContext::getHasSubContexts() const {

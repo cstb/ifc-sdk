@@ -47,14 +47,12 @@ void Inverted_IfcGrid_UAxes_type::setOwner(IfcGrid *owner) {
 }
 
 void Inverted_IfcGrid_UAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
     List_IfcGridAxis_1_n::push_back(value);
-    inverse->m_partOfU.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_partOfU, Inverse_Set_IfcGrid_0_1, mOwner);
 }
 
 Inverted_IfcGrid_UAxes_type::iterator Inverted_IfcGrid_UAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    inverse->m_partOfU.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_partOfU, mOwner);
     return List_IfcGridAxis_1_n::erase(value);
 }
 
@@ -72,14 +70,12 @@ void Inverted_IfcGrid_VAxes_type::setOwner(IfcGrid *owner) {
 }
 
 void Inverted_IfcGrid_VAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
     List_IfcGridAxis_1_n::push_back(value);
-    inverse->m_partOfV.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_partOfV, Inverse_Set_IfcGrid_0_1, mOwner);
 }
 
 Inverted_IfcGrid_VAxes_type::iterator Inverted_IfcGrid_VAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    inverse->m_partOfV.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_partOfV, mOwner);
     return List_IfcGridAxis_1_n::erase(value);
 }
 
@@ -97,14 +93,12 @@ void Inverted_IfcGrid_WAxes_type::setOwner(IfcGrid *owner) {
 }
 
 void Inverted_IfcGrid_WAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
     List_IfcGridAxis_1_n::push_back(value);
-    inverse->m_partOfW.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_partOfW, Inverse_Set_IfcGrid_0_1, mOwner);
 }
 
 Inverted_IfcGrid_WAxes_type::iterator Inverted_IfcGrid_WAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    inverse->m_partOfW.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_partOfW, mOwner);
     return List_IfcGridAxis_1_n::erase(value);
 }
 
@@ -216,14 +210,9 @@ bool IfcGrid::testWAxes() const {
     return !Step::isUnset(getWAxes());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcGrid::getContainedInStructure() {
-    if (Step::BaseObject::inited()) {
-        return m_containedInStructure;
-    }
-    else {
-        m_containedInStructure.setUnset(true);
-        return m_containedInStructure;
-    }
+Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > & IfcGrid::getContainedInStructure() {
+    Step::BaseObject::inited();
+    return m_containedInStructure;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > &IfcGrid::getContainedInStructure() const {
@@ -302,9 +291,10 @@ bool IfcGrid::init() {
     inverses = m_args->getInverses(IfcRelContainedInSpatialStructure::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_containedInStructure.setUnset(false);
+        m_containedInStructure = new Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+        m_containedInStructure->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_containedInStructure.insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_containedInStructure->insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

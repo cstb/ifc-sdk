@@ -198,14 +198,9 @@ bool IfcSpaceProgram::testStandardRequiredArea() const {
     return !Step::isUnset(getStandardRequiredArea());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsFrom() {
-    if (Step::BaseObject::inited()) {
-        return m_hasInteractionReqsFrom;
-    }
-    else {
-        m_hasInteractionReqsFrom.setUnset(true);
-        return m_hasInteractionReqsFrom;
-    }
+Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > & IfcSpaceProgram::getHasInteractionReqsFrom() {
+    Step::BaseObject::inited();
+    return m_hasInteractionReqsFrom;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsFrom() const {
@@ -217,14 +212,9 @@ bool IfcSpaceProgram::testHasInteractionReqsFrom() const {
     return !Step::isUnset(getHasInteractionReqsFrom());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsTo() {
-    if (Step::BaseObject::inited()) {
-        return m_hasInteractionReqsTo;
-    }
-    else {
-        m_hasInteractionReqsTo.setUnset(true);
-        return m_hasInteractionReqsTo;
-    }
+Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > & IfcSpaceProgram::getHasInteractionReqsTo() {
+    Step::BaseObject::inited();
+    return m_hasInteractionReqsTo;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelInteractionRequirements_0_n > &IfcSpaceProgram::getHasInteractionReqsTo() const {
@@ -281,17 +271,19 @@ bool IfcSpaceProgram::init() {
     inverses = m_args->getInverses(IfcRelInteractionRequirements::getClassType(), 7);
     if (inverses) {
         unsigned int i;
-        m_hasInteractionReqsFrom.setUnset(false);
+        m_hasInteractionReqsFrom = new Inverse_Set_IfcRelInteractionRequirements_0_n;
+        m_hasInteractionReqsFrom->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasInteractionReqsFrom.insert(static_cast< IfcRelInteractionRequirements * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasInteractionReqsFrom->insert(static_cast< IfcRelInteractionRequirements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelInteractionRequirements::getClassType(), 8);
     if (inverses) {
         unsigned int i;
-        m_hasInteractionReqsTo.setUnset(false);
+        m_hasInteractionReqsTo = new Inverse_Set_IfcRelInteractionRequirements_0_n;
+        m_hasInteractionReqsTo->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasInteractionReqsTo.insert(static_cast< IfcRelInteractionRequirements * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasInteractionReqsTo->insert(static_cast< IfcRelInteractionRequirements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

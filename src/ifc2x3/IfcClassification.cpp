@@ -171,14 +171,9 @@ bool IfcClassification::testName() const {
     return !Step::isUnset(getName());
 }
 
-Step::RefPtr< Inverse_Set_IfcClassificationItem_0_n > &IfcClassification::getContains() {
-    if (Step::BaseObject::inited()) {
-        return m_contains;
-    }
-    else {
-        m_contains.setUnset(true);
-        return m_contains;
-    }
+Step::RefPtr< Inverse_Set_IfcClassificationItem_0_n > & IfcClassification::getContains() {
+    Step::BaseObject::inited();
+    return m_contains;
 }
 
 const Step::RefPtr< Inverse_Set_IfcClassificationItem_0_n > &IfcClassification::getContains() const {
@@ -224,9 +219,10 @@ bool IfcClassification::init() {
     inverses = m_args->getInverses(IfcClassificationItem::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_contains.setUnset(false);
+        m_contains = new Inverse_Set_IfcClassificationItem_0_n;
+        m_contains->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_contains.insert(static_cast< IfcClassificationItem * > (m_expressDataSet->get((*inverses)[i])));
+            m_contains->insert(static_cast< IfcClassificationItem * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

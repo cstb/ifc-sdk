@@ -43,14 +43,12 @@ void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::setOwner(IfcPhysica
 }
 
 void Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::insert(const Step::RefPtr< IfcPhysicalQuantity > &value) throw(std::out_of_range) {
-    IfcPhysicalQuantity *inverse = const_cast< IfcPhysicalQuantity * > (value.get());
     Set_IfcPhysicalQuantity_1_n::insert(value);
-    inverse->m_partOfComplex.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_partOfComplex, Inverse_Set_IfcPhysicalComplexQuantity_0_1, mOwner);
 }
 
 Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::size_type Inverted_IfcPhysicalComplexQuantity_HasQuantities_type::erase(const Step::RefPtr< IfcPhysicalQuantity > &value) {
-    IfcPhysicalQuantity *inverse = const_cast< IfcPhysicalQuantity * > (value.get());
-    inverse->m_partOfComplex.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_partOfComplex, mOwner);
     return Set_IfcPhysicalQuantity_1_n::erase(value);
 }
 

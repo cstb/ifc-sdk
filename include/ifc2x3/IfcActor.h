@@ -137,7 +137,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcActorSelect > m_theActor;
         /**
          */
-        Inverse_Set_IfcRelAssignsToActor_0_n m_isActingUpon;
+        Step::RefPtr<Inverse_Set_IfcRelAssignsToActor_0_n> m_isActingUpon;
 
     };
 

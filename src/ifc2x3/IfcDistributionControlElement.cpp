@@ -42,8 +42,6 @@ IfcDistributionControlElement::IfcDistributionControlElement(Step::Id id, Step::
 }
 
 IfcDistributionControlElement::~IfcDistributionControlElement() {
-    if (m_assignedToFlowElement)
-        delete m_assignedToFlowElement;
 }
 
 bool IfcDistributionControlElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -92,15 +90,9 @@ bool IfcDistributionControlElement::testControlElementId() const {
     return !Step::isUnset(getControlElementId());
 }
 
-Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionControlElement::getAssignedToFlowElement() {
-    if (Step::BaseObject::inited()) {
-        return *m_assignedToFlowElement;
-    }
-    else {
-        Inverse_Set_IfcRelFlowControlElements_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > & IfcDistributionControlElement::getAssignedToFlowElement() {
+    Step::BaseObject::inited();
+    return m_assignedToFlowElement;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelFlowControlElements_0_1 > &IfcDistributionControlElement::getAssignedToFlowElement() const {

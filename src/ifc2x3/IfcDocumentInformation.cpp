@@ -51,14 +51,12 @@ void Inverted_IfcDocumentInformation_DocumentReferences_type::setOwner(IfcDocume
 }
 
 void Inverted_IfcDocumentInformation_DocumentReferences_type::insert(const Step::RefPtr< IfcDocumentReference > &value) throw(std::out_of_range) {
-    IfcDocumentReference *inverse = const_cast< IfcDocumentReference * > (value.get());
     Set_IfcDocumentReference_1_n::insert(value);
-    inverse->m_referenceToDocument.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_referenceToDocument,Inverse_Set_IfcDocumentInformation_0_1, mOwner);
 }
 
 Inverted_IfcDocumentInformation_DocumentReferences_type::size_type Inverted_IfcDocumentInformation_DocumentReferences_type::erase(const Step::RefPtr< IfcDocumentReference > &value) {
-    IfcDocumentReference *inverse = const_cast< IfcDocumentReference * > (value.get());
-    inverse->m_referenceToDocument.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_referenceToDocument, mOwner);
     return Set_IfcDocumentReference_1_n::erase(value);
 }
 
@@ -554,14 +552,9 @@ bool IfcDocumentInformation::testStatus() const {
     return getStatus() != IfcDocumentStatusEnum_UNSET;
 }
 
-Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &IfcDocumentInformation::getIsPointedTo() {
-    if (Step::BaseObject::inited()) {
-        return m_isPointedTo;
-    }
-    else {
-        m_isPointedTo.setUnset(true);
-        return m_isPointedTo;
-    }
+Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > & IfcDocumentInformation::getIsPointedTo() {
+    Step::BaseObject::inited();
+    return m_isPointedTo;
 }
 
 const Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_n > &IfcDocumentInformation::getIsPointedTo() const {
@@ -573,14 +566,9 @@ bool IfcDocumentInformation::testIsPointedTo() const {
     return !Step::isUnset(getIsPointedTo());
 }
 
-Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &IfcDocumentInformation::getIsPointer() {
-    if (Step::BaseObject::inited()) {
-        return m_isPointer;
-    }
-    else {
-        m_isPointer.setUnset(true);
-        return m_isPointer;
-    }
+Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > & IfcDocumentInformation::getIsPointer() {
+    Step::BaseObject::inited();
+    return m_isPointer;
 }
 
 const Step::RefPtr< Inverse_Set_IfcDocumentInformationRelationship_0_1 > &IfcDocumentInformation::getIsPointer() const {
@@ -796,17 +784,19 @@ bool IfcDocumentInformation::init() {
     inverses = m_args->getInverses(IfcDocumentInformationRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_isPointedTo.setUnset(false);
+        m_isPointedTo = new Inverse_Set_IfcDocumentInformationRelationship_0_n;
+        m_isPointedTo->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isPointedTo.insert(static_cast< IfcDocumentInformationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isPointedTo->insert(static_cast< IfcDocumentInformationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcDocumentInformationRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_isPointer.setUnset(false);
+        m_isPointer = new Inverse_Set_IfcDocumentInformationRelationship_0_1;
+        m_isPointer->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isPointer.insert(static_cast< IfcDocumentInformationRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isPointer->insert(static_cast< IfcDocumentInformationRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

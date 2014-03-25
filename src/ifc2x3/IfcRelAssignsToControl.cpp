@@ -77,10 +77,10 @@ const IfcControl *IfcRelAssignsToControl::getRelatingControl() const {
 
 void IfcRelAssignsToControl::setRelatingControl(const Step::RefPtr< IfcControl > &value) {
     if (m_relatingControl.valid()) {
-        m_relatingControl->m_controls.erase(this);
+        m_relatingControl->getControls()->erase(this);
     }
     if (value.valid()) {
-        value->m_controls.insert(this);
+        value->getControls()->insert(this);
     }
     m_relatingControl = value;
 }

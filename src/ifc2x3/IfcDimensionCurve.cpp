@@ -40,8 +40,6 @@ IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args)
 }
 
 IfcDimensionCurve::~IfcDimensionCurve() {
-    if (m_annotatedBySymbols)
-        delete m_annotatedBySymbols;
 }
 
 bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -64,15 +62,9 @@ bool IfcDimensionCurve::isOfType(const Step::ClassType &t) const {
     return IfcDimensionCurve::s_type == t ? true : IfcAnnotationCurveOccurrence::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &IfcDimensionCurve::getAnnotatedBySymbols() {
-    if (Step::BaseObject::inited()) {
-        return *m_annotatedBySymbols;
-    }
-    else {
-        Inverse_Set_IfcTerminatorSymbol_0_2 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > & IfcDimensionCurve::getAnnotatedBySymbols() {
+    Step::BaseObject::inited();
+    return m_annotatedBySymbols;
 }
 
 const Step::RefPtr< Inverse_Set_IfcTerminatorSymbol_0_2 > &IfcDimensionCurve::getAnnotatedBySymbols() const {

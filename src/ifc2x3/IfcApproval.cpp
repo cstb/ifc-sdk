@@ -252,14 +252,9 @@ bool IfcApproval::testIdentifier() const {
     return !Step::isUnset(getIdentifier());
 }
 
-Step::RefPtr< Inverse_Set_IfcApprovalActorRelationship_0_n > &IfcApproval::getActors() {
-    if (Step::BaseObject::inited()) {
-        return m_actors;
-    }
-    else {
-        m_actors.setUnset(true);
-        return m_actors;
-    }
+Step::RefPtr< Inverse_Set_IfcApprovalActorRelationship_0_n > & IfcApproval::getActors() {
+    Step::BaseObject::inited();
+    return m_actors;
 }
 
 const Step::RefPtr< Inverse_Set_IfcApprovalActorRelationship_0_n > &IfcApproval::getActors() const {
@@ -271,14 +266,9 @@ bool IfcApproval::testActors() const {
     return !Step::isUnset(getActors());
 }
 
-Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getIsRelatedWith() {
-    if (Step::BaseObject::inited()) {
-        return m_isRelatedWith;
-    }
-    else {
-        m_isRelatedWith.setUnset(true);
-        return m_isRelatedWith;
-    }
+Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > & IfcApproval::getIsRelatedWith() {
+    Step::BaseObject::inited();
+    return m_isRelatedWith;
 }
 
 const Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getIsRelatedWith() const {
@@ -290,14 +280,9 @@ bool IfcApproval::testIsRelatedWith() const {
     return !Step::isUnset(getIsRelatedWith());
 }
 
-Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getRelates() {
-    if (Step::BaseObject::inited()) {
-        return m_relates;
-    }
-    else {
-        m_relates.setUnset(true);
-        return m_relates;
-    }
+Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > & IfcApproval::getRelates() {
+    Step::BaseObject::inited();
+    return m_relates;
 }
 
 const Step::RefPtr< Inverse_Set_IfcApprovalRelationship_0_n > &IfcApproval::getRelates() const {
@@ -376,25 +361,28 @@ bool IfcApproval::init() {
     inverses = m_args->getInverses(IfcApprovalActorRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_actors.setUnset(false);
+        m_actors = new Inverse_Set_IfcApprovalActorRelationship_0_n;
+        m_actors->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_actors.insert(static_cast< IfcApprovalActorRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_actors->insert(static_cast< IfcApprovalActorRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcApprovalRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_isRelatedWith.setUnset(false);
+        m_isRelatedWith = new Inverse_Set_IfcApprovalRelationship_0_n;
+        m_isRelatedWith->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isRelatedWith.insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_isRelatedWith->insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcApprovalRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_relates.setUnset(false);
+        m_relates = new Inverse_Set_IfcApprovalRelationship_0_n;
+        m_relates->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_relates.insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_relates->insert(static_cast< IfcApprovalRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

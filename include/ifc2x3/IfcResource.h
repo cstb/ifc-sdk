@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelAssignsToResource_0_n m_resourceOf;
+        Step::RefPtr<Inverse_Set_IfcRelAssignsToResource_0_n> m_resourceOf;
 
     };
 

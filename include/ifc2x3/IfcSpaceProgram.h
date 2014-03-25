@@ -279,10 +279,10 @@ namespace ifc2x3 {
         Step::Real m_standardRequiredArea;
         /**
          */
-        Inverse_Set_IfcRelInteractionRequirements_0_n m_hasInteractionReqsFrom;
+        Step::RefPtr<Inverse_Set_IfcRelInteractionRequirements_0_n> m_hasInteractionReqsFrom;
         /**
          */
-        Inverse_Set_IfcRelInteractionRequirements_0_n m_hasInteractionReqsTo;
+        Step::RefPtr<Inverse_Set_IfcRelInteractionRequirements_0_n> m_hasInteractionReqsTo;
 
     };
 

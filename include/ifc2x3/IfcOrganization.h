@@ -340,13 +340,13 @@ namespace ifc2x3 {
         Inverted_IfcOrganization_Addresses_type m_addresses;
         /**
          */
-        Inverse_Set_IfcOrganizationRelationship_0_n m_isRelatedBy;
+        Step::RefPtr<Inverse_Set_IfcOrganizationRelationship_0_n> m_isRelatedBy;
         /**
          */
-        Inverse_Set_IfcOrganizationRelationship_0_n m_relates;
+        Step::RefPtr<Inverse_Set_IfcOrganizationRelationship_0_n> m_relates;
         /**
          */
-        Inverse_Set_IfcPersonAndOrganization_0_n m_engages;
+        Step::RefPtr<Inverse_Set_IfcPersonAndOrganization_0_n> m_engages;
 
     };
 

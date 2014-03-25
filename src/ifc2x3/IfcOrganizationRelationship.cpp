@@ -46,12 +46,20 @@ void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::setOwner(If
 void Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::insert(const Step::RefPtr< IfcOrganization > &value) throw(std::out_of_range) {
     IfcOrganization *inverse = const_cast< IfcOrganization * > (value.get());
     Set_IfcOrganization_1_n::insert(value);
-    inverse->m_isRelatedBy.insert(mOwner);
+    if (!inverse->m_isRelatedBy.valid())
+    {
+        inverse->m_isRelatedBy = new Inverse_Set_IfcOrganizationRelationship_0_n;
+        inverse->m_isRelatedBy->setUnset(false);
+    }
+    inverse->m_isRelatedBy->insert(mOwner);
 }
 
 Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::size_type Inverted_IfcOrganizationRelationship_RelatedOrganizations_type::erase(const Step::RefPtr< IfcOrganization > &value) {
     IfcOrganization *inverse = const_cast< IfcOrganization * > (value.get());
-    inverse->m_isRelatedBy.erase(mOwner);
+    if (inverse->m_isRelatedBy.valid())
+    {
+        inverse->m_isRelatedBy->erase(mOwner);
+    }
     return Set_IfcOrganization_1_n::erase(value);
 }
 
@@ -158,12 +166,8 @@ const IfcOrganization *IfcOrganizationRelationship::getRelatingOrganization() co
 }
 
 void IfcOrganizationRelationship::setRelatingOrganization(const Step::RefPtr< IfcOrganization > &value) {
-    if (m_relatingOrganization.valid()) {
-        m_relatingOrganization->m_relates.erase(this);
-    }
-    if (value.valid()) {
-        value->m_relates.insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingOrganization, m_relates, this);
+    INSERT_INVERSE_VALUE(value, m_relates, Inverse_Set_IfcOrganizationRelationship_0_n, this);
     m_relatingOrganization = value;
 }
 

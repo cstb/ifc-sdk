@@ -42,10 +42,6 @@ IfcPropertySetDefinition::IfcPropertySetDefinition(Step::Id id, Step::SPFData *a
 }
 
 IfcPropertySetDefinition::~IfcPropertySetDefinition() {
-    if (m_propertyDefinitionOf)
-        delete m_propertyDefinitionOf;
-    if (m_definesType)
-        delete m_definesType;
 }
 
 bool IfcPropertySetDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -68,15 +64,9 @@ bool IfcPropertySetDefinition::isOfType(const Step::ClassType &t) const {
     return IfcPropertySetDefinition::s_type == t ? true : IfcPropertyDefinition::isOfType(t);
 }
 
-Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &IfcPropertySetDefinition::getPropertyDefinitionOf() {
-    if (Step::BaseObject::inited()) {
-        return *m_propertyDefinitionOf;
-    }
-    else {
-        Inverse_Set_IfcRelDefinesByProperties_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > & IfcPropertySetDefinition::getPropertyDefinitionOf() {
+    Step::BaseObject::inited();
+    return m_propertyDefinitionOf;
 }
 
 const Step::RefPtr< Inverse_Set_IfcRelDefinesByProperties_0_1 > &IfcPropertySetDefinition::getPropertyDefinitionOf() const {
@@ -88,15 +78,9 @@ bool IfcPropertySetDefinition::testPropertyDefinitionOf() const {
     return !Step::isUnset(getPropertyDefinitionOf());
 }
 
-Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &IfcPropertySetDefinition::getDefinesType() {
-    if (Step::BaseObject::inited()) {
-        return *m_definesType;
-    }
-    else {
-        Inverse_Set_IfcTypeObject_0_1 inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > & IfcPropertySetDefinition::getDefinesType() {
+    Step::BaseObject::inited();
+    return m_definesType;
 }
 
 const Step::RefPtr< Inverse_Set_IfcTypeObject_0_1 > &IfcPropertySetDefinition::getDefinesType() const {

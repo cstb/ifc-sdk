@@ -43,14 +43,12 @@ void Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::setOwner(IfcVirt
 }
 
 void Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::push_back(const Step::RefPtr< IfcGridAxis > &value) throw(std::out_of_range) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
     List_IfcGridAxis_2_2::push_back(value);
-    inverse->m_hasIntersections.insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_hasIntersections, Inverse_Set_IfcVirtualGridIntersection_0_n, mOwner);
 }
 
 Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::iterator Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::erase(const Step::RefPtr< IfcGridAxis > &value) {
-    IfcGridAxis *inverse = const_cast< IfcGridAxis * > (value.get());
-    inverse->m_hasIntersections.erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_hasIntersections, mOwner);
     return List_IfcGridAxis_2_2::erase(value);
 }
 

@@ -47,8 +47,6 @@ IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args)
 }
 
 IfcRepresentationMap::~IfcRepresentationMap() {
-    if (m_mapUsage)
-        delete m_mapUsage;
 }
 
 bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -129,15 +127,9 @@ bool IfcRepresentationMap::testMappedRepresentation() const {
     return !Step::isUnset(getMappedRepresentation());
 }
 
-Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &IfcRepresentationMap::getMapUsage() {
-    if (Step::BaseObject::inited()) {
-        return *m_mapUsage;
-    }
-    else {
-        Inverse_Set_IfcMappedItem_0_n inv;
-        inv.setUnset(true);
-        return inv;
-    }
+Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > & IfcRepresentationMap::getMapUsage() {
+    Step::BaseObject::inited();
+    return m_mapUsage;
 }
 
 const Step::RefPtr< Inverse_Set_IfcMappedItem_0_n > &IfcRepresentationMap::getMapUsage() const {
