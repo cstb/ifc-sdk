@@ -169,7 +169,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcRepresentation > m_mappedRepresentation;
         /**
          */
-        Inverse_Set_IfcMappedItem_0_n *m_mapUsage;
+        Step::RefPtr<Inverse_Set_IfcMappedItem_0_n > m_mapUsage;
 
     };
 

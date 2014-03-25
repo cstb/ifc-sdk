@@ -160,16 +160,16 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelAssigns_0_n *m_hasAssignments;
+        Step::RefPtr<Inverse_Set_IfcRelAssigns_0_n > m_hasAssignments;
         /**
          */
-        Inverse_Set_IfcRelDecomposes_0_n *m_isDecomposedBy;
+        Step::RefPtr<Inverse_Set_IfcRelDecomposes_0_n > m_isDecomposedBy;
         /**
          */
-        Inverse_Set_IfcRelDecomposes_0_1 *m_decomposes;
+        Step::RefPtr<Inverse_Set_IfcRelDecomposes_0_1 > m_decomposes;
         /**
          */
-        Inverse_Set_IfcRelAssociates_0_n *m_hasAssociations;
+        Step::RefPtr<Inverse_Set_IfcRelAssociates_0_n > m_hasAssociations;
 
     };
 

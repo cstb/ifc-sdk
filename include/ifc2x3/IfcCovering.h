@@ -155,10 +155,10 @@ namespace ifc2x3 {
         IfcCoveringTypeEnum m_predefinedType;
         /**
          */
-        Inverse_Set_IfcRelCoversSpaces_0_1 *m_coversSpaces;
+        Step::RefPtr<Inverse_Set_IfcRelCoversSpaces_0_1 > m_coversSpaces;
         /**
          */
-        Inverse_Set_IfcRelCoversBldgElements_0_1 *m_covers;
+        Step::RefPtr<Inverse_Set_IfcRelCoversBldgElements_0_1 > m_covers;
 
     };
 

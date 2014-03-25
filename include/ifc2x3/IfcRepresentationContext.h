@@ -167,7 +167,7 @@ namespace ifc2x3 {
         Step::String m_contextType;
         /**
          */
-        Inverse_Set_IfcRepresentation_0_n *m_representationsInContext;
+        Step::RefPtr<Inverse_Set_IfcRepresentation_0_n > m_representationsInContext;
 
     };
 

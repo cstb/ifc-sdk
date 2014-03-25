@@ -204,13 +204,13 @@ namespace ifc2x3 {
         IfcElementCompositionEnum m_compositionType;
         /**
          */
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n *m_referencesElements;
+        Step::RefPtr<Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > m_referencesElements;
         /**
          */
-        Inverse_Set_IfcRelServicesBuildings_0_n *m_servicedBySystems;
+        Step::RefPtr<Inverse_Set_IfcRelServicesBuildings_0_n > m_servicedBySystems;
         /**
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_n *m_containsElements;
+        Step::RefPtr<Inverse_Set_IfcRelContainedInSpatialStructure_0_n > m_containsElements;
 
     };
 

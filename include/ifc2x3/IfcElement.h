@@ -336,40 +336,40 @@ namespace ifc2x3 {
         Step::String m_tag;
         /**
          */
-        Inverse_Set_IfcRelConnectsStructuralElement_0_n *m_hasStructuralMember;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsStructuralElement_0_n > m_hasStructuralMember;
         /**
          */
-        Inverse_Set_IfcRelFillsElement_0_1 *m_fillsVoids;
+        Step::RefPtr<Inverse_Set_IfcRelFillsElement_0_1 > m_fillsVoids;
         /**
          */
-        Inverse_Set_IfcRelConnectsElements_0_n *m_connectedTo;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsElements_0_n > m_connectedTo;
         /**
          */
-        Inverse_Set_IfcRelCoversBldgElements_0_n *m_hasCoverings;
+        Step::RefPtr<Inverse_Set_IfcRelCoversBldgElements_0_n > m_hasCoverings;
         /**
          */
-        Inverse_Set_IfcRelProjectsElement_0_n *m_hasProjections;
+        Step::RefPtr<Inverse_Set_IfcRelProjectsElement_0_n > m_hasProjections;
         /**
          */
-        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n *m_referencedInStructures;
+        Step::RefPtr<Inverse_Set_IfcRelReferencedInSpatialStructure_0_n > m_referencedInStructures;
         /**
          */
-        Inverse_Set_IfcRelConnectsPortToElement_0_n *m_hasPorts;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsPortToElement_0_n > m_hasPorts;
         /**
          */
-        Inverse_Set_IfcRelVoidsElement_0_n *m_hasOpenings;
+        Step::RefPtr<Inverse_Set_IfcRelVoidsElement_0_n > m_hasOpenings;
         /**
          */
-        Inverse_Set_IfcRelConnectsWithRealizingElements_0_n *m_isConnectionRealization;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsWithRealizingElements_0_n > m_isConnectionRealization;
         /**
          */
-        Inverse_Set_IfcRelSpaceBoundary_0_n *m_providesBoundaries;
+        Step::RefPtr<Inverse_Set_IfcRelSpaceBoundary_0_n > m_providesBoundaries;
         /**
          */
-        Inverse_Set_IfcRelConnectsElements_0_n *m_connectedFrom;
+        Step::RefPtr<Inverse_Set_IfcRelConnectsElements_0_n > m_connectedFrom;
         /**
          */
-        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 *m_containedInStructure;
+        Step::RefPtr<Inverse_Set_IfcRelContainedInSpatialStructure_0_1 > m_containedInStructure;
 
     };
 

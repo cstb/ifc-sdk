@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcTerminatorSymbol_0_2 *m_annotatedBySymbols;
+        Step::RefPtr<Inverse_Set_IfcTerminatorSymbol_0_2 > m_annotatedBySymbols;
 
     };
 

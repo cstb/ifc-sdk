@@ -125,10 +125,10 @@ namespace ifc2x3 {
         /**
          * MM 2009/09/07 personnal change reported to Thomas Liebich for evalutation
          */
-        Inverse_Set_IfcProduct_1_n *m_shapeOfProduct;
+        Step::RefPtr<Inverse_Set_IfcProduct_1_n > m_shapeOfProduct;
         /**
          */
-        Inverse_Set_IfcShapeAspect_0_n *m_hasShapeAspects;
+        Step::RefPtr<Inverse_Set_IfcShapeAspect_0_n > m_hasShapeAspects;
 
     };
 

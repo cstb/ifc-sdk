@@ -137,7 +137,7 @@ namespace ifc2x3 {
         Step::String m_objectType;
         /**
          */
-        Inverse_Set_IfcRelDefines_0_n *m_isDefinedBy;
+        Step::RefPtr<Inverse_Set_IfcRelDefines_0_n > m_isDefinedBy;
 
     };
 

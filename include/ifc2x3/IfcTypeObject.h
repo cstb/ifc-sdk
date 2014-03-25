@@ -211,7 +211,7 @@ namespace ifc2x3 {
         Inverted_IfcTypeObject_HasPropertySets_type m_hasPropertySets;
         /**
          */
-        Inverse_Set_IfcRelDefinesByType_0_1 *m_objectTypeOf;
+        Step::RefPtr<Inverse_Set_IfcRelDefinesByType_0_1 > m_objectTypeOf;
 
     };
 

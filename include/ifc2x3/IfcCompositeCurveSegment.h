@@ -205,7 +205,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcCurve > m_parentCurve;
         /**
          */
-        Inverse_Set_IfcCompositeCurve_1_n *m_usingCurves;
+        Step::RefPtr<Inverse_Set_IfcCompositeCurve_1_n > m_usingCurves;
 
     };
 

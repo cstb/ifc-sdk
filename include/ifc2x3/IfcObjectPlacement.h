@@ -123,10 +123,10 @@ namespace ifc2x3 {
         /**
          * MM 2009/09/07 change to correct a bug that will be resolved in 2x4
          */
-        Inverse_Set_IfcProduct_1_n *m_placesObject;
+        Step::RefPtr<Inverse_Set_IfcProduct_1_n > m_placesObject;
         /**
          */
-        Inverse_Set_IfcLocalPlacement_0_n *m_referencedByPlacements;
+        Step::RefPtr<Inverse_Set_IfcLocalPlacement_0_n > m_referencedByPlacements;
 
     };
 
