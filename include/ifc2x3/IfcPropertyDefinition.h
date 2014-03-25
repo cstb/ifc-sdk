@@ -105,7 +105,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelAssociates_0_n m_hasAssociations;
+        Inverse_Set_IfcRelAssociates_0_n *m_hasAssociations;
 
     };
 

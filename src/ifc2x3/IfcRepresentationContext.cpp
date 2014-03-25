@@ -34,12 +34,17 @@
 
 using namespace ifc2x3;
 
-IfcRepresentationContext::IfcRepresentationContext(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcRepresentationContext::IfcRepresentationContext(Step::Id id, Step::SPFData *args)
+    : Step::BaseEntity(id, args),
+      m_representationsInContext(0)
+{
     m_contextIdentifier = Step::getUnset(m_contextIdentifier);
     m_contextType = Step::getUnset(m_contextType);
 }
 
 IfcRepresentationContext::~IfcRepresentationContext() {
+    if (m_representationsInContext)
+        delete m_representationsInContext;
 }
 
 bool IfcRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -116,11 +121,12 @@ bool IfcRepresentationContext::testContextType() const {
 
 Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresentationsInContext() {
     if (Step::BaseObject::inited()) {
-        return m_representationsInContext;
+        return *m_representationsInContext;
     }
     else {
-        m_representationsInContext.setUnset(true);
-        return m_representationsInContext;
+        Inverse_Set_IfcRepresentation_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -153,9 +159,10 @@ bool IfcRepresentationContext::init() {
     inverses = m_args->getInverses(IfcRepresentation::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_representationsInContext.setUnset(false);
+        m_representationsInContext = new Inverse_Set_IfcRepresentation_0_n;
+        m_representationsInContext->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_representationsInContext.insert(static_cast< IfcRepresentation * > (m_expressDataSet->get((*inverses)[i])));
+            m_representationsInContext->insert(static_cast< IfcRepresentation * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

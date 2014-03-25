@@ -34,11 +34,16 @@
 
 using namespace ifc2x3;
 
-IfcObject::IfcObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
+IfcObject::IfcObject(Step::Id id, Step::SPFData *args)
+    : IfcObjectDefinition(id, args),
+      m_isDefinedBy(0)
+{
     m_objectType = Step::getUnset(m_objectType);
 }
 
 IfcObject::~IfcObject() {
+    if (m_isDefinedBy)
+        delete m_isDefinedBy;
 }
 
 bool IfcObject::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -89,11 +94,12 @@ bool IfcObject::testObjectType() const {
 
 Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() {
     if (Step::BaseObject::inited()) {
-        return m_isDefinedBy;
+        return *m_isDefinedBy;
     }
     else {
-        m_isDefinedBy.setUnset(true);
-        return m_isDefinedBy;
+        Inverse_Set_IfcRelDefines_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -123,9 +129,10 @@ bool IfcObject::init() {
     inverses = m_args->getInverses(IfcRelDefines::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_isDefinedBy.setUnset(false);
+        m_isDefinedBy = new Inverse_Set_IfcRelDefines_0_n;
+        m_isDefinedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isDefinedBy.insert(static_cast< IfcRelDefines * > (m_expressDataSet->get((*inverses)[i])));
+            m_isDefinedBy->insert(static_cast< IfcRelDefines * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

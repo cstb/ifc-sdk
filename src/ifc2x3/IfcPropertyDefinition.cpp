@@ -33,10 +33,15 @@
 
 using namespace ifc2x3;
 
-IfcPropertyDefinition::IfcPropertyDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
+IfcPropertyDefinition::IfcPropertyDefinition(Step::Id id, Step::SPFData *args)
+    : IfcRoot(id, args),
+      m_hasAssociations(0)
+{
 }
 
 IfcPropertyDefinition::~IfcPropertyDefinition() {
+    if( m_hasAssociations)
+        delete m_hasAssociations;
 }
 
 bool IfcPropertyDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -61,11 +66,12 @@ bool IfcPropertyDefinition::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociations() {
     if (Step::BaseObject::inited()) {
-        return m_hasAssociations;
+        return *m_hasAssociations;
     }
     else {
-        m_hasAssociations.setUnset(true);
-        return m_hasAssociations;
+        Inverse_Set_IfcRelAssociates_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -88,9 +94,10 @@ bool IfcPropertyDefinition::init() {
     inverses = m_args->getInverses(IfcRelAssociates::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasAssociations.setUnset(false);
+        m_hasAssociations = new Inverse_Set_IfcRelAssociates_0_n;
+        m_hasAssociations->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasAssociations->insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

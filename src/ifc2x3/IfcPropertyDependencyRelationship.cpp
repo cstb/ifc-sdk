@@ -82,10 +82,10 @@ const IfcProperty *IfcPropertyDependencyRelationship::getDependingProperty() con
 
 void IfcPropertyDependencyRelationship::setDependingProperty(const Step::RefPtr< IfcProperty > &value) {
     if (m_dependingProperty.valid()) {
-        m_dependingProperty->m_propertyForDependance.erase(this);
+        m_dependingProperty->m_propertyForDependance->erase(this);
     }
     if (value.valid()) {
-        value->m_propertyForDependance.insert(this);
+        value->m_propertyForDependance->insert(this);
     }
     m_dependingProperty = value;
 }
@@ -114,10 +114,10 @@ const IfcProperty *IfcPropertyDependencyRelationship::getDependantProperty() con
 
 void IfcPropertyDependencyRelationship::setDependantProperty(const Step::RefPtr< IfcProperty > &value) {
     if (m_dependantProperty.valid()) {
-        m_dependantProperty->m_propertyDependsOn.erase(this);
+        m_dependantProperty->m_propertyDependsOn->erase(this);
     }
     if (value.valid()) {
-        value->m_propertyDependsOn.insert(this);
+        value->m_propertyDependsOn->insert(this);
     }
     m_dependantProperty = value;
 }

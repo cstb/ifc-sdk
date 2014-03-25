@@ -36,13 +36,18 @@
 
 using namespace ifc2x3;
 
-IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *args) : IfcGeometricRepresentationItem(id, args) {
+IfcCompositeCurveSegment::IfcCompositeCurveSegment(Step::Id id, Step::SPFData *args)
+    : IfcGeometricRepresentationItem(id, args),
+      m_usingCurves(0)
+{
     m_transition = IfcTransitionCode_UNSET;
     m_sameSense = Step::getUnset(m_sameSense);
     m_parentCurve = NULL;
 }
 
 IfcCompositeCurveSegment::~IfcCompositeCurveSegment() {
+    if (m_usingCurves)
+        delete m_usingCurves;
 }
 
 bool IfcCompositeCurveSegment::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -145,11 +150,12 @@ bool IfcCompositeCurveSegment::testParentCurve() const {
 
 Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurves() {
     if (Step::BaseObject::inited()) {
-        return m_usingCurves;
+        return *m_usingCurves;
     }
     else {
-        m_usingCurves.setUnset(true);
-        return m_usingCurves;
+        Inverse_Set_IfcCompositeCurve_1_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -204,9 +210,10 @@ bool IfcCompositeCurveSegment::init() {
     inverses = m_args->getInverses(IfcCompositeCurve::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_usingCurves.setUnset(false);
+        m_usingCurves = new Inverse_Set_IfcCompositeCurve_1_n;
+        m_usingCurves->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_usingCurves.insert(static_cast< IfcCompositeCurve * > (m_expressDataSet->get((*inverses)[i])));
+            m_usingCurves->insert(static_cast< IfcCompositeCurve * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

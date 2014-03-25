@@ -106,10 +106,10 @@ const IfcElement *IfcRelConnectsElements::getRelatingElement() const {
 
 void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatingElement.valid()) {
-        m_relatingElement->m_connectedTo.erase(this);
+        m_relatingElement->m_connectedTo->erase(this);
     }
     if (value.valid()) {
-        value->m_connectedTo.insert(this);
+        value->m_connectedTo->insert(this);
     }
     m_relatingElement = value;
 }
@@ -138,10 +138,10 @@ const IfcElement *IfcRelConnectsElements::getRelatedElement() const {
 
 void IfcRelConnectsElements::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatedElement.valid()) {
-        m_relatedElement->m_connectedFrom.erase(this);
+        m_relatedElement->m_connectedFrom->erase(this);
     }
     if (value.valid()) {
-        value->m_connectedFrom.insert(this);
+        value->m_connectedFrom->insert(this);
     }
     m_relatedElement = value;
 }

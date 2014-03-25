@@ -45,12 +45,12 @@ void Inverted_IfcRelAssigns_RelatedObjects_type::setOwner(IfcRelAssigns *owner) 
 void Inverted_IfcRelAssigns_RelatedObjects_type::insert(const Step::RefPtr< IfcObjectDefinition > &value) throw(std::out_of_range) {
     IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
     Set_IfcObjectDefinition_1_n::insert(value);
-    inverse->m_hasAssignments.insert(mOwner);
+    inverse->m_hasAssignments->insert(mOwner);
 }
 
 Inverted_IfcRelAssigns_RelatedObjects_type::size_type Inverted_IfcRelAssigns_RelatedObjects_type::erase(const Step::RefPtr< IfcObjectDefinition > &value) {
     IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
-    inverse->m_hasAssignments.erase(mOwner);
+    inverse->m_hasAssignments->erase(mOwner);
     return Set_IfcObjectDefinition_1_n::erase(value);
 }
 

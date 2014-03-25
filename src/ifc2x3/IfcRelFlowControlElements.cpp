@@ -46,12 +46,12 @@ void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::setOwner(If
 void Inverted_IfcRelFlowControlElements_RelatedControlElements_type::insert(const Step::RefPtr< IfcDistributionControlElement > &value) throw(std::out_of_range) {
     IfcDistributionControlElement *inverse = const_cast< IfcDistributionControlElement * > (value.get());
     Set_IfcDistributionControlElement_1_n::insert(value);
-    inverse->m_assignedToFlowElement.insert(mOwner);
+    inverse->m_assignedToFlowElement->insert(mOwner);
 }
 
 Inverted_IfcRelFlowControlElements_RelatedControlElements_type::size_type Inverted_IfcRelFlowControlElements_RelatedControlElements_type::erase(const Step::RefPtr< IfcDistributionControlElement > &value) {
     IfcDistributionControlElement *inverse = const_cast< IfcDistributionControlElement * > (value.get());
-    inverse->m_assignedToFlowElement.erase(mOwner);
+    inverse->m_assignedToFlowElement->erase(mOwner);
     return Set_IfcDistributionControlElement_1_n::erase(value);
 }
 
@@ -129,10 +129,10 @@ const IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElem
 
 void IfcRelFlowControlElements::setRelatingFlowElement(const Step::RefPtr< IfcDistributionFlowElement > &value) {
     if (m_relatingFlowElement.valid()) {
-        m_relatingFlowElement->m_hasControlElements.erase(this);
+        m_relatingFlowElement->m_hasControlElements->erase(this);
     }
     if (value.valid()) {
-        value->m_hasControlElements.insert(this);
+        value->m_hasControlElements->insert(this);
     }
     m_relatingFlowElement = value;
 }

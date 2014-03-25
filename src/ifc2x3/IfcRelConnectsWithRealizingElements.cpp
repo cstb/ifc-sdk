@@ -46,12 +46,12 @@ void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::setOwn
 void Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::insert(const Step::RefPtr< IfcElement > &value) throw(std::out_of_range) {
     IfcElement *inverse = const_cast< IfcElement * > (value.get());
     Set_IfcElement_1_n::insert(value);
-    inverse->m_isConnectionRealization.insert(mOwner);
+    inverse->m_isConnectionRealization->insert(mOwner);
 }
 
 Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::size_type Inverted_IfcRelConnectsWithRealizingElements_RealizingElements_type::erase(const Step::RefPtr< IfcElement > &value) {
     IfcElement *inverse = const_cast< IfcElement * > (value.get());
-    inverse->m_isConnectionRealization.erase(mOwner);
+    inverse->m_isConnectionRealization->erase(mOwner);
     return Set_IfcElement_1_n::erase(value);
 }
 

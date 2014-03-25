@@ -79,10 +79,10 @@ const IfcElement *IfcRelConnectsStructuralElement::getRelatingElement() const {
 
 void IfcRelConnectsStructuralElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatingElement.valid()) {
-        m_relatingElement->m_hasStructuralMember.erase(this);
+        m_relatingElement->m_hasStructuralMember->erase(this);
     }
     if (value.valid()) {
-        value->m_hasStructuralMember.insert(this);
+        value->m_hasStructuralMember->insert(this);
     }
     m_relatingElement = value;
 }

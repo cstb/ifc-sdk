@@ -40,13 +40,24 @@
 
 using namespace ifc2x3;
 
-IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcRepresentation::IfcRepresentation(Step::Id id, Step::SPFData *args)
+    : Step::BaseEntity(id, args),
+      m_representationMap(0),
+      m_layerAssignments(0),
+      m_ofProductRepresentation(0)
+{
     m_contextOfItems = NULL;
     m_representationIdentifier = Step::getUnset(m_representationIdentifier);
     m_representationType = Step::getUnset(m_representationType);
 }
 
 IfcRepresentation::~IfcRepresentation() {
+    if (m_representationMap)
+        delete m_representationMap;
+    if (m_layerAssignments)
+        delete m_layerAssignments;
+    if (m_ofProductRepresentation)
+        delete m_ofProductRepresentation;
 }
 
 bool IfcRepresentation::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -85,10 +96,10 @@ const IfcRepresentationContext *IfcRepresentation::getContextOfItems() const {
 
 void IfcRepresentation::setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value) {
     if (m_contextOfItems.valid()) {
-        m_contextOfItems->m_representationsInContext.erase(this);
+        m_contextOfItems->m_representationsInContext->erase(this);
     }
     if (value.valid()) {
-        value->m_representationsInContext.insert(this);
+        value->m_representationsInContext->insert(this);
     }
     m_contextOfItems = value;
 }
@@ -183,11 +194,12 @@ bool IfcRepresentation::testItems() const {
 
 Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() {
     if (Step::BaseObject::inited()) {
-        return m_representationMap;
+        return *m_representationMap;
     }
     else {
-        m_representationMap.setUnset(true);
-        return m_representationMap;
+        Inverse_Set_IfcRepresentationMap_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -202,11 +214,12 @@ bool IfcRepresentation::testRepresentationMap() const {
 
 Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() {
     if (Step::BaseObject::inited()) {
-        return m_layerAssignments;
+        return *m_layerAssignments;
     }
     else {
-        m_layerAssignments.setUnset(true);
-        return m_layerAssignments;
+        Inverse_Set_IfcPresentationLayerAssignment_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -221,11 +234,12 @@ bool IfcRepresentation::testLayerAssignments() const {
 
 Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() {
     if (Step::BaseObject::inited()) {
-        return m_ofProductRepresentation;
+        return *m_ofProductRepresentation;
     }
     else {
-        m_ofProductRepresentation.setUnset(true);
-        return m_ofProductRepresentation;
+        Inverse_Set_IfcProductRepresentation_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -284,25 +298,28 @@ bool IfcRepresentation::init() {
     inverses = m_args->getInverses(IfcRepresentationMap::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_representationMap.setUnset(false);
+        m_representationMap = new Inverse_Set_IfcRepresentationMap_0_1;
+        m_representationMap->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_representationMap.insert(static_cast< IfcRepresentationMap * > (m_expressDataSet->get((*inverses)[i])));
+            m_representationMap->insert(static_cast< IfcRepresentationMap * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_layerAssignments.setUnset(false);
+        m_layerAssignments = new Inverse_Set_IfcPresentationLayerAssignment_0_n;
+        m_layerAssignments->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_layerAssignments.insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
+            m_layerAssignments->insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcProductRepresentation::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_ofProductRepresentation.setUnset(false);
+        m_ofProductRepresentation = new Inverse_Set_IfcProductRepresentation_0_1;
+        m_ofProductRepresentation->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_ofProductRepresentation.insert(static_cast< IfcProductRepresentation * > (m_expressDataSet->get((*inverses)[i])));
+            m_ofProductRepresentation->insert(static_cast< IfcProductRepresentation * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

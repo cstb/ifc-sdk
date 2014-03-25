@@ -79,10 +79,10 @@ const IfcOpeningElement *IfcRelFillsElement::getRelatingOpeningElement() const {
 
 void IfcRelFillsElement::setRelatingOpeningElement(const Step::RefPtr< IfcOpeningElement > &value) {
     if (m_relatingOpeningElement.valid()) {
-        m_relatingOpeningElement->m_hasFillings.erase(this);
+        m_relatingOpeningElement->m_hasFillings->erase(this);
     }
     if (value.valid()) {
-        value->m_hasFillings.insert(this);
+        value->m_hasFillings->insert(this);
     }
     m_relatingOpeningElement = value;
 }
@@ -111,10 +111,10 @@ const IfcElement *IfcRelFillsElement::getRelatedBuildingElement() const {
 
 void IfcRelFillsElement::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatedBuildingElement.valid()) {
-        m_relatedBuildingElement->m_fillsVoids.erase(this);
+        m_relatedBuildingElement->m_fillsVoids->erase(this);
     }
     if (value.valid()) {
-        value->m_fillsVoids.insert(this);
+        value->m_fillsVoids->insert(this);
     }
     m_relatedBuildingElement = value;
 }

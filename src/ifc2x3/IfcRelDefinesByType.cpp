@@ -77,10 +77,10 @@ const IfcTypeObject *IfcRelDefinesByType::getRelatingType() const {
 
 void IfcRelDefinesByType::setRelatingType(const Step::RefPtr< IfcTypeObject > &value) {
     if (m_relatingType.valid()) {
-        m_relatingType->m_objectTypeOf.erase(this);
+        m_relatingType->m_objectTypeOf->erase(this);
     }
     if (value.valid()) {
-        value->m_objectTypeOf.insert(this);
+        value->m_objectTypeOf->insert(this);
     }
     m_relatingType = value;
 }

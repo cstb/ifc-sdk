@@ -34,10 +34,18 @@
 
 using namespace ifc2x3;
 
-IfcProductDefinitionShape::IfcProductDefinitionShape(Step::Id id, Step::SPFData *args) : IfcProductRepresentation(id, args) {
+IfcProductDefinitionShape::IfcProductDefinitionShape(Step::Id id, Step::SPFData *args)
+    : IfcProductRepresentation(id, args),
+      m_shapeOfProduct(0),
+      m_hasShapeAspects(0)
+{
 }
 
 IfcProductDefinitionShape::~IfcProductDefinitionShape() {
+    if (m_shapeOfProduct)
+        delete m_shapeOfProduct;
+    if (m_hasShapeAspects)
+        delete m_hasShapeAspects;
 }
 
 bool IfcProductDefinitionShape::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -62,11 +70,12 @@ bool IfcProductDefinitionShape::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct() {
     if (Step::BaseObject::inited()) {
-        return m_shapeOfProduct;
+        return *m_shapeOfProduct;
     }
     else {
-        m_shapeOfProduct.setUnset(true);
-        return m_shapeOfProduct;
+        Inverse_Set_IfcProduct_1_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -81,11 +90,12 @@ bool IfcProductDefinitionShape::testShapeOfProduct() const {
 
 Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() {
     if (Step::BaseObject::inited()) {
-        return m_hasShapeAspects;
+        return *m_hasShapeAspects;
     }
     else {
-        m_hasShapeAspects.setUnset(true);
-        return m_hasShapeAspects;
+        Inverse_Set_IfcShapeAspect_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -108,17 +118,19 @@ bool IfcProductDefinitionShape::init() {
     inverses = m_args->getInverses(IfcProduct::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_shapeOfProduct.setUnset(false);
+        m_shapeOfProduct = new Inverse_Set_IfcProduct_1_n;
+        m_shapeOfProduct->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_shapeOfProduct.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
+            m_shapeOfProduct->insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcShapeAspect::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasShapeAspects.setUnset(false);
+        m_hasShapeAspects = new Inverse_Set_IfcShapeAspect_0_n;
+        m_hasShapeAspects->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasShapeAspects.insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasShapeAspects->insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

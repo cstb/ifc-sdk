@@ -269,13 +269,13 @@ namespace ifc2x3 {
         Set_IfcRepresentationItem_1_n m_items;
         /**
          */
-        Inverse_Set_IfcRepresentationMap_0_1 m_representationMap;
+        Inverse_Set_IfcRepresentationMap_0_1 *m_representationMap;
         /**
          */
-        Inverse_Set_IfcPresentationLayerAssignment_0_n m_layerAssignments;
+        Inverse_Set_IfcPresentationLayerAssignment_0_n *m_layerAssignments;
         /**
          */
-        Inverse_Set_IfcProductRepresentation_0_1 m_ofProductRepresentation;
+        Inverse_Set_IfcProductRepresentation_0_1 *m_ofProductRepresentation;
 
     };
 

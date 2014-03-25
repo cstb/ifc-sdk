@@ -137,7 +137,7 @@ namespace ifc2x3 {
         Step::String m_controlElementId;
         /**
          */
-        Inverse_Set_IfcRelFlowControlElements_0_1 m_assignedToFlowElement;
+        Inverse_Set_IfcRelFlowControlElements_0_1 *m_assignedToFlowElement;
 
     };
 

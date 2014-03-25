@@ -35,10 +35,24 @@
 
 using namespace ifc2x3;
 
-IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args) : IfcRoot(id, args) {
+IfcObjectDefinition::IfcObjectDefinition(Step::Id id, Step::SPFData *args)
+    : IfcRoot(id, args),
+      m_hasAssignments(0),
+      m_isDecomposedBy(0),
+      m_decomposes(0),
+      m_hasAssociations(0)
+{
 }
 
 IfcObjectDefinition::~IfcObjectDefinition() {
+    if (m_hasAssignments)
+        delete m_hasAssignments;
+    if (m_isDecomposedBy)
+        delete m_isDecomposedBy;
+    if (m_decomposes)
+        delete m_decomposes;
+    if (m_hasAssociations)
+        delete m_hasAssociations;
 }
 
 bool IfcObjectDefinition::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -63,11 +77,12 @@ bool IfcObjectDefinition::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() {
     if (Step::BaseObject::inited()) {
-        return m_hasAssignments;
+        return *m_hasAssignments;
     }
     else {
-        m_hasAssignments.setUnset(true);
-        return m_hasAssignments;
+        Inverse_Set_IfcRelAssigns_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -82,11 +97,12 @@ bool IfcObjectDefinition::testHasAssignments() const {
 
 Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() {
     if (Step::BaseObject::inited()) {
-        return m_isDecomposedBy;
+        return *m_isDecomposedBy;
     }
     else {
-        m_isDecomposedBy.setUnset(true);
-        return m_isDecomposedBy;
+        Inverse_Set_IfcRelDecomposes_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -101,11 +117,12 @@ bool IfcObjectDefinition::testIsDecomposedBy() const {
 
 Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() {
     if (Step::BaseObject::inited()) {
-        return m_decomposes;
+        return *m_decomposes;
     }
     else {
-        m_decomposes.setUnset(true);
-        return m_decomposes;
+        Inverse_Set_IfcRelDecomposes_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -120,11 +137,12 @@ bool IfcObjectDefinition::testDecomposes() const {
 
 Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() {
     if (Step::BaseObject::inited()) {
-        return m_hasAssociations;
+        return *m_hasAssociations;
     }
     else {
-        m_hasAssociations.setUnset(true);
-        return m_hasAssociations;
+        Inverse_Set_IfcRelAssociates_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -147,33 +165,37 @@ bool IfcObjectDefinition::init() {
     inverses = m_args->getInverses(IfcRelAssigns::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasAssignments.setUnset(false);
+        m_hasAssignments = new Inverse_Set_IfcRelAssigns_0_n;
+        m_hasAssignments->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasAssignments.insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasAssignments->insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_isDecomposedBy.setUnset(false);
+        m_isDecomposedBy = new Inverse_Set_IfcRelDecomposes_0_n;
+        m_isDecomposedBy->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isDecomposedBy.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+            m_isDecomposedBy->insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_decomposes.setUnset(false);
+        m_decomposes = new Inverse_Set_IfcRelDecomposes_0_1;
+        m_decomposes->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_decomposes.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+            m_decomposes->insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelAssociates::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasAssociations.setUnset(false);
+        m_hasAssociations = new Inverse_Set_IfcRelAssociates_0_n;
+        m_hasAssociations->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasAssociations->insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

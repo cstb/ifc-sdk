@@ -34,11 +34,19 @@
 
 using namespace ifc2x3;
 
-IfcCovering::IfcCovering(Step::Id id, Step::SPFData *args) : IfcBuildingElement(id, args) {
+IfcCovering::IfcCovering(Step::Id id, Step::SPFData *args)
+    : IfcBuildingElement(id, args),
+      m_coversSpaces(0),
+      m_covers(0)
+{
     m_predefinedType = IfcCoveringTypeEnum_UNSET;
 }
 
 IfcCovering::~IfcCovering() {
+    if (m_coversSpaces)
+        delete m_coversSpaces;
+    if (m_covers)
+        delete m_covers;
 }
 
 bool IfcCovering::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -89,11 +97,12 @@ bool IfcCovering::testPredefinedType() const {
 
 Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() {
     if (Step::BaseObject::inited()) {
-        return m_coversSpaces;
+        return *m_coversSpaces;
     }
     else {
-        m_coversSpaces.setUnset(true);
-        return m_coversSpaces;
+        Inverse_Set_IfcRelCoversSpaces_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -108,11 +117,12 @@ bool IfcCovering::testCoversSpaces() const {
 
 Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
     if (Step::BaseObject::inited()) {
-        return m_covers;
+        return *m_covers;
     }
     else {
-        m_covers.setUnset(true);
-        return m_covers;
+        Inverse_Set_IfcRelCoversBldgElements_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -171,17 +181,19 @@ bool IfcCovering::init() {
     inverses = m_args->getInverses(IfcRelCoversSpaces::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_coversSpaces.setUnset(false);
+        m_coversSpaces = new Inverse_Set_IfcRelCoversSpaces_0_1;
+        m_coversSpaces->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_coversSpaces.insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
+            m_coversSpaces->insert(static_cast< IfcRelCoversSpaces * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelCoversBldgElements::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_covers.setUnset(false);
+        m_covers = new Inverse_Set_IfcRelCoversBldgElements_0_1;
+        m_covers->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_covers.insert(static_cast< IfcRelCoversBldgElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_covers->insert(static_cast< IfcRelCoversBldgElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

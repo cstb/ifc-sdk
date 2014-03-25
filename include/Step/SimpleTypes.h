@@ -84,7 +84,7 @@ namespace Step {
      \short Base Class for Aggregations which need a flag 'unset'
      This flag is used to distinguish a parameter with an empty list from an unset parameter
      */
-    class Aggregate: public Referenced
+    class Aggregate /*: public Referenced*/
     {
 
     public:

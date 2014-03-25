@@ -37,9 +37,37 @@ protected:
     size_t _max;
 };
 
+#define SIZE(value)\
+{\
+size_t s = sizeof(value);\
+std::cout << "Size of "#value" is " << s << std::endl;\
+}
 
 int main(int argc, char **argv)
 {
+    SIZE(Step::ClassType);
+    SIZE(std::string);
+    SIZE(int);
+    SIZE(void *);
+    SIZE(Step::Aggregate);
+    SIZE(std::vector<double>);
+    SIZE(ifc2x3::List_IfcLengthMeasure_1_3);
+    SIZE(ifc2x3::IfcCartesianPoint);
+    SIZE(ifc2x3::IfcPoint);
+    SIZE(ifc2x3::IfcGeometricRepresentationItem);
+    SIZE(ifc2x3::IfcRepresentationItem);
+    SIZE(Step::BaseEntity);
+    SIZE(Step::BaseObject);
+    SIZE(Step::ClientDataHandler);
+    SIZE(Step::Referenced);
+
+    SIZE(ifc2x3::IfcFaceOuterBound);
+    SIZE(ifc2x3::IfcPropertySingleValue);
+    SIZE(ifc2x3::IfcShapeRepresentation);
+    SIZE(ifc2x3::IfcPolyLoop);
+    SIZE(ifc2x3::IfcRelConnectsPathElements);
+    SIZE(ifc2x3::Inverse_Set_IfcShapeAspect_0_1);
+
     std::cout << "Simple read/write example of Ifc2x3 SDK" << std::endl;
 
     if (argc < 2)

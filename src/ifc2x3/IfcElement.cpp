@@ -44,11 +44,50 @@
 
 using namespace ifc2x3;
 
-IfcElement::IfcElement(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
+IfcElement::IfcElement(Step::Id id, Step::SPFData *args)
+    : IfcProduct(id, args),
+      m_hasStructuralMember(0),
+      m_fillsVoids(0),
+      m_connectedTo(0),
+      m_hasCoverings(0),
+      m_hasProjections(0),
+      m_referencedInStructures(0),
+      m_hasPorts(0),
+      m_hasOpenings(0),
+      m_isConnectionRealization(0),
+      m_providesBoundaries(0),
+      m_connectedFrom(0),
+      m_containedInStructure(0)
+
+{
     m_tag = Step::getUnset(m_tag);
 }
 
 IfcElement::~IfcElement() {
+    if (m_hasStructuralMember)
+        delete m_hasStructuralMember;
+    if (m_fillsVoids)
+        delete m_fillsVoids;
+    if (m_connectedTo)
+        delete m_connectedTo;
+    if (m_hasCoverings)
+        delete m_hasCoverings;
+    if (m_hasProjections)
+        delete m_hasProjections;
+    if (m_referencedInStructures)
+        delete m_referencedInStructures;
+    if (m_hasPorts)
+        delete m_hasPorts;
+    if (m_hasOpenings)
+        delete m_hasOpenings;
+    if (m_isConnectionRealization)
+        delete m_isConnectionRealization;
+    if (m_providesBoundaries)
+        delete m_providesBoundaries;
+    if (m_connectedFrom)
+        delete m_connectedFrom;
+    if (m_containedInStructure)
+        delete m_containedInStructure;
 }
 
 bool IfcElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -99,11 +138,12 @@ bool IfcElement::testTag() const {
 
 Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcElement::getHasStructuralMember() {
     if (Step::BaseObject::inited()) {
-        return m_hasStructuralMember;
+        return *m_hasStructuralMember;
     }
     else {
-        m_hasStructuralMember.setUnset(true);
-        return m_hasStructuralMember;
+        Inverse_Set_IfcRelConnectsStructuralElement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -118,11 +158,12 @@ bool IfcElement::testHasStructuralMember() const {
 
 Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() {
     if (Step::BaseObject::inited()) {
-        return m_fillsVoids;
+        return *m_fillsVoids;
     }
     else {
-        m_fillsVoids.setUnset(true);
-        return m_fillsVoids;
+        Inverse_Set_IfcRelFillsElement_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -137,11 +178,12 @@ bool IfcElement::testFillsVoids() const {
 
 Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() {
     if (Step::BaseObject::inited()) {
-        return m_connectedTo;
+        return *m_connectedTo;
     }
     else {
-        m_connectedTo.setUnset(true);
-        return m_connectedTo;
+        Inverse_Set_IfcRelConnectsElements_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -156,11 +198,12 @@ bool IfcElement::testConnectedTo() const {
 
 Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() {
     if (Step::BaseObject::inited()) {
-        return m_hasCoverings;
+        return *m_hasCoverings;
     }
     else {
-        m_hasCoverings.setUnset(true);
-        return m_hasCoverings;
+        Inverse_Set_IfcRelCoversBldgElements_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -175,11 +218,12 @@ bool IfcElement::testHasCoverings() const {
 
 Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() {
     if (Step::BaseObject::inited()) {
-        return m_hasProjections;
+        return *m_hasProjections;
     }
     else {
-        m_hasProjections.setUnset(true);
-        return m_hasProjections;
+        Inverse_Set_IfcRelProjectsElement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -194,11 +238,12 @@ bool IfcElement::testHasProjections() const {
 
 Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferencedInStructures() {
     if (Step::BaseObject::inited()) {
-        return m_referencedInStructures;
+        return *m_referencedInStructures;
     }
     else {
-        m_referencedInStructures.setUnset(true);
-        return m_referencedInStructures;
+        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -213,11 +258,12 @@ bool IfcElement::testReferencedInStructures() const {
 
 Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() {
     if (Step::BaseObject::inited()) {
-        return m_hasPorts;
+        return *m_hasPorts;
     }
     else {
-        m_hasPorts.setUnset(true);
-        return m_hasPorts;
+        Inverse_Set_IfcRelConnectsPortToElement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -232,11 +278,12 @@ bool IfcElement::testHasPorts() const {
 
 Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() {
     if (Step::BaseObject::inited()) {
-        return m_hasOpenings;
+        return *m_hasOpenings;
     }
     else {
-        m_hasOpenings.setUnset(true);
-        return m_hasOpenings;
+        Inverse_Set_IfcRelVoidsElement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -251,11 +298,12 @@ bool IfcElement::testHasOpenings() const {
 
 Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConnectionRealization() {
     if (Step::BaseObject::inited()) {
-        return m_isConnectionRealization;
+        return *m_isConnectionRealization;
     }
     else {
-        m_isConnectionRealization.setUnset(true);
-        return m_isConnectionRealization;
+        Inverse_Set_IfcRelConnectsWithRealizingElements_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -270,11 +318,12 @@ bool IfcElement::testIsConnectionRealization() const {
 
 Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() {
     if (Step::BaseObject::inited()) {
-        return m_providesBoundaries;
+        return *m_providesBoundaries;
     }
     else {
-        m_providesBoundaries.setUnset(true);
-        return m_providesBoundaries;
+        Inverse_Set_IfcRelSpaceBoundary_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -289,11 +338,12 @@ bool IfcElement::testProvidesBoundaries() const {
 
 Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() {
     if (Step::BaseObject::inited()) {
-        return m_connectedFrom;
+        return *m_connectedFrom;
     }
     else {
-        m_connectedFrom.setUnset(true);
-        return m_connectedFrom;
+        Inverse_Set_IfcRelConnectsElements_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -308,11 +358,12 @@ bool IfcElement::testConnectedFrom() const {
 
 Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContainedInStructure() {
     if (Step::BaseObject::inited()) {
-        return m_containedInStructure;
+        return *m_containedInStructure;
     }
     else {
-        m_containedInStructure.setUnset(true);
-        return m_containedInStructure;
+        Inverse_Set_IfcRelContainedInSpatialStructure_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -342,97 +393,109 @@ bool IfcElement::init() {
     inverses = m_args->getInverses(IfcRelConnectsStructuralElement::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasStructuralMember.setUnset(false);
+        m_hasStructuralMember = new Inverse_Set_IfcRelConnectsStructuralElement_0_n;
+        m_hasStructuralMember->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasStructuralMember.insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasStructuralMember->insert(static_cast< IfcRelConnectsStructuralElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelFillsElement::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_fillsVoids.setUnset(false);
+        m_fillsVoids = new Inverse_Set_IfcRelFillsElement_0_1;
+        m_fillsVoids->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_fillsVoids.insert(static_cast< IfcRelFillsElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_fillsVoids->insert(static_cast< IfcRelFillsElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsElements::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_connectedTo.setUnset(false);
+        m_connectedTo = new Inverse_Set_IfcRelConnectsElements_0_n;
+        m_connectedTo->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectedTo.insert(static_cast< IfcRelConnectsElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectedTo->insert(static_cast< IfcRelConnectsElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelCoversBldgElements::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasCoverings.setUnset(false);
+        m_hasCoverings = new Inverse_Set_IfcRelCoversBldgElements_0_n;
+        m_hasCoverings->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasCoverings.insert(static_cast< IfcRelCoversBldgElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasCoverings->insert(static_cast< IfcRelCoversBldgElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelProjectsElement::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasProjections.setUnset(false);
+        m_hasProjections = new Inverse_Set_IfcRelProjectsElement_0_n;
+        m_hasProjections->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasProjections.insert(static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasProjections->insert(static_cast< IfcRelProjectsElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelReferencedInSpatialStructure::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_referencedInStructures.setUnset(false);
+        m_referencedInStructures = new Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
+        m_referencedInStructures->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referencedInStructures.insert(static_cast< IfcRelReferencedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_referencedInStructures->insert(static_cast< IfcRelReferencedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsPortToElement::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_hasPorts.setUnset(false);
+        m_hasPorts = new Inverse_Set_IfcRelConnectsPortToElement_0_n;
+        m_hasPorts->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasPorts.insert(static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasPorts->insert(static_cast< IfcRelConnectsPortToElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelVoidsElement::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasOpenings.setUnset(false);
+        m_hasOpenings = new Inverse_Set_IfcRelVoidsElement_0_n;
+        m_hasOpenings->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasOpenings.insert(static_cast< IfcRelVoidsElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasOpenings->insert(static_cast< IfcRelVoidsElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsWithRealizingElements::getClassType(), 7);
     if (inverses) {
         unsigned int i;
-        m_isConnectionRealization.setUnset(false);
+        m_isConnectionRealization = new Inverse_Set_IfcRelConnectsWithRealizingElements_0_n;
+        m_isConnectionRealization->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_isConnectionRealization.insert(static_cast< IfcRelConnectsWithRealizingElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_isConnectionRealization->insert(static_cast< IfcRelConnectsWithRealizingElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelSpaceBoundary::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_providesBoundaries.setUnset(false);
+        m_providesBoundaries = new Inverse_Set_IfcRelSpaceBoundary_0_n;
+        m_providesBoundaries->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_providesBoundaries.insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
+            m_providesBoundaries->insert(static_cast< IfcRelSpaceBoundary * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelConnectsElements::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_connectedFrom.setUnset(false);
+        m_connectedFrom = new Inverse_Set_IfcRelConnectsElements_0_n;
+        m_connectedFrom->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_connectedFrom.insert(static_cast< IfcRelConnectsElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_connectedFrom->insert(static_cast< IfcRelConnectsElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelContainedInSpatialStructure::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_containedInStructure.setUnset(false);
+        m_containedInStructure = new Inverse_Set_IfcRelContainedInSpatialStructure_0_1;
+        m_containedInStructure->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_containedInStructure.insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_containedInStructure->insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

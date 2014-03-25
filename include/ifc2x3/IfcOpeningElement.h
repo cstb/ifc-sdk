@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelFillsElement_0_n m_hasFillings;
+        Inverse_Set_IfcRelFillsElement_0_n *m_hasFillings;
 
     };
 

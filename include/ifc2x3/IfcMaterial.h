@@ -154,10 +154,10 @@ namespace ifc2x3 {
         Step::String m_name;
         /**
          */
-        Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 m_hasRepresentation;
+        Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 *m_hasRepresentation;
         /**
          */
-        Inverse_Set_IfcMaterialClassificationRelationship_0_1 m_classifiedAs;
+        Inverse_Set_IfcMaterialClassificationRelationship_0_1 *m_classifiedAs;
 
     };
 

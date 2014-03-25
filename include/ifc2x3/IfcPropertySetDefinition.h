@@ -123,10 +123,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelDefinesByProperties_0_1 m_propertyDefinitionOf;
+        Inverse_Set_IfcRelDefinesByProperties_0_1 *m_propertyDefinitionOf;
         /**
          */
-        Inverse_Set_IfcTypeObject_0_1 m_definesType;
+        Inverse_Set_IfcTypeObject_0_1 *m_definesType;
 
     };
 

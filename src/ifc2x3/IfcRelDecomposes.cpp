@@ -45,12 +45,12 @@ void Inverted_IfcRelDecomposes_RelatedObjects_type::setOwner(IfcRelDecomposes *o
 void Inverted_IfcRelDecomposes_RelatedObjects_type::insert(const Step::RefPtr< IfcObjectDefinition > &value) throw(std::out_of_range) {
     IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
     Set_IfcObjectDefinition_1_n::insert(value);
-    inverse->m_decomposes.insert(mOwner);
+    inverse->m_decomposes->insert(mOwner);
 }
 
 Inverted_IfcRelDecomposes_RelatedObjects_type::size_type Inverted_IfcRelDecomposes_RelatedObjects_type::erase(const Step::RefPtr< IfcObjectDefinition > &value) {
     IfcObjectDefinition *inverse = const_cast< IfcObjectDefinition * > (value.get());
-    inverse->m_decomposes.erase(mOwner);
+    inverse->m_decomposes->erase(mOwner);
     return Set_IfcObjectDefinition_1_n::erase(value);
 }
 
@@ -104,10 +104,10 @@ const IfcObjectDefinition *IfcRelDecomposes::getRelatingObject() const {
 
 void IfcRelDecomposes::setRelatingObject(const Step::RefPtr< IfcObjectDefinition > &value) {
     if (m_relatingObject.valid()) {
-        m_relatingObject->m_isDecomposedBy.erase(this);
+        m_relatingObject->m_isDecomposedBy->erase(this);
     }
     if (value.valid()) {
-        value->m_isDecomposedBy.insert(this);
+        value->m_isDecomposedBy->insert(this);
     }
     m_relatingObject = value;
 }

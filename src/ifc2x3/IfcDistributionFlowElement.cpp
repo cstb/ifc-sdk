@@ -33,10 +33,15 @@
 
 using namespace ifc2x3;
 
-IfcDistributionFlowElement::IfcDistributionFlowElement(Step::Id id, Step::SPFData *args) : IfcDistributionElement(id, args) {
+IfcDistributionFlowElement::IfcDistributionFlowElement(Step::Id id, Step::SPFData *args)
+    : IfcDistributionElement(id, args),
+      m_hasControlElements(0)
+{
 }
 
 IfcDistributionFlowElement::~IfcDistributionFlowElement() {
+    if (m_hasControlElements)
+        delete m_hasControlElements;
 }
 
 bool IfcDistributionFlowElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -61,11 +66,12 @@ bool IfcDistributionFlowElement::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::getHasControlElements() {
     if (Step::BaseObject::inited()) {
-        return m_hasControlElements;
+        return *m_hasControlElements;
     }
     else {
-        m_hasControlElements.setUnset(true);
-        return m_hasControlElements;
+        Inverse_Set_IfcRelFlowControlElements_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -88,9 +94,10 @@ bool IfcDistributionFlowElement::init() {
     inverses = m_args->getInverses(IfcRelFlowControlElements::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_hasControlElements.setUnset(false);
+        m_hasControlElements =  new Inverse_Set_IfcRelFlowControlElements_0_1;
+        m_hasControlElements->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasControlElements.insert(static_cast< IfcRelFlowControlElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasControlElements->insert(static_cast< IfcRelFlowControlElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

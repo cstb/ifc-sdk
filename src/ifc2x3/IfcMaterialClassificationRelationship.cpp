@@ -107,10 +107,10 @@ const IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial(
 
 void IfcMaterialClassificationRelationship::setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value) {
     if (m_classifiedMaterial.valid()) {
-        m_classifiedMaterial->m_classifiedAs.erase(this);
+        m_classifiedMaterial->m_classifiedAs->erase(this);
     }
     if (value.valid()) {
-        value->m_classifiedAs.insert(this);
+        value->m_classifiedAs->insert(this);
     }
     m_classifiedMaterial = value;
 }

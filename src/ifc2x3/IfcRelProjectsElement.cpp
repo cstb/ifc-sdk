@@ -79,10 +79,10 @@ const IfcElement *IfcRelProjectsElement::getRelatingElement() const {
 
 void IfcRelProjectsElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatingElement.valid()) {
-        m_relatingElement->m_hasProjections.erase(this);
+        m_relatingElement->m_hasProjections->erase(this);
     }
     if (value.valid()) {
-        value->m_hasProjections.insert(this);
+        value->m_hasProjections->insert(this);
     }
     m_relatingElement = value;
 }

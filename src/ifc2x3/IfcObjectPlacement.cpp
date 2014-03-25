@@ -34,10 +34,18 @@
 
 using namespace ifc2x3;
 
-IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcObjectPlacement::IfcObjectPlacement(Step::Id id, Step::SPFData *args)
+    : Step::BaseEntity(id, args),
+      m_placesObject(0),
+      m_referencedByPlacements(0)
+{
 }
 
 IfcObjectPlacement::~IfcObjectPlacement() {
+    if (m_placesObject)
+        delete m_placesObject;
+    if (m_referencedByPlacements)
+        delete m_referencedByPlacements;
 }
 
 bool IfcObjectPlacement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -62,11 +70,12 @@ bool IfcObjectPlacement::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() {
     if (Step::BaseObject::inited()) {
-        return m_placesObject;
+        return *m_placesObject;
     }
     else {
-        m_placesObject.setUnset(true);
-        return m_placesObject;
+        Inverse_Set_IfcProduct_1_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -81,11 +90,12 @@ bool IfcObjectPlacement::testPlacesObject() const {
 
 Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
     if (Step::BaseObject::inited()) {
-        return m_referencedByPlacements;
+        return *m_referencedByPlacements;
     }
     else {
-        m_referencedByPlacements.setUnset(true);
-        return m_referencedByPlacements;
+        Inverse_Set_IfcLocalPlacement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -104,17 +114,19 @@ bool IfcObjectPlacement::init() {
     inverses = m_args->getInverses(IfcProduct::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_placesObject.setUnset(false);
+        m_placesObject = new Inverse_Set_IfcProduct_1_n;
+        m_placesObject->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_placesObject.insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
+            m_placesObject->insert(static_cast< IfcProduct * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcLocalPlacement::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_referencedByPlacements.setUnset(false);
+        m_referencedByPlacements = new Inverse_Set_IfcLocalPlacement_0_n;
+        m_referencedByPlacements->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referencedByPlacements.insert(static_cast< IfcLocalPlacement * > (m_expressDataSet->get((*inverses)[i])));
+            m_referencedByPlacements->insert(static_cast< IfcLocalPlacement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

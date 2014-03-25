@@ -111,10 +111,10 @@ const IfcElement *IfcRelConnectsPortToElement::getRelatedElement() const {
 
 void IfcRelConnectsPortToElement::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatedElement.valid()) {
-        m_relatedElement->m_hasPorts.erase(this);
+        m_relatedElement->m_hasPorts->erase(this);
     }
     if (value.valid()) {
-        value->m_hasPorts.insert(this);
+        value->m_hasPorts->insert(this);
     }
     m_relatedElement = value;
 }

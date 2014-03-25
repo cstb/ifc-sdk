@@ -38,7 +38,10 @@
 
 using namespace ifc2x3;
 
-IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args) : IfcRepresentationContext(id, args) {
+IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id, Step::SPFData *args)
+    : IfcRepresentationContext(id, args),
+      m_hasSubContexts(0)
+{
     m_coordinateSpaceDimension = Step::getUnset(m_coordinateSpaceDimension);
     m_precision = Step::getUnset(m_precision);
     m_worldCoordinateSystem = new IfcAxis2Placement;
@@ -46,6 +49,8 @@ IfcGeometricRepresentationContext::IfcGeometricRepresentationContext(Step::Id id
 }
 
 IfcGeometricRepresentationContext::~IfcGeometricRepresentationContext() {
+    if (m_hasSubContexts)
+        delete m_hasSubContexts;
 }
 
 bool IfcGeometricRepresentationContext::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -174,11 +179,12 @@ bool IfcGeometricRepresentationContext::testTrueNorth() const {
 
 Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresentationContext::getHasSubContexts() {
     if (Step::BaseObject::inited()) {
-        return m_hasSubContexts;
+        return *m_hasSubContexts;
     }
     else {
-        m_hasSubContexts.setUnset(true);
-        return m_hasSubContexts;
+        Inverse_Set_IfcGeometricRepresentationSubContext_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -241,9 +247,10 @@ bool IfcGeometricRepresentationContext::init() {
     inverses = m_args->getInverses(IfcGeometricRepresentationSubContext::getClassType(), 6);
     if (inverses) {
         unsigned int i;
-        m_hasSubContexts.setUnset(false);
+        m_hasSubContexts = new Inverse_Set_IfcGeometricRepresentationSubContext_0_n;
+        m_hasSubContexts->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasSubContexts.insert(static_cast< IfcGeometricRepresentationSubContext * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasSubContexts->insert(static_cast< IfcGeometricRepresentationSubContext * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

@@ -77,10 +77,10 @@ const IfcPropertySetDefinition *IfcRelDefinesByProperties::getRelatingPropertyDe
 
 void IfcRelDefinesByProperties::setRelatingPropertyDefinition(const Step::RefPtr< IfcPropertySetDefinition > &value) {
     if (m_relatingPropertyDefinition.valid()) {
-        m_relatingPropertyDefinition->m_propertyDefinitionOf.erase(this);
+        m_relatingPropertyDefinition->m_propertyDefinitionOf->erase(this);
     }
     if (value.valid()) {
-        value->m_propertyDefinitionOf.insert(this);
+        value->m_propertyDefinitionOf->insert(this);
     }
     m_relatingPropertyDefinition = value;
 }

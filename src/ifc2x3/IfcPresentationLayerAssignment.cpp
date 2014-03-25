@@ -51,11 +51,11 @@ void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::insert(const St
     Set_IfcLayeredItem_1_n::insert(value);
     if (inverse->getIfcRepresentation() != NULL) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
-        object->m_layerAssignments.insert(mOwner);
+        object->m_layerAssignments->insert(mOwner);
     }
     else if (inverse->getIfcRepresentationItem() != NULL) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
-        object->m_layerAssignments.insert(mOwner);
+        object->m_layerAssignments->insert(mOwner);
     }
 }
 
@@ -63,11 +63,11 @@ Inverted_IfcPresentationLayerAssignment_AssignedItems_type::size_type Inverted_I
     IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
     if (inverse->getIfcRepresentation() != NULL) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
-        object->m_layerAssignments.erase(mOwner);
+        object->m_layerAssignments->erase(mOwner);
     }
     else if (inverse->getIfcRepresentationItem() != NULL) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
-        object->m_layerAssignments.erase(mOwner);
+        object->m_layerAssignments->erase(mOwner);
     }
     return Set_IfcLayeredItem_1_n::erase(value);
 }

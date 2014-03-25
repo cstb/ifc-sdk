@@ -34,11 +34,16 @@
 
 using namespace ifc2x3;
 
-IfcDistributionControlElement::IfcDistributionControlElement(Step::Id id, Step::SPFData *args) : IfcDistributionElement(id, args) {
+IfcDistributionControlElement::IfcDistributionControlElement(Step::Id id, Step::SPFData *args)
+    : IfcDistributionElement(id, args),
+      m_assignedToFlowElement(0)
+{
     m_controlElementId = Step::getUnset(m_controlElementId);
 }
 
 IfcDistributionControlElement::~IfcDistributionControlElement() {
+    if (m_assignedToFlowElement)
+        delete m_assignedToFlowElement;
 }
 
 bool IfcDistributionControlElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -89,11 +94,12 @@ bool IfcDistributionControlElement::testControlElementId() const {
 
 Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::getAssignedToFlowElement() {
     if (Step::BaseObject::inited()) {
-        return m_assignedToFlowElement;
+        return *m_assignedToFlowElement;
     }
     else {
-        m_assignedToFlowElement.setUnset(true);
-        return m_assignedToFlowElement;
+        Inverse_Set_IfcRelFlowControlElements_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -123,9 +129,10 @@ bool IfcDistributionControlElement::init() {
     inverses = m_args->getInverses(IfcRelFlowControlElements::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_assignedToFlowElement.setUnset(false);
+        m_assignedToFlowElement = new Inverse_Set_IfcRelFlowControlElements_0_1;
+        m_assignedToFlowElement->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_assignedToFlowElement.insert(static_cast< IfcRelFlowControlElements * > (m_expressDataSet->get((*inverses)[i])));
+            m_assignedToFlowElement->insert(static_cast< IfcRelFlowControlElements * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

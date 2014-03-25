@@ -79,10 +79,10 @@ const IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() const {
 
 void IfcRelVoidsElement::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatingBuildingElement.valid()) {
-        m_relatingBuildingElement->m_hasOpenings.erase(this);
+        m_relatingBuildingElement->m_hasOpenings->erase(this);
     }
     if (value.valid()) {
-        value->m_hasOpenings.insert(this);
+        value->m_hasOpenings->insert(this);
     }
     m_relatingBuildingElement = value;
 }

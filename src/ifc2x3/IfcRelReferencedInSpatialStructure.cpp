@@ -48,7 +48,7 @@ void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::insert(co
     IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     Set_IfcProduct_1_n::insert(value);
     if (dynamic_cast< IfcElement * > (inverse) != NULL) {
-        ((IfcElement *) (inverse))->m_referencedInStructures.insert(mOwner);
+        ((IfcElement *) (inverse))->m_referencedInStructures->insert(mOwner);
     }
 }
 
@@ -130,10 +130,10 @@ const IfcSpatialStructureElement *IfcRelReferencedInSpatialStructure::getRelatin
 
 void IfcRelReferencedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     if (m_relatingStructure.valid()) {
-        m_relatingStructure->m_referencesElements.erase(this);
+        m_relatingStructure->m_referencesElements->erase(this);
     }
     if (value.valid()) {
-        value->m_referencesElements.insert(this);
+        value->m_referencesElements->insert(this);
     }
     m_relatingStructure = value;
 }

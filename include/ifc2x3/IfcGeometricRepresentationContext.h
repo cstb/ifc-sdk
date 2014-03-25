@@ -231,7 +231,7 @@ namespace ifc2x3 {
         Step::RefPtr< IfcDirection > m_trueNorth;
         /**
          */
-        Inverse_Set_IfcGeometricRepresentationSubContext_0_n m_hasSubContexts;
+        Inverse_Set_IfcGeometricRepresentationSubContext_0_n *m_hasSubContexts;
 
     };
 

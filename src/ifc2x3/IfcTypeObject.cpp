@@ -38,7 +38,8 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type() {
+Inverted_IfcTypeObject_HasPropertySets_type::Inverted_IfcTypeObject_HasPropertySets_type()
+{
 }
 
 void Inverted_IfcTypeObject_HasPropertySets_type::setOwner(IfcTypeObject *owner) {
@@ -48,12 +49,12 @@ void Inverted_IfcTypeObject_HasPropertySets_type::setOwner(IfcTypeObject *owner)
 void Inverted_IfcTypeObject_HasPropertySets_type::insert(const Step::RefPtr< IfcPropertySetDefinition > &value) throw(std::out_of_range) {
     IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
     Set_IfcPropertySetDefinition_1_n::insert(value);
-    inverse->m_definesType.insert(mOwner);
+    inverse->m_definesType->insert(mOwner);
 }
 
 Inverted_IfcTypeObject_HasPropertySets_type::size_type Inverted_IfcTypeObject_HasPropertySets_type::erase(const Step::RefPtr< IfcPropertySetDefinition > &value) {
     IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
-    inverse->m_definesType.erase(mOwner);
+    inverse->m_definesType->erase(mOwner);
     return Set_IfcPropertySetDefinition_1_n::erase(value);
 }
 
@@ -63,13 +64,18 @@ void Inverted_IfcTypeObject_HasPropertySets_type::clear() {
     }
 }
 
-IfcTypeObject::IfcTypeObject(Step::Id id, Step::SPFData *args) : IfcObjectDefinition(id, args) {
+IfcTypeObject::IfcTypeObject(Step::Id id, Step::SPFData *args)
+    : IfcObjectDefinition(id, args),
+      m_objectTypeOf(0)
+{
     m_applicableOccurrence = Step::getUnset(m_applicableOccurrence);
     m_hasPropertySets.setUnset(true);
     m_hasPropertySets.setOwner(this);
 }
 
 IfcTypeObject::~IfcTypeObject() {
+    if (m_objectTypeOf)
+        delete m_objectTypeOf;
 }
 
 bool IfcTypeObject::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -144,11 +150,12 @@ bool IfcTypeObject::testHasPropertySets() const {
 
 Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
     if (Step::BaseObject::inited()) {
-        return m_objectTypeOf;
+        return *m_objectTypeOf;
     }
     else {
-        m_objectTypeOf.setUnset(true);
-        return m_objectTypeOf;
+        Inverse_Set_IfcRelDefinesByType_0_1 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -197,9 +204,10 @@ bool IfcTypeObject::init() {
     inverses = m_args->getInverses(IfcRelDefinesByType::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_objectTypeOf.setUnset(false);
+        m_objectTypeOf = new Inverse_Set_IfcRelDefinesByType_0_1;
+        m_objectTypeOf->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_objectTypeOf.insert(static_cast< IfcRelDefinesByType * > (m_expressDataSet->get((*inverses)[i])));
+            m_objectTypeOf->insert(static_cast< IfcRelDefinesByType * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

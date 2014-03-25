@@ -38,12 +38,17 @@
 
 using namespace ifc2x3;
 
-IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcRepresentationMap::IfcRepresentationMap(Step::Id id, Step::SPFData *args)
+    : Step::BaseEntity(id, args),
+      m_mapUsage(0)
+{
     m_mappingOrigin = NULL;
     m_mappedRepresentation = NULL;
 }
 
 IfcRepresentationMap::~IfcRepresentationMap() {
+    if (m_mapUsage)
+        delete m_mapUsage;
 }
 
 bool IfcRepresentationMap::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -108,10 +113,10 @@ const IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() const {
 
 void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value) {
     if (m_mappedRepresentation.valid()) {
-        m_mappedRepresentation->m_representationMap.erase(this);
+        m_mappedRepresentation->m_representationMap->erase(this);
     }
     if (value.valid()) {
-        value->m_representationMap.insert(this);
+        value->m_representationMap->insert(this);
     }
     m_mappedRepresentation = value;
 }
@@ -126,11 +131,12 @@ bool IfcRepresentationMap::testMappedRepresentation() const {
 
 Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() {
     if (Step::BaseObject::inited()) {
-        return m_mapUsage;
+        return *m_mapUsage;
     }
     else {
-        m_mapUsage.setUnset(true);
-        return m_mapUsage;
+        Inverse_Set_IfcMappedItem_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -175,9 +181,10 @@ bool IfcRepresentationMap::init() {
     inverses = m_args->getInverses(IfcMappedItem::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_mapUsage.setUnset(false);
+        m_mapUsage = new Inverse_Set_IfcMappedItem_0_n;
+        m_mapUsage->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_mapUsage.insert(static_cast< IfcMappedItem * > (m_expressDataSet->get((*inverses)[i])));
+            m_mapUsage->insert(static_cast< IfcMappedItem * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

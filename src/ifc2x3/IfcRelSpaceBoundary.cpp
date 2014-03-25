@@ -115,10 +115,10 @@ const IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() const {
 
 void IfcRelSpaceBoundary::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
     if (m_relatedBuildingElement.valid()) {
-        m_relatedBuildingElement->m_providesBoundaries.erase(this);
+        m_relatedBuildingElement->m_providesBoundaries->erase(this);
     }
     if (value.valid()) {
-        value->m_providesBoundaries.insert(this);
+        value->m_providesBoundaries->insert(this);
     }
     m_relatedBuildingElement = value;
 }

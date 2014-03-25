@@ -36,12 +36,23 @@
 
 using namespace ifc2x3;
 
-IfcSpatialStructureElement::IfcSpatialStructureElement(Step::Id id, Step::SPFData *args) : IfcProduct(id, args) {
+IfcSpatialStructureElement::IfcSpatialStructureElement(Step::Id id, Step::SPFData *args)
+    : IfcProduct(id, args),
+      m_referencesElements(0),
+      m_servicedBySystems(0),
+      m_containsElements(0)
+{
     m_longName = Step::getUnset(m_longName);
     m_compositionType = IfcElementCompositionEnum_UNSET;
 }
 
 IfcSpatialStructureElement::~IfcSpatialStructureElement() {
+    if (m_referencesElements)
+        delete m_referencesElements;
+    if (m_servicedBySystems)
+        delete m_servicedBySystems;
+    if (m_containsElements)
+        delete m_containsElements;
 }
 
 bool IfcSpatialStructureElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -118,11 +129,12 @@ bool IfcSpatialStructureElement::testCompositionType() const {
 
 Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureElement::getReferencesElements() {
     if (Step::BaseObject::inited()) {
-        return m_referencesElements;
+        return *m_referencesElements;
     }
     else {
-        m_referencesElements.setUnset(true);
-        return m_referencesElements;
+        Inverse_Set_IfcRelReferencedInSpatialStructure_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -137,11 +149,12 @@ bool IfcSpatialStructureElement::testReferencesElements() const {
 
 Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() {
     if (Step::BaseObject::inited()) {
-        return m_servicedBySystems;
+        return *m_servicedBySystems;
     }
     else {
-        m_servicedBySystems.setUnset(true);
-        return m_servicedBySystems;
+        Inverse_Set_IfcRelServicesBuildings_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -156,11 +169,12 @@ bool IfcSpatialStructureElement::testServicedBySystems() const {
 
 Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() {
     if (Step::BaseObject::inited()) {
-        return m_containsElements;
+        return *m_containsElements;
     }
     else {
-        m_containsElements.setUnset(true);
-        return m_containsElements;
+        Inverse_Set_IfcRelContainedInSpatialStructure_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -205,25 +219,28 @@ bool IfcSpatialStructureElement::init() {
     inverses = m_args->getInverses(IfcRelReferencedInSpatialStructure::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_referencesElements.setUnset(false);
+        m_referencesElements = new Inverse_Set_IfcRelReferencedInSpatialStructure_0_n;
+        m_referencesElements->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_referencesElements.insert(static_cast< IfcRelReferencedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_referencesElements->insert(static_cast< IfcRelReferencedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelServicesBuildings::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_servicedBySystems.setUnset(false);
+        m_servicedBySystems = new Inverse_Set_IfcRelServicesBuildings_0_n;
+        m_servicedBySystems->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_servicedBySystems.insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
+            m_servicedBySystems->insert(static_cast< IfcRelServicesBuildings * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcRelContainedInSpatialStructure::getClassType(), 5);
     if (inverses) {
         unsigned int i;
-        m_containsElements.setUnset(false);
+        m_containsElements = new Inverse_Set_IfcRelContainedInSpatialStructure_0_n;
+        m_containsElements->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_containsElements.insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
+            m_containsElements->insert(static_cast< IfcRelContainedInSpatialStructure * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

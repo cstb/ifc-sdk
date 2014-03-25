@@ -82,10 +82,10 @@ const IfcObjectPlacement *IfcProduct::getObjectPlacement() const {
 
 void IfcProduct::setObjectPlacement(const Step::RefPtr< IfcObjectPlacement > &value) {
     if (m_objectPlacement.valid()) {
-        m_objectPlacement->m_placesObject.erase(this);
+        m_objectPlacement->m_placesObject->erase(this);
     }
     if (value.valid()) {
-        value->m_placesObject.insert(this);
+        value->m_placesObject->insert(this);
     }
     m_objectPlacement = value;
 }
@@ -115,11 +115,11 @@ const IfcProductRepresentation *IfcProduct::getRepresentation() const {
 void IfcProduct::setRepresentation(const Step::RefPtr< IfcProductRepresentation > &value) {
    // If we already had a representation, remove it from Inverse relation
    if (dynamic_cast< IfcProductDefinitionShape * > (m_representation.get()) != NULL) {
-      ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct.erase(this);
+      ((IfcProductDefinitionShape *) (m_representation.get()))->m_shapeOfProduct->erase(this);
    }
    // Add new representation to the Inverse relation
    if (dynamic_cast< IfcProductDefinitionShape * > (value.get()) != NULL) {
-      ((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct.insert(this);
+      ((IfcProductDefinitionShape *) (value.get()))->m_shapeOfProduct->insert(this);
    }
    // Set the new representation
    m_representation = value;

@@ -33,10 +33,13 @@
 
 using namespace ifc2x3;
 
-IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args) : IfcRepresentation(id, args) {
+IfcShapeModel::IfcShapeModel(Step::Id id, Step::SPFData *args)
+    : IfcRepresentation(id, args), m_ofShapeAspect(0) {
 }
 
 IfcShapeModel::~IfcShapeModel() {
+    if (m_ofShapeAspect)
+        delete m_ofShapeAspect;
 }
 
 bool IfcShapeModel::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -61,11 +64,12 @@ bool IfcShapeModel::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() {
     if (Step::BaseObject::inited()) {
-        return m_ofShapeAspect;
+        return *m_ofShapeAspect;
     }
     else {
-        m_ofShapeAspect.setUnset(true);
-        return m_ofShapeAspect;
+        Inverse_Set_IfcShapeAspect_0_1 shape;
+        shape.setUnset(true);
+        return shape;
     }
 }
 
@@ -88,9 +92,10 @@ bool IfcShapeModel::init() {
     inverses = m_args->getInverses(IfcShapeAspect::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_ofShapeAspect.setUnset(false);
+        m_ofShapeAspect = new Inverse_Set_IfcShapeAspect_0_1;
+        m_ofShapeAspect->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_ofShapeAspect.insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
+            m_ofShapeAspect->insert(static_cast< IfcShapeAspect * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

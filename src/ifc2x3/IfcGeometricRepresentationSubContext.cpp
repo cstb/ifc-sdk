@@ -80,10 +80,10 @@ const IfcGeometricRepresentationContext *IfcGeometricRepresentationSubContext::g
 
 void IfcGeometricRepresentationSubContext::setParentContext(const Step::RefPtr< IfcGeometricRepresentationContext > &value) {
     if (m_parentContext.valid()) {
-        m_parentContext->m_hasSubContexts.erase(this);
+        m_parentContext->m_hasSubContexts->erase(this);
     }
     if (value.valid()) {
-        value->m_hasSubContexts.insert(this);
+        value->m_hasSubContexts->insert(this);
     }
     m_parentContext = value;
 }

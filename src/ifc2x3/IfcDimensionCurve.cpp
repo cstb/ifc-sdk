@@ -33,10 +33,15 @@
 
 using namespace ifc2x3;
 
-IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args) : IfcAnnotationCurveOccurrence(id, args) {
+IfcDimensionCurve::IfcDimensionCurve(Step::Id id, Step::SPFData *args)
+    : IfcAnnotationCurveOccurrence(id, args),
+      m_annotatedBySymbols(0)
+{
 }
 
 IfcDimensionCurve::~IfcDimensionCurve() {
+    if (m_annotatedBySymbols)
+        delete m_annotatedBySymbols;
 }
 
 bool IfcDimensionCurve::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -61,11 +66,12 @@ bool IfcDimensionCurve::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcTerminatorSymbol_0_2 &IfcDimensionCurve::getAnnotatedBySymbols() {
     if (Step::BaseObject::inited()) {
-        return m_annotatedBySymbols;
+        return *m_annotatedBySymbols;
     }
     else {
-        m_annotatedBySymbols.setUnset(true);
-        return m_annotatedBySymbols;
+        Inverse_Set_IfcTerminatorSymbol_0_2 inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -88,9 +94,10 @@ bool IfcDimensionCurve::init() {
     inverses = m_args->getInverses(IfcTerminatorSymbol::getClassType(), 3);
     if (inverses) {
         unsigned int i;
-        m_annotatedBySymbols.setUnset(false);
+        m_annotatedBySymbols = new Inverse_Set_IfcTerminatorSymbol_0_2;
+        m_annotatedBySymbols->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_annotatedBySymbols.insert(static_cast< IfcTerminatorSymbol * > (m_expressDataSet->get((*inverses)[i])));
+            m_annotatedBySymbols->insert(static_cast< IfcTerminatorSymbol * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

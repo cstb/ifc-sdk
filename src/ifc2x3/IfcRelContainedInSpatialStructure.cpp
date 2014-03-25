@@ -53,7 +53,7 @@ void Inverted_IfcRelContainedInSpatialStructure_RelatedElements_type::insert(con
         ((IfcAnnotation *) (inverse))->m_containedInStructure.insert(mOwner);
     }
     if (dynamic_cast< IfcElement * > (inverse) != NULL) {
-        ((IfcElement *) (inverse))->m_containedInStructure.insert(mOwner);
+        ((IfcElement *) (inverse))->m_containedInStructure->insert(mOwner);
     }
     if (dynamic_cast< IfcGrid * > (inverse) != NULL) {
         ((IfcGrid *) (inverse))->m_containedInStructure.insert(mOwner);
@@ -138,10 +138,10 @@ const IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelating
 
 void IfcRelContainedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
     if (m_relatingStructure.valid()) {
-        m_relatingStructure->m_containsElements.erase(this);
+        m_relatingStructure->m_containsElements->erase(this);
     }
     if (value.valid()) {
-        value->m_containsElements.insert(this);
+        value->m_containsElements->insert(this);
     }
     m_relatingStructure = value;
 }

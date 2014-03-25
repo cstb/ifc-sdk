@@ -104,7 +104,7 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcRelFlowControlElements_0_1 m_hasControlElements;
+        Inverse_Set_IfcRelFlowControlElements_0_1 *m_hasControlElements;
 
     };
 

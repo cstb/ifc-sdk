@@ -33,10 +33,15 @@
 
 using namespace ifc2x3;
 
-IfcOpeningElement::IfcOpeningElement(Step::Id id, Step::SPFData *args) : IfcFeatureElementSubtraction(id, args) {
+IfcOpeningElement::IfcOpeningElement(Step::Id id, Step::SPFData *args)
+    : IfcFeatureElementSubtraction(id, args),
+      m_hasFillings(0)
+{
 }
 
 IfcOpeningElement::~IfcOpeningElement() {
+    if (m_hasFillings)
+        delete m_hasFillings;
 }
 
 bool IfcOpeningElement::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -61,11 +66,12 @@ bool IfcOpeningElement::isOfType(const Step::ClassType &t) const {
 
 Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() {
     if (Step::BaseObject::inited()) {
-        return m_hasFillings;
+        return *m_hasFillings;
     }
     else {
-        m_hasFillings.setUnset(true);
-        return m_hasFillings;
+        Inverse_Set_IfcRelFillsElement_0_n inv;
+        inv.setUnset(true);
+        return inv;
     }
 }
 
@@ -88,9 +94,10 @@ bool IfcOpeningElement::init() {
     inverses = m_args->getInverses(IfcRelFillsElement::getClassType(), 4);
     if (inverses) {
         unsigned int i;
-        m_hasFillings.setUnset(false);
+        m_hasFillings = new Inverse_Set_IfcRelFillsElement_0_n;
+        m_hasFillings->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_hasFillings.insert(static_cast< IfcRelFillsElement * > (m_expressDataSet->get((*inverses)[i])));
+            m_hasFillings->insert(static_cast< IfcRelFillsElement * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

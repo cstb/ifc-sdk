@@ -77,10 +77,10 @@ const IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial()
 
 void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value) {
     if (m_representedMaterial.valid()) {
-        m_representedMaterial->m_hasRepresentation.erase(this);
+        m_representedMaterial->m_hasRepresentation->erase(this);
     }
     if (value.valid()) {
-        value->m_hasRepresentation.insert(this);
+        value->m_hasRepresentation->insert(this);
     }
     m_representedMaterial = value;
 }

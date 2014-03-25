@@ -48,20 +48,20 @@ void Inverted_IfcRelAssociates_RelatedObjects_type::insert(const Step::RefPtr< I
     IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
     Set_IfcRoot_1_n::insert(value);
     if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
-        ((IfcObjectDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
+        ((IfcObjectDefinition *) (inverse))->m_hasAssociations->insert(mOwner);
     }
     if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
-        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations.insert(mOwner);
+        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations->insert(mOwner);
     }
 }
 
 Inverted_IfcRelAssociates_RelatedObjects_type::size_type Inverted_IfcRelAssociates_RelatedObjects_type::erase(const Step::RefPtr< IfcRoot > &value) {
     IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
 	if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
-        ((IfcObjectDefinition *) (inverse))->m_hasAssociations.erase(mOwner);
+        ((IfcObjectDefinition *) (inverse))->m_hasAssociations->erase(mOwner);
     }
     if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
-        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations.erase(mOwner);
+        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations->erase(mOwner);
     }
     return Set_IfcRoot_1_n::erase(value);
 }
