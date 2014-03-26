@@ -89,12 +89,8 @@ const IfcRepresentationContext *IfcRepresentation::getContextOfItems() const {
 }
 
 void IfcRepresentation::setContextOfItems(const Step::RefPtr< IfcRepresentationContext > &value) {
-    if (m_contextOfItems.valid()) {
-        m_contextOfItems->m_representationsInContext->erase(this);
-    }
-    if (value.valid()) {
-        value->m_representationsInContext->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_contextOfItems, m_representationsInContext, this);
+    INSERT_INVERSE_VALUE(value, m_representationsInContext, Inverse_Set_IfcRepresentation_0_n, this);
     m_contextOfItems = value;
 }
 

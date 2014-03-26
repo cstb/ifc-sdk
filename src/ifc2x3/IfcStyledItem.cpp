@@ -78,12 +78,8 @@ const IfcRepresentationItem *IfcStyledItem::getItem() const {
 }
 
 void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) {
-    if (m_item.valid()) {
-        m_item->m_styledByItem->erase(this);
-    }
-    if (value.valid()) {
-        value->m_styledByItem->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_item, m_styledByItem, this);
+    INSERT_INVERSE_VALUE(value, m_styledByItem, Inverse_Set_IfcStyledItem_0_1, this);
     m_item = value;
 }
 

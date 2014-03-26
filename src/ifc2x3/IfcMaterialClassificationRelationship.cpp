@@ -106,12 +106,8 @@ const IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial(
 }
 
 void IfcMaterialClassificationRelationship::setClassifiedMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    if (m_classifiedMaterial.valid()) {
-        m_classifiedMaterial->m_classifiedAs->erase(this);
-    }
-    if (value.valid()) {
-        value->m_classifiedAs->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_classifiedMaterial, m_classifiedAs, this);
+    INSERT_INVERSE_VALUE(value, m_classifiedAs, Inverse_Set_IfcMaterialClassificationRelationship_0_1, this);
     m_classifiedMaterial = value;
 }
 

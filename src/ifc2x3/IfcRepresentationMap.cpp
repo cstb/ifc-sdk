@@ -110,12 +110,8 @@ const IfcRepresentation *IfcRepresentationMap::getMappedRepresentation() const {
 }
 
 void IfcRepresentationMap::setMappedRepresentation(const Step::RefPtr< IfcRepresentation > &value) {
-    if (m_mappedRepresentation.valid()) {
-        m_mappedRepresentation->m_representationMap->erase(this);
-    }
-    if (value.valid()) {
-        value->m_representationMap->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_mappedRepresentation, m_representationMap, this);
+    INSERT_INVERSE_VALUE(value, m_representationMap, Inverse_Set_IfcRepresentationMap_0_1, this);
     m_mappedRepresentation = value;
 }
 

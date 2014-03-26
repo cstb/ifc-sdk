@@ -78,12 +78,8 @@ const IfcElement *IfcRelProjectsElement::getRelatingElement() const {
 }
 
 void IfcRelProjectsElement::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingElement.valid()) {
-        m_relatingElement->m_hasProjections->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasProjections->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingElement, m_hasProjections, this);
+    INSERT_INVERSE_VALUE(value, m_hasProjections, Inverse_Set_IfcRelProjectsElement_0_n, this);
     m_relatingElement = value;
 }
 

@@ -105,12 +105,8 @@ const IfcElement *IfcRelConnectsElements::getRelatingElement() const {
 }
 
 void IfcRelConnectsElements::setRelatingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingElement.valid()) {
-        m_relatingElement->m_connectedTo->erase(this);
-    }
-    if (value.valid()) {
-        value->m_connectedTo->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingElement, m_connectedTo, this);
+    INSERT_INVERSE_VALUE(value, m_connectedTo, Inverse_Set_IfcRelConnectsElements_0_n, this);
     m_relatingElement = value;
 }
 
@@ -137,12 +133,8 @@ const IfcElement *IfcRelConnectsElements::getRelatedElement() const {
 }
 
 void IfcRelConnectsElements::setRelatedElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatedElement.valid()) {
-        m_relatedElement->m_connectedFrom->erase(this);
-    }
-    if (value.valid()) {
-        value->m_connectedFrom->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedElement, m_connectedFrom, this);
+    INSERT_INVERSE_VALUE(value, m_connectedFrom, Inverse_Set_IfcRelConnectsElements_0_n, this);
     m_relatedElement = value;
 }
 

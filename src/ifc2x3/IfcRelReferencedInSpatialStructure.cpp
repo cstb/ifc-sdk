@@ -44,11 +44,18 @@ void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::setOwner(
     mOwner = owner;
 }
 
+#define LOCAL_INSERT_INVERSE_VALUE(object, attribute, type, value) \
+        if (!(object)->attribute.valid())               \
+        {                                            \
+            (object)->attribute = new type;             \
+            (object)->attribute->setUnset(false);       \
+        }                                            \
+        (object)->attribute->insert(value);
+
 void Inverted_IfcRelReferencedInSpatialStructure_RelatedElements_type::insert(const Step::RefPtr< IfcProduct > &value) throw(std::out_of_range) {
-    IfcProduct *inverse = const_cast< IfcProduct * > (value.get());
     Set_IfcProduct_1_n::insert(value);
-    if (dynamic_cast< IfcElement * > (inverse) != NULL) {
-        ((IfcElement *) (inverse))->m_referencedInStructures->insert(mOwner);
+    if (value->isOfType(IfcElement::getClassType())) {
+        LOCAL_INSERT_INVERSE_VALUE(static_cast<IfcElement *>(value.get()), m_referencedInStructures, Inverse_Set_IfcRelReferencedInSpatialStructure_0_n, mOwner);
     }
 }
 
@@ -129,12 +136,8 @@ const IfcSpatialStructureElement *IfcRelReferencedInSpatialStructure::getRelatin
 }
 
 void IfcRelReferencedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
-    if (m_relatingStructure.valid()) {
-        m_relatingStructure->m_referencesElements->erase(this);
-    }
-    if (value.valid()) {
-        value->m_referencesElements->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingStructure, m_referencesElements, this);
+    INSERT_INVERSE_VALUE(value, m_referencesElements, Inverse_Set_IfcRelReferencedInSpatialStructure_0_n, this);
     m_relatingStructure = value;
 }
 

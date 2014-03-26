@@ -46,16 +46,24 @@ void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::setOwner(IfcPre
     mOwner = owner;
 }
 
+#define LOCAL_INSERT_INVERSE_VALUE(object, attribute, type, value) \
+        if (!(object)->attribute.valid())               \
+        {                                            \
+            (object)->attribute = new type;             \
+            (object)->attribute->setUnset(false);       \
+        }                                            \
+        (object)->attribute->insert(value);
+
 void Inverted_IfcPresentationLayerAssignment_AssignedItems_type::insert(const Step::RefPtr< IfcLayeredItem > &value) throw(std::out_of_range) {
     IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
     Set_IfcLayeredItem_1_n::insert(value);
     if (inverse->getIfcRepresentation() != NULL) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
-        object->m_layerAssignments->insert(mOwner);
+        LOCAL_INSERT_INVERSE_VALUE(object, m_layerAssignments,Inverse_Set_IfcPresentationLayerAssignment_0_n, mOwner);
     }
     else if (inverse->getIfcRepresentationItem() != NULL) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
-        object->m_layerAssignments->insert(mOwner);
+        LOCAL_INSERT_INVERSE_VALUE(object, m_layerAssignments,Inverse_Set_IfcPresentationLayerAssignment_0_n, mOwner);
     }
 }
 
@@ -63,11 +71,15 @@ Inverted_IfcPresentationLayerAssignment_AssignedItems_type::size_type Inverted_I
     IfcLayeredItem *inverse = const_cast< IfcLayeredItem * > (value.get());
     if (inverse->getIfcRepresentation() != NULL) {
         IfcRepresentation *object = inverse->getIfcRepresentation();
-        object->m_layerAssignments->erase(mOwner);
+        if (object->m_layerAssignments.valid()) { \
+            object->m_layerAssignments->erase(mOwner);               \
+        }
     }
     else if (inverse->getIfcRepresentationItem() != NULL) {
         IfcRepresentationItem *object = inverse->getIfcRepresentationItem();
-        object->m_layerAssignments->erase(mOwner);
+        if (object->m_layerAssignments.valid()) { \
+            object->m_layerAssignments->erase(mOwner);               \
+        }
     }
     return Set_IfcLayeredItem_1_n::erase(value);
 }

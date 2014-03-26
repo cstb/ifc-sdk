@@ -78,12 +78,8 @@ const IfcOpeningElement *IfcRelFillsElement::getRelatingOpeningElement() const {
 }
 
 void IfcRelFillsElement::setRelatingOpeningElement(const Step::RefPtr< IfcOpeningElement > &value) {
-    if (m_relatingOpeningElement.valid()) {
-        m_relatingOpeningElement->m_hasFillings->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasFillings->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingOpeningElement, m_hasFillings, this);
+    INSERT_INVERSE_VALUE(value, m_hasFillings, Inverse_Set_IfcRelFillsElement_0_n, this);
     m_relatingOpeningElement = value;
 }
 
@@ -110,12 +106,8 @@ const IfcElement *IfcRelFillsElement::getRelatedBuildingElement() const {
 }
 
 void IfcRelFillsElement::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatedBuildingElement.valid()) {
-        m_relatedBuildingElement->m_fillsVoids->erase(this);
-    }
-    if (value.valid()) {
-        value->m_fillsVoids->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedBuildingElement, m_fillsVoids, this);
+    INSERT_INVERSE_VALUE(value, m_fillsVoids, Inverse_Set_IfcRelFillsElement_0_1, this);
     m_relatedBuildingElement = value;
 }
 

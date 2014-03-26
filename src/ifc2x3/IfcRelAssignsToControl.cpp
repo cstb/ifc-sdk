@@ -76,12 +76,8 @@ const IfcControl *IfcRelAssignsToControl::getRelatingControl() const {
 }
 
 void IfcRelAssignsToControl::setRelatingControl(const Step::RefPtr< IfcControl > &value) {
-    if (m_relatingControl.valid()) {
-        m_relatingControl->getControls()->erase(this);
-    }
-    if (value.valid()) {
-        value->getControls()->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingControl, m_controls, this);
+    INSERT_INVERSE_VALUE(value, m_controls, Inverse_Set_IfcRelAssignsToControl_0_n, this);
     m_relatingControl = value;
 }
 

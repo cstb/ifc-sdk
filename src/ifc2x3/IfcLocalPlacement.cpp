@@ -78,12 +78,8 @@ const IfcObjectPlacement *IfcLocalPlacement::getPlacementRelTo() const {
 }
 
 void IfcLocalPlacement::setPlacementRelTo(const Step::RefPtr< IfcObjectPlacement > &value) {
-    if (m_placementRelTo.valid()) {
-        m_placementRelTo->m_referencedByPlacements->erase(this);
-    }
-    if (value.valid()) {
-        value->m_referencedByPlacements->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_placementRelTo, m_referencedByPlacements, this);
+    INSERT_INVERSE_VALUE(value, m_referencedByPlacements, Inverse_Set_IfcLocalPlacement_0_n, this);
     m_placementRelTo = value;
 }
 

@@ -82,12 +82,8 @@ const IfcSpace *IfcRelSpaceBoundary::getRelatingSpace() const {
 }
 
 void IfcRelSpaceBoundary::setRelatingSpace(const Step::RefPtr< IfcSpace > &value) {
-    if (m_relatingSpace.valid()) {
-        m_relatingSpace->getBoundedBy()->erase(this);
-    }
-    if (value.valid()) {
-        value->getBoundedBy()->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingSpace, m_boundedBy, this);
+    INSERT_INVERSE_VALUE(value, m_boundedBy, Inverse_Set_IfcRelSpaceBoundary_0_n, this);
     m_relatingSpace = value;
 }
 
@@ -114,12 +110,8 @@ const IfcElement *IfcRelSpaceBoundary::getRelatedBuildingElement() const {
 }
 
 void IfcRelSpaceBoundary::setRelatedBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatedBuildingElement.valid()) {
-        m_relatedBuildingElement->m_providesBoundaries->erase(this);
-    }
-    if (value.valid()) {
-        value->m_providesBoundaries->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatedBuildingElement, m_providesBoundaries, this);
+    INSERT_INVERSE_VALUE(value, m_providesBoundaries, Inverse_Set_IfcRelSpaceBoundary_0_n, this);
     m_relatedBuildingElement = value;
 }
 

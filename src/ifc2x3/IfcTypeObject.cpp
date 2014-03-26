@@ -47,14 +47,12 @@ void Inverted_IfcTypeObject_HasPropertySets_type::setOwner(IfcTypeObject *owner)
 }
 
 void Inverted_IfcTypeObject_HasPropertySets_type::insert(const Step::RefPtr< IfcPropertySetDefinition > &value) throw(std::out_of_range) {
-    IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
     Set_IfcPropertySetDefinition_1_n::insert(value);
-    inverse->m_definesType->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_definesType, Inverse_Set_IfcTypeObject_0_1, mOwner);
 }
 
 Inverted_IfcTypeObject_HasPropertySets_type::size_type Inverted_IfcTypeObject_HasPropertySets_type::erase(const Step::RefPtr< IfcPropertySetDefinition > &value) {
-    IfcPropertySetDefinition *inverse = const_cast< IfcPropertySetDefinition * > (value.get());
-    inverse->m_definesType->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_definesType, mOwner);
     return Set_IfcPropertySetDefinition_1_n::erase(value);
 }
 

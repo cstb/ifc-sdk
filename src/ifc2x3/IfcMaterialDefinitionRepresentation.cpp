@@ -76,12 +76,8 @@ const IfcMaterial *IfcMaterialDefinitionRepresentation::getRepresentedMaterial()
 }
 
 void IfcMaterialDefinitionRepresentation::setRepresentedMaterial(const Step::RefPtr< IfcMaterial > &value) {
-    if (m_representedMaterial.valid()) {
-        m_representedMaterial->m_hasRepresentation->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasRepresentation->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_representedMaterial, m_hasRepresentation, this);
+    INSERT_INVERSE_VALUE(value, m_hasRepresentation, Inverse_Set_IfcMaterialDefinitionRepresentation_0_1, this);
     m_representedMaterial = value;
 }
 

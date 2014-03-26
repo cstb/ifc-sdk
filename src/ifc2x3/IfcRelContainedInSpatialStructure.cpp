@@ -148,12 +148,8 @@ const IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelating
 }
 
 void IfcRelContainedInSpatialStructure::setRelatingStructure(const Step::RefPtr< IfcSpatialStructureElement > &value) {
-    if (m_relatingStructure.valid()) {
-        m_relatingStructure->m_containsElements->erase(this);
-    }
-    if (value.valid()) {
-        value->m_containsElements->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingStructure, m_containsElements, this);
+    INSERT_INVERSE_VALUE(value, m_containsElements, Inverse_Set_IfcRelContainedInSpatialStructure_0_n, this);
     m_relatingStructure = value;
 }
 
@@ -183,7 +179,8 @@ bool IfcRelContainedInSpatialStructure::init() {
             if (str1 != "") {
                 Step::RefPtr< IfcProduct > attr2;
                 attr2 = static_cast< IfcProduct * > (m_expressDataSet->get(Step::getIdParam(str1)));
-                m_relatedElements.insert(attr2);
+                if (attr2.valid())
+                    m_relatedElements.insert(attr2);
             }
             else {
                 break;

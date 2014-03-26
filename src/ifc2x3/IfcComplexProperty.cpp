@@ -43,14 +43,12 @@ void Inverted_IfcComplexProperty_HasProperties_type::setOwner(IfcComplexProperty
 }
 
 void Inverted_IfcComplexProperty_HasProperties_type::insert(const Step::RefPtr< IfcProperty > &value) throw(std::out_of_range) {
-    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
     Set_IfcProperty_1_n::insert(value);
-    inverse->m_partOfComplex->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_partOfComplex, Inverse_Set_IfcComplexProperty_0_1, mOwner);
 }
 
 Inverted_IfcComplexProperty_HasProperties_type::size_type Inverted_IfcComplexProperty_HasProperties_type::erase(const Step::RefPtr< IfcProperty > &value) {
-    IfcProperty *inverse = const_cast< IfcProperty * > (value.get());
-    inverse->m_partOfComplex->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_partOfComplex, mOwner);
     return Set_IfcProperty_1_n::erase(value);
 }
 

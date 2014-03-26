@@ -76,12 +76,8 @@ const IfcTypeObject *IfcRelDefinesByType::getRelatingType() const {
 }
 
 void IfcRelDefinesByType::setRelatingType(const Step::RefPtr< IfcTypeObject > &value) {
-    if (m_relatingType.valid()) {
-        m_relatingType->m_objectTypeOf->erase(this);
-    }
-    if (value.valid()) {
-        value->m_objectTypeOf->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingType, m_objectTypeOf, this);
+    INSERT_INVERSE_VALUE(value, m_objectTypeOf, Inverse_Set_IfcRelDefinesByType_0_1, this);
     m_relatingType = value;
 }
 

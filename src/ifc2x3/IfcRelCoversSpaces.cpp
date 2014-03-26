@@ -44,14 +44,12 @@ void Inverted_IfcRelCoversSpaces_RelatedCoverings_type::setOwner(IfcRelCoversSpa
 }
 
 void Inverted_IfcRelCoversSpaces_RelatedCoverings_type::insert(const Step::RefPtr< IfcCovering > &value) throw(std::out_of_range) {
-    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
     Set_IfcCovering_1_n::insert(value);
-    inverse->m_coversSpaces->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_coversSpaces, Inverse_Set_IfcRelCoversSpaces_0_1, mOwner);
 }
 
 Inverted_IfcRelCoversSpaces_RelatedCoverings_type::size_type Inverted_IfcRelCoversSpaces_RelatedCoverings_type::erase(const Step::RefPtr< IfcCovering > &value) {
-    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
-    inverse->m_coversSpaces->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_coversSpaces, mOwner);
     return Set_IfcCovering_1_n::erase(value);
 }
 

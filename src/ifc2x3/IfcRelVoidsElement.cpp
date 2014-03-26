@@ -78,12 +78,8 @@ const IfcElement *IfcRelVoidsElement::getRelatingBuildingElement() const {
 }
 
 void IfcRelVoidsElement::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingBuildingElement.valid()) {
-        m_relatingBuildingElement->m_hasOpenings->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasOpenings->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingBuildingElement, m_hasOpenings, this);
+    INSERT_INVERSE_VALUE(value, m_hasOpenings, Inverse_Set_IfcRelVoidsElement_0_n, this);
     m_relatingBuildingElement = value;
 }
 

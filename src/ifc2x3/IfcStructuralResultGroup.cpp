@@ -106,12 +106,8 @@ const IfcStructuralLoadGroup *IfcStructuralResultGroup::getResultForLoadGroup() 
 }
 
 void IfcStructuralResultGroup::setResultForLoadGroup(const Step::RefPtr< IfcStructuralLoadGroup > &value) {
-    if (m_resultForLoadGroup.valid()) {
-        m_resultForLoadGroup->getSourceOfResultGroup()->erase(this);
-    }
-    if (value.valid()) {
-        value->getSourceOfResultGroup()->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_resultForLoadGroup, m_sourceOfResultGroup, this);
+    INSERT_INVERSE_VALUE(value, m_sourceOfResultGroup, Inverse_Set_IfcStructuralResultGroup_0_1, this);
     m_resultForLoadGroup = value;
 }
 

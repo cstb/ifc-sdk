@@ -78,12 +78,8 @@ const IfcRepresentationMap *IfcMappedItem::getMappingSource() const {
 }
 
 void IfcMappedItem::setMappingSource(const Step::RefPtr< IfcRepresentationMap > &value) {
-    if (m_mappingSource.valid()) {
-        m_mappingSource->m_mapUsage->erase(this);
-    }
-    if (value.valid()) {
-        value->m_mapUsage->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_mappingSource, m_mapUsage, this);
+    INSERT_INVERSE_VALUE(value, m_mapUsage, Inverse_Set_IfcMappedItem_0_n, this);
     m_mappingSource = value;
 }
 

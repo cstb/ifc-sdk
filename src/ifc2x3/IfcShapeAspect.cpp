@@ -45,14 +45,12 @@ void Inverted_IfcShapeAspect_ShapeRepresentations_type::setOwner(IfcShapeAspect 
 }
 
 void Inverted_IfcShapeAspect_ShapeRepresentations_type::push_back(const Step::RefPtr< IfcShapeModel > &value) throw(std::out_of_range) {
-    IfcShapeModel *inverse = const_cast< IfcShapeModel * > (value.get());
     List_IfcShapeModel_1_n::push_back(value);
-    inverse->m_ofShapeAspect->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_ofShapeAspect, Inverse_Set_IfcShapeAspect_0_1, mOwner);
 }
 
 Inverted_IfcShapeAspect_ShapeRepresentations_type::iterator Inverted_IfcShapeAspect_ShapeRepresentations_type::erase(const Step::RefPtr< IfcShapeModel > &value) {
-    IfcShapeModel *inverse = const_cast< IfcShapeModel * > (value.get());
-    inverse->m_ofShapeAspect->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_ofShapeAspect, mOwner);
     return List_IfcShapeModel_1_n::erase(value);
 }
 
@@ -210,12 +208,8 @@ const IfcProductDefinitionShape *IfcShapeAspect::getPartOfProductDefinitionShape
 }
 
 void IfcShapeAspect::setPartOfProductDefinitionShape(const Step::RefPtr< IfcProductDefinitionShape > &value) {
-    if (m_partOfProductDefinitionShape.valid()) {
-        m_partOfProductDefinitionShape->m_hasShapeAspects->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasShapeAspects->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_partOfProductDefinitionShape, m_hasShapeAspects, this);
+    INSERT_INVERSE_VALUE(value, m_hasShapeAspects, Inverse_Set_IfcShapeAspect_0_n, this);
     m_partOfProductDefinitionShape = value;
 }
 

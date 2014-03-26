@@ -44,14 +44,12 @@ void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::setOwner(IfcRelServ
 }
 
 void Inverted_IfcRelServicesBuildings_RelatedBuildings_type::insert(const Step::RefPtr< IfcSpatialStructureElement > &value) throw(std::out_of_range) {
-    IfcSpatialStructureElement *inverse = const_cast< IfcSpatialStructureElement * > (value.get());
     Set_IfcSpatialStructureElement_1_n::insert(value);
-    inverse->m_servicedBySystems->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_servicedBySystems, Inverse_Set_IfcRelServicesBuildings_0_n, mOwner);
 }
 
 Inverted_IfcRelServicesBuildings_RelatedBuildings_type::size_type Inverted_IfcRelServicesBuildings_RelatedBuildings_type::erase(const Step::RefPtr< IfcSpatialStructureElement > &value) {
-    IfcSpatialStructureElement *inverse = const_cast< IfcSpatialStructureElement * > (value.get());
-    inverse->m_servicedBySystems->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_servicedBySystems, mOwner);
     return Set_IfcSpatialStructureElement_1_n::erase(value);
 }
 

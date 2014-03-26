@@ -44,14 +44,12 @@ void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::setOwner(IfcRelCov
 }
 
 void Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::insert(const Step::RefPtr< IfcCovering > &value) throw(std::out_of_range) {
-    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
     Set_IfcCovering_1_n::insert(value);
-    inverse->m_covers->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_covers, Inverse_Set_IfcRelCoversBldgElements_0_1, mOwner);
 }
 
 Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::size_type Inverted_IfcRelCoversBldgElements_RelatedCoverings_type::erase(const Step::RefPtr< IfcCovering > &value) {
-    IfcCovering *inverse = const_cast< IfcCovering * > (value.get());
-    inverse->m_covers->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_covers, mOwner);
     return Set_IfcCovering_1_n::erase(value);
 }
 
@@ -104,12 +102,8 @@ const IfcElement *IfcRelCoversBldgElements::getRelatingBuildingElement() const {
 }
 
 void IfcRelCoversBldgElements::setRelatingBuildingElement(const Step::RefPtr< IfcElement > &value) {
-    if (m_relatingBuildingElement.valid()) {
-        m_relatingBuildingElement->m_hasCoverings->erase(this);
-    }
-    if (value.valid()) {
-        value->m_hasCoverings->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingBuildingElement, m_hasCoverings, this);
+    INSERT_INVERSE_VALUE(value, m_hasCoverings, Inverse_Set_IfcRelCoversBldgElements_0_n, this);
     m_relatingBuildingElement = value;
 }
 

@@ -77,19 +77,32 @@ const IfcAnnotationCurveOccurrence *IfcTerminatorSymbol::getAnnotatedCurve() con
 }
 
 void IfcTerminatorSymbol::setAnnotatedCurve(const Step::RefPtr< IfcAnnotationCurveOccurrence > &value) {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols->erase(this);
+    if (m_annotatedCurve->isOfType(IfcDimensionCurve::getClassType()))
+    {
+        IfcDimensionCurve *object = static_cast<IfcDimensionCurve *>(m_annotatedCurve.get());
+        if (object->m_annotatedBySymbols.valid()) {
+            object->m_annotatedBySymbols->erase(this);
+        }
     }
-	m_annotatedCurve = value;
-	if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols->insert(this);
+    m_annotatedCurve = value;
+    if (m_annotatedCurve->isOfType(IfcDimensionCurve::getClassType()))
+    {
+        IfcDimensionCurve *object = static_cast<IfcDimensionCurve *>(m_annotatedCurve.get());
+        if (!object->m_annotatedBySymbols.valid())
+        {
+            object->m_annotatedBySymbols = new Inverse_Set_IfcTerminatorSymbol_0_2;
+            object->m_annotatedBySymbols->setUnset(false);
+        }
+        object->m_annotatedBySymbols->insert(this);
     }
-
 }
 
 void IfcTerminatorSymbol::unsetAnnotatedCurve() {
-    if (dynamic_cast< IfcDimensionCurve * > (m_annotatedCurve.get()) != NULL) {
-        ((IfcDimensionCurve *) (m_annotatedCurve.get()))->m_annotatedBySymbols->erase(this);
+    if (m_annotatedCurve.valid() && m_annotatedCurve->isOfType(IfcDimensionCurve::getClassType())) {
+        IfcDimensionCurve *object = static_cast<IfcDimensionCurve *>(m_annotatedCurve.get());
+        if (object->m_annotatedBySymbols.valid()) { \
+            object->m_annotatedBySymbols->erase(this);               \
+        }
     }
     m_annotatedCurve = Step::getUnset(getAnnotatedCurve());
 }

@@ -76,12 +76,8 @@ const IfcPropertySetDefinition *IfcRelDefinesByProperties::getRelatingPropertyDe
 }
 
 void IfcRelDefinesByProperties::setRelatingPropertyDefinition(const Step::RefPtr< IfcPropertySetDefinition > &value) {
-    if (m_relatingPropertyDefinition.valid()) {
-        m_relatingPropertyDefinition->m_propertyDefinitionOf->erase(this);
-    }
-    if (value.valid()) {
-        value->m_propertyDefinitionOf->insert(this);
-    }
+    ERASE_INVERSE_VALUE(m_relatingPropertyDefinition, m_propertyDefinitionOf, this);
+    INSERT_INVERSE_VALUE(value, m_propertyDefinitionOf, Inverse_Set_IfcRelDefinesByProperties_0_1, this);
     m_relatingPropertyDefinition = value;
 }
 

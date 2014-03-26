@@ -26,6 +26,7 @@
 #include <Step/CallBack.h>
 
 #include <iostream>
+#define WRITE_FILE false
 
 class ConsoleCallBack : public Step::CallBack
 {
@@ -88,7 +89,7 @@ int main(int argc, char **argv)
 
     ifc2x3::SPFReader reader;
     ConsoleCallBack cb;
-    reader.setCallBack(&cb);
+    //reader.setCallBack(&cb);
 
     if ( ifcFile.is_open() )
     {
@@ -151,6 +152,7 @@ int main(int argc, char **argv)
         std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
     }
 
+#if WRITE_FILE
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);
     writer.setCallBack(&cb);
@@ -166,4 +168,7 @@ int main(int argc, char **argv)
     bool status = writer.write(filestream);
     filestream.close();
     return status;
+#else
+    return 0;
+#endif
 }

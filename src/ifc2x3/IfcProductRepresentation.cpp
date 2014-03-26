@@ -44,14 +44,12 @@ void Inverted_IfcProductRepresentation_Representations_type::setOwner(IfcProduct
 }
 
 void Inverted_IfcProductRepresentation_Representations_type::push_back(const Step::RefPtr< IfcRepresentation > &value) throw(std::out_of_range) {
-    IfcRepresentation *inverse = const_cast< IfcRepresentation * > (value.get());
     List_IfcRepresentation_1_n::push_back(value);
-    inverse->m_ofProductRepresentation->insert(mOwner);
+    INSERT_INVERSE_VALUE(value, m_ofProductRepresentation, Inverse_Set_IfcProductRepresentation_0_1, mOwner);
 }
 
 Inverted_IfcProductRepresentation_Representations_type::iterator Inverted_IfcProductRepresentation_Representations_type::erase(const Step::RefPtr< IfcRepresentation > &value) {
-    IfcRepresentation *inverse = const_cast< IfcRepresentation * > (value.get());
-    inverse->m_ofProductRepresentation->erase(mOwner);
+    ERASE_INVERSE_VALUE(value, m_ofProductRepresentation, mOwner);
     return List_IfcRepresentation_1_n::erase(value);
 }
 

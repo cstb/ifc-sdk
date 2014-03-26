@@ -44,24 +44,42 @@ void Inverted_IfcRelAssociates_RelatedObjects_type::setOwner(IfcRelAssociates *o
     mOwner = owner;
 }
 
+#define LOCAL_INSERT_INVERSE_VALUE(object, attribute, type, value) \
+        if (!(object)->attribute.valid())               \
+        {                                            \
+            (object)->attribute = new type;             \
+            (object)->attribute->setUnset(false);       \
+        }                                            \
+        (object)->attribute->insert(value);
+
 void Inverted_IfcRelAssociates_RelatedObjects_type::insert(const Step::RefPtr< IfcRoot > &value) throw(std::out_of_range) {
-    IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
     Set_IfcRoot_1_n::insert(value);
-    if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
-        ((IfcObjectDefinition *) (inverse))->m_hasAssociations->insert(mOwner);
+    if (value->isOfType(IfcObjectDefinition::getClassType())) {
+        LOCAL_INSERT_INVERSE_VALUE(static_cast<IfcObjectDefinition *>(value.get()),
+                                   m_hasAssociations,
+                                   Inverse_Set_IfcRelAssociates_0_n,
+                                   mOwner);
     }
-    if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
-        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations->insert(mOwner);
+    else if (value->isOfType(IfcPropertyDefinition::getClassType())) {
+        LOCAL_INSERT_INVERSE_VALUE(static_cast<IfcPropertyDefinition *>(value.get()),
+                                   m_hasAssociations,
+                                   Inverse_Set_IfcRelAssociates_0_n,
+                                   mOwner);
     }
 }
 
 Inverted_IfcRelAssociates_RelatedObjects_type::size_type Inverted_IfcRelAssociates_RelatedObjects_type::erase(const Step::RefPtr< IfcRoot > &value) {
-    IfcRoot *inverse = const_cast< IfcRoot * > (value.get());
-	if (dynamic_cast< IfcObjectDefinition * > (inverse) != NULL) {
-        ((IfcObjectDefinition *) (inverse))->m_hasAssociations->erase(mOwner);
+    if (value->isOfType(IfcObjectDefinition::getClassType())) {
+        IfcObjectDefinition *object = static_cast<IfcObjectDefinition *>(value.get());
+        if (object->m_hasAssociations.valid()) {
+            object->m_hasAssociations->erase(mOwner);
+        }
     }
-    if (dynamic_cast< IfcPropertyDefinition * > (inverse) != NULL) {
-        ((IfcPropertyDefinition *) (inverse))->m_hasAssociations->erase(mOwner);
+    else if (value->isOfType(IfcPropertyDefinition::getClassType())) {
+        IfcPropertyDefinition *object = static_cast<IfcPropertyDefinition *>(value.get());
+        if (object->m_hasAssociations.valid()) {
+            object->m_hasAssociations->erase(mOwner);               \
+        }
     }
     return Set_IfcRoot_1_n::erase(value);
 }
