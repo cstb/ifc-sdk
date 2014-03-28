@@ -676,6 +676,14 @@
 #include <Step/RefLinkedList.h>
 #include <Step/Referenced.h>
 
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
+#include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 namespace ifc2x3 {
 
     class CopyOp;
@@ -20741,1672 +20749,1672 @@ namespace ifc2x3 {
     private:
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_Ifc2DCompositeCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_Ifc2DCompositeCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcActionRequest_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcActionRequest_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcActor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcActor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcActorRole_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcActorRole_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcActuatorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcActuatorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAirTerminalBoxType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAirTerminalBoxType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAirTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAirTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAirToAirHeatRecoveryType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAirToAirHeatRecoveryType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAlarmType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAlarmType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAngularDimension_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAngularDimension_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationCurveOccurrence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationCurveOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationFillArea_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationFillArea_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationFillAreaOccurrence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationFillAreaOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSurface_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSurface_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSurfaceOccurrence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSurfaceOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSymbolOccurrence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationSymbolOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationTextOccurrence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAnnotationTextOccurrence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcApplication_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcApplication_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAppliedValueRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAppliedValueRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcApproval_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcApproval_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcApprovalActorRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcApprovalActorRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcApprovalPropertyRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcApprovalPropertyRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcApprovalRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcApprovalRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryClosedProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryClosedProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryOpenProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryOpenProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryProfileDefWithVoids_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcArbitraryProfileDefWithVoids_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAsset_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAsset_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAsymmetricIShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAsymmetricIShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAxis1Placement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAxis1Placement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAxis2Placement2D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAxis2Placement2D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcAxis2Placement3D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcAxis2Placement3D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBeam_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBeam_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBeamType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBeamType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBezierCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBezierCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBlobTexture_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBlobTexture_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBlock_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBlock_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoilerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoilerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBooleanClippingResult_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBooleanClippingResult_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBooleanResult_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBooleanResult_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryEdgeCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryEdgeCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryFaceCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryFaceCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryNodeCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryNodeCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryNodeConditionWarping_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundaryNodeConditionWarping_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundedSurface_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundedSurface_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoundingBox_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoundingBox_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBoxedHalfSpace_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBoxedHalfSpace_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuilding_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBuilding_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementPart_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementPart_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementProxy_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementProxy_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementProxyType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBuildingElementProxyType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcBuildingStorey_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcBuildingStorey_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCableCarrierFittingType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCableCarrierFittingType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCableCarrierSegmentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCableCarrierSegmentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCableSegmentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCableSegmentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCalendarDate_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCalendarDate_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianPoint_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCartesianPoint_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator2D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator2D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator2DnonUniform_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator2DnonUniform_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator3D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator3D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator3DnonUniform_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCartesianTransformationOperator3DnonUniform_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCenterLineProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCenterLineProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcChamferEdgeFeature_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcChamferEdgeFeature_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcChillerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcChillerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCircle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCircle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCircleHollowProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCircleHollowProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCircleProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCircleProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassification_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassification_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassificationItem_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassificationItem_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassificationItemRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassificationItemRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassificationNotation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassificationNotation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassificationNotationFacet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassificationNotationFacet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClassificationReference_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClassificationReference_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcClosedShell_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcClosedShell_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCoilType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCoilType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcColourRgb_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcColourRgb_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcColumn_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcColumn_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcColumnType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcColumnType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcComplexProperty_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcComplexProperty_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCompositeCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCompositeCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCompositeCurveSegment_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCompositeCurveSegment_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCompositeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCompositeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCompressorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCompressorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCondenserType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCondenserType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConditionCriterion_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConditionCriterion_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectedFaceSet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectedFaceSet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionCurveGeometry_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectionCurveGeometry_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPointEccentricity_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPointEccentricity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPointGeometry_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPointGeometry_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPortGeometry_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectionPortGeometry_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConnectionSurfaceGeometry_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConnectionSurfaceGeometry_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstraintAggregationRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstraintAggregationRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstraintClassificationRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstraintClassificationRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstraintRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstraintRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstructionEquipmentResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstructionEquipmentResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstructionMaterialResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstructionMaterialResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConstructionProductResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConstructionProductResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcContextDependentUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcContextDependentUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcControllerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcControllerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcConversionBasedUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcConversionBasedUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCooledBeamType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCooledBeamType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCoolingTowerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCoolingTowerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCoordinatedUniversalTimeOffset_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCoordinatedUniversalTimeOffset_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCostItem_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCostItem_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCostSchedule_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCostSchedule_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCostValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCostValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCovering_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCovering_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCoveringType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCoveringType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCraneRailAShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCraneRailAShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCraneRailFShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCraneRailFShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCrewResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCrewResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCsgSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCsgSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurrencyRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurrencyRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurtainWall_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurtainWall_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurtainWallType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurtainWallType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveBoundedPlane_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurveBoundedPlane_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFont_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFont_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFontAndScaling_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFontAndScaling_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFontPattern_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcCurveStyleFontPattern_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDamperType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDamperType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDateAndTime_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDateAndTime_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDefinedSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDefinedSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDerivedProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDerivedProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDerivedUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDerivedUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDerivedUnitElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDerivedUnitElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDiameterDimension_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDiameterDimension_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCalloutRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCalloutRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurveDirectedCallout_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurveDirectedCallout_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurveTerminator_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionCurveTerminator_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionPair_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionPair_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDimensionalExponents_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDimensionalExponents_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDirection_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDirection_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDiscreteAccessory_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDiscreteAccessory_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDiscreteAccessoryType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDiscreteAccessoryType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionChamberElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionChamberElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionChamberElementType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionChamberElementType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionControlElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionControlElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionElementType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionElementType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionFlowElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionFlowElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDistributionPort_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDistributionPort_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDocumentElectronicFormat_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDocumentElectronicFormat_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDocumentInformation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDocumentInformation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDocumentInformationRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDocumentInformationRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDocumentReference_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDocumentReference_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDoor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDoor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDoorLiningProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDoorLiningProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDoorPanelProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDoorPanelProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDoorStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDoorStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingCallout_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingCallout_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingCalloutRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingCalloutRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedColour_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedColour_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedCurveFont_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedCurveFont_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedTextFont_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDraughtingPreDefinedTextFont_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDuctFittingType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDuctFittingType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDuctSegmentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDuctSegmentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcDuctSilencerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcDuctSilencerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdge_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEdge_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdgeCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEdgeCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEdgeLoop_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEdgeLoop_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricApplianceType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricApplianceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricDistributionPoint_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricDistributionPoint_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricFlowStorageDeviceType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricFlowStorageDeviceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricGeneratorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricGeneratorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricHeaterType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricHeaterType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricMotorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricMotorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricTimeControlType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricTimeControlType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricalBaseProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricalBaseProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricalCircuit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricalCircuit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElectricalElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElectricalElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementAssembly_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElementAssembly_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcElementQuantity_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcElementQuantity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEllipse_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEllipse_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEllipseProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEllipseProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnergyConversionDevice_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEnergyConversionDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnergyProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEnergyProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEnvironmentalImpactValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEnvironmentalImpactValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEquipmentElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEquipmentElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEquipmentStandard_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEquipmentStandard_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEvaporativeCoolerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEvaporativeCoolerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcEvaporatorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcEvaporatorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExtendedMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExtendedMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedHatchStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedHatchStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedSurfaceStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedSurfaceStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedTextFont_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExternallyDefinedTextFont_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcExtrudedAreaSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcExtrudedAreaSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFace_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFace_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFaceBasedSurfaceModel_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFaceBasedSurfaceModel_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFaceBound_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFaceBound_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFaceOuterBound_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFaceOuterBound_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFaceSurface_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFaceSurface_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFacetedBrep_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFacetedBrep_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFacetedBrepWithVoids_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFacetedBrepWithVoids_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFailureConnectionCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFailureConnectionCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFanType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFanType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFastener_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFastener_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFastenerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFastenerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleHatching_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleHatching_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleTileSymbolWithStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleTileSymbolWithStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleTiles_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFillAreaStyleTiles_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFilterType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFilterType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFireSuppressionTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFireSuppressionTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowController_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowController_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowFitting_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowFitting_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowInstrumentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowInstrumentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowMeterType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowMeterType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowMovingDevice_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowMovingDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowSegment_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowSegment_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowStorageDevice_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowStorageDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTerminal_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowTerminal_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFlowTreatmentDevice_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFlowTreatmentDevice_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFluidFlowProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFluidFlowProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFooting_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFooting_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFuelProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFuelProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFurnishingElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFurnishingElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFurnishingElementType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFurnishingElementType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFurnitureStandard_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFurnitureStandard_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcFurnitureType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcFurnitureType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGasTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGasTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeneralMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeneralMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeneralProfileProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeneralProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricCurveSet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeometricCurveSet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationContext_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationContext_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationSubContext_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeometricRepresentationSubContext_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGeometricSet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGeometricSet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGrid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGrid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGridAxis_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGridAxis_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGridPlacement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGridPlacement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcGroup_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcGroup_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcHalfSpaceSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcHalfSpaceSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcHeatExchangerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcHeatExchangerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcHumidifierType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcHumidifierType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcHygroscopicMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcHygroscopicMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcIShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcIShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcImageTexture_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcImageTexture_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcInventory_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcInventory_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcIrregularTimeSeries_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcIrregularTimeSeries_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcIrregularTimeSeriesValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcIrregularTimeSeriesValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcJunctionBoxType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcJunctionBoxType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLaborResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLaborResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLampType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLampType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLibraryInformation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLibraryInformation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLibraryReference_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLibraryReference_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightDistributionData_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightDistributionData_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightFixtureType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightFixtureType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightIntensityDistribution_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightIntensityDistribution_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceAmbient_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceAmbient_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceDirectional_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceDirectional_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceGoniometric_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceGoniometric_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourcePositional_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightSourcePositional_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceSpot_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLightSourceSpot_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLine_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLine_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLinearDimension_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLinearDimension_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLocalPlacement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLocalPlacement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLocalTime_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLocalTime_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcLoop_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcLoop_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMappedItem_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMappedItem_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterial_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterial_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialClassificationRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialClassificationRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialDefinitionRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialDefinitionRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayer_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayer_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayerSet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayerSet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayerSetUsage_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialLayerSetUsage_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMaterialList_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMaterialList_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMeasureWithUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMeasureWithUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalConcreteMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalConcreteMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalFastener_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalFastener_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalFastenerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalFastenerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalSteelMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMechanicalSteelMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMember_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMember_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMemberType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMemberType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMetric_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMetric_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMonetaryUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMonetaryUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMotorConnectionType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMotorConnectionType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcMove_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcMove_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcObjective_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcObjective_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOccupant_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOccupant_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOffsetCurve2D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOffsetCurve2D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOffsetCurve3D_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOffsetCurve3D_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOneDirectionRepeatFactor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOneDirectionRepeatFactor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOpenShell_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOpenShell_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOpeningElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOpeningElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOpticalMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOpticalMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOrderAction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOrderAction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOrganization_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOrganization_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOrganizationRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOrganizationRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOrientedEdge_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOrientedEdge_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOutletType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOutletType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcOwnerHistory_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcOwnerHistory_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPath_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPath_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPerformanceHistory_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPerformanceHistory_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPermeableCoveringProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPermeableCoveringProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPermit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPermit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPerson_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPerson_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPersonAndOrganization_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPersonAndOrganization_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPhysicalComplexQuantity_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPhysicalComplexQuantity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPile_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPile_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPipeFittingType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPipeFittingType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPipeSegmentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPipeSegmentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPixelTexture_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPixelTexture_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlanarBox_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPlanarBox_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlanarExtent_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPlanarExtent_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlane_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPlane_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlate_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPlate_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPlateType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPlateType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPointOnCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPointOnCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPointOnSurface_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPointOnSurface_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPolyLoop_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPolyLoop_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPolygonalBoundedHalfSpace_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPolygonalBoundedHalfSpace_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPolyline_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPolyline_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPostalAddress_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPostalAddress_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedDimensionSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedDimensionSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedPointMarkerSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedPointMarkerSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedTerminatorSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPreDefinedTerminatorSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerAssignment_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerAssignment_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerWithStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPresentationLayerWithStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPresentationStyleAssignment_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPresentationStyleAssignment_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProcedure_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProcedure_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProductDefinitionShape_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProductDefinitionShape_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProductRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProductRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProductsOfCombustionProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProductsOfCombustionProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProject_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProject_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProjectOrder_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProjectOrder_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProjectOrderRecord_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProjectOrderRecord_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProjectionCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProjectionCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProjectionElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProjectionElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyBoundedValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyBoundedValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyConstraintRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyConstraintRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyDependencyRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyDependencyRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyEnumeratedValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyEnumeratedValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyEnumeration_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyEnumeration_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyListValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyListValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyReferenceValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyReferenceValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertySet_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertySet_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertySingleValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertySingleValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPropertyTableValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPropertyTableValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProtectiveDeviceType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProtectiveDeviceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcProxy_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcProxy_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcPumpType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcPumpType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityArea_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityArea_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityCount_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityCount_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityLength_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityLength_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityTime_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityTime_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityVolume_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityVolume_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcQuantityWeight_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcQuantityWeight_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRadiusDimension_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRadiusDimension_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRailing_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRailing_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRailingType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRailingType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRamp_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRamp_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRampFlight_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRampFlight_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRampFlightType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRampFlightType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRationalBezierCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRationalBezierCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRectangleHollowProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRectangleHollowProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRectangleProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRectangleProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRectangularPyramid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRectangularPyramid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRectangularTrimmedSurface_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRectangularTrimmedSurface_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReferencesValueDocument_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcReferencesValueDocument_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRegularTimeSeries_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRegularTimeSeries_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcementBarProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcReinforcementBarProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcementDefinitionProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcReinforcementDefinitionProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingBar_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingBar_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingMesh_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcReinforcingMesh_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAggregates_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAggregates_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsTasks_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsTasks_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToActor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToActor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToControl_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToControl_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToGroup_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToGroup_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProcess_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProcess_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProduct_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProduct_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProjectOrder_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToProjectOrder_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssignsToResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociates_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociates_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesAppliedValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesAppliedValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesApproval_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesApproval_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesClassification_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesClassification_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesConstraint_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesConstraint_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesDocument_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesDocument_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesLibrary_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesLibrary_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesMaterial_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesMaterial_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesProfileProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelAssociatesProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsElements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsElements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPathElements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPathElements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPortToElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPortToElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPorts_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsPorts_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralActivity_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralActivity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralMember_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsStructuralMember_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsWithEccentricity_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsWithEccentricity_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsWithRealizingElements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelConnectsWithRealizingElements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelContainedInSpatialStructure_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelContainedInSpatialStructure_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelCoversBldgElements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelCoversBldgElements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelCoversSpaces_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelCoversSpaces_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelDefinesByProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelDefinesByProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelDefinesByType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelDefinesByType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelFillsElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelFillsElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelFlowControlElements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelFlowControlElements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelInteractionRequirements_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelInteractionRequirements_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelNests_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelNests_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelOccupiesSpaces_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelOccupiesSpaces_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelOverridesProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelOverridesProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelProjectsElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelProjectsElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelReferencedInSpatialStructure_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelReferencedInSpatialStructure_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelSchedulesCostItems_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelSchedulesCostItems_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelSequence_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelSequence_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelServicesBuildings_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelServicesBuildings_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelSpaceBoundary_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelSpaceBoundary_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelVoidsElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelVoidsElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRelaxation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRelaxation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationContext_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationContext_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationMap_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRepresentationMap_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRevolvedAreaSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRevolvedAreaSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRibPlateProfileProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRibPlateProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRightCircularCone_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRightCircularCone_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRightCircularCylinder_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRightCircularCylinder_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoof_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRoof_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoundedEdgeFeature_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRoundedEdgeFeature_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcRoundedRectangleProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcRoundedRectangleProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSIUnit_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSIUnit_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSanitaryTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSanitaryTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcScheduleTimeControl_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcScheduleTimeControl_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSectionProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSectionProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSectionReinforcementProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSectionReinforcementProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSectionedSpine_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSectionedSpine_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSensorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSensorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcServiceLife_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcServiceLife_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcServiceLifeFactor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcServiceLifeFactor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcShapeAspect_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcShapeAspect_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcShapeRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcShapeRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcShellBasedSurfaceModel_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcShellBasedSurfaceModel_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSite_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSite_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSlab_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSlab_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSlabType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSlabType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSlippageConnectionCondition_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSlippageConnectionCondition_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSoundProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSoundProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSoundValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSoundValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpace_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSpace_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpaceHeaterType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSpaceHeaterType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpaceProgram_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSpaceProgram_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpaceThermalLoadProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSpaceThermalLoadProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSpaceType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSpaceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSphere_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSphere_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStackTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStackTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStair_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStair_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStairFlight_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStairFlight_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStairFlightType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStairFlightType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralAnalysisModel_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralAnalysisModel_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveConnection_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveConnection_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveMember_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveMember_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveMemberVarying_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralCurveMemberVarying_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearAction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearAction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearActionVarying_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLinearActionVarying_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadGroup_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadGroup_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadLinearForce_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadLinearForce_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadPlanarForce_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadPlanarForce_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleDisplacement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleDisplacement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleDisplacementDistortion_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleDisplacementDistortion_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleForce_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleForce_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleForceWarping_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadSingleForceWarping_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadTemperature_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralLoadTemperature_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPlanarAction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPlanarAction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPlanarActionVarying_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPlanarActionVarying_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointAction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointAction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointConnection_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointConnection_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointReaction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralPointReaction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralProfileProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralResultGroup_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralResultGroup_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSteelProfileProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSteelProfileProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceConnection_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceConnection_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceMember_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceMember_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceMemberVarying_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuralSurfaceMemberVarying_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStructuredDimensionCallout_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStructuredDimensionCallout_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStyledItem_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStyledItem_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcStyledRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcStyledRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSubContractResource_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSubContractResource_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSubedge_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSubedge_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceCurveSweptAreaSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceCurveSweptAreaSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceOfLinearExtrusion_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceOfLinearExtrusion_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceOfRevolution_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceOfRevolution_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleLighting_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleLighting_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleRefraction_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleRefraction_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleRendering_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleRendering_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleShading_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleShading_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleWithTextures_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSurfaceStyleWithTextures_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSweptDiskSolid_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSweptDiskSolid_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSwitchingDeviceType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSwitchingDeviceType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSymbolStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSymbolStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSystem_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSystem_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcSystemFurnitureElementType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcSystemFurnitureElementType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTable_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTable_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTableRow_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTableRow_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTankType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTankType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTask_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTask_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTelecomAddress_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTelecomAddress_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTendon_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTendon_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTendonAnchor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTendonAnchor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTerminatorSymbol_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTerminatorSymbol_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextLiteral_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextLiteral_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextLiteralWithExtent_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextLiteralWithExtent_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleFontModel_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleFontModel_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleForDefinedFont_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleForDefinedFont_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleTextModel_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleTextModel_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleWithBoxCharacteristics_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextStyleWithBoxCharacteristics_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextureCoordinateGenerator_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextureCoordinateGenerator_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextureMap_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextureMap_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTextureVertex_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTextureVertex_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcThermalMaterialProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcThermalMaterialProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesReferenceRelationship_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesReferenceRelationship_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesSchedule_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesSchedule_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesValue_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTimeSeriesValue_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTopologyRepresentation_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTopologyRepresentation_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTransformerType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTransformerType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTransportElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTransportElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTransportElementType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTransportElementType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTrapeziumProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTrapeziumProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTrimmedCurve_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTrimmedCurve_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTubeBundleType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTubeBundleType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTwoDirectionRepeatFactor_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTwoDirectionRepeatFactor_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTypeObject_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTypeObject_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcTypeProduct_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcTypeProduct_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcUShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcUShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcUnitAssignment_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcUnitAssignment_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcUnitaryEquipmentType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcUnitaryEquipmentType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcValveType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcValveType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVector_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVector_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVertex_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVertex_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVertexBasedTextureMap_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVertexBasedTextureMap_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVertexLoop_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVertexLoop_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVertexPoint_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVertexPoint_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVibrationIsolatorType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVibrationIsolatorType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVirtualElement_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVirtualElement_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcVirtualGridIntersection_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcVirtualGridIntersection_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWall_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWall_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWallStandardCase_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWallStandardCase_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWallType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWallType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWasteTerminalType_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWasteTerminalType_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWaterProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWaterProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWindow_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWindow_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWindowLiningProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWindowLiningProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWindowPanelProperties_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWindowPanelProperties_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWindowStyle_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWindowStyle_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWorkPlan_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWorkPlan_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcWorkSchedule_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcWorkSchedule_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcZShapeProfileDef_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcZShapeProfileDef_Map;
         /**
          */
-        std::map<Step::Id, Step::BaseObjectPtr > m_IfcZone_Map;
+        STEP_MAP<Step::Id, Step::BaseObjectPtr > m_IfcZone_Map;
         /**
          */
         Step::RefLinkedList< Ifc2DCompositeCurve > m_refIfc2DCompositeCurveList;

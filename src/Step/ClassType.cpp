@@ -16,19 +16,27 @@
 
 #include "Step/ClassType.h"
 
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
+#include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 #include <utility>
 #include <iostream>
 using namespace Step;
 
 static int s_id = 1;
 
-std::map<std::string, ClassType > * sClassTypeMapPointer=0;
+STEP_MAP<std::string, ClassType > * sClassTypeMapPointer=0;
 
 ClassType ClassType::sUndefined("Undefined",0);
 
 ClassType::ClassType(const std::string &name)
 {
-    static std::map<std::string, ClassType > sClassTypeMap;
+    static STEP_MAP<std::string, ClassType > sClassTypeMap;
     sClassTypeMapPointer = & sClassTypeMap;
     m_name = name;
     m_id = s_id++;
@@ -86,7 +94,7 @@ const ClassType &ClassType::Undefined()
 
 const ClassType &ClassType::find(const std::string & name)
 {
-    std::map<std::string, ClassType >::const_iterator it = sClassTypeMapPointer->find(name);
+    STEP_MAP<std::string, ClassType >::const_iterator it = sClassTypeMapPointer->find(name);
     if ( it != sClassTypeMapPointer->end())
     {
         return (*it).second;

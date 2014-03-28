@@ -607,4 +607,32 @@ namespace Step {
 
 }
 
+namespace boost
+{
+    template <class T> inline std::size_t hash_value(const Step::ObsPtr<T> &v);
+    template <class T> inline std::size_t hash_value(const Step::RefPtr<T> &v);
+    inline std::size_t hash_value(const Step::ClassType &v);
+}
+
+#include <boost/functional/hash/hash.hpp>
+
+namespace boost
+{
+    template <class T> inline std::size_t hash_value(const Step::ObsPtr<T> &v)
+    {
+        return hash_value(const_cast<T*>(v.get()));
+    }
+
+    template <class T> inline std::size_t hash_value(const Step::RefPtr<T> &v)
+    {
+        return hash_value(const_cast<T*>(v.get()));
+    }
+
+    inline std::size_t hash_value(const Step::ClassType &v)
+    {
+        return hash_value(v.getName().c_str());
+    }
+
+}
+
 #endif

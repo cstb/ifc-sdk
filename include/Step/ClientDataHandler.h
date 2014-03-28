@@ -20,7 +20,13 @@
 #include <Step/Export.h>
 #include <Step/Types.h>
 
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
 #include <map>
+#define STEP_MAP STEP_MAP
+#endif
 
 namespace Step {
 
@@ -87,7 +93,7 @@ namespace Step {
         /*!
          \short Map of ClientData, the key is an uintptr_t
          */
-        std::map<ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
+        STEP_MAP<ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
     };
 }
 #endif

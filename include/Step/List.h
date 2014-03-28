@@ -56,6 +56,10 @@ namespace Step {
         List(bool unset=false) :
             Aggregate(unset)
         {
+            if(_hi!=-1)
+            {
+                this->reserve(_hi);
+            }
         }
 
         /**

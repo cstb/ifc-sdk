@@ -22,7 +22,14 @@
 #include <Step/Types.h>
 #include <Step/ClassType.h>
 
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
 #include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 #include <string>
 
 namespace Step {
@@ -125,7 +132,7 @@ namespace Step {
         int m_argc;
         int m_index;
         std::string** m_argv;
-        std::map<std::pair<ClassType, int>, std::vector<Step::Id> > m_inverses;
+        STEP_MAP<std::pair<ClassType, int>, std::vector<Step::Id> > m_inverses;
     };
 }
 #endif

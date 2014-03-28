@@ -200,9 +200,9 @@ String String::fromUTF8(const std::string &str)
     return result;
 }
 
-std::map<wchar_t, char> buildUnicodeTable(const wchar_t table[96])
+STEP_MAP<wchar_t, char> buildUnicodeTable(const wchar_t table[96])
 {
-    std::map<wchar_t, char> result;
+    STEP_MAP<wchar_t, char> result;
 
     for (size_t i = 0; i < 96; ++i)
     {
@@ -227,7 +227,7 @@ static const wchar_t iso8859_2[96] =
     0x0155, 0x00E1, 0x00E2, 0x0103, 0x00E4, 0x013A, 0x0107, 0x00E7, 0x010D, 0x00E9, 0x0119, 0x00EB, 0x011B, 0x00ED, 0x00EE, 0x010F,
     0x0111, 0x0144, 0x0148, 0x00F3, 0x00F4, 0x0151, 0x00F6, 0x00F7, 0x0159, 0x016F, 0x00FA, 0x0171, 0x00FC, 0x00FD, 0x0163, 0x02D9
 };
-std::map<wchar_t, char> UnicodeToIso8859_2 = buildUnicodeTable(iso8859_2);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_2 = buildUnicodeTable(iso8859_2);
 
 /*
  table iso8859_3 (latin3) south european
@@ -242,7 +242,7 @@ static const wchar_t iso8859_3[96] =
     0x00E0, 0x00E1, 0x00E2, 0x0000, 0x00E4, 0x010B, 0x0109, 0x00E7, 0x00E8, 0x00E9, 0x00EA, 0x00EB, 0x00EC, 0x00ED, 0x00EE, 0x00EF,
     0x0000, 0x00F1, 0x00F2, 0x00F3, 0x00F4, 0x0121, 0x00F6, 0x00F7, 0x011D, 0x00F9, 0x00FA, 0x00FB, 0x00FC, 0x016D, 0x015D, 0x02D9
 };
-std::map<wchar_t, char> UnicodeToIso8859_3 = buildUnicodeTable(iso8859_3);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_3 = buildUnicodeTable(iso8859_3);
 
 /*
  ** table iso8859_4 (latin4) north european
@@ -256,7 +256,7 @@ static const wchar_t iso8859_4[96] =
     0x0101, 0x00E1, 0x00E2, 0x00E3, 0x00E4, 0x00E5, 0x00E6, 0x012F, 0x010D, 0x00E9, 0x0119, 0x00EB, 0x0117, 0x00ED, 0x00EE, 0x012B,
     0x0111, 0x0146, 0x014D, 0x0137, 0x00F4, 0x00F5, 0x00F6, 0x00F7, 0x00F8, 0x0173, 0x00FA, 0x00FB, 0x00FC, 0x0169, 0x016B, 0x02D9
 };
-std::map<wchar_t, char> UnicodeToIso8859_4 = buildUnicodeTable(iso8859_4);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_4 = buildUnicodeTable(iso8859_4);
 
 /*
  ** table iso8859_5 cyrillic
@@ -271,7 +271,7 @@ static const wchar_t iso8859_5[96] =
     0x2116, 0x0451, 0x0452, 0x0453, 0x0454, 0x0455, 0x0456, 0x0457, 0x0458, 0x0459, 0x045A, 0x045B, 0x045C, 0x00A7, 0x045E, 0x045F
 };
 
-std::map<wchar_t, char> UnicodeToIso8859_5 = buildUnicodeTable(iso8859_5);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_5 = buildUnicodeTable(iso8859_5);
 
 /*
  ** table iso8859_6 arabic
@@ -285,7 +285,7 @@ static const wchar_t iso8859_6[96] =
     0x0640, 0x0641, 0x0642, 0x0643, 0x0644, 0x0645, 0x0646, 0x0647, 0x0648, 0x0649, 0x064A, 0x064B, 0x064C, 0x064D, 0x064E, 0x064F,
     0x0650, 0x0651, 0x0652, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
 };
-std::map<wchar_t, char> UnicodeToIso8859_6 = buildUnicodeTable(iso8859_6);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_6 = buildUnicodeTable(iso8859_6);
 
 /*
  ** table iso8859_7 greek
@@ -299,7 +299,7 @@ static const wchar_t iso8859_7[96] =
     0x03B0, 0x03B1, 0x03B2, 0x03B3, 0x03B4, 0x03B5, 0x03B6, 0x03B7, 0x03B8, 0x03B9, 0x03BA, 0x03BB, 0x03BC, 0x03BD, 0x03BE, 0x03BF,
     0x03C0, 0x03C1, 0x03C2, 0x03C3, 0x03C4, 0x03C5, 0x03C6, 0x03C7, 0x03C8, 0x03C9, 0x03CA, 0x03CB, 0x03CC, 0x03CD, 0x03CE, 0x0000
 };
-std::map<wchar_t, char> UnicodeToIso8859_7 = buildUnicodeTable(iso8859_7);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_7 = buildUnicodeTable(iso8859_7);
 
 /*
  ** table iso8859_8 hebrew
@@ -314,7 +314,7 @@ static const wchar_t iso8859_8[96] =
     0x05E0, 0x05E1, 0x05E2, 0x05E3, 0x05E4, 0x05E5, 0x05E6, 0x05E7, 0x05E8, 0x05E9, 0x05EA, 0x0000, 0x0000, 0x200E, 0x200F, 0x0000
 };
 
-std::map<wchar_t, char> UnicodeToIso8859_8 = buildUnicodeTable(iso8859_8);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_8 = buildUnicodeTable(iso8859_8);
 
 /*
  ** table iso8859_9 (latin5) turkish
@@ -328,7 +328,7 @@ static const wchar_t iso8859_9[96] =
     0x00E0, 0x00E1, 0x00E2, 0x00E3, 0x00E4, 0x00E5, 0x00E6, 0x00E7, 0x00E8, 0x00E9, 0x00EA, 0x00EB, 0x00EC, 0x00ED, 0x00EE, 0x00EF,
     0x011F, 0x00F1, 0x00F2, 0x00F3, 0x00F4, 0x00F5, 0x00F6, 0x00F7, 0x00F8, 0x00F9, 0x00FA, 0x00FB, 0x00FC, 0x0131, 0x015F, 0x00FF
 };
-std::map<wchar_t, char> UnicodeToIso8859_9 = buildUnicodeTable(iso8859_9);
+STEP_MAP<wchar_t, char> UnicodeToIso8859_9 = buildUnicodeTable(iso8859_9);
 
 /*
  table windows-1256
@@ -494,7 +494,7 @@ static char toISO_8859(String::Alphabet alphabet, wchar_t code)
     }
     else if(alphabet > String::Western_European && alphabet <= String::Turkish)
     {
-        static const std::map<wchar_t, char>* UnicodeToIso8859_[] =
+        static const STEP_MAP<wchar_t, char>* UnicodeToIso8859_[] =
         {
             NULL,
             &UnicodeToIso8859_2,
@@ -507,7 +507,7 @@ static char toISO_8859(String::Alphabet alphabet, wchar_t code)
             &UnicodeToIso8859_9,
         };
 
-        std::map<wchar_t, char>::const_iterator i = UnicodeToIso8859_[alphabet]->find(code);
+        STEP_MAP<wchar_t, char>::const_iterator i = UnicodeToIso8859_[alphabet]->find(code);
         if(i != UnicodeToIso8859_[alphabet]->end())
             return (*i).second;
     }

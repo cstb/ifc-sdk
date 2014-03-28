@@ -19,7 +19,14 @@
 
 #include <Step/SimpleTypes.h>
 
+#if 1
+#include <boost/unordered_set.hpp>
+#define STEP_SET boost::unordered_set
+#else
 #include <set>
+#define STEP_SET std::set
+#endif
+
 #include <stdexcept>
 
 #ifdef  _MSC_VER
@@ -37,21 +44,22 @@ namespace Step {
      */
 
     template<typename T, Integer _lo = 0, Integer _hi = -1> class Set :
-            public std::set<T>,
+            public STEP_SET<T>,
             public Aggregate
     {
     public:
         //! the size_type
-        typedef typename std::set<T>::size_type size_type;
+        typedef typename STEP_SET<T>::size_type size_type;
         //! the forward iterator
-        typedef typename std::set<T>::iterator iterator;
+        typedef typename STEP_SET<T>::iterator iterator;
         //! the const forward iterator
-        typedef typename std::set<T>::const_iterator const_iterator;
+        typedef typename STEP_SET<T>::const_iterator const_iterator;
+#if 0
         //! the reverse iterator
-        typedef typename std::set<T>::reverse_iterator reverse_iterator;
+        typedef typename STEP_SET<T>::reverse_iterator reverse_iterator;
         //! the const reverse iterator
-        typedef typename std::set<T>::const_reverse_iterator const_reverse_iterator;
-
+        typedef typename STEP_SET<T>::const_reverse_iterator const_reverse_iterator;
+#endif
         /**
          * Default constructor
          * \param unset initialized to not unset by default
@@ -76,16 +84,16 @@ namespace Step {
             for (Integer i=0; i<count; ++i)
                 insert(value[i]);
 #ifdef STEP_CHECK_RANGE
-            if (Integer(std::set<T>::size())<_lo)
+            if (Integer(STEP_SET<T>::size())<_lo)
             {
-                std::set<T>::clear();
+                STEP_SET<T>::clear();
                 throw std::range_error("Set : array not big enough");
             }
             if (_hi>0)
             {
-                if (Integer(std::set<T>::size())>=_hi)
+                if (Integer(STEP_SET<T>::size())>=_hi)
                 {
-                    std::set<T>::clear();
+                    STEP_SET<T>::clear();
                     throw std::range_error("Set size is not big enough for the array");
                 }
             }
@@ -105,17 +113,17 @@ namespace Step {
 #endif
         {
 #ifdef STEP_CHECK_RANGE
-            if (Integer(std::set<T>::size())<_lo)
+            if (Integer(STEP_SET<T>::size())<_lo)
             {
-                std::set<T>::clear();
+                STEP_SET<T>::clear();
                 throw std::range_error("Set : vector not big enough");
             }
             if (_hi>0)
             {
-                if (Integer(std::set<T>::size())>=_hi)
+                if (Integer(STEP_SET<T>::size())>=_hi)
 
                 {
-                    std::set<T>::clear();
+                    STEP_SET<T>::clear();
                     throw std::range_error("Set size is not big enough for the vector");
                 }
             }
@@ -140,16 +148,16 @@ namespace Step {
 #endif
         {
 #ifdef STEP_CHECK_RANGE
-            if (Integer(std::set<T>::size())<_lo)
+            if (Integer(STEP_SET<T>::size())<_lo)
             {
-                std::set<T>::clear();
+                STEP_SET<T>::clear();
                 throw std::range_error("Set : list not big enough");
             }
             if (_hi>0)
             {
-                if (Integer(std::set<T>::size())>=_hi)
+                if (Integer(STEP_SET<T>::size())>=_hi)
                 {
-                    std::set<T>::clear();
+                    STEP_SET<T>::clear();
                     throw std::range_error("Set size is not big enough for the list");
                 }
             }
@@ -174,13 +182,13 @@ namespace Step {
 #endif
         {
             setUnset(false);
-            std::set<T>::insert(value);
+            STEP_SET<T>::insert(value);
 #ifdef STEP_CHECK_RANGE
             if (_hi>0)
             {
-                if (Integer(std::set<T>::size())>_hi)
+                if (Integer(STEP_SET<T>::size())>_hi)
                 {
-                    std::set<T>::erase(value);
+                    STEP_SET<T>::erase(value);
                     throw std::out_of_range("Set is full");
                 }
             }
@@ -193,7 +201,7 @@ namespace Step {
          */
         virtual void erase(iterator &it)
         {
-            std::set<T>::erase(it);
+            STEP_SET<T>::erase(it);
         }
 
         /**
@@ -203,7 +211,7 @@ namespace Step {
          */
         virtual size_type erase(const T &value)
         {
-            return std::set<T>::erase(value);
+            return STEP_SET<T>::erase(value);
         }
 
         /**
@@ -238,12 +246,12 @@ namespace Step {
         Set& operator=(const Set& other)
         {
             this->setUnset(other.isUnset());
-            std::set<T>::operator=(other);
+            STEP_SET<T>::operator=(other);
             return *this;
         }
     private:
         // cannot allow to have an operator that will allow different sizes of Set to be assigned
-        std::set<T>& operator=(const std::set<T>& other);
+        STEP_SET<T>& operator=(const STEP_SET<T>& other);
     };
 
     // UNSET for SET

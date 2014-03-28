@@ -152,6 +152,11 @@ int main(int argc, char **argv)
         std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
     }
 
+    Step::RefLinkedList<ifc2x3::IfcObjectDefinition>& refList =
+        expressDataSet->getAllIfcObjectDefinition();
+    Step::RefLinkedList<ifc2x3::IfcObjectDefinition>::iterator it =
+        refList.begin();
+
 #if WRITE_FILE
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);

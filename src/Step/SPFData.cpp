@@ -43,7 +43,7 @@ const std::string &SPFData::getNext()
 
 std::vector<Id>* SPFData::getInverses(ClassType cl, int i)
 {
-    std::map<std::pair<ClassType,int>, std::vector<Id> >::iterator it =
+    STEP_MAP<std::pair<ClassType,int>, std::vector<Id> >::iterator it =
         m_inverses.find(std::pair<ClassType,int>(cl,i));
     if (it != m_inverses.end())
         return &it->second;

@@ -16,7 +16,14 @@
 
 #ifndef IFC2X3_COPYOP_H
 #define IFC2X3_COPYOP_H
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
 #include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 #include <ifc2x3/Export.h>
 
 #include <ifc2x3/FalseVisitor.h>
@@ -5119,7 +5126,7 @@ namespace ifc2x3 {
          * Map storing Original to clones to break circle relationships loops.
          * 
          */
-        mutable std::map<const Step::BaseObject*,Step::BaseObject*> _mapOriginalToClone;
+        mutable STEP_MAP<const Step::BaseObject*,Step::BaseObject*> _mapOriginalToClone;
         /**
          * @param original
          * @param clone

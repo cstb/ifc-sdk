@@ -23,7 +23,6 @@
 
 #include <Step/Export.h>
 
-#include <map>
 #include <string>
 
 namespace Step {

@@ -20,7 +20,14 @@
 #include <Step/IntegerTypes.h>
 #include <Step/Referenced.h>
 
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
 #include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 #include <limits>
 
 #ifdef min
@@ -62,7 +69,7 @@ namespace Step
     typedef BaseEntity* (*AllocateFuncType)(BaseExpressDataSet*, Id);
 
     //! The map of entities type definition
-    typedef std::map<Id, BaseEntityPtr> MapOfEntities;
+    typedef STEP_MAP<Id, BaseEntityPtr> MapOfEntities;
 }
 
 #endif

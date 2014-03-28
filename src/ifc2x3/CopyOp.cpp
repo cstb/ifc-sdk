@@ -1173,7 +1173,7 @@ void DeepCopyOp::associate(const Step::BaseObject *original, Step::BaseObject *c
 }
 
 Step::BaseObject *DeepCopyOp::find(const Step::BaseObject *original) const {
-    std::map<const Step::BaseObject*,Step::BaseObject*>::iterator it = _mapOriginalToClone.find(original);
+    STEP_MAP<const Step::BaseObject*,Step::BaseObject*>::iterator it = _mapOriginalToClone.find(original);
     if (it != _mapOriginalToClone.end()) {
         return (*it).second;
     }

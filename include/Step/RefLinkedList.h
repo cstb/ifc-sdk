@@ -21,7 +21,15 @@
 #include <Step/BaseSPFObject.h>
 
 #include <iterator>
+
+#if 1
+#include <boost/unordered_map.hpp>
+#define STEP_MAP boost::unordered_map
+#else
 #include <map>
+#define STEP_MAP STEP_MAP
+#endif
+
 #include <iostream>
 
 namespace Step {
@@ -220,7 +228,7 @@ namespace Step {
     {
     public:
         //! typedef to our element type
-        typedef std::map<Id, Step::RefPtr<BaseObject> > element_type;
+        typedef STEP_MAP<Id, Step::RefPtr<BaseObject> > element_type;
 
         //! typedef to our list type
         typedef std::vector< element_type* > refList_type;
@@ -360,7 +368,7 @@ namespace Step {
          * Adds a new element at the end of the list, right after its current last element. The content of this new element is initialized to a copy of x.
          * \param value the value to add.
          */
-        void push_back(std::map<Id, Step::RefPtr<BaseObject> >* value)
+        void push_back(STEP_MAP<Id, Step::RefPtr<BaseObject> >* value)
         {
             m_refList.push_back(value);
         }

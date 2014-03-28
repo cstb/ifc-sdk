@@ -28,7 +28,7 @@ ClientDataHandler::ClientDataHandler()
 
 ClientDataHandler::~ClientDataHandler()
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
+    STEP_MAP<ClientDataKey, RefPtr<ClientData> >::iterator iter;
     for (iter = m_clientDataMap.begin(); iter != m_clientDataMap.end(); iter++)
     {
         iter->second = 0;
@@ -37,7 +37,7 @@ ClientDataHandler::~ClientDataHandler()
 
 void ClientDataHandler::copy(const ClientDataHandler& obj, const BaseCopyOp&)
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::const_iterator iter;
+    STEP_MAP<ClientDataKey, RefPtr<ClientData> >::const_iterator iter;
     for (iter = obj.m_clientDataMap.begin(); iter != obj.m_clientDataMap.end(); iter++)
     {
         setClientData(iter->first, iter->second.get());
@@ -46,7 +46,7 @@ void ClientDataHandler::copy(const ClientDataHandler& obj, const BaseCopyOp&)
 
 void ClientDataHandler::clearClientData()
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
+    STEP_MAP<ClientDataKey, RefPtr<ClientData> >::iterator iter;
     for (iter = m_clientDataMap.begin(); iter != m_clientDataMap.end(); iter++)
     {
         iter->second = 0;
@@ -61,7 +61,7 @@ bool ClientDataHandler::eraseClientData(ClientDataKey key)
 
 ClientData* ClientDataHandler::getClientData(ClientDataKey key)
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter =
+    STEP_MAP<ClientDataKey, RefPtr<ClientData> >::iterator iter =
             m_clientDataMap.find(key);
     if (iter != m_clientDataMap.end())
         return iter->second.get();
