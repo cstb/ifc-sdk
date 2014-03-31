@@ -18,6 +18,8 @@
 #include "Step/SPFData.h"
 #include "Step/BaseVisitor.h"
 
+#include "BaseObjectPrivate.h"
+
 using namespace Step;
 
 ClassType_child_implementations(STEP_EXPORT,BaseObject,ClientDataHandler);
@@ -80,7 +82,7 @@ SPFData* BaseObject::getArgs()
 
 bool BaseObject::isInited()
 {
-    return m_inited;
+    return d_ptr.valid();
 }
 
 BaseExpressDataSet * BaseObject::getExpressDataSet()

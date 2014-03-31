@@ -21,12 +21,14 @@
 
 namespace Step {
 
+    class BaseEntityPrivate;
     /*!
      ** Base Class for every entity from the STEP data model
      */
     class STEP_EXPORT BaseEntity: public BaseObject
     {
         ClassType_definitions()
+        DeclarePrivate_Class(BaseEntity)
     public:
 
         /**

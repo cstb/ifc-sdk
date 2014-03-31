@@ -118,4 +118,8 @@ const Step::ClassType &T::getClassType() { return T::s_type; } \
 const Step::ClassType &T::getType() const { return T::s_type; } \
 bool T::isOfType(const Step::ClassType &t) const { return T::s_type == t ? true : P::isOfType(t); }
 
+#define DeclarePrivate_Class(Class) \
+    inline Class##Private* d_func() { if (!d_ptr.valid() this->init(); return reinterpret_cast<Class##Private *>(d_ptr.get()); } \
+    inline const Class##Private* d_func() const { if (!d_ptr.valid() const_cast<Class*>(this)->init(); return reinterpret_cast<const Class##Private *>(d_ptr.get()); } \
+    friend class Class##Private;
 #endif // ClassType_INCLUDED

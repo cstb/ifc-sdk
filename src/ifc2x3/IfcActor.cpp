@@ -63,12 +63,8 @@ bool IfcActor::isOfType(const Step::ClassType &t) const {
 }
 
 IfcActorSelect *IfcActor::getTheActor() {
-    if (Step::BaseObject::inited()) {
-        return m_theActor.get();
-    }
-    else {
-        return NULL;
-    }
+    Step::BaseObject::inited();
+    return d_func()->getTheActor();
 }
 
 const IfcActorSelect *IfcActor::getTheActor() const {
@@ -77,7 +73,8 @@ const IfcActorSelect *IfcActor::getTheActor() const {
 }
 
 void IfcActor::setTheActor(const Step::RefPtr< IfcActorSelect > &value) {
-    m_theActor = value;
+    Step::BaseObject::inited();
+    d_func()->setTheActor(value);
 }
 
 void IfcActor::unsetTheActor() {

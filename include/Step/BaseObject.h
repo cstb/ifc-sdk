@@ -29,12 +29,16 @@
 
 namespace Step {
     class SPFData;
+    class BaseObjectPrivate;
     /*!
      ** \short Base Object for Entity and Select definition
      */
     class STEP_EXPORT BaseObject: public ClientDataHandler
     {
         ClassType_definitions()
+        DeclarePrivate_Class(BaseObject)
+    protected:
+        const ScopedPtr<BaseObjectPrivate> d_ptr;
     public:
 
         /*!
@@ -112,12 +116,6 @@ namespace Step {
          */
         BaseExpressDataSet* m_expressDataSet;
 
-
-
-        /*!
-         \short Flag about entity initialization (Lazy Loading)
-         */
-        bool m_inited;
 
         /*!
          \short Data from a Step-21 file (Lazy Loading)

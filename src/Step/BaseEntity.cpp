@@ -17,7 +17,14 @@
 #include "Step/BaseEntity.h"
 #include "Step/BaseVisitor.h"
 
+#include "BaseObjectPrivate.h"
+
 using namespace Step;
+
+class BaseEntityPrivate : public BaseObjectPrivate
+{
+
+};
 
 ClassType_child_implementations(STEP_EXPORT,BaseEntity,BaseObject);
 

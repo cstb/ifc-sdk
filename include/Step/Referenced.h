@@ -605,6 +605,56 @@ namespace Step {
         Referenced* _ptr;
     };
 
+    template <typename T>
+    class ScopedPtr
+    {
+    public:
+        explicit inline ScopedPtr(T *p = 0) : _ptr(p)
+        {
+        }
+
+        inline ~ScopedPtr()
+        {
+            T *old_ptr = this->_ptr;
+            delete old_ptr;
+            this->_ptr = 0;
+        }
+
+        inline T &operator*() const
+        {
+            return *_ptr;
+        }
+
+        inline T *operator->() const
+        {
+            return _ptr;
+        }
+
+        inline T *get() const
+        {
+            return _ptr;
+        }
+
+        inline bool valid() const
+        {
+            return _ptr != 0L;
+        }
+
+        inline bool operator!() const
+        {
+            return _ptr == 0L;
+        }
+
+
+    protected:
+        T *_ptr;
+
+    private:
+        ScopedPtr(const ScopedPtr &);
+        ScopedPtr &operator=(const ScopedPtr &);
+    };
+
+
 }
 
 #endif
