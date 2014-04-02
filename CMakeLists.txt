@@ -187,11 +187,18 @@ if(APPLE)
     endforeach(flag)
 endif()
 
+set(Boost_USE_STATIC_LIBS OFF)
+set(Boost_USE_MULTITHREADED ON)
+set(Boost_USE_STATIC_RUNTIME OFF)
+find_package(Boost REQUIRED)
+
 include(${CMAKE_CURRENT_SOURCE_DIR}/PCHSupport.cmake)
 if(PCHSupport_FOUND)
     option(ENABLE_PRECOMPILED_HEADER "Enable use of precompiled header to improve compile time" ON)
 endif()
 
+include(UseBoost)
+include_directories(BEFORE ${Boost_INCLUDE_DIRS} )
 include_directories(BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
 add_subdirectory(src)
