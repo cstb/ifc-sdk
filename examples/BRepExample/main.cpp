@@ -28,6 +28,7 @@
 #include <iostream>
 
 #include "BrepBuilder.h"
+#include "BrepReaderVisitor.h"
 
 class ConsoleCallBack : public Step::CallBack
 {
@@ -110,19 +111,26 @@ int main(int argc, char **argv)
     // ** Instantiate the model
     expressDataSet->instantiateAll();
 
-    // ** Check the root of the model
-    Step::RefLinkedList< ifc2x3::IfcProject > projects = expressDataSet->getAllIfcProject();
-    if ( projects.size() == 0 ) {
-        std::cout << "Strange ... there is no IfcProject" << std::endl;
-    } else if ( projects.size() > 1 ) {
-        std::cout << "Strange ... there more than one IfcProject" << std::endl;
-    } else {
-        Step::RefPtr< ifc2x3::IfcProject > project = &*(projects.begin());
-        std::cout << "Project name is: " << project->getName().toISO_8859(Step::String::Western_European) << std::endl;
-        if ( Step::isUnset(project->getLongName().toISO_8859(Step::String::Western_European) ) ) {
-            project->setLongName("Je lui donne le nom que je veux");
+    // ** Get buildingElement
+    Step::RefLinkedList< ifc2x3::IfcBuildingElement > elements = expressDataSet->getAllIfcBuildingElement();
+    if ( elements.size() == 0 )
+    {
+        std::cout << "Strange ... there is no IfcBuildingElement" << std::endl;
+    } 
+    else 
+    {
+        Step::RefPtr< ifc2x3::IfcBuildingElement > element = &*(elements.begin());
+        Step::RefLinkedList_iterator<ifc2x3::IfcBuildingElement> it,end;
+
+        it = expressDataSet->getAllIfcBuildingElement().begin();
+        end = expressDataSet->getAllIfcBuildingElement().end();
+
+        while (it != end)
+        {
+            BrepReaderVisitor visitor();
+            //(*it).acceptVisitor(&visitor);
+            ++it;
         }
-        std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
     }
 
  return 0;
