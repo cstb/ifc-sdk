@@ -17,7 +17,7 @@ option(STEP_ONLY "Build and install only Step" OFF)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1)
 SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta5)
+SET(ifc2x3_sdk_VERSION_PATCH beta6)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
 
