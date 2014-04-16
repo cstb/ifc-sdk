@@ -186,6 +186,8 @@ bool BrepReaderVisitor::visitIfcRepresentation(ifc2x3::IfcRepresentation *value)
 
 bool BrepReaderVisitor::visitIfcFacetedBrep(ifc2x3::IfcFacetedBrep *value)
 {
+    _brepBuilder->addRepresentation(value);
+ 
     ifc2x3::IfcClosedShell* closedShell = value->getOuter();
     if(closedShell)
     {
