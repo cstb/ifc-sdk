@@ -3,64 +3,29 @@
 #include <ifc2x3/ExpressDataSet.h>
 
 
-BrepReaderVisitor::BrepReaderVisitor() :
-    _shapeRep(0),
-    _productRepresentation(false)
+BrepReaderVisitor::BrepReaderVisitor(BRepBuilder* brepBuilder) 
+    : _brepBuilder(brepBuilder),
+      _fatherIsOpeningEl(false)
 {
 }
 
-bool BrepReaderVisitor::visitIfcProduct(ifc2x3::IfcProduct *value)
+bool BrepReaderVisitor::visitIfcObjectDefinition(ifc2x3::IfcObjectDefinition *value)
 {
-    ifc2x3::IfcProductRepresentation * pr = value->getRepresentation();
-
-    if ((pr == NULL) || (pr->getRepresentations().empty()))
+    ifc2x3::Inverse_Set_IfcRelDecomposes_0_n::iterator itDecomposedBy = value->getIsDecomposedBy().begin();
+    while (itDecomposedBy != value->getIsDecomposedBy().end())
     {
-        return (false);
-    }
-    else
-    {
-        _product = value;
-        pr->acceptVisitor(this);
+        ifc2x3::IfcRelDecomposes* rd = const_cast<ifc2x3::IfcRelDecomposes*> (itDecomposedBy->get());
+        rd->acceptVisitor(this);
+        ++itDecomposedBy;
     }
 
     return true;
 }
 
-bool BrepReaderVisitor::visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation *value)
+bool BrepReaderVisitor::visitIfcRelAggregates(ifc2x3::IfcRelAggregates *value)
 {
-    ifc2x3::List_IfcRepresentation_1_n::iterator it, end = value->getRepresentations().end();
-
-    bool result = false;
-
-    Step::String identifiers[4] = { "Body", "IAI", "Facetation", "Unset" };
-
-    for (int i = 0; i < 4 ; ++i)
-    {
-        for (it = value->getRepresentations().begin(); it != end; ++it)
-        {
-            mRepresentationIdentifier = (*it)->getRepresentationIdentifier();
-            mRepresentationType = (*it)->getRepresentationType();
-            if (mRepresentationIdentifier == identifiers[i] )
-            {
-                if (mRepresentationType != Step::String("Brep") )
-                {
-                    // TODO
-                }
-            }
-        }
-    }
-
-    return result;
-}
-
-
-bool BrepReaderVisitor::visitIfcRepresentation(ifc2x3::IfcRepresentation *value)
-{
-    ifc2x3::Set_IfcRepresentationItem_1_n::iterator it,end;
-    it = value->getItems().begin();
-    end = value->getItems().end();
-
-    while (it!=end)
+    ifc2x3::Set_IfcObjectDefinition_1_n::iterator it = value->getRelatedObjects().begin();
+    while (it != value->getRelatedObjects().end())
     {
         (*it)->acceptVisitor(this);
         ++it;
@@ -68,96 +33,239 @@ bool BrepReaderVisitor::visitIfcRepresentation(ifc2x3::IfcRepresentation *value)
 
     return true;
 }
-//
-//struct GenerateIfcFacetedBrep
-//{
-//
-//    GenerateIfcFacetedBrep(){}
-//
-//    void setExpressDataSet(ifc2x3::ExpressDataSet *dataset)
-//    {
-//        _dataset = dataset;
-//
-//        _shell = _dataset->createIfcClosedShell().get();
-//
-//        _brep = _dataset->createIfcFacetedBrep().get();
-//
-//        _brep->setOuter(_shell);
-//    }
-//
-//    ifc2x3::IfcFace *createFace(ifc2x3::IfcCartesianPoint *v1,
-//                                ifc2x3::IfcCartesianPoint *v2,
-//                                ifc2x3::IfcCartesianPoint *v3)
-//    {
-//        ifc2x3::IfcPolyLoop *loop = _dataset->createIfcPolyLoop().get();
-//        loop->getPolygon().push_back(v1);
-//        loop->getPolygon().push_back(v2);
-//        loop->getPolygon().push_back(v3);
-//
-//        ifc2x3::IfcFaceOuterBound *fob = _dataset->createIfcFaceOuterBound().get();
-//        fob->setBound(loop);
-//        fob->setOrientation(Step::BTrue);
-//
-//        ifc2x3::IfcFace *face = _dataset->createIfcFace().get();
-//        face->getBounds().insert(fob);
-//
-//        return face;
-//    }
-//
-//    ifc2x3::IfcCartesianPoint *createPoint(const osg::Vec3 &v)
-//    {
-//        std::map<osg::Vec3,ifc2x3::IfcCartesianPoint *>::iterator it = _points.find(v);
-//        if (it != _points.end())
-//        {
-//            return (*it).second;
-//        }
-//
-//        ifc2x3::IfcCartesianPoint *point = _dataset->createIfcCartesianPoint().get();
-//        ifc2x3::List_IfcLengthMeasure_1_3 coordinates;
-//
-//        coordinates.push_back(v.x());
-//        coordinates.push_back(v.y());
-//        coordinates.push_back(v.z());
-//
-//        point->setCoordinates(coordinates);
-//
-//        _points[v] = point;
-//
-//        return point;
-//    }
-//
-//    void operator() (const osg::Vec3 v1,
-//                     const osg::Vec3 v2,
-//                     const osg::Vec3 v3,
-//                     bool /*treatVertexDataAsTemporary*/)
-//    {
-//        _shell->getCfsFaces().insert(createFace(createPoint(v1),
-//                                                createPoint(v2),
-//                                                createPoint(v3)));
-//    }
-//
-//    std::map<osg::Vec3,ifc2x3::IfcCartesianPoint *> _points;
-//
-//    ifc2x3::ExpressDataSet *_dataset;
-//    ifc2x3::IfcClosedShell *_shell;
-//    ifc2x3::IfcFacetedBrep *_brep;
-//};
 
-
-bool BrepReaderVisitor::visitIfcMappedItem(ifc2x3::IfcMappedItem *value)
+bool BrepReaderVisitor::pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct *value)
 {
-    if (!value->getMappingSource()->getMappedRepresentation()->acceptVisitor(this))
-        return false;
-    else
-        return true;
+    //push placement
+    bool hasPlacement = false;
+    if(value->testObjectPlacement())
+    {
+        hasPlacement = value->getObjectPlacement()->acceptVisitor(this);
+    }
 
+    _brepBuilder->addProduct(value);
+    
+    // work on representation
+    ifc2x3::IfcProductRepresentation * pr = value->getRepresentation();
+    if(pr)
+    {
+        pr->acceptVisitor(this);
+    }
+
+    return hasPlacement;
 }
 
-bool BrepReaderVisitor::visitIfcRepresentationItem(ifc2x3::IfcRepresentationItem *value)
+bool BrepReaderVisitor::visitIfcProduct(ifc2x3::IfcProduct *value)
 {
+    //push placement
+    bool hasPlacement = pushPlacementAndComputeRepresentation(value);
+    
+    // visit decomposed by object
+    visitIfcObjectDefinition(value);
 
-    if (_productRepresentation)
-    {
+    // pop placement
+    if(hasPlacement)
+        _brepBuilder->popPlacement();
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcElement(ifc2x3::IfcElement *value)
+{
+    // test if this element fills something; its father must be an opening element
+    if(value->getFillsVoids().size() > 0 && !_fatherIsOpeningEl)
         return true;
+
+    // push placement
+    bool hasPlacement = pushPlacementAndComputeRepresentation(value);
+
+    // visit opening elements
+    ifc2x3::Inverse_Set_IfcRelVoidsElement_0_n::iterator it = value->getHasOpenings().begin();
+    while (it != value->getHasOpenings().end())
+    {     
+        ifc2x3::IfcFeatureElementSubtraction* elt = const_cast<ifc2x3::IfcFeatureElementSubtraction*> ((*it)->getRelatedOpeningElement());
+        elt->acceptVisitor(this); 
+        ++it;        
     }
+    
+    // visit decomposed by object
+    visitIfcObjectDefinition(value);
+
+    // pop placement
+    if(hasPlacement)
+        _brepBuilder->popPlacement();
+    
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcOpeningElement(ifc2x3::IfcOpeningElement *value)
+{
+    // push placement
+    bool hasPlacement = pushPlacementAndComputeRepresentation(value);
+
+    // visit fillings
+    _fatherIsOpeningEl = true;
+    ifc2x3::Inverse_Set_IfcRelFillsElement_0_n::iterator it = value->getHasFillings().begin();
+    while (it != value->getHasFillings().end())
+    {     
+        ifc2x3::IfcElement *elt = const_cast<ifc2x3::IfcElement*>((*it)->getRelatedBuildingElement());
+        elt->acceptVisitor(this);
+        ++it;        
+    }
+    _fatherIsOpeningEl = false;
+
+    // pop placement
+    if(hasPlacement)
+        _brepBuilder->popPlacement();
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcSpatialStructureElement(ifc2x3::IfcSpatialStructureElement *value)
+{
+    // push placement
+    bool hasPlacement = pushPlacementAndComputeRepresentation(value);
+
+    // visit contained elements
+    ifc2x3::Inverse_Set_IfcRelContainedInSpatialStructure_0_n::iterator itContainsElements = value->getContainsElements().begin();
+    while (itContainsElements != value->getContainsElements().end())
+    {
+        ifc2x3::IfcRelContainedInSpatialStructure* rel = const_cast<ifc2x3::IfcRelContainedInSpatialStructure *> (itContainsElements->get());
+        rel->acceptVisitor(this);
+        ++itContainsElements;
+    }
+    
+    // visit decomposed by object
+    visitIfcObjectDefinition(value);
+
+    // pop placement
+    if(hasPlacement)
+        _brepBuilder->popPlacement();
+    
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcRelContainedInSpatialStructure(ifc2x3::IfcRelContainedInSpatialStructure *value)
+{
+    ifc2x3::Set_IfcProduct_1_n::iterator itRelatedElement = value->getRelatedElements().begin();
+    while (itRelatedElement != value->getRelatedElements().end())
+    {
+        (*itRelatedElement)->acceptVisitor(this);
+        ++itRelatedElement;
+    }
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcProductRepresentation(ifc2x3::IfcProductRepresentation *value)
+{
+    ifc2x3::List_IfcRepresentation_1_n::iterator it = value->getRepresentations().begin();
+    while (it != value->getRepresentations().end())
+    {
+        Step::String representationType = (*it)->getRepresentationType();
+        if (representationType == Step::String("Brep") )
+        {
+            (*it)->acceptVisitor(this);
+        }
+        ++it;
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcRepresentation(ifc2x3::IfcRepresentation *value)
+{
+    ifc2x3::Set_IfcRepresentationItem_1_n::iterator it = value->getItems().begin();
+    while (it != value->getItems().end())
+    {
+        (*it)->acceptVisitor(this);
+        ++it;
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcFacetedBrep(ifc2x3::IfcFacetedBrep *value)
+{
+    ifc2x3::IfcClosedShell* closedShell = value->getOuter();
+    if(closedShell)
+    {
+        closedShell->acceptVisitor(this);
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcClosedShell(ifc2x3::IfcClosedShell *value)
+{
+    _brepBuilder->addClosedShell(value);
+
+    ifc2x3::Set_IfcFace_1_n::iterator it = value->getCfsFaces().begin();
+    while (it != value->getCfsFaces().end())
+    {
+        (*it)->acceptVisitor(this);
+        ++it;
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcFace(ifc2x3::IfcFace *value)
+{
+    _brepBuilder->addFace(value);
+
+    ifc2x3::Set_IfcFaceBound_1_n::iterator it = value->getBounds().begin();
+    while (it != value->getBounds().end())
+    {
+        ifc2x3::IfcPolyLoop * poly = dynamic_cast<ifc2x3::IfcPolyLoop*>((*it)->getBound());
+        if(poly)
+        {
+            poly->acceptVisitor(this);
+        }
+
+        ++it;
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcPolyLoop(ifc2x3::IfcPolyLoop *value)
+{
+    ifc2x3::List_IfcCartesianPoint_3_n::iterator it = value->getPolygon().begin();
+    while (it != value->getPolygon().end())
+    {
+        (*it)->acceptVisitor(this);
+        ++it;
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcCartesianPoint(ifc2x3::IfcCartesianPoint *value)
+{
+    _brepBuilder->addPoint(value);
+    return true;
+}
+
+// placement
+bool BrepReaderVisitor::visitIfcLocalPlacement(ifc2x3::IfcLocalPlacement *value)
+{
+    return value->getRelativePlacement()->acceptVisitor(this);
+}
+
+bool BrepReaderVisitor::visitIfcAxis2Placement(ifc2x3::IfcAxis2Placement * value)
+{
+    ifc2x3::IfcAxis2Placement3D * axis3placement3d = value->getIfcAxis2Placement3D();
+    if(axis3placement3d)
+    {
+        return axis3placement3d->acceptVisitor(this);
+    }
+
+    return true;
+}
+
+bool BrepReaderVisitor::visitIfcAxis2Placement3D(ifc2x3::IfcAxis2Placement3D * value)
+{
+    _brepBuilder->pushPlacement(value);
+
+    return true;
 }

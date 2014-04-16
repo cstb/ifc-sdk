@@ -19,9 +19,14 @@ public:
 		std::cout << "popPlacement" << std::endl;
 	}
 
-	virtual void addObject(ifc2x3::IfcObjectDefinition *value)
+	/*virtual void addObject(ifc2x3::IfcObjectDefinition *value)
 	{
 		std::cout << "addObject : " << value->getKey() << std::endl;
+	}*/
+
+    virtual void addProduct(ifc2x3::IfcProduct *value)
+	{
+		std::cout << "addProduct : " << value->getKey() << std::endl;
 	}
 
 	virtual void addRepresentation(ifc2x3::IfcRepresentationItem *value)
