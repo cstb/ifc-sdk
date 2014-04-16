@@ -112,26 +112,14 @@ int main(int argc, char **argv)
     expressDataSet->instantiateAll();
 
     // ** Get buildingElement
-    Step::RefLinkedList< ifc2x3::IfcBuildingElement > elements = expressDataSet->getAllIfcBuildingElement();
-    if ( elements.size() == 0 )
-    {
-        std::cout << "Strange ... there is no IfcBuildingElement" << std::endl;
-    } 
-    else 
-    {
-        Step::RefPtr< ifc2x3::IfcBuildingElement > element = &*(elements.begin());
-        Step::RefLinkedList_iterator<ifc2x3::IfcBuildingElement> it,end;
+	BRepBuilder brepBuilder;
+	BrepReaderVisitor visitor(&brepBuilder);
 
-        it = expressDataSet->getAllIfcBuildingElement().begin();
-        end = expressDataSet->getAllIfcBuildingElement().end();
-
-        while (it != end)
-        {
-            BrepReaderVisitor visitor();
-            //(*it).acceptVisitor(&visitor);
-            ++it;
-        }
+    Step::RefLinkedList< ifc2x3::IfcProject >::iterator projIt = expressDataSet->getAllIfcProject().begin();
+    for (; projIt != expressDataSet->getAllIfcProject().end(); ++projIt)
+    {
+        projIt->acceptVisitor(&visitor);
     }
 
- return 0;
+    return 0;
 }
