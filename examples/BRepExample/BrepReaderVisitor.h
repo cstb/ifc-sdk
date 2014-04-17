@@ -115,6 +115,23 @@ public:
     ** \brief Add the axis2Placement3D to the BRepBuilder
     */
     virtual bool visitIfcAxis2Placement3D(ifc2x3::IfcAxis2Placement3D *value);
+    
+    /*!
+    ** \brief Do not visit IfcDoor
+    ** If you want to visit doors, remove or comment this method
+    */
+    virtual bool visitIfcDoor(ifc2x3::IfcDoor * /*value*/)
+    {
+        return true;
+    };
+    /*!
+    ** \brief Do not visit IfcWindow
+    ** If you want to visit windows, remove or comment this method
+    */
+    virtual bool visitIfcWindow(ifc2x3::IfcWindow * /*value*/)
+    {
+        return true;
+    };
 
 protected:
     /*!
@@ -124,7 +141,7 @@ protected:
     ** Visit the representation if there is one
     ** \return if the product has an object placement
     */
-    bool pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct *value);
+    bool pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct *value, bool addProduct = true);
 
 protected:
 	BRepBuilder* _brepBuilder;

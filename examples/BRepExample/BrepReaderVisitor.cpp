@@ -34,7 +34,7 @@ bool BrepReaderVisitor::visitIfcRelAggregates(ifc2x3::IfcRelAggregates *value)
     return true;
 }
 
-bool BrepReaderVisitor::pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct *value)
+bool BrepReaderVisitor::pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct *value, bool addProduct)
 {
     //push placement
     bool hasPlacement = false;
@@ -43,7 +43,8 @@ bool BrepReaderVisitor::pushPlacementAndComputeRepresentation(ifc2x3::IfcProduct
         hasPlacement = value->getObjectPlacement()->acceptVisitor(this);
     }
 
-    _brepBuilder->addProduct(value);
+    if(addProduct)
+        _brepBuilder->addProduct(value);
     
     // work on representation
     ifc2x3::IfcProductRepresentation * pr = value->getRepresentation();
@@ -101,7 +102,7 @@ bool BrepReaderVisitor::visitIfcElement(ifc2x3::IfcElement *value)
 bool BrepReaderVisitor::visitIfcOpeningElement(ifc2x3::IfcOpeningElement *value)
 {
     // push placement
-    bool hasPlacement = pushPlacementAndComputeRepresentation(value);
+    bool hasPlacement = pushPlacementAndComputeRepresentation(value, false);
 
     // visit fillings
     _fatherIsOpeningEl = true;
