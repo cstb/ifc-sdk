@@ -1,1 +1,1 @@
-SUBDIRS(readWrite buildModel)
+SUBDIRS(readWrite buildModel BRepExample)
