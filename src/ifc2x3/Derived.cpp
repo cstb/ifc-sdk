@@ -1086,7 +1086,8 @@ List_IfcDirection_3_3 IfcAxis2Placement3D::getP() const
 	LOG_DEBUG("IfcAxis2Placement3D::getP()::IfcBuildAxes(getAxis(), refDirection)");
     
     LOG_DEBUG("IfcAxis2Placement3D::End");
-	return IfcBuildAxes(Axis, refDirection);
+    List_IfcDirection_3_3 result = IfcBuildAxes(Axis, refDirection);
+    return result;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
