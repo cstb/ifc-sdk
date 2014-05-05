@@ -74,9 +74,10 @@ SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} APPEND PROPERTY COMPILE_DEFIN
 SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} APPEND PROPERTY COMPILE_DEFINITIONS_RELEASE "LOG_WARNING_ENABLE")
 
 if(APPLE)
-    set(CMAKE_OSX_ARCHITECTURES "x86_64")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.7")
-    set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk")
+    set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "Build architectures for OSX" FORCE)
+    if( NOT (${CMAKE_CXX_FLAGS} MATCHES "10.7") )
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+    endif()
 endif()
 
 IF(MSVC)
