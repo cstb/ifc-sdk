@@ -27,6 +27,9 @@
 
 #include <iostream>
 
+#include "BrepBuilder.h"
+#include "BrepReaderVisitor.h"
+
 class ConsoleCallBack : public Step::CallBack
 {
 public:
@@ -40,7 +43,7 @@ protected:
 
 int main(int argc, char **argv)
 {
-    std::cout << "Simple read/write example of Ifc2x3 SDK" << std::endl;
+    std::cout << "Simple read Brep geometry example of Ifc2x3 SDK" << std::endl;
 
     if (argc < 2)
     {
@@ -105,37 +108,15 @@ int main(int argc, char **argv)
         return (2);
     }
 
-    // ** Instantiate the model
-    expressDataSet->instantiateAll();
+    // ** Get buildingElement
+	BRepBuilder brepBuilder;
+	BrepReaderVisitor visitor(&brepBuilder);
 
-    // ** Check the root of the model
-    Step::RefLinkedList< ifc2x3::IfcProject > projects = expressDataSet->getAllIfcProject();
-    if ( projects.size() == 0 ) {
-        std::cout << "Strange ... there is no IfcProject" << std::endl;
-    } else if ( projects.size() > 1 ) {
-        std::cout << "Strange ... there more than one IfcProject" << std::endl;
-    } else {
-        Step::RefPtr< ifc2x3::IfcProject > project = &*(projects.begin());
-        std::cout << "Project name is: " << project->getName().toISO_8859(Step::String::Western_European) << std::endl;
-        if ( Step::isUnset(project->getLongName().toISO_8859(Step::String::Western_European) ) ) {
-            project->setLongName("Je lui donne le nom que je veux");
-        }
-        std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
+    Step::RefLinkedList< ifc2x3::IfcProject >::iterator projIt = expressDataSet->getAllIfcProject().begin();
+    for (; projIt != expressDataSet->getAllIfcProject().end(); ++projIt)
+    {
+        projIt->acceptVisitor(&visitor);
     }
 
-    // ** Write the file
-    ifc2x3::SPFWriter writer(expressDataSet);
-    writer.setCallBack(&cb);
-    std::ofstream filestream;
-    if (argc<4)
-    {
-        filestream.open(argv[2]);
-    }
-    else
-    {
-        filestream.open("saved.ifc");
-    }
-    bool status = writer.write(filestream);
-    filestream.close();
-    return status;
+    return 0;
 }

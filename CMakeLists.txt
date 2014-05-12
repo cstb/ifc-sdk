@@ -12,10 +12,12 @@ IF(NOT DEFINED LIB_POSTFIX)
     SET(LIB_POSTFIX "")
 ENDIF(NOT DEFINED LIB_POSTFIX)
 
+option(STEP_ONLY "Build and install only Step" OFF)
+
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1)
 SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta6)
+SET(ifc2x3_sdk_VERSION_PATCH beta7)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
 
@@ -72,9 +74,10 @@ SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} APPEND PROPERTY COMPILE_DEFIN
 SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} APPEND PROPERTY COMPILE_DEFINITIONS_RELEASE "LOG_WARNING_ENABLE")
 
 if(APPLE)
-    set(CMAKE_OSX_ARCHITECTURES "x86_64")
-    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.7")
-    set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.8.sdk")
+    set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "Build architectures for OSX" FORCE)
+    if( NOT (${CMAKE_CXX_FLAGS} MATCHES "10.7") )
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+    endif()
 endif()
 
 IF(MSVC)
@@ -200,25 +203,27 @@ add_subdirectory(doc EXCLUDE_FROM_ALL)
 include_directories(${Step_BINARY_DIR})
 include_directories(${ifc2x3_BINARY_DIR})
 
-add_subdirectory(examples)
+if(NOT STEP_ONLY)
+  add_subdirectory(examples)
 
-if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
-  option(ENABLE_TESTING "Enable tests compilation" ON)
-  if(ENABLE_TESTING)
-    ENABLE_TESTING()
-    if(UNIX)
-       set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
-       set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
-       set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+
+  if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
+    option(ENABLE_TESTING "Enable tests compilation" ON)
+    if(ENABLE_TESTING)
+      ENABLE_TESTING()
+      if(UNIX)
+         set(CMAKE_C_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+         set(CMAKE_CXX_FLAGS_PROFILING "-g -O0 -Wall -W -Wshadow -Wunused-variable -Wunused-parameter -Wunused-function -Wunused -Wno-system-headers -Wwrite-strings -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Compiler Flags")
+         set(CMAKE_SHARED_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+         set(CMAKE_MODULE_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+         set(CMAKE_EXEC_LINKER_FLAGS_PROFILING " -fprofile-arcs -ftest-coverage" CACHE STRING "Profiling Linker Flags")
+      endif()
+
+      add_subdirectory(tests)
     endif()
-
-    add_subdirectory(tests)
   endif()
+
 endif()
-
-
 
 #Create a package
 

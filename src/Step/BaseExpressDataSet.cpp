@@ -142,8 +142,10 @@ MapOfEntities& BaseExpressDataSet::getAll()
     return m_Id2BaseObject;
 }
 
+
 BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
 {
+#if 0
     if (!exists(id))
     {
         updateMaxId(id);
@@ -154,6 +156,22 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
     }
     else
         return static_cast<BaseSPFObject*> (m_Id2BaseObject[id].get());
+#else // Flo: faster impl
+    MapOfEntities::const_iterator it = m_Id2BaseObject.find(id);
+    if (it == m_Id2BaseObject.end())
+    {
+        if (id > m_maxId)
+        {
+            m_maxId = id;
+        };
+        BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
+        bo->setExpressDataSet(this);
+        m_Id2BaseObject.insert(std::make_pair(id,bo));
+        return bo;
+    }
+    else
+        return static_cast<BaseSPFObject*> (it->second.get());
+#endif
 }
 
 SPFData* BaseExpressDataSet::getArgs(Id id)
