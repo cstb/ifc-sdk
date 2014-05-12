@@ -45,15 +45,15 @@ bool Step::getIdListParam(const std::string& s, std::vector<Id>& res)
         return true;
     }
 
-    std::vector<std::string> resStr;
+    std::vector<std::string *> resStr;
     if (!parseList(s.substr(1,s.length() - 2).c_str(), resStr)) {
         res.push_back(Id_UNDEF);
         return false;
     }
 
     else {
-        for (unsigned int i=0; i< resStr.size();i++) {
-            Id current = (Id)atol(resStr[i].c_str() + 1);
+        for (unsigned int i=0; i< resStr.size(); ++i) {
+            Id current = (Id)atol(resStr[i]->c_str() + 1);
             if (current ==0) {
                 res.push_back(Id_UNDEF);
                 return false;
@@ -99,14 +99,14 @@ bool Step::getSubParameter(std::string& arg, std::string& str1)
     }
 }
 
-bool Step::parseList(const char* s, std::vector<std::string>& res) {
+bool Step::parseList(const char* s, std::vector<std::string *>& res) {
     res.clear();
     std::string str(s);
 
     std::string::size_type i = 0;
     unsigned int from = 0;
     int bracket =0;
-    for (i = 0;i < str.length(); i++) {
+    for (i = 0;i < str.length(); ++i) {
         if (str[i] == Apostrophe) {
             i = str.find(Apostrophe,i+1);
             if (i == std::string::npos) {
@@ -120,15 +120,80 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
             }
         }
         else if (str[i] == Comma && bracket == 0) {
-            res.push_back(str.substr(from,i-from));
+            res.push_back(new std::string(str.substr(from,i-from)));
             from = i + 1;
         }
     }
     if (from<i)
-        res.push_back(str.substr(from,i-from));
+        res.push_back(new std::string(str.substr(from,i-from)));
     if (bracket>0) {
         return false;
     }
+    return true;
+}
+
+bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress)
+{
+    str.clear();
+    size_t i = start;
+    size_t from = start;
+    for (;s[i] != Semicolon && i < bufferLength-1;++i) {
+        if (s[i]>=0 && s[i] <= 32) {
+            if (s[i] == Newline) //END OF LINE
+                counter++;
+            str = str + std::string(&s[from], i-from);
+            from = i+1;
+        } else if (s[i] == Slash ) { // char -> / For comment parsing
+            for (++i ; i < bufferLength-1;++i) { // Remove duplicate '/'
+                if (s[i] != Slash)
+                    break;
+            }
+            if (s[i] == Asterix) { // char -> *
+                str = str + std::string(&s[from], i-from-1);
+                for (++i ; i < bufferLength-1;++i) {
+                    if (s[i] == Asterix) {
+                        for ( ++i; i < bufferLength-1;++i) { // Remove duplicate '*'
+                            if (s[i] != Asterix)
+                                break;
+                        }
+                        if (s[i] == Slash) {
+                            from = i+1;
+                            break;
+                        }
+                    }
+                }
+                if (i >= bufferLength) {
+                    std::cerr <<("Malformed string, comments not ended by */ ");
+                    progress = i+1;
+                    return false;
+                }
+            }
+        } else if (s[i] == Apostrophe) { // char -> '
+            ++i;
+            for (;s[i] != Apostrophe && i < bufferLength-1;++i) {
+                if (s[i]>=0 && s[i] < 32) {
+                    if (s[i] == Newline) //END OF LINE
+                        counter++;
+                    str = str + std::string(&s[from], i-from);
+                    from = i;
+                }
+            }
+            if (i >= bufferLength) {
+                std::cerr <<("Malformed string, odd number of \" ' \" ");
+                progress = i+1;
+                return false;
+            }
+        }
+    }
+    if (i >= bufferLength) {
+        std::cerr <<("String too long ");
+        progress = i+1;
+        return false;
+    }
+    if (from < i)
+        str = str + std::string(&s[from], i-from);
+
+    progress = i+1;
     return true;
 }
 

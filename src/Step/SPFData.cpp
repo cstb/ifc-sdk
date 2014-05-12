@@ -21,18 +21,24 @@
 using namespace std;
 using namespace Step;
 
+static const std::string sEmptyString;
+
 SPFData::~SPFData()
 {
     if (m_argv)
+    {
+        for (int i=0; i < m_argc; ++i)
+            delete m_argv[i];
         delete []m_argv;
+    }
 }
 
-std::string SPFData::getNext()
+const std::string &SPFData::getNext()
 {
     if (m_index>=m_argc)
-        return "";
+        return sEmptyString;
     else
-        return m_argv[m_index++];
+        return *m_argv[m_index++];
 }
 
 std::vector<Id>* SPFData::getInverses(ClassType cl, int i)
@@ -52,12 +58,12 @@ void SPFData::addInverse(ClassType cl,int i , Id id)
 
 bool SPFData::setParams(const char *s)
 {
-    std::vector<std::string> v;
+    std::vector<std::string *> v;
     if (!parseList(s,v)) {
         return false;
     }
-    m_argv = new std::string[v.size()];
-    for (unsigned int i = 0; i < v.size(); i++) {
+    m_argv = new std::string*[v.size()];
+    for (unsigned int i = 0; i < v.size(); ++i) {
         m_argv[i] = v[i];
     }
     m_argc = v.size();
