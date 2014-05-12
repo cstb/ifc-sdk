@@ -17,7 +17,7 @@ option(STEP_ONLY "Build and install only Step" OFF)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1)
 SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta7)
+SET(ifc2x3_sdk_VERSION_PATCH beta8)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
 
@@ -138,7 +138,7 @@ if(APPLE)
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -Wno-conversion")
     set(WARNING_CFLAGS "")
-      
+
     foreach(flag
 #                    -Wall
 #                    -Wbad-function-cast
@@ -259,4 +259,3 @@ IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
    ENDIF(UNIX)
    INCLUDE(CPack)
 ENDIF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
-
