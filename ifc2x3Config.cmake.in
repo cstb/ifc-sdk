@@ -1,0 +1,56 @@
+find_package(Step @Step_VERSION_MAJOR@.@Step_VERSION_MINOR@.@Step_VERSION_PATCH@ REQUIRED)
+
+if(NOT ifc2x3_ROOT)
+    if(ifc2x3_DIR)
+        if(UNIX)
+            set(ifc2x3_ROOT ${ifc2x3_DIR}/../..)
+        else()
+            set(ifc2x3_ROOT ${ifc2x3_DIR})
+        endif()
+    else()
+        set(ifc2x3_ROOT ${CMAKE_CURRENT_SOURCE_DIR})
+    endif()
+endif()
+
+get_filename_component( ifc2x3_ROOT ${ifc2x3_ROOT} ABSOLUTE)
+
+message(STATUS "ifc2x3_ROOT set to ${ifc2x3_ROOT}")
+
+SET(ifc2x3_sdk_VERSION_MAJOR @ifc2x3_sdk_VERSION_MAJOR@)
+SET(ifc2x3_sdk_VERSION_MINOR @ifc2x3_sdk_VERSION_MINOR@)
+SET(ifc2x3_sdk_VERSION_PATCH @ifc2x3_sdk_VERSION_PATCH@)
+SET(ifc2x3_sdk_SOVERSION @ifc2x3_sdk_SOVERSION@)
+
+SET(ifc2x3_sdk_VERSION @ifc2x3_sdk_VERSION@ CACHE STRING "Version")
+SET(ifc2x3_sdk_VERSION_FULL @ifc2x3_sdk_VERSION_FULL@ CACHE STRING "Full Version")
+
+include_directories(BEFORE ${ifc2x3_ROOT}/include)
+link_directories(${ifc2x3_ROOT}/lib@LIB_POSTFIX@)
+
+
+find_library(ifc2x3_LIBRARY_DEBUG
+             NAMES ifc2x3@CMAKE_DEBUG_POSTFIX@
+             PATHS ${ifc2x3_ROOT}/lib@LIB_POSTFIX@
+             NO_DEFAULT_PATH)
+find_library(ifc2x3_LIBRARY_DEBUG
+             NAMES ifc2x3@CMAKE_DEBUG_POSTFIX@ )
+
+
+find_library(ifc2x3_LIBRARY
+             NAMES ifc2x3 
+             PATHS ${ifc2x3_ROOT}/lib@LIB_POSTFIX@
+             NO_DEFAULT_PATH)
+find_library(ifc2x3_LIBRARY
+             NAMES ifc2x3)
+
+if(ifc2x3_LIBRARY_DEBUG)
+    if (ifc2x3_LIBRARY)
+        set(ifc2x3_LIBRARIES optimized ${ifc2x3_LIBRARY} debug ${ifc2x3_LIBRARY_DEBUG})
+    else()
+        set(ifc2x3_LIBRARIES ${ifc2x3_LIBRARY_DEBUG})
+    endif()
+else()
+    set(ifc2x3_LIBRARIES ${ifc2x3_LIBRARY})
+endif()
+
+set(ifc2x3_LIBRARIES ${Step_LIBRARIES} ${ifc2x3_LIBRARIES})
