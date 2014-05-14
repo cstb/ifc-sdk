@@ -15,13 +15,13 @@ ENDIF(NOT DEFINED LIB_POSTFIX)
 option(STEP_ONLY "Build and install only Step" OFF)
 
 # The CMake version number.
-SET(ifc2x3_sdk_VERSION_MAJOR 1)
-SET(ifc2x3_sdk_VERSION_MINOR 0)
-SET(ifc2x3_sdk_VERSION_PATCH beta8)
-SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}")
-SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}")
+SET(ifc2x3_sdk_VERSION_MAJOR 1 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_MINOR 0 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH 8 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}" CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}" CACHE STRING "Version" FORCE)
 
-SET(ifc2x3_sdk_SOVERSION 1)
+SET(ifc2x3_sdk_SOVERSION 1 CACHE STRING "Version" FORCE)
 
 
 if(NOT CMAKEMODULES_PATH)
@@ -262,3 +262,59 @@ IF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
    ENDIF(UNIX)
    INCLUDE(CPack)
 ENDIF(EXISTS "${CMAKE_ROOT}/Modules/CPack.cmake")
+
+configure_file(StepConfig.cmake.in StepConfig.cmake @ONLY)
+if(NOT STEP_ONLY)
+  configure_file(ifc2x3Config.cmake.in ifc2x3Config.cmake @ONLY)
+endif()
+
+if(${CMAKE_VERSION} VERSION_LESS 2.8.8)
+    include (WriteBasicConfigVersionFile)
+    WRITE_BASIC_CONFIG_VERSION_FILE( StepConfigVersion.cmake
+      VERSION ${Step_VERSION_MAJOR}.${Step_VERSION_MINOR}.${Step_VERSION_PATCH}
+      COMPATIBILITY AnyNewerVersion
+    )
+    if(NOT STEP_ONLY)
+      WRITE_BASIC_CONFIG_VERSION_FILE( ifc2x3ConfigVersion.cmake
+        VERSION ${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}.${ifc2x3_sdk_VERSION_PATCH}
+        COMPATIBILITY AnyNewerVersion
+      )
+    endif()
+else()
+    include(CMakePackageConfigHelpers)
+    WRITE_BASIC_PACKAGE_VERSION_FILE( StepConfigVersion.cmake
+        VERSION ${Step_VERSION_MAJOR}.${Step_VERSION_MINOR}.${Step_VERSION_PATCH}
+        COMPATIBILITY AnyNewerVersion
+    )
+    if(NOT STEP_ONLY)
+      WRITE_BASIC_PACKAGE_VERSION_FILE( ifc2x3ConfigVersion.cmake
+        VERSION ${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}.${ifc2x3_sdk_VERSION_PATCH}
+        COMPATIBILITY AnyNewerVersion
+      )
+    endif()
+endif()
+
+if(UNIX)
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/StepConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/StepConfigVersion.cmake
+            DESTINATION share/Step
+            COMPONENT SDK )
+    if(NOT STEP_ONLY)
+      install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ifc2x3Config.cmake ${CMAKE_CURRENT_BINARY_DIR}/ifc2x3ConfigVersion.cmake
+            DESTINATION share/ifc2x3
+            COMPONENT SDK )
+    endif()
+else()
+    install(FILES ${CMAKE_CURRENT_BINARY_DIR}/StepConfig.cmake ${CMAKE_CURRENT_BINARY_DIR}/StepConfigVersion.cmake
+            COMPONENT SDK
+            DESTINATION . )
+    if(NOT STEP_ONLY)
+      install(FILES ${CMAKE_CURRENT_BINARY_DIR}/ifc2x3Config.cmake ${CMAKE_CURRENT_BINARY_DIR}/ifc2x3ConfigVersion.cmake
+            DESTINATION .
+            COMPONENT SDK )
+    endif()
+endif()
+
+message(STATUS "Step VERSION ${Step_VERSION_MAJOR}.${Step_VERSION_MINOR}.${Step_VERSION_PATCH}")
+if(NOT STEP_ONLY)
+  message(STATUS "ifc2x3 VERSION ${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}.${ifc2x3_sdk_VERSION_PATCH}")
+endif()
