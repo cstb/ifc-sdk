@@ -24,7 +24,8 @@
 #include "Step/logger.h"
 
 #include <locale>
-#include <assert.h>
+#include <cassert>
+#include <algorithm>
 
 using namespace Step;
 
