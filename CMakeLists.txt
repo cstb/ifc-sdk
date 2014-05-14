@@ -204,8 +204,11 @@ include_directories(${Step_BINARY_DIR})
 include_directories(${ifc2x3_BINARY_DIR})
 
 if(NOT STEP_ONLY)
-  add_subdirectory(examples)
+  option(ENABLE_EXAMPLES "Enable examples compilation" ON)
 
+  if(ENABLE_EXAMPLES)
+    add_subdirectory(examples)
+  endif()
 
   if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/tests)
     option(ENABLE_TESTING "Enable tests compilation" ON)
