@@ -36,10 +36,10 @@ ClassType::ClassType(const std::string &name)
     sClassTypeMap.insert(make_pair(name,ClassType(m_name,m_id)));
 }
 
-ClassType::ClassType(const ClassType &ref)
+ClassType::ClassType()
 {
-    m_name = ref.m_name;
-    m_id = ref.m_id;
+	m_name = ClassType::Undefined().m_name;
+	m_id = ClassType::Undefined().m_id;
 }
 
 ClassType::ClassType(const std::string &name, int id) :
