@@ -41,12 +41,11 @@ namespace Step {
         ClassType(const std::string& name);
 
         /*!
-         * copy constructor
-         * \param ref the ClassType to copy from of if none given the Undefined One
+         * \param defaults to the Undefined One
          */
-        ClassType(const ClassType & ref = ClassType::Undefined());
+        ClassType();
 
-        ~ClassType();
+		~ClassType();
 
         /*!
          * get name
