@@ -22,6 +22,7 @@
 #include <Step/Types.h>
 #include <Step/ClassType.h>
 #include <Step/SPFHeader.h>
+#include <Step/CallBack.h>
 
 #include <map>
 #include <string>
@@ -96,7 +97,7 @@ namespace Step {
         /*!
          \short Inits all entities (as opposed to the lazy loading concept)
          */
-        void instantiateAll();
+        void instantiateAll(CallBack *callback =0);
 
     protected:
 
