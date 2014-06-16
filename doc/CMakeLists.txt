@@ -17,19 +17,19 @@ IF(DOXYGEN_FOUND)
     SET(DOXY_WARN_FORMAT "\"\$file:\$line: \$text \"")
   ENDIF (CMAKE_BUILD_TOOL MATCHES "(msdev|devenv)")
 
-  IF (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in")
-    MESSAGE(STATUS "configured ${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in --> ${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
-    CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in 
+  IF (EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config.in")
+    MESSAGE(STATUS "configured ${CMAKE_CURRENT_LIST_DIR}/doxy.config.in --> ${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
+    CONFIGURE_FILE(${CMAKE_CURRENT_LIST_DIR}/doxy.config.in 
       ${CMAKE_CURRENT_BINARY_DIR}/doxy.config
       @ONLY )
     # use (configured) doxy.config from (out of place) BUILD tree:
     SET(DOXY_CONFIG "${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
-  ELSE (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in")
+  ELSE (EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config.in")
     # use static hand-edited doxy.config from SOURCE tree:
-    SET(DOXY_CONFIG "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config")
-    IF   (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config")
-      MESSAGE(STATUS "WARNING: using existing ${CMAKE_CURRENT_SOURCE_DIR}/doxy.config instead of configuring from doxy.config.in file.")
-    ELSE (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config")
+    SET(DOXY_CONFIG "${CMAKE_CURRENT_LIST_DIR}/doxy.config")
+    IF   (EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config")
+      MESSAGE(STATUS "WARNING: using existing ${CMAKE_CURRENT_LIST_DIR}/doxy.config instead of configuring from doxy.config.in file.")
+    ELSE (EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config")
       IF   (EXISTS "${CMAKE_MODULE_PATH}/doxy.config.in")
         # using template doxy.config.in
         MESSAGE(STATUS "configured ${CMAKE_CMAKE_MODULE_PATH}/doxy.config.in --> ${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
@@ -39,11 +39,11 @@ IF(DOXYGEN_FOUND)
         SET(DOXY_CONFIG "${CMAKE_CURRENT_BINARY_DIR}/doxy.config")
       ELSE (EXISTS "${CMAKE_MODULE_PATH}/doxy.config.in")
         # failed completely...
-        MESSAGE(SEND_ERROR "Please create ${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in (or doxy.config as fallback)")
+        MESSAGE(SEND_ERROR "Please create ${CMAKE_CURRENT_LIST_DIR}/doxy.config.in (or doxy.config as fallback)")
       ENDIF(EXISTS "${CMAKE_MODULE_PATH}/doxy.config.in")
 
-    ENDIF(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config")
-  ENDIF(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/doxy.config.in")
+    ENDIF(EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config")
+  ENDIF(EXISTS "${CMAKE_CURRENT_LIST_DIR}/doxy.config.in")
 
   ADD_CUSTOM_TARGET(Documentation ${DOXYGEN_EXECUTABLE} ${DOXY_CONFIG})
 
