@@ -1,3 +1,5 @@
+if(NOT STEP_FOUND)
+
 if(NOT Step_ROOT)
     if(Step_DIR)
         if(UNIX)
@@ -11,8 +13,6 @@ if(NOT Step_ROOT)
 endif()
 
 get_filename_component( Step_ROOT ${Step_ROOT} ABSOLUTE)
-
-message(STATUS "Step_ROOT set to ${Step_ROOT}")
 
 SET(Step_VERSION_MAJOR @Step_VERSION_MAJOR@)
 SET(Step_VERSION_MINOR @Step_VERSION_MINOR@)
@@ -28,31 +28,38 @@ MARK_AS_ADVANCED(LIB_POSTFIX)
 SET(CMAKE_DEBUG_POSTFIX  @CMAKE_DEBUG_POSTFIX@)
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DLOG4CPLUS_DISABLE_DEBUG")
 
-include_directories(BEFORE ${Step_ROOT}/include)
-link_directories(${Step_ROOT}/lib@LIB_POSTFIX@)
+find_path(STEP_INCLUDE_DIR NAME Step/Config.h PATHS ${Step_ROOT}/include NO_DEFAULT_PATH)
+find_path(STEP_INCLUDE_DIR NAME Step/Config.h)
 
-
-find_library(Step_LIBRARY_DEBUG
+find_library(STEP_LIBRARY_DEBUG
              NAMES Step@CMAKE_DEBUG_POSTFIX@
              PATHS ${Step_ROOT}/lib@LIB_POSTFIX@
              NO_DEFAULT_PATH)
-find_library(Step_LIBRARY_DEBUG
+find_library(STEP_LIBRARY_DEBUG
              NAMES Step@CMAKE_DEBUG_POSTFIX@ )
 
 
-find_library(Step_LIBRARY
+find_library(STEP_LIBRARY
              NAMES Step 
              PATHS ${Step_ROOT}/lib@LIB_POSTFIX@
              NO_DEFAULT_PATH)
-find_library(Step_LIBRARY
+find_library(STEP_LIBRARY
              NAMES Step)
 
-if(Step_LIBRARY_DEBUG)
-    if (Step_LIBRARY)
-        set(Step_LIBRARIES optimized ${Step_LIBRARY} debug ${Step_LIBRARY_DEBUG})
+if(STEP_LIBRARY_DEBUG)
+    if (STEP_LIBRARY)
+        set(STEP_LIBRARIES optimized ${STEP_LIBRARY} debug ${STEP_LIBRARY_DEBUG})
     else()
-        set(Step_LIBRARIES ${Step_LIBRARY_DEBUG})
+        set(STEP_LIBRARIES ${STEP_LIBRARY_DEBUG})
     endif()
 else()
-    set(Step_LIBRARIES ${Step_LIBRARY})
+    set(STEP_LIBRARIES ${STEP_LIBRARY})
+endif()
+
+if(STEP_INCLUDE_DIR AND STEP_LIBRARY)
+  message(STATUS "Found Step : ${STEP_INCLUDE_DIR} ${STEP_LIBRARY} ${STEP_LIBRARY_DEBUG}")
+else()
+  set(STEP_FOUND FALSE)
+endif()
+
 endif()
