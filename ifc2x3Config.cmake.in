@@ -1,3 +1,5 @@
+if(NOT IFC2X3_FOUND)
+
 find_package(Step @Step_VERSION_MAJOR@.@Step_VERSION_MINOR@.@Step_VERSION_PATCH@ REQUIRED)
 
 if(NOT ifc2x3_ROOT)
@@ -14,8 +16,6 @@ endif()
 
 get_filename_component( ifc2x3_ROOT ${ifc2x3_ROOT} ABSOLUTE)
 
-message(STATUS "ifc2x3_ROOT set to ${ifc2x3_ROOT}")
-
 SET(ifc2x3_sdk_VERSION_MAJOR @ifc2x3_sdk_VERSION_MAJOR@)
 SET(ifc2x3_sdk_VERSION_MINOR @ifc2x3_sdk_VERSION_MINOR@)
 SET(ifc2x3_sdk_VERSION_PATCH @ifc2x3_sdk_VERSION_PATCH@)
@@ -24,33 +24,43 @@ SET(ifc2x3_sdk_SOVERSION @ifc2x3_sdk_SOVERSION@)
 SET(ifc2x3_sdk_VERSION @ifc2x3_sdk_VERSION@ CACHE STRING "Version")
 SET(ifc2x3_sdk_VERSION_FULL @ifc2x3_sdk_VERSION_FULL@ CACHE STRING "Full Version")
 
-include_directories(BEFORE ${ifc2x3_ROOT}/include)
-link_directories(${ifc2x3_ROOT}/lib@LIB_POSTFIX@)
 
+find_path(IFC2X3_INCLUDE_DIR NAME ifc2x3/ExpressDataSet.h PATHS ${ifc2x3_ROOT}/include NO_DEFAULT_PATH)
+find_path(IFC2X3_INCLUDE_DIR NAME ifc2x3/ExpressDataSet.h)
 
-find_library(ifc2x3_LIBRARY_DEBUG
+set(IFC2X3_INCLUDE_DIRS ${STEP_INCLUDE_DIR} ${IFC2X3_INCLUDE_DIR})
+
+find_library(IFC2X3_LIBRARY_DEBUG
              NAMES ifc2x3@CMAKE_DEBUG_POSTFIX@
              PATHS ${ifc2x3_ROOT}/lib@LIB_POSTFIX@
              NO_DEFAULT_PATH)
-find_library(ifc2x3_LIBRARY_DEBUG
+find_library(IFC2X3_LIBRARY_DEBUG
              NAMES ifc2x3@CMAKE_DEBUG_POSTFIX@ )
 
 
-find_library(ifc2x3_LIBRARY
+find_library(IFC2X3_LIBRARY
              NAMES ifc2x3 
              PATHS ${ifc2x3_ROOT}/lib@LIB_POSTFIX@
              NO_DEFAULT_PATH)
-find_library(ifc2x3_LIBRARY
+find_library(IFC2X3_LIBRARY
              NAMES ifc2x3)
 
-if(ifc2x3_LIBRARY_DEBUG)
-    if (ifc2x3_LIBRARY)
-        set(ifc2x3_LIBRARIES optimized ${ifc2x3_LIBRARY} debug ${ifc2x3_LIBRARY_DEBUG})
+if(IFC2X3_LIBRARY_DEBUG)
+    if (IFC2X3_LIBRARY)
+        set(IFC2X3_LIBRARIES optimized ${IFC2X3_LIBRARY} debug ${IFC2X3_LIBRARY_DEBUG})
     else()
-        set(ifc2x3_LIBRARIES ${ifc2x3_LIBRARY_DEBUG})
+        set(IFC2X3_LIBRARIES ${IFC2X3_LIBRARY_DEBUG})
     endif()
 else()
-    set(ifc2x3_LIBRARIES ${ifc2x3_LIBRARY})
+    set(IFC2X3_LIBRARIES ${IFC2X3_LIBRARY})
 endif()
 
-set(ifc2x3_LIBRARIES ${Step_LIBRARIES} ${ifc2x3_LIBRARIES})
+set(IFC2X3_LIBRARIES ${STEP_LIBRARIES} ${IFC2X3_LIBRARIES})
+
+if(IFC2X3_INCLUDE_DIR AND IFC2X3_LIBRARY)
+  message(STATUS "Found ifc2x3 : ${IFC2X3_INCLUDE_DIR} ${IFC2X3_LIBRARY} ${IFC2X3_LIBRARY_DEBUG}")
+else()
+  set(IFC2X3_FOUND FALSE)
+endif()
+
+endif()
