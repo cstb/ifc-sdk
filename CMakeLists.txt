@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.8)
 
-cmake_policy(SET CMP0043 OLD)
-cmake_policy(SET CMP0026 OLD)
-cmake_policy(SET CMP0048 OLD)
+#cmake_policy(SET CMP0043 OLD)
+#cmake_policy(SET CMP0026 OLD)
+#cmake_policy(SET CMP0048 OLD)
 
 
 PROJECT(ifc2x3_sdk)
