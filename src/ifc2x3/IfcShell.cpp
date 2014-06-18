@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#include "precompiled.h"
+
 
 #include <ifc2x3/IfcShell.h>
 
@@ -25,6 +25,8 @@
 #include <Step/BaseObject.h>
 
 
+
+#include "precompiled.h"
 
 using namespace ifc2x3;
 

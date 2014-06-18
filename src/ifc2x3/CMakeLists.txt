@@ -2,10 +2,6 @@ PROJECT(ifc2x3)
 
 FILE (GLOB PROJECT_SOURCES *.cpp)
 
-#if(NOT (ENABLE_PRECOMPILED_HEADER AND MSVC))
-LIST (REMOVE_ITEM PROJECT_SOURCES "${CMAKE_CURRENT_LIST_DIR}/precompiled.cpp")
-#endif()
-
 FILE (GLOB PROJECT_INCLUDES ../../include/ifc2x3/*.h )
 LIST (APPEND PROJECT_INCLUDES ${CMAKE_CURRENT_BINARY_DIR}/ifc2x3/Export.h)
 
@@ -15,7 +11,10 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 include_directories(${Step_BINARY_DIR})
 
 ADD_COMPILER_EXPORT_FLAGS()
-
+if(ENABLE_PRECOMPILED_HEADER AND WIN32)
+    GET_NATIVE_PRECOMPILED_HEADER(ifc2x3 "precompiled.h")
+    list(APPEND PROJECT_SOURCES ${ifc2x3_pch})
+endif()
 message(STATUS "Step_BINARY_DIR=${Step_BINARY_DIR}")
 
 ADD_LIBRARY(ifc2x3 ${SHARED_OR_STATIC} ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
@@ -26,7 +25,11 @@ if(ENABLE_PRECOMPILED_HEADER)
     add_definitions(-DENABLE_PRECOMPILED_HEADER)
     add_definitions(-Difc2x3_EXPORTS)
     ADD_COMPILER_EXPORT_FLAGS()
-    ADD_PRECOMPILED_HEADER(ifc2x3 "${CMAKE_CURRENT_LIST_DIR}/precompiled.h" "${CMAKE_CURRENT_LIST_DIR}/precompiled.cpp")
+    if(WIN32)
+        ADD_NATIVE_PRECOMPILED_HEADER(ifc2x3 "precompiled.h")
+    else()
+        ADD_PRECOMPILED_HEADER(ifc2x3 "precompiled.h")
+    endif()
 else()
     ADD_COMPILER_EXPORT_FLAGS()
 endif()
