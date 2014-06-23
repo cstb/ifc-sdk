@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#include "precompiled.h"
+
 
 #include <ifc2x3/IfcFillAreaStyleHatching.h>
 
@@ -34,6 +34,8 @@
 
 #include <stdlib.h>
 #include <string>
+
+#include "precompiled.h"
 
 using namespace ifc2x3;
 
