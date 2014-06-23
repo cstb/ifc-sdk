@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#include "precompiled.h"
+
 
 #include <ifc2x3/IfcActor.h>
 
@@ -32,6 +32,8 @@
 #include <stdlib.h>
 #include <string>
 #include <vector>
+
+#include "precompiled.h"
 
 using namespace ifc2x3;
 
