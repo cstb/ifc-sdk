@@ -1,6 +1,6 @@
 if(NOT IFC2X3_FOUND)
 
-find_package(Step @Step_VERSION_MAJOR@.@Step_VERSION_MINOR@.@Step_VERSION_PATCH@ REQUIRED)
+find_package(Step @Step_VERSION_FULL@ REQUIRED)
 
 if(NOT ifc2x3_ROOT)
     if(ifc2x3_DIR)
@@ -61,6 +61,6 @@ include(FindPackageHandleStandardArgs)
 
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(ifc2x3
                                   REQUIRED_VARS IFC2X3_LIBRARY IFC2X3_INCLUDE_DIR
-                                  VERSION_VAR ifc2x3_sdk_VERSION)
+                                  VERSION_VAR ifc2x3_sdk_VERSION_FULL)
 
 endif()
