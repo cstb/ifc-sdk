@@ -58,7 +58,7 @@ MACRO(_PCH_GET_COMPILE_FLAGS _out_compile_flags)
 
   GET_DIRECTORY_PROPERTY(DIRINC INCLUDE_DIRECTORIES )
   FOREACH(item ${DIRINC})
-    LIST(APPEND ${_out_compile_flags} "${_PCH_include_prefix}${item}")
+    LIST(APPEND ${_out_compile_flags} "-I${_PCH_include_prefix}${item}")
   ENDFOREACH(item)
 
   GET_DIRECTORY_PROPERTY(_directory_flags DEFINITIONS)
@@ -93,30 +93,36 @@ MACRO(_PCH_GET_COMPILE_COMMAND out_command _input _output)
 	FILE(TO_NATIVE_PATH ${_output} _native_output)
 
 
-	IF(CMAKE_COMPILER_IS_GNUCXX)
-          IF(CMAKE_CXX_COMPILER_ARG1)
-	    # remove leading space in compiler argument
-            STRING(REGEX REPLACE "^ +" "" pchsupport_compiler_cxx_arg1 ${CMAKE_CXX_COMPILER_ARG1})
+	IF(MSVC)
+    SET(_dummy_str "#include <${_input}>")
+    FILE(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch_dummy.cpp ${_dummy_str})
 
-	    SET(${out_command}
-	      ${CMAKE_CXX_COMPILER} ${pchsupport_compiler_cxx_arg1} ${_compile_FLAGS}	-x c++-header -o ${_output} ${_input}
-	      )
-	  ELSE(CMAKE_CXX_COMPILER_ARG1)
-	    SET(${out_command}
-	      ${CMAKE_CXX_COMPILER}  ${_compile_FLAGS}	-x c++-header -o ${_output} ${_input}
-	      )
-          ENDIF(CMAKE_CXX_COMPILER_ARG1)
-	ELSE(CMAKE_COMPILER_IS_GNUCXX)
+    SET(${out_command}
+      ${CMAKE_CXX_COMPILER} ${_compile_FLAGS} /c /Fp${_native_output} /Yc${_native_input} pch_dummy.cpp
+    )
+    #/out:${_output}
+	ELSE()
+    IF(CMAKE_COMPILER_IS_GNUCXX)
 
-		SET(_dummy_str "#include <${_input}>")
-		FILE(WRITE ${CMAKE_CURRENT_BINARY_DIR}/pch_dummy.cpp ${_dummy_str})
+      IF(CMAKE_CXX_COMPILER_ARG1)
+        # remove leading space in compiler argument
+        STRING(REGEX REPLACE "^ +" "" pchsupport_compiler_cxx_arg1 ${CMAKE_CXX_COMPILER_ARG1})
 
-		SET(${out_command}
-			${CMAKE_CXX_COMPILER} ${_compile_FLAGS} /c /Fp${_native_output} /Yc${_native_input} pch_dummy.cpp
-		)
-		#/out:${_output}
+        SET(${out_command}
+          ${CMAKE_CXX_COMPILER} ${pchsupport_compiler_cxx_arg1} ${_compile_FLAGS} -x c++-header -o ${_output} ${_input}
+          )
+      ELSE()
+        SET(${out_command}
+          ${CMAKE_CXX_COMPILER}  ${_compile_FLAGS}  -x c++-header -o ${_output} ${_input}
+          )
+      ENDIF()
+    ELSE()
+      SET(${out_command}
+          ${CMAKE_CXX_COMPILER}  ${_compile_FLAGS}  -x c++-header  ${_input} -o ${_output}
+          )
+    ENDIF()
 
-	ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+	ENDIF()
 
 ENDMACRO(_PCH_GET_COMPILE_COMMAND )
 
@@ -126,23 +132,26 @@ MACRO(_PCH_GET_TARGET_COMPILE_FLAGS _cflags  _header_name _pch_path _dowarn )
 
   FILE(TO_NATIVE_PATH ${_pch_path} _native_pch_path)
 
-  IF(CMAKE_COMPILER_IS_GNUCXX)
-    # for use with distcc and gcc >4.0.1 if preprocessed files are accessible
-    # on all remote machines set
-    # PCH_ADDITIONAL_COMPILER_FLAGS to -fpch-preprocess
-    # if you want warnings for invalid header files (which is very inconvenient
-    # if you have different versions of the headers for different build types
-    # you may set _pch_dowarn
-    IF (_dowarn)
-      SET(${_cflags} "${PCH_ADDITIONAL_COMPILER_FLAGS} -include ${CMAKE_CURRENT_BINARY_DIR}/${_header_name} -Winvalid-pch " )
-    ELSE (_dowarn)
-      SET(${_cflags} "${PCH_ADDITIONAL_COMPILER_FLAGS} -include ${CMAKE_CURRENT_BINARY_DIR}/${_header_name} " )
-    ENDIF (_dowarn)
-  ELSE(CMAKE_COMPILER_IS_GNUCXX)
-
+  IF(MSVC)
     set(${_cflags} "/Fp${_native_pch_path} /Yu${_header_name}" )
 
-  ENDIF(CMAKE_COMPILER_IS_GNUCXX)
+  ELSE()
+    IF(CMAKE_COMPILER_IS_GNUCXX)
+      # for use with distcc and gcc >4.0.1 if preprocessed files are accessible
+      # on all remote machines set
+      # PCH_ADDITIONAL_COMPILER_FLAGS to -fpch-preprocess
+      # if you want warnings for invalid header files (which is very inconvenient
+      # if you have different versions of the headers for different build types
+      # you may set _pch_dowarn
+      IF (_dowarn)
+        SET(${_cflags} "${PCH_ADDITIONAL_COMPILER_FLAGS} -include ${CMAKE_CURRENT_BINARY_DIR}/${_header_name} -Winvalid-pch " )
+      ELSE (_dowarn)
+        SET(${_cflags} "${PCH_ADDITIONAL_COMPILER_FLAGS} -include ${CMAKE_CURRENT_BINARY_DIR}/${_header_name} " )
+      ENDIF (_dowarn)
+    ELSE()
+      SET(${_cflags} "${PCH_ADDITIONAL_COMPILER_FLAGS} -include ${CMAKE_CURRENT_BINARY_DIR}/${_header_name}")
+    ENDIF()
+  ENDIF()
 
 ENDMACRO(_PCH_GET_TARGET_COMPILE_FLAGS )
 
