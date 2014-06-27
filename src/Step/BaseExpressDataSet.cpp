@@ -188,9 +188,15 @@ SPFData* BaseExpressDataSet::getArgs(Id id)
         return m_Id2BaseObject[id]->getArgs();
 }
 
-void BaseExpressDataSet::instantiateAll()
+void BaseExpressDataSet::instantiateAll(CallBack *callback)
 {
     MapOfEntities::iterator it = m_Id2BaseObject.begin();
+
+    if(callback)
+    {
+        callback->setMaximum(m_Id2BaseObject.size());
+    }
+    size_t progress=0;
 
     for (; it != m_Id2BaseObject.end(); it++)
     {
@@ -215,6 +221,11 @@ void BaseExpressDataSet::instantiateAll()
         }
         else
             it->second->inited();
+
+        if(callback)
+        {
+            callback->setProgress(++progress);
+        }
     }
 }
 

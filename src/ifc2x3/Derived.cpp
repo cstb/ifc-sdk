@@ -14,7 +14,7 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#include "precompiled.h"
+
 
 #include <ifc2x3/ExpressDataSet.h>
 #include <ifc2x3/IfcAxis1Placement.h>
@@ -82,6 +82,8 @@
 #ifndef WIN32
 # include <cmath>
 #endif
+
+#include "precompiled.h"
 
 using namespace ifc2x3;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -502,7 +502,7 @@ int main(int argc, char **argv)
    linkByConnectsPathElements(theWall2.get(),ifc2x3::IfcConnectionTypeEnum_ATEND,
       theWall5.get(),ifc2x3::IfcConnectionTypeEnum_ATSTART);
 
-#if 0
+#if 1
    // Build another Ifc Wall
    Step::RefPtr<ifc2x3::IfcWallStandardCase> theWall3 = mDataSet->createIfcWallStandardCase();
    // Init root properties
@@ -804,7 +804,7 @@ int main(int argc, char **argv)
    // ** Write to model to a file
    ifc2x3::SPFWriter writer(mDataSet.get());
    std::ofstream filestream;
-   filestream.open("data/Ifc/builtModel.ifc");
+   filestream.open("builtModel.ifc");
    bool status = writer.write(filestream);
    filestream.close();
    return status;
