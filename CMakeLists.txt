@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 2.8)
 
+#cmake_policy(SET CMP0043 OLD)
+#cmake_policy(SET CMP0026 OLD)
+#cmake_policy(SET CMP0048 OLD)
+
+
 PROJECT(ifc2x3_sdk)
+
 
 IF(UNIX AND NOT WIN32 AND NOT APPLE)
   IF(CMAKE_SIZEOF_VOID_P MATCHES "8")
@@ -17,7 +23,7 @@ option(STEP_ONLY "Build and install only Step" OFF)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_MINOR 0 CACHE STRING "Version" FORCE)
-SET(ifc2x3_sdk_VERSION_PATCH 8 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH 10 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}" CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}" CACHE STRING "Version" FORCE)
 
@@ -73,16 +79,9 @@ endif()
 SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_LIST_DIR} APPEND PROPERTY COMPILE_DEFINITIONS_DEBUG "LOG_INFO_ENABLE")
 SET_PROPERTY(DIRECTORY ${CMAKE_CURRENT_LIST_DIR} APPEND PROPERTY COMPILE_DEFINITIONS_RELEASE "LOG_WARNING_ENABLE")
 
-if(APPLE)
-    set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "Build architectures for OSX" FORCE)
-    if( NOT (${CMAKE_CXX_FLAGS} MATCHES "10.7") )
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
-    endif()
-endif()
-
 IF(MSVC)
   add_definitions(-D_UNICODE)
-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj /Zm377")
 
   if(MSVC_IDE)
      add_definitions(-DMSVC_IDE)
@@ -115,26 +114,10 @@ IF(MSVC)
 ENDIF(MSVC)
 
 if(APPLE)
-    MACRO(REMOVE_CXX_FLAG flag)
-      STRING(REPLACE "${flag}" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-    ENDMACRO()
-    SET(CXX_LANGUAGE_STANDARD "C++98" CACHE STRING "set the c++ language standard (C++98 / C++11)" )
-    MARK_AS_ADVANCED(CXX_LANGUAGE_STANDARD)
-    # remove existing flags
-    REMOVE_CXX_FLAG(-std=c++98)
-    REMOVE_CXX_FLAG(-std=c++11)
-    REMOVE_CXX_FLAG(-stdlib=libstdc++)
-    REMOVE_CXX_FLAG(-stdlib=libc++)
-
-    IF(${CXX_LANGUAGE_STANDARD} STREQUAL "c++98" OR ${CXX_LANGUAGE_STANDARD} STREQUAL "C++98")
-        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++98")
-        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libstdc++")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++98 -stdlib=libstdc++")
-    ELSE()
-        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LANGUAGE_STANDARD "c++11")
-        set(CMAKE_XCODE_ATTRIBUTE_CLANG_CXX_LIBRARY "libc++")
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -stdlib=libc++")
-    ENDIF()
+    set(CMAKE_OSX_ARCHITECTURES "x86_64" CACHE STRING "Build architectures for OSX" FORCE)
+    if( NOT (${CMAKE_CXX_FLAGS} MATCHES "10.7") )
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
+    endif()
 
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -Wno-conversion")
     set(WARNING_CFLAGS "")
