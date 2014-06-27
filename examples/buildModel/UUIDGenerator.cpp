@@ -208,13 +208,6 @@ std::string UUIDGenerator::generateUUID()
 std::string UUIDGenerator::generateIfcGloballyUniqueId() {
     uuid_t uuid;
 
-    //UUID guid;
-    //char str[37];
-
-    uuid_generate(uuid);
-    char out[256];
-    uuid_unparse(uuid, out);
-
     std::string temp = EncodeBase85(generateUUID());
 
     char * buf = new char[23];
