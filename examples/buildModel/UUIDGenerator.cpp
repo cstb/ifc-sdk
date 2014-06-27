@@ -100,7 +100,6 @@ static BOOL  getGuidFromString85( const char    *string, GUID *pGuid );
 static char * getString85FromGuid( const GUID *pGuid, char * buf, int len );
 static BOOL cv_to_85( const unsigned long number, char *code, int len );
 static BOOL cv_from_85( unsigned long *pRes, const char *str );
-static std::string EncodeBase85(std::string s);
 static char * String85_To_String64( const char *string85, char * buf, int len );
 
 static const char *cConversionTable85 =
@@ -320,7 +319,6 @@ unsigned int cnv_hex_to_int32(char * strhex)
     return result;
 }
 
-
 std::string EncodeBase85(std::string s)
 {
     unsigned int num;
@@ -383,6 +381,7 @@ std::string EncodeBase85(std::string s)
 
     return std::string(strBase85);
 }
+
 
 char *CreateCompressedGuidString( char * buf, int len)
 {
