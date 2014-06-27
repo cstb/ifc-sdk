@@ -206,7 +206,6 @@ std::string UUIDGenerator::generateUUID()
 #endif
 
 std::string UUIDGenerator::generateIfcGloballyUniqueId() {
-    uuid_t uuid;
 
     std::string temp = EncodeBase85(generateUUID());
 
@@ -408,7 +407,7 @@ char *uuid2String64(const char *uuid, char * buf, int len)
 {
 #ifdef WIN32
     GUID                guid;
-    UuidFromString((RPC_CSTR)uuid, &guid);
+    UuidFromStringA((unsigned char *)uuid, &guid);
     return getString64FromGuid (&guid, buf, len);
 #else
     std::string s = uuid;
