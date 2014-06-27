@@ -204,6 +204,70 @@ std::string UUIDGenerator::generateUUID()
 }
 #endif
 
+
+std::string EncodeBase85(std::string s)
+{
+    unsigned int num;
+    char str[33];
+    char strtmp[10];
+    char strres[10];
+    char strBase85[33];
+    int i, j, len;
+
+    len = s.length();
+    if (len == 36)
+    {
+        char out[37];
+        strcpy(out, s.data());
+        // we have now 8-4-4-4-12 string = 36 char
+        // we want 32 char
+
+        int i;
+        for (i = 9; i <= 12; i++)
+            out[i - 1] = out[i];
+        for (i = 14; i <= 17; i++)
+            out[i - 2] = out[i];
+        for (i = 19; i <= 22; i++)
+            out[i - 3] = out[i];
+        for (i = 24; i <= 35; i++)
+            out[i - 4] = out[i];
+        strncpy(str, out, 32);
+        str[32] = '\0';
+        len = 32;
+    }
+    else if ((len < 1) || (32 < len))
+    {
+        return s;
+    }
+    else
+    {
+        strcpy(str, s.data());
+    }
+
+    strBase85[0] = '\0';
+
+    for (i = 0; i <= (int)((len - 1) / 8); i++)
+    {
+        for (j = 0; j < 8; j++)
+        {
+            if (i * 8 + j > len - 1) break;
+            strtmp[j] = str[i * 8 + j];
+        }
+        strtmp[j] = '\0';
+        num = cnv_hex_to_int32(strtmp);
+        //char s0[80];
+        //sprintf(s0, "__int32 num : %u", num);
+        //AfxMessageBox(s0, MB_OK);
+        cnv_int32_to_base85(num, 5, strres);
+        strcat(strBase85, strres);
+        //char s2[80];
+        //sprintf(s2, "strres : %s", strres);
+        //AfxMessageBox(s2, MB_OK);
+    }
+
+    return std::string(strBase85);
+}
+
 std::string UUIDGenerator::generateIfcGloballyUniqueId() {
 
     std::string temp = EncodeBase85(generateUUID());
@@ -318,70 +382,6 @@ unsigned int cnv_hex_to_int32(char * strhex)
     }
     return result;
 }
-
-std::string EncodeBase85(std::string s)
-{
-    unsigned int num;
-    char str[33];
-    char strtmp[10];
-    char strres[10];
-    char strBase85[33];
-    int i, j, len;
-
-    len = s.length();
-    if (len == 36)
-    {
-        char out[37];
-        strcpy(out, s.data());
-        // we have now 8-4-4-4-12 string = 36 char
-        // we want 32 char
-
-        int i;
-        for (i = 9; i <= 12; i++)
-            out[i - 1] = out[i];
-        for (i = 14; i <= 17; i++)
-            out[i - 2] = out[i];
-        for (i = 19; i <= 22; i++)
-            out[i - 3] = out[i];
-        for (i = 24; i <= 35; i++)
-            out[i - 4] = out[i];
-        strncpy(str, out, 32);
-        str[32] = '\0';
-        len = 32;
-    }
-    else if ((len < 1) || (32 < len))
-    {
-        return s;
-    }
-    else
-    {
-        strcpy(str, s.data());
-    }
-
-    strBase85[0] = '\0';
-
-    for (i = 0; i <= (int)((len - 1) / 8); i++)
-    {
-        for (j = 0; j < 8; j++)
-        {
-            if (i * 8 + j > len - 1) break;
-            strtmp[j] = str[i * 8 + j];
-        }
-        strtmp[j] = '\0';
-        num = cnv_hex_to_int32(strtmp);
-        //char s0[80];
-        //sprintf(s0, "__int32 num : %u", num);
-        //AfxMessageBox(s0, MB_OK);
-        cnv_int32_to_base85(num, 5, strres);
-        strcat(strBase85, strres);
-        //char s2[80];
-        //sprintf(s2, "strres : %s", strres);
-        //AfxMessageBox(s2, MB_OK);
-    }
-
-    return std::string(strBase85);
-}
-
 
 char *CreateCompressedGuidString( char * buf, int len)
 {
