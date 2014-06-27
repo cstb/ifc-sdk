@@ -25,12 +25,6 @@ public:
 	static std::string generateIfcGloballyUniqueId();
 	static std::string generateEveUniqueId();
 private:
-	static std::string EncodeBase85(std::string s);
-	static std::string DecodeBase85(std::string s);
-	static bool cnv_int32_to_base85(_UID_UINT32 num, int digit_limit, char * strResult);
-	static bool cnv_base85_to_int32(char * str, _UID_UINT32 &n);
-	static _UID_UINT32 cnv_hex_to_int32(char * strhex);
-	static std::string sBase85string;
 	UUIDGenerator() {}
 };
 
