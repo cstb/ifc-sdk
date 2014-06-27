@@ -204,30 +204,7 @@ std::string UUIDGenerator::generateUUID()
 }
 #endif
 
-//
-// Creation of the string representing the GUID, the buffer must be able
-// to hold 22 characters + 1 for the terminating 0
-//
 
-#ifdef WIN32
-char * CreateCompressedGuidString( char * buf, int len )
-{
-    GUID                guid;
-
-    guid = GUID_NULL;
-
-    //
-    // Call to the function from Microsoft
-    //
-    CoCreateGuid (&guid);
-
-    if (memcmp (&GUID_NULL, &guid, sizeof (GUID)) == 0)
-    {
-        return NULL;
-    }
-    return getString64FromGuid (&guid, buf, len);
-}
-#else
 
 bool cnv_int32_to_base85(unsigned int num, int digit_limit, char * strResult)
 {
@@ -365,26 +342,6 @@ std::string EncodeBase85(std::string s)
 
     return std::string(strBase85);
 }
-
-
-char *CreateCompressedGuidString( char * buf, int len)
-{
-
-    uuid_t uuid;
-
-    //UUID guid;
-    //char str[37];
-
-    uuid_generate(uuid);
-    char out[256];
-    uuid_unparse(uuid, out);
-
-    std::string temp5 = out;
-    std::string temp6 = EncodeBase85(temp5);
-
-    return String85_To_String64(temp6.c_str(), buf, len);
-}
-#    endif
 
 char *uuid2String64(const char *uuid, char * buf, int len)
 {
