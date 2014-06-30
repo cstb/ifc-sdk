@@ -56,7 +56,7 @@ namespace Step {
      @return success or failure
      */
     bool STEP_EXPORT parseList(const char* buffer,
-            std::vector<std::string *> &res);
+            std::vector<std::string> &res);
 
     /*!
      returns the id from a string
