@@ -18,6 +18,11 @@
 #define Step_String_h
 
 #include <Step/Export.h>
+#include <Step/Config.h>
+
+#ifdef STEP_USE_BOOST_STRING_REF
+#include <boost/utility/string_ref.hpp>
+#endif
 
 #ifdef _MSC_VER
 # pragma warning(disable: 4251)
@@ -32,9 +37,22 @@ namespace Step {
      * It stores the Alphabet used to create it in order to comply with the SPF encoding of strings
      * characters are stored as unicode characters
      */
-    class STEP_EXPORT String : public std::wstring
+    class STEP_EXPORT String : public
+        #ifdef STEP_USE_BOOST_STRING_REF
+            boost::wstring_ref
+        #else
+            std::wstring
+        #endif
     {
     public:
+
+        typedef
+        #ifdef STEP_USE_BOOST_STRING_REF
+            boost::wstring_ref
+        #else
+            std::wstring
+        #endif
+            BaseClass;
 
         /**
          * The list of Alphabet supported
@@ -196,11 +214,15 @@ namespace Step {
 		{
 			return fromISO_8859(str, Western_European);
 		}
+
     protected:
         static CodePage _codepage;
     };
-
 }
+
+#ifdef STEP_USE_BOOST_STRING_REF
+    STEP_EXPORT Step::String operator+ (const Step::String &A, const Step::String& B);
+#endif
 
 /*!
  **  outputs an UTF8 (multi character) encoded std::string representation

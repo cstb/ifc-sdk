@@ -1,12 +1,13 @@
-﻿#include <Step/SPFFunctions.h>
+#include <Step/SPFFunctions.h>
 #include <Step/BaseSPFWriter.h>
 #include "../../tests.h"
 
 #include <sstream>
 #include <cassert>
 
+#ifdef WIN32
 #pragma execution_character_set("utf-8");
-
+#endif
 
 class MySPFWriter : public Step::BaseSPFWriter
 {

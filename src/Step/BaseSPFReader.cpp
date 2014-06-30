@@ -55,7 +55,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     {
         bufferLength = inputSize;
         buffer = new char[bufferLength];
-        input.read(buffer,bufferLength);
+        input.read(buffer,(std::streamsize)bufferLength);
     }
     else
     {

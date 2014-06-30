@@ -36,17 +36,17 @@ String::String()
 }
 
 String::String(const String& str) :
-    std::wstring(str)
+    BaseClass(str)
 {
 }
 
 String::String(const wchar_t *str) :
-    std::wstring(str)
+    BaseClass(str)
 {
 }
 
 String::String(const std::wstring& str) :
-    std::wstring(str)
+    BaseClass(str)
 {
 }
 
@@ -150,7 +150,7 @@ std::string String::toUTF8() const
  */
 String String::fromUTF8(const std::string &str)
 {
-    String result;
+    std::string result;
     unsigned int i = 0;
 
     for (; i < str.size(); ++i)
@@ -197,7 +197,7 @@ String String::fromUTF8(const std::string &str)
 
     }
 
-    return result;
+    return String(result);
 }
 
 std::map<wchar_t, char> buildUnicodeTable(const wchar_t table[96])
@@ -545,7 +545,7 @@ std::string String::toISO_8859(Alphabet alphabet) const
 
 String String::fromWindows(const std::string &str, int pagecode)
 {
-    String result;
+    std::wstring result;
 
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
@@ -566,13 +566,13 @@ String String::fromWindows(const std::string &str, int pagecode)
 
     }
 
-    return result;
+    return String(result);
 }
 
 
 String String::fromISO_8859(const std::string &str, Alphabet alphabet)
 {
-    String result;
+    std::wstring result;
 
     for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
     {
@@ -648,9 +648,9 @@ static wchar_t parseHex1(std::string::size_type &i, std::string s)
     return (wchar_t) code;
 }
 
-static String parseHex2(std::string::size_type &i, std::string s)
+static std::wstring parseHex2(std::string::size_type &i, std::string s)
 {
-    String result;
+    std::wstring result;
 
     unsigned half_bytes_parsed = 0;
     uint16_t code = 0;
@@ -687,9 +687,9 @@ static String parseHex2(std::string::size_type &i, std::string s)
     return result;
 }
 
-static String parseHex4(std::string::size_type &i, std::string s)
+static std::wstring parseHex4(std::string::size_type &i, std::string s)
 {
-    String result;
+    std::wstring result;
 
     unsigned half_bytes_parsed = 0;
     uint32_t code = 0;
@@ -748,7 +748,7 @@ static String parseHex4(std::string::size_type &i, std::string s)
 
 static String parseString(const std::string& s)
 {
-    String result;
+    std::wstring result;
     String::Alphabet alphabet = String::Western_European;
 
     std::string::size_type i = 0;
@@ -1026,3 +1026,10 @@ std::istream & operator >>(std::istream &in, String& s)
 
     return in;
 }
+#ifdef STEP_USE_BOOST_STRING_REF
+String operator+ (const String &A, const String& B)
+{
+    return String(A.to_string() + B.to_string());
+}
+
+#endif

@@ -13,7 +13,7 @@
  Referencing an undeclared or undefined entity make the reader hang abruptly.
 */
 
-int main (int n, char **p)
+int main (int , char **)
 {
     Step::String uuid_step("3fO4772Iv9CYc5SOFbUgyn");
 

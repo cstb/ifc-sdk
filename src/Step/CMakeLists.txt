@@ -21,6 +21,16 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ADD_LIBRARY(Step ${SHARED_OR_STATIC} ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
 
+find_package(Boost 1.55)
+
+if(Boost_FOUND)
+    OPTION(STEP_USE_BOOST_STRING_REF "Use boost string_ref instead os std::wstring for Step::String parent class" OFF)
+    if(STEP_USE_BOOST_STRING_REF)
+        include_directories(${Boost_INCLUDE_DIR})
+    endif()
+endif()
+
+
 OPTION(STEP_CHECK_RANGE "Make Collection check ranges" ON)
 
 GENERATE_EXPORT_HEADER( Step EXPORT_FILE_NAME Step/Export.h STATIC_DEFINE IFC2X3_STATIC)

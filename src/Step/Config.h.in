@@ -2,5 +2,5 @@
 #define Step_Config_h
 
 #cmakedefine STEP_CHECK_RANGE
-
+#cmakedefine STEP_USE_BOOST_STRING_REF
 #endif
