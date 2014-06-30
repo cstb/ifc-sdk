@@ -32,22 +32,22 @@ const std::string &SPFData::getNext()
     if (m_index>=m_argc)
         return sEmptyString;
     else
-        return *m_argv[m_index++];
+        return m_argv[m_index++];
 }
 
-std::vector<Id>* SPFData::getInverses(ClassType cl, int i)
+std::vector<Id>* SPFData::getInverses(ClassType cl, unsigned i)
 {
-    std::map<std::pair<ClassType,int>, std::vector<Id> >::iterator it =
-        m_inverses.find(std::pair<ClassType,int>(cl,i));
+    std::map<std::pair<ClassType,unsigned>, std::vector<Id> >::iterator it =
+        m_inverses.find(std::pair<ClassType,unsigned>(cl,i));
     if (it != m_inverses.end())
         return &it->second;
     else
         return NULL;
 }
 
-void SPFData::addInverse(ClassType cl,int i , Id id)
+void SPFData::addInverse(ClassType cl, unsigned i , Id id)
 {
-    m_inverses[std::pair<ClassType,int>(cl,i)].push_back(id);
+    m_inverses[std::pair<ClassType,unsigned>(cl,i)].push_back(id);
 }
 
 bool SPFData::setParams(const char *s)

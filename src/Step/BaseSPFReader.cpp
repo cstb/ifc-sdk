@@ -48,7 +48,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     _errors.clear();
 
-    size_t bufferLength=0 ;
+    std::streamsize bufferLength=0 ;
     char* buffer=0;
 
     if(inMemory)

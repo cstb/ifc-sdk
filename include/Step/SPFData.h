@@ -58,7 +58,7 @@ namespace Step {
          @param i The identification of the inverse link within the entity
          @return An aggregation of associated inverse links
          */
-        virtual std::vector<Id>* getInverses(ClassType cl, int i);
+        virtual std::vector<Id>* getInverses(ClassType cl, unsigned i);
 
         /*!
          \short Adds an inverse link to the SPF data
@@ -66,13 +66,13 @@ namespace Step {
          @param i The identification of the inverse link within the entity
          @param id An id of an entity to be added as an inverse link
          */
-        virtual void addInverse(ClassType cl, int i, Id id);
+        virtual void addInverse(ClassType cl, unsigned i, Id id);
 
         /*!
          \short Gets the number of parameters
          @return the number of parameters
          */
-        inline int argc() const
+        inline unsigned argc() const
         {
             return m_argc;
         }
@@ -81,7 +81,7 @@ namespace Step {
          \short Gets the current index among parameters
          @return the current index among parameters
          */
-        inline int index() const
+        inline unsigned index() const
         {
             return m_index;
         }
@@ -91,7 +91,7 @@ namespace Step {
          @param i the index of the parameter
          @return the string of the parameter
          */
-        inline const std::string& operator[](int i) const
+        inline const std::string& operator[](unsigned i) const
         {
             return m_argv[i];
         }
