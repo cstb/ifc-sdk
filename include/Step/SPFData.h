@@ -93,7 +93,7 @@ namespace Step {
          */
         inline const std::string& operator[](int i) const
         {
-            return *(m_argv[i]);
+            return m_argv[i];
         }
 
         /*!
@@ -101,16 +101,16 @@ namespace Step {
          @param i the index of the parameter
          @return the string of the parameter
          */
-        inline const std::string& at(int i) const
+        inline const std::string& at(unsigned i) const
         {
-            return *(m_argv[i]);
+            return m_argv[i];
         }
 
         /*!
          \short Sets the current index of the parameters
          @param i the current index of the parameters
          */
-        inline void setIndex(int i)
+        inline void setIndex(unsigned i)
         {
             m_index = i;
         }
@@ -122,10 +122,10 @@ namespace Step {
         bool setParams(const char* s);
 
     private:
-        int m_argc;
-        int m_index;
-        std::string** m_argv;
-        std::map<std::pair<ClassType, int>, std::vector<Step::Id> > m_inverses;
+        unsigned m_argc;
+        unsigned m_index;
+        std::vector<std::string> m_argv;
+        std::map<std::pair<ClassType, unsigned>, std::vector<Step::Id> > m_inverses;
     };
 }
 #endif

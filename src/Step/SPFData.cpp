@@ -25,12 +25,6 @@ static const std::string sEmptyString;
 
 SPFData::~SPFData()
 {
-    if (m_argv)
-    {
-        for (int i=0; i < m_argc; ++i)
-            delete m_argv[i];
-        delete []m_argv;
-    }
 }
 
 const std::string &SPFData::getNext()
@@ -58,15 +52,11 @@ void SPFData::addInverse(ClassType cl,int i , Id id)
 
 bool SPFData::setParams(const char *s)
 {
-    std::vector<std::string *> v;
-    if (!parseList(s,v)) {
+    if (!parseList(s,m_argv)) {
         return false;
     }
-    m_argv = new std::string*[v.size()];
-    for (unsigned int i = 0; i < v.size(); ++i) {
-        m_argv[i] = v[i];
-    }
-    m_argc = v.size();
+
+    m_argc = m_argv.size();
     m_index = 0;
     return true;
 }
