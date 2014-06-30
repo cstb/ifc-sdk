@@ -137,5 +137,7 @@ int main(int argc, char **argv)
     }
     bool status = writer.write(filestream);
     filestream.close();
+
+    delete expressDataSet;
     return status;
 }
