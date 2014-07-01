@@ -156,16 +156,16 @@ if(APPLE)
                     -Wsign-conversion
                     -Wstrict-prototypes
                     -Wstrict-selector-match
-#                    -Wswitch
-                    -Wswitch-default
-                    -Wswitch-enum
+                    -Wswitch
+#                    -Wswitch-default
+#                    -Wswitch-enum
                     -Wundeclared-selector
                     -Wuninitialized
                     -Wunknown-pragmas
 #                    -Wunreachable-code
                     -Wunused-function
                     -Wunused-label
-                    -Wunused-parameter
+#                    -Wunused-parameter
                     -Wunused-value
                     -Wunused-variable
                     -Wwrite-strings )
