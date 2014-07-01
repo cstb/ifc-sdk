@@ -211,7 +211,7 @@ void BaseSPFWriter::writeAttribute(Real value)
             it++;
             str.erase(it, end - it);
 
-            assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
+            //assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
 
             outputStream() << str;
         }
