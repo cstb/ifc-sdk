@@ -72,9 +72,20 @@ std::string expected_result[NB_TEST]={
 
 bool equivalent(double a, double b)
 {
-    double diff = a - b;
-    double precision = a * DBL_EPSILON;
-    return !( -precision > diff && diff < precision);
+    if (a!=0 && b!=0)
+    {
+        double diff = a - b;
+        double precision = a * DBL_EPSILON*10.;
+        if (a<0)
+        {
+            precision = -precision;
+        }
+        bool over = diff > -precision;
+        bool below = diff < precision;
+
+        return below && over;
+    }
+    return true;
 }
 
 void test_Real()
@@ -93,10 +104,10 @@ void test_Real()
 
     for(int i=0;i<NB_TEST;++i) {
         std::cerr << " input           = " << input[i] << std::endl <<
-                     " expected_result = " << expected_result[i] << std::endl;
+                     " expected_result = \"" << expected_result[i] << "\"" << std::endl;
         std::string SPFResult = writer.toSPF(input[i]);
 
-        std::cerr << " SPFResult       = " << SPFResult << std::endl;
+        std::cerr << " SPFResult       = \"" << SPFResult << "\"" << std::endl;
         TEST_ASSERT(expected_result[i] == SPFResult);
 
         Step::Real result = Step::spfToReal(SPFResult);
@@ -122,9 +133,11 @@ void testTime()
     {
         std::string SPFResult = writer.toSPF(i);
         Step::Real result = Step::spfToReal(SPFResult);
-        if (i != result)
+        if (!equivalent(i,result))
         {
             ++failures;
+            std::cerr.precision(32);
+            std::cerr << "Failure : " << i << " -> \"" << SPFResult << "\" -> " << result << std::endl;
         }
     }
     time(&end);
