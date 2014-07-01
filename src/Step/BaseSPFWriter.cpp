@@ -130,7 +130,7 @@ bool BaseSPFWriter::writeIfNotInited(Id id)
     if (!args || args->argc() <= 0)
         return false;
     outputStream() << CHECK_IF_EXIST(args->at(0));
-    for (int i = 1; i < args->argc(); i++)
+    for (unsigned i = 1; i < args->argc(); i++)
     {
         outputStream() << "," << CHECK_IF_EXIST(args->at(i));
     }

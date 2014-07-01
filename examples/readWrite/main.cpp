@@ -139,6 +139,5 @@ int main(int argc, char **argv)
     filestream.close();
 
     delete expressDataSet;
-
     return status;
 }
