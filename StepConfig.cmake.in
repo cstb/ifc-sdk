@@ -1,4 +1,4 @@
-if(NOT STEP_FOUND)
+if( (NOT STEP_FOUND) OR (NOT Step_VERSION VERSION_EQUAL @Step_VERSION@) )
 
 if(NOT Step_ROOT)
     if(Step_DIR)
