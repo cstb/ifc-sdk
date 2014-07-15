@@ -1,4 +1,4 @@
-if(NOT IFC2X3_FOUND)
+if( (NOT IFC2X3_FOUND) OR (NOT ifc2x3_sdk_VERSION VERSION_EQUAL @ifc2x3_sdk_VERSION@) )
 
 find_package(Step @Step_VERSION_FULL@ REQUIRED)
 

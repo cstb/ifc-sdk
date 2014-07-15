@@ -130,7 +130,7 @@ bool BaseSPFWriter::writeIfNotInited(Id id)
     if (!args || args->argc() <= 0)
         return false;
     outputStream() << CHECK_IF_EXIST(args->at(0));
-    for (int i = 1; i < args->argc(); i++)
+    for (unsigned i = 1; i < args->argc(); i++)
     {
         outputStream() << "," << CHECK_IF_EXIST(args->at(i));
     }
@@ -211,7 +211,7 @@ void BaseSPFWriter::writeAttribute(Real value)
             it++;
             str.erase(it, end - it);
 
-            assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
+            //assert(fabs(Step::fromString<double>(str) - value) < pow(10.0, m_precision));
 
             outputStream() << str;
         }
