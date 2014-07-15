@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 
     ifc2x3::SPFReader reader;
     ConsoleCallBack cb;
-    reader.setCallBack(&cb);
+//    reader.setCallBack(&cb);
 
     if ( ifcFile.is_open() )
     {
@@ -106,7 +106,7 @@ int main(int argc, char **argv)
     }
 
     // ** Instantiate the model
-    expressDataSet->instantiateAll();
+    expressDataSet->instantiateAll(/*&cb*/);
 
     // ** Check the root of the model
     Step::RefLinkedList< ifc2x3::IfcProject > projects = expressDataSet->getAllIfcProject();
@@ -125,9 +125,9 @@ int main(int argc, char **argv)
 
     // ** Write the file
     ifc2x3::SPFWriter writer(expressDataSet);
-    writer.setCallBack(&cb);
+//    writer.setCallBack(&cb);
     std::ofstream filestream;
-    if (argc<4)
+    if (argc>2)
     {
         filestream.open(argv[2]);
     }
@@ -137,5 +137,7 @@ int main(int argc, char **argv)
     }
     bool status = writer.write(filestream);
     filestream.close();
+
+    delete expressDataSet;
     return status;
 }

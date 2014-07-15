@@ -23,7 +23,7 @@ option(STEP_ONLY "Build and install only Step" OFF)
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_MINOR 0 CACHE STRING "Version" FORCE)
-SET(ifc2x3_sdk_VERSION_PATCH 10 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH 12 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}" CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}" CACHE STRING "Version" FORCE)
 
@@ -156,16 +156,16 @@ if(APPLE)
                     -Wsign-conversion
                     -Wstrict-prototypes
                     -Wstrict-selector-match
-#                    -Wswitch
-                    -Wswitch-default
-                    -Wswitch-enum
+                    -Wswitch
+#                    -Wswitch-default
+#                    -Wswitch-enum
                     -Wundeclared-selector
                     -Wuninitialized
                     -Wunknown-pragmas
 #                    -Wunreachable-code
                     -Wunused-function
                     -Wunused-label
-                    -Wunused-parameter
+#                    -Wunused-parameter
                     -Wunused-value
                     -Wunused-variable
                     -Wwrite-strings )

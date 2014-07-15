@@ -1,2 +1,4 @@
 FILE(GLOB dirlist ticket* )
-SUBDIRS(${dirlist})
+foreach(subdir ${dirlist})
+	add_subdirectory(${subdir})
+endforeach(subdir)

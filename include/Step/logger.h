@@ -92,21 +92,27 @@ namespace Step {
 
 
 #ifdef LOG_DEBUG_ENABLE
-# define LOG_INFO_ENABLE
+# ifndef LOG_INFO_ENABLE
+#  define LOG_INFO_ENABLE
+# endif
 # define LOG_DEBUG(msg)   LOG_STREAM("      DEBUG :" << msg);
 #else
 # define LOG_DEBUG(msg)
 #endif
 
 #ifdef LOG_INFO_ENABLE
-# define LOG_WARNING_ENABLE
+# ifndef LOG_WARNING_ENABLE
+#  define LOG_WARNING_ENABLE
+# endif
 # define LOG_INFO(msg)    LOG_STREAM("    INFO    :" << msg);
 #else
 # define LOG_INFO(msg)
 #endif
 
 #ifdef LOG_WARNING_ENABLE
-# define LOG_ERROR_ENABLE
+# ifndef LOG_ERROR_ENABLE
+#  define LOG_ERROR_ENABLE
+# endif
 # define LOG_WARNING(msg) LOG_STREAM("  WARNING   :" << msg);
 #else
 # define LOG_WARNING(msg)
@@ -114,7 +120,9 @@ namespace Step {
 
 
 #ifdef LOG_ERROR_ENABLE
-# define LOG_ALWAYS_ENABLE
+# ifndef LOG_ALWAYS_ENABLE
+#  define LOG_ALWAYS_ENABLE
+# endif
 # define LOG_ERROR(msg)   LOG_STREAM("ERROR       :" << msg);
 #else
 # define LOG_ERROR(msg)
