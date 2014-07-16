@@ -16,13 +16,13 @@ endif()
 
 get_filename_component( ifc2x3_ROOT ${ifc2x3_ROOT} ABSOLUTE)
 
-SET(ifc2x3_sdk_VERSION_MAJOR @ifc2x3_sdk_VERSION_MAJOR@)
-SET(ifc2x3_sdk_VERSION_MINOR @ifc2x3_sdk_VERSION_MINOR@)
-SET(ifc2x3_sdk_VERSION_PATCH @ifc2x3_sdk_VERSION_PATCH@)
-SET(ifc2x3_sdk_SOVERSION @ifc2x3_sdk_SOVERSION@)
+SET(ifc2x3_sdk_VERSION_MAJOR @ifc2x3_sdk_VERSION_MAJOR@ CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_MINOR @ifc2x3_sdk_VERSION_MINOR@ CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH @ifc2x3_sdk_VERSION_PATCH@ CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_SOVERSION @ifc2x3_sdk_SOVERSION@ CACHE STRING "Version" FORCE)
 
-SET(ifc2x3_sdk_VERSION @ifc2x3_sdk_VERSION@ CACHE STRING "Version")
-SET(ifc2x3_sdk_VERSION_FULL @ifc2x3_sdk_VERSION_FULL@ CACHE STRING "Full Version")
+SET(ifc2x3_sdk_VERSION @ifc2x3_sdk_VERSION@ CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_FULL @ifc2x3_sdk_VERSION_FULL@ CACHE STRING "Full Version" FORCE)
 
 
 find_path(IFC2X3_INCLUDE_DIR NAME ifc2x3/ExpressDataSet.h PATHS ${ifc2x3_ROOT}/include NO_DEFAULT_PATH)
