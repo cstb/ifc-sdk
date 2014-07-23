@@ -33,6 +33,8 @@ public:
     ConsoleCallBack() : _max(1) {}
     virtual void setMaximum(size_t max) { _max = max; }
     virtual void setProgress(size_t progress) { std::cerr << double(progress)/double(_max)*100.0 << "%" << std::endl; }
+    virtual bool stop() const {return false;}
+
 protected:
     size_t _max;
 };
