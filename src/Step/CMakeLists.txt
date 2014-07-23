@@ -37,7 +37,6 @@ INSTALL(TARGETS Step
 )
 
 if(WIN32)
-	get_property(TARGET_NAME_DEBUG TARGET Step PROPERTY LOCATION_DEBUG)
-	string(REGEX REPLACE "dll$" "pdb" TARGET_PDB_FILE ${TARGET_NAME_DEBUG})
-	install(FILES ${TARGET_PDB_FILE} DESTINATION bin CONFIGURATIONS Debug )    
+    install_pdb(Step Debug)
+    install_pdb(Step RelWithDebInfo)
 endif()
