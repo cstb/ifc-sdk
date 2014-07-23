@@ -180,6 +180,15 @@ endif()
 
 include_directories(BEFORE ${CMAKE_CURRENT_LIST_DIR}/include)
 
+if(WIN32)
+    macro(install_pdb target config)
+        string(TOUPPER ${config} CONFIG)
+        get_property(TARGET_NAME_${CONFIG} TARGET ${target} PROPERTY LOCATION_${CONFIG})
+        string(REGEX REPLACE "dll$" "pdb" TARGET_${CONFIG}_PDB_FILE ${TARGET_NAME_${CONFIG}})
+        install(FILES ${TARGET_${CONFIG}_PDB_FILE} DESTINATION bin CONFIGURATIONS ${config})
+    endmacro(install_pdb)
+endif()
+
 add_subdirectory(src)
 add_subdirectory(doc EXCLUDE_FROM_ALL)
 

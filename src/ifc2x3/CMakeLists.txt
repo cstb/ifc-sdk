@@ -51,7 +51,6 @@ INSTALL(TARGETS ifc2x3
 )
 
 if(WIN32)
-	get_property(TARGET_NAME_DEBUG TARGET ifc2x3 PROPERTY LOCATION_DEBUG)
-	string(REGEX REPLACE "dll$" "pdb" TARGET_PDB_FILE ${TARGET_NAME_DEBUG})
-	install(FILES ${TARGET_PDB_FILE} DESTINATION bin CONFIGURATIONS Debug )    
+    install_pdb(ifc2x3 Debug)
+    install_pdb(ifc2x3 RelWithDebInfo)
 endif()
