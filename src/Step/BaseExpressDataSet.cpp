@@ -225,6 +225,8 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
         if(callback)
         {
             callback->setProgress(++progress);
+            if (callback->stop())
+                return;
         }
     }
 }
