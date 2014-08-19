@@ -71,4 +71,4 @@ void IfcAnnotationTextOccurrence::copy(const IfcAnnotationTextOccurrence &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationTextOccurrence::s_type("IfcAnnotationTextOccurrence");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationTextOccurrence::s_type("IfcAnnotationTextOccurrence","IfcAnnotationOccurrence");

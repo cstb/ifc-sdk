@@ -240,4 +240,4 @@ void IfcConstructionResource::copy(const IfcConstructionResource &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstructionResource::s_type("IfcConstructionResource");
+IFC2X3_EXPORT Step::ClassType IfcConstructionResource::s_type("IfcConstructionResource","IfcResource");

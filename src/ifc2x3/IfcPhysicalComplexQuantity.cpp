@@ -256,4 +256,4 @@ void IfcPhysicalComplexQuantity::copy(const IfcPhysicalComplexQuantity &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPhysicalComplexQuantity::s_type("IfcPhysicalComplexQuantity");
+IFC2X3_EXPORT Step::ClassType IfcPhysicalComplexQuantity::s_type("IfcPhysicalComplexQuantity","IfcPhysicalQuantity");

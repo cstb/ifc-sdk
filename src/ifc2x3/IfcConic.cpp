@@ -123,4 +123,4 @@ void IfcConic::copy(const IfcConic &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConic::s_type("IfcConic");
+IFC2X3_EXPORT Step::ClassType IfcConic::s_type("IfcConic","IfcCurve");

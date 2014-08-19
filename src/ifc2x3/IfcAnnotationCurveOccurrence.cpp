@@ -71,4 +71,4 @@ void IfcAnnotationCurveOccurrence::copy(const IfcAnnotationCurveOccurrence &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationCurveOccurrence::s_type("IfcAnnotationCurveOccurrence");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationCurveOccurrence::s_type("IfcAnnotationCurveOccurrence","IfcAnnotationOccurrence");

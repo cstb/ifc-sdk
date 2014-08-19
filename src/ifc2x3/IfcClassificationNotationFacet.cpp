@@ -104,4 +104,4 @@ void IfcClassificationNotationFacet::copy(const IfcClassificationNotationFacet &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationNotationFacet::s_type("IfcClassificationNotationFacet");
+IFC2X3_EXPORT Step::ClassType IfcClassificationNotationFacet::s_type("IfcClassificationNotationFacet","BaseEntity");

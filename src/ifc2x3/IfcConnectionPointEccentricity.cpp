@@ -177,4 +177,4 @@ void IfcConnectionPointEccentricity::copy(const IfcConnectionPointEccentricity &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionPointEccentricity::s_type("IfcConnectionPointEccentricity");
+IFC2X3_EXPORT Step::ClassType IfcConnectionPointEccentricity::s_type("IfcConnectionPointEccentricity","IfcConnectionPointGeometry");

@@ -118,4 +118,4 @@ void IfcCableSegmentType::copy(const IfcCableSegmentType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCableSegmentType::s_type("IfcCableSegmentType");
+IFC2X3_EXPORT Step::ClassType IfcCableSegmentType::s_type("IfcCableSegmentType","IfcFlowSegmentType");

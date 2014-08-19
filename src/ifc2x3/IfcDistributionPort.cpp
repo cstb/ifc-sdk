@@ -118,4 +118,4 @@ void IfcDistributionPort::copy(const IfcDistributionPort &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDistributionPort::s_type("IfcDistributionPort");
+IFC2X3_EXPORT Step::ClassType IfcDistributionPort::s_type("IfcDistributionPort","IfcPort");

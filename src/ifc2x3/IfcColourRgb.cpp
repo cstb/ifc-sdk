@@ -177,4 +177,4 @@ void IfcColourRgb::copy(const IfcColourRgb &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcColourRgb::s_type("IfcColourRgb");
+IFC2X3_EXPORT Step::ClassType IfcColourRgb::s_type("IfcColourRgb","IfcColourSpecification");

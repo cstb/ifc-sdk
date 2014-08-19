@@ -118,4 +118,4 @@ void IfcCooledBeamType::copy(const IfcCooledBeamType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCooledBeamType::s_type("IfcCooledBeamType");
+IFC2X3_EXPORT Step::ClassType IfcCooledBeamType::s_type("IfcCooledBeamType","IfcEnergyConversionDeviceType");

@@ -291,4 +291,4 @@ void IfcDoorStyle::copy(const IfcDoorStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDoorStyle::s_type("IfcDoorStyle");
+IFC2X3_EXPORT Step::ClassType IfcDoorStyle::s_type("IfcDoorStyle","IfcTypeProduct");

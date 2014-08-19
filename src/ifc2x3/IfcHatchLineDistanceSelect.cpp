@@ -146,4 +146,4 @@ void IfcHatchLineDistanceSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcHatchLineDistanceSelect::s_type("IfcHatchLineDistanceSelect");
+IFC2X3_EXPORT Step::ClassType IfcHatchLineDistanceSelect::s_type("IfcHatchLineDistanceSelect","BaseObject");

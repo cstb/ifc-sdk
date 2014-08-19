@@ -252,4 +252,4 @@ void IfcCurveStyle::copy(const IfcCurveStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyle::s_type("IfcCurveStyle");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyle::s_type("IfcCurveStyle","IfcPresentationStyle");

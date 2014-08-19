@@ -360,4 +360,4 @@ void IfcElectricalBaseProperties::copy(const IfcElectricalBaseProperties &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricalBaseProperties::s_type("IfcElectricalBaseProperties");
+IFC2X3_EXPORT Step::ClassType IfcElectricalBaseProperties::s_type("IfcElectricalBaseProperties","IfcEnergyProperties");

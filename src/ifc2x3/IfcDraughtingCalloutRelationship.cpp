@@ -225,4 +225,4 @@ void IfcDraughtingCalloutRelationship::copy(const IfcDraughtingCalloutRelationsh
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutRelationship::s_type("IfcDraughtingCalloutRelationship");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutRelationship::s_type("IfcDraughtingCalloutRelationship","BaseEntity");

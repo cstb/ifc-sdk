@@ -178,4 +178,4 @@ void IfcCoordinatedUniversalTimeOffset::copy(const IfcCoordinatedUniversalTimeOf
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset");
+IFC2X3_EXPORT Step::ClassType IfcCoordinatedUniversalTimeOffset::s_type("IfcCoordinatedUniversalTimeOffset","BaseEntity");

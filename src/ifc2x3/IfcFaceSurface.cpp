@@ -146,4 +146,4 @@ void IfcFaceSurface::copy(const IfcFaceSurface &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceSurface::s_type("IfcFaceSurface");
+IFC2X3_EXPORT Step::ClassType IfcFaceSurface::s_type("IfcFaceSurface","IfcFace");

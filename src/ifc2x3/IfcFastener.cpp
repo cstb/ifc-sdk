@@ -71,4 +71,4 @@ void IfcFastener::copy(const IfcFastener &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFastener::s_type("IfcFastener");
+IFC2X3_EXPORT Step::ClassType IfcFastener::s_type("IfcFastener","IfcElementComponent");

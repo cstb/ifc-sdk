@@ -71,4 +71,4 @@ void IfcBuildingElementPart::copy(const IfcBuildingElementPart &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBuildingElementPart::s_type("IfcBuildingElementPart");
+IFC2X3_EXPORT Step::ClassType IfcBuildingElementPart::s_type("IfcBuildingElementPart","IfcBuildingElementComponent");

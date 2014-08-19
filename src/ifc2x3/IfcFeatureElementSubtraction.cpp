@@ -98,4 +98,4 @@ void IfcFeatureElementSubtraction::copy(const IfcFeatureElementSubtraction &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFeatureElementSubtraction::s_type("IfcFeatureElementSubtraction");
+IFC2X3_EXPORT Step::ClassType IfcFeatureElementSubtraction::s_type("IfcFeatureElementSubtraction","IfcFeatureElement");

@@ -121,4 +121,4 @@ void IfcMotorConnectionType::copy(const IfcMotorConnectionType &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMotorConnectionType::s_type("IfcMotorConnectionType");
+IFC2X3_EXPORT Step::ClassType IfcMotorConnectionType::s_type("IfcMotorConnectionType","IfcEnergyConversionDeviceType");

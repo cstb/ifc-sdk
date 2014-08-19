@@ -71,4 +71,4 @@ void IfcDraughtingPreDefinedTextFont::copy(const IfcDraughtingPreDefinedTextFont
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedTextFont::s_type("IfcDraughtingPreDefinedTextFont");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedTextFont::s_type("IfcDraughtingPreDefinedTextFont","IfcPreDefinedTextFont");

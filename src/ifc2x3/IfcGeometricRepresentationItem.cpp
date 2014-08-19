@@ -71,4 +71,4 @@ void IfcGeometricRepresentationItem::copy(const IfcGeometricRepresentationItem &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationItem::s_type("IfcGeometricRepresentationItem");
+IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationItem::s_type("IfcGeometricRepresentationItem","IfcRepresentationItem");

@@ -125,4 +125,4 @@ void IfcCartesianPoint::copy(const IfcCartesianPoint &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCartesianPoint::s_type("IfcCartesianPoint");
+IFC2X3_EXPORT Step::ClassType IfcCartesianPoint::s_type("IfcCartesianPoint","IfcPoint");

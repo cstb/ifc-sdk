@@ -139,4 +139,4 @@ void IfcAirToAirHeatRecoveryType::copy(const IfcAirToAirHeatRecoveryType &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAirToAirHeatRecoveryType::s_type("IfcAirToAirHeatRecoveryType");
+IFC2X3_EXPORT Step::ClassType IfcAirToAirHeatRecoveryType::s_type("IfcAirToAirHeatRecoveryType","IfcEnergyConversionDeviceType");

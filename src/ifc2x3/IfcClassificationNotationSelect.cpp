@@ -163,4 +163,4 @@ void IfcClassificationNotationSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationNotationSelect::s_type("IfcClassificationNotationSelect");
+IFC2X3_EXPORT Step::ClassType IfcClassificationNotationSelect::s_type("IfcClassificationNotationSelect","BaseObject");

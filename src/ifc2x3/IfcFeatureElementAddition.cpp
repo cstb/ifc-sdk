@@ -98,4 +98,4 @@ void IfcFeatureElementAddition::copy(const IfcFeatureElementAddition &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition");
+IFC2X3_EXPORT Step::ClassType IfcFeatureElementAddition::s_type("IfcFeatureElementAddition","IfcFeatureElement");

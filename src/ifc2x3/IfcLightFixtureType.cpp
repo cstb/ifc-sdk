@@ -118,4 +118,4 @@ void IfcLightFixtureType::copy(const IfcLightFixtureType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightFixtureType::s_type("IfcLightFixtureType");
+IFC2X3_EXPORT Step::ClassType IfcLightFixtureType::s_type("IfcLightFixtureType","IfcFlowTerminalType");

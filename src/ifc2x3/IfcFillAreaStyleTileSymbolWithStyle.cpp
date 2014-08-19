@@ -111,4 +111,4 @@ void IfcFillAreaStyleTileSymbolWithStyle::copy(const IfcFillAreaStyleTileSymbolW
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTileSymbolWithStyle::s_type("IfcFillAreaStyleTileSymbolWithStyle");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTileSymbolWithStyle::s_type("IfcFillAreaStyleTileSymbolWithStyle","IfcGeometricRepresentationItem");

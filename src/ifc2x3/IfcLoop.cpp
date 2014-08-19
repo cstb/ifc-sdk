@@ -71,4 +71,4 @@ void IfcLoop::copy(const IfcLoop &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLoop::s_type("IfcLoop");
+IFC2X3_EXPORT Step::ClassType IfcLoop::s_type("IfcLoop","IfcTopologicalRepresentationItem");

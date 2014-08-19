@@ -25,7 +25,7 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,BaseSPFObject,BaseEntity);
 
 BaseSPFObject::BaseSPFObject(Id id, SPFData* data) :
-    BaseEntity(id, data), m_allocFuncType(0)
+    BaseEntity(id, data), m_allocFuncType(0), _realClassType(ClassType::Undefined())
 {
 }
 
@@ -47,4 +47,14 @@ AllocateFuncType BaseSPFObject::getAllocateFunction()
 void BaseSPFObject::setAllocateFunction(AllocateFuncType type)
 {
     m_allocFuncType = type;
+}
+
+void BaseSPFObject::setRealClassType(const ClassType &realClassType)
+{
+    _realClassType = realClassType;
+}
+
+const ClassType &BaseSPFObject::realClassType() const
+{
+    return _realClassType;
 }

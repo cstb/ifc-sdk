@@ -124,4 +124,4 @@ void IfcFooting::copy(const IfcFooting &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFooting::s_type("IfcFooting");
+IFC2X3_EXPORT Step::ClassType IfcFooting::s_type("IfcFooting","IfcBuildingElement");

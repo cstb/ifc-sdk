@@ -384,4 +384,4 @@ void IfcOwnerHistory::copy(const IfcOwnerHistory &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOwnerHistory::s_type("IfcOwnerHistory");
+IFC2X3_EXPORT Step::ClassType IfcOwnerHistory::s_type("IfcOwnerHistory","BaseEntity");

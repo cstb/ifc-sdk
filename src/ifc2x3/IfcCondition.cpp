@@ -71,4 +71,4 @@ void IfcCondition::copy(const IfcCondition &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCondition::s_type("IfcCondition");
+IFC2X3_EXPORT Step::ClassType IfcCondition::s_type("IfcCondition","IfcGroup");

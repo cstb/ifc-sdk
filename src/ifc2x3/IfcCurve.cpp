@@ -71,4 +71,4 @@ void IfcCurve::copy(const IfcCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurve::s_type("IfcCurve");
+IFC2X3_EXPORT Step::ClassType IfcCurve::s_type("IfcCurve","IfcGeometricRepresentationItem");

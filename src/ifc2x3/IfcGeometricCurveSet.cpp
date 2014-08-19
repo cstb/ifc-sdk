@@ -71,4 +71,4 @@ void IfcGeometricCurveSet::copy(const IfcGeometricCurveSet &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricCurveSet::s_type("IfcGeometricCurveSet");
+IFC2X3_EXPORT Step::ClassType IfcGeometricCurveSet::s_type("IfcGeometricCurveSet","IfcGeometricSet");

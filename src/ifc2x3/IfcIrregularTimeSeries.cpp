@@ -128,4 +128,4 @@ void IfcIrregularTimeSeries::copy(const IfcIrregularTimeSeries &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcIrregularTimeSeries::s_type("IfcIrregularTimeSeries");
+IFC2X3_EXPORT Step::ClassType IfcIrregularTimeSeries::s_type("IfcIrregularTimeSeries","IfcTimeSeries");

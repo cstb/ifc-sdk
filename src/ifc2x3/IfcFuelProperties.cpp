@@ -212,4 +212,4 @@ void IfcFuelProperties::copy(const IfcFuelProperties &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFuelProperties::s_type("IfcFuelProperties");
+IFC2X3_EXPORT Step::ClassType IfcFuelProperties::s_type("IfcFuelProperties","IfcMaterialProperties");

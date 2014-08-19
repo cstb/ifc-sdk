@@ -180,4 +180,4 @@ void IfcConstraintClassificationRelationship::copy(const IfcConstraintClassifica
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintClassificationRelationship::s_type("IfcConstraintClassificationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcConstraintClassificationRelationship::s_type("IfcConstraintClassificationRelationship","BaseEntity");

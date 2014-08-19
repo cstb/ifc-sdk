@@ -111,4 +111,4 @@ void IfcPlacement::copy(const IfcPlacement &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlacement::s_type("IfcPlacement");
+IFC2X3_EXPORT Step::ClassType IfcPlacement::s_type("IfcPlacement","IfcGeometricRepresentationItem");

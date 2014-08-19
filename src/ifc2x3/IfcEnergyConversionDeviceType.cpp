@@ -71,4 +71,4 @@ void IfcEnergyConversionDeviceType::copy(const IfcEnergyConversionDeviceType &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEnergyConversionDeviceType::s_type("IfcEnergyConversionDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcEnergyConversionDeviceType::s_type("IfcEnergyConversionDeviceType","IfcDistributionFlowElementType");

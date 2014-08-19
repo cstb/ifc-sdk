@@ -118,4 +118,4 @@ void IfcBoilerType::copy(const IfcBoilerType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoilerType::s_type("IfcBoilerType");
+IFC2X3_EXPORT Step::ClassType IfcBoilerType::s_type("IfcBoilerType","IfcEnergyConversionDeviceType");

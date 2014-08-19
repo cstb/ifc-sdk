@@ -237,4 +237,4 @@ void IfcBooleanOperand::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBooleanOperand::s_type("IfcBooleanOperand");
+IFC2X3_EXPORT Step::ClassType IfcBooleanOperand::s_type("IfcBooleanOperand","BaseObject");

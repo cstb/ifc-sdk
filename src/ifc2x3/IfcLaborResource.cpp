@@ -108,4 +108,4 @@ void IfcLaborResource::copy(const IfcLaborResource &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLaborResource::s_type("IfcLaborResource");
+IFC2X3_EXPORT Step::ClassType IfcLaborResource::s_type("IfcLaborResource","IfcConstructionResource");

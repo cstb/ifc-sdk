@@ -121,4 +121,4 @@ void IfcElectricHeaterType::copy(const IfcElectricHeaterType &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricHeaterType::s_type("IfcElectricHeaterType");
+IFC2X3_EXPORT Step::ClassType IfcElectricHeaterType::s_type("IfcElectricHeaterType","IfcFlowTerminalType");

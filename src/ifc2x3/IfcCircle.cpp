@@ -107,4 +107,4 @@ void IfcCircle::copy(const IfcCircle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCircle::s_type("IfcCircle");
+IFC2X3_EXPORT Step::ClassType IfcCircle::s_type("IfcCircle","IfcConic");

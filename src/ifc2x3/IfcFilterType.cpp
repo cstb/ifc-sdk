@@ -127,4 +127,4 @@ void IfcFilterType::copy(const IfcFilterType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFilterType::s_type("IfcFilterType");
+IFC2X3_EXPORT Step::ClassType IfcFilterType::s_type("IfcFilterType","IfcFlowTreatmentDeviceType");

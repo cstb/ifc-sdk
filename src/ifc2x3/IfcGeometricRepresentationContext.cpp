@@ -261,4 +261,4 @@ void IfcGeometricRepresentationContext::copy(const IfcGeometricRepresentationCon
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationContext::s_type("IfcGeometricRepresentationContext");
+IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationContext::s_type("IfcGeometricRepresentationContext","IfcRepresentationContext");

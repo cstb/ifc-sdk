@@ -225,4 +225,4 @@ void IfcApprovalRelationship::copy(const IfcApprovalRelationship &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApprovalRelationship::s_type("IfcApprovalRelationship");
+IFC2X3_EXPORT Step::ClassType IfcApprovalRelationship::s_type("IfcApprovalRelationship","BaseEntity");

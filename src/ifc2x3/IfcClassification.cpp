@@ -243,4 +243,4 @@ void IfcClassification::copy(const IfcClassification &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassification::s_type("IfcClassification");
+IFC2X3_EXPORT Step::ClassType IfcClassification::s_type("IfcClassification","BaseEntity");

@@ -143,4 +143,4 @@ void IfcDateAndTime::copy(const IfcDateAndTime &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDateAndTime::s_type("IfcDateAndTime");
+IFC2X3_EXPORT Step::ClassType IfcDateAndTime::s_type("IfcDateAndTime","BaseEntity");

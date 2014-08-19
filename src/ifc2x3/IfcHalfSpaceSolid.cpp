@@ -146,4 +146,4 @@ void IfcHalfSpaceSolid::copy(const IfcHalfSpaceSolid &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcHalfSpaceSolid::s_type("IfcHalfSpaceSolid");
+IFC2X3_EXPORT Step::ClassType IfcHalfSpaceSolid::s_type("IfcHalfSpaceSolid","IfcGeometricRepresentationItem");

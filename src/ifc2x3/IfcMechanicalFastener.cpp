@@ -142,4 +142,4 @@ void IfcMechanicalFastener::copy(const IfcMechanicalFastener &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMechanicalFastener::s_type("IfcMechanicalFastener");
+IFC2X3_EXPORT Step::ClassType IfcMechanicalFastener::s_type("IfcMechanicalFastener","IfcFastener");

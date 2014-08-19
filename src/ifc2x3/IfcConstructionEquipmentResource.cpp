@@ -71,4 +71,4 @@ void IfcConstructionEquipmentResource::copy(const IfcConstructionEquipmentResour
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstructionEquipmentResource::s_type("IfcConstructionEquipmentResource");
+IFC2X3_EXPORT Step::ClassType IfcConstructionEquipmentResource::s_type("IfcConstructionEquipmentResource","IfcConstructionResource");

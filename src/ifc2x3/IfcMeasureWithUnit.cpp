@@ -680,4 +680,4 @@ void IfcMeasureWithUnit::copy(const IfcMeasureWithUnit &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMeasureWithUnit::s_type("IfcMeasureWithUnit");
+IFC2X3_EXPORT Step::ClassType IfcMeasureWithUnit::s_type("IfcMeasureWithUnit","BaseEntity");

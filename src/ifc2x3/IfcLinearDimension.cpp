@@ -71,4 +71,4 @@ void IfcLinearDimension::copy(const IfcLinearDimension &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLinearDimension::s_type("IfcLinearDimension");
+IFC2X3_EXPORT Step::ClassType IfcLinearDimension::s_type("IfcLinearDimension","IfcDimensionCurveDirectedCallout");

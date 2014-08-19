@@ -108,4 +108,4 @@ void IfcOrderAction::copy(const IfcOrderAction &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOrderAction::s_type("IfcOrderAction");
+IFC2X3_EXPORT Step::ClassType IfcOrderAction::s_type("IfcOrderAction","IfcTask");

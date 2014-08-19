@@ -570,4 +570,4 @@ void IfcObjectReferenceSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjectReferenceSelect::s_type("IfcObjectReferenceSelect");
+IFC2X3_EXPORT Step::ClassType IfcObjectReferenceSelect::s_type("IfcObjectReferenceSelect","BaseObject");

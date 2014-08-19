@@ -71,4 +71,4 @@ void IfcPoint::copy(const IfcPoint &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPoint::s_type("IfcPoint");
+IFC2X3_EXPORT Step::ClassType IfcPoint::s_type("IfcPoint","IfcGeometricRepresentationItem");

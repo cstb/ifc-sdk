@@ -130,4 +130,4 @@ void IfcCondenserType::copy(const IfcCondenserType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCondenserType::s_type("IfcCondenserType");
+IFC2X3_EXPORT Step::ClassType IfcCondenserType::s_type("IfcCondenserType","IfcEnergyConversionDeviceType");

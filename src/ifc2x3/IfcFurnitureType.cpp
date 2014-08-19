@@ -115,4 +115,4 @@ void IfcFurnitureType::copy(const IfcFurnitureType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFurnitureType::s_type("IfcFurnitureType");
+IFC2X3_EXPORT Step::ClassType IfcFurnitureType::s_type("IfcFurnitureType","IfcFurnishingElementType");

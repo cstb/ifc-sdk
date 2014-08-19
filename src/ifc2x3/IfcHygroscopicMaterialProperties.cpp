@@ -247,4 +247,4 @@ void IfcHygroscopicMaterialProperties::copy(const IfcHygroscopicMaterialProperti
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcHygroscopicMaterialProperties::s_type("IfcHygroscopicMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcHygroscopicMaterialProperties::s_type("IfcHygroscopicMaterialProperties","IfcMaterialProperties");

@@ -130,4 +130,4 @@ void IfcAlarmType::copy(const IfcAlarmType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAlarmType::s_type("IfcAlarmType");
+IFC2X3_EXPORT Step::ClassType IfcAlarmType::s_type("IfcAlarmType","IfcDistributionControlElementType");

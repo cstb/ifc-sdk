@@ -216,4 +216,4 @@ void IfcOffsetCurve3D::copy(const IfcOffsetCurve3D &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOffsetCurve3D::s_type("IfcOffsetCurve3D");
+IFC2X3_EXPORT Step::ClassType IfcOffsetCurve3D::s_type("IfcOffsetCurve3D","IfcCurve");

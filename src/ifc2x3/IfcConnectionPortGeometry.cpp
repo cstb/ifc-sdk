@@ -209,4 +209,4 @@ void IfcConnectionPortGeometry::copy(const IfcConnectionPortGeometry &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionPortGeometry::s_type("IfcConnectionPortGeometry");
+IFC2X3_EXPORT Step::ClassType IfcConnectionPortGeometry::s_type("IfcConnectionPortGeometry","IfcConnectionGeometry");

@@ -71,4 +71,4 @@ void IfcExternallyDefinedTextFont::copy(const IfcExternallyDefinedTextFont &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedTextFont::s_type("IfcExternallyDefinedTextFont");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedTextFont::s_type("IfcExternallyDefinedTextFont","IfcExternalReference");

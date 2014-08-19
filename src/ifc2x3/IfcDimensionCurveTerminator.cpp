@@ -112,4 +112,4 @@ void IfcDimensionCurveTerminator::copy(const IfcDimensionCurveTerminator &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionCurveTerminator::s_type("IfcDimensionCurveTerminator");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCurveTerminator::s_type("IfcDimensionCurveTerminator","IfcTerminatorSymbol");

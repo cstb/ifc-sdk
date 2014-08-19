@@ -71,4 +71,4 @@ void IfcFurnitureStandard::copy(const IfcFurnitureStandard &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFurnitureStandard::s_type("IfcFurnitureStandard");
+IFC2X3_EXPORT Step::ClassType IfcFurnitureStandard::s_type("IfcFurnitureStandard","IfcControl");

@@ -231,4 +231,4 @@ void IfcPixelTexture::copy(const IfcPixelTexture &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPixelTexture::s_type("IfcPixelTexture");
+IFC2X3_EXPORT Step::ClassType IfcPixelTexture::s_type("IfcPixelTexture","IfcSurfaceTexture");

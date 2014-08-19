@@ -173,4 +173,4 @@ void IfcCalendarDate::copy(const IfcCalendarDate &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCalendarDate::s_type("IfcCalendarDate");
+IFC2X3_EXPORT Step::ClassType IfcCalendarDate::s_type("IfcCalendarDate","BaseEntity");

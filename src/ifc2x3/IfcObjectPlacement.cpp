@@ -127,4 +127,4 @@ void IfcObjectPlacement::copy(const IfcObjectPlacement &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjectPlacement::s_type("IfcObjectPlacement");
+IFC2X3_EXPORT Step::ClassType IfcObjectPlacement::s_type("IfcObjectPlacement","BaseEntity");

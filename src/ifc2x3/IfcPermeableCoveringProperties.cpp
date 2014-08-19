@@ -282,4 +282,4 @@ void IfcPermeableCoveringProperties::copy(const IfcPermeableCoveringProperties &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPermeableCoveringProperties::s_type("IfcPermeableCoveringProperties");
+IFC2X3_EXPORT Step::ClassType IfcPermeableCoveringProperties::s_type("IfcPermeableCoveringProperties","IfcPropertySetDefinition");

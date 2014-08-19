@@ -299,4 +299,4 @@ void IfcConstraintAggregationRelationship::copy(const IfcConstraintAggregationRe
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintAggregationRelationship::s_type("IfcConstraintAggregationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcConstraintAggregationRelationship::s_type("IfcConstraintAggregationRelationship","BaseEntity");

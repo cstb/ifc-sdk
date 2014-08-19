@@ -164,4 +164,4 @@ void IfcAnnotationFillArea::copy(const IfcAnnotationFillArea &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationFillArea::s_type("IfcAnnotationFillArea");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationFillArea::s_type("IfcAnnotationFillArea","IfcGeometricRepresentationItem");

@@ -420,4 +420,4 @@ void IfcAppliedValue::copy(const IfcAppliedValue &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAppliedValue::s_type("IfcAppliedValue");
+IFC2X3_EXPORT Step::ClassType IfcAppliedValue::s_type("IfcAppliedValue","BaseEntity");

@@ -71,4 +71,4 @@ void IfcAngularDimension::copy(const IfcAngularDimension &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAngularDimension::s_type("IfcAngularDimension");
+IFC2X3_EXPORT Step::ClassType IfcAngularDimension::s_type("IfcAngularDimension","IfcDimensionCurveDirectedCallout");

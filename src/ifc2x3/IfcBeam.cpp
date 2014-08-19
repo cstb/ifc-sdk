@@ -71,4 +71,4 @@ void IfcBeam::copy(const IfcBeam &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBeam::s_type("IfcBeam");
+IFC2X3_EXPORT Step::ClassType IfcBeam::s_type("IfcBeam","IfcBuildingElement");

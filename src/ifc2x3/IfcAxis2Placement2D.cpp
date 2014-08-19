@@ -111,4 +111,4 @@ void IfcAxis2Placement2D::copy(const IfcAxis2Placement2D &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAxis2Placement2D::s_type("IfcAxis2Placement2D");
+IFC2X3_EXPORT Step::ClassType IfcAxis2Placement2D::s_type("IfcAxis2Placement2D","IfcPlacement");

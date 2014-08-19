@@ -163,4 +163,4 @@ void IfcPointOrVertexPoint::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPointOrVertexPoint::s_type("IfcPointOrVertexPoint");
+IFC2X3_EXPORT Step::ClassType IfcPointOrVertexPoint::s_type("IfcPointOrVertexPoint","BaseObject");

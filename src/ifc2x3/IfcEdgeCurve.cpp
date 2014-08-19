@@ -146,4 +146,4 @@ void IfcEdgeCurve::copy(const IfcEdgeCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEdgeCurve::s_type("IfcEdgeCurve");
+IFC2X3_EXPORT Step::ClassType IfcEdgeCurve::s_type("IfcEdgeCurve","IfcEdge");

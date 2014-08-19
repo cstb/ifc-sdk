@@ -151,4 +151,4 @@ void IfcAnnotationFillAreaOccurrence::copy(const IfcAnnotationFillAreaOccurrence
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationFillAreaOccurrence::s_type("IfcAnnotationFillAreaOccurrence");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationFillAreaOccurrence::s_type("IfcAnnotationFillAreaOccurrence","IfcAnnotationOccurrence");

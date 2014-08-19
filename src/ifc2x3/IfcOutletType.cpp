@@ -121,4 +121,4 @@ void IfcOutletType::copy(const IfcOutletType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOutletType::s_type("IfcOutletType");
+IFC2X3_EXPORT Step::ClassType IfcOutletType::s_type("IfcOutletType","IfcFlowTerminalType");

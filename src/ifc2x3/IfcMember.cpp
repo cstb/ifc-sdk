@@ -71,4 +71,4 @@ void IfcMember::copy(const IfcMember &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMember::s_type("IfcMember");
+IFC2X3_EXPORT Step::ClassType IfcMember::s_type("IfcMember","IfcBuildingElement");

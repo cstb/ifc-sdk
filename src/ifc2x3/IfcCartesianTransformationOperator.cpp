@@ -217,4 +217,4 @@ void IfcCartesianTransformationOperator::copy(const IfcCartesianTransformationOp
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator::s_type("IfcCartesianTransformationOperator");
+IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator::s_type("IfcCartesianTransformationOperator","IfcGeometricRepresentationItem");

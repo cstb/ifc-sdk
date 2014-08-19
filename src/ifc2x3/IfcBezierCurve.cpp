@@ -71,4 +71,4 @@ void IfcBezierCurve::copy(const IfcBezierCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBezierCurve::s_type("IfcBezierCurve");
+IFC2X3_EXPORT Step::ClassType IfcBezierCurve::s_type("IfcBezierCurve","IfcBSplineCurve");

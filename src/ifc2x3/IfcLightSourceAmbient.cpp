@@ -71,4 +71,4 @@ void IfcLightSourceAmbient::copy(const IfcLightSourceAmbient &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSourceAmbient::s_type("IfcLightSourceAmbient");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceAmbient::s_type("IfcLightSourceAmbient","IfcLightSource");

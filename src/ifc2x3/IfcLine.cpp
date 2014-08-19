@@ -147,4 +147,4 @@ void IfcLine::copy(const IfcLine &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLine::s_type("IfcLine");
+IFC2X3_EXPORT Step::ClassType IfcLine::s_type("IfcLine","IfcCurve");

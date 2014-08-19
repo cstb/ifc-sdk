@@ -71,4 +71,4 @@ void IfcPlane::copy(const IfcPlane &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlane::s_type("IfcPlane");
+IFC2X3_EXPORT Step::ClassType IfcPlane::s_type("IfcPlane","IfcElementarySurface");

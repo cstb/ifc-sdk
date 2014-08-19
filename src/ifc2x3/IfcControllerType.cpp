@@ -130,4 +130,4 @@ void IfcControllerType::copy(const IfcControllerType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcControllerType::s_type("IfcControllerType");
+IFC2X3_EXPORT Step::ClassType IfcControllerType::s_type("IfcControllerType","IfcDistributionControlElementType");

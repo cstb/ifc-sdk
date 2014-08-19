@@ -111,4 +111,4 @@ void IfcParameterizedProfileDef::copy(const IfcParameterizedProfileDef &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcParameterizedProfileDef::s_type("IfcParameterizedProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcParameterizedProfileDef::s_type("IfcParameterizedProfileDef","IfcProfileDef");

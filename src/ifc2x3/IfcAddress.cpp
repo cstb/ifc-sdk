@@ -247,4 +247,4 @@ void IfcAddress::copy(const IfcAddress &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAddress::s_type("IfcAddress");
+IFC2X3_EXPORT Step::ClassType IfcAddress::s_type("IfcAddress","BaseEntity");

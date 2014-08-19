@@ -274,4 +274,4 @@ void IfcMaterialSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialSelect::s_type("IfcMaterialSelect");
+IFC2X3_EXPORT Step::ClassType IfcMaterialSelect::s_type("IfcMaterialSelect","BaseObject");

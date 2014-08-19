@@ -283,4 +283,4 @@ void IfcMechanicalConcreteMaterialProperties::copy(const IfcMechanicalConcreteMa
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMechanicalConcreteMaterialProperties::s_type("IfcMechanicalConcreteMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcMechanicalConcreteMaterialProperties::s_type("IfcMechanicalConcreteMaterialProperties","IfcMechanicalMaterialProperties");

@@ -71,4 +71,4 @@ void IfcDraughtingPreDefinedColour::copy(const IfcDraughtingPreDefinedColour &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedColour::s_type("IfcDraughtingPreDefinedColour");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedColour::s_type("IfcDraughtingPreDefinedColour","IfcPreDefinedColour");

@@ -332,4 +332,4 @@ void IfcGrid::copy(const IfcGrid &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGrid::s_type("IfcGrid");
+IFC2X3_EXPORT Step::ClassType IfcGrid::s_type("IfcGrid","IfcProduct");

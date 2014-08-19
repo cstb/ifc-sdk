@@ -181,4 +181,4 @@ void IfcPointOnSurface::copy(const IfcPointOnSurface &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPointOnSurface::s_type("IfcPointOnSurface");
+IFC2X3_EXPORT Step::ClassType IfcPointOnSurface::s_type("IfcPointOnSurface","IfcPoint");

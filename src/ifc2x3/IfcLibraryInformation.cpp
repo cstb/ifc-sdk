@@ -291,4 +291,4 @@ void IfcLibraryInformation::copy(const IfcLibraryInformation &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation");
+IFC2X3_EXPORT Step::ClassType IfcLibraryInformation::s_type("IfcLibraryInformation","BaseEntity");

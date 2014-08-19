@@ -249,4 +249,4 @@ void IfcCurrencyRelationship::copy(const IfcCurrencyRelationship &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurrencyRelationship::s_type("IfcCurrencyRelationship");
+IFC2X3_EXPORT Step::ClassType IfcCurrencyRelationship::s_type("IfcCurrencyRelationship","BaseEntity");

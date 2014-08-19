@@ -130,4 +130,4 @@ void IfcCoilType::copy(const IfcCoilType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCoilType::s_type("IfcCoilType");
+IFC2X3_EXPORT Step::ClassType IfcCoilType::s_type("IfcCoilType","IfcEnergyConversionDeviceType");

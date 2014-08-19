@@ -180,4 +180,4 @@ void IfcOffsetCurve2D::copy(const IfcOffsetCurve2D &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOffsetCurve2D::s_type("IfcOffsetCurve2D");
+IFC2X3_EXPORT Step::ClassType IfcOffsetCurve2D::s_type("IfcOffsetCurve2D","IfcCurve");

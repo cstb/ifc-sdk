@@ -71,4 +71,4 @@ void IfcBoundedCurve::copy(const IfcBoundedCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundedCurve::s_type("IfcBoundedCurve");
+IFC2X3_EXPORT Step::ClassType IfcBoundedCurve::s_type("IfcBoundedCurve","IfcCurve");

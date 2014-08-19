@@ -212,4 +212,4 @@ void IfcAsymmetricIShapeProfileDef::copy(const IfcAsymmetricIShapeProfileDef &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAsymmetricIShapeProfileDef::s_type("IfcAsymmetricIShapeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcAsymmetricIShapeProfileDef::s_type("IfcAsymmetricIShapeProfileDef","IfcIShapeProfileDef");

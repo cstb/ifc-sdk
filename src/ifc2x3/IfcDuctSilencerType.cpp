@@ -121,4 +121,4 @@ void IfcDuctSilencerType::copy(const IfcDuctSilencerType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDuctSilencerType::s_type("IfcDuctSilencerType");
+IFC2X3_EXPORT Step::ClassType IfcDuctSilencerType::s_type("IfcDuctSilencerType","IfcFlowTreatmentDeviceType");

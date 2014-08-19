@@ -142,4 +142,4 @@ void IfcFillAreaStyle::copy(const IfcFillAreaStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillAreaStyle::s_type("IfcFillAreaStyle");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyle::s_type("IfcFillAreaStyle","IfcPresentationStyle");

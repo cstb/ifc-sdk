@@ -200,4 +200,4 @@ void IfcDateTimeSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDateTimeSelect::s_type("IfcDateTimeSelect");
+IFC2X3_EXPORT Step::ClassType IfcDateTimeSelect::s_type("IfcDateTimeSelect","BaseObject");

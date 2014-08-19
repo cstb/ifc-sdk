@@ -143,4 +143,4 @@ void IfcBlobTexture::copy(const IfcBlobTexture &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBlobTexture::s_type("IfcBlobTexture");
+IFC2X3_EXPORT Step::ClassType IfcBlobTexture::s_type("IfcBlobTexture","IfcSurfaceTexture");

@@ -71,4 +71,4 @@ void IfcDraughtingPreDefinedCurveFont::copy(const IfcDraughtingPreDefinedCurveFo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedCurveFont::s_type("IfcDraughtingPreDefinedCurveFont");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingPreDefinedCurveFont::s_type("IfcDraughtingPreDefinedCurveFont","IfcPreDefinedCurveFont");

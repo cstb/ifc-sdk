@@ -107,4 +107,4 @@ void IfcCartesianTransformationOperator2DnonUniform::copy(const IfcCartesianTran
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator2DnonUniform::s_type("IfcCartesianTransformationOperator2DnonUniform");
+IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator2DnonUniform::s_type("IfcCartesianTransformationOperator2DnonUniform","IfcCartesianTransformationOperator2D");

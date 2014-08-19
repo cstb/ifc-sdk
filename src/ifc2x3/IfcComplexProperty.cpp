@@ -186,4 +186,4 @@ void IfcComplexProperty::copy(const IfcComplexProperty &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcComplexProperty::s_type("IfcComplexProperty");
+IFC2X3_EXPORT Step::ClassType IfcComplexProperty::s_type("IfcComplexProperty","IfcProperty");

@@ -186,4 +186,4 @@ void IfcCompositeCurve::copy(const IfcCompositeCurve &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCompositeCurve::s_type("IfcCompositeCurve");
+IFC2X3_EXPORT Step::ClassType IfcCompositeCurve::s_type("IfcCompositeCurve","IfcBoundedCurve");

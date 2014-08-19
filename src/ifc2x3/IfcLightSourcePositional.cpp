@@ -251,4 +251,4 @@ void IfcLightSourcePositional::copy(const IfcLightSourcePositional &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSourcePositional::s_type("IfcLightSourcePositional");
+IFC2X3_EXPORT Step::ClassType IfcLightSourcePositional::s_type("IfcLightSourcePositional","IfcLightSource");

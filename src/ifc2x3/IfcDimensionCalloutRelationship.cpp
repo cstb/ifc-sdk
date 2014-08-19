@@ -71,4 +71,4 @@ void IfcDimensionCalloutRelationship::copy(const IfcDimensionCalloutRelationship
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionCalloutRelationship::s_type("IfcDimensionCalloutRelationship");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCalloutRelationship::s_type("IfcDimensionCalloutRelationship","IfcDraughtingCalloutRelationship");

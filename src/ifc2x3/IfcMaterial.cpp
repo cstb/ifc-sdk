@@ -163,4 +163,4 @@ void IfcMaterial::copy(const IfcMaterial &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterial::s_type("IfcMaterial");
+IFC2X3_EXPORT Step::ClassType IfcMaterial::s_type("IfcMaterial","BaseEntity");

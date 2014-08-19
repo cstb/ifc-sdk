@@ -157,4 +157,4 @@ void IfcCompressorType::copy(const IfcCompressorType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCompressorType::s_type("IfcCompressorType");
+IFC2X3_EXPORT Step::ClassType IfcCompressorType::s_type("IfcCompressorType","IfcFlowMovingDeviceType");

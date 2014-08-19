@@ -139,4 +139,4 @@ void IfcDistributionControlElement::copy(const IfcDistributionControlElement &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDistributionControlElement::s_type("IfcDistributionControlElement");
+IFC2X3_EXPORT Step::ClassType IfcDistributionControlElement::s_type("IfcDistributionControlElement","IfcDistributionElement");

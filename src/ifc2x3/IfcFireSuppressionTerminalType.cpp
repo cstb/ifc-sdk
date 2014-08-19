@@ -127,4 +127,4 @@ void IfcFireSuppressionTerminalType::copy(const IfcFireSuppressionTerminalType &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFireSuppressionTerminalType::s_type("IfcFireSuppressionTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcFireSuppressionTerminalType::s_type("IfcFireSuppressionTerminalType","IfcFlowTerminalType");

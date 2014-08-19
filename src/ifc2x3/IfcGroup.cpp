@@ -98,4 +98,4 @@ void IfcGroup::copy(const IfcGroup &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGroup::s_type("IfcGroup");
+IFC2X3_EXPORT Step::ClassType IfcGroup::s_type("IfcGroup","IfcObject");

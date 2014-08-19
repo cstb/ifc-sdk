@@ -216,4 +216,4 @@ void IfcMetric::copy(const IfcMetric &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMetric::s_type("IfcMetric");
+IFC2X3_EXPORT Step::ClassType IfcMetric::s_type("IfcMetric","IfcConstraint");

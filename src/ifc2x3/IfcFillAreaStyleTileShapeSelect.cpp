@@ -126,4 +126,4 @@ void IfcFillAreaStyleTileShapeSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTileShapeSelect::s_type("IfcFillAreaStyleTileShapeSelect");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTileShapeSelect::s_type("IfcFillAreaStyleTileShapeSelect","BaseObject");

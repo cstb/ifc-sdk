@@ -121,4 +121,4 @@ void IfcAirTerminalBoxType::copy(const IfcAirTerminalBoxType &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAirTerminalBoxType::s_type("IfcAirTerminalBoxType");
+IFC2X3_EXPORT Step::ClassType IfcAirTerminalBoxType::s_type("IfcAirTerminalBoxType","IfcFlowControllerType");

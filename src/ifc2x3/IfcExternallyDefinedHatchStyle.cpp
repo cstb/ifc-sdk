@@ -71,4 +71,4 @@ void IfcExternallyDefinedHatchStyle::copy(const IfcExternallyDefinedHatchStyle &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedHatchStyle::s_type("IfcExternallyDefinedHatchStyle");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedHatchStyle::s_type("IfcExternallyDefinedHatchStyle","IfcExternalReference");

@@ -133,4 +133,4 @@ void IfcFanType::copy(const IfcFanType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFanType::s_type("IfcFanType");
+IFC2X3_EXPORT Step::ClassType IfcFanType::s_type("IfcFanType","IfcFlowMovingDeviceType");

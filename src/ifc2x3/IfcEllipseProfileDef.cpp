@@ -142,4 +142,4 @@ void IfcEllipseProfileDef::copy(const IfcEllipseProfileDef &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEllipseProfileDef::s_type("IfcEllipseProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcEllipseProfileDef::s_type("IfcEllipseProfileDef","IfcParameterizedProfileDef");

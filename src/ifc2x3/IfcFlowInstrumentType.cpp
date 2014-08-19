@@ -136,4 +136,4 @@ void IfcFlowInstrumentType::copy(const IfcFlowInstrumentType &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowInstrumentType::s_type("IfcFlowInstrumentType");
+IFC2X3_EXPORT Step::ClassType IfcFlowInstrumentType::s_type("IfcFlowInstrumentType","IfcDistributionControlElementType");

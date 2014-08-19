@@ -128,4 +128,4 @@ void IfcArbitraryProfileDefWithVoids::copy(const IfcArbitraryProfileDefWithVoids
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcArbitraryProfileDefWithVoids::s_type("IfcArbitraryProfileDefWithVoids");
+IFC2X3_EXPORT Step::ClassType IfcArbitraryProfileDefWithVoids::s_type("IfcArbitraryProfileDefWithVoids","IfcArbitraryClosedProfileDef");

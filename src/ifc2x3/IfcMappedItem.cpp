@@ -153,4 +153,4 @@ void IfcMappedItem::copy(const IfcMappedItem &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMappedItem::s_type("IfcMappedItem");
+IFC2X3_EXPORT Step::ClassType IfcMappedItem::s_type("IfcMappedItem","IfcRepresentationItem");

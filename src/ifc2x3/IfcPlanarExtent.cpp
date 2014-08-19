@@ -142,4 +142,4 @@ void IfcPlanarExtent::copy(const IfcPlanarExtent &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlanarExtent::s_type("IfcPlanarExtent");
+IFC2X3_EXPORT Step::ClassType IfcPlanarExtent::s_type("IfcPlanarExtent","IfcGeometricRepresentationItem");

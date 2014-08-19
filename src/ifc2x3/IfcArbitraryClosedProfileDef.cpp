@@ -111,4 +111,4 @@ void IfcArbitraryClosedProfileDef::copy(const IfcArbitraryClosedProfileDef &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcArbitraryClosedProfileDef::s_type("IfcArbitraryClosedProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcArbitraryClosedProfileDef::s_type("IfcArbitraryClosedProfileDef","IfcProfileDef");

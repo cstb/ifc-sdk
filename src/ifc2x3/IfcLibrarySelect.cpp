@@ -163,4 +163,4 @@ void IfcLibrarySelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLibrarySelect::s_type("IfcLibrarySelect");
+IFC2X3_EXPORT Step::ClassType IfcLibrarySelect::s_type("IfcLibrarySelect","BaseObject");

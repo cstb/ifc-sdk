@@ -177,4 +177,4 @@ void IfcBlock::copy(const IfcBlock &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBlock::s_type("IfcBlock");
+IFC2X3_EXPORT Step::ClassType IfcBlock::s_type("IfcBlock","IfcCsgPrimitive3D");

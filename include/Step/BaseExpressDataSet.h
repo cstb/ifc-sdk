@@ -95,9 +95,9 @@ namespace Step {
         void setHeader(SPFHeader& header);
 
         /*!
-         \short Inits all entities (as opposed to the lazy loading concept)
+         \short Inits all entities (as opposed to the lazy loading concept) for which InstanciateIf isValid() method return true (all by default);
          */
-        void instantiateAll(CallBack *callback =0);
+        void instantiateAll(CallBack *callback =0, InstanciateIf * =0);
 
     protected:
 

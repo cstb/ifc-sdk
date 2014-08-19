@@ -71,4 +71,4 @@ void IfcCurtainWall::copy(const IfcCurtainWall &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurtainWall::s_type("IfcCurtainWall");
+IFC2X3_EXPORT Step::ClassType IfcCurtainWall::s_type("IfcCurtainWall","IfcBuildingElement");

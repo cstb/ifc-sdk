@@ -213,4 +213,4 @@ void IfcFillAreaStyleTiles::copy(const IfcFillAreaStyleTiles &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTiles::s_type("IfcFillAreaStyleTiles");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleTiles::s_type("IfcFillAreaStyleTiles","IfcGeometricRepresentationItem");

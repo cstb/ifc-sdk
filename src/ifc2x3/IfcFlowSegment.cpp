@@ -71,4 +71,4 @@ void IfcFlowSegment::copy(const IfcFlowSegment &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowSegment::s_type("IfcFlowSegment");
+IFC2X3_EXPORT Step::ClassType IfcFlowSegment::s_type("IfcFlowSegment","IfcDistributionFlowElement");

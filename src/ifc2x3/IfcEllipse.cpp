@@ -142,4 +142,4 @@ void IfcEllipse::copy(const IfcEllipse &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEllipse::s_type("IfcEllipse");
+IFC2X3_EXPORT Step::ClassType IfcEllipse::s_type("IfcEllipse","IfcConic");

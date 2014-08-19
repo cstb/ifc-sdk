@@ -71,4 +71,4 @@ void IfcExternallyDefinedSurfaceStyle::copy(const IfcExternallyDefinedSurfaceSty
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedSurfaceStyle::s_type("IfcExternallyDefinedSurfaceStyle");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedSurfaceStyle::s_type("IfcExternallyDefinedSurfaceStyle","IfcExternalReference");

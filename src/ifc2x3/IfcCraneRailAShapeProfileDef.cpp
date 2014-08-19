@@ -492,4 +492,4 @@ void IfcCraneRailAShapeProfileDef::copy(const IfcCraneRailAShapeProfileDef &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCraneRailAShapeProfileDef::s_type("IfcCraneRailAShapeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCraneRailAShapeProfileDef::s_type("IfcCraneRailAShapeProfileDef","IfcParameterizedProfileDef");

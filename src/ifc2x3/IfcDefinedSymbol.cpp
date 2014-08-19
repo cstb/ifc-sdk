@@ -161,4 +161,4 @@ void IfcDefinedSymbol::copy(const IfcDefinedSymbol &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDefinedSymbol::s_type("IfcDefinedSymbol");
+IFC2X3_EXPORT Step::ClassType IfcDefinedSymbol::s_type("IfcDefinedSymbol","IfcGeometricRepresentationItem");

@@ -128,4 +128,4 @@ void IfcEdgeLoop::copy(const IfcEdgeLoop &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEdgeLoop::s_type("IfcEdgeLoop");
+IFC2X3_EXPORT Step::ClassType IfcEdgeLoop::s_type("IfcEdgeLoop","IfcLoop");

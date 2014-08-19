@@ -128,4 +128,4 @@ void IfcFacetedBrepWithVoids::copy(const IfcFacetedBrepWithVoids &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFacetedBrepWithVoids::s_type("IfcFacetedBrepWithVoids");
+IFC2X3_EXPORT Step::ClassType IfcFacetedBrepWithVoids::s_type("IfcFacetedBrepWithVoids","IfcManifoldSolidBrep");

@@ -846,4 +846,4 @@ void IfcDocumentInformation::copy(const IfcDocumentInformation &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDocumentInformation::s_type("IfcDocumentInformation");
+IFC2X3_EXPORT Step::ClassType IfcDocumentInformation::s_type("IfcDocumentInformation","BaseEntity");

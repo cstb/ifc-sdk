@@ -201,4 +201,4 @@ void IfcEnvironmentalImpactValue::copy(const IfcEnvironmentalImpactValue &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEnvironmentalImpactValue::s_type("IfcEnvironmentalImpactValue");
+IFC2X3_EXPORT Step::ClassType IfcEnvironmentalImpactValue::s_type("IfcEnvironmentalImpactValue","IfcAppliedValue");

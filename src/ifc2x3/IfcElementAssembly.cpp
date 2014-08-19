@@ -182,4 +182,4 @@ void IfcElementAssembly::copy(const IfcElementAssembly &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElementAssembly::s_type("IfcElementAssembly");
+IFC2X3_EXPORT Step::ClassType IfcElementAssembly::s_type("IfcElementAssembly","IfcElement");

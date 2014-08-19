@@ -71,4 +71,4 @@ void IfcDimensionPair::copy(const IfcDimensionPair &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionPair::s_type("IfcDimensionPair");
+IFC2X3_EXPORT Step::ClassType IfcDimensionPair::s_type("IfcDimensionPair","IfcDraughtingCalloutRelationship");

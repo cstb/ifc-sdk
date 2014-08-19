@@ -115,4 +115,4 @@ void IfcColumnType::copy(const IfcColumnType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcColumnType::s_type("IfcColumnType");
+IFC2X3_EXPORT Step::ClassType IfcColumnType::s_type("IfcColumnType","IfcBuildingElementType");

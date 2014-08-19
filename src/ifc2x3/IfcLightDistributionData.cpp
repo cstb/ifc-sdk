@@ -208,4 +208,4 @@ void IfcLightDistributionData::copy(const IfcLightDistributionData &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightDistributionData::s_type("IfcLightDistributionData");
+IFC2X3_EXPORT Step::ClassType IfcLightDistributionData::s_type("IfcLightDistributionData","BaseEntity");

@@ -213,4 +213,4 @@ void IfcApplication::copy(const IfcApplication &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApplication::s_type("IfcApplication");
+IFC2X3_EXPORT Step::ClassType IfcApplication::s_type("IfcApplication","BaseEntity");

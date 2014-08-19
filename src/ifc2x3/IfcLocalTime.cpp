@@ -247,4 +247,4 @@ void IfcLocalTime::copy(const IfcLocalTime &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLocalTime::s_type("IfcLocalTime");
+IFC2X3_EXPORT Step::ClassType IfcLocalTime::s_type("IfcLocalTime","BaseEntity");

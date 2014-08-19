@@ -217,4 +217,4 @@ void IfcLightSource::copy(const IfcLightSource &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSource::s_type("IfcLightSource");
+IFC2X3_EXPORT Step::ClassType IfcLightSource::s_type("IfcLightSource","IfcGeometricRepresentationItem");

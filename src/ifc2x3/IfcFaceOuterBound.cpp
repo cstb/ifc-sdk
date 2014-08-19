@@ -71,4 +71,4 @@ void IfcFaceOuterBound::copy(const IfcFaceOuterBound &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceOuterBound::s_type("IfcFaceOuterBound");
+IFC2X3_EXPORT Step::ClassType IfcFaceOuterBound::s_type("IfcFaceOuterBound","IfcFaceBound");

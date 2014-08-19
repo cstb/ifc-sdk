@@ -199,4 +199,4 @@ void IfcCurveBoundedPlane::copy(const IfcCurveBoundedPlane &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveBoundedPlane::s_type("IfcCurveBoundedPlane");
+IFC2X3_EXPORT Step::ClassType IfcCurveBoundedPlane::s_type("IfcCurveBoundedPlane","IfcBoundedSurface");

@@ -282,4 +282,4 @@ void IfcBoundaryNodeCondition::copy(const IfcBoundaryNodeCondition &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryNodeCondition::s_type("IfcBoundaryNodeCondition");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryNodeCondition::s_type("IfcBoundaryNodeCondition","IfcBoundaryCondition");

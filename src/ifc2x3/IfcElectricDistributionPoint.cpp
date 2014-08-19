@@ -175,4 +175,4 @@ void IfcElectricDistributionPoint::copy(const IfcElectricDistributionPoint &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricDistributionPoint::s_type("IfcElectricDistributionPoint");
+IFC2X3_EXPORT Step::ClassType IfcElectricDistributionPoint::s_type("IfcElectricDistributionPoint","IfcFlowController");

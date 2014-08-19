@@ -111,4 +111,4 @@ void IfcClassificationReference::copy(const IfcClassificationReference &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationReference::s_type("IfcClassificationReference");
+IFC2X3_EXPORT Step::ClassType IfcClassificationReference::s_type("IfcClassificationReference","IfcExternalReference");

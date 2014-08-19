@@ -202,4 +202,4 @@ void IfcMaterialLayer::copy(const IfcMaterialLayer &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialLayer::s_type("IfcMaterialLayer");
+IFC2X3_EXPORT Step::ClassType IfcMaterialLayer::s_type("IfcMaterialLayer","BaseEntity");

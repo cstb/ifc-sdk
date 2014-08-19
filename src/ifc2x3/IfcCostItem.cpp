@@ -71,4 +71,4 @@ void IfcCostItem::copy(const IfcCostItem &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCostItem::s_type("IfcCostItem");
+IFC2X3_EXPORT Step::ClassType IfcCostItem::s_type("IfcCostItem","IfcControl");

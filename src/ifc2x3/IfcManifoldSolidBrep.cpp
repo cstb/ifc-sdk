@@ -111,4 +111,4 @@ void IfcManifoldSolidBrep::copy(const IfcManifoldSolidBrep &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcManifoldSolidBrep::s_type("IfcManifoldSolidBrep");
+IFC2X3_EXPORT Step::ClassType IfcManifoldSolidBrep::s_type("IfcManifoldSolidBrep","IfcSolidModel");

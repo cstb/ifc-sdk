@@ -111,4 +111,4 @@ void IfcElementarySurface::copy(const IfcElementarySurface &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElementarySurface::s_type("IfcElementarySurface");
+IFC2X3_EXPORT Step::ClassType IfcElementarySurface::s_type("IfcElementarySurface","IfcSurface");

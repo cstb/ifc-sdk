@@ -163,4 +163,4 @@ void IfcCurveOrEdgeCurve::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveOrEdgeCurve::s_type("IfcCurveOrEdgeCurve");
+IFC2X3_EXPORT Step::ClassType IfcCurveOrEdgeCurve::s_type("IfcCurveOrEdgeCurve","BaseObject");

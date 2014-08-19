@@ -118,4 +118,4 @@ void IfcDuctSegmentType::copy(const IfcDuctSegmentType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDuctSegmentType::s_type("IfcDuctSegmentType");
+IFC2X3_EXPORT Step::ClassType IfcDuctSegmentType::s_type("IfcDuctSegmentType","IfcFlowSegmentType");

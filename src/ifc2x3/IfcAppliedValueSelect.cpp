@@ -166,4 +166,4 @@ void IfcAppliedValueSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAppliedValueSelect::s_type("IfcAppliedValueSelect");
+IFC2X3_EXPORT Step::ClassType IfcAppliedValueSelect::s_type("IfcAppliedValueSelect","BaseObject");

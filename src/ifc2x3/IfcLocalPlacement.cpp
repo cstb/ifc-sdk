@@ -166,4 +166,4 @@ void IfcLocalPlacement::copy(const IfcLocalPlacement &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLocalPlacement::s_type("IfcLocalPlacement");
+IFC2X3_EXPORT Step::ClassType IfcLocalPlacement::s_type("IfcLocalPlacement","IfcObjectPlacement");

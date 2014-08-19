@@ -112,4 +112,4 @@ void IfcBuildingElementProxyType::copy(const IfcBuildingElementProxyType &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBuildingElementProxyType::s_type("IfcBuildingElementProxyType");
+IFC2X3_EXPORT Step::ClassType IfcBuildingElementProxyType::s_type("IfcBuildingElementProxyType","IfcBuildingElementType");

@@ -71,4 +71,4 @@ void IfcDistributionFlowElementType::copy(const IfcDistributionFlowElementType &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDistributionFlowElementType::s_type("IfcDistributionFlowElementType");
+IFC2X3_EXPORT Step::ClassType IfcDistributionFlowElementType::s_type("IfcDistributionFlowElementType","IfcDistributionElementType");

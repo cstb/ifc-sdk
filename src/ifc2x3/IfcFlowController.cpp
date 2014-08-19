@@ -71,4 +71,4 @@ void IfcFlowController::copy(const IfcFlowController &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowController::s_type("IfcFlowController");
+IFC2X3_EXPORT Step::ClassType IfcFlowController::s_type("IfcFlowController","IfcDistributionFlowElement");

@@ -71,4 +71,4 @@ void IfcBoundedSurface::copy(const IfcBoundedSurface &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundedSurface::s_type("IfcBoundedSurface");
+IFC2X3_EXPORT Step::ClassType IfcBoundedSurface::s_type("IfcBoundedSurface","IfcSurface");

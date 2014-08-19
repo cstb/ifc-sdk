@@ -71,4 +71,4 @@ void IfcBooleanClippingResult::copy(const IfcBooleanClippingResult &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBooleanClippingResult::s_type("IfcBooleanClippingResult");
+IFC2X3_EXPORT Step::ClassType IfcBooleanClippingResult::s_type("IfcBooleanClippingResult","IfcBooleanResult");

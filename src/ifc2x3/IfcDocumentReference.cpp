@@ -103,4 +103,4 @@ void IfcDocumentReference::copy(const IfcDocumentReference &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDocumentReference::s_type("IfcDocumentReference");
+IFC2X3_EXPORT Step::ClassType IfcDocumentReference::s_type("IfcDocumentReference","IfcExternalReference");

@@ -214,4 +214,4 @@ void IfcBooleanResult::copy(const IfcBooleanResult &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBooleanResult::s_type("IfcBooleanResult");
+IFC2X3_EXPORT Step::ClassType IfcBooleanResult::s_type("IfcBooleanResult","IfcGeometricRepresentationItem");

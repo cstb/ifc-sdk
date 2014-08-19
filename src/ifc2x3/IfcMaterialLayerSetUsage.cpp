@@ -225,4 +225,4 @@ void IfcMaterialLayerSetUsage::copy(const IfcMaterialLayerSetUsage &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialLayerSetUsage::s_type("IfcMaterialLayerSetUsage");
+IFC2X3_EXPORT Step::ClassType IfcMaterialLayerSetUsage::s_type("IfcMaterialLayerSetUsage","BaseEntity");

@@ -163,4 +163,4 @@ void IfcAxis2Placement::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAxis2Placement::s_type("IfcAxis2Placement");
+IFC2X3_EXPORT Step::ClassType IfcAxis2Placement::s_type("IfcAxis2Placement","BaseObject");

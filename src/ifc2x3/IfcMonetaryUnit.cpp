@@ -351,4 +351,4 @@ void IfcMonetaryUnit::copy(const IfcMonetaryUnit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMonetaryUnit::s_type("IfcMonetaryUnit");
+IFC2X3_EXPORT Step::ClassType IfcMonetaryUnit::s_type("IfcMonetaryUnit","BaseEntity");

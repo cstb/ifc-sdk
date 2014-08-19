@@ -71,4 +71,4 @@ void IfcCrewResource::copy(const IfcCrewResource &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCrewResource::s_type("IfcCrewResource");
+IFC2X3_EXPORT Step::ClassType IfcCrewResource::s_type("IfcCrewResource","IfcConstructionResource");

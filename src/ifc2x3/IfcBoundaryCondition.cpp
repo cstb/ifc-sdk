@@ -104,4 +104,4 @@ void IfcBoundaryCondition::copy(const IfcBoundaryCondition &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryCondition::s_type("IfcBoundaryCondition");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryCondition::s_type("IfcBoundaryCondition","BaseEntity");

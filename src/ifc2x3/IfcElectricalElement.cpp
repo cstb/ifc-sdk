@@ -71,4 +71,4 @@ void IfcElectricalElement::copy(const IfcElectricalElement &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricalElement::s_type("IfcElectricalElement");
+IFC2X3_EXPORT Step::ClassType IfcElectricalElement::s_type("IfcElectricalElement","IfcElement");

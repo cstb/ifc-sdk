@@ -259,4 +259,4 @@ void IfcOrganizationRelationship::copy(const IfcOrganizationRelationship &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOrganizationRelationship::s_type("IfcOrganizationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcOrganizationRelationship::s_type("IfcOrganizationRelationship","BaseEntity");

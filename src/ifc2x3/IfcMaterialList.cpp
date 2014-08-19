@@ -124,4 +124,4 @@ void IfcMaterialList::copy(const IfcMaterialList &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialList::s_type("IfcMaterialList");
+IFC2X3_EXPORT Step::ClassType IfcMaterialList::s_type("IfcMaterialList","BaseEntity");

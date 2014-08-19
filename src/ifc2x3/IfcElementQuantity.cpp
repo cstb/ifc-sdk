@@ -164,4 +164,4 @@ void IfcElementQuantity::copy(const IfcElementQuantity &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElementQuantity::s_type("IfcElementQuantity");
+IFC2X3_EXPORT Step::ClassType IfcElementQuantity::s_type("IfcElementQuantity","IfcPropertySetDefinition");

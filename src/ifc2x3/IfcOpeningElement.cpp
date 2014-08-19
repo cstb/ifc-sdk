@@ -103,4 +103,4 @@ void IfcOpeningElement::copy(const IfcOpeningElement &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOpeningElement::s_type("IfcOpeningElement");
+IFC2X3_EXPORT Step::ClassType IfcOpeningElement::s_type("IfcOpeningElement","IfcFeatureElementSubtraction");

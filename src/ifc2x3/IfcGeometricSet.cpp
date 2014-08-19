@@ -142,4 +142,4 @@ void IfcGeometricSet::copy(const IfcGeometricSet &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricSet::s_type("IfcGeometricSet");
+IFC2X3_EXPORT Step::ClassType IfcGeometricSet::s_type("IfcGeometricSet","IfcGeometricRepresentationItem");

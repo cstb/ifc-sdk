@@ -272,4 +272,4 @@ void IfcFillAreaStyleHatching::copy(const IfcFillAreaStyleHatching &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleHatching::s_type("IfcFillAreaStyleHatching");
+IFC2X3_EXPORT Step::ClassType IfcFillAreaStyleHatching::s_type("IfcFillAreaStyleHatching","IfcGeometricRepresentationItem");

@@ -152,4 +152,4 @@ void IfcAnnotationSurface::copy(const IfcAnnotationSurface &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotationSurface::s_type("IfcAnnotationSurface");
+IFC2X3_EXPORT Step::ClassType IfcAnnotationSurface::s_type("IfcAnnotationSurface","IfcGeometricRepresentationItem");

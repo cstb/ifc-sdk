@@ -108,4 +108,4 @@ void IfcImageTexture::copy(const IfcImageTexture &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcImageTexture::s_type("IfcImageTexture");
+IFC2X3_EXPORT Step::ClassType IfcImageTexture::s_type("IfcImageTexture","IfcSurfaceTexture");

@@ -127,4 +127,4 @@ void IfcElectricMotorType::copy(const IfcElectricMotorType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricMotorType::s_type("IfcElectricMotorType");
+IFC2X3_EXPORT Step::ClassType IfcElectricMotorType::s_type("IfcElectricMotorType","IfcEnergyConversionDeviceType");

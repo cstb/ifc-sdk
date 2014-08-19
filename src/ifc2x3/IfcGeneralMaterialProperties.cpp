@@ -177,4 +177,4 @@ void IfcGeneralMaterialProperties::copy(const IfcGeneralMaterialProperties &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeneralMaterialProperties::s_type("IfcGeneralMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcGeneralMaterialProperties::s_type("IfcGeneralMaterialProperties","IfcMaterialProperties");

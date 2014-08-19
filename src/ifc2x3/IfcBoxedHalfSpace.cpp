@@ -111,4 +111,4 @@ void IfcBoxedHalfSpace::copy(const IfcBoxedHalfSpace &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoxedHalfSpace::s_type("IfcBoxedHalfSpace");
+IFC2X3_EXPORT Step::ClassType IfcBoxedHalfSpace::s_type("IfcBoxedHalfSpace","IfcHalfSpaceSolid");

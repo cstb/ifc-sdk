@@ -387,4 +387,4 @@ void IfcOpticalMaterialProperties::copy(const IfcOpticalMaterialProperties &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOpticalMaterialProperties::s_type("IfcOpticalMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcOpticalMaterialProperties::s_type("IfcOpticalMaterialProperties","IfcMaterialProperties");

@@ -107,4 +107,4 @@ void IfcEdgeFeature::copy(const IfcEdgeFeature &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEdgeFeature::s_type("IfcEdgeFeature");
+IFC2X3_EXPORT Step::ClassType IfcEdgeFeature::s_type("IfcEdgeFeature","IfcFeatureElementSubtraction");

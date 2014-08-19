@@ -104,4 +104,4 @@ void IfcColourSpecification::copy(const IfcColourSpecification &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcColourSpecification::s_type("IfcColourSpecification");
+IFC2X3_EXPORT Step::ClassType IfcColourSpecification::s_type("IfcColourSpecification","BaseEntity");

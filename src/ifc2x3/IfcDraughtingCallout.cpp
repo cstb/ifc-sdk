@@ -199,4 +199,4 @@ void IfcDraughtingCallout::copy(const IfcDraughtingCallout &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingCallout::s_type("IfcDraughtingCallout");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingCallout::s_type("IfcDraughtingCallout","IfcGeometricRepresentationItem");

@@ -188,4 +188,4 @@ void IfcClassificationItemRelationship::copy(const IfcClassificationItemRelation
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcClassificationItemRelationship::s_type("IfcClassificationItemRelationship");
+IFC2X3_EXPORT Step::ClassType IfcClassificationItemRelationship::s_type("IfcClassificationItemRelationship","BaseEntity");

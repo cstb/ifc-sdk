@@ -313,4 +313,4 @@ void IfcDimensionalExponents::copy(const IfcDimensionalExponents &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionalExponents::s_type("IfcDimensionalExponents");
+IFC2X3_EXPORT Step::ClassType IfcDimensionalExponents::s_type("IfcDimensionalExponents","BaseEntity");

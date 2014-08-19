@@ -200,4 +200,4 @@ void IfcCurveFontOrScaledCurveFontSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveFontOrScaledCurveFontSelect::s_type("IfcCurveFontOrScaledCurveFontSelect");
+IFC2X3_EXPORT Step::ClassType IfcCurveFontOrScaledCurveFontSelect::s_type("IfcCurveFontOrScaledCurveFontSelect","BaseObject");

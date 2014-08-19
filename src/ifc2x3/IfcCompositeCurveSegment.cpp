@@ -222,4 +222,4 @@ void IfcCompositeCurveSegment::copy(const IfcCompositeCurveSegment &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCompositeCurveSegment::s_type("IfcCompositeCurveSegment");
+IFC2X3_EXPORT Step::ClassType IfcCompositeCurveSegment::s_type("IfcCompositeCurveSegment","IfcGeometricRepresentationItem");

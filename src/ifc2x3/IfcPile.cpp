@@ -173,4 +173,4 @@ void IfcPile::copy(const IfcPile &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPile::s_type("IfcPile");
+IFC2X3_EXPORT Step::ClassType IfcPile::s_type("IfcPile","IfcBuildingElement");

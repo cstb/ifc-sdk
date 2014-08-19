@@ -200,4 +200,4 @@ void IfcGeometricSetSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricSetSelect::s_type("IfcGeometricSetSelect");
+IFC2X3_EXPORT Step::ClassType IfcGeometricSetSelect::s_type("IfcGeometricSetSelect","BaseObject");

@@ -415,4 +415,4 @@ void IfcApproval::copy(const IfcApproval &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApproval::s_type("IfcApproval");
+IFC2X3_EXPORT Step::ClassType IfcApproval::s_type("IfcApproval","BaseEntity");

@@ -108,4 +108,4 @@ void IfcContextDependentUnit::copy(const IfcContextDependentUnit &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcContextDependentUnit::s_type("IfcContextDependentUnit");
+IFC2X3_EXPORT Step::ClassType IfcContextDependentUnit::s_type("IfcContextDependentUnit","IfcNamedUnit");

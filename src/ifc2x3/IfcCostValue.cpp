@@ -143,4 +143,4 @@ void IfcCostValue::copy(const IfcCostValue &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCostValue::s_type("IfcCostValue");
+IFC2X3_EXPORT Step::ClassType IfcCostValue::s_type("IfcCostValue","IfcAppliedValue");

@@ -393,4 +393,4 @@ void IfcOrganization::copy(const IfcOrganization &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOrganization::s_type("IfcOrganization");
+IFC2X3_EXPORT Step::ClassType IfcOrganization::s_type("IfcOrganization","BaseEntity");

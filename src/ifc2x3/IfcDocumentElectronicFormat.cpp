@@ -174,4 +174,4 @@ void IfcDocumentElectronicFormat::copy(const IfcDocumentElectronicFormat &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDocumentElectronicFormat::s_type("IfcDocumentElectronicFormat");
+IFC2X3_EXPORT Step::ClassType IfcDocumentElectronicFormat::s_type("IfcDocumentElectronicFormat","BaseEntity");

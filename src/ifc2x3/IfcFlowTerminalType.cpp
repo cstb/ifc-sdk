@@ -71,4 +71,4 @@ void IfcFlowTerminalType::copy(const IfcFlowTerminalType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowTerminalType::s_type("IfcFlowTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcFlowTerminalType::s_type("IfcFlowTerminalType","IfcDistributionFlowElementType");

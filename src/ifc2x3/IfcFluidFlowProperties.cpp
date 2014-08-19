@@ -996,4 +996,4 @@ void IfcFluidFlowProperties::copy(const IfcFluidFlowProperties &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFluidFlowProperties::s_type("IfcFluidFlowProperties");
+IFC2X3_EXPORT Step::ClassType IfcFluidFlowProperties::s_type("IfcFluidFlowProperties","IfcPropertySetDefinition");

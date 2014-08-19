@@ -38,7 +38,7 @@ namespace Step {
          * constructor with a name
          * \param name the name of the ClassType
          */
-        ClassType(const std::string& name);
+        ClassType(const std::string& name, const std::string& parentName = "Undefined");
 
         /*!
          * \param defaults to the Undefined One
@@ -52,6 +52,12 @@ namespace Step {
          * \return the name of the ClassType
          */
         const std::string & getName() const;
+
+        /*!
+         * get parent class type
+         * \return the parent ClassType
+         */
+        const ClassType & getParent() const;
 
         /*!
          * set to the value to another ClassType
@@ -71,6 +77,8 @@ namespace Step {
         bool operator !=(const ClassType & ref) const;
         //! \}
 
+        bool isOfType(const Step::ClassType& t) const;
+
         /*!
          * This is the unique Undefined ClassType
          * \return a reference to the unique Undefined ClassType
@@ -79,15 +87,18 @@ namespace Step {
 
         /*!
          * Find the ClassType of given String name
+         * \param name the ClassType name to look for
+         * \param convertToUpperCase if true, a conversion to uppercase is done (default) before looking for
          * \return Undefined() if not found
          */
-        static const ClassType &find(const std::string & name);
+        static const ClassType &find(const std::string & name, bool convertToUpperCase = true);
 
     private:
         //! private constructor used to fill the static map
-        ClassType(const std::string& name, int id);
+        ClassType(const std::string& name, const std::string& parentName, int id);
 
         static ClassType sUndefined;
+        std::string m_parentName;
         std::string m_name;
         int m_id;
     };
@@ -111,7 +122,7 @@ const Step::ClassType &T::getType() const { return T::s_type; } \
 bool T::isOfType(const Step::ClassType &t) const { return T::s_type == t; }
 
 #define ClassType_child_implementations(E,T,P) \
-E Step::ClassType T::s_type(#T); \
+E Step::ClassType T::s_type(#T,#P); \
 const std::string &T::type() const { return T::s_type.getName(); } \
 const Step::ClassType &T::getClassType() { return T::s_type; } \
 const Step::ClassType &T::getType() const { return T::s_type; } \

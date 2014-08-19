@@ -242,4 +242,4 @@ void IfcActorRole::copy(const IfcActorRole &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcActorRole::s_type("IfcActorRole");
+IFC2X3_EXPORT Step::ClassType IfcActorRole::s_type("IfcActorRole","BaseEntity");

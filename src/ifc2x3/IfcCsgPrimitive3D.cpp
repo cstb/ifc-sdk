@@ -111,4 +111,4 @@ void IfcCsgPrimitive3D::copy(const IfcCsgPrimitive3D &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCsgPrimitive3D::s_type("IfcCsgPrimitive3D");
+IFC2X3_EXPORT Step::ClassType IfcCsgPrimitive3D::s_type("IfcCsgPrimitive3D","IfcGeometricRepresentationItem");

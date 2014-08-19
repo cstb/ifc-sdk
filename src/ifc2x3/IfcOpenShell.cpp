@@ -71,4 +71,4 @@ void IfcOpenShell::copy(const IfcOpenShell &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOpenShell::s_type("IfcOpenShell");
+IFC2X3_EXPORT Step::ClassType IfcOpenShell::s_type("IfcOpenShell","IfcConnectedFaceSet");

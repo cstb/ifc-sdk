@@ -121,4 +121,4 @@ void IfcGasTerminalType::copy(const IfcGasTerminalType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGasTerminalType::s_type("IfcGasTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcGasTerminalType::s_type("IfcGasTerminalType","IfcFlowTerminalType");

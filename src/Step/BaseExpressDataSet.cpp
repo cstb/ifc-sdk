@@ -188,7 +188,7 @@ SPFData* BaseExpressDataSet::getArgs(Id id)
         return m_Id2BaseObject[id]->getArgs();
 }
 
-void BaseExpressDataSet::instantiateAll(CallBack *callback)
+void BaseExpressDataSet::instantiateAll(CallBack *callback, InstanciateIf *instanciateIf)
 {
     MapOfEntities::iterator it = m_Id2BaseObject.begin();
 
@@ -200,28 +200,38 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
 
     for (; it != m_Id2BaseObject.end(); it++)
     {
-        if (it->second->isOfType(BaseSPFObject::getClassType()))
+        if (it->second.get()->isOfType(BaseSPFObject::getClassType()))
         {
-            LOG_DEBUG("Instantiating #" << it->first)
-            // Get the appropriate allocate function
-            AllocateFuncType
-                    allocFunc =
-                            static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
-            if (allocFunc)
+            if (   !instanciateIf
+                 || instanciateIf->isValid(static_cast<BaseSPFObject*> (it->second.get())))
             {
-                // Call it and get the result
-                BaseEntity* ret = (*allocFunc)(this, it->first);
+                LOG_DEBUG("Instantiating BaseSPFObject #" << it->first)
+                // Get the appropriate allocate function
+                AllocateFuncType
+                        allocFunc =
+                                static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
+                if (allocFunc)
+                {
+                    // Call it and get the result
+                    BaseEntity* ret = (*allocFunc)(this, it->first);
 
-                ret->inited();
+                    ret->inited();
+                }
+                else
+                {
+                    LOG_WARNING("Entity BaseSPFObject #" << it->first << " was never declared");
+                }
             }
             else
             {
-                LOG_WARNING("Entity #" << it->first << " was never declared");
+                LOG_DEBUG("Skipping instantiation of BaseSPFObject #" << it->first)
             }
         }
         else
+        {
+            LOG_DEBUG("Instantiating #" << it->first)
             it->second->inited();
-
+        }
         if(callback)
         {
             callback->setProgress(++progress);

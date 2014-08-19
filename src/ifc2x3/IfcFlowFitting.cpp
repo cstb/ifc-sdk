@@ -71,4 +71,4 @@ void IfcFlowFitting::copy(const IfcFlowFitting &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowFitting::s_type("IfcFlowFitting");
+IFC2X3_EXPORT Step::ClassType IfcFlowFitting::s_type("IfcFlowFitting","IfcDistributionFlowElement");

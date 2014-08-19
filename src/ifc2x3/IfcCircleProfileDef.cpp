@@ -107,4 +107,4 @@ void IfcCircleProfileDef::copy(const IfcCircleProfileDef &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCircleProfileDef::s_type("IfcCircleProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCircleProfileDef::s_type("IfcCircleProfileDef","IfcParameterizedProfileDef");

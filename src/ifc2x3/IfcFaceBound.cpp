@@ -146,4 +146,4 @@ void IfcFaceBound::copy(const IfcFaceBound &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceBound::s_type("IfcFaceBound");
+IFC2X3_EXPORT Step::ClassType IfcFaceBound::s_type("IfcFaceBound","IfcTopologicalRepresentationItem");

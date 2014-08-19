@@ -71,4 +71,4 @@ void IfcFlowMovingDevice::copy(const IfcFlowMovingDevice &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowMovingDevice::s_type("IfcFlowMovingDevice");
+IFC2X3_EXPORT Step::ClassType IfcFlowMovingDevice::s_type("IfcFlowMovingDevice","IfcDistributionFlowElement");

@@ -128,4 +128,4 @@ void IfcConnectedFaceSet::copy(const IfcConnectedFaceSet &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectedFaceSet::s_type("IfcConnectedFaceSet");
+IFC2X3_EXPORT Step::ClassType IfcConnectedFaceSet::s_type("IfcConnectedFaceSet","IfcTopologicalRepresentationItem");

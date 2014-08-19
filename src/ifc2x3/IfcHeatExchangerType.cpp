@@ -118,4 +118,4 @@ void IfcHeatExchangerType::copy(const IfcHeatExchangerType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcHeatExchangerType::s_type("IfcHeatExchangerType");
+IFC2X3_EXPORT Step::ClassType IfcHeatExchangerType::s_type("IfcHeatExchangerType","IfcEnergyConversionDeviceType");

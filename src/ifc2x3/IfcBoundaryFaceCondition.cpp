@@ -177,4 +177,4 @@ void IfcBoundaryFaceCondition::copy(const IfcBoundaryFaceCondition &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryFaceCondition::s_type("IfcBoundaryFaceCondition");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryFaceCondition::s_type("IfcBoundaryFaceCondition","IfcBoundaryCondition");

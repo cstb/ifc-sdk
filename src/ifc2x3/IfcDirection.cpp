@@ -125,4 +125,4 @@ void IfcDirection::copy(const IfcDirection &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDirection::s_type("IfcDirection");
+IFC2X3_EXPORT Step::ClassType IfcDirection::s_type("IfcDirection","IfcGeometricRepresentationItem");

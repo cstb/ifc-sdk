@@ -123,4 +123,4 @@ void IfcPlanarBox::copy(const IfcPlanarBox &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlanarBox::s_type("IfcPlanarBox");
+IFC2X3_EXPORT Step::ClassType IfcPlanarBox::s_type("IfcPlanarBox","IfcPlanarExtent");

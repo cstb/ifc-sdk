@@ -247,4 +247,4 @@ void IfcGeneralProfileProperties::copy(const IfcGeneralProfileProperties &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeneralProfileProperties::s_type("IfcGeneralProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcGeneralProfileProperties::s_type("IfcGeneralProfileProperties","IfcProfileProperties");

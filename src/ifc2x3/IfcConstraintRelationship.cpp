@@ -259,4 +259,4 @@ void IfcConstraintRelationship::copy(const IfcConstraintRelationship &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraintRelationship::s_type("IfcConstraintRelationship");
+IFC2X3_EXPORT Step::ClassType IfcConstraintRelationship::s_type("IfcConstraintRelationship","BaseEntity");

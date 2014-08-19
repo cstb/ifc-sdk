@@ -107,4 +107,4 @@ void IfcBuildingStorey::copy(const IfcBuildingStorey &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBuildingStorey::s_type("IfcBuildingStorey");
+IFC2X3_EXPORT Step::ClassType IfcBuildingStorey::s_type("IfcBuildingStorey","IfcSpatialStructureElement");

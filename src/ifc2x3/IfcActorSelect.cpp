@@ -204,4 +204,4 @@ void IfcActorSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcActorSelect::s_type("IfcActorSelect");
+IFC2X3_EXPORT Step::ClassType IfcActorSelect::s_type("IfcActorSelect","BaseObject");

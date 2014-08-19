@@ -1456,4 +1456,4 @@ void IfcDerivedMeasureValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMe
 void IfcDerivedMeasureValue::set(Step::BaseObject * /*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDerivedMeasureValue::s_type("IfcDerivedMeasureValue");
+IFC2X3_EXPORT Step::ClassType IfcDerivedMeasureValue::s_type("IfcDerivedMeasureValue","BaseObject");

@@ -422,4 +422,4 @@ void IfcAsset::copy(const IfcAsset &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAsset::s_type("IfcAsset");
+IFC2X3_EXPORT Step::ClassType IfcAsset::s_type("IfcAsset","IfcGroup");

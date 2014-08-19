@@ -146,4 +146,4 @@ void IfcEdge::copy(const IfcEdge &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEdge::s_type("IfcEdge");
+IFC2X3_EXPORT Step::ClassType IfcEdge::s_type("IfcEdge","IfcTopologicalRepresentationItem");

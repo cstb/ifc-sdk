@@ -139,4 +139,4 @@ void IfcEvaporativeCoolerType::copy(const IfcEvaporativeCoolerType &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEvaporativeCoolerType::s_type("IfcEvaporativeCoolerType");
+IFC2X3_EXPORT Step::ClassType IfcEvaporativeCoolerType::s_type("IfcEvaporativeCoolerType","IfcEnergyConversionDeviceType");

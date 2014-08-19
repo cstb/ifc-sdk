@@ -107,4 +107,4 @@ void IfcCircleHollowProfileDef::copy(const IfcCircleHollowProfileDef &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCircleHollowProfileDef::s_type("IfcCircleHollowProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCircleHollowProfileDef::s_type("IfcCircleHollowProfileDef","IfcCircleProfileDef");

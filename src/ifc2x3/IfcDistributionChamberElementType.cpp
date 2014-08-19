@@ -136,4 +136,4 @@ void IfcDistributionChamberElementType::copy(const IfcDistributionChamberElement
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDistributionChamberElementType::s_type("IfcDistributionChamberElementType");
+IFC2X3_EXPORT Step::ClassType IfcDistributionChamberElementType::s_type("IfcDistributionChamberElementType","IfcDistributionFlowElementType");

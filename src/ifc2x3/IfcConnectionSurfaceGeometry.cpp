@@ -171,4 +171,4 @@ void IfcConnectionSurfaceGeometry::copy(const IfcConnectionSurfaceGeometry &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConnectionSurfaceGeometry::s_type("IfcConnectionSurfaceGeometry");
+IFC2X3_EXPORT Step::ClassType IfcConnectionSurfaceGeometry::s_type("IfcConnectionSurfaceGeometry","IfcConnectionGeometry");

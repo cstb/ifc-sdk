@@ -163,4 +163,4 @@ void IfcLightDistributionDataSourceSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightDistributionDataSourceSelect::s_type("IfcLightDistributionDataSourceSelect");
+IFC2X3_EXPORT Step::ClassType IfcLightDistributionDataSourceSelect::s_type("IfcLightDistributionDataSourceSelect","BaseObject");

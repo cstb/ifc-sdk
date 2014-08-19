@@ -526,4 +526,4 @@ void IfcConstraint::copy(const IfcConstraint &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConstraint::s_type("IfcConstraint");
+IFC2X3_EXPORT Step::ClassType IfcConstraint::s_type("IfcConstraint","BaseEntity");

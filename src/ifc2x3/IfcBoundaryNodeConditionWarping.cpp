@@ -107,4 +107,4 @@ void IfcBoundaryNodeConditionWarping::copy(const IfcBoundaryNodeConditionWarping
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryNodeConditionWarping::s_type("IfcBoundaryNodeConditionWarping");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryNodeConditionWarping::s_type("IfcBoundaryNodeConditionWarping","IfcBoundaryNodeCondition");

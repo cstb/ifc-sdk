@@ -248,4 +248,4 @@ void IfcGeometricRepresentationSubContext::copy(const IfcGeometricRepresentation
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationSubContext::s_type("IfcGeometricRepresentationSubContext");
+IFC2X3_EXPORT Step::ClassType IfcGeometricRepresentationSubContext::s_type("IfcGeometricRepresentationSubContext","IfcGeometricRepresentationContext");

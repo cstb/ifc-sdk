@@ -71,4 +71,4 @@ void IfcEquipmentStandard::copy(const IfcEquipmentStandard &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEquipmentStandard::s_type("IfcEquipmentStandard");
+IFC2X3_EXPORT Step::ClassType IfcEquipmentStandard::s_type("IfcEquipmentStandard","IfcControl");

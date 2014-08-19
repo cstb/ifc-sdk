@@ -170,4 +170,4 @@ void IfcPhysicalQuantity::copy(const IfcPhysicalQuantity &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPhysicalQuantity::s_type("IfcPhysicalQuantity");
+IFC2X3_EXPORT Step::ClassType IfcPhysicalQuantity::s_type("IfcPhysicalQuantity","BaseEntity");

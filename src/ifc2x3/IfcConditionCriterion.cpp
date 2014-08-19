@@ -178,4 +178,4 @@ void IfcConditionCriterion::copy(const IfcConditionCriterion &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConditionCriterion::s_type("IfcConditionCriterion");
+IFC2X3_EXPORT Step::ClassType IfcConditionCriterion::s_type("IfcConditionCriterion","IfcControl");

@@ -371,4 +371,4 @@ void IfcMetricValueSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMetricValueSelect::s_type("IfcMetricValueSelect");
+IFC2X3_EXPORT Step::ClassType IfcMetricValueSelect::s_type("IfcMetricValueSelect","BaseObject");

@@ -136,4 +136,4 @@ void IfcCoveringType::copy(const IfcCoveringType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCoveringType::s_type("IfcCoveringType");
+IFC2X3_EXPORT Step::ClassType IfcCoveringType::s_type("IfcCoveringType","IfcBuildingElementType");

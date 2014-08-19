@@ -71,4 +71,4 @@ void IfcExternallyDefinedSymbol::copy(const IfcExternallyDefinedSymbol &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedSymbol::s_type("IfcExternallyDefinedSymbol");
+IFC2X3_EXPORT Step::ClassType IfcExternallyDefinedSymbol::s_type("IfcExternallyDefinedSymbol","IfcExternalReference");

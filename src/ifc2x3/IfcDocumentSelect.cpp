@@ -163,4 +163,4 @@ void IfcDocumentSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDocumentSelect::s_type("IfcDocumentSelect");
+IFC2X3_EXPORT Step::ClassType IfcDocumentSelect::s_type("IfcDocumentSelect","BaseObject");

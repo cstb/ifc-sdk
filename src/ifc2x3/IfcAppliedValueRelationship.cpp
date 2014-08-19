@@ -305,4 +305,4 @@ void IfcAppliedValueRelationship::copy(const IfcAppliedValueRelationship &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAppliedValueRelationship::s_type("IfcAppliedValueRelationship");
+IFC2X3_EXPORT Step::ClassType IfcAppliedValueRelationship::s_type("IfcAppliedValueRelationship","BaseEntity");

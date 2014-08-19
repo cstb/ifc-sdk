@@ -128,4 +128,4 @@ void IfcFaceBasedSurfaceModel::copy(const IfcFaceBasedSurfaceModel &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFaceBasedSurfaceModel::s_type("IfcFaceBasedSurfaceModel");
+IFC2X3_EXPORT Step::ClassType IfcFaceBasedSurfaceModel::s_type("IfcFaceBasedSurfaceModel","IfcGeometricRepresentationItem");

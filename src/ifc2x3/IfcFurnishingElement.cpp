@@ -71,4 +71,4 @@ void IfcFurnishingElement::copy(const IfcFurnishingElement &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFurnishingElement::s_type("IfcFurnishingElement");
+IFC2X3_EXPORT Step::ClassType IfcFurnishingElement::s_type("IfcFurnishingElement","IfcElement");

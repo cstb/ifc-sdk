@@ -274,4 +274,4 @@ void IfcFillStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFillStyleSelect::s_type("IfcFillStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcFillStyleSelect::s_type("IfcFillStyleSelect","BaseObject");

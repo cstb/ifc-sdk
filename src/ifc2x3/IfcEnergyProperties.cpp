@@ -160,4 +160,4 @@ void IfcEnergyProperties::copy(const IfcEnergyProperties &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcEnergyProperties::s_type("IfcEnergyProperties");
+IFC2X3_EXPORT Step::ClassType IfcEnergyProperties::s_type("IfcEnergyProperties","IfcPropertySetDefinition");

@@ -149,4 +149,4 @@ void IfcConditionCriterionSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConditionCriterionSelect::s_type("IfcConditionCriterionSelect");
+IFC2X3_EXPORT Step::ClassType IfcConditionCriterionSelect::s_type("IfcConditionCriterionSelect","BaseObject");

@@ -103,4 +103,4 @@ void IfcAnnotation::copy(const IfcAnnotation &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcAnnotation::s_type("IfcAnnotation");
+IFC2X3_EXPORT Step::ClassType IfcAnnotation::s_type("IfcAnnotation","IfcProduct");

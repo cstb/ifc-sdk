@@ -163,4 +163,4 @@ void IfcCsgSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCsgSelect::s_type("IfcCsgSelect");
+IFC2X3_EXPORT Step::ClassType IfcCsgSelect::s_type("IfcCsgSelect","BaseObject");

@@ -145,4 +145,4 @@ void IfcOrientedEdge::copy(const IfcOrientedEdge &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOrientedEdge::s_type("IfcOrientedEdge");
+IFC2X3_EXPORT Step::ClassType IfcOrientedEdge::s_type("IfcOrientedEdge","IfcEdge");

@@ -128,4 +128,4 @@ void IfcPolyLoop::copy(const IfcPolyLoop &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPolyLoop::s_type("IfcPolyLoop");
+IFC2X3_EXPORT Step::ClassType IfcPolyLoop::s_type("IfcPolyLoop","IfcLoop");

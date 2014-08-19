@@ -698,4 +698,4 @@ void IfcIrregularTimeSeriesValue::copy(const IfcIrregularTimeSeriesValue &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcIrregularTimeSeriesValue::s_type("IfcIrregularTimeSeriesValue");
+IFC2X3_EXPORT Step::ClassType IfcIrregularTimeSeriesValue::s_type("IfcIrregularTimeSeriesValue","BaseEntity");

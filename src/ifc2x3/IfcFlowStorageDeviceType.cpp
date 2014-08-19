@@ -71,4 +71,4 @@ void IfcFlowStorageDeviceType::copy(const IfcFlowStorageDeviceType &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowStorageDeviceType::s_type("IfcFlowStorageDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcFlowStorageDeviceType::s_type("IfcFlowStorageDeviceType","IfcDistributionFlowElementType");

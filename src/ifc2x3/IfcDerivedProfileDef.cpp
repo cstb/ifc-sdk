@@ -182,4 +182,4 @@ void IfcDerivedProfileDef::copy(const IfcDerivedProfileDef &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDerivedProfileDef::s_type("IfcDerivedProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcDerivedProfileDef::s_type("IfcDerivedProfileDef","IfcProfileDef");

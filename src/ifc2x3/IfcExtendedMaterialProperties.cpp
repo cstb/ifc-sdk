@@ -199,4 +199,4 @@ void IfcExtendedMaterialProperties::copy(const IfcExtendedMaterialProperties &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExtendedMaterialProperties::s_type("IfcExtendedMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcExtendedMaterialProperties::s_type("IfcExtendedMaterialProperties","IfcMaterialProperties");

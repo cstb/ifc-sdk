@@ -540,4 +540,4 @@ void IfcMeasureValue::setIfcComplexNumber(const IfcComplexNumber &value) {
 void IfcMeasureValue::set(Step::BaseObject */*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMeasureValue::s_type("IfcMeasureValue");
+IFC2X3_EXPORT Step::ClassType IfcMeasureValue::s_type("IfcMeasureValue","BaseObject");

@@ -231,4 +231,4 @@ void IfcNamedUnit::copy(const IfcNamedUnit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcNamedUnit::s_type("IfcNamedUnit");
+IFC2X3_EXPORT Step::ClassType IfcNamedUnit::s_type("IfcNamedUnit","BaseEntity");

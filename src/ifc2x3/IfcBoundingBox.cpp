@@ -216,4 +216,4 @@ void IfcBoundingBox::copy(const IfcBoundingBox &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundingBox::s_type("IfcBoundingBox");
+IFC2X3_EXPORT Step::ClassType IfcBoundingBox::s_type("IfcBoundingBox","IfcGeometricRepresentationItem");

@@ -71,4 +71,4 @@ void IfcDiscreteAccessory::copy(const IfcDiscreteAccessory &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDiscreteAccessory::s_type("IfcDiscreteAccessory");
+IFC2X3_EXPORT Step::ClassType IfcDiscreteAccessory::s_type("IfcDiscreteAccessory","IfcElementComponent");

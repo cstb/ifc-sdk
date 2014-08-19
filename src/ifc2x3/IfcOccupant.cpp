@@ -133,4 +133,4 @@ void IfcOccupant::copy(const IfcOccupant &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOccupant::s_type("IfcOccupant");
+IFC2X3_EXPORT Step::ClassType IfcOccupant::s_type("IfcOccupant","IfcActor");

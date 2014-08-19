@@ -195,4 +195,4 @@ void IfcCovering::copy(const IfcCovering &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCovering::s_type("IfcCovering");
+IFC2X3_EXPORT Step::ClassType IfcCovering::s_type("IfcCovering","IfcBuildingElement");

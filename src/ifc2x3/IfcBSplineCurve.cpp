@@ -285,4 +285,4 @@ void IfcBSplineCurve::copy(const IfcBSplineCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBSplineCurve::s_type("IfcBSplineCurve");
+IFC2X3_EXPORT Step::ClassType IfcBSplineCurve::s_type("IfcBSplineCurve","IfcBoundedCurve");

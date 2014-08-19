@@ -200,4 +200,4 @@ void IfcDraughtingCalloutElement::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutElement::s_type("IfcDraughtingCalloutElement");
+IFC2X3_EXPORT Step::ClassType IfcDraughtingCalloutElement::s_type("IfcDraughtingCalloutElement","BaseObject");

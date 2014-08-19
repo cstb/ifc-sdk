@@ -126,4 +126,4 @@ void IfcCharacterStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCharacterStyleSelect::s_type("IfcCharacterStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcCharacterStyleSelect::s_type("IfcCharacterStyleSelect","BaseObject");

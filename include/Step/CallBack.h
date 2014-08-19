@@ -21,6 +21,8 @@
 
 namespace Step {
 
+    class BaseSPFObject;
+    class BaseEntity;
     class STEP_EXPORT CallBack
     {
     public:
@@ -28,6 +30,13 @@ namespace Step {
         virtual void setMaximum(size_t max) = 0;
         virtual void setProgress(size_t progress) = 0;
         virtual bool stop() const = 0;
+    };
+
+    class STEP_EXPORT InstanciateIf
+    {
+    public:
+        virtual ~InstanciateIf() {}
+        virtual bool isValid(BaseSPFObject *) const = 0;
     };
 }
 

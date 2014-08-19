@@ -282,4 +282,4 @@ void IfcFailureConnectionCondition::copy(const IfcFailureConnectionCondition &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFailureConnectionCondition::s_type("IfcFailureConnectionCondition");
+IFC2X3_EXPORT Step::ClassType IfcFailureConnectionCondition::s_type("IfcFailureConnectionCondition","IfcStructuralConnectionCondition");

@@ -108,4 +108,4 @@ void IfcActionRequest::copy(const IfcActionRequest &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcActionRequest::s_type("IfcActionRequest");
+IFC2X3_EXPORT Step::ClassType IfcActionRequest::s_type("IfcActionRequest","IfcControl");

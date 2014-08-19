@@ -145,4 +145,4 @@ void IfcDamperType::copy(const IfcDamperType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDamperType::s_type("IfcDamperType");
+IFC2X3_EXPORT Step::ClassType IfcDamperType::s_type("IfcDamperType","IfcFlowControllerType");

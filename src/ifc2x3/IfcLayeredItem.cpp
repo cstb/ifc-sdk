@@ -163,4 +163,4 @@ void IfcLayeredItem::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLayeredItem::s_type("IfcLayeredItem");
+IFC2X3_EXPORT Step::ClassType IfcLayeredItem::s_type("IfcLayeredItem","BaseObject");

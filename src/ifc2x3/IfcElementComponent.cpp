@@ -71,4 +71,4 @@ void IfcElementComponent::copy(const IfcElementComponent &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElementComponent::s_type("IfcElementComponent");
+IFC2X3_EXPORT Step::ClassType IfcElementComponent::s_type("IfcElementComponent","IfcElement");

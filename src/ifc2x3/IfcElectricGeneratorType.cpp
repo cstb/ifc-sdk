@@ -112,4 +112,4 @@ void IfcElectricGeneratorType::copy(const IfcElectricGeneratorType &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricGeneratorType::s_type("IfcElectricGeneratorType");
+IFC2X3_EXPORT Step::ClassType IfcElectricGeneratorType::s_type("IfcElectricGeneratorType","IfcEnergyConversionDeviceType");

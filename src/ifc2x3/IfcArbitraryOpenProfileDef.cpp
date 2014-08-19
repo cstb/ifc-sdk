@@ -111,4 +111,4 @@ void IfcArbitraryOpenProfileDef::copy(const IfcArbitraryOpenProfileDef &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcArbitraryOpenProfileDef::s_type("IfcArbitraryOpenProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcArbitraryOpenProfileDef::s_type("IfcArbitraryOpenProfileDef","IfcProfileDef");

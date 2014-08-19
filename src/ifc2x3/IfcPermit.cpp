@@ -108,4 +108,4 @@ void IfcPermit::copy(const IfcPermit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPermit::s_type("IfcPermit");
+IFC2X3_EXPORT Step::ClassType IfcPermit::s_type("IfcPermit","IfcControl");

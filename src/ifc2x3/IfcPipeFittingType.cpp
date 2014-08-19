@@ -133,4 +133,4 @@ void IfcPipeFittingType::copy(const IfcPipeFittingType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPipeFittingType::s_type("IfcPipeFittingType");
+IFC2X3_EXPORT Step::ClassType IfcPipeFittingType::s_type("IfcPipeFittingType","IfcFlowFittingType");

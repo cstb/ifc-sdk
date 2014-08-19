@@ -146,4 +146,4 @@ void IfcOrientationSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcOrientationSelect::s_type("IfcOrientationSelect");
+IFC2X3_EXPORT Step::ClassType IfcOrientationSelect::s_type("IfcOrientationSelect","BaseObject");

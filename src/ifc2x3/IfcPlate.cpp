@@ -71,4 +71,4 @@ void IfcPlate::copy(const IfcPlate &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPlate::s_type("IfcPlate");
+IFC2X3_EXPORT Step::ClassType IfcPlate::s_type("IfcPlate","IfcBuildingElement");

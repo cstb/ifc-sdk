@@ -174,4 +174,4 @@ void IfcExternalReference::copy(const IfcExternalReference &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcExternalReference::s_type("IfcExternalReference");
+IFC2X3_EXPORT Step::ClassType IfcExternalReference::s_type("IfcExternalReference","BaseEntity");

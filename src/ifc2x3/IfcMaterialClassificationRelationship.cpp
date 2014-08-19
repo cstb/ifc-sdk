@@ -180,4 +180,4 @@ void IfcMaterialClassificationRelationship::copy(const IfcMaterialClassification
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialClassificationRelationship::s_type("IfcMaterialClassificationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcMaterialClassificationRelationship::s_type("IfcMaterialClassificationRelationship","BaseEntity");

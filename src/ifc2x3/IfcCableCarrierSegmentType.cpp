@@ -124,4 +124,4 @@ void IfcCableCarrierSegmentType::copy(const IfcCableCarrierSegmentType &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCableCarrierSegmentType::s_type("IfcCableCarrierSegmentType");
+IFC2X3_EXPORT Step::ClassType IfcCableCarrierSegmentType::s_type("IfcCableCarrierSegmentType","IfcFlowSegmentType");

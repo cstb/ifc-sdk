@@ -160,4 +160,4 @@ void IfcCurveStyleFont::copy(const IfcCurveStyleFont &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyleFont::s_type("IfcCurveStyleFont");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyleFont::s_type("IfcCurveStyleFont","BaseEntity");

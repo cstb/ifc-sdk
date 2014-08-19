@@ -334,4 +334,4 @@ void IfcLightSourceGoniometric::copy(const IfcLightSourceGoniometric &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSourceGoniometric::s_type("IfcLightSourceGoniometric");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceGoniometric::s_type("IfcLightSourceGoniometric","IfcLightSource");

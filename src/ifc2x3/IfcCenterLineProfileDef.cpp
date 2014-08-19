@@ -107,4 +107,4 @@ void IfcCenterLineProfileDef::copy(const IfcCenterLineProfileDef &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCenterLineProfileDef::s_type("IfcCenterLineProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCenterLineProfileDef::s_type("IfcCenterLineProfileDef","IfcArbitraryOpenProfileDef");

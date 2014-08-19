@@ -121,4 +121,4 @@ void IfcCoolingTowerType::copy(const IfcCoolingTowerType &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCoolingTowerType::s_type("IfcCoolingTowerType");
+IFC2X3_EXPORT Step::ClassType IfcCoolingTowerType::s_type("IfcCoolingTowerType","IfcEnergyConversionDeviceType");

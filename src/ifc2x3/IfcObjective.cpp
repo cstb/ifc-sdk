@@ -240,4 +240,4 @@ void IfcObjective::copy(const IfcObjective &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcObjective::s_type("IfcObjective");
+IFC2X3_EXPORT Step::ClassType IfcObjective::s_type("IfcObjective","IfcConstraint");

@@ -170,4 +170,4 @@ void IfcLightIntensityDistribution::copy(const IfcLightIntensityDistribution &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightIntensityDistribution::s_type("IfcLightIntensityDistribution");
+IFC2X3_EXPORT Step::ClassType IfcLightIntensityDistribution::s_type("IfcLightIntensityDistribution","BaseEntity");

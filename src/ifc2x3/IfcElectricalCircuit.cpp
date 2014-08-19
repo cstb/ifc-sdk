@@ -71,4 +71,4 @@ void IfcElectricalCircuit::copy(const IfcElectricalCircuit &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricalCircuit::s_type("IfcElectricalCircuit");
+IFC2X3_EXPORT Step::ClassType IfcElectricalCircuit::s_type("IfcElectricalCircuit","IfcSystem");

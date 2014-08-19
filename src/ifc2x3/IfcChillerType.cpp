@@ -121,4 +121,4 @@ void IfcChillerType::copy(const IfcChillerType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcChillerType::s_type("IfcChillerType");
+IFC2X3_EXPORT Step::ClassType IfcChillerType::s_type("IfcChillerType","IfcEnergyConversionDeviceType");

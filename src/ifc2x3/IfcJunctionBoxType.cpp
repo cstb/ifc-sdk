@@ -112,4 +112,4 @@ void IfcJunctionBoxType::copy(const IfcJunctionBoxType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcJunctionBoxType::s_type("IfcJunctionBoxType");
+IFC2X3_EXPORT Step::ClassType IfcJunctionBoxType::s_type("IfcJunctionBoxType","IfcFlowFittingType");

@@ -163,4 +163,4 @@ void IfcDefinedSymbolSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDefinedSymbolSelect::s_type("IfcDefinedSymbolSelect");
+IFC2X3_EXPORT Step::ClassType IfcDefinedSymbolSelect::s_type("IfcDefinedSymbolSelect","BaseObject");

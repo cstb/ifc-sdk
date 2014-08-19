@@ -103,4 +103,4 @@ void IfcDimensionCurve::copy(const IfcDimensionCurve &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionCurve::s_type("IfcDimensionCurve");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCurve::s_type("IfcDimensionCurve","IfcAnnotationCurveOccurrence");

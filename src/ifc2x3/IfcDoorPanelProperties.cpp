@@ -285,4 +285,4 @@ void IfcDoorPanelProperties::copy(const IfcDoorPanelProperties &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDoorPanelProperties::s_type("IfcDoorPanelProperties");
+IFC2X3_EXPORT Step::ClassType IfcDoorPanelProperties::s_type("IfcDoorPanelProperties","IfcPropertySetDefinition");

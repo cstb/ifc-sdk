@@ -117,4 +117,4 @@ void IfcMaterialDefinitionRepresentation::copy(const IfcMaterialDefinitionRepres
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcMaterialDefinitionRepresentation::s_type("IfcMaterialDefinitionRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcMaterialDefinitionRepresentation::s_type("IfcMaterialDefinitionRepresentation","IfcProductRepresentation");

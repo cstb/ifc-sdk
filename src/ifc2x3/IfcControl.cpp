@@ -103,4 +103,4 @@ void IfcControl::copy(const IfcControl &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcControl::s_type("IfcControl");
+IFC2X3_EXPORT Step::ClassType IfcControl::s_type("IfcControl","IfcObject");

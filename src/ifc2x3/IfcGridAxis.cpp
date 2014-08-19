@@ -290,4 +290,4 @@ void IfcGridAxis::copy(const IfcGridAxis &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGridAxis::s_type("IfcGridAxis");
+IFC2X3_EXPORT Step::ClassType IfcGridAxis::s_type("IfcGridAxis","BaseEntity");

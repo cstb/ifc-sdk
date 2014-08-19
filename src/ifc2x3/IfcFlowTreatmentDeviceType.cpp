@@ -71,4 +71,4 @@ void IfcFlowTreatmentDeviceType::copy(const IfcFlowTreatmentDeviceType &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowTreatmentDeviceType::s_type("IfcFlowTreatmentDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcFlowTreatmentDeviceType::s_type("IfcFlowTreatmentDeviceType","IfcDistributionFlowElementType");

@@ -130,4 +130,4 @@ void IfcLampType::copy(const IfcLampType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLampType::s_type("IfcLampType");
+IFC2X3_EXPORT Step::ClassType IfcLampType::s_type("IfcLampType","IfcFlowTerminalType");

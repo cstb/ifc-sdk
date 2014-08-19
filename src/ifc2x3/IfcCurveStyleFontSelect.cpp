@@ -163,4 +163,4 @@ void IfcCurveStyleFontSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontSelect::s_type("IfcCurveStyleFontSelect");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontSelect::s_type("IfcCurveStyleFontSelect","BaseObject");

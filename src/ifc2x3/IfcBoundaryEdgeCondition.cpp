@@ -282,4 +282,4 @@ void IfcBoundaryEdgeCondition::copy(const IfcBoundaryEdgeCondition &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcBoundaryEdgeCondition::s_type("IfcBoundaryEdgeCondition");
+IFC2X3_EXPORT Step::ClassType IfcBoundaryEdgeCondition::s_type("IfcBoundaryEdgeCondition","IfcBoundaryCondition");

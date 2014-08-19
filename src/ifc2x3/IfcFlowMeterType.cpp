@@ -130,4 +130,4 @@ void IfcFlowMeterType::copy(const IfcFlowMeterType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFlowMeterType::s_type("IfcFlowMeterType");
+IFC2X3_EXPORT Step::ClassType IfcFlowMeterType::s_type("IfcFlowMeterType","IfcFlowControllerType");

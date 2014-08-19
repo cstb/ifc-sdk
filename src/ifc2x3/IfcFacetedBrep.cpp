@@ -71,4 +71,4 @@ void IfcFacetedBrep::copy(const IfcFacetedBrep &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcFacetedBrep::s_type("IfcFacetedBrep");
+IFC2X3_EXPORT Step::ClassType IfcFacetedBrep::s_type("IfcFacetedBrep","IfcManifoldSolidBrep");

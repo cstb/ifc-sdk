@@ -146,4 +146,4 @@ void IfcPointOnCurve::copy(const IfcPointOnCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPointOnCurve::s_type("IfcPointOnCurve");
+IFC2X3_EXPORT Step::ClassType IfcPointOnCurve::s_type("IfcPointOnCurve","IfcPoint");

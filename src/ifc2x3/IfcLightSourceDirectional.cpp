@@ -111,4 +111,4 @@ void IfcLightSourceDirectional::copy(const IfcLightSourceDirectional &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcLightSourceDirectional::s_type("IfcLightSourceDirectional");
+IFC2X3_EXPORT Step::ClassType IfcLightSourceDirectional::s_type("IfcLightSourceDirectional","IfcLightSource");

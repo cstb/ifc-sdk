@@ -334,4 +334,4 @@ void IfcInventory::copy(const IfcInventory &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcInventory::s_type("IfcInventory");
+IFC2X3_EXPORT Step::ClassType IfcInventory::s_type("IfcInventory","IfcGroup");

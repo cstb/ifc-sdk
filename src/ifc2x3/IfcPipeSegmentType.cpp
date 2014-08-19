@@ -124,4 +124,4 @@ void IfcPipeSegmentType::copy(const IfcPipeSegmentType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPipeSegmentType::s_type("IfcPipeSegmentType");
+IFC2X3_EXPORT Step::ClassType IfcPipeSegmentType::s_type("IfcPipeSegmentType","IfcFlowSegmentType");

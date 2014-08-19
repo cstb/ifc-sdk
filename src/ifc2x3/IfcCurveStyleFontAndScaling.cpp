@@ -190,4 +190,4 @@ void IfcCurveStyleFontAndScaling::copy(const IfcCurveStyleFontAndScaling &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontAndScaling::s_type("IfcCurveStyleFontAndScaling");
+IFC2X3_EXPORT Step::ClassType IfcCurveStyleFontAndScaling::s_type("IfcCurveStyleFontAndScaling","BaseEntity");

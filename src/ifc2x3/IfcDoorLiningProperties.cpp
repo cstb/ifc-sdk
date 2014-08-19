@@ -461,4 +461,4 @@ void IfcDoorLiningProperties::copy(const IfcDoorLiningProperties &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDoorLiningProperties::s_type("IfcDoorLiningProperties");
+IFC2X3_EXPORT Step::ClassType IfcDoorLiningProperties::s_type("IfcDoorLiningProperties","IfcPropertySetDefinition");

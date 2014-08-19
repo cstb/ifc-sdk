@@ -163,4 +163,4 @@ void IfcCompositeProfileDef::copy(const IfcCompositeProfileDef &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCompositeProfileDef::s_type("IfcCompositeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcCompositeProfileDef::s_type("IfcCompositeProfileDef","IfcProfileDef");

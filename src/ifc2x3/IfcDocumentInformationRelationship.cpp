@@ -224,4 +224,4 @@ void IfcDocumentInformationRelationship::copy(const IfcDocumentInformationRelati
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDocumentInformationRelationship::s_type("IfcDocumentInformationRelationship");
+IFC2X3_EXPORT Step::ClassType IfcDocumentInformationRelationship::s_type("IfcDocumentInformationRelationship","BaseEntity");

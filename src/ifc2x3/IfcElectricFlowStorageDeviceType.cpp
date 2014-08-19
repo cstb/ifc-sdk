@@ -127,4 +127,4 @@ void IfcElectricFlowStorageDeviceType::copy(const IfcElectricFlowStorageDeviceTy
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricFlowStorageDeviceType::s_type("IfcElectricFlowStorageDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcElectricFlowStorageDeviceType::s_type("IfcElectricFlowStorageDeviceType","IfcFlowStorageDeviceType");

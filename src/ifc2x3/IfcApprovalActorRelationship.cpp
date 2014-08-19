@@ -199,4 +199,4 @@ void IfcApprovalActorRelationship::copy(const IfcApprovalActorRelationship &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcApprovalActorRelationship::s_type("IfcApprovalActorRelationship");
+IFC2X3_EXPORT Step::ClassType IfcApprovalActorRelationship::s_type("IfcApprovalActorRelationship","BaseEntity");

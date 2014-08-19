@@ -468,4 +468,4 @@ void IfcCostSchedule::copy(const IfcCostSchedule &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCostSchedule::s_type("IfcCostSchedule");
+IFC2X3_EXPORT Step::ClassType IfcCostSchedule::s_type("IfcCostSchedule","IfcControl");

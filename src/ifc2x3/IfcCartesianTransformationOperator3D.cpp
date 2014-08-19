@@ -111,4 +111,4 @@ void IfcCartesianTransformationOperator3D::copy(const IfcCartesianTransformation
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator3D::s_type("IfcCartesianTransformationOperator3D");
+IFC2X3_EXPORT Step::ClassType IfcCartesianTransformationOperator3D::s_type("IfcCartesianTransformationOperator3D","IfcCartesianTransformationOperator");

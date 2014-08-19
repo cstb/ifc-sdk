@@ -128,4 +128,4 @@ void IfcPath::copy(const IfcPath &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPath::s_type("IfcPath");
+IFC2X3_EXPORT Step::ClassType IfcPath::s_type("IfcPath","IfcTopologicalRepresentationItem");

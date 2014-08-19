@@ -108,4 +108,4 @@ void IfcPerformanceHistory::copy(const IfcPerformanceHistory &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPerformanceHistory::s_type("IfcPerformanceHistory");
+IFC2X3_EXPORT Step::ClassType IfcPerformanceHistory::s_type("IfcPerformanceHistory","IfcControl");

@@ -127,4 +127,4 @@ void IfcActuatorType::copy(const IfcActuatorType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcActuatorType::s_type("IfcActuatorType");
+IFC2X3_EXPORT Step::ClassType IfcActuatorType::s_type("IfcActuatorType","IfcDistributionControlElementType");

@@ -123,4 +123,4 @@ void IfcCsgSolid::copy(const IfcCsgSolid &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCsgSolid::s_type("IfcCsgSolid");
+IFC2X3_EXPORT Step::ClassType IfcCsgSolid::s_type("IfcCsgSolid","IfcSolidModel");

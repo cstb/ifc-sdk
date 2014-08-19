@@ -151,4 +151,4 @@ void IfcHumidifierType::copy(const IfcHumidifierType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcHumidifierType::s_type("IfcHumidifierType");
+IFC2X3_EXPORT Step::ClassType IfcHumidifierType::s_type("IfcHumidifierType","IfcEnergyConversionDeviceType");

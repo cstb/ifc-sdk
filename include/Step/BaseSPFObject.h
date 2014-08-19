@@ -37,6 +37,12 @@ namespace Step {
          */
         virtual ~BaseSPFObject();
 
+        /*!
+         * Get entity name
+         * A ref to entity class name string (in uppercase and without space)
+         */
+        const ClassType &realClassType() const;
+
     protected:
         /*!
          * Constructor. It needs SPF arguments and the entity Type
@@ -58,6 +64,12 @@ namespace Step {
         void setAllocateFunction(AllocateFuncType type);
 
         /*!
+         * Set real entity class type
+         * @param name Entity real class type
+         */
+        void setRealClassType(const ClassType &);
+
+        /*!
          * Initialize the instance (Lazy loading concept)
          */
         virtual bool init();
@@ -68,7 +80,7 @@ namespace Step {
         AllocateFuncType m_allocFuncType;
 
     private:
-
+        ClassType _realClassType;
         friend class BaseSPFReader;
         friend class BaseExpressDataSet;
     };

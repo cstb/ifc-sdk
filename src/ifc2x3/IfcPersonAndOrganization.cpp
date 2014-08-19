@@ -209,4 +209,4 @@ void IfcPersonAndOrganization::copy(const IfcPersonAndOrganization &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPersonAndOrganization::s_type("IfcPersonAndOrganization");
+IFC2X3_EXPORT Step::ClassType IfcPersonAndOrganization::s_type("IfcPersonAndOrganization","BaseEntity");

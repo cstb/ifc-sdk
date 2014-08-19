@@ -71,4 +71,4 @@ void IfcDimensionCurveDirectedCallout::copy(const IfcDimensionCurveDirectedCallo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcDimensionCurveDirectedCallout::s_type("IfcDimensionCurveDirectedCallout");
+IFC2X3_EXPORT Step::ClassType IfcDimensionCurveDirectedCallout::s_type("IfcDimensionCurveDirectedCallout","IfcDraughtingCallout");

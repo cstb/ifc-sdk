@@ -124,4 +124,4 @@ void IfcCableCarrierFittingType::copy(const IfcCableCarrierFittingType &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcCableCarrierFittingType::s_type("IfcCableCarrierFittingType");
+IFC2X3_EXPORT Step::ClassType IfcCableCarrierFittingType::s_type("IfcCableCarrierFittingType","IfcFlowFittingType");

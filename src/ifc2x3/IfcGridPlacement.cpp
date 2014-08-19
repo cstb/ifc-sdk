@@ -146,4 +146,4 @@ void IfcGridPlacement::copy(const IfcGridPlacement &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcGridPlacement::s_type("IfcGridPlacement");
+IFC2X3_EXPORT Step::ClassType IfcGridPlacement::s_type("IfcGridPlacement","IfcObjectPlacement");

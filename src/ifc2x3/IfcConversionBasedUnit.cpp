@@ -147,4 +147,4 @@ void IfcConversionBasedUnit::copy(const IfcConversionBasedUnit &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcConversionBasedUnit::s_type("IfcConversionBasedUnit");
+IFC2X3_EXPORT Step::ClassType IfcConversionBasedUnit::s_type("IfcConversionBasedUnit","IfcNamedUnit");

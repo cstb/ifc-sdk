@@ -184,4 +184,4 @@ void IfcElectricApplianceType::copy(const IfcElectricApplianceType &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricApplianceType::s_type("IfcElectricApplianceType");
+IFC2X3_EXPORT Step::ClassType IfcElectricApplianceType::s_type("IfcElectricApplianceType","IfcFlowTerminalType");

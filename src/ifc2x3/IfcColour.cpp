@@ -163,4 +163,4 @@ void IfcColour::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcColour::s_type("IfcColour");
+IFC2X3_EXPORT Step::ClassType IfcColour::s_type("IfcColour","BaseObject");

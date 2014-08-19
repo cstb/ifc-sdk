@@ -121,4 +121,4 @@ void IfcElectricTimeControlType::copy(const IfcElectricTimeControlType &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcElectricTimeControlType::s_type("IfcElectricTimeControlType");
+IFC2X3_EXPORT Step::ClassType IfcElectricTimeControlType::s_type("IfcElectricTimeControlType","IfcFlowControllerType");
