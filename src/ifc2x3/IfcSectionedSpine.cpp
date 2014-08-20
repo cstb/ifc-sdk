@@ -217,4 +217,4 @@ void IfcSectionedSpine::copy(const IfcSectionedSpine &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSectionedSpine::s_type("IfcSectionedSpine");
+IFC2X3_EXPORT Step::ClassType IfcSectionedSpine::s_type("IfcSectionedSpine","IfcGeometricRepresentationItem");

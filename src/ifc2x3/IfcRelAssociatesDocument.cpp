@@ -123,4 +123,4 @@ void IfcRelAssociatesDocument::copy(const IfcRelAssociatesDocument &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesDocument::s_type("IfcRelAssociatesDocument");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesDocument::s_type("IfcRelAssociatesDocument","IfcRelAssociates");

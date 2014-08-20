@@ -147,4 +147,4 @@ void IfcSweptAreaSolid::copy(const IfcSweptAreaSolid &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSweptAreaSolid::s_type("IfcSweptAreaSolid");
+IFC2X3_EXPORT Step::ClassType IfcSweptAreaSolid::s_type("IfcSweptAreaSolid","IfcSolidModel");

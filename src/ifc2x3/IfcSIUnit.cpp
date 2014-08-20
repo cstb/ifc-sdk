@@ -278,4 +278,4 @@ void IfcSIUnit::copy(const IfcSIUnit &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSIUnit::s_type("IfcSIUnit");
+IFC2X3_EXPORT Step::ClassType IfcSIUnit::s_type("IfcSIUnit","IfcNamedUnit");

@@ -221,4 +221,4 @@ void IfcTextStyle::copy(const IfcTextStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyle::s_type("IfcTextStyle");
+IFC2X3_EXPORT Step::ClassType IfcTextStyle::s_type("IfcTextStyle","IfcPresentationStyle");

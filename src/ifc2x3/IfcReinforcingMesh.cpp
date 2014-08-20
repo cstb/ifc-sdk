@@ -352,4 +352,4 @@ void IfcReinforcingMesh::copy(const IfcReinforcingMesh &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReinforcingMesh::s_type("IfcReinforcingMesh");
+IFC2X3_EXPORT Step::ClassType IfcReinforcingMesh::s_type("IfcReinforcingMesh","IfcReinforcingElement");

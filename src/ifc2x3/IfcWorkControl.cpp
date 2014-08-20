@@ -500,4 +500,4 @@ void IfcWorkControl::copy(const IfcWorkControl &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWorkControl::s_type("IfcWorkControl");
+IFC2X3_EXPORT Step::ClassType IfcWorkControl::s_type("IfcWorkControl","IfcControl");

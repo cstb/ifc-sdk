@@ -117,4 +117,4 @@ void IfcRelDefinesByProperties::copy(const IfcRelDefinesByProperties &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelDefinesByProperties::s_type("IfcRelDefinesByProperties");
+IFC2X3_EXPORT Step::ClassType IfcRelDefinesByProperties::s_type("IfcRelDefinesByProperties","IfcRelDefines");

@@ -151,4 +151,4 @@ void IfcSensorType::copy(const IfcSensorType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSensorType::s_type("IfcSensorType");
+IFC2X3_EXPORT Step::ClassType IfcSensorType::s_type("IfcSensorType","IfcDistributionControlElementType");

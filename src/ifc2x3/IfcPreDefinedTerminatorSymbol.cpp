@@ -71,4 +71,4 @@ void IfcPreDefinedTerminatorSymbol::copy(const IfcPreDefinedTerminatorSymbol &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedTerminatorSymbol::s_type("IfcPreDefinedTerminatorSymbol");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedTerminatorSymbol::s_type("IfcPreDefinedTerminatorSymbol","IfcPreDefinedSymbol");

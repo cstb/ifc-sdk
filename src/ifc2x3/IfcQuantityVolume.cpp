@@ -107,4 +107,4 @@ void IfcQuantityVolume::copy(const IfcQuantityVolume &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityVolume::s_type("IfcQuantityVolume");
+IFC2X3_EXPORT Step::ClassType IfcQuantityVolume::s_type("IfcQuantityVolume","IfcPhysicalSimpleQuantity");

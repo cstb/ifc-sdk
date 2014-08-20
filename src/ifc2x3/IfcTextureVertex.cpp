@@ -121,4 +121,4 @@ void IfcTextureVertex::copy(const IfcTextureVertex &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextureVertex::s_type("IfcTextureVertex");
+IFC2X3_EXPORT Step::ClassType IfcTextureVertex::s_type("IfcTextureVertex","BaseEntity");

@@ -103,4 +103,4 @@ void IfcStructuralReaction::copy(const IfcStructuralReaction &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralReaction::s_type("IfcStructuralReaction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralReaction::s_type("IfcStructuralReaction","IfcStructuralActivity");

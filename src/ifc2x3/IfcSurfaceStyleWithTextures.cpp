@@ -124,4 +124,4 @@ void IfcSurfaceStyleWithTextures::copy(const IfcSurfaceStyleWithTextures &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleWithTextures::s_type("IfcSurfaceStyleWithTextures");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleWithTextures::s_type("IfcSurfaceStyleWithTextures","BaseEntity");

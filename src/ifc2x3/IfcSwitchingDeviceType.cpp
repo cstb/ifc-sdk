@@ -127,4 +127,4 @@ void IfcSwitchingDeviceType::copy(const IfcSwitchingDeviceType &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSwitchingDeviceType::s_type("IfcSwitchingDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcSwitchingDeviceType::s_type("IfcSwitchingDeviceType","IfcFlowControllerType");

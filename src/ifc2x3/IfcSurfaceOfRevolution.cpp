@@ -111,4 +111,4 @@ void IfcSurfaceOfRevolution::copy(const IfcSurfaceOfRevolution &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceOfRevolution::s_type("IfcSurfaceOfRevolution");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceOfRevolution::s_type("IfcSurfaceOfRevolution","IfcSweptSurface");

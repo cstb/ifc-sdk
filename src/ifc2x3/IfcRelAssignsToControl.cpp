@@ -117,4 +117,4 @@ void IfcRelAssignsToControl::copy(const IfcRelAssignsToControl &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToControl::s_type("IfcRelAssignsToControl");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToControl::s_type("IfcRelAssignsToControl","IfcRelAssigns");

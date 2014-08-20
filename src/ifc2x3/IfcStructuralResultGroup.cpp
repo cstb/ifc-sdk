@@ -234,4 +234,4 @@ void IfcStructuralResultGroup::copy(const IfcStructuralResultGroup &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralResultGroup::s_type("IfcStructuralResultGroup");
+IFC2X3_EXPORT Step::ClassType IfcStructuralResultGroup::s_type("IfcStructuralResultGroup","IfcGroup");

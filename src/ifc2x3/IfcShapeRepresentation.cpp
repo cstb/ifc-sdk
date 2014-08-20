@@ -71,4 +71,4 @@ void IfcShapeRepresentation::copy(const IfcShapeRepresentation &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcShapeRepresentation::s_type("IfcShapeRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcShapeRepresentation::s_type("IfcShapeRepresentation","IfcShapeModel");

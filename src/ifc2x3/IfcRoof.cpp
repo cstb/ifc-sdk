@@ -148,4 +148,4 @@ void IfcRoof::copy(const IfcRoof &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoof::s_type("IfcRoof");
+IFC2X3_EXPORT Step::ClassType IfcRoof::s_type("IfcRoof","IfcBuildingElement");

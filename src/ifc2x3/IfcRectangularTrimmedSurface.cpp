@@ -321,4 +321,4 @@ void IfcRectangularTrimmedSurface::copy(const IfcRectangularTrimmedSurface &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangularTrimmedSurface::s_type("IfcRectangularTrimmedSurface");
+IFC2X3_EXPORT Step::ClassType IfcRectangularTrimmedSurface::s_type("IfcRectangularTrimmedSurface","IfcBoundedSurface");

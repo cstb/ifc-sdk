@@ -111,4 +111,4 @@ void IfcRelAssociatesAppliedValue::copy(const IfcRelAssociatesAppliedValue &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesAppliedValue::s_type("IfcRelAssociatesAppliedValue");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesAppliedValue::s_type("IfcRelAssociatesAppliedValue","IfcRelAssociates");

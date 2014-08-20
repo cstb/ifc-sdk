@@ -71,4 +71,4 @@ void IfcSolidModel::copy(const IfcSolidModel &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSolidModel::s_type("IfcSolidModel");
+IFC2X3_EXPORT Step::ClassType IfcSolidModel::s_type("IfcSolidModel","IfcGeometricRepresentationItem");

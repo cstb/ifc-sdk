@@ -104,4 +104,4 @@ void IfcPreDefinedItem::copy(const IfcPreDefinedItem &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedItem::s_type("IfcPreDefinedItem");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedItem::s_type("IfcPreDefinedItem","BaseEntity");

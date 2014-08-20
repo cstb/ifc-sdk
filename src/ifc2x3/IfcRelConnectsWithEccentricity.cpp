@@ -111,4 +111,4 @@ void IfcRelConnectsWithEccentricity::copy(const IfcRelConnectsWithEccentricity &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithEccentricity::s_type("IfcRelConnectsWithEccentricity");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithEccentricity::s_type("IfcRelConnectsWithEccentricity","IfcRelConnectsStructuralMember");

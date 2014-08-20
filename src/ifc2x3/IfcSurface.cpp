@@ -71,4 +71,4 @@ void IfcSurface::copy(const IfcSurface &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurface::s_type("IfcSurface");
+IFC2X3_EXPORT Step::ClassType IfcSurface::s_type("IfcSurface","IfcGeometricRepresentationItem");

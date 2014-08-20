@@ -107,4 +107,4 @@ void IfcRoundedRectangleProfileDef::copy(const IfcRoundedRectangleProfileDef &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoundedRectangleProfileDef::s_type("IfcRoundedRectangleProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcRoundedRectangleProfileDef::s_type("IfcRoundedRectangleProfileDef","IfcRectangleProfileDef");

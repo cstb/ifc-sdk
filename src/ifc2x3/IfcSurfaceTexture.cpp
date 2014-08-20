@@ -238,4 +238,4 @@ void IfcSurfaceTexture::copy(const IfcSurfaceTexture &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceTexture::s_type("IfcSurfaceTexture");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceTexture::s_type("IfcSurfaceTexture","BaseEntity");

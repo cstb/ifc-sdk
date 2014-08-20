@@ -107,4 +107,4 @@ void IfcQuantityArea::copy(const IfcQuantityArea &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityArea::s_type("IfcQuantityArea");
+IFC2X3_EXPORT Step::ClassType IfcQuantityArea::s_type("IfcQuantityArea","IfcPhysicalSimpleQuantity");

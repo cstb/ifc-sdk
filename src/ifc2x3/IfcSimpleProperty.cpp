@@ -71,4 +71,4 @@ void IfcSimpleProperty::copy(const IfcSimpleProperty &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSimpleProperty::s_type("IfcSimpleProperty");
+IFC2X3_EXPORT Step::ClassType IfcSimpleProperty::s_type("IfcSimpleProperty","IfcProperty");

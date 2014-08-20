@@ -121,4 +121,4 @@ void IfcRailing::copy(const IfcRailing &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRailing::s_type("IfcRailing");
+IFC2X3_EXPORT Step::ClassType IfcRailing::s_type("IfcRailing","IfcBuildingElement");

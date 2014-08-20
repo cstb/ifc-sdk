@@ -110,4 +110,4 @@ void IfcSubedge::copy(const IfcSubedge &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSubedge::s_type("IfcSubedge");
+IFC2X3_EXPORT Step::ClassType IfcSubedge::s_type("IfcSubedge","IfcEdge");

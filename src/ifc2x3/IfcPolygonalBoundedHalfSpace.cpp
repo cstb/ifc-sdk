@@ -147,4 +147,4 @@ void IfcPolygonalBoundedHalfSpace::copy(const IfcPolygonalBoundedHalfSpace &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPolygonalBoundedHalfSpace::s_type("IfcPolygonalBoundedHalfSpace");
+IFC2X3_EXPORT Step::ClassType IfcPolygonalBoundedHalfSpace::s_type("IfcPolygonalBoundedHalfSpace","IfcHalfSpaceSolid");

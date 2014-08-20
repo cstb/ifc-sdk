@@ -152,4 +152,4 @@ void IfcStructuralAction::copy(const IfcStructuralAction &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralAction::s_type("IfcStructuralAction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralAction::s_type("IfcStructuralAction","IfcStructuralActivity");

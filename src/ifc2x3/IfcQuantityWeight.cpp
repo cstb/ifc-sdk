@@ -107,4 +107,4 @@ void IfcQuantityWeight::copy(const IfcQuantityWeight &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityWeight::s_type("IfcQuantityWeight");
+IFC2X3_EXPORT Step::ClassType IfcQuantityWeight::s_type("IfcQuantityWeight","IfcPhysicalSimpleQuantity");

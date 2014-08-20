@@ -283,4 +283,4 @@ void IfcPresentationLayerAssignment::copy(const IfcPresentationLayerAssignment &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPresentationLayerAssignment::s_type("IfcPresentationLayerAssignment");
+IFC2X3_EXPORT Step::ClassType IfcPresentationLayerAssignment::s_type("IfcPresentationLayerAssignment","BaseEntity");

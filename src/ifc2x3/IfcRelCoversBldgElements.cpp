@@ -193,4 +193,4 @@ void IfcRelCoversBldgElements::copy(const IfcRelCoversBldgElements &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelCoversBldgElements::s_type("IfcRelCoversBldgElements");
+IFC2X3_EXPORT Step::ClassType IfcRelCoversBldgElements::s_type("IfcRelCoversBldgElements","IfcRelConnects");

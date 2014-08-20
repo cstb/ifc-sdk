@@ -177,4 +177,4 @@ void IfcRectangleHollowProfileDef::copy(const IfcRectangleHollowProfileDef &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangleHollowProfileDef::s_type("IfcRectangleHollowProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcRectangleHollowProfileDef::s_type("IfcRectangleHollowProfileDef","IfcRectangleProfileDef");

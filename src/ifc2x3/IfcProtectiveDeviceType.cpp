@@ -130,4 +130,4 @@ void IfcProtectiveDeviceType::copy(const IfcProtectiveDeviceType &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProtectiveDeviceType::s_type("IfcProtectiveDeviceType");
+IFC2X3_EXPORT Step::ClassType IfcProtectiveDeviceType::s_type("IfcProtectiveDeviceType","IfcFlowControllerType");

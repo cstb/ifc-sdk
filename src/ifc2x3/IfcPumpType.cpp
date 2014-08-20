@@ -127,4 +127,4 @@ void IfcPumpType::copy(const IfcPumpType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPumpType::s_type("IfcPumpType");
+IFC2X3_EXPORT Step::ClassType IfcPumpType::s_type("IfcPumpType","IfcFlowMovingDeviceType");

@@ -103,4 +103,4 @@ void IfcSystem::copy(const IfcSystem &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSystem::s_type("IfcSystem");
+IFC2X3_EXPORT Step::ClassType IfcSystem::s_type("IfcSystem","IfcGroup");

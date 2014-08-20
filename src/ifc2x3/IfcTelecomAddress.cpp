@@ -303,4 +303,4 @@ void IfcTelecomAddress::copy(const IfcTelecomAddress &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTelecomAddress::s_type("IfcTelecomAddress");
+IFC2X3_EXPORT Step::ClassType IfcTelecomAddress::s_type("IfcTelecomAddress","IfcAddress");

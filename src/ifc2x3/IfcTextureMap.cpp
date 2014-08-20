@@ -128,4 +128,4 @@ void IfcTextureMap::copy(const IfcTextureMap &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextureMap::s_type("IfcTextureMap");
+IFC2X3_EXPORT Step::ClassType IfcTextureMap::s_type("IfcTextureMap","IfcTextureCoordinate");

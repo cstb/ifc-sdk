@@ -193,4 +193,4 @@ void IfcRelCoversSpaces::copy(const IfcRelCoversSpaces &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelCoversSpaces::s_type("IfcRelCoversSpaces");
+IFC2X3_EXPORT Step::ClassType IfcRelCoversSpaces::s_type("IfcRelCoversSpaces","IfcRelConnects");

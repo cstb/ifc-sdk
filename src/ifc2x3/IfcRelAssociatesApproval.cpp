@@ -111,4 +111,4 @@ void IfcRelAssociatesApproval::copy(const IfcRelAssociatesApproval &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesApproval::s_type("IfcRelAssociatesApproval");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesApproval::s_type("IfcRelAssociatesApproval","IfcRelAssociates");

@@ -133,4 +133,4 @@ void IfcSpaceHeaterType::copy(const IfcSpaceHeaterType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceHeaterType::s_type("IfcSpaceHeaterType");
+IFC2X3_EXPORT Step::ClassType IfcSpaceHeaterType::s_type("IfcSpaceHeaterType","IfcEnergyConversionDeviceType");

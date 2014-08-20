@@ -164,4 +164,4 @@ void IfcStructuralPlanarActionVarying::copy(const IfcStructuralPlanarActionVaryi
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralPlanarActionVarying::s_type("IfcStructuralPlanarActionVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralPlanarActionVarying::s_type("IfcStructuralPlanarActionVarying","IfcStructuralPlanarAction");

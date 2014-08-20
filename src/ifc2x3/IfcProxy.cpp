@@ -166,4 +166,4 @@ void IfcProxy::copy(const IfcProxy &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProxy::s_type("IfcProxy");
+IFC2X3_EXPORT Step::ClassType IfcProxy::s_type("IfcProxy","IfcProduct");

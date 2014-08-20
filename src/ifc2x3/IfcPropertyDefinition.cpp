@@ -103,4 +103,4 @@ void IfcPropertyDefinition::copy(const IfcPropertyDefinition &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyDefinition::s_type("IfcPropertyDefinition");
+IFC2X3_EXPORT Step::ClassType IfcPropertyDefinition::s_type("IfcPropertyDefinition","IfcRoot");

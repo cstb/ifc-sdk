@@ -193,4 +193,4 @@ void IfcRepresentationMap::copy(const IfcRepresentationMap &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRepresentationMap::s_type("IfcRepresentationMap");
+IFC2X3_EXPORT Step::ClassType IfcRepresentationMap::s_type("IfcRepresentationMap","BaseEntity");

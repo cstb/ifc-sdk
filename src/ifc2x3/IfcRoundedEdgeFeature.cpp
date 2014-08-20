@@ -107,4 +107,4 @@ void IfcRoundedEdgeFeature::copy(const IfcRoundedEdgeFeature &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoundedEdgeFeature::s_type("IfcRoundedEdgeFeature");
+IFC2X3_EXPORT Step::ClassType IfcRoundedEdgeFeature::s_type("IfcRoundedEdgeFeature","IfcEdgeFeature");

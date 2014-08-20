@@ -71,4 +71,4 @@ void IfcRelationship::copy(const IfcRelationship &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelationship::s_type("IfcRelationship");
+IFC2X3_EXPORT Step::ClassType IfcRelationship::s_type("IfcRelationship","IfcRoot");

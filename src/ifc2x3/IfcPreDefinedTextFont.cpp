@@ -71,4 +71,4 @@ void IfcPreDefinedTextFont::copy(const IfcPreDefinedTextFont &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedTextFont::s_type("IfcPreDefinedTextFont");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedTextFont::s_type("IfcPreDefinedTextFont","IfcPreDefinedItem");

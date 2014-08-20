@@ -391,4 +391,4 @@ void IfcWindowLiningProperties::copy(const IfcWindowLiningProperties &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWindowLiningProperties::s_type("IfcWindowLiningProperties");
+IFC2X3_EXPORT Step::ClassType IfcWindowLiningProperties::s_type("IfcWindowLiningProperties","IfcPropertySetDefinition");

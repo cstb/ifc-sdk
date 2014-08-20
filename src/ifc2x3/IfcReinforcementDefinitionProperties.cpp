@@ -164,4 +164,4 @@ void IfcReinforcementDefinitionProperties::copy(const IfcReinforcementDefinition
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReinforcementDefinitionProperties::s_type("IfcReinforcementDefinitionProperties");
+IFC2X3_EXPORT Step::ClassType IfcReinforcementDefinitionProperties::s_type("IfcReinforcementDefinitionProperties","IfcPropertySetDefinition");

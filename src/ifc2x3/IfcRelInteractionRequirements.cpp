@@ -264,4 +264,4 @@ void IfcRelInteractionRequirements::copy(const IfcRelInteractionRequirements &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelInteractionRequirements::s_type("IfcRelInteractionRequirements");
+IFC2X3_EXPORT Step::ClassType IfcRelInteractionRequirements::s_type("IfcRelInteractionRequirements","IfcRelConnects");

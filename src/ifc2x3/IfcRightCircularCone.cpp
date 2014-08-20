@@ -142,4 +142,4 @@ void IfcRightCircularCone::copy(const IfcRightCircularCone &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRightCircularCone::s_type("IfcRightCircularCone");
+IFC2X3_EXPORT Step::ClassType IfcRightCircularCone::s_type("IfcRightCircularCone","IfcCsgPrimitive3D");

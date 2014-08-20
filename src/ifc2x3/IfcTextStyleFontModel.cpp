@@ -313,4 +313,4 @@ void IfcTextStyleFontModel::copy(const IfcTextStyleFontModel &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleFontModel::s_type("IfcTextStyleFontModel");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleFontModel::s_type("IfcTextStyleFontModel","IfcPreDefinedTextFont");

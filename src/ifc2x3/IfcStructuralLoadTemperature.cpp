@@ -177,4 +177,4 @@ void IfcStructuralLoadTemperature::copy(const IfcStructuralLoadTemperature &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadTemperature::s_type("IfcStructuralLoadTemperature");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadTemperature::s_type("IfcStructuralLoadTemperature","IfcStructuralLoadStatic");

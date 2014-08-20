@@ -128,4 +128,4 @@ void IfcPropertySet::copy(const IfcPropertySet &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertySet::s_type("IfcPropertySet");
+IFC2X3_EXPORT Step::ClassType IfcPropertySet::s_type("IfcPropertySet","IfcPropertySetDefinition");

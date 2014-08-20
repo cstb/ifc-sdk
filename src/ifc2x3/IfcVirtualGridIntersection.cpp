@@ -199,4 +199,4 @@ void IfcVirtualGridIntersection::copy(const IfcVirtualGridIntersection &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVirtualGridIntersection::s_type("IfcVirtualGridIntersection");
+IFC2X3_EXPORT Step::ClassType IfcVirtualGridIntersection::s_type("IfcVirtualGridIntersection","BaseEntity");

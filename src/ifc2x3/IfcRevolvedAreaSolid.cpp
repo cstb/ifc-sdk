@@ -146,4 +146,4 @@ void IfcRevolvedAreaSolid::copy(const IfcRevolvedAreaSolid &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRevolvedAreaSolid::s_type("IfcRevolvedAreaSolid");
+IFC2X3_EXPORT Step::ClassType IfcRevolvedAreaSolid::s_type("IfcRevolvedAreaSolid","IfcSweptAreaSolid");

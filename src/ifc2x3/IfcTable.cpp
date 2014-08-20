@@ -183,4 +183,4 @@ void IfcTable::copy(const IfcTable &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTable::s_type("IfcTable");
+IFC2X3_EXPORT Step::ClassType IfcTable::s_type("IfcTable","BaseEntity");

@@ -309,4 +309,4 @@ void IfcSpaceProgram::copy(const IfcSpaceProgram &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceProgram::s_type("IfcSpaceProgram");
+IFC2X3_EXPORT Step::ClassType IfcSpaceProgram::s_type("IfcSpaceProgram","IfcControl");

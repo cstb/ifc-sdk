@@ -125,4 +125,4 @@ void IfcRationalBezierCurve::copy(const IfcRationalBezierCurve &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRationalBezierCurve::s_type("IfcRationalBezierCurve");
+IFC2X3_EXPORT Step::ClassType IfcRationalBezierCurve::s_type("IfcRationalBezierCurve","IfcBezierCurve");

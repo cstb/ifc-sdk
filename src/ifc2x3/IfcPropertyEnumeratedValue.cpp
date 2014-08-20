@@ -689,4 +689,4 @@ void IfcPropertyEnumeratedValue::copy(const IfcPropertyEnumeratedValue &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeratedValue::s_type("IfcPropertyEnumeratedValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeratedValue::s_type("IfcPropertyEnumeratedValue","IfcSimpleProperty");

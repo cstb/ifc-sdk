@@ -282,4 +282,4 @@ void IfcStructuralLoadLinearForce::copy(const IfcStructuralLoadLinearForce &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadLinearForce::s_type("IfcStructuralLoadLinearForce");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadLinearForce::s_type("IfcStructuralLoadLinearForce","IfcStructuralLoadStatic");

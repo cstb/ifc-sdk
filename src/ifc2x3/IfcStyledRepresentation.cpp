@@ -71,4 +71,4 @@ void IfcStyledRepresentation::copy(const IfcStyledRepresentation &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStyledRepresentation::s_type("IfcStyledRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcStyledRepresentation::s_type("IfcStyledRepresentation","IfcStyleModel");

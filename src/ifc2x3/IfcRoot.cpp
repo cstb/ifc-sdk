@@ -213,4 +213,4 @@ void IfcRoot::copy(const IfcRoot &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRoot::s_type("IfcRoot");
+IFC2X3_EXPORT Step::ClassType IfcRoot::s_type("IfcRoot","BaseEntity");

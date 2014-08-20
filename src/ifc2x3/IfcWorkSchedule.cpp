@@ -71,4 +71,4 @@ void IfcWorkSchedule::copy(const IfcWorkSchedule &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWorkSchedule::s_type("IfcWorkSchedule");
+IFC2X3_EXPORT Step::ClassType IfcWorkSchedule::s_type("IfcWorkSchedule","IfcWorkControl");

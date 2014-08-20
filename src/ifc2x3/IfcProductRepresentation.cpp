@@ -218,4 +218,4 @@ void IfcProductRepresentation::copy(const IfcProductRepresentation &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProductRepresentation::s_type("IfcProductRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcProductRepresentation::s_type("IfcProductRepresentation","BaseEntity");

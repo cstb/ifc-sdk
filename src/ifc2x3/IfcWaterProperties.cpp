@@ -317,4 +317,4 @@ void IfcWaterProperties::copy(const IfcWaterProperties &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWaterProperties::s_type("IfcWaterProperties");
+IFC2X3_EXPORT Step::ClassType IfcWaterProperties::s_type("IfcWaterProperties","IfcMaterialProperties");

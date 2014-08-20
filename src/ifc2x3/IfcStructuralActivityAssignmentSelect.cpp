@@ -163,4 +163,4 @@ void IfcStructuralActivityAssignmentSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralActivityAssignmentSelect::s_type("IfcStructuralActivityAssignmentSelect");
+IFC2X3_EXPORT Step::ClassType IfcStructuralActivityAssignmentSelect::s_type("IfcStructuralActivityAssignmentSelect","BaseObject");

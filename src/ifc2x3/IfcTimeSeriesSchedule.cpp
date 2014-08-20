@@ -231,4 +231,4 @@ void IfcTimeSeriesSchedule::copy(const IfcTimeSeriesSchedule &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTimeSeriesSchedule::s_type("IfcTimeSeriesSchedule");
+IFC2X3_EXPORT Step::ClassType IfcTimeSeriesSchedule::s_type("IfcTimeSeriesSchedule","IfcControl");

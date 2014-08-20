@@ -71,4 +71,4 @@ void IfcRelConnects::copy(const IfcRelConnects &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnects::s_type("IfcRelConnects");
+IFC2X3_EXPORT Step::ClassType IfcRelConnects::s_type("IfcRelConnects","IfcRelationship");

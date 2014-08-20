@@ -251,4 +251,4 @@ void IfcSweptDiskSolid::copy(const IfcSweptDiskSolid &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSweptDiskSolid::s_type("IfcSweptDiskSolid");
+IFC2X3_EXPORT Step::ClassType IfcSweptDiskSolid::s_type("IfcSweptDiskSolid","IfcSolidModel");

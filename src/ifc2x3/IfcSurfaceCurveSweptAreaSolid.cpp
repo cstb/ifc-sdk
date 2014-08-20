@@ -217,4 +217,4 @@ void IfcSurfaceCurveSweptAreaSolid::copy(const IfcSurfaceCurveSweptAreaSolid &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceCurveSweptAreaSolid::s_type("IfcSurfaceCurveSweptAreaSolid");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceCurveSweptAreaSolid::s_type("IfcSurfaceCurveSweptAreaSolid","IfcSweptAreaSolid");

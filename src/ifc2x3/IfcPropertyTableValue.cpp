@@ -1366,4 +1366,4 @@ void IfcPropertyTableValue::copy(const IfcPropertyTableValue &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyTableValue::s_type("IfcPropertyTableValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyTableValue::s_type("IfcPropertyTableValue","IfcSimpleProperty");

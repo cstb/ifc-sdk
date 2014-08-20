@@ -235,4 +235,4 @@ void IfcProject::copy(const IfcProject &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProject::s_type("IfcProject");
+IFC2X3_EXPORT Step::ClassType IfcProject::s_type("IfcProject","IfcObject");

@@ -200,4 +200,4 @@ void IfcSurfaceOrFaceSurface::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceOrFaceSurface::s_type("IfcSurfaceOrFaceSurface");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceOrFaceSurface::s_type("IfcSurfaceOrFaceSurface","BaseObject");

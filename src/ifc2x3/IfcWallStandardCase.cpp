@@ -71,4 +71,4 @@ void IfcWallStandardCase::copy(const IfcWallStandardCase &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWallStandardCase::s_type("IfcWallStandardCase");
+IFC2X3_EXPORT Step::ClassType IfcWallStandardCase::s_type("IfcWallStandardCase","IfcWall");

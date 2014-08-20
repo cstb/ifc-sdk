@@ -267,4 +267,4 @@ void IfcWindowStyle::copy(const IfcWindowStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWindowStyle::s_type("IfcWindowStyle");
+IFC2X3_EXPORT Step::ClassType IfcWindowStyle::s_type("IfcWindowStyle","IfcTypeProduct");

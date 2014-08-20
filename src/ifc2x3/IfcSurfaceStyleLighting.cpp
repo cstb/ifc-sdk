@@ -212,4 +212,4 @@ void IfcSurfaceStyleLighting::copy(const IfcSurfaceStyleLighting &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleLighting::s_type("IfcSurfaceStyleLighting");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleLighting::s_type("IfcSurfaceStyleLighting","BaseEntity");

@@ -177,4 +177,4 @@ void IfcRectangularPyramid::copy(const IfcRectangularPyramid &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangularPyramid::s_type("IfcRectangularPyramid");
+IFC2X3_EXPORT Step::ClassType IfcRectangularPyramid::s_type("IfcRectangularPyramid","IfcCsgPrimitive3D");

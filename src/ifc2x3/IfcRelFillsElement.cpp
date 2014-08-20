@@ -159,4 +159,4 @@ void IfcRelFillsElement::copy(const IfcRelFillsElement &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelFillsElement::s_type("IfcRelFillsElement");
+IFC2X3_EXPORT Step::ClassType IfcRelFillsElement::s_type("IfcRelFillsElement","IfcRelConnects");

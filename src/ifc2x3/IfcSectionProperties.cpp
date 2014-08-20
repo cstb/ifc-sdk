@@ -182,4 +182,4 @@ void IfcSectionProperties::copy(const IfcSectionProperties &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSectionProperties::s_type("IfcSectionProperties");
+IFC2X3_EXPORT Step::ClassType IfcSectionProperties::s_type("IfcSectionProperties","BaseEntity");

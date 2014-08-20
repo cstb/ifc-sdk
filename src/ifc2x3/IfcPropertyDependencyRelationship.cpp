@@ -260,4 +260,4 @@ void IfcPropertyDependencyRelationship::copy(const IfcPropertyDependencyRelation
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyDependencyRelationship::s_type("IfcPropertyDependencyRelationship");
+IFC2X3_EXPORT Step::ClassType IfcPropertyDependencyRelationship::s_type("IfcPropertyDependencyRelationship","BaseEntity");

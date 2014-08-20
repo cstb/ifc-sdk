@@ -117,4 +117,4 @@ void IfcRelAssignsToResource::copy(const IfcRelAssignsToResource &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToResource::s_type("IfcRelAssignsToResource");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToResource::s_type("IfcRelAssignsToResource","IfcRelAssigns");

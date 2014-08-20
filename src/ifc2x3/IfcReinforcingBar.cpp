@@ -278,4 +278,4 @@ void IfcReinforcingBar::copy(const IfcReinforcingBar &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReinforcingBar::s_type("IfcReinforcingBar");
+IFC2X3_EXPORT Step::ClassType IfcReinforcingBar::s_type("IfcReinforcingBar","IfcReinforcingElement");

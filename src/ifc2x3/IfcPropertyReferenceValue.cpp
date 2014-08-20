@@ -159,4 +159,4 @@ void IfcPropertyReferenceValue::copy(const IfcPropertyReferenceValue &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyReferenceValue::s_type("IfcPropertyReferenceValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyReferenceValue::s_type("IfcPropertyReferenceValue","IfcSimpleProperty");

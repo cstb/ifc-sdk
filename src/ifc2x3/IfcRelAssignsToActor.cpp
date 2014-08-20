@@ -153,4 +153,4 @@ void IfcRelAssignsToActor::copy(const IfcRelAssignsToActor &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToActor::s_type("IfcRelAssignsToActor");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToActor::s_type("IfcRelAssignsToActor","IfcRelAssigns");

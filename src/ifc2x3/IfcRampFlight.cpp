@@ -71,4 +71,4 @@ void IfcRampFlight::copy(const IfcRampFlight &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRampFlight::s_type("IfcRampFlight");
+IFC2X3_EXPORT Step::ClassType IfcRampFlight::s_type("IfcRampFlight","IfcBuildingElement");

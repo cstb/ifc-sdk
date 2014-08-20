@@ -248,4 +248,4 @@ void IfcTask::copy(const IfcTask &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTask::s_type("IfcTask");
+IFC2X3_EXPORT Step::ClassType IfcTask::s_type("IfcTask","IfcProcess");

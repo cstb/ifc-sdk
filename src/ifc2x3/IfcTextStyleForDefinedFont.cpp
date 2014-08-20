@@ -167,4 +167,4 @@ void IfcTextStyleForDefinedFont::copy(const IfcTextStyleForDefinedFont &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleForDefinedFont::s_type("IfcTextStyleForDefinedFont");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleForDefinedFont::s_type("IfcTextStyleForDefinedFont","BaseEntity");

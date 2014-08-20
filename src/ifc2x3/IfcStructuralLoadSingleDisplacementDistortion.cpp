@@ -107,4 +107,4 @@ void IfcStructuralLoadSingleDisplacementDistortion::copy(const IfcStructuralLoad
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleDisplacementDistortion::s_type("IfcStructuralLoadSingleDisplacementDistortion");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleDisplacementDistortion::s_type("IfcStructuralLoadSingleDisplacementDistortion","IfcStructuralLoadSingleDisplacement");

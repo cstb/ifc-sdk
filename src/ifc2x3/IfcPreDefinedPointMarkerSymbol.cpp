@@ -71,4 +71,4 @@ void IfcPreDefinedPointMarkerSymbol::copy(const IfcPreDefinedPointMarkerSymbol &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type("IfcPreDefinedPointMarkerSymbol");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedPointMarkerSymbol::s_type("IfcPreDefinedPointMarkerSymbol","IfcPreDefinedSymbol");

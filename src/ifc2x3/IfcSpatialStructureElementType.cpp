@@ -71,4 +71,4 @@ void IfcSpatialStructureElementType::copy(const IfcSpatialStructureElementType &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpatialStructureElementType::s_type("IfcSpatialStructureElementType");
+IFC2X3_EXPORT Step::ClassType IfcSpatialStructureElementType::s_type("IfcSpatialStructureElementType","IfcElementType");

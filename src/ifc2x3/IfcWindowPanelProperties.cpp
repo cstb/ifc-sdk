@@ -309,4 +309,4 @@ void IfcWindowPanelProperties::copy(const IfcWindowPanelProperties &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWindowPanelProperties::s_type("IfcWindowPanelProperties");
+IFC2X3_EXPORT Step::ClassType IfcWindowPanelProperties::s_type("IfcWindowPanelProperties","IfcPropertySetDefinition");

@@ -107,4 +107,4 @@ void IfcQuantityCount::copy(const IfcQuantityCount &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityCount::s_type("IfcQuantityCount");
+IFC2X3_EXPORT Step::ClassType IfcQuantityCount::s_type("IfcQuantityCount","IfcPhysicalSimpleQuantity");

@@ -163,4 +163,4 @@ void IfcSymbolStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSymbolStyleSelect::s_type("IfcSymbolStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcSymbolStyleSelect::s_type("IfcSymbolStyleSelect","BaseObject");

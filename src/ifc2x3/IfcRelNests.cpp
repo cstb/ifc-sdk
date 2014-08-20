@@ -71,4 +71,4 @@ void IfcRelNests::copy(const IfcRelNests &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelNests::s_type("IfcRelNests");
+IFC2X3_EXPORT Step::ClassType IfcRelNests::s_type("IfcRelNests","IfcRelDecomposes");

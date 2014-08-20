@@ -164,4 +164,4 @@ void IfcStructuralLinearActionVarying::copy(const IfcStructuralLinearActionVaryi
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLinearActionVarying::s_type("IfcStructuralLinearActionVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLinearActionVarying::s_type("IfcStructuralLinearActionVarying","IfcStructuralLinearAction");

@@ -112,4 +112,4 @@ void IfcSpaceType::copy(const IfcSpaceType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceType::s_type("IfcSpaceType");
+IFC2X3_EXPORT Step::ClassType IfcSpaceType::s_type("IfcSpaceType","IfcSpatialStructureElementType");

@@ -337,4 +337,4 @@ void IfcPostalAddress::copy(const IfcPostalAddress &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPostalAddress::s_type("IfcPostalAddress");
+IFC2X3_EXPORT Step::ClassType IfcPostalAddress::s_type("IfcPostalAddress","IfcAddress");

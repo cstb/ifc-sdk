@@ -183,4 +183,4 @@ void IfcProjectOrderRecord::copy(const IfcProjectOrderRecord &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProjectOrderRecord::s_type("IfcProjectOrderRecord");
+IFC2X3_EXPORT Step::ClassType IfcProjectOrderRecord::s_type("IfcProjectOrderRecord","IfcControl");

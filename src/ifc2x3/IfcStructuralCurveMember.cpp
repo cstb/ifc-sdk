@@ -127,4 +127,4 @@ void IfcStructuralCurveMember::copy(const IfcStructuralCurveMember &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMember::s_type("IfcStructuralCurveMember");
+IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMember::s_type("IfcStructuralCurveMember","IfcStructuralMember");

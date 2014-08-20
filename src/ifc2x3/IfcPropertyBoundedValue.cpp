@@ -1242,4 +1242,4 @@ void IfcPropertyBoundedValue::copy(const IfcPropertyBoundedValue &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyBoundedValue::s_type("IfcPropertyBoundedValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyBoundedValue::s_type("IfcPropertyBoundedValue","IfcSimpleProperty");

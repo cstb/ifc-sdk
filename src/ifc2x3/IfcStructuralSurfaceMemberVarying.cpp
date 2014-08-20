@@ -163,4 +163,4 @@ void IfcStructuralSurfaceMemberVarying::copy(const IfcStructuralSurfaceMemberVar
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralSurfaceMemberVarying::s_type("IfcStructuralSurfaceMemberVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralSurfaceMemberVarying::s_type("IfcStructuralSurfaceMemberVarying","IfcStructuralSurfaceMember");

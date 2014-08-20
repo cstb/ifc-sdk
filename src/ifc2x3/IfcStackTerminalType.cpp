@@ -121,4 +121,4 @@ void IfcStackTerminalType::copy(const IfcStackTerminalType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStackTerminalType::s_type("IfcStackTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcStackTerminalType::s_type("IfcStackTerminalType","IfcFlowTerminalType");

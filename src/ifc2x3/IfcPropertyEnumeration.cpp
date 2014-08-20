@@ -733,4 +733,4 @@ void IfcPropertyEnumeration::copy(const IfcPropertyEnumeration &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeration::s_type("IfcPropertyEnumeration");
+IFC2X3_EXPORT Step::ClassType IfcPropertyEnumeration::s_type("IfcPropertyEnumeration","BaseEntity");

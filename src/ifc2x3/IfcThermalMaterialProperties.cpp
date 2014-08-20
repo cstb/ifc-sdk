@@ -212,4 +212,4 @@ void IfcThermalMaterialProperties::copy(const IfcThermalMaterialProperties &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcThermalMaterialProperties::s_type("IfcThermalMaterialProperties");
+IFC2X3_EXPORT Step::ClassType IfcThermalMaterialProperties::s_type("IfcThermalMaterialProperties","IfcMaterialProperties");

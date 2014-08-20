@@ -145,4 +145,4 @@ void IfcPresentationStyleAssignment::copy(const IfcPresentationStyleAssignment &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPresentationStyleAssignment::s_type("IfcPresentationStyleAssignment");
+IFC2X3_EXPORT Step::ClassType IfcPresentationStyleAssignment::s_type("IfcPresentationStyleAssignment","BaseEntity");

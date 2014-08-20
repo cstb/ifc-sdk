@@ -212,4 +212,4 @@ void IfcTrapeziumProfileDef::copy(const IfcTrapeziumProfileDef &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTrapeziumProfileDef::s_type("IfcTrapeziumProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcTrapeziumProfileDef::s_type("IfcTrapeziumProfileDef","IfcParameterizedProfileDef");

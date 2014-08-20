@@ -71,4 +71,4 @@ void IfcProjectionElement::copy(const IfcProjectionElement &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProjectionElement::s_type("IfcProjectionElement");
+IFC2X3_EXPORT Step::ClassType IfcProjectionElement::s_type("IfcProjectionElement","IfcFeatureElementAddition");

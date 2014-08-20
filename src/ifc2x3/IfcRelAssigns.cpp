@@ -209,4 +209,4 @@ void IfcRelAssigns::copy(const IfcRelAssigns &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssigns::s_type("IfcRelAssigns");
+IFC2X3_EXPORT Step::ClassType IfcRelAssigns::s_type("IfcRelAssigns","IfcRelationship");

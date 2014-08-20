@@ -156,4 +156,4 @@ void IfcServiceLife::copy(const IfcServiceLife &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcServiceLife::s_type("IfcServiceLife");
+IFC2X3_EXPORT Step::ClassType IfcServiceLife::s_type("IfcServiceLife","IfcControl");

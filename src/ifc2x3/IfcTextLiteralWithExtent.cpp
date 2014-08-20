@@ -147,4 +147,4 @@ void IfcTextLiteralWithExtent::copy(const IfcTextLiteralWithExtent &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextLiteralWithExtent::s_type("IfcTextLiteralWithExtent");
+IFC2X3_EXPORT Step::ClassType IfcTextLiteralWithExtent::s_type("IfcTextLiteralWithExtent","IfcTextLiteral");

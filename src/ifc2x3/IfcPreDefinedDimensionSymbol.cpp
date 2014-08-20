@@ -71,4 +71,4 @@ void IfcPreDefinedDimensionSymbol::copy(const IfcPreDefinedDimensionSymbol &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedDimensionSymbol::s_type("IfcPreDefinedDimensionSymbol");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedDimensionSymbol::s_type("IfcPreDefinedDimensionSymbol","IfcPreDefinedSymbol");

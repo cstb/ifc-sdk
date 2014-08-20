@@ -218,4 +218,4 @@ void IfcTypeObject::copy(const IfcTypeObject &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTypeObject::s_type("IfcTypeObject");
+IFC2X3_EXPORT Step::ClassType IfcTypeObject::s_type("IfcTypeObject","IfcObjectDefinition");

@@ -138,4 +138,4 @@ void IfcUnitAssignment::copy(const IfcUnitAssignment &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcUnitAssignment::s_type("IfcUnitAssignment");
+IFC2X3_EXPORT Step::ClassType IfcUnitAssignment::s_type("IfcUnitAssignment","BaseEntity");

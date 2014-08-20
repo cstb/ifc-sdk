@@ -202,4 +202,4 @@ void IfcRelContainedInSpatialStructure::copy(const IfcRelContainedInSpatialStruc
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelContainedInSpatialStructure::s_type("IfcRelContainedInSpatialStructure");
+IFC2X3_EXPORT Step::ClassType IfcRelContainedInSpatialStructure::s_type("IfcRelContainedInSpatialStructure","IfcRelConnects");

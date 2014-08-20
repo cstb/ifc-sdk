@@ -142,4 +142,4 @@ void IfcWasteTerminalType::copy(const IfcWasteTerminalType &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWasteTerminalType::s_type("IfcWasteTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcWasteTerminalType::s_type("IfcWasteTerminalType","IfcFlowTerminalType");

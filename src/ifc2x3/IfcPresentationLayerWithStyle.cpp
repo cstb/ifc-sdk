@@ -254,4 +254,4 @@ void IfcPresentationLayerWithStyle::copy(const IfcPresentationLayerWithStyle &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPresentationLayerWithStyle::s_type("IfcPresentationLayerWithStyle");
+IFC2X3_EXPORT Step::ClassType IfcPresentationLayerWithStyle::s_type("IfcPresentationLayerWithStyle","IfcPresentationLayerAssignment");

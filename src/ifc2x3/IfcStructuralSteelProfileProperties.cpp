@@ -212,4 +212,4 @@ void IfcStructuralSteelProfileProperties::copy(const IfcStructuralSteelProfilePr
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralSteelProfileProperties::s_type("IfcStructuralSteelProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcStructuralSteelProfileProperties::s_type("IfcStructuralSteelProfileProperties","IfcStructuralProfileProperties");

@@ -127,4 +127,4 @@ void IfcWallType::copy(const IfcWallType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWallType::s_type("IfcWallType");
+IFC2X3_EXPORT Step::ClassType IfcWallType::s_type("IfcWallType","IfcBuildingElementType");

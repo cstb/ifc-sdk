@@ -121,4 +121,4 @@ void IfcTransportElementType::copy(const IfcTransportElementType &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTransportElementType::s_type("IfcTransportElementType");
+IFC2X3_EXPORT Step::ClassType IfcTransportElementType::s_type("IfcTransportElementType","IfcElementType");

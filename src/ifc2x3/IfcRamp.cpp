@@ -130,4 +130,4 @@ void IfcRamp::copy(const IfcRamp &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRamp::s_type("IfcRamp");
+IFC2X3_EXPORT Step::ClassType IfcRamp::s_type("IfcRamp","IfcBuildingElement");

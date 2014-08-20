@@ -127,4 +127,4 @@ void IfcSpecularHighlightSelect::setIfcSpecularRoughness(IfcSpecularRoughness va
 void IfcSpecularHighlightSelect::set(Step::BaseObject * /*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpecularHighlightSelect::s_type("IfcSpecularHighlightSelect");
+IFC2X3_EXPORT Step::ClassType IfcSpecularHighlightSelect::s_type("IfcSpecularHighlightSelect","BaseObject");

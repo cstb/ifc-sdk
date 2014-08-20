@@ -123,4 +123,4 @@ void IfcSymbolStyle::copy(const IfcSymbolStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSymbolStyle::s_type("IfcSymbolStyle");
+IFC2X3_EXPORT Step::ClassType IfcSymbolStyle::s_type("IfcSymbolStyle","IfcPresentationStyle");

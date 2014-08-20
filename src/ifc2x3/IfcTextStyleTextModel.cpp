@@ -489,4 +489,4 @@ void IfcTextStyleTextModel::copy(const IfcTextStyleTextModel &obj, const CopyOp 
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleTextModel::s_type("IfcTextStyleTextModel");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleTextModel::s_type("IfcTextStyleTextModel","BaseEntity");

@@ -175,4 +175,4 @@ void IfcValveType::copy(const IfcValveType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcValveType::s_type("IfcValveType");
+IFC2X3_EXPORT Step::ClassType IfcValveType::s_type("IfcValveType","IfcFlowControllerType");

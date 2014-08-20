@@ -71,4 +71,4 @@ void IfcVertex::copy(const IfcVertex &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVertex::s_type("IfcVertex");
+IFC2X3_EXPORT Step::ClassType IfcVertex::s_type("IfcVertex","IfcTopologicalRepresentationItem");

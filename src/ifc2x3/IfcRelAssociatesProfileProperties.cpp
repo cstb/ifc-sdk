@@ -202,4 +202,4 @@ void IfcRelAssociatesProfileProperties::copy(const IfcRelAssociatesProfileProper
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesProfileProperties::s_type("IfcRelAssociatesProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesProfileProperties::s_type("IfcRelAssociatesProfileProperties","IfcRelAssociates");

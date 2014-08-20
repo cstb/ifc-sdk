@@ -107,4 +107,4 @@ void IfcStructuralLoadSingleForceWarping::copy(const IfcStructuralLoadSingleForc
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleForceWarping::s_type("IfcStructuralLoadSingleForceWarping");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadSingleForceWarping::s_type("IfcStructuralLoadSingleForceWarping","IfcStructuralLoadSingleForce");

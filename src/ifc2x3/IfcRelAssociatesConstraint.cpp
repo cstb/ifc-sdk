@@ -147,4 +147,4 @@ void IfcRelAssociatesConstraint::copy(const IfcRelAssociatesConstraint &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesConstraint::s_type("IfcRelAssociatesConstraint");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesConstraint::s_type("IfcRelAssociatesConstraint","IfcRelAssociates");

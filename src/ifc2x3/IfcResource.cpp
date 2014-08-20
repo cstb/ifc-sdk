@@ -103,4 +103,4 @@ void IfcResource::copy(const IfcResource &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcResource::s_type("IfcResource");
+IFC2X3_EXPORT Step::ClassType IfcResource::s_type("IfcResource","IfcObject");

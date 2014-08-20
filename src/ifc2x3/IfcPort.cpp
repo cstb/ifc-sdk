@@ -153,4 +153,4 @@ void IfcPort::copy(const IfcPort &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPort::s_type("IfcPort");
+IFC2X3_EXPORT Step::ClassType IfcPort::s_type("IfcPort","IfcProduct");

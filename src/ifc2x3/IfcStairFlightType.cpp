@@ -127,4 +127,4 @@ void IfcStairFlightType::copy(const IfcStairFlightType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStairFlightType::s_type("IfcStairFlightType");
+IFC2X3_EXPORT Step::ClassType IfcStairFlightType::s_type("IfcStairFlightType","IfcBuildingElementType");

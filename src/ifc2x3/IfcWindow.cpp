@@ -142,4 +142,4 @@ void IfcWindow::copy(const IfcWindow &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWindow::s_type("IfcWindow");
+IFC2X3_EXPORT Step::ClassType IfcWindow::s_type("IfcWindow","IfcBuildingElement");

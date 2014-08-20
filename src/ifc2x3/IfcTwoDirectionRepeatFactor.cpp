@@ -111,4 +111,4 @@ void IfcTwoDirectionRepeatFactor::copy(const IfcTwoDirectionRepeatFactor &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTwoDirectionRepeatFactor::s_type("IfcTwoDirectionRepeatFactor");
+IFC2X3_EXPORT Step::ClassType IfcTwoDirectionRepeatFactor::s_type("IfcTwoDirectionRepeatFactor","IfcOneDirectionRepeatFactor");

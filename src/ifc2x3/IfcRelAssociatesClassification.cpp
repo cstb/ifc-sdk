@@ -123,4 +123,4 @@ void IfcRelAssociatesClassification::copy(const IfcRelAssociatesClassification &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesClassification::s_type("IfcRelAssociatesClassification");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesClassification::s_type("IfcRelAssociatesClassification","IfcRelAssociates");

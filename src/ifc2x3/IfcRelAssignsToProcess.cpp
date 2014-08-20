@@ -153,4 +153,4 @@ void IfcRelAssignsToProcess::copy(const IfcRelAssignsToProcess &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProcess::s_type("IfcRelAssignsToProcess");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProcess::s_type("IfcRelAssignsToProcess","IfcRelAssigns");

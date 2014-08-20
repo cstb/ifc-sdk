@@ -71,4 +71,4 @@ void IfcTendonAnchor::copy(const IfcTendonAnchor &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTendonAnchor::s_type("IfcTendonAnchor");
+IFC2X3_EXPORT Step::ClassType IfcTendonAnchor::s_type("IfcTendonAnchor","IfcReinforcingElement");

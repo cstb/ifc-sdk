@@ -131,4 +131,4 @@ void IfcProductDefinitionShape::copy(const IfcProductDefinitionShape &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProductDefinitionShape::s_type("IfcProductDefinitionShape");
+IFC2X3_EXPORT Step::ClassType IfcProductDefinitionShape::s_type("IfcProductDefinitionShape","IfcProductRepresentation");

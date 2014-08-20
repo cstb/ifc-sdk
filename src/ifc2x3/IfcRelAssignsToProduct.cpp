@@ -117,4 +117,4 @@ void IfcRelAssignsToProduct::copy(const IfcRelAssignsToProduct &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProduct::s_type("IfcRelAssignsToProduct");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProduct::s_type("IfcRelAssignsToProduct","IfcRelAssigns");

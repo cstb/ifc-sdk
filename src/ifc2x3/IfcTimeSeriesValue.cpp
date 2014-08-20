@@ -649,4 +649,4 @@ void IfcTimeSeriesValue::copy(const IfcTimeSeriesValue &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTimeSeriesValue::s_type("IfcTimeSeriesValue");
+IFC2X3_EXPORT Step::ClassType IfcTimeSeriesValue::s_type("IfcTimeSeriesValue","BaseEntity");

@@ -163,4 +163,4 @@ void IfcShell::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcShell::s_type("IfcShell");
+IFC2X3_EXPORT Step::ClassType IfcShell::s_type("IfcShell","BaseObject");

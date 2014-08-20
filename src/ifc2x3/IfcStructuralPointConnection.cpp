@@ -71,4 +71,4 @@ void IfcStructuralPointConnection::copy(const IfcStructuralPointConnection &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralPointConnection::s_type("IfcStructuralPointConnection");
+IFC2X3_EXPORT Step::ClassType IfcStructuralPointConnection::s_type("IfcStructuralPointConnection","IfcStructuralConnection");

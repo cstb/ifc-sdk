@@ -146,4 +146,4 @@ void IfcVector::copy(const IfcVector &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVector::s_type("IfcVector");
+IFC2X3_EXPORT Step::ClassType IfcVector::s_type("IfcVector","IfcGeometricRepresentationItem");

@@ -194,4 +194,4 @@ void IfcRelConnectsPorts::copy(const IfcRelConnectsPorts &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsPorts::s_type("IfcRelConnectsPorts");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsPorts::s_type("IfcRelConnectsPorts","IfcRelConnects");

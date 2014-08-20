@@ -71,4 +71,4 @@ void IfcTopologicalRepresentationItem::copy(const IfcTopologicalRepresentationIt
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTopologicalRepresentationItem::s_type("IfcTopologicalRepresentationItem");
+IFC2X3_EXPORT Step::ClassType IfcTopologicalRepresentationItem::s_type("IfcTopologicalRepresentationItem","IfcRepresentationItem");

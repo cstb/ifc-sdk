@@ -502,4 +502,4 @@ void IfcSpaceThermalLoadProperties::copy(const IfcSpaceThermalLoadProperties &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSpaceThermalLoadProperties::s_type("IfcSpaceThermalLoadProperties");
+IFC2X3_EXPORT Step::ClassType IfcSpaceThermalLoadProperties::s_type("IfcSpaceThermalLoadProperties","IfcPropertySetDefinition");

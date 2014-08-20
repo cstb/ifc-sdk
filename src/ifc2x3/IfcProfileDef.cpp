@@ -144,4 +144,4 @@ void IfcProfileDef::copy(const IfcProfileDef &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProfileDef::s_type("IfcProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcProfileDef::s_type("IfcProfileDef","BaseEntity");

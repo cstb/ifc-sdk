@@ -117,4 +117,4 @@ void IfcRelAssignsTasks::copy(const IfcRelAssignsTasks &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsTasks::s_type("IfcRelAssignsTasks");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsTasks::s_type("IfcRelAssignsTasks","IfcRelAssignsToControl");

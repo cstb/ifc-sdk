@@ -71,4 +71,4 @@ void IfcRelSchedulesCostItems::copy(const IfcRelSchedulesCostItems &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelSchedulesCostItems::s_type("IfcRelSchedulesCostItems");
+IFC2X3_EXPORT Step::ClassType IfcRelSchedulesCostItems::s_type("IfcRelSchedulesCostItems","IfcRelAssignsToControl");

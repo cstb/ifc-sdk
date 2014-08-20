@@ -170,4 +170,4 @@ void IfcRepresentationContext::copy(const IfcRepresentationContext &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRepresentationContext::s_type("IfcRepresentationContext");
+IFC2X3_EXPORT Step::ClassType IfcRepresentationContext::s_type("IfcRepresentationContext","BaseEntity");

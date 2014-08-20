@@ -71,4 +71,4 @@ void IfcRelAssignsToProjectOrder::copy(const IfcRelAssignsToProjectOrder &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProjectOrder::s_type("IfcRelAssignsToProjectOrder");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToProjectOrder::s_type("IfcRelAssignsToProjectOrder","IfcRelAssignsToControl");

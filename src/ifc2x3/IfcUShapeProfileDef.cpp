@@ -352,4 +352,4 @@ void IfcUShapeProfileDef::copy(const IfcUShapeProfileDef &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcUShapeProfileDef::s_type("IfcUShapeProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcUShapeProfileDef::s_type("IfcUShapeProfileDef","IfcParameterizedProfileDef");

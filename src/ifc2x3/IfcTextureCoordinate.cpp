@@ -99,4 +99,4 @@ void IfcTextureCoordinate::copy(const IfcTextureCoordinate &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextureCoordinate::s_type("IfcTextureCoordinate");
+IFC2X3_EXPORT Step::ClassType IfcTextureCoordinate::s_type("IfcTextureCoordinate","BaseEntity");

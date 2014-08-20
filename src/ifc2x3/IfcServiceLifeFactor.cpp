@@ -651,4 +651,4 @@ void IfcServiceLifeFactor::copy(const IfcServiceLifeFactor &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcServiceLifeFactor::s_type("IfcServiceLifeFactor");
+IFC2X3_EXPORT Step::ClassType IfcServiceLifeFactor::s_type("IfcServiceLifeFactor","IfcPropertySetDefinition");

@@ -104,4 +104,4 @@ void IfcStructuralLoad::copy(const IfcStructuralLoad &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoad::s_type("IfcStructuralLoad");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoad::s_type("IfcStructuralLoad","BaseEntity");

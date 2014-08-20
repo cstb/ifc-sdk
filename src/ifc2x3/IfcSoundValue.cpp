@@ -548,4 +548,4 @@ void IfcSoundValue::copy(const IfcSoundValue &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSoundValue::s_type("IfcSoundValue");
+IFC2X3_EXPORT Step::ClassType IfcSoundValue::s_type("IfcSoundValue","IfcPropertySetDefinition");

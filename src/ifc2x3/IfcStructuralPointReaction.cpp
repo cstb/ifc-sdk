@@ -71,4 +71,4 @@ void IfcStructuralPointReaction::copy(const IfcStructuralPointReaction &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralPointReaction::s_type("IfcStructuralPointReaction");
+IFC2X3_EXPORT Step::ClassType IfcStructuralPointReaction::s_type("IfcStructuralPointReaction","IfcStructuralReaction");

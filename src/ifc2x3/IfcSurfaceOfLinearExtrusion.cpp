@@ -146,4 +146,4 @@ void IfcSurfaceOfLinearExtrusion::copy(const IfcSurfaceOfLinearExtrusion &obj, c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceOfLinearExtrusion::s_type("IfcSurfaceOfLinearExtrusion");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceOfLinearExtrusion::s_type("IfcSurfaceOfLinearExtrusion","IfcSweptSurface");

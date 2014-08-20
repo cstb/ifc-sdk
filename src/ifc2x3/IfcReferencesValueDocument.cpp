@@ -268,4 +268,4 @@ void IfcReferencesValueDocument::copy(const IfcReferencesValueDocument &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcReferencesValueDocument::s_type("IfcReferencesValueDocument");
+IFC2X3_EXPORT Step::ClassType IfcReferencesValueDocument::s_type("IfcReferencesValueDocument","BaseEntity");

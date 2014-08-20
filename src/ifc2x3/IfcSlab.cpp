@@ -124,4 +124,4 @@ void IfcSlab::copy(const IfcSlab &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSlab::s_type("IfcSlab");
+IFC2X3_EXPORT Step::ClassType IfcSlab::s_type("IfcSlab","IfcBuildingElement");

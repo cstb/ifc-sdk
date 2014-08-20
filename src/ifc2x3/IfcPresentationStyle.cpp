@@ -104,4 +104,4 @@ void IfcPresentationStyle::copy(const IfcPresentationStyle &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPresentationStyle::s_type("IfcPresentationStyle");
+IFC2X3_EXPORT Step::ClassType IfcPresentationStyle::s_type("IfcPresentationStyle","BaseEntity");

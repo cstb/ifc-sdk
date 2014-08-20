@@ -331,4 +331,4 @@ void IfcTrimmedCurve::copy(const IfcTrimmedCurve &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTrimmedCurve::s_type("IfcTrimmedCurve");
+IFC2X3_EXPORT Step::ClassType IfcTrimmedCurve::s_type("IfcTrimmedCurve","IfcBoundedCurve");

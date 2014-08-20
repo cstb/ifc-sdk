@@ -281,4 +281,4 @@ void IfcRelSpaceBoundary::copy(const IfcRelSpaceBoundary &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelSpaceBoundary::s_type("IfcRelSpaceBoundary");
+IFC2X3_EXPORT Step::ClassType IfcRelSpaceBoundary::s_type("IfcRelSpaceBoundary","IfcRelConnects");

@@ -103,4 +103,4 @@ void IfcStructuralItem::copy(const IfcStructuralItem &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralItem::s_type("IfcStructuralItem");
+IFC2X3_EXPORT Step::ClassType IfcStructuralItem::s_type("IfcStructuralItem","IfcProduct");

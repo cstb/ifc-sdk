@@ -115,4 +115,4 @@ void IfcTubeBundleType::copy(const IfcTubeBundleType &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTubeBundleType::s_type("IfcTubeBundleType");
+IFC2X3_EXPORT Step::ClassType IfcTubeBundleType::s_type("IfcTubeBundleType","IfcEnergyConversionDeviceType");

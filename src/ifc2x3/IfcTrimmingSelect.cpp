@@ -146,4 +146,4 @@ void IfcTrimmingSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTrimmingSelect::s_type("IfcTrimmingSelect");
+IFC2X3_EXPORT Step::ClassType IfcTrimmingSelect::s_type("IfcTrimmingSelect","BaseObject");

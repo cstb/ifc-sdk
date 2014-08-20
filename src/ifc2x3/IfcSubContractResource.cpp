@@ -159,4 +159,4 @@ void IfcSubContractResource::copy(const IfcSubContractResource &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSubContractResource::s_type("IfcSubContractResource");
+IFC2X3_EXPORT Step::ClassType IfcSubContractResource::s_type("IfcSubContractResource","IfcConstructionResource");

@@ -688,4 +688,4 @@ void IfcPropertySingleValue::copy(const IfcPropertySingleValue &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertySingleValue::s_type("IfcPropertySingleValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertySingleValue::s_type("IfcPropertySingleValue","IfcSimpleProperty");

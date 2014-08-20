@@ -212,4 +212,4 @@ void IfcSizeSelect::setIfcPositiveRatioMeasure(IfcPositiveRatioMeasure value) {
 void IfcSizeSelect::set(Step::BaseObject * /*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSizeSelect::s_type("IfcSizeSelect");
+IFC2X3_EXPORT Step::ClassType IfcSizeSelect::s_type("IfcSizeSelect","BaseObject");

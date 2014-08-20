@@ -131,4 +131,4 @@ void IfcStructuralMember::copy(const IfcStructuralMember &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralMember::s_type("IfcStructuralMember");
+IFC2X3_EXPORT Step::ClassType IfcStructuralMember::s_type("IfcStructuralMember","IfcStructuralItem");

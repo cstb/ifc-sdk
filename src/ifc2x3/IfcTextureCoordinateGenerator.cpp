@@ -213,4 +213,4 @@ void IfcTextureCoordinateGenerator::copy(const IfcTextureCoordinateGenerator &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextureCoordinateGenerator::s_type("IfcTextureCoordinateGenerator");
+IFC2X3_EXPORT Step::ClassType IfcTextureCoordinateGenerator::s_type("IfcTextureCoordinateGenerator","IfcTextureCoordinate");

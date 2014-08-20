@@ -314,4 +314,4 @@ void IfcStructuralAnalysisModel::copy(const IfcStructuralAnalysisModel &obj, con
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralAnalysisModel::s_type("IfcStructuralAnalysisModel");
+IFC2X3_EXPORT Step::ClassType IfcStructuralAnalysisModel::s_type("IfcStructuralAnalysisModel","IfcSystem");

@@ -205,4 +205,4 @@ void IfcTextLiteral::copy(const IfcTextLiteral &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextLiteral::s_type("IfcTextLiteral");
+IFC2X3_EXPORT Step::ClassType IfcTextLiteral::s_type("IfcTextLiteral","IfcGeometricRepresentationItem");

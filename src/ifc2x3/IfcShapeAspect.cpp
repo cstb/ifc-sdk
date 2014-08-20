@@ -295,4 +295,4 @@ void IfcShapeAspect::copy(const IfcShapeAspect &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcShapeAspect::s_type("IfcShapeAspect");
+IFC2X3_EXPORT Step::ClassType IfcShapeAspect::s_type("IfcShapeAspect","BaseEntity");

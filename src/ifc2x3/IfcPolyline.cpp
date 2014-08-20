@@ -128,4 +128,4 @@ void IfcPolyline::copy(const IfcPolyline &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPolyline::s_type("IfcPolyline");
+IFC2X3_EXPORT Step::ClassType IfcPolyline::s_type("IfcPolyline","IfcBoundedCurve");

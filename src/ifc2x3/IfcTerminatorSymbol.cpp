@@ -122,4 +122,4 @@ void IfcTerminatorSymbol::copy(const IfcTerminatorSymbol &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTerminatorSymbol::s_type("IfcTerminatorSymbol");
+IFC2X3_EXPORT Step::ClassType IfcTerminatorSymbol::s_type("IfcTerminatorSymbol","IfcAnnotationSymbolOccurrence");

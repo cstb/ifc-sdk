@@ -165,4 +165,4 @@ void IfcTypeProduct::copy(const IfcTypeProduct &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTypeProduct::s_type("IfcTypeProduct");
+IFC2X3_EXPORT Step::ClassType IfcTypeProduct::s_type("IfcTypeProduct","IfcTypeObject");

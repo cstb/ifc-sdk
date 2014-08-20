@@ -128,4 +128,4 @@ void IfcRelOverridesProperties::copy(const IfcRelOverridesProperties &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelOverridesProperties::s_type("IfcRelOverridesProperties");
+IFC2X3_EXPORT Step::ClassType IfcRelOverridesProperties::s_type("IfcRelOverridesProperties","IfcRelDefinesByProperties");

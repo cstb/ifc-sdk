@@ -117,4 +117,4 @@ void IfcRelAssignsToGroup::copy(const IfcRelAssignsToGroup &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssignsToGroup::s_type("IfcRelAssignsToGroup");
+IFC2X3_EXPORT Step::ClassType IfcRelAssignsToGroup::s_type("IfcRelAssignsToGroup","IfcRelAssigns");

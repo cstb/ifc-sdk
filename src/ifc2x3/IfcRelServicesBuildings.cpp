@@ -193,4 +193,4 @@ void IfcRelServicesBuildings::copy(const IfcRelServicesBuildings &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelServicesBuildings::s_type("IfcRelServicesBuildings");
+IFC2X3_EXPORT Step::ClassType IfcRelServicesBuildings::s_type("IfcRelServicesBuildings","IfcRelConnects");

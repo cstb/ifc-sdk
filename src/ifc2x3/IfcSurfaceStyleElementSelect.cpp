@@ -274,4 +274,4 @@ void IfcSurfaceStyleElementSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleElementSelect::s_type("IfcSurfaceStyleElementSelect");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleElementSelect::s_type("IfcSurfaceStyleElementSelect","BaseObject");

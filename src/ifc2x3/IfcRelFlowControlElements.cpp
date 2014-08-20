@@ -193,4 +193,4 @@ void IfcRelFlowControlElements::copy(const IfcRelFlowControlElements &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelFlowControlElements::s_type("IfcRelFlowControlElements");
+IFC2X3_EXPORT Step::ClassType IfcRelFlowControlElements::s_type("IfcRelFlowControlElements","IfcRelConnects");

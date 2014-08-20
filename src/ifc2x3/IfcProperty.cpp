@@ -225,4 +225,4 @@ void IfcProperty::copy(const IfcProperty &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProperty::s_type("IfcProperty");
+IFC2X3_EXPORT Step::ClassType IfcProperty::s_type("IfcProperty","BaseEntity");

@@ -107,4 +107,4 @@ void IfcSurfaceStyleShading::copy(const IfcSurfaceStyleShading &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleShading::s_type("IfcSurfaceStyleShading");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleShading::s_type("IfcSurfaceStyleShading","BaseEntity");

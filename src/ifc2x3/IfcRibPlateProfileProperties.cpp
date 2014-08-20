@@ -252,4 +252,4 @@ void IfcRibPlateProfileProperties::copy(const IfcRibPlateProfileProperties &obj,
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRibPlateProfileProperties::s_type("IfcRibPlateProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcRibPlateProfileProperties::s_type("IfcRibPlateProfileProperties","IfcProfileProperties");

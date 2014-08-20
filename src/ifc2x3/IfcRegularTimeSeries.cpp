@@ -163,4 +163,4 @@ void IfcRegularTimeSeries::copy(const IfcRegularTimeSeries &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRegularTimeSeries::s_type("IfcRegularTimeSeries");
+IFC2X3_EXPORT Step::ClassType IfcRegularTimeSeries::s_type("IfcRegularTimeSeries","IfcTimeSeries");

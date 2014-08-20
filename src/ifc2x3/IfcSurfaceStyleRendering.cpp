@@ -498,4 +498,4 @@ void IfcSurfaceStyleRendering::copy(const IfcSurfaceStyleRendering &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRendering::s_type("IfcSurfaceStyleRendering");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRendering::s_type("IfcSurfaceStyleRendering","IfcSurfaceStyleShading");

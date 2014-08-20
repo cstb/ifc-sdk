@@ -326,4 +326,4 @@ void IfcSectionReinforcementProperties::copy(const IfcSectionReinforcementProper
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSectionReinforcementProperties::s_type("IfcSectionReinforcementProperties");
+IFC2X3_EXPORT Step::ClassType IfcSectionReinforcementProperties::s_type("IfcSectionReinforcementProperties","BaseEntity");

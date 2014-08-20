@@ -111,4 +111,4 @@ void IfcVertexLoop::copy(const IfcVertexLoop &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVertexLoop::s_type("IfcVertexLoop");
+IFC2X3_EXPORT Step::ClassType IfcVertexLoop::s_type("IfcVertexLoop","IfcLoop");

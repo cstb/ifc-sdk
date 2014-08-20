@@ -204,4 +204,4 @@ void IfcProcedure::copy(const IfcProcedure &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProcedure::s_type("IfcProcedure");
+IFC2X3_EXPORT Step::ClassType IfcProcedure::s_type("IfcProcedure","IfcProcess");

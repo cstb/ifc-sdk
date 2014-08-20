@@ -142,4 +142,4 @@ void IfcShellBasedSurfaceModel::copy(const IfcShellBasedSurfaceModel &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcShellBasedSurfaceModel::s_type("IfcShellBasedSurfaceModel");
+IFC2X3_EXPORT Step::ClassType IfcShellBasedSurfaceModel::s_type("IfcShellBasedSurfaceModel","IfcGeometricRepresentationItem");

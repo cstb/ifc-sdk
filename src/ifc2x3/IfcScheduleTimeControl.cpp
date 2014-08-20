@@ -847,4 +847,4 @@ void IfcScheduleTimeControl::copy(const IfcScheduleTimeControl &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcScheduleTimeControl::s_type("IfcScheduleTimeControl");
+IFC2X3_EXPORT Step::ClassType IfcScheduleTimeControl::s_type("IfcScheduleTimeControl","IfcControl");

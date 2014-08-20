@@ -709,4 +709,4 @@ void IfcTableRow::copy(const IfcTableRow &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTableRow::s_type("IfcTableRow");
+IFC2X3_EXPORT Step::ClassType IfcTableRow::s_type("IfcTableRow","BaseEntity");

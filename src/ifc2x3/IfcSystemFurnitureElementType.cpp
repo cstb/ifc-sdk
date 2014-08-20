@@ -71,4 +71,4 @@ void IfcSystemFurnitureElementType::copy(const IfcSystemFurnitureElementType &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSystemFurnitureElementType::s_type("IfcSystemFurnitureElementType");
+IFC2X3_EXPORT Step::ClassType IfcSystemFurnitureElementType::s_type("IfcSystemFurnitureElementType","IfcFurnishingElementType");

@@ -71,4 +71,4 @@ void IfcZone::copy(const IfcZone &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcZone::s_type("IfcZone");
+IFC2X3_EXPORT Step::ClassType IfcZone::s_type("IfcZone","IfcGroup");

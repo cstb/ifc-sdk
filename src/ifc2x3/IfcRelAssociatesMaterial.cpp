@@ -123,4 +123,4 @@ void IfcRelAssociatesMaterial::copy(const IfcRelAssociatesMaterial &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociatesMaterial::s_type("IfcRelAssociatesMaterial");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociatesMaterial::s_type("IfcRelAssociatesMaterial","IfcRelAssociates");

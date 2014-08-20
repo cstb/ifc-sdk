@@ -200,4 +200,4 @@ void IfcUnit::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcUnit::s_type("IfcUnit");
+IFC2X3_EXPORT Step::ClassType IfcUnit::s_type("IfcUnit","BaseObject");

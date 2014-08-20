@@ -138,4 +138,4 @@ void IfcSurfaceStyleRefraction::copy(const IfcSurfaceStyleRefraction &obj, const
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRefraction::s_type("IfcSurfaceStyleRefraction");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyleRefraction::s_type("IfcSurfaceStyleRefraction","BaseEntity");

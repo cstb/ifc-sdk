@@ -107,4 +107,4 @@ void IfcQuantityLength::copy(const IfcQuantityLength &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcQuantityLength::s_type("IfcQuantityLength");
+IFC2X3_EXPORT Step::ClassType IfcQuantityLength::s_type("IfcQuantityLength","IfcPhysicalSimpleQuantity");

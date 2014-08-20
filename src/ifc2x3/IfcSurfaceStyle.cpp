@@ -185,4 +185,4 @@ void IfcSurfaceStyle::copy(const IfcSurfaceStyle &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSurfaceStyle::s_type("IfcSurfaceStyle");
+IFC2X3_EXPORT Step::ClassType IfcSurfaceStyle::s_type("IfcSurfaceStyle","IfcPresentationStyle");

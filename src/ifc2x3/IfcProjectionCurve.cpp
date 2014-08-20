@@ -71,4 +71,4 @@ void IfcProjectionCurve::copy(const IfcProjectionCurve &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProjectionCurve::s_type("IfcProjectionCurve");
+IFC2X3_EXPORT Step::ClassType IfcProjectionCurve::s_type("IfcProjectionCurve","IfcAnnotationCurveOccurrence");

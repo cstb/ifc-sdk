@@ -124,4 +124,4 @@ void IfcTankType::copy(const IfcTankType &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTankType::s_type("IfcTankType");
+IFC2X3_EXPORT Step::ClassType IfcTankType::s_type("IfcTankType","IfcFlowStorageDeviceType");

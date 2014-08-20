@@ -163,4 +163,4 @@ void IfcTextFontSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextFontSelect::s_type("IfcTextFontSelect");
+IFC2X3_EXPORT Step::ClassType IfcTextFontSelect::s_type("IfcTextFontSelect","BaseObject");

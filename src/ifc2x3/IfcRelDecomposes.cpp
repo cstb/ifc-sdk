@@ -192,4 +192,4 @@ void IfcRelDecomposes::copy(const IfcRelDecomposes &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelDecomposes::s_type("IfcRelDecomposes");
+IFC2X3_EXPORT Step::ClassType IfcRelDecomposes::s_type("IfcRelDecomposes","IfcRelationship");

@@ -151,4 +151,4 @@ void IfcRelDefines::copy(const IfcRelDefines &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelDefines::s_type("IfcRelDefines");
+IFC2X3_EXPORT Step::ClassType IfcRelDefines::s_type("IfcRelDefines","IfcRelationship");

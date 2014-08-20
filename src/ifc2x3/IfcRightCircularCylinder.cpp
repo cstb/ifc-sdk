@@ -142,4 +142,4 @@ void IfcRightCircularCylinder::copy(const IfcRightCircularCylinder &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRightCircularCylinder::s_type("IfcRightCircularCylinder");
+IFC2X3_EXPORT Step::ClassType IfcRightCircularCylinder::s_type("IfcRightCircularCylinder","IfcCsgPrimitive3D");

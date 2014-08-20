@@ -194,4 +194,4 @@ void IfcRelReferencedInSpatialStructure::copy(const IfcRelReferencedInSpatialStr
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelReferencedInSpatialStructure::s_type("IfcRelReferencedInSpatialStructure");
+IFC2X3_EXPORT Step::ClassType IfcRelReferencedInSpatialStructure::s_type("IfcRelReferencedInSpatialStructure","IfcRelConnects");

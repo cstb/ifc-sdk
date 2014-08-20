@@ -121,4 +121,4 @@ void IfcTransformerType::copy(const IfcTransformerType &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTransformerType::s_type("IfcTransformerType");
+IFC2X3_EXPORT Step::ClassType IfcTransformerType::s_type("IfcTransformerType","IfcEnergyConversionDeviceType");

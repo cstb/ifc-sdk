@@ -71,4 +71,4 @@ void IfcRelOccupiesSpaces::copy(const IfcRelOccupiesSpaces &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelOccupiesSpaces::s_type("IfcRelOccupiesSpaces");
+IFC2X3_EXPORT Step::ClassType IfcRelOccupiesSpaces::s_type("IfcRelOccupiesSpaces","IfcRelAssignsToActor");

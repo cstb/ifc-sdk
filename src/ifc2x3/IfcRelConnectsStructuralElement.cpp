@@ -159,4 +159,4 @@ void IfcRelConnectsStructuralElement::copy(const IfcRelConnectsStructuralElement
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsStructuralElement::s_type("IfcRelConnectsStructuralElement");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsStructuralElement::s_type("IfcRelConnectsStructuralElement","IfcRelConnects");

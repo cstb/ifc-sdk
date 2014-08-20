@@ -180,4 +180,4 @@ void IfcTimeSeriesReferenceRelationship::copy(const IfcTimeSeriesReferenceRelati
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTimeSeriesReferenceRelationship::s_type("IfcTimeSeriesReferenceRelationship");
+IFC2X3_EXPORT Step::ClassType IfcTimeSeriesReferenceRelationship::s_type("IfcTimeSeriesReferenceRelationship","BaseEntity");

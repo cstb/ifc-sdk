@@ -71,4 +71,4 @@ void IfcStructuredDimensionCallout::copy(const IfcStructuredDimensionCallout &ob
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuredDimensionCallout::s_type("IfcStructuredDimensionCallout");
+IFC2X3_EXPORT Step::ClassType IfcStructuredDimensionCallout::s_type("IfcStructuredDimensionCallout","IfcDraughtingCallout");

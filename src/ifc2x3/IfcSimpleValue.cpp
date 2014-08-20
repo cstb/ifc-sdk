@@ -238,4 +238,4 @@ void IfcSimpleValue::setIfcLogical(IfcLogical value) {
 void IfcSimpleValue::set(Step::BaseObject * /*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSimpleValue::s_type("IfcSimpleValue");
+IFC2X3_EXPORT Step::ClassType IfcSimpleValue::s_type("IfcSimpleValue","BaseObject");

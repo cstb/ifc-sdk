@@ -142,4 +142,4 @@ void IfcRectangleProfileDef::copy(const IfcRectangleProfileDef &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRectangleProfileDef::s_type("IfcRectangleProfileDef");
+IFC2X3_EXPORT Step::ClassType IfcRectangleProfileDef::s_type("IfcRectangleProfileDef","IfcParameterizedProfileDef");

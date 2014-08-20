@@ -177,4 +177,4 @@ void IfcVertexBasedTextureMap::copy(const IfcVertexBasedTextureMap &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVertexBasedTextureMap::s_type("IfcVertexBasedTextureMap");
+IFC2X3_EXPORT Step::ClassType IfcVertexBasedTextureMap::s_type("IfcVertexBasedTextureMap","BaseEntity");

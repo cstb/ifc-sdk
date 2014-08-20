@@ -418,4 +418,4 @@ void IfcStructuralLoadGroup::copy(const IfcStructuralLoadGroup &obj, const CopyO
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadGroup::s_type("IfcStructuralLoadGroup");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadGroup::s_type("IfcStructuralLoadGroup","IfcGroup");

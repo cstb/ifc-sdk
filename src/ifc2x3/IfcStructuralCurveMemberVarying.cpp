@@ -71,4 +71,4 @@ void IfcStructuralCurveMemberVarying::copy(const IfcStructuralCurveMemberVarying
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMemberVarying::s_type("IfcStructuralCurveMemberVarying");
+IFC2X3_EXPORT Step::ClassType IfcStructuralCurveMemberVarying::s_type("IfcStructuralCurveMemberVarying","IfcStructuralCurveMember");

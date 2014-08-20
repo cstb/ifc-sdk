@@ -147,4 +147,4 @@ void IfcSweptSurface::copy(const IfcSweptSurface &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSweptSurface::s_type("IfcSweptSurface");
+IFC2X3_EXPORT Step::ClassType IfcSweptSurface::s_type("IfcSweptSurface","IfcSurface");

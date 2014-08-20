@@ -294,4 +294,4 @@ void IfcPresentationStyleSelect::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPresentationStyleSelect::s_type("IfcPresentationStyleSelect");
+IFC2X3_EXPORT Step::ClassType IfcPresentationStyleSelect::s_type("IfcPresentationStyleSelect","BaseObject");

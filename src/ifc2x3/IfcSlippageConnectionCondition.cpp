@@ -177,4 +177,4 @@ void IfcSlippageConnectionCondition::copy(const IfcSlippageConnectionCondition &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSlippageConnectionCondition::s_type("IfcSlippageConnectionCondition");
+IFC2X3_EXPORT Step::ClassType IfcSlippageConnectionCondition::s_type("IfcSlippageConnectionCondition","IfcStructuralConnectionCondition");

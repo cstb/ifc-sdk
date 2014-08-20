@@ -104,4 +104,4 @@ void IfcStructuralConnectionCondition::copy(const IfcStructuralConnectionConditi
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralConnectionCondition::s_type("IfcStructuralConnectionCondition");
+IFC2X3_EXPORT Step::ClassType IfcStructuralConnectionCondition::s_type("IfcStructuralConnectionCondition","BaseEntity");

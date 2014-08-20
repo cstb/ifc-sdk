@@ -187,4 +187,4 @@ void IfcRelConnectsWithRealizingElements::copy(const IfcRelConnectsWithRealizing
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements");
+IFC2X3_EXPORT Step::ClassType IfcRelConnectsWithRealizingElements::s_type("IfcRelConnectsWithRealizingElements","IfcRelConnectsElements");

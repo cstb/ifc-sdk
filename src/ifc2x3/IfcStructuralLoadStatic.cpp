@@ -71,4 +71,4 @@ void IfcStructuralLoadStatic::copy(const IfcStructuralLoadStatic &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralLoadStatic::s_type("IfcStructuralLoadStatic");
+IFC2X3_EXPORT Step::ClassType IfcStructuralLoadStatic::s_type("IfcStructuralLoadStatic","IfcStructuralLoad");

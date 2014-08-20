@@ -142,4 +142,4 @@ void IfcSanitaryTerminalType::copy(const IfcSanitaryTerminalType &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSanitaryTerminalType::s_type("IfcSanitaryTerminalType");
+IFC2X3_EXPORT Step::ClassType IfcSanitaryTerminalType::s_type("IfcSanitaryTerminalType","IfcFlowTerminalType");

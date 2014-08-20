@@ -118,4 +118,4 @@ void IfcVibrationIsolatorType::copy(const IfcVibrationIsolatorType &obj, const C
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVibrationIsolatorType::s_type("IfcVibrationIsolatorType");
+IFC2X3_EXPORT Step::ClassType IfcVibrationIsolatorType::s_type("IfcVibrationIsolatorType","IfcDiscreteAccessoryType");

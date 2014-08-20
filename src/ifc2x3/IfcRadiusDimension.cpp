@@ -71,4 +71,4 @@ void IfcRadiusDimension::copy(const IfcRadiusDimension &obj, const CopyOp &copyo
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRadiusDimension::s_type("IfcRadiusDimension");
+IFC2X3_EXPORT Step::ClassType IfcRadiusDimension::s_type("IfcRadiusDimension","IfcDimensionCurveDirectedCallout");

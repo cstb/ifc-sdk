@@ -632,4 +632,4 @@ void IfcStructuralProfileProperties::copy(const IfcStructuralProfileProperties &
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStructuralProfileProperties::s_type("IfcStructuralProfileProperties");
+IFC2X3_EXPORT Step::ClassType IfcStructuralProfileProperties::s_type("IfcStructuralProfileProperties","IfcGeneralProfileProperties");

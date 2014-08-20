@@ -71,4 +71,4 @@ void IfcRelAggregates::copy(const IfcRelAggregates &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAggregates::s_type("IfcRelAggregates");
+IFC2X3_EXPORT Step::ClassType IfcRelAggregates::s_type("IfcRelAggregates","IfcRelDecomposes");

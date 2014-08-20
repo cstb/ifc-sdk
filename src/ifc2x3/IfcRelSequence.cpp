@@ -242,4 +242,4 @@ void IfcRelSequence::copy(const IfcRelSequence &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelSequence::s_type("IfcRelSequence");
+IFC2X3_EXPORT Step::ClassType IfcRelSequence::s_type("IfcRelSequence","IfcRelConnects");

@@ -212,4 +212,4 @@ void IfcProductsOfCombustionProperties::copy(const IfcProductsOfCombustionProper
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcProductsOfCombustionProperties::s_type("IfcProductsOfCombustionProperties");
+IFC2X3_EXPORT Step::ClassType IfcProductsOfCombustionProperties::s_type("IfcProductsOfCombustionProperties","IfcMaterialProperties");

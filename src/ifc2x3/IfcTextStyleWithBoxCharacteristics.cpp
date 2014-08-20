@@ -290,4 +290,4 @@ void IfcTextStyleWithBoxCharacteristics::copy(const IfcTextStyleWithBoxCharacter
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTextStyleWithBoxCharacteristics::s_type("IfcTextStyleWithBoxCharacteristics");
+IFC2X3_EXPORT Step::ClassType IfcTextStyleWithBoxCharacteristics::s_type("IfcTextStyleWithBoxCharacteristics","BaseEntity");

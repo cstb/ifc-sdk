@@ -205,4 +205,4 @@ void IfcStyledItem::copy(const IfcStyledItem &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcStyledItem::s_type("IfcStyledItem");
+IFC2X3_EXPORT Step::ClassType IfcStyledItem::s_type("IfcStyledItem","IfcRepresentationItem");

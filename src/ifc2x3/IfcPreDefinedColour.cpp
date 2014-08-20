@@ -71,4 +71,4 @@ void IfcPreDefinedColour::copy(const IfcPreDefinedColour &obj, const CopyOp &cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPreDefinedColour::s_type("IfcPreDefinedColour");
+IFC2X3_EXPORT Step::ClassType IfcPreDefinedColour::s_type("IfcPreDefinedColour","IfcPreDefinedItem");

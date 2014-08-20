@@ -369,4 +369,4 @@ void IfcTendon::copy(const IfcTendon &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcTendon::s_type("IfcTendon");
+IFC2X3_EXPORT Step::ClassType IfcTendon::s_type("IfcTendon","IfcReinforcingElement");

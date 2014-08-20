@@ -163,4 +163,4 @@ void IfcRelAssociates::copy(const IfcRelAssociates &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRelAssociates::s_type("IfcRelAssociates");
+IFC2X3_EXPORT Step::ClassType IfcRelAssociates::s_type("IfcRelAssociates","IfcRelationship");

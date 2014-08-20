@@ -702,4 +702,4 @@ void IfcPropertyListValue::copy(const IfcPropertyListValue &obj, const CopyOp &c
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcPropertyListValue::s_type("IfcPropertyListValue");
+IFC2X3_EXPORT Step::ClassType IfcPropertyListValue::s_type("IfcPropertyListValue","IfcSimpleProperty");

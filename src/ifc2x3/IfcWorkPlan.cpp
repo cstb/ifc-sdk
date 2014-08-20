@@ -71,4 +71,4 @@ void IfcWorkPlan::copy(const IfcWorkPlan &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcWorkPlan::s_type("IfcWorkPlan");
+IFC2X3_EXPORT Step::ClassType IfcWorkPlan::s_type("IfcWorkPlan","IfcWorkControl");

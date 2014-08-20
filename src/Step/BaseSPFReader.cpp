@@ -248,6 +248,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         m_currentObj = m_expressDataSet->getSPFObject(m_currentId);
         // search and store its ClassType, don't need to convert its name to uppercase before
         m_currentObj->setRealClassType(Step::ClassType::find(entityName, false));
+
         m_currentObj->getArgs()->setParams(line.c_str());
 
         if (!callLoadFunction(entityName))

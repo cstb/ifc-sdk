@@ -124,4 +124,4 @@ void IfcUnitaryEquipmentType::copy(const IfcUnitaryEquipmentType &obj, const Cop
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcUnitaryEquipmentType::s_type("IfcUnitaryEquipmentType");
+IFC2X3_EXPORT Step::ClassType IfcUnitaryEquipmentType::s_type("IfcUnitaryEquipmentType","IfcEnergyConversionDeviceType");

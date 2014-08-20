@@ -2056,4 +2056,4 @@ void IfcValue::setIfcIonConcentrationMeasure(IfcIonConcentrationMeasure value) {
 void IfcValue::set(Step::BaseObject * /*v*/) {
 }
 
-IFC2X3_EXPORT Step::ClassType IfcValue::s_type("IfcValue");
+IFC2X3_EXPORT Step::ClassType IfcValue::s_type("IfcValue","BaseObject");

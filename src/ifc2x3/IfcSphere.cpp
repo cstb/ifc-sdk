@@ -107,4 +107,4 @@ void IfcSphere::copy(const IfcSphere &obj, const CopyOp &copyop) {
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcSphere::s_type("IfcSphere");
+IFC2X3_EXPORT Step::ClassType IfcSphere::s_type("IfcSphere","IfcCsgPrimitive3D");

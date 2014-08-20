@@ -323,4 +323,4 @@ void IfcRepresentation::copy(const IfcRepresentation &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcRepresentation::s_type("IfcRepresentation");
+IFC2X3_EXPORT Step::ClassType IfcRepresentation::s_type("IfcRepresentation","BaseEntity");

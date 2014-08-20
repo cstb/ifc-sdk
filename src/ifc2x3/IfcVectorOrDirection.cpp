@@ -163,4 +163,4 @@ void IfcVectorOrDirection::set(Step::BaseObject *v) {
     }
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVectorOrDirection::s_type("IfcVectorOrDirection");
+IFC2X3_EXPORT Step::ClassType IfcVectorOrDirection::s_type("IfcVectorOrDirection","BaseObject");

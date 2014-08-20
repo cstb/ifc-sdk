@@ -71,4 +71,4 @@ void IfcVirtualElement::copy(const IfcVirtualElement &obj, const CopyOp &copyop)
     return;
 }
 
-IFC2X3_EXPORT Step::ClassType IfcVirtualElement::s_type("IfcVirtualElement");
+IFC2X3_EXPORT Step::ClassType IfcVirtualElement::s_type("IfcVirtualElement","IfcElement");
