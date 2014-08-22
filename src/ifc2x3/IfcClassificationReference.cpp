@@ -89,8 +89,8 @@ bool IfcClassificationReference::testReferencedSource() const {
     return !Step::isUnset(getReferencedSource());
 }
 
-bool IfcClassificationReference::init() {
-    bool status = IfcExternalReference::init();
+bool IfcClassificationReference::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

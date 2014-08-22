@@ -193,8 +193,8 @@ bool IfcHygroscopicMaterialProperties::testMoistureDiffusivity() const {
     return !Step::isUnset(getMoistureDiffusivity());
 }
 
-bool IfcHygroscopicMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcHygroscopicMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

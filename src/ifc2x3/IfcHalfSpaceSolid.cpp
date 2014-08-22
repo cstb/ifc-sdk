@@ -116,8 +116,8 @@ bool IfcHalfSpaceSolid::testAgreementFlag() const {
     return !Step::isUnset(getAgreementFlag());
 }
 
-bool IfcHalfSpaceSolid::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcHalfSpaceSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

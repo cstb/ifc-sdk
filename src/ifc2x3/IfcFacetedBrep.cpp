@@ -57,8 +57,8 @@ bool IfcFacetedBrep::isOfType(const Step::ClassType &t) const {
     return IfcFacetedBrep::s_type == t ? true : IfcManifoldSolidBrep::isOfType(t);
 }
 
-bool IfcFacetedBrep::init() {
-    bool status = IfcManifoldSolidBrep::init();
+bool IfcFacetedBrep::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcManifoldSolidBrep::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

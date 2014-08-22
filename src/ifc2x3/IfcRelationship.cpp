@@ -57,8 +57,8 @@ bool IfcRelationship::isOfType(const Step::ClassType &t) const {
     return IfcRelationship::s_type == t ? true : IfcRoot::isOfType(t);
 }
 
-bool IfcRelationship::init() {
-    bool status = IfcRoot::init();
+bool IfcRelationship::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRoot::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

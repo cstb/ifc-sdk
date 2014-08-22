@@ -112,7 +112,7 @@ bool IfcCurveStyleFontPattern::testInvisibleSegmentLength() const {
     return !Step::isUnset(getInvisibleSegmentLength());
 }
 
-bool IfcCurveStyleFontPattern::init() {
+bool IfcCurveStyleFontPattern::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

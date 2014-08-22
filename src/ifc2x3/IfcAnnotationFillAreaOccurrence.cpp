@@ -116,8 +116,8 @@ bool IfcAnnotationFillAreaOccurrence::testGlobalOrLocal() const {
     return getGlobalOrLocal() != IfcGlobalOrLocalEnum_UNSET;
 }
 
-bool IfcAnnotationFillAreaOccurrence::init() {
-    bool status = IfcAnnotationOccurrence::init();
+bool IfcAnnotationFillAreaOccurrence::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAnnotationOccurrence::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

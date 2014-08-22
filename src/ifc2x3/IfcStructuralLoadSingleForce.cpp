@@ -220,8 +220,8 @@ bool IfcStructuralLoadSingleForce::testMomentZ() const {
     return !Step::isUnset(getMomentZ());
 }
 
-bool IfcStructuralLoadSingleForce::init() {
-    bool status = IfcStructuralLoadStatic::init();
+bool IfcStructuralLoadSingleForce::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadStatic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

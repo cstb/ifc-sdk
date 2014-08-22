@@ -211,8 +211,8 @@ bool IfcRelSpaceBoundary::testInternalOrExternalBoundary() const {
     return getInternalOrExternalBoundary() != IfcInternalOrExternalEnum_UNSET;
 }
 
-bool IfcRelSpaceBoundary::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelSpaceBoundary::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

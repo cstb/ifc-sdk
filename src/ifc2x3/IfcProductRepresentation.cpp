@@ -168,7 +168,7 @@ bool IfcProductRepresentation::testRepresentations() const {
     return !Step::isUnset(getRepresentations());
 }
 
-bool IfcProductRepresentation::init() {
+bool IfcProductRepresentation::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

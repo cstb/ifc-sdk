@@ -85,8 +85,8 @@ bool IfcBoilerType::testPredefinedType() const {
     return getPredefinedType() != IfcBoilerTypeEnum_UNSET;
 }
 
-bool IfcBoilerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcBoilerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

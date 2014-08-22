@@ -228,7 +228,7 @@ bool IfcAppliedValueRelationship::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-bool IfcAppliedValueRelationship::init() {
+bool IfcAppliedValueRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

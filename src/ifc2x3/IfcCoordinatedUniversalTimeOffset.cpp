@@ -139,7 +139,7 @@ bool IfcCoordinatedUniversalTimeOffset::testSense() const {
     return getSense() != IfcAheadOrBehind_UNSET;
 }
 
-bool IfcCoordinatedUniversalTimeOffset::init() {
+bool IfcCoordinatedUniversalTimeOffset::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

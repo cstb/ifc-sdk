@@ -86,7 +86,7 @@ bool IfcClassificationNotationFacet::testNotationValue() const {
     return !Step::isUnset(getNotationValue());
 }
 
-bool IfcClassificationNotationFacet::init() {
+bool IfcClassificationNotationFacet::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

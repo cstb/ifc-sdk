@@ -115,8 +115,8 @@ bool IfcOrientedEdge::testOrientation() const {
     return !Step::isUnset(getOrientation());
 }
 
-bool IfcOrientedEdge::init() {
-    bool status = IfcEdge::init();
+bool IfcOrientedEdge::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEdge::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

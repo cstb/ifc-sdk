@@ -108,8 +108,8 @@ bool IfcObject::testIsDefinedBy() const {
     return !Step::isUnset(getIsDefinedBy());
 }
 
-bool IfcObject::init() {
-    bool status = IfcObjectDefinition::init();
+bool IfcObject::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObjectDefinition::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

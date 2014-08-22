@@ -91,8 +91,8 @@ bool IfcGeometricSet::testElements() const {
     return !Step::isUnset(getElements());
 }
 
-bool IfcGeometricSet::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcGeometricSet::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcFlowMovingDevice::isOfType(const Step::ClassType &t) const {
     return IfcFlowMovingDevice::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
 }
 
-bool IfcFlowMovingDevice::init() {
-    bool status = IfcDistributionFlowElement::init();
+bool IfcFlowMovingDevice::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

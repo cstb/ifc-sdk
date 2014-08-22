@@ -85,8 +85,8 @@ bool IfcStairFlightType::testPredefinedType() const {
     return getPredefinedType() != IfcStairFlightTypeEnum_UNSET;
 }
 
-bool IfcStairFlightType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcStairFlightType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

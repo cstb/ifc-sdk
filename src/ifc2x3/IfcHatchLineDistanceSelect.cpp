@@ -45,7 +45,7 @@ bool IfcHatchLineDistanceSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcHatchLineDistanceSelect(this);
 }
 
-bool IfcHatchLineDistanceSelect::init() {
+bool IfcHatchLineDistanceSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

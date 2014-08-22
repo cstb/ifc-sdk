@@ -57,8 +57,8 @@ bool IfcExternallyDefinedSymbol::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedSymbol::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-bool IfcExternallyDefinedSymbol::init() {
-    bool status = IfcExternalReference::init();
+bool IfcExternallyDefinedSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -85,8 +85,8 @@ bool IfcCableCarrierFittingType::testPredefinedType() const {
     return getPredefinedType() != IfcCableCarrierFittingTypeEnum_UNSET;
 }
 
-bool IfcCableCarrierFittingType::init() {
-    bool status = IfcFlowFittingType::init();
+bool IfcCableCarrierFittingType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowFittingType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

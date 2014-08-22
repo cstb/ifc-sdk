@@ -88,8 +88,8 @@ bool IfcConic::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcConic::init() {
-    bool status = IfcCurve::init();
+bool IfcConic::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

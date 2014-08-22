@@ -197,8 +197,8 @@ bool IfcLightSourcePositional::testQuadricAttenuation() const {
     return !Step::isUnset(getQuadricAttenuation());
 }
 
-bool IfcLightSourcePositional::init() {
-    bool status = IfcLightSource::init();
+bool IfcLightSourcePositional::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLightSource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

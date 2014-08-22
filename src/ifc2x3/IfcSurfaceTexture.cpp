@@ -170,7 +170,7 @@ bool IfcSurfaceTexture::testTextureTransform() const {
     return !Step::isUnset(getTextureTransform());
 }
 
-bool IfcSurfaceTexture::init() {
+bool IfcSurfaceTexture::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

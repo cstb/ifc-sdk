@@ -140,7 +140,7 @@ bool IfcDocumentElectronicFormat::testMimeSubtype() const {
     return !Step::isUnset(getMimeSubtype());
 }
 
-bool IfcDocumentElectronicFormat::init() {
+bool IfcDocumentElectronicFormat::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

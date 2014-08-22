@@ -85,8 +85,8 @@ bool IfcAirToAirHeatRecoveryType::testPredefinedType() const {
     return getPredefinedType() != IfcAirToAirHeatRecoveryTypeEnum_UNSET;
 }
 
-bool IfcAirToAirHeatRecoveryType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcAirToAirHeatRecoveryType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

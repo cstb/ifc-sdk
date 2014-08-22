@@ -193,8 +193,8 @@ bool IfcGeneralProfileProperties::testCrossSectionArea() const {
     return !Step::isUnset(getCrossSectionArea());
 }
 
-bool IfcGeneralProfileProperties::init() {
-    bool status = IfcProfileProperties::init();
+bool IfcGeneralProfileProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -85,8 +85,8 @@ bool IfcCircleHollowProfileDef::testWallThickness() const {
     return !Step::isUnset(getWallThickness());
 }
 
-bool IfcCircleHollowProfileDef::init() {
-    bool status = IfcCircleProfileDef::init();
+bool IfcCircleHollowProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCircleProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

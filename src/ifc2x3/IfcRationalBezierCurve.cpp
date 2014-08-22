@@ -87,8 +87,8 @@ bool IfcRationalBezierCurve::testWeightsData() const {
     return !Step::isUnset(getWeightsData());
 }
 
-bool IfcRationalBezierCurve::init() {
-    bool status = IfcBezierCurve::init();
+bool IfcRationalBezierCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBezierCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

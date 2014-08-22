@@ -57,8 +57,8 @@ bool IfcWorkSchedule::isOfType(const Step::ClassType &t) const {
     return IfcWorkSchedule::s_type == t ? true : IfcWorkControl::isOfType(t);
 }
 
-bool IfcWorkSchedule::init() {
-    bool status = IfcWorkControl::init();
+bool IfcWorkSchedule::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcWorkControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

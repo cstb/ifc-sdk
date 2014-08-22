@@ -274,8 +274,8 @@ bool IfcReinforcingMesh::testTransverseBarSpacing() const {
     return !Step::isUnset(getTransverseBarSpacing());
 }
 
-bool IfcReinforcingMesh::init() {
-    bool status = IfcReinforcingElement::init();
+bool IfcReinforcingMesh::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcReinforcingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

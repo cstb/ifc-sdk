@@ -227,8 +227,8 @@ bool IfcLightSourceGoniometric::testLightDistributionDataSource() const {
     return !Step::isUnset(getLightDistributionDataSource());
 }
 
-bool IfcLightSourceGoniometric::init() {
-    bool status = IfcLightSource::init();
+bool IfcLightSourceGoniometric::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLightSource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

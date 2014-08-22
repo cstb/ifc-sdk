@@ -113,8 +113,8 @@ bool IfcBlobTexture::testRasterCode() const {
     return !Step::isUnset(getRasterCode());
 }
 
-bool IfcBlobTexture::init() {
-    bool status = IfcSurfaceTexture::init();
+bool IfcBlobTexture::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurfaceTexture::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

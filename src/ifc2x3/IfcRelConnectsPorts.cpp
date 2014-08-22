@@ -156,8 +156,8 @@ bool IfcRelConnectsPorts::testRealizingElement() const {
     return !Step::isUnset(getRealizingElement());
 }
 
-bool IfcRelConnectsPorts::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelConnectsPorts::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

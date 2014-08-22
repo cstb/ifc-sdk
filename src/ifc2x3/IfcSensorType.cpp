@@ -85,8 +85,8 @@ bool IfcSensorType::testPredefinedType() const {
     return getPredefinedType() != IfcSensorTypeEnum_UNSET;
 }
 
-bool IfcSensorType::init() {
-    bool status = IfcDistributionControlElementType::init();
+bool IfcSensorType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionControlElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

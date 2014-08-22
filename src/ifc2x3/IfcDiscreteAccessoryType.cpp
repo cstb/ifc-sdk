@@ -57,8 +57,8 @@ bool IfcDiscreteAccessoryType::isOfType(const Step::ClassType &t) const {
     return IfcDiscreteAccessoryType::s_type == t ? true : IfcElementComponentType::isOfType(t);
 }
 
-bool IfcDiscreteAccessoryType::init() {
-    bool status = IfcElementComponentType::init();
+bool IfcDiscreteAccessoryType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElementComponentType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

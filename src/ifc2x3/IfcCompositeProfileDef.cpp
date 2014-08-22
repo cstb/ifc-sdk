@@ -117,8 +117,8 @@ bool IfcCompositeProfileDef::testLabel() const {
     return !Step::isUnset(getLabel());
 }
 
-bool IfcCompositeProfileDef::init() {
-    bool status = IfcProfileDef::init();
+bool IfcCompositeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

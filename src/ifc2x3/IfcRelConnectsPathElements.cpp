@@ -169,8 +169,8 @@ bool IfcRelConnectsPathElements::testRelatingConnectionType() const {
     return getRelatingConnectionType() != IfcConnectionTypeEnum_UNSET;
 }
 
-bool IfcRelConnectsPathElements::init() {
-    bool status = IfcRelConnectsElements::init();
+bool IfcRelConnectsPathElements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnectsElements::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

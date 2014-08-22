@@ -147,7 +147,7 @@ bool IfcPropertyEnumeration::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-bool IfcPropertyEnumeration::init() {
+bool IfcPropertyEnumeration::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

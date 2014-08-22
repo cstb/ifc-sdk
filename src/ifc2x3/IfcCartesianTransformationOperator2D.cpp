@@ -57,8 +57,8 @@ bool IfcCartesianTransformationOperator2D::isOfType(const Step::ClassType &t) co
     return IfcCartesianTransformationOperator2D::s_type == t ? true : IfcCartesianTransformationOperator::isOfType(t);
 }
 
-bool IfcCartesianTransformationOperator2D::init() {
-    bool status = IfcCartesianTransformationOperator::init();
+bool IfcCartesianTransformationOperator2D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCartesianTransformationOperator::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -193,8 +193,8 @@ bool IfcGeometricRepresentationContext::testHasSubContexts() const {
     return !Step::isUnset(getHasSubContexts());
 }
 
-bool IfcGeometricRepresentationContext::init() {
-    bool status = IfcRepresentationContext::init();
+bool IfcGeometricRepresentationContext::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRepresentationContext::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

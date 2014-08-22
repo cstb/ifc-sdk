@@ -88,8 +88,8 @@ bool IfcPlanarBox::testPlacement() const {
     return !Step::isUnset(getPlacement());
 }
 
-bool IfcPlanarBox::init() {
-    bool status = IfcPlanarExtent::init();
+bool IfcPlanarBox::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPlanarExtent::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

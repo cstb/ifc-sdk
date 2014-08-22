@@ -139,8 +139,8 @@ bool IfcStructuralLoadTemperature::testDeltaT_Z() const {
     return !Step::isUnset(getDeltaT_Z());
 }
 
-bool IfcStructuralLoadTemperature::init() {
-    bool status = IfcStructuralLoadStatic::init();
+bool IfcStructuralLoadTemperature::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadStatic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

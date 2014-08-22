@@ -80,8 +80,8 @@ bool IfcShapeModel::testOfShapeAspect() const {
     return !Step::isUnset(getOfShapeAspect());
 }
 
-bool IfcShapeModel::init() {
-    bool status = IfcRepresentation::init();
+bool IfcShapeModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRepresentation::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

@@ -166,8 +166,8 @@ bool IfcStructuralSteelProfileProperties::testPlasticShapeFactorZ() const {
     return !Step::isUnset(getPlasticShapeFactorZ());
 }
 
-bool IfcStructuralSteelProfileProperties::init() {
-    bool status = IfcStructuralProfileProperties::init();
+bool IfcStructuralSteelProfileProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralProfileProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

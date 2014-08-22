@@ -85,8 +85,8 @@ bool IfcCompressorType::testPredefinedType() const {
     return getPredefinedType() != IfcCompressorTypeEnum_UNSET;
 }
 
-bool IfcCompressorType::init() {
-    bool status = IfcFlowMovingDeviceType::init();
+bool IfcCompressorType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowMovingDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

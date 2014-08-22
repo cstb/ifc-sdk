@@ -113,8 +113,8 @@ bool IfcRelDefines::testRelatedObjects() const {
     return !Step::isUnset(getRelatedObjects());
 }
 
-bool IfcRelDefines::init() {
-    bool status = IfcRelationship::init();
+bool IfcRelDefines::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelationship::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

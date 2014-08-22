@@ -57,8 +57,8 @@ bool IfcLinearDimension::isOfType(const Step::ClassType &t) const {
     return IfcLinearDimension::s_type == t ? true : IfcDimensionCurveDirectedCallout::isOfType(t);
 }
 
-bool IfcLinearDimension::init() {
-    bool status = IfcDimensionCurveDirectedCallout::init();
+bool IfcLinearDimension::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDimensionCurveDirectedCallout::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

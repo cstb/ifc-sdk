@@ -112,7 +112,7 @@ bool IfcSurfaceStyleRefraction::testDispersionFactor() const {
     return !Step::isUnset(getDispersionFactor());
 }
 
-bool IfcSurfaceStyleRefraction::init() {
+bool IfcSurfaceStyleRefraction::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -86,7 +86,7 @@ bool IfcBoundaryCondition::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcBoundaryCondition::init() {
+bool IfcBoundaryCondition::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

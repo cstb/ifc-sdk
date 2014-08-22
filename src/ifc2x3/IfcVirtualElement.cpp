@@ -57,8 +57,8 @@ bool IfcVirtualElement::isOfType(const Step::ClassType &t) const {
     return IfcVirtualElement::s_type == t ? true : IfcElement::isOfType(t);
 }
 
-bool IfcVirtualElement::init() {
-    bool status = IfcElement::init();
+bool IfcVirtualElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

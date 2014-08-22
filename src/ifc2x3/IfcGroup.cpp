@@ -79,8 +79,8 @@ bool IfcGroup::testIsGroupedBy() const {
     return !Step::isUnset(getIsGroupedBy());
 }
 
-bool IfcGroup::init() {
-    bool status = IfcObject::init();
+bool IfcGroup::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

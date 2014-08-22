@@ -57,8 +57,8 @@ bool IfcAnnotationOccurrence::isOfType(const Step::ClassType &t) const {
     return IfcAnnotationOccurrence::s_type == t ? true : IfcStyledItem::isOfType(t);
 }
 
-bool IfcAnnotationOccurrence::init() {
-    bool status = IfcStyledItem::init();
+bool IfcAnnotationOccurrence::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStyledItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -116,8 +116,8 @@ bool IfcExtrudedAreaSolid::testDepth() const {
     return !Step::isUnset(getDepth());
 }
 
-bool IfcExtrudedAreaSolid::init() {
-    bool status = IfcSweptAreaSolid::init();
+bool IfcExtrudedAreaSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSweptAreaSolid::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

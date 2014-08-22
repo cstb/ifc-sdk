@@ -85,8 +85,8 @@ bool IfcQuantityArea::testAreaValue() const {
     return !Step::isUnset(getAreaValue());
 }
 
-bool IfcQuantityArea::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityArea::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

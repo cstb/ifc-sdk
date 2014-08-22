@@ -85,8 +85,8 @@ bool IfcFlowInstrumentType::testPredefinedType() const {
     return getPredefinedType() != IfcFlowInstrumentTypeEnum_UNSET;
 }
 
-bool IfcFlowInstrumentType::init() {
-    bool status = IfcDistributionControlElementType::init();
+bool IfcFlowInstrumentType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionControlElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

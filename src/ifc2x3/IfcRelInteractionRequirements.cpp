@@ -210,8 +210,8 @@ bool IfcRelInteractionRequirements::testRelatingSpaceProgram() const {
     return !Step::isUnset(getRelatingSpaceProgram());
 }
 
-bool IfcRelInteractionRequirements::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelInteractionRequirements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

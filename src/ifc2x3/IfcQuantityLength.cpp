@@ -85,8 +85,8 @@ bool IfcQuantityLength::testLengthValue() const {
     return !Step::isUnset(getLengthValue());
 }
 
-bool IfcQuantityLength::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityLength::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

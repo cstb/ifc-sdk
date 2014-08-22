@@ -144,8 +144,8 @@ bool IfcSoundProperties::testSoundValues() const {
     return !Step::isUnset(getSoundValues());
 }
 
-bool IfcSoundProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcSoundProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

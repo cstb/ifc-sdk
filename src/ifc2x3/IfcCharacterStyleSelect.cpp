@@ -45,7 +45,7 @@ bool IfcCharacterStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcCharacterStyleSelect(this);
 }
 
-bool IfcCharacterStyleSelect::init() {
+bool IfcCharacterStyleSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

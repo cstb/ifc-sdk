@@ -85,8 +85,8 @@ bool IfcAirTerminalBoxType::testPredefinedType() const {
     return getPredefinedType() != IfcAirTerminalBoxTypeEnum_UNSET;
 }
 
-bool IfcAirTerminalBoxType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcAirTerminalBoxType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

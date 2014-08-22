@@ -100,8 +100,8 @@ bool IfcPropertySetDefinition::testDefinesType() const {
     return !Step::isUnset(getDefinesType());
 }
 
-bool IfcPropertySetDefinition::init() {
-    bool status = IfcPropertyDefinition::init();
+bool IfcPropertySetDefinition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertyDefinition::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

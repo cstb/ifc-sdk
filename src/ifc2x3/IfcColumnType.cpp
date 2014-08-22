@@ -85,8 +85,8 @@ bool IfcColumnType::testPredefinedType() const {
     return getPredefinedType() != IfcColumnTypeEnum_UNSET;
 }
 
-bool IfcColumnType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcColumnType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -112,8 +112,8 @@ bool IfcRectangleProfileDef::testYDim() const {
     return !Step::isUnset(getYDim());
 }
 
-bool IfcRectangleProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcRectangleProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

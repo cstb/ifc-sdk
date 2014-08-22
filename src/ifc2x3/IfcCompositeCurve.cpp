@@ -140,8 +140,8 @@ bool IfcCompositeCurve::testSelfIntersect() const {
     return !Step::isUnset(getSelfIntersect());
 }
 
-bool IfcCompositeCurve::init() {
-    bool status = IfcBoundedCurve::init();
+bool IfcCompositeCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

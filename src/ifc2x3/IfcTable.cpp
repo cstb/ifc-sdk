@@ -141,7 +141,7 @@ bool IfcTable::testRows() const {
     return !Step::isUnset(getRows());
 }
 
-bool IfcTable::init() {
+bool IfcTable::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

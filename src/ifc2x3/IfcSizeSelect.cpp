@@ -44,7 +44,7 @@ bool IfcSizeSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcSizeSelect(this);
 }
 
-bool IfcSizeSelect::init() {
+bool IfcSizeSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

@@ -310,8 +310,8 @@ bool IfcAsset::testDepreciatedValue() const {
     return !Step::isUnset(getDepreciatedValue());
 }
 
-bool IfcAsset::init() {
-    bool status = IfcGroup::init();
+bool IfcAsset::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

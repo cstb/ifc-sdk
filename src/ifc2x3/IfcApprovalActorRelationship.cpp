@@ -152,7 +152,7 @@ bool IfcApprovalActorRelationship::testRole() const {
     return !Step::isUnset(getRole());
 }
 
-bool IfcApprovalActorRelationship::init() {
+bool IfcApprovalActorRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

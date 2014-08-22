@@ -45,7 +45,7 @@ bool IfcTrimmingSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcTrimmingSelect(this);
 }
 
-bool IfcTrimmingSelect::init() {
+bool IfcTrimmingSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

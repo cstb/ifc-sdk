@@ -288,7 +288,7 @@ bool IfcAppliedValue::testIsComponentIn() const {
     return !Step::isUnset(getIsComponentIn());
 }
 
-bool IfcAppliedValue::init() {
+bool IfcAppliedValue::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

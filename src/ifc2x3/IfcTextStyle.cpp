@@ -144,8 +144,8 @@ bool IfcTextStyle::testTextFontStyle() const {
     return !Step::isUnset(getTextFontStyle());
 }
 
-bool IfcTextStyle::init() {
-    bool status = IfcPresentationStyle::init();
+bool IfcTextStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationStyle::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

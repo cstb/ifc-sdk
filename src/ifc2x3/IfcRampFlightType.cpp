@@ -85,8 +85,8 @@ bool IfcRampFlightType::testPredefinedType() const {
     return getPredefinedType() != IfcRampFlightTypeEnum_UNSET;
 }
 
-bool IfcRampFlightType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcRampFlightType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

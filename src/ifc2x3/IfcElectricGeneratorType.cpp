@@ -85,8 +85,8 @@ bool IfcElectricGeneratorType::testPredefinedType() const {
     return getPredefinedType() != IfcElectricGeneratorTypeEnum_UNSET;
 }
 
-bool IfcElectricGeneratorType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcElectricGeneratorType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

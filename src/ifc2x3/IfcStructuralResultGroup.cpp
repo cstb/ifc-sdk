@@ -170,8 +170,8 @@ bool IfcStructuralResultGroup::testResultGroupFor() const {
     return !Step::isUnset(getResultGroupFor());
 }
 
-bool IfcStructuralResultGroup::init() {
-    bool status = IfcGroup::init();
+bool IfcStructuralResultGroup::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

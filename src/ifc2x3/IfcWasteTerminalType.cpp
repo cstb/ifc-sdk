@@ -85,8 +85,8 @@ bool IfcWasteTerminalType::testPredefinedType() const {
     return getPredefinedType() != IfcWasteTerminalTypeEnum_UNSET;
 }
 
-bool IfcWasteTerminalType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcWasteTerminalType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

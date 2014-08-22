@@ -183,7 +183,7 @@ bool IfcDraughtingCalloutRelationship::testRelatedDraughtingCallout() const {
     return !Step::isUnset(getRelatedDraughtingCallout());
 }
 
-bool IfcDraughtingCalloutRelationship::init() {
+bool IfcDraughtingCalloutRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -85,8 +85,8 @@ bool IfcPumpType::testPredefinedType() const {
     return getPredefinedType() != IfcPumpTypeEnum_UNSET;
 }
 
-bool IfcPumpType::init() {
-    bool status = IfcFlowMovingDeviceType::init();
+bool IfcPumpType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowMovingDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

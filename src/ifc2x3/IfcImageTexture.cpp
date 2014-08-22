@@ -86,8 +86,8 @@ bool IfcImageTexture::testUrlReference() const {
     return !Step::isUnset(getUrlReference());
 }
 
-bool IfcImageTexture::init() {
-    bool status = IfcSurfaceTexture::init();
+bool IfcImageTexture::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurfaceTexture::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

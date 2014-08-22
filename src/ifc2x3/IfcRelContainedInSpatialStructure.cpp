@@ -156,8 +156,8 @@ bool IfcRelContainedInSpatialStructure::testRelatingStructure() const {
     return !Step::isUnset(getRelatingStructure());
 }
 
-bool IfcRelContainedInSpatialStructure::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelContainedInSpatialStructure::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

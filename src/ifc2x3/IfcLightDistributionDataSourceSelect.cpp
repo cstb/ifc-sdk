@@ -46,7 +46,7 @@ bool IfcLightDistributionDataSourceSelect::acceptVisitor(Step::BaseVisitor *visi
     return static_cast< Visitor * > (visitor)->visitIfcLightDistributionDataSourceSelect(this);
 }
 
-bool IfcLightDistributionDataSourceSelect::init() {
+bool IfcLightDistributionDataSourceSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

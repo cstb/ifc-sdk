@@ -145,8 +145,8 @@ bool IfcCurveStyle::testCurveColour() const {
     return !Step::isUnset(getCurveColour());
 }
 
-bool IfcCurveStyle::init() {
-    bool status = IfcPresentationStyle::init();
+bool IfcCurveStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationStyle::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

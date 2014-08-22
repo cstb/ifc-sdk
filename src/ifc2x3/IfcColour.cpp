@@ -46,7 +46,7 @@ bool IfcColour::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcColour(this);
 }
 
-bool IfcColour::init() {
+bool IfcColour::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

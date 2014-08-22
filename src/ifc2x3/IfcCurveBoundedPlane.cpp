@@ -145,8 +145,8 @@ bool IfcCurveBoundedPlane::testInnerBoundaries() const {
     return !Step::isUnset(getInnerBoundaries());
 }
 
-bool IfcCurveBoundedPlane::init() {
-    bool status = IfcBoundedSurface::init();
+bool IfcCurveBoundedPlane::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

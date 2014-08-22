@@ -91,7 +91,7 @@ bool IfcUnitAssignment::testUnits() const {
     return !Step::isUnset(getUnits());
 }
 
-bool IfcUnitAssignment::init() {
+bool IfcUnitAssignment::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

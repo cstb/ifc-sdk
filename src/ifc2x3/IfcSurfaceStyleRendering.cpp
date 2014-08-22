@@ -278,8 +278,8 @@ bool IfcSurfaceStyleRendering::testReflectanceMethod() const {
     return getReflectanceMethod() != IfcReflectanceMethodEnum_UNSET;
 }
 
-bool IfcSurfaceStyleRendering::init() {
-    bool status = IfcSurfaceStyleShading::init();
+bool IfcSurfaceStyleRendering::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurfaceStyleShading::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

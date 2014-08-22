@@ -85,8 +85,8 @@ bool IfcSwitchingDeviceType::testPredefinedType() const {
     return getPredefinedType() != IfcSwitchingDeviceTypeEnum_UNSET;
 }
 
-bool IfcSwitchingDeviceType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcSwitchingDeviceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

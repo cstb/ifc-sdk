@@ -80,8 +80,8 @@ bool IfcOpeningElement::testHasFillings() const {
     return !Step::isUnset(getHasFillings());
 }
 
-bool IfcOpeningElement::init() {
-    bool status = IfcFeatureElementSubtraction::init();
+bool IfcOpeningElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFeatureElementSubtraction::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

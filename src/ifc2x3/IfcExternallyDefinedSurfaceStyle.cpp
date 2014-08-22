@@ -57,8 +57,8 @@ bool IfcExternallyDefinedSurfaceStyle::isOfType(const Step::ClassType &t) const 
     return IfcExternallyDefinedSurfaceStyle::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-bool IfcExternallyDefinedSurfaceStyle::init() {
-    bool status = IfcExternalReference::init();
+bool IfcExternallyDefinedSurfaceStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -141,7 +141,7 @@ bool IfcMaterialLayerSet::testLayerSetName() const {
     return !Step::isUnset(getLayerSetName());
 }
 
-bool IfcMaterialLayerSet::init() {
+bool IfcMaterialLayerSet::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

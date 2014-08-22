@@ -46,7 +46,7 @@ bool IfcClassificationNotationSelect::acceptVisitor(Step::BaseVisitor *visitor) 
     return static_cast< Visitor * > (visitor)->visitIfcClassificationNotationSelect(this);
 }
 
-bool IfcClassificationNotationSelect::init() {
+bool IfcClassificationNotationSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

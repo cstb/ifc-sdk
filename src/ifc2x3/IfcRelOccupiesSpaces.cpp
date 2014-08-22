@@ -57,8 +57,8 @@ bool IfcRelOccupiesSpaces::isOfType(const Step::ClassType &t) const {
     return IfcRelOccupiesSpaces::s_type == t ? true : IfcRelAssignsToActor::isOfType(t);
 }
 
-bool IfcRelOccupiesSpaces::init() {
-    bool status = IfcRelAssignsToActor::init();
+bool IfcRelOccupiesSpaces::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssignsToActor::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

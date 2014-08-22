@@ -85,8 +85,8 @@ bool IfcDimensionCurveTerminator::testRole() const {
     return getRole() != IfcDimensionExtentUsage_UNSET;
 }
 
-bool IfcDimensionCurveTerminator::init() {
-    bool status = IfcTerminatorSymbol::init();
+bool IfcDimensionCurveTerminator::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTerminatorSymbol::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

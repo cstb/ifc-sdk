@@ -85,8 +85,8 @@ bool IfcCircle::testRadius() const {
     return !Step::isUnset(getRadius());
 }
 
-bool IfcCircle::init() {
-    bool status = IfcConic::init();
+bool IfcCircle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

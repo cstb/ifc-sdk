@@ -49,7 +49,7 @@ bool IfcFillStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcFillStyleSelect(this);
 }
 
-bool IfcFillStyleSelect::init() {
+bool IfcFillStyleSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

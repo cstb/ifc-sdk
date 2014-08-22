@@ -193,8 +193,8 @@ bool IfcRibPlateProfileProperties::testDirection() const {
     return getDirection() != IfcRibPlateDirectionEnum_UNSET;
 }
 
-bool IfcRibPlateProfileProperties::init() {
-    bool status = IfcProfileProperties::init();
+bool IfcRibPlateProfileProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

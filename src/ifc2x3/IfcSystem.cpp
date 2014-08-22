@@ -80,8 +80,8 @@ bool IfcSystem::testServicesBuildings() const {
     return !Step::isUnset(getServicesBuildings());
 }
 
-bool IfcSystem::init() {
-    bool status = IfcGroup::init();
+bool IfcSystem::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

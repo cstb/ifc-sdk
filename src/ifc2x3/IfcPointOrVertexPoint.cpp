@@ -46,7 +46,7 @@ bool IfcPointOrVertexPoint::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcPointOrVertexPoint(this);
 }
 
-bool IfcPointOrVertexPoint::init() {
+bool IfcPointOrVertexPoint::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

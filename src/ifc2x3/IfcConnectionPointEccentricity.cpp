@@ -139,8 +139,8 @@ bool IfcConnectionPointEccentricity::testEccentricityInZ() const {
     return !Step::isUnset(getEccentricityInZ());
 }
 
-bool IfcConnectionPointEccentricity::init() {
-    bool status = IfcConnectionPointGeometry::init();
+bool IfcConnectionPointEccentricity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConnectionPointGeometry::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

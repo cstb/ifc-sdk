@@ -170,8 +170,8 @@ bool IfcLightSourceSpot::testBeamWidthAngle() const {
     return !Step::isUnset(getBeamWidthAngle());
 }
 
-bool IfcLightSourceSpot::init() {
-    bool status = IfcLightSourcePositional::init();
+bool IfcLightSourceSpot::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLightSourcePositional::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

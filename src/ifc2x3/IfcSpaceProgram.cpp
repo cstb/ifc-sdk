@@ -238,8 +238,8 @@ bool IfcSpaceProgram::testHasInteractionReqsTo() const {
     return !Step::isUnset(getHasInteractionReqsTo());
 }
 
-bool IfcSpaceProgram::init() {
-    bool status = IfcControl::init();
+bool IfcSpaceProgram::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

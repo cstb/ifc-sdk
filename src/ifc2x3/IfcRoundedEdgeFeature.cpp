@@ -85,8 +85,8 @@ bool IfcRoundedEdgeFeature::testRadius() const {
     return !Step::isUnset(getRadius());
 }
 
-bool IfcRoundedEdgeFeature::init() {
-    bool status = IfcEdgeFeature::init();
+bool IfcRoundedEdgeFeature::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEdgeFeature::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

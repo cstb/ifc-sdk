@@ -85,8 +85,8 @@ bool IfcLightFixtureType::testPredefinedType() const {
     return getPredefinedType() != IfcLightFixtureTypeEnum_UNSET;
 }
 
-bool IfcLightFixtureType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcLightFixtureType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -80,8 +80,8 @@ bool IfcDocumentReference::testReferenceToDocument() const {
     return !Step::isUnset(getReferenceToDocument());
 }
 
-bool IfcDocumentReference::init() {
-    bool status = IfcExternalReference::init();
+bool IfcDocumentReference::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

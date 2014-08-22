@@ -90,8 +90,8 @@ bool IfcFacetedBrepWithVoids::testVoids() const {
     return !Step::isUnset(getVoids());
 }
 
-bool IfcFacetedBrepWithVoids::init() {
-    bool status = IfcManifoldSolidBrep::init();
+bool IfcFacetedBrepWithVoids::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcManifoldSolidBrep::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

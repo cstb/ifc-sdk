@@ -129,8 +129,8 @@ bool IfcRelFillsElement::testRelatedBuildingElement() const {
     return !Step::isUnset(getRelatedBuildingElement());
 }
 
-bool IfcRelFillsElement::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelFillsElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

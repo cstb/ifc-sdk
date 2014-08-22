@@ -86,8 +86,8 @@ bool IfcLaborResource::testSkillSet() const {
     return !Step::isUnset(getSkillSet());
 }
 
-bool IfcLaborResource::init() {
-    bool status = IfcConstructionResource::init();
+bool IfcLaborResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstructionResource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

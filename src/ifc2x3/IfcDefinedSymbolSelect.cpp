@@ -46,7 +46,7 @@ bool IfcDefinedSymbolSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcDefinedSymbolSelect(this);
 }
 
-bool IfcDefinedSymbolSelect::init() {
+bool IfcDefinedSymbolSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

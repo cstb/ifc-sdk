@@ -57,8 +57,8 @@ bool IfcStructuralSurfaceConnection::isOfType(const Step::ClassType &t) const {
     return IfcStructuralSurfaceConnection::s_type == t ? true : IfcStructuralConnection::isOfType(t);
 }
 
-bool IfcStructuralSurfaceConnection::init() {
-    bool status = IfcStructuralConnection::init();
+bool IfcStructuralSurfaceConnection::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralConnection::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

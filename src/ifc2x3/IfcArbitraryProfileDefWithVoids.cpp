@@ -90,8 +90,8 @@ bool IfcArbitraryProfileDefWithVoids::testInnerCurves() const {
     return !Step::isUnset(getInnerCurves());
 }
 
-bool IfcArbitraryProfileDefWithVoids::init() {
-    bool status = IfcArbitraryClosedProfileDef::init();
+bool IfcArbitraryProfileDefWithVoids::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcArbitraryClosedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

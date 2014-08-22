@@ -46,7 +46,7 @@ bool IfcStructuralActivityAssignmentSelect::acceptVisitor(Step::BaseVisitor *vis
     return static_cast< Visitor * > (visitor)->visitIfcStructuralActivityAssignmentSelect(this);
 }
 
-bool IfcStructuralActivityAssignmentSelect::init() {
+bool IfcStructuralActivityAssignmentSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

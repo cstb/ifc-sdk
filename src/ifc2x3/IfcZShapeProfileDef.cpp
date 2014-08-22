@@ -220,8 +220,8 @@ bool IfcZShapeProfileDef::testEdgeRadius() const {
     return !Step::isUnset(getEdgeRadius());
 }
 
-bool IfcZShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcZShapeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

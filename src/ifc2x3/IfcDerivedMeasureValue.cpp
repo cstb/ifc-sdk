@@ -44,7 +44,7 @@ bool IfcDerivedMeasureValue::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcDerivedMeasureValue(this);
 }
 
-bool IfcDerivedMeasureValue::init() {
+bool IfcDerivedMeasureValue::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

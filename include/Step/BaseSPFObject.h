@@ -72,7 +72,7 @@ namespace Step {
         /*!
          * Initialize the instance (Lazy loading concept)
          */
-        virtual bool init();
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0);
 
         /*!
          * allocating function type

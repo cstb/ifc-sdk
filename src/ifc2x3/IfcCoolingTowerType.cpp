@@ -85,8 +85,8 @@ bool IfcCoolingTowerType::testPredefinedType() const {
     return getPredefinedType() != IfcCoolingTowerTypeEnum_UNSET;
 }
 
-bool IfcCoolingTowerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcCoolingTowerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcPreDefinedColour::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedColour::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
 }
 
-bool IfcPreDefinedColour::init() {
-    bool status = IfcPreDefinedItem::init();
+bool IfcPreDefinedColour::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

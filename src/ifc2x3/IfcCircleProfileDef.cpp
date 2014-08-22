@@ -85,8 +85,8 @@ bool IfcCircleProfileDef::testRadius() const {
     return !Step::isUnset(getRadius());
 }
 
-bool IfcCircleProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcCircleProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

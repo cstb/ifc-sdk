@@ -92,7 +92,7 @@ bool IfcTimeSeriesValue::testListValues() const {
     return !Step::isUnset(getListValues());
 }
 
-bool IfcTimeSeriesValue::init() {
+bool IfcTimeSeriesValue::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

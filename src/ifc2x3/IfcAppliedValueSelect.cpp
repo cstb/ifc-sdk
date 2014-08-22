@@ -45,7 +45,7 @@ bool IfcAppliedValueSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcAppliedValueSelect(this);
 }
 
-bool IfcAppliedValueSelect::init() {
+bool IfcAppliedValueSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

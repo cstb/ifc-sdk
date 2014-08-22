@@ -521,7 +521,7 @@ namespace ifc2x3 {
         virtual ~IfcStructuralProfileProperties();
         /**
          */
-        virtual bool init();
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0);
         /**
          * @param obj
          * @param copyop

@@ -90,7 +90,7 @@ bool IfcSurfaceStyleWithTextures::testTextures() const {
     return !Step::isUnset(getTextures());
 }
 
-bool IfcSurfaceStyleWithTextures::init() {
+bool IfcSurfaceStyleWithTextures::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

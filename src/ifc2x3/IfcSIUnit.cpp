@@ -112,8 +112,8 @@ bool IfcSIUnit::testName() const {
     return getName() != IfcSIUnitName_UNSET;
 }
 
-bool IfcSIUnit::init() {
-    bool status = IfcNamedUnit::init();
+bool IfcSIUnit::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcNamedUnit::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

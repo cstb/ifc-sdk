@@ -57,8 +57,8 @@ bool IfcElectricalCircuit::isOfType(const Step::ClassType &t) const {
     return IfcElectricalCircuit::s_type == t ? true : IfcSystem::isOfType(t);
 }
 
-bool IfcElectricalCircuit::init() {
-    bool status = IfcSystem::init();
+bool IfcElectricalCircuit::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSystem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

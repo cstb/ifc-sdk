@@ -46,7 +46,7 @@ bool IfcCurveOrEdgeCurve::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcCurveOrEdgeCurve(this);
 }
 
-bool IfcCurveOrEdgeCurve::init() {
+bool IfcCurveOrEdgeCurve::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

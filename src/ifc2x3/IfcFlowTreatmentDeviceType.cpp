@@ -57,8 +57,8 @@ bool IfcFlowTreatmentDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcFlowTreatmentDeviceType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
 }
 
-bool IfcFlowTreatmentDeviceType::init() {
-    bool status = IfcDistributionFlowElementType::init();
+bool IfcFlowTreatmentDeviceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

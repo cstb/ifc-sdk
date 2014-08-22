@@ -311,7 +311,7 @@ bool IfcApproval::testRelates() const {
     return !Step::isUnset(getRelates());
 }
 
-bool IfcApproval::init() {
+bool IfcApproval::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

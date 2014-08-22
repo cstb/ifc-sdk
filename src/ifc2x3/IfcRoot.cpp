@@ -171,7 +171,7 @@ bool IfcRoot::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-bool IfcRoot::init() {
+bool IfcRoot::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

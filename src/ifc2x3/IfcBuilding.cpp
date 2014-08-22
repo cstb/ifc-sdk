@@ -143,8 +143,8 @@ bool IfcBuilding::testBuildingAddress() const {
     return !Step::isUnset(getBuildingAddress());
 }
 
-bool IfcBuilding::init() {
-    bool status = IfcSpatialStructureElement::init();
+bool IfcBuilding::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSpatialStructureElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

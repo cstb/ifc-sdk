@@ -118,8 +118,8 @@ bool IfcStructuralLinearActionVarying::testSubsequentAppliedLoads() const {
     return !Step::isUnset(getSubsequentAppliedLoads());
 }
 
-bool IfcStructuralLinearActionVarying::init() {
-    bool status = IfcStructuralLinearAction::init();
+bool IfcStructuralLinearActionVarying::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLinearAction::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcRelSchedulesCostItems::isOfType(const Step::ClassType &t) const {
     return IfcRelSchedulesCostItems::s_type == t ? true : IfcRelAssignsToControl::isOfType(t);
 }
 
-bool IfcRelSchedulesCostItems::init() {
-    bool status = IfcRelAssignsToControl::init();
+bool IfcRelSchedulesCostItems::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssignsToControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

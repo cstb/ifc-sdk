@@ -85,8 +85,8 @@ bool IfcRamp::testShapeType() const {
     return getShapeType() != IfcRampTypeEnum_UNSET;
 }
 
-bool IfcRamp::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcRamp::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

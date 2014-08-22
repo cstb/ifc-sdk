@@ -95,8 +95,8 @@ bool IfcMaterialDefinitionRepresentation::testRepresentedMaterial() const {
     return !Step::isUnset(getRepresentedMaterial());
 }
 
-bool IfcMaterialDefinitionRepresentation::init() {
-    bool status = IfcProductRepresentation::init();
+bool IfcMaterialDefinitionRepresentation::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProductRepresentation::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

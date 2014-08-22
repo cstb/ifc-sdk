@@ -57,8 +57,8 @@ bool IfcPlane::isOfType(const Step::ClassType &t) const {
     return IfcPlane::s_type == t ? true : IfcElementarySurface::isOfType(t);
 }
 
-bool IfcPlane::init() {
-    bool status = IfcElementarySurface::init();
+bool IfcPlane::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElementarySurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

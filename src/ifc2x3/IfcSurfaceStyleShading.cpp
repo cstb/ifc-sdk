@@ -89,7 +89,7 @@ bool IfcSurfaceStyleShading::testSurfaceColour() const {
     return !Step::isUnset(getSurfaceColour());
 }
 
-bool IfcSurfaceStyleShading::init() {
+bool IfcSurfaceStyleShading::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

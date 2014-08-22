@@ -141,8 +141,8 @@ bool IfcRelConnectsWithRealizingElements::testConnectionType() const {
     return !Step::isUnset(getConnectionType());
 }
 
-bool IfcRelConnectsWithRealizingElements::init() {
-    bool status = IfcRelConnectsElements::init();
+bool IfcRelConnectsWithRealizingElements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnectsElements::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

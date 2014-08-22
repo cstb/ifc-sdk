@@ -490,8 +490,8 @@ bool IfcStructuralProfileProperties::testCentreOfGravityInY() const {
     return !Step::isUnset(getCentreOfGravityInY());
 }
 
-bool IfcStructuralProfileProperties::init() {
-    bool status = IfcGeneralProfileProperties::init();
+bool IfcStructuralProfileProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeneralProfileProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -95,8 +95,8 @@ bool IfcRelAssignsToGroup::testRelatingGroup() const {
     return !Step::isUnset(getRelatingGroup());
 }
 
-bool IfcRelAssignsToGroup::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToGroup::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

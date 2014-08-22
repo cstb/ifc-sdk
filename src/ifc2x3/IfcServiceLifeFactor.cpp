@@ -171,8 +171,8 @@ bool IfcServiceLifeFactor::testLowerValue() const {
     return !Step::isUnset(getLowerValue());
 }
 
-bool IfcServiceLifeFactor::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcServiceLifeFactor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

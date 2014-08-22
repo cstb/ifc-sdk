@@ -87,8 +87,8 @@ bool IfcCartesianPoint::testCoordinates() const {
     return !Step::isUnset(getCoordinates());
 }
 
-bool IfcCartesianPoint::init() {
-    bool status = IfcPoint::init();
+bool IfcCartesianPoint::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPoint::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

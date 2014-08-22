@@ -85,8 +85,8 @@ bool IfcStructuralLinearAction::testProjectedOrTrue() const {
     return getProjectedOrTrue() != IfcProjectedOrTrueLengthEnum_UNSET;
 }
 
-bool IfcStructuralLinearAction::init() {
-    bool status = IfcStructuralAction::init();
+bool IfcStructuralLinearAction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralAction::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

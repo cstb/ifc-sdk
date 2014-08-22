@@ -140,8 +140,8 @@ bool IfcProjectOrder::testStatus() const {
     return !Step::isUnset(getStatus());
 }
 
-bool IfcProjectOrder::init() {
-    bool status = IfcControl::init();
+bool IfcProjectOrder::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

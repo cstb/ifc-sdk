@@ -86,8 +86,8 @@ bool IfcContextDependentUnit::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcContextDependentUnit::init() {
-    bool status = IfcNamedUnit::init();
+bool IfcContextDependentUnit::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcNamedUnit::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

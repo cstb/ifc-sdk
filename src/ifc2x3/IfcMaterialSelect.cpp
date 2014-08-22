@@ -49,7 +49,7 @@ bool IfcMaterialSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcMaterialSelect(this);
 }
 
-bool IfcMaterialSelect::init() {
+bool IfcMaterialSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

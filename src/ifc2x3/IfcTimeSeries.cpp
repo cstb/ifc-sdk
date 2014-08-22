@@ -300,7 +300,7 @@ bool IfcTimeSeries::testDocumentedBy() const {
     return !Step::isUnset(getDocumentedBy());
 }
 
-bool IfcTimeSeries::init() {
+bool IfcTimeSeries::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

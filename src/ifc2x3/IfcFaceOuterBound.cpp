@@ -57,8 +57,8 @@ bool IfcFaceOuterBound::isOfType(const Step::ClassType &t) const {
     return IfcFaceOuterBound::s_type == t ? true : IfcFaceBound::isOfType(t);
 }
 
-bool IfcFaceOuterBound::init() {
-    bool status = IfcFaceBound::init();
+bool IfcFaceOuterBound::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFaceBound::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

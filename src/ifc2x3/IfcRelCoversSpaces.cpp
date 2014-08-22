@@ -147,8 +147,8 @@ bool IfcRelCoversSpaces::testRelatedCoverings() const {
     return !Step::isUnset(getRelatedCoverings());
 }
 
-bool IfcRelCoversSpaces::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelCoversSpaces::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

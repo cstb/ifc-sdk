@@ -85,8 +85,8 @@ bool IfcBoundaryNodeConditionWarping::testWarpingStiffness() const {
     return !Step::isUnset(getWarpingStiffness());
 }
 
-bool IfcBoundaryNodeConditionWarping::init() {
-    bool status = IfcBoundaryNodeCondition::init();
+bool IfcBoundaryNodeConditionWarping::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundaryNodeCondition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

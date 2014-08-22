@@ -116,8 +116,8 @@ bool IfcEdgeCurve::testSameSense() const {
     return !Step::isUnset(getSameSense());
 }
 
-bool IfcEdgeCurve::init() {
-    bool status = IfcEdge::init();
+bool IfcEdgeCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEdge::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

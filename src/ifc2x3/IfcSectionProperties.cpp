@@ -143,7 +143,7 @@ bool IfcSectionProperties::testEndProfile() const {
     return !Step::isUnset(getEndProfile());
 }
 
-bool IfcSectionProperties::init() {
+bool IfcSectionProperties::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

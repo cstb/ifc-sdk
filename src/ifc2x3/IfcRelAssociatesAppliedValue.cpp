@@ -89,8 +89,8 @@ bool IfcRelAssociatesAppliedValue::testRelatingAppliedValue() const {
     return !Step::isUnset(getRelatingAppliedValue());
 }
 
-bool IfcRelAssociatesAppliedValue::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesAppliedValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

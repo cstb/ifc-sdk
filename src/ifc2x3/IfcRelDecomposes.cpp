@@ -146,8 +146,8 @@ bool IfcRelDecomposes::testRelatedObjects() const {
     return !Step::isUnset(getRelatedObjects());
 }
 
-bool IfcRelDecomposes::init() {
-    bool status = IfcRelationship::init();
+bool IfcRelDecomposes::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelationship::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

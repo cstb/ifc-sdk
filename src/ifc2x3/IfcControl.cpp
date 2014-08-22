@@ -80,8 +80,8 @@ bool IfcControl::testControls() const {
     return !Step::isUnset(getControls());
 }
 
-bool IfcControl::init() {
-    bool status = IfcObject::init();
+bool IfcControl::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

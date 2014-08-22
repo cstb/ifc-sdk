@@ -171,7 +171,7 @@ bool IfcApplication::testApplicationIdentifier() const {
     return !Step::isUnset(getApplicationIdentifier());
 }
 
-bool IfcApplication::init() {
+bool IfcApplication::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -143,8 +143,8 @@ bool IfcMetric::testDataValue() const {
     return !Step::isUnset(getDataValue());
 }
 
-bool IfcMetric::init() {
-    bool status = IfcConstraint::init();
+bool IfcMetric::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstraint::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

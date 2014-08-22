@@ -251,8 +251,8 @@ bool IfcRectangularTrimmedSurface::testVsense() const {
     return !Step::isUnset(getVsense());
 }
 
-bool IfcRectangularTrimmedSurface::init() {
-    bool status = IfcBoundedSurface::init();
+bool IfcRectangularTrimmedSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

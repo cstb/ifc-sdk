@@ -85,8 +85,8 @@ bool IfcUnitaryEquipmentType::testPredefinedType() const {
     return getPredefinedType() != IfcUnitaryEquipmentTypeEnum_UNSET;
 }
 
-bool IfcUnitaryEquipmentType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcUnitaryEquipmentType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

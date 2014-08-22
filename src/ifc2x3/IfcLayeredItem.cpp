@@ -46,7 +46,7 @@ bool IfcLayeredItem::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcLayeredItem(this);
 }
 
-bool IfcLayeredItem::init() {
+bool IfcLayeredItem::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

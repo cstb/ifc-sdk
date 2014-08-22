@@ -57,8 +57,8 @@ bool IfcDraughtingPreDefinedCurveFont::isOfType(const Step::ClassType &t) const 
     return IfcDraughtingPreDefinedCurveFont::s_type == t ? true : IfcPreDefinedCurveFont::isOfType(t);
 }
 
-bool IfcDraughtingPreDefinedCurveFont::init() {
-    bool status = IfcPreDefinedCurveFont::init();
+bool IfcDraughtingPreDefinedCurveFont::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedCurveFont::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

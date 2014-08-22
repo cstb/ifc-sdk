@@ -301,8 +301,8 @@ bool IfcCraneRailFShapeProfileDef::testCentreOfGravityInY() const {
     return !Step::isUnset(getCentreOfGravityInY());
 }
 
-bool IfcCraneRailFShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcCraneRailFShapeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

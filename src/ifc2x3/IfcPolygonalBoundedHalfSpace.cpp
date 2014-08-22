@@ -117,8 +117,8 @@ bool IfcPolygonalBoundedHalfSpace::testPolygonalBoundary() const {
     return !Step::isUnset(getPolygonalBoundary());
 }
 
-bool IfcPolygonalBoundedHalfSpace::init() {
-    bool status = IfcHalfSpaceSolid::init();
+bool IfcPolygonalBoundedHalfSpace::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcHalfSpaceSolid::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

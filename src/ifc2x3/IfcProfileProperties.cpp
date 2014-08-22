@@ -117,7 +117,7 @@ bool IfcProfileProperties::testProfileDefinition() const {
     return !Step::isUnset(getProfileDefinition());
 }
 
-bool IfcProfileProperties::init() {
+bool IfcProfileProperties::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

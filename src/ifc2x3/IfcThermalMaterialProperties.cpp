@@ -166,8 +166,8 @@ bool IfcThermalMaterialProperties::testThermalConductivity() const {
     return !Step::isUnset(getThermalConductivity());
 }
 
-bool IfcThermalMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcThermalMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

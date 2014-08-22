@@ -176,8 +176,8 @@ bool IfcGeometricRepresentationSubContext::testUserDefinedTargetView() const {
     return !Step::isUnset(getUserDefinedTargetView());
 }
 
-bool IfcGeometricRepresentationSubContext::init() {
-    bool status = IfcGeometricRepresentationContext::init();
+bool IfcGeometricRepresentationSubContext::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationContext::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

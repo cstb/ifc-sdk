@@ -100,7 +100,7 @@ bool IfcRepresentationItem::testStyledByItem() const {
     return !Step::isUnset(getStyledByItem());
 }
 
-bool IfcRepresentationItem::init() {
+bool IfcRepresentationItem::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);

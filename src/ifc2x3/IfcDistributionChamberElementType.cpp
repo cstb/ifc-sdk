@@ -85,8 +85,8 @@ bool IfcDistributionChamberElementType::testPredefinedType() const {
     return getPredefinedType() != IfcDistributionChamberElementTypeEnum_UNSET;
 }
 
-bool IfcDistributionChamberElementType::init() {
-    bool status = IfcDistributionFlowElementType::init();
+bool IfcDistributionChamberElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

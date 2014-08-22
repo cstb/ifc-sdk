@@ -220,8 +220,8 @@ bool IfcFailureConnectionCondition::testCompressionFailureZ() const {
     return !Step::isUnset(getCompressionFailureZ());
 }
 
-bool IfcFailureConnectionCondition::init() {
-    bool status = IfcStructuralConnectionCondition::init();
+bool IfcFailureConnectionCondition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralConnectionCondition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

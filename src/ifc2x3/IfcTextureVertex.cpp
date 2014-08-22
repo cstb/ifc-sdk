@@ -87,7 +87,7 @@ bool IfcTextureVertex::testCoordinates() const {
     return !Step::isUnset(getCoordinates());
 }
 
-bool IfcTextureVertex::init() {
+bool IfcTextureVertex::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

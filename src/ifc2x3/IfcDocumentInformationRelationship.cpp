@@ -174,7 +174,7 @@ bool IfcDocumentInformationRelationship::testRelationshipType() const {
     return !Step::isUnset(getRelationshipType());
 }
 
-bool IfcDocumentInformationRelationship::init() {
+bool IfcDocumentInformationRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

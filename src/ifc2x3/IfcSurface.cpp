@@ -57,8 +57,8 @@ bool IfcSurface::isOfType(const Step::ClassType &t) const {
     return IfcSurface::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-bool IfcSurface::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -128,7 +128,7 @@ bool IfcMaterial::testClassifiedAs() const {
     return !Step::isUnset(getClassifiedAs());
 }
 
-bool IfcMaterial::init() {
+bool IfcMaterial::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

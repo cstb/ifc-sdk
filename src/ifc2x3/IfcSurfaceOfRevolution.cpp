@@ -89,8 +89,8 @@ bool IfcSurfaceOfRevolution::testAxisPosition() const {
     return !Step::isUnset(getAxisPosition());
 }
 
-bool IfcSurfaceOfRevolution::init() {
-    bool status = IfcSweptSurface::init();
+bool IfcSurfaceOfRevolution::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSweptSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

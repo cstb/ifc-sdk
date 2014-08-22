@@ -57,8 +57,8 @@ bool IfcSpatialStructureElementType::isOfType(const Step::ClassType &t) const {
     return IfcSpatialStructureElementType::s_type == t ? true : IfcElementType::isOfType(t);
 }
 
-bool IfcSpatialStructureElementType::init() {
-    bool status = IfcElementType::init();
+bool IfcSpatialStructureElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

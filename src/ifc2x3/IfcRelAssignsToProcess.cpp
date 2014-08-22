@@ -123,8 +123,8 @@ bool IfcRelAssignsToProcess::testQuantityInProcess() const {
     return !Step::isUnset(getQuantityInProcess());
 }
 
-bool IfcRelAssignsToProcess::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToProcess::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -29,7 +29,7 @@ BaseSPFObject::BaseSPFObject(Id id, SPFData* data) :
 {
 }
 
-bool BaseSPFObject::init()
+bool BaseSPFObject::init(Step::InstanciateIf *)
 {
     LOG_WARNING("Tried to init a BaseSPFObject instance");
     return false;

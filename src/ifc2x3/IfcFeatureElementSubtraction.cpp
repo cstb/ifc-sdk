@@ -79,8 +79,8 @@ bool IfcFeatureElementSubtraction::testVoidsElements() const {
     return !Step::isUnset(getVoidsElements());
 }
 
-bool IfcFeatureElementSubtraction::init() {
-    bool status = IfcFeatureElement::init();
+bool IfcFeatureElementSubtraction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFeatureElement::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

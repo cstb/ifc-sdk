@@ -166,8 +166,8 @@ bool IfcStairFlight::testTreadLength() const {
     return !Step::isUnset(getTreadLength());
 }
 
-bool IfcStairFlight::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcStairFlight::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

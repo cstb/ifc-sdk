@@ -119,8 +119,8 @@ bool IfcTextureCoordinateGenerator::testParameter() const {
     return !Step::isUnset(getParameter());
 }
 
-bool IfcTextureCoordinateGenerator::init() {
-    bool status = IfcTextureCoordinate::init();
+bool IfcTextureCoordinateGenerator::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTextureCoordinate::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

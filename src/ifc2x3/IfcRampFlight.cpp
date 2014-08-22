@@ -57,8 +57,8 @@ bool IfcRampFlight::isOfType(const Step::ClassType &t) const {
     return IfcRampFlight::s_type == t ? true : IfcBuildingElement::isOfType(t);
 }
 
-bool IfcRampFlight::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcRampFlight::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

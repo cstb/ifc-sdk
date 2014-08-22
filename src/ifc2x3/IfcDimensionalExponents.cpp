@@ -247,7 +247,7 @@ bool IfcDimensionalExponents::testLuminousIntensityExponent() const {
     return !Step::isUnset(getLuminousIntensityExponent());
 }
 
-bool IfcDimensionalExponents::init() {
+bool IfcDimensionalExponents::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

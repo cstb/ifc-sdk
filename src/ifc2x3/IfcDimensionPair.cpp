@@ -57,8 +57,8 @@ bool IfcDimensionPair::isOfType(const Step::ClassType &t) const {
     return IfcDimensionPair::s_type == t ? true : IfcDraughtingCalloutRelationship::isOfType(t);
 }
 
-bool IfcDimensionPair::init() {
-    bool status = IfcDraughtingCalloutRelationship::init();
+bool IfcDimensionPair::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDraughtingCalloutRelationship::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

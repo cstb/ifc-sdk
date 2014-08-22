@@ -117,8 +117,8 @@ bool IfcSweptSurface::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcSweptSurface::init() {
-    bool status = IfcSurface::init();
+bool IfcSweptSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcBezierCurve::isOfType(const Step::ClassType &t) const {
     return IfcBezierCurve::s_type == t ? true : IfcBSplineCurve::isOfType(t);
 }
 
-bool IfcBezierCurve::init() {
-    bool status = IfcBSplineCurve::init();
+bool IfcBezierCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBSplineCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

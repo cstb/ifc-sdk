@@ -86,7 +86,7 @@ bool IfcStructuralConnectionCondition::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcStructuralConnectionCondition::init() {
+bool IfcStructuralConnectionCondition::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

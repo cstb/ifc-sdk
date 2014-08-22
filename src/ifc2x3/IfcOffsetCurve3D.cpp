@@ -170,8 +170,8 @@ bool IfcOffsetCurve3D::testRefDirection() const {
     return !Step::isUnset(getRefDirection());
 }
 
-bool IfcOffsetCurve3D::init() {
-    bool status = IfcCurve::init();
+bool IfcOffsetCurve3D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

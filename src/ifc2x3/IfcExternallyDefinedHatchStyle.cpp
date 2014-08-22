@@ -57,8 +57,8 @@ bool IfcExternallyDefinedHatchStyle::isOfType(const Step::ClassType &t) const {
     return IfcExternallyDefinedHatchStyle::s_type == t ? true : IfcExternalReference::isOfType(t);
 }
 
-bool IfcExternallyDefinedHatchStyle::init() {
-    bool status = IfcExternalReference::init();
+bool IfcExternallyDefinedHatchStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

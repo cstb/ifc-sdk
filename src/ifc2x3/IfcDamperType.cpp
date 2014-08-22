@@ -85,8 +85,8 @@ bool IfcDamperType::testPredefinedType() const {
     return getPredefinedType() != IfcDamperTypeEnum_UNSET;
 }
 
-bool IfcDamperType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcDamperType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

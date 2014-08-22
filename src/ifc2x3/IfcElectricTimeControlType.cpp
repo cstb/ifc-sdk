@@ -85,8 +85,8 @@ bool IfcElectricTimeControlType::testPredefinedType() const {
     return getPredefinedType() != IfcElectricTimeControlTypeEnum_UNSET;
 }
 
-bool IfcElectricTimeControlType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcElectricTimeControlType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -139,8 +139,8 @@ bool IfcRectangularPyramid::testHeight() const {
     return !Step::isUnset(getHeight());
 }
 
-bool IfcRectangularPyramid::init() {
-    bool status = IfcCsgPrimitive3D::init();
+bool IfcRectangularPyramid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCsgPrimitive3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -85,8 +85,8 @@ bool IfcFanType::testPredefinedType() const {
     return getPredefinedType() != IfcFanTypeEnum_UNSET;
 }
 
-bool IfcFanType::init() {
-    bool status = IfcFlowMovingDeviceType::init();
+bool IfcFanType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowMovingDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

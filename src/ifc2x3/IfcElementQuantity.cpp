@@ -118,8 +118,8 @@ bool IfcElementQuantity::testQuantities() const {
     return !Step::isUnset(getQuantities());
 }
 
-bool IfcElementQuantity::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcElementQuantity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

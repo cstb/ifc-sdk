@@ -89,8 +89,8 @@ bool IfcArbitraryOpenProfileDef::testCurve() const {
     return !Step::isUnset(getCurve());
 }
 
-bool IfcArbitraryOpenProfileDef::init() {
-    bool status = IfcProfileDef::init();
+bool IfcArbitraryOpenProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

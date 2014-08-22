@@ -90,8 +90,8 @@ bool IfcPolyLoop::testPolygon() const {
     return !Step::isUnset(getPolygon());
 }
 
-bool IfcPolyLoop::init() {
-    bool status = IfcLoop::init();
+bool IfcPolyLoop::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLoop::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

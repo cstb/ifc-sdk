@@ -57,8 +57,8 @@ bool IfcFlowSegmentType::isOfType(const Step::ClassType &t) const {
     return IfcFlowSegmentType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
 }
 
-bool IfcFlowSegmentType::init() {
-    bool status = IfcDistributionFlowElementType::init();
+bool IfcFlowSegmentType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

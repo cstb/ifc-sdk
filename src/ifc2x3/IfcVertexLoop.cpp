@@ -89,8 +89,8 @@ bool IfcVertexLoop::testLoopVertex() const {
     return !Step::isUnset(getLoopVertex());
 }
 
-bool IfcVertexLoop::init() {
-    bool status = IfcLoop::init();
+bool IfcVertexLoop::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLoop::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -193,8 +193,8 @@ bool IfcMechanicalMaterialProperties::testThermalExpansionCoefficient() const {
     return !Step::isUnset(getThermalExpansionCoefficient());
 }
 
-bool IfcMechanicalMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcMechanicalMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

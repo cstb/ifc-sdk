@@ -85,8 +85,8 @@ bool IfcRailingType::testPredefinedType() const {
     return getPredefinedType() != IfcRailingTypeEnum_UNSET;
 }
 
-bool IfcRailingType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcRailingType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

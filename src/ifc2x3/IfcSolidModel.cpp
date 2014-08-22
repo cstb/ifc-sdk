@@ -57,8 +57,8 @@ bool IfcSolidModel::isOfType(const Step::ClassType &t) const {
     return IfcSolidModel::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-bool IfcSolidModel::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcSolidModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -85,8 +85,8 @@ bool IfcFilterType::testPredefinedType() const {
     return getPredefinedType() != IfcFilterTypeEnum_UNSET;
 }
 
-bool IfcFilterType::init() {
-    bool status = IfcFlowTreatmentDeviceType::init();
+bool IfcFilterType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTreatmentDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

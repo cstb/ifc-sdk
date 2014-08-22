@@ -159,7 +159,7 @@ bool IfcPersonAndOrganization::testRoles() const {
     return !Step::isUnset(getRoles());
 }
 
-bool IfcPersonAndOrganization::init() {
+bool IfcPersonAndOrganization::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

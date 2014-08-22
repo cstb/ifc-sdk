@@ -192,7 +192,7 @@ bool IfcClassification::testContains() const {
     return !Step::isUnset(getContains());
 }
 
-bool IfcClassification::init() {
+bool IfcClassification::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

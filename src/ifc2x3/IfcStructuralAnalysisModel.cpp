@@ -222,8 +222,8 @@ bool IfcStructuralAnalysisModel::testHasResults() const {
     return !Step::isUnset(getHasResults());
 }
 
-bool IfcStructuralAnalysisModel::init() {
-    bool status = IfcSystem::init();
+bool IfcStructuralAnalysisModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSystem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

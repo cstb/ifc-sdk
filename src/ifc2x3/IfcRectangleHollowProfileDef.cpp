@@ -139,8 +139,8 @@ bool IfcRectangleHollowProfileDef::testOuterFilletRadius() const {
     return !Step::isUnset(getOuterFilletRadius());
 }
 
-bool IfcRectangleHollowProfileDef::init() {
-    bool status = IfcRectangleProfileDef::init();
+bool IfcRectangleHollowProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRectangleProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

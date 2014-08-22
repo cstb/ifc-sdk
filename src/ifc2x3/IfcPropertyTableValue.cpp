@@ -202,8 +202,8 @@ bool IfcPropertyTableValue::testDefinedUnit() const {
     return !Step::isUnset(getDefinedUnit());
 }
 
-bool IfcPropertyTableValue::init() {
-    bool status = IfcSimpleProperty::init();
+bool IfcPropertyTableValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSimpleProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

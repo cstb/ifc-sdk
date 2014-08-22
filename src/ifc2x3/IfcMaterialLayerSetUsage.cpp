@@ -170,7 +170,7 @@ bool IfcMaterialLayerSetUsage::testOffsetFromReferenceLine() const {
     return !Step::isUnset(getOffsetFromReferenceLine());
 }
 
-bool IfcMaterialLayerSetUsage::init() {
+bool IfcMaterialLayerSetUsage::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

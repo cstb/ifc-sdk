@@ -85,8 +85,8 @@ bool IfcTransportElementType::testPredefinedType() const {
     return getPredefinedType() != IfcTransportElementTypeEnum_UNSET;
 }
 
-bool IfcTransportElementType::init() {
-    bool status = IfcElementType::init();
+bool IfcTransportElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

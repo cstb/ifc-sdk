@@ -197,7 +197,7 @@ bool IfcTextStyleWithBoxCharacteristics::testCharacterSpacing() const {
     return !Step::isUnset(getCharacterSpacing());
 }
 
-bool IfcTextStyleWithBoxCharacteristics::init() {
+bool IfcTextStyleWithBoxCharacteristics::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

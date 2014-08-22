@@ -118,7 +118,7 @@ bool IfcCurveStyleFont::testPatternList() const {
     return !Step::isUnset(getPatternList());
 }
 
-bool IfcCurveStyleFont::init() {
+bool IfcCurveStyleFont::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

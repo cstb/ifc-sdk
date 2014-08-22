@@ -57,8 +57,8 @@ bool IfcStructuredDimensionCallout::isOfType(const Step::ClassType &t) const {
     return IfcStructuredDimensionCallout::s_type == t ? true : IfcDraughtingCallout::isOfType(t);
 }
 
-bool IfcStructuredDimensionCallout::init() {
-    bool status = IfcDraughtingCallout::init();
+bool IfcStructuredDimensionCallout::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDraughtingCallout::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

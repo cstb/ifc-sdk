@@ -166,8 +166,8 @@ bool IfcWindowStyle::testSizeable() const {
     return !Step::isUnset(getSizeable());
 }
 
-bool IfcWindowStyle::init() {
-    bool status = IfcTypeProduct::init();
+bool IfcWindowStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTypeProduct::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

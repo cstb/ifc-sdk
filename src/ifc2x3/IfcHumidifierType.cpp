@@ -85,8 +85,8 @@ bool IfcHumidifierType::testPredefinedType() const {
     return getPredefinedType() != IfcHumidifierTypeEnum_UNSET;
 }
 
-bool IfcHumidifierType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcHumidifierType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

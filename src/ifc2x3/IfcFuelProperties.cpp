@@ -166,8 +166,8 @@ bool IfcFuelProperties::testHigherHeatingValue() const {
     return !Step::isUnset(getHigherHeatingValue());
 }
 
-bool IfcFuelProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcFuelProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

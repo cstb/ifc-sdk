@@ -85,8 +85,8 @@ bool IfcQuantityTime::testTimeValue() const {
     return !Step::isUnset(getTimeValue());
 }
 
-bool IfcQuantityTime::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityTime::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

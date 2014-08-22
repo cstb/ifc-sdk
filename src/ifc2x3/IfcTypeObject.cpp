@@ -163,8 +163,8 @@ bool IfcTypeObject::testObjectTypeOf() const {
     return !Step::isUnset(getObjectTypeOf());
 }
 
-bool IfcTypeObject::init() {
-    bool status = IfcObjectDefinition::init();
+bool IfcTypeObject::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObjectDefinition::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

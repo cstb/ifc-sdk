@@ -129,8 +129,8 @@ bool IfcRelConnectsStructuralActivity::testRelatedStructuralActivity() const {
     return !Step::isUnset(getRelatedStructuralActivity());
 }
 
-bool IfcRelConnectsStructuralActivity::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelConnectsStructuralActivity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -247,8 +247,8 @@ bool IfcWaterProperties::testDissolvedSolidsContent() const {
     return !Step::isUnset(getDissolvedSolidsContent());
 }
 
-bool IfcWaterProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcWaterProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

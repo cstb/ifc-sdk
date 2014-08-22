@@ -117,8 +117,8 @@ bool IfcProjectOrderRecord::testPredefinedType() const {
     return getPredefinedType() != IfcProjectOrderRecordTypeEnum_UNSET;
 }
 
-bool IfcProjectOrderRecord::init() {
-    bool status = IfcControl::init();
+bool IfcProjectOrderRecord::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

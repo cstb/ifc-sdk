@@ -136,8 +136,8 @@ bool IfcStructuralActivity::testAssignedToStructuralItem() const {
     return !Step::isUnset(getAssignedToStructuralItem());
 }
 
-bool IfcStructuralActivity::init() {
-    bool status = IfcProduct::init();
+bool IfcStructuralActivity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

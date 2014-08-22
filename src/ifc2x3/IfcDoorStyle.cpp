@@ -166,8 +166,8 @@ bool IfcDoorStyle::testSizeable() const {
     return !Step::isUnset(getSizeable());
 }
 
-bool IfcDoorStyle::init() {
-    bool status = IfcTypeProduct::init();
+bool IfcDoorStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTypeProduct::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

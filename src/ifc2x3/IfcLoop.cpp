@@ -57,8 +57,8 @@ bool IfcLoop::isOfType(const Step::ClassType &t) const {
     return IfcLoop::s_type == t ? true : IfcTopologicalRepresentationItem::isOfType(t);
 }
 
-bool IfcLoop::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcLoop::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

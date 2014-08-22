@@ -85,8 +85,8 @@ bool IfcSphere::testRadius() const {
     return !Step::isUnset(getRadius());
 }
 
-bool IfcSphere::init() {
-    bool status = IfcCsgPrimitive3D::init();
+bool IfcSphere::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCsgPrimitive3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

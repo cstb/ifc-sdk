@@ -89,8 +89,8 @@ bool IfcCsgPrimitive3D::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcCsgPrimitive3D::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcCsgPrimitive3D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

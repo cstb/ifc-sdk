@@ -117,8 +117,8 @@ bool IfcRegularTimeSeries::testValues() const {
     return !Step::isUnset(getValues());
 }
 
-bool IfcRegularTimeSeries::init() {
-    bool status = IfcTimeSeries::init();
+bool IfcRegularTimeSeries::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTimeSeries::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

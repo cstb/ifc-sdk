@@ -80,8 +80,8 @@ bool IfcPropertyDefinition::testHasAssociations() const {
     return !Step::isUnset(getHasAssociations());
 }
 
-bool IfcPropertyDefinition::init() {
-    bool status = IfcRoot::init();
+bool IfcPropertyDefinition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRoot::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

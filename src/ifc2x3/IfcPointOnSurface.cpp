@@ -143,8 +143,8 @@ bool IfcPointOnSurface::testPointParameterV() const {
     return !Step::isUnset(getPointParameterV());
 }
 
-bool IfcPointOnSurface::init() {
-    bool status = IfcPoint::init();
+bool IfcPointOnSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPoint::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

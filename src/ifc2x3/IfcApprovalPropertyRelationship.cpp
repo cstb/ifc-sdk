@@ -118,7 +118,7 @@ bool IfcApprovalPropertyRelationship::testApproval() const {
     return !Step::isUnset(getApproval());
 }
 
-bool IfcApprovalPropertyRelationship::init() {
+bool IfcApprovalPropertyRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

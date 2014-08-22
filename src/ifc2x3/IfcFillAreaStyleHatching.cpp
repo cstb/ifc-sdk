@@ -200,8 +200,8 @@ bool IfcFillAreaStyleHatching::testHatchLineAngle() const {
     return !Step::isUnset(getHatchLineAngle());
 }
 
-bool IfcFillAreaStyleHatching::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcFillAreaStyleHatching::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

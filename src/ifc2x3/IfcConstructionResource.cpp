@@ -171,8 +171,8 @@ bool IfcConstructionResource::testBaseQuantity() const {
     return !Step::isUnset(getBaseQuantity());
 }
 
-bool IfcConstructionResource::init() {
-    bool status = IfcResource::init();
+bool IfcConstructionResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcResource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

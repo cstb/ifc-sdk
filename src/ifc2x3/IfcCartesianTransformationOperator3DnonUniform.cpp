@@ -112,8 +112,8 @@ bool IfcCartesianTransformationOperator3DnonUniform::testScale3() const {
     return !Step::isUnset(getScale3());
 }
 
-bool IfcCartesianTransformationOperator3DnonUniform::init() {
-    bool status = IfcCartesianTransformationOperator3D::init();
+bool IfcCartesianTransformationOperator3DnonUniform::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCartesianTransformationOperator3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

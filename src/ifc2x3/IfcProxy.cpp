@@ -113,8 +113,8 @@ bool IfcProxy::testTag() const {
     return !Step::isUnset(getTag());
 }
 
-bool IfcProxy::init() {
-    bool status = IfcProduct::init();
+bool IfcProxy::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

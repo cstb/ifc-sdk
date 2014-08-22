@@ -146,8 +146,8 @@ bool IfcRelAssociatesProfileProperties::testProfileOrientation() const {
     return !Step::isUnset(getProfileOrientation());
 }
 
-bool IfcRelAssociatesProfileProperties::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesProfileProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

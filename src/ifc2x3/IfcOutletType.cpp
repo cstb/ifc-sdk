@@ -85,8 +85,8 @@ bool IfcOutletType::testPredefinedType() const {
     return getPredefinedType() != IfcOutletTypeEnum_UNSET;
 }
 
-bool IfcOutletType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcOutletType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

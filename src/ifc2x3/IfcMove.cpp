@@ -146,8 +146,8 @@ bool IfcMove::testPunchList() const {
     return !Step::isUnset(getPunchList());
 }
 
-bool IfcMove::init() {
-    bool status = IfcTask::init();
+bool IfcMove::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTask::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

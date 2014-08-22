@@ -85,8 +85,8 @@ bool IfcBuildingStorey::testElevation() const {
     return !Step::isUnset(getElevation());
 }
 
-bool IfcBuildingStorey::init() {
-    bool status = IfcSpatialStructureElement::init();
+bool IfcBuildingStorey::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSpatialStructureElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

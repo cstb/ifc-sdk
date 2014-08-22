@@ -169,8 +169,8 @@ bool IfcPixelTexture::testPixel() const {
     return !Step::isUnset(getPixel());
 }
 
-bool IfcPixelTexture::init() {
-    bool status = IfcSurfaceTexture::init();
+bool IfcPixelTexture::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurfaceTexture::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

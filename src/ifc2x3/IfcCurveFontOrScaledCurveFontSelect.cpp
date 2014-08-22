@@ -47,7 +47,7 @@ bool IfcCurveFontOrScaledCurveFontSelect::acceptVisitor(Step::BaseVisitor *visit
     return static_cast< Visitor * > (visitor)->visitIfcCurveFontOrScaledCurveFontSelect(this);
 }
 
-bool IfcCurveFontOrScaledCurveFontSelect::init() {
+bool IfcCurveFontOrScaledCurveFontSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

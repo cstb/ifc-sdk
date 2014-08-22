@@ -85,8 +85,8 @@ bool IfcCartesianTransformationOperator2DnonUniform::testScale2() const {
     return !Step::isUnset(getScale2());
 }
 
-bool IfcCartesianTransformationOperator2DnonUniform::init() {
-    bool status = IfcCartesianTransformationOperator2D::init();
+bool IfcCartesianTransformationOperator2DnonUniform::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCartesianTransformationOperator2D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

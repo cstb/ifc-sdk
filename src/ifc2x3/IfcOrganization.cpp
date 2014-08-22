@@ -286,7 +286,7 @@ bool IfcOrganization::testEngages() const {
     return !Step::isUnset(getEngages());
 }
 
-bool IfcOrganization::init() {
+bool IfcOrganization::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

@@ -142,7 +142,7 @@ bool IfcLightDistributionData::testLuminousIntensity() const {
     return !Step::isUnset(getLuminousIntensity());
 }
 
-bool IfcLightDistributionData::init() {
+bool IfcLightDistributionData::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

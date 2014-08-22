@@ -194,8 +194,8 @@ bool IfcPhysicalComplexQuantity::testUsage() const {
     return !Step::isUnset(getUsage());
 }
 
-bool IfcPhysicalComplexQuantity::init() {
-    bool status = IfcPhysicalQuantity::init();
+bool IfcPhysicalComplexQuantity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

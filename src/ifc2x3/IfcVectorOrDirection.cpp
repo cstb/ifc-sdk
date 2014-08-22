@@ -46,7 +46,7 @@ bool IfcVectorOrDirection::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcVectorOrDirection(this);
 }
 
-bool IfcVectorOrDirection::init() {
+bool IfcVectorOrDirection::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

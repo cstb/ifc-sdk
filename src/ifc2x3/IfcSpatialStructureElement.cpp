@@ -175,8 +175,8 @@ bool IfcSpatialStructureElement::testContainsElements() const {
     return !Step::isUnset(getContainsElements());
 }
 
-bool IfcSpatialStructureElement::init() {
-    bool status = IfcProduct::init();
+bool IfcSpatialStructureElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

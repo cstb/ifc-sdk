@@ -151,8 +151,8 @@ bool IfcStyledItem::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcStyledItem::init() {
-    bool status = IfcRepresentationItem::init();
+bool IfcStyledItem::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

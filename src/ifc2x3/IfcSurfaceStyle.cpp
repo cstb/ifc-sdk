@@ -118,8 +118,8 @@ bool IfcSurfaceStyle::testStyles() const {
     return !Step::isUnset(getStyles());
 }
 
-bool IfcSurfaceStyle::init() {
-    bool status = IfcPresentationStyle::init();
+bool IfcSurfaceStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationStyle::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

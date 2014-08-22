@@ -221,7 +221,7 @@ bool IfcReinforcementBarProperties::testBarCount() const {
     return !Step::isUnset(getBarCount());
 }
 
-bool IfcReinforcementBarProperties::init() {
+bool IfcReinforcementBarProperties::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

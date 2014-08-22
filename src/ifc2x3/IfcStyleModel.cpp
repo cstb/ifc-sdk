@@ -57,8 +57,8 @@ bool IfcStyleModel::isOfType(const Step::ClassType &t) const {
     return IfcStyleModel::s_type == t ? true : IfcRepresentation::isOfType(t);
 }
 
-bool IfcStyleModel::init() {
-    bool status = IfcRepresentation::init();
+bool IfcStyleModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRepresentation::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -85,8 +85,8 @@ bool IfcElectricHeaterType::testPredefinedType() const {
     return getPredefinedType() != IfcElectricHeaterTypeEnum_UNSET;
 }
 
-bool IfcElectricHeaterType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcElectricHeaterType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -89,8 +89,8 @@ bool IfcPhysicalSimpleQuantity::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-bool IfcPhysicalSimpleQuantity::init() {
-    bool status = IfcPhysicalQuantity::init();
+bool IfcPhysicalSimpleQuantity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

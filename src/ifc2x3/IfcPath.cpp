@@ -90,8 +90,8 @@ bool IfcPath::testEdgeList() const {
     return !Step::isUnset(getEdgeList());
 }
 
-bool IfcPath::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcPath::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

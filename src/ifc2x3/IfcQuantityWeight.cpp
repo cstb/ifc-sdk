@@ -85,8 +85,8 @@ bool IfcQuantityWeight::testWeightValue() const {
     return !Step::isUnset(getWeightValue());
 }
 
-bool IfcQuantityWeight::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityWeight::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

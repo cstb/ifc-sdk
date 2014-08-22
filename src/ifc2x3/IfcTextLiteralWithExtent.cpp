@@ -117,8 +117,8 @@ bool IfcTextLiteralWithExtent::testBoxAlignment() const {
     return !Step::isUnset(getBoxAlignment());
 }
 
-bool IfcTextLiteralWithExtent::init() {
-    bool status = IfcTextLiteral::init();
+bool IfcTextLiteralWithExtent::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTextLiteral::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -112,8 +112,8 @@ bool IfcServiceLife::testServiceLifeDuration() const {
     return !Step::isUnset(getServiceLifeDuration());
 }
 
-bool IfcServiceLife::init() {
-    bool status = IfcControl::init();
+bool IfcServiceLife::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

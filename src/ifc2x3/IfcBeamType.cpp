@@ -85,8 +85,8 @@ bool IfcBeamType::testPredefinedType() const {
     return getPredefinedType() != IfcBeamTypeEnum_UNSET;
 }
 
-bool IfcBeamType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcBeamType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

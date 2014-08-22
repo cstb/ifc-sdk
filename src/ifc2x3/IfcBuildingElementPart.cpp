@@ -57,8 +57,8 @@ bool IfcBuildingElementPart::isOfType(const Step::ClassType &t) const {
     return IfcBuildingElementPart::s_type == t ? true : IfcBuildingElementComponent::isOfType(t);
 }
 
-bool IfcBuildingElementPart::init() {
-    bool status = IfcBuildingElementComponent::init();
+bool IfcBuildingElementPart::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementComponent::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

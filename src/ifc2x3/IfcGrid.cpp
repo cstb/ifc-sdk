@@ -237,8 +237,8 @@ bool IfcGrid::testContainedInStructure() const {
     return !Step::isUnset(getContainedInStructure());
 }
 
-bool IfcGrid::init() {
-    bool status = IfcProduct::init();
+bool IfcGrid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

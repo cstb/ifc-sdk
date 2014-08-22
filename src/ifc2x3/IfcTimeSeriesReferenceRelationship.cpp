@@ -125,7 +125,7 @@ bool IfcTimeSeriesReferenceRelationship::testTimeSeriesReferences() const {
     return !Step::isUnset(getTimeSeriesReferences());
 }
 
-bool IfcTimeSeriesReferenceRelationship::init() {
+bool IfcTimeSeriesReferenceRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

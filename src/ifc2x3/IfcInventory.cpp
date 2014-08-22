@@ -229,8 +229,8 @@ bool IfcInventory::testOriginalValue() const {
     return !Step::isUnset(getOriginalValue());
 }
 
-bool IfcInventory::init() {
-    bool status = IfcGroup::init();
+bool IfcInventory::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

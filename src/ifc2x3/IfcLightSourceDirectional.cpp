@@ -89,8 +89,8 @@ bool IfcLightSourceDirectional::testOrientation() const {
     return !Step::isUnset(getOrientation());
 }
 
-bool IfcLightSourceDirectional::init() {
-    bool status = IfcLightSource::init();
+bool IfcLightSourceDirectional::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLightSource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

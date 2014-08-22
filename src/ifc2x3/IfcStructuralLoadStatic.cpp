@@ -57,8 +57,8 @@ bool IfcStructuralLoadStatic::isOfType(const Step::ClassType &t) const {
     return IfcStructuralLoadStatic::s_type == t ? true : IfcStructuralLoad::isOfType(t);
 }
 
-bool IfcStructuralLoadStatic::init() {
-    bool status = IfcStructuralLoad::init();
+bool IfcStructuralLoadStatic::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoad::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

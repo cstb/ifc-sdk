@@ -49,7 +49,7 @@ bool IfcSurfaceStyleElementSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcSurfaceStyleElementSelect(this);
 }
 
-bool IfcSurfaceStyleElementSelect::init() {
+bool IfcSurfaceStyleElementSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

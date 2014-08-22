@@ -119,8 +119,8 @@ bool IfcConstructionMaterialResource::testUsageRatio() const {
     return !Step::isUnset(getUsageRatio());
 }
 
-bool IfcConstructionMaterialResource::init() {
-    bool status = IfcConstructionResource::init();
+bool IfcConstructionMaterialResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstructionResource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

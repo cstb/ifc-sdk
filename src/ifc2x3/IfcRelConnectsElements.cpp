@@ -156,8 +156,8 @@ bool IfcRelConnectsElements::testRelatedElement() const {
     return !Step::isUnset(getRelatedElement());
 }
 
-bool IfcRelConnectsElements::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelConnectsElements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

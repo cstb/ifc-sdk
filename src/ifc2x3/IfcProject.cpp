@@ -173,8 +173,8 @@ bool IfcProject::testUnitsInContext() const {
     return !Step::isUnset(getUnitsInContext());
 }
 
-bool IfcProject::init() {
-    bool status = IfcObject::init();
+bool IfcProject::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

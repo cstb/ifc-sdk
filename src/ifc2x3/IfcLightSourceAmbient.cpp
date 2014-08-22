@@ -57,8 +57,8 @@ bool IfcLightSourceAmbient::isOfType(const Step::ClassType &t) const {
     return IfcLightSourceAmbient::s_type == t ? true : IfcLightSource::isOfType(t);
 }
 
-bool IfcLightSourceAmbient::init() {
-    bool status = IfcLightSource::init();
+bool IfcLightSourceAmbient::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLightSource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -197,7 +197,7 @@ bool IfcLocalTime::testDaylightSavingOffset() const {
     return !Step::isUnset(getDaylightSavingOffset());
 }
 
-bool IfcLocalTime::init() {
+bool IfcLocalTime::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

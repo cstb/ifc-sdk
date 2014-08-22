@@ -145,8 +145,8 @@ bool IfcPropertyBoundedValue::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-bool IfcPropertyBoundedValue::init() {
-    bool status = IfcSimpleProperty::init();
+bool IfcPropertyBoundedValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSimpleProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -171,8 +171,8 @@ bool IfcLightSource::testIntensity() const {
     return !Step::isUnset(getIntensity());
 }
 
-bool IfcLightSource::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcLightSource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

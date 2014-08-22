@@ -85,8 +85,8 @@ bool IfcCoveringType::testPredefinedType() const {
     return getPredefinedType() != IfcCoveringTypeEnum_UNSET;
 }
 
-bool IfcCoveringType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcCoveringType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

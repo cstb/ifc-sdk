@@ -116,8 +116,8 @@ bool IfcGridPlacement::testPlacementRefDirection() const {
     return !Step::isUnset(getPlacementRefDirection());
 }
 
-bool IfcGridPlacement::init() {
-    bool status = IfcObjectPlacement::init();
+bool IfcGridPlacement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObjectPlacement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

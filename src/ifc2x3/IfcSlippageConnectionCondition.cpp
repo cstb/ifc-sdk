@@ -139,8 +139,8 @@ bool IfcSlippageConnectionCondition::testSlippageZ() const {
     return !Step::isUnset(getSlippageZ());
 }
 
-bool IfcSlippageConnectionCondition::init() {
-    bool status = IfcStructuralConnectionCondition::init();
+bool IfcSlippageConnectionCondition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralConnectionCondition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

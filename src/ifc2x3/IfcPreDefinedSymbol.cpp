@@ -57,8 +57,8 @@ bool IfcPreDefinedSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedSymbol::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
 }
 
-bool IfcPreDefinedSymbol::init() {
-    bool status = IfcPreDefinedItem::init();
+bool IfcPreDefinedSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

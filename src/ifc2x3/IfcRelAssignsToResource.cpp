@@ -95,8 +95,8 @@ bool IfcRelAssignsToResource::testRelatingResource() const {
     return !Step::isUnset(getRelatingResource());
 }
 
-bool IfcRelAssignsToResource::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

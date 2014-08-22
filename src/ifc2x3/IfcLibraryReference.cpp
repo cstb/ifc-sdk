@@ -80,8 +80,8 @@ bool IfcLibraryReference::testReferenceIntoLibrary() const {
     return !Step::isUnset(getReferenceIntoLibrary());
 }
 
-bool IfcLibraryReference::init() {
-    bool status = IfcExternalReference::init();
+bool IfcLibraryReference::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcExternalReference::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

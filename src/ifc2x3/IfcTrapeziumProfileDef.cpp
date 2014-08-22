@@ -166,8 +166,8 @@ bool IfcTrapeziumProfileDef::testTopXOffset() const {
     return !Step::isUnset(getTopXOffset());
 }
 
-bool IfcTrapeziumProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcTrapeziumProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

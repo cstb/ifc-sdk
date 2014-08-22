@@ -85,8 +85,8 @@ bool IfcOccupant::testPredefinedType() const {
     return getPredefinedType() != IfcOccupantTypeEnum_UNSET;
 }
 
-bool IfcOccupant::init() {
-    bool status = IfcActor::init();
+bool IfcOccupant::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcActor::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

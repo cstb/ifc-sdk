@@ -58,7 +58,7 @@ bool IfcConnectionGeometry::isOfType(const Step::ClassType &t) const {
     return IfcConnectionGeometry::s_type == t ? true : Step::BaseObject::isOfType(t);
 }
 
-bool IfcConnectionGeometry::init() {
+bool IfcConnectionGeometry::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     return true;
 }

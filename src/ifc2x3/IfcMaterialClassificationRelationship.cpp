@@ -125,7 +125,7 @@ bool IfcMaterialClassificationRelationship::testClassifiedMaterial() const {
     return !Step::isUnset(getClassifiedMaterial());
 }
 
-bool IfcMaterialClassificationRelationship::init() {
+bool IfcMaterialClassificationRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

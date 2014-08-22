@@ -85,8 +85,8 @@ bool IfcVibrationIsolatorType::testPredefinedType() const {
     return getPredefinedType() != IfcVibrationIsolatorTypeEnum_UNSET;
 }
 
-bool IfcVibrationIsolatorType::init() {
-    bool status = IfcDiscreteAccessoryType::init();
+bool IfcVibrationIsolatorType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDiscreteAccessoryType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

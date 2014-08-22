@@ -85,8 +85,8 @@ bool IfcSpaceType::testPredefinedType() const {
     return getPredefinedType() != IfcSpaceTypeEnum_UNSET;
 }
 
-bool IfcSpaceType::init() {
-    bool status = IfcSpatialStructureElementType::init();
+bool IfcSpaceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSpatialStructureElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

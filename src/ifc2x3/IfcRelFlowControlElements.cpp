@@ -147,8 +147,8 @@ bool IfcRelFlowControlElements::testRelatingFlowElement() const {
     return !Step::isUnset(getRelatingFlowElement());
 }
 
-bool IfcRelFlowControlElements::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelFlowControlElements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

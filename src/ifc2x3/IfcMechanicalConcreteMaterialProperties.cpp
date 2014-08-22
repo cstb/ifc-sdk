@@ -221,8 +221,8 @@ bool IfcMechanicalConcreteMaterialProperties::testWaterImpermeability() const {
     return !Step::isUnset(getWaterImpermeability());
 }
 
-bool IfcMechanicalConcreteMaterialProperties::init() {
-    bool status = IfcMechanicalMaterialProperties::init();
+bool IfcMechanicalConcreteMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMechanicalMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

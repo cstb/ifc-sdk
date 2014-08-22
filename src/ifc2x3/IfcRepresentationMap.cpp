@@ -145,7 +145,7 @@ bool IfcRepresentationMap::testMapUsage() const {
     return !Step::isUnset(getMapUsage());
 }
 
-bool IfcRepresentationMap::init() {
+bool IfcRepresentationMap::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

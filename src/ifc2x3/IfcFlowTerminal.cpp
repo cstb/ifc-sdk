@@ -57,8 +57,8 @@ bool IfcFlowTerminal::isOfType(const Step::ClassType &t) const {
     return IfcFlowTerminal::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
 }
 
-bool IfcFlowTerminal::init() {
-    bool status = IfcDistributionFlowElement::init();
+bool IfcFlowTerminal::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

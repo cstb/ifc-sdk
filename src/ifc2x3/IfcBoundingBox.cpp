@@ -170,8 +170,8 @@ bool IfcBoundingBox::testZDim() const {
     return !Step::isUnset(getZDim());
 }
 
-bool IfcBoundingBox::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcBoundingBox::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

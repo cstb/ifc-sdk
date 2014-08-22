@@ -117,8 +117,8 @@ bool IfcSweptAreaSolid::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcSweptAreaSolid::init() {
-    bool status = IfcSolidModel::init();
+bool IfcSweptAreaSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSolidModel::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

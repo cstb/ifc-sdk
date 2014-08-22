@@ -199,7 +199,7 @@ bool IfcCurrencyRelationship::testRateSource() const {
     return !Step::isUnset(getRateSource());
 }
 
-bool IfcCurrencyRelationship::init() {
+bool IfcCurrencyRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

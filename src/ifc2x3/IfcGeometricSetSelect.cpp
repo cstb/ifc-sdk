@@ -47,7 +47,7 @@ bool IfcGeometricSetSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcGeometricSetSelect(this);
 }
 
-bool IfcGeometricSetSelect::init() {
+bool IfcGeometricSetSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

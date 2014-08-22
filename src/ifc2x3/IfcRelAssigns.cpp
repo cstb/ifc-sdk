@@ -140,8 +140,8 @@ bool IfcRelAssigns::testRelatedObjectsType() const {
     return getRelatedObjectsType() != IfcObjectTypeEnum_UNSET;
 }
 
-bool IfcRelAssigns::init() {
-    bool status = IfcRelationship::init();
+bool IfcRelAssigns::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelationship::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

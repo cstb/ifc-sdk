@@ -119,8 +119,8 @@ bool IfcTypeProduct::testTag() const {
     return !Step::isUnset(getTag());
 }
 
-bool IfcTypeProduct::init() {
-    bool status = IfcTypeObject::init();
+bool IfcTypeProduct::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTypeObject::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

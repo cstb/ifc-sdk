@@ -122,8 +122,8 @@ bool IfcStructuralAction::testCausedBy() const {
     return !Step::isUnset(getCausedBy());
 }
 
-bool IfcStructuralAction::init() {
-    bool status = IfcStructuralActivity::init();
+bool IfcStructuralAction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralActivity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

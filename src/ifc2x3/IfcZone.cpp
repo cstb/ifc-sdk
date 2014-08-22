@@ -57,8 +57,8 @@ bool IfcZone::isOfType(const Step::ClassType &t) const {
     return IfcZone::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
-bool IfcZone::init() {
-    bool status = IfcGroup::init();
+bool IfcZone::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

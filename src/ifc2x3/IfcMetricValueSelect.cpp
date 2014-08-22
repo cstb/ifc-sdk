@@ -51,7 +51,7 @@ bool IfcMetricValueSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcMetricValueSelect(this);
 }
 
-bool IfcMetricValueSelect::init() {
+bool IfcMetricValueSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

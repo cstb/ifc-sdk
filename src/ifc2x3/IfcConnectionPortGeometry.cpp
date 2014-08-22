@@ -145,8 +145,8 @@ bool IfcConnectionPortGeometry::testProfileOfPort() const {
     return !Step::isUnset(getProfileOfPort());
 }
 
-bool IfcConnectionPortGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
+bool IfcConnectionPortGeometry::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConnectionGeometry::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

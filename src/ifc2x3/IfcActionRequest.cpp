@@ -86,8 +86,8 @@ bool IfcActionRequest::testRequestID() const {
     return !Step::isUnset(getRequestID());
 }
 
-bool IfcActionRequest::init() {
-    bool status = IfcControl::init();
+bool IfcActionRequest::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

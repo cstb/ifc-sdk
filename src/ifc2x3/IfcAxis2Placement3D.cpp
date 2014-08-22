@@ -116,8 +116,8 @@ bool IfcAxis2Placement3D::testRefDirection() const {
     return !Step::isUnset(getRefDirection());
 }
 
-bool IfcAxis2Placement3D::init() {
-    bool status = IfcPlacement::init();
+bool IfcAxis2Placement3D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPlacement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

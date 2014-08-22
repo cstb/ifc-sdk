@@ -85,8 +85,8 @@ bool IfcQuantityVolume::testVolumeValue() const {
     return !Step::isUnset(getVolumeValue());
 }
 
-bool IfcQuantityVolume::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityVolume::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

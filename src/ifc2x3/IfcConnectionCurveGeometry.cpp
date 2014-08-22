@@ -115,8 +115,8 @@ bool IfcConnectionCurveGeometry::testCurveOnRelatedElement() const {
     return !Step::isUnset(getCurveOnRelatedElement());
 }
 
-bool IfcConnectionCurveGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
+bool IfcConnectionCurveGeometry::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConnectionGeometry::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

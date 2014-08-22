@@ -251,7 +251,7 @@ bool IfcTextStyleTextModel::testLineHeight() const {
     return !Step::isUnset(getLineHeight());
 }
 
-bool IfcTextStyleTextModel::init() {
+bool IfcTextStyleTextModel::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

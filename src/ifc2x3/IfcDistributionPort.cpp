@@ -85,8 +85,8 @@ bool IfcDistributionPort::testFlowDirection() const {
     return getFlowDirection() != IfcFlowDirectionEnum_UNSET;
 }
 
-bool IfcDistributionPort::init() {
-    bool status = IfcPort::init();
+bool IfcDistributionPort::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPort::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

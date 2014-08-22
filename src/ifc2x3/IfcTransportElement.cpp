@@ -139,8 +139,8 @@ bool IfcTransportElement::testCapacityByNumber() const {
     return !Step::isUnset(getCapacityByNumber());
 }
 
-bool IfcTransportElement::init() {
-    bool status = IfcElement::init();
+bool IfcTransportElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -89,8 +89,8 @@ bool IfcRelAssociatesApproval::testRelatingApproval() const {
     return !Step::isUnset(getRelatingApproval());
 }
 
-bool IfcRelAssociatesApproval::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesApproval::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

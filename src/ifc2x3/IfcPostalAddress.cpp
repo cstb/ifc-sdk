@@ -251,8 +251,8 @@ bool IfcPostalAddress::testCountry() const {
     return !Step::isUnset(getCountry());
 }
 
-bool IfcPostalAddress::init() {
-    bool status = IfcAddress::init();
+bool IfcPostalAddress::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAddress::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

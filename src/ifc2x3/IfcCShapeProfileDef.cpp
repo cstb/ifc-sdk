@@ -220,8 +220,8 @@ bool IfcCShapeProfileDef::testCentreOfGravityInX() const {
     return !Step::isUnset(getCentreOfGravityInX());
 }
 
-bool IfcCShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcCShapeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

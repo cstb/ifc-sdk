@@ -85,8 +85,8 @@ bool IfcQuantityCount::testCountValue() const {
     return !Step::isUnset(getCountValue());
 }
 
-bool IfcQuantityCount::init() {
-    bool status = IfcPhysicalSimpleQuantity::init();
+bool IfcQuantityCount::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPhysicalSimpleQuantity::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

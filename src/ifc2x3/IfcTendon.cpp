@@ -274,8 +274,8 @@ bool IfcTendon::testMinCurvatureRadius() const {
     return !Step::isUnset(getMinCurvatureRadius());
 }
 
-bool IfcTendon::init() {
-    bool status = IfcReinforcingElement::init();
+bool IfcTendon::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcReinforcingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

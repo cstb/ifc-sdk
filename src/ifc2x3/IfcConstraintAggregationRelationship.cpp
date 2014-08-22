@@ -228,7 +228,7 @@ bool IfcConstraintAggregationRelationship::testLogicalAggregator() const {
     return getLogicalAggregator() != IfcLogicalOperatorEnum_UNSET;
 }
 
-bool IfcConstraintAggregationRelationship::init() {
+bool IfcConstraintAggregationRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

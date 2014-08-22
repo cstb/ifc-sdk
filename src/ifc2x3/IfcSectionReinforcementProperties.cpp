@@ -226,7 +226,7 @@ bool IfcSectionReinforcementProperties::testCrossSectionReinforcementDefinitions
     return !Step::isUnset(getCrossSectionReinforcementDefinitions());
 }
 
-bool IfcSectionReinforcementProperties::init() {
+bool IfcSectionReinforcementProperties::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -144,8 +144,8 @@ bool IfcDerivedProfileDef::testLabel() const {
     return !Step::isUnset(getLabel());
 }
 
-bool IfcDerivedProfileDef::init() {
-    bool status = IfcProfileDef::init();
+bool IfcDerivedProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

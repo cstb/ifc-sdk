@@ -112,8 +112,8 @@ bool IfcRightCircularCylinder::testRadius() const {
     return !Step::isUnset(getRadius());
 }
 
-bool IfcRightCircularCylinder::init() {
-    bool status = IfcCsgPrimitive3D::init();
+bool IfcRightCircularCylinder::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCsgPrimitive3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

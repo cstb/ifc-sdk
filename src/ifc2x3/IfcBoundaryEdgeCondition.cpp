@@ -220,8 +220,8 @@ bool IfcBoundaryEdgeCondition::testRotationalStiffnessByLengthZ() const {
     return !Step::isUnset(getRotationalStiffnessByLengthZ());
 }
 
-bool IfcBoundaryEdgeCondition::init() {
-    bool status = IfcBoundaryCondition::init();
+bool IfcBoundaryEdgeCondition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundaryCondition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

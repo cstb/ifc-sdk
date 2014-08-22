@@ -90,8 +90,8 @@ bool IfcPropertySet::testHasProperties() const {
     return !Step::isUnset(getHasProperties());
 }
 
-bool IfcPropertySet::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcPropertySet::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -89,8 +89,8 @@ bool IfcArbitraryClosedProfileDef::testOuterCurve() const {
     return !Step::isUnset(getOuterCurve());
 }
 
-bool IfcArbitraryClosedProfileDef::init() {
-    bool status = IfcProfileDef::init();
+bool IfcArbitraryClosedProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

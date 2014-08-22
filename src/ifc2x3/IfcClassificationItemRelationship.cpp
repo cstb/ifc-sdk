@@ -146,7 +146,7 @@ bool IfcClassificationItemRelationship::testRelatedItems() const {
     return !Step::isUnset(getRelatedItems());
 }
 
-bool IfcClassificationItemRelationship::init() {
+bool IfcClassificationItemRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

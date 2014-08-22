@@ -139,8 +139,8 @@ bool IfcGeneralMaterialProperties::testMassDensity() const {
     return !Step::isUnset(getMassDensity());
 }
 
-bool IfcGeneralMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcGeneralMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

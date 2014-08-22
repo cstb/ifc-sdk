@@ -140,8 +140,8 @@ bool IfcProcedure::testUserDefinedProcedureType() const {
     return !Step::isUnset(getUserDefinedProcedureType());
 }
 
-bool IfcProcedure::init() {
-    bool status = IfcProcess::init();
+bool IfcProcedure::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProcess::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

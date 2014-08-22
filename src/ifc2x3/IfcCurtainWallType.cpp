@@ -85,8 +85,8 @@ bool IfcCurtainWallType::testPredefinedType() const {
     return getPredefinedType() != IfcCurtainWallTypeEnum_UNSET;
 }
 
-bool IfcCurtainWallType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcCurtainWallType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

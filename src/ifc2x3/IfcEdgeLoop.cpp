@@ -90,8 +90,8 @@ bool IfcEdgeLoop::testEdgeList() const {
     return !Step::isUnset(getEdgeList());
 }
 
-bool IfcEdgeLoop::init() {
-    bool status = IfcLoop::init();
+bool IfcEdgeLoop::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcLoop::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

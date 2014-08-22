@@ -112,8 +112,8 @@ bool IfcWindow::testOverallWidth() const {
     return !Step::isUnset(getOverallWidth());
 }
 
-bool IfcWindow::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcWindow::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

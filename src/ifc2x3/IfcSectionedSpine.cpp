@@ -147,8 +147,8 @@ bool IfcSectionedSpine::testCrossSectionPositions() const {
     return !Step::isUnset(getCrossSectionPositions());
 }
 
-bool IfcSectionedSpine::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcSectionedSpine::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

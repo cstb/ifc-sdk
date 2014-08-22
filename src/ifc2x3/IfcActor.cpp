@@ -109,8 +109,8 @@ bool IfcActor::testIsActingUpon() const {
     return !Step::isUnset(getIsActingUpon());
 }
 
-bool IfcActor::init() {
-    bool status = IfcObject::init();
+bool IfcActor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

@@ -85,8 +85,8 @@ bool IfcStructuralLoadSingleForceWarping::testWarpingMoment() const {
     return !Step::isUnset(getWarpingMoment());
 }
 
-bool IfcStructuralLoadSingleForceWarping::init() {
-    bool status = IfcStructuralLoadSingleForce::init();
+bool IfcStructuralLoadSingleForceWarping::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadSingleForce::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

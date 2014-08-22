@@ -113,8 +113,8 @@ bool IfcCostValue::testCondition() const {
     return !Step::isUnset(getCondition());
 }
 
-bool IfcCostValue::init() {
-    bool status = IfcAppliedValue::init();
+bool IfcCostValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAppliedValue::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

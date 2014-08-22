@@ -113,7 +113,7 @@ bool IfcProfileDef::testProfileName() const {
     return !Step::isUnset(getProfileName());
 }
 
-bool IfcProfileDef::init() {
+bool IfcProfileDef::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

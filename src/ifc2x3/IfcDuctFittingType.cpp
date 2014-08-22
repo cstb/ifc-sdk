@@ -85,8 +85,8 @@ bool IfcDuctFittingType::testPredefinedType() const {
     return getPredefinedType() != IfcDuctFittingTypeEnum_UNSET;
 }
 
-bool IfcDuctFittingType::init() {
-    bool status = IfcFlowFittingType::init();
+bool IfcDuctFittingType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowFittingType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

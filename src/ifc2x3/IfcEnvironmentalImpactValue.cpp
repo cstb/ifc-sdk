@@ -140,8 +140,8 @@ bool IfcEnvironmentalImpactValue::testUserDefinedCategory() const {
     return !Step::isUnset(getUserDefinedCategory());
 }
 
-bool IfcEnvironmentalImpactValue::init() {
-    bool status = IfcAppliedValue::init();
+bool IfcEnvironmentalImpactValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAppliedValue::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

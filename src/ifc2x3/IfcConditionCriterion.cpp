@@ -117,8 +117,8 @@ bool IfcConditionCriterion::testCriterionDateTime() const {
     return !Step::isUnset(getCriterionDateTime());
 }
 
-bool IfcConditionCriterion::init() {
-    bool status = IfcControl::init();
+bool IfcConditionCriterion::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

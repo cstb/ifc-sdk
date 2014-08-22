@@ -240,7 +240,7 @@ bool IfcRepresentation::testOfProductRepresentation() const {
     return !Step::isUnset(getOfProductRepresentation());
 }
 
-bool IfcRepresentation::init() {
+bool IfcRepresentation::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

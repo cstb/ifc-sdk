@@ -139,8 +139,8 @@ bool IfcStructuralLoadPlanarForce::testPlanarForceZ() const {
     return !Step::isUnset(getPlanarForceZ());
 }
 
-bool IfcStructuralLoadPlanarForce::init() {
-    bool status = IfcStructuralLoadStatic::init();
+bool IfcStructuralLoadPlanarForce::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadStatic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -171,8 +171,8 @@ bool IfcSurfaceCurveSweptAreaSolid::testReferenceSurface() const {
     return !Step::isUnset(getReferenceSurface());
 }
 
-bool IfcSurfaceCurveSweptAreaSolid::init() {
-    bool status = IfcSweptAreaSolid::init();
+bool IfcSurfaceCurveSweptAreaSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSweptAreaSolid::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

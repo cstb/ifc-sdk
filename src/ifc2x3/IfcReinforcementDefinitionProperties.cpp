@@ -118,8 +118,8 @@ bool IfcReinforcementDefinitionProperties::testReinforcementSectionDefinitions()
     return !Step::isUnset(getReinforcementSectionDefinitions());
 }
 
-bool IfcReinforcementDefinitionProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcReinforcementDefinitionProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

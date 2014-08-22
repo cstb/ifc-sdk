@@ -95,8 +95,8 @@ bool IfcRelDefinesByProperties::testRelatingPropertyDefinition() const {
     return !Step::isUnset(getRelatingPropertyDefinition());
 }
 
-bool IfcRelDefinesByProperties::init() {
-    bool status = IfcRelDefines::init();
+bool IfcRelDefinesByProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelDefines::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

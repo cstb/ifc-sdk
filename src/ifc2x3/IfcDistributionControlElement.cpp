@@ -108,8 +108,8 @@ bool IfcDistributionControlElement::testAssignedToFlowElement() const {
     return !Step::isUnset(getAssignedToFlowElement());
 }
 
-bool IfcDistributionControlElement::init() {
-    bool status = IfcDistributionElement::init();
+bool IfcDistributionControlElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionElement::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

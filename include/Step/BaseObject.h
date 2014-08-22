@@ -71,7 +71,7 @@ namespace Step {
          \short Init the instance and returns true if OK (Lazy loading)
          @return true if the instance has been inited
          */
-        bool inited();
+        bool inited(InstanciateIf *instanciateIf =0);
 
         /*!
          \short get the ExpressDataSet this object belongs to
@@ -105,7 +105,7 @@ namespace Step {
          \short Initialize the instance (Lazy loading concept)
          @return true if the instance was correctly inited
          */
-        virtual bool init()=0;
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0)=0;
 
         /*!
          * Pointer to our data set
@@ -117,7 +117,7 @@ namespace Step {
         /*!
          \short Flag about entity initialization (Lazy Loading)
          */
-        bool m_inited;
+        bool m_inited, m_fullyInited;
 
         /*!
          \short Data from a Step-21 file (Lazy Loading)

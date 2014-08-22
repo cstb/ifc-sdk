@@ -86,7 +86,7 @@ bool IfcColourSpecification::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcColourSpecification::init() {
+bool IfcColourSpecification::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

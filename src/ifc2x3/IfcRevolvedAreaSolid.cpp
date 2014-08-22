@@ -116,8 +116,8 @@ bool IfcRevolvedAreaSolid::testAngle() const {
     return !Step::isUnset(getAngle());
 }
 
-bool IfcRevolvedAreaSolid::init() {
-    bool status = IfcSweptAreaSolid::init();
+bool IfcRevolvedAreaSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSweptAreaSolid::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

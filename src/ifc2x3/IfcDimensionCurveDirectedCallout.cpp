@@ -57,8 +57,8 @@ bool IfcDimensionCurveDirectedCallout::isOfType(const Step::ClassType &t) const 
     return IfcDimensionCurveDirectedCallout::s_type == t ? true : IfcDraughtingCallout::isOfType(t);
 }
 
-bool IfcDimensionCurveDirectedCallout::init() {
-    bool status = IfcDraughtingCallout::init();
+bool IfcDimensionCurveDirectedCallout::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDraughtingCallout::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

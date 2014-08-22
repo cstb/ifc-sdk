@@ -80,7 +80,7 @@ bool IfcTextureCoordinate::testAnnotatedSurface() const {
     return !Step::isUnset(getAnnotatedSurface());
 }
 
-bool IfcTextureCoordinate::init() {
+bool IfcTextureCoordinate::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcAnnotationSurface::getClassType(), 1);

@@ -229,7 +229,7 @@ bool IfcShapeAspect::testPartOfProductDefinitionShape() const {
     return !Step::isUnset(getPartOfProductDefinitionShape());
 }
 
-bool IfcShapeAspect::init() {
+bool IfcShapeAspect::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

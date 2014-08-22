@@ -140,7 +140,7 @@ bool IfcActorRole::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-bool IfcActorRole::init() {
+bool IfcActorRole::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

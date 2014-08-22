@@ -91,7 +91,7 @@ bool IfcPresentationStyleAssignment::testStyles() const {
     return !Step::isUnset(getStyles());
 }
 
-bool IfcPresentationStyleAssignment::init() {
+bool IfcPresentationStyleAssignment::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

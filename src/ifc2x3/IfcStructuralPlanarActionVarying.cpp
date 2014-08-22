@@ -118,8 +118,8 @@ bool IfcStructuralPlanarActionVarying::testSubsequentAppliedLoads() const {
     return !Step::isUnset(getSubsequentAppliedLoads());
 }
 
-bool IfcStructuralPlanarActionVarying::init() {
-    bool status = IfcStructuralPlanarAction::init();
+bool IfcStructuralPlanarActionVarying::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralPlanarAction::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

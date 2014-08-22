@@ -279,7 +279,7 @@ bool IfcOwnerHistory::testCreationDate() const {
     return !Step::isUnset(getCreationDate());
 }
 
-bool IfcOwnerHistory::init() {
+bool IfcOwnerHistory::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

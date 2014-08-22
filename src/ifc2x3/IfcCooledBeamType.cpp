@@ -85,8 +85,8 @@ bool IfcCooledBeamType::testPredefinedType() const {
     return getPredefinedType() != IfcCooledBeamTypeEnum_UNSET;
 }
 
-bool IfcCooledBeamType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcCooledBeamType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

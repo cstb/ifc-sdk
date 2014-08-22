@@ -112,7 +112,7 @@ bool IfcRelaxation::testInitialStress() const {
     return !Step::isUnset(getInitialStress());
 }
 
-bool IfcRelaxation::init() {
+bool IfcRelaxation::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

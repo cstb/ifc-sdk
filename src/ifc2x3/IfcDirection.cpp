@@ -87,8 +87,8 @@ bool IfcDirection::testDirectionRatios() const {
     return !Step::isUnset(getDirectionRatios());
 }
 
-bool IfcDirection::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcDirection::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

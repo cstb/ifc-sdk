@@ -147,8 +147,8 @@ bool IfcTimeSeriesSchedule::testTimeSeries() const {
     return !Step::isUnset(getTimeSeries());
 }
 
-bool IfcTimeSeriesSchedule::init() {
-    bool status = IfcControl::init();
+bool IfcTimeSeriesSchedule::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

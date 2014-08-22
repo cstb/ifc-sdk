@@ -201,8 +201,8 @@ bool IfcTelecomAddress::testWWWHomePageURL() const {
     return !Step::isUnset(getWWWHomePageURL());
 }
 
-bool IfcTelecomAddress::init() {
-    bool status = IfcAddress::init();
+bool IfcTelecomAddress::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAddress::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

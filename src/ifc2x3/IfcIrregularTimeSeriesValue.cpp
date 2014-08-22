@@ -120,7 +120,7 @@ bool IfcIrregularTimeSeriesValue::testListValues() const {
     return !Step::isUnset(getListValues());
 }
 
-bool IfcIrregularTimeSeriesValue::init() {
+bool IfcIrregularTimeSeriesValue::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

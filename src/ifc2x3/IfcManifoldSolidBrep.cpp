@@ -89,8 +89,8 @@ bool IfcManifoldSolidBrep::testOuter() const {
     return !Step::isUnset(getOuter());
 }
 
-bool IfcManifoldSolidBrep::init() {
-    bool status = IfcSolidModel::init();
+bool IfcManifoldSolidBrep::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSolidModel::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

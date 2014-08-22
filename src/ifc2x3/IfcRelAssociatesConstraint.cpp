@@ -117,8 +117,8 @@ bool IfcRelAssociatesConstraint::testRelatingConstraint() const {
     return !Step::isUnset(getRelatingConstraint());
 }
 
-bool IfcRelAssociatesConstraint::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesConstraint::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

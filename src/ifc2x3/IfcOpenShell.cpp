@@ -57,8 +57,8 @@ bool IfcOpenShell::isOfType(const Step::ClassType &t) const {
     return IfcOpenShell::s_type == t ? true : IfcConnectedFaceSet::isOfType(t);
 }
 
-bool IfcOpenShell::init() {
-    bool status = IfcConnectedFaceSet::init();
+bool IfcOpenShell::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConnectedFaceSet::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -193,8 +193,8 @@ bool IfcReinforcingBar::testBarSurface() const {
     return getBarSurface() != IfcReinforcingBarSurfaceEnum_UNSET;
 }
 
-bool IfcReinforcingBar::init() {
-    bool status = IfcReinforcingElement::init();
+bool IfcReinforcingBar::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcReinforcingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

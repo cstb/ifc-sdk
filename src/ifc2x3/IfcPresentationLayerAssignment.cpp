@@ -212,7 +212,7 @@ bool IfcPresentationLayerAssignment::testIdentifier() const {
     return !Step::isUnset(getIdentifier());
 }
 
-bool IfcPresentationLayerAssignment::init() {
+bool IfcPresentationLayerAssignment::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

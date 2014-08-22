@@ -118,8 +118,8 @@ bool IfcPropertySingleValue::testUnit() const {
     return !Step::isUnset(getUnit());
 }
 
-bool IfcPropertySingleValue::init() {
-    bool status = IfcSimpleProperty::init();
+bool IfcPropertySingleValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSimpleProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

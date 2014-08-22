@@ -200,8 +200,8 @@ bool IfcTextStyleFontModel::testFontSize() const {
     return !Step::isUnset(getFontSize());
 }
 
-bool IfcTextStyleFontModel::init() {
-    bool status = IfcPreDefinedTextFont::init();
+bool IfcTextStyleFontModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedTextFont::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

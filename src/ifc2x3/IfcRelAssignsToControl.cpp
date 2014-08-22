@@ -95,8 +95,8 @@ bool IfcRelAssignsToControl::testRelatingControl() const {
     return !Step::isUnset(getRelatingControl());
 }
 
-bool IfcRelAssignsToControl::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToControl::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

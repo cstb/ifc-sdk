@@ -80,8 +80,8 @@ bool IfcAnnotation::testContainedInStructure() const {
     return !Step::isUnset(getContainedInStructure());
 }
 
-bool IfcAnnotation::init() {
-    bool status = IfcProduct::init();
+bool IfcAnnotation::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

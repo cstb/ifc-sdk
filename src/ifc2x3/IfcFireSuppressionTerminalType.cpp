@@ -85,8 +85,8 @@ bool IfcFireSuppressionTerminalType::testPredefinedType() const {
     return getPredefinedType() != IfcFireSuppressionTerminalTypeEnum_UNSET;
 }
 
-bool IfcFireSuppressionTerminalType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcFireSuppressionTerminalType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

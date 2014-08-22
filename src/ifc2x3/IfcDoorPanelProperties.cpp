@@ -197,8 +197,8 @@ bool IfcDoorPanelProperties::testShapeAspectStyle() const {
     return !Step::isUnset(getShapeAspectStyle());
 }
 
-bool IfcDoorPanelProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcDoorPanelProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

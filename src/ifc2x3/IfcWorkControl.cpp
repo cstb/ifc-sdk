@@ -337,8 +337,8 @@ bool IfcWorkControl::testUserDefinedControlType() const {
     return !Step::isUnset(getUserDefinedControlType());
 }
 
-bool IfcWorkControl::init() {
-    bool status = IfcControl::init();
+bool IfcWorkControl::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

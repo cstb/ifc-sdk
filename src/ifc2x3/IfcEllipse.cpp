@@ -112,8 +112,8 @@ bool IfcEllipse::testSemiAxis2() const {
     return !Step::isUnset(getSemiAxis2());
 }
 
-bool IfcEllipse::init() {
-    bool status = IfcConic::init();
+bool IfcEllipse::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

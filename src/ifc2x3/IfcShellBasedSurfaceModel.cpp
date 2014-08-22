@@ -91,8 +91,8 @@ bool IfcShellBasedSurfaceModel::testSbsmBoundary() const {
     return !Step::isUnset(getSbsmBoundary());
 }
 
-bool IfcShellBasedSurfaceModel::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcShellBasedSurfaceModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

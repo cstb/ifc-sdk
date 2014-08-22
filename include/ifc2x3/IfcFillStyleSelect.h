@@ -150,7 +150,7 @@ enum IfcFillStyleSelect_select {
         IfcFillStyleSelect(Step::SPFData *args);
         /**
          */
-        virtual bool init();
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0);
 
     private:
         /**

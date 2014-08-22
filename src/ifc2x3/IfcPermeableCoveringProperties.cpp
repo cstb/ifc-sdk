@@ -197,8 +197,8 @@ bool IfcPermeableCoveringProperties::testShapeAspectStyle() const {
     return !Step::isUnset(getShapeAspectStyle());
 }
 
-bool IfcPermeableCoveringProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcPermeableCoveringProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

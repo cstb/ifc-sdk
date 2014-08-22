@@ -274,8 +274,8 @@ bool IfcElectricalBaseProperties::testInputPhase() const {
     return !Step::isUnset(getInputPhase());
 }
 
-bool IfcElectricalBaseProperties::init() {
-    bool status = IfcEnergyProperties::init();
+bool IfcElectricalBaseProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

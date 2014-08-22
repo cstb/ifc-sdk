@@ -139,8 +139,8 @@ bool IfcBlock::testZLength() const {
     return !Step::isUnset(getZLength());
 }
 
-bool IfcBlock::init() {
-    bool status = IfcCsgPrimitive3D::init();
+bool IfcBlock::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCsgPrimitive3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

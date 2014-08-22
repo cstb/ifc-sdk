@@ -57,8 +57,8 @@ bool IfcTendonAnchor::isOfType(const Step::ClassType &t) const {
     return IfcTendonAnchor::s_type == t ? true : IfcReinforcingElement::isOfType(t);
 }
 
-bool IfcTendonAnchor::init() {
-    bool status = IfcReinforcingElement::init();
+bool IfcTendonAnchor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcReinforcingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

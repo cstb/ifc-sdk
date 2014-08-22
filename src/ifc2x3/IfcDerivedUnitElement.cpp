@@ -116,7 +116,7 @@ bool IfcDerivedUnitElement::testExponent() const {
     return !Step::isUnset(getExponent());
 }
 
-bool IfcDerivedUnitElement::init() {
+bool IfcDerivedUnitElement::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -85,8 +85,8 @@ bool IfcStructuralCurveMember::testPredefinedType() const {
     return getPredefinedType() != IfcStructuralCurveTypeEnum_UNSET;
 }
 
-bool IfcStructuralCurveMember::init() {
-    bool status = IfcStructuralMember::init();
+bool IfcStructuralCurveMember::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralMember::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

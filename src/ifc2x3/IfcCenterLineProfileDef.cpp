@@ -85,8 +85,8 @@ bool IfcCenterLineProfileDef::testThickness() const {
     return !Step::isUnset(getThickness());
 }
 
-bool IfcCenterLineProfileDef::init() {
-    bool status = IfcArbitraryOpenProfileDef::init();
+bool IfcCenterLineProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcArbitraryOpenProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

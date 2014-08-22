@@ -91,8 +91,8 @@ bool IfcFillAreaStyle::testFillStyles() const {
     return !Step::isUnset(getFillStyles());
 }
 
-bool IfcFillAreaStyle::init() {
-    bool status = IfcPresentationStyle::init();
+bool IfcFillAreaStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationStyle::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

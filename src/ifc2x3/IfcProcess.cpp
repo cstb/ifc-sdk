@@ -119,8 +119,8 @@ bool IfcProcess::testIsPredecessorTo() const {
     return !Step::isUnset(getIsPredecessorTo());
 }
 
-bool IfcProcess::init() {
-    bool status = IfcObject::init();
+bool IfcProcess::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

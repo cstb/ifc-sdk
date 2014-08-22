@@ -116,8 +116,8 @@ bool IfcEdge::testEdgeEnd() const {
     return !Step::isUnset(getEdgeEnd());
 }
 
-bool IfcEdge::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcEdge::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

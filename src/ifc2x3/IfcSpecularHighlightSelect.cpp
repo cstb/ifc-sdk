@@ -44,7 +44,7 @@ bool IfcSpecularHighlightSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcSpecularHighlightSelect(this);
 }
 
-bool IfcSpecularHighlightSelect::init() {
+bool IfcSpecularHighlightSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

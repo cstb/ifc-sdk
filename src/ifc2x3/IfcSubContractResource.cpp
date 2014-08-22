@@ -116,8 +116,8 @@ bool IfcSubContractResource::testJobDescription() const {
     return !Step::isUnset(getJobDescription());
 }
 
-bool IfcSubContractResource::init() {
-    bool status = IfcConstructionResource::init();
+bool IfcSubContractResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstructionResource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

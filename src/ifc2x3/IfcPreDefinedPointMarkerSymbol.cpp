@@ -57,8 +57,8 @@ bool IfcPreDefinedPointMarkerSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedPointMarkerSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
 }
 
-bool IfcPreDefinedPointMarkerSymbol::init() {
-    bool status = IfcPreDefinedSymbol::init();
+bool IfcPreDefinedPointMarkerSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedSymbol::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -86,8 +86,8 @@ bool IfcOrderAction::testActionID() const {
     return !Step::isUnset(getActionID());
 }
 
-bool IfcOrderAction::init() {
-    bool status = IfcTask::init();
+bool IfcOrderAction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTask::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

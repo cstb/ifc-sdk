@@ -90,8 +90,8 @@ bool IfcRelOverridesProperties::testOverridingProperties() const {
     return !Step::isUnset(getOverridingProperties());
 }
 
-bool IfcRelOverridesProperties::init() {
-    bool status = IfcRelDefinesByProperties::init();
+bool IfcRelOverridesProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelDefinesByProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

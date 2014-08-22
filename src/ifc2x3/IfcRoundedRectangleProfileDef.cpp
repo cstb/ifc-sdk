@@ -85,8 +85,8 @@ bool IfcRoundedRectangleProfileDef::testRoundingRadius() const {
     return !Step::isUnset(getRoundingRadius());
 }
 
-bool IfcRoundedRectangleProfileDef::init() {
-    bool status = IfcRectangleProfileDef::init();
+bool IfcRoundedRectangleProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRectangleProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

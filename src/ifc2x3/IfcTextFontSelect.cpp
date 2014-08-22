@@ -46,7 +46,7 @@ bool IfcTextFontSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcTextFontSelect(this);
 }
 
-bool IfcTextFontSelect::init() {
+bool IfcTextFontSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

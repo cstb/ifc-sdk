@@ -200,8 +200,8 @@ bool IfcSite::testSiteAddress() const {
     return !Step::isUnset(getSiteAddress());
 }
 
-bool IfcSite::init() {
-    bool status = IfcSpatialStructureElement::init();
+bool IfcSite::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSpatialStructureElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

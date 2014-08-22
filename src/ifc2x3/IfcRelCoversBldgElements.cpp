@@ -147,8 +147,8 @@ bool IfcRelCoversBldgElements::testRelatedCoverings() const {
     return !Step::isUnset(getRelatedCoverings());
 }
 
-bool IfcRelCoversBldgElements::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelCoversBldgElements::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

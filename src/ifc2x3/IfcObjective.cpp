@@ -171,8 +171,8 @@ bool IfcObjective::testUserDefinedQualifier() const {
     return !Step::isUnset(getUserDefinedQualifier());
 }
 
-bool IfcObjective::init() {
-    bool status = IfcConstraint::init();
+bool IfcObjective::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstraint::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

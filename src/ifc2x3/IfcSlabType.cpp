@@ -85,8 +85,8 @@ bool IfcSlabType::testPredefinedType() const {
     return getPredefinedType() != IfcSlabTypeEnum_UNSET;
 }
 
-bool IfcSlabType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcSlabType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

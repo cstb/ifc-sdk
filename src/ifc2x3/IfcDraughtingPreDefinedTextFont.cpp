@@ -57,8 +57,8 @@ bool IfcDraughtingPreDefinedTextFont::isOfType(const Step::ClassType &t) const {
     return IfcDraughtingPreDefinedTextFont::s_type == t ? true : IfcPreDefinedTextFont::isOfType(t);
 }
 
-bool IfcDraughtingPreDefinedTextFont::init() {
-    bool status = IfcPreDefinedTextFont::init();
+bool IfcDraughtingPreDefinedTextFont::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedTextFont::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

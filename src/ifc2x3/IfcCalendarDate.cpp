@@ -139,7 +139,7 @@ bool IfcCalendarDate::testYearComponent() const {
     return !Step::isUnset(getYearComponent());
 }
 
-bool IfcCalendarDate::init() {
+bool IfcCalendarDate::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

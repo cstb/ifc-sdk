@@ -154,8 +154,8 @@ bool IfcSpace::testBoundedBy() const {
     return !Step::isUnset(getBoundedBy());
 }
 
-bool IfcSpace::init() {
-    bool status = IfcSpatialStructureElement::init();
+bool IfcSpace::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSpatialStructureElement::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

@@ -57,8 +57,8 @@ bool IfcPreDefinedDimensionSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedDimensionSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
 }
 
-bool IfcPreDefinedDimensionSymbol::init() {
-    bool status = IfcPreDefinedSymbol::init();
+bool IfcPreDefinedDimensionSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedSymbol::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

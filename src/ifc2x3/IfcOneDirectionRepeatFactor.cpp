@@ -89,8 +89,8 @@ bool IfcOneDirectionRepeatFactor::testRepeatFactor() const {
     return !Step::isUnset(getRepeatFactor());
 }
 
-bool IfcOneDirectionRepeatFactor::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcOneDirectionRepeatFactor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -471,8 +471,8 @@ bool IfcFluidFlowProperties::testPressureSingleValue() const {
     return !Step::isUnset(getPressureSingleValue());
 }
 
-bool IfcFluidFlowProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcFluidFlowProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

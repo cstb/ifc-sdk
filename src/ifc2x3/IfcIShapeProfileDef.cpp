@@ -193,8 +193,8 @@ bool IfcIShapeProfileDef::testFilletRadius() const {
     return !Step::isUnset(getFilletRadius());
 }
 
-bool IfcIShapeProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcIShapeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

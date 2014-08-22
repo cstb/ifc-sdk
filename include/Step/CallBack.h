@@ -18,6 +18,7 @@
 #define Step_CallBack_h
 
 #include <Step/Export.h>
+#include <Step/ClassType.h>
 
 namespace Step {
 
@@ -36,7 +37,7 @@ namespace Step {
     {
     public:
         virtual ~InstanciateIf() {}
-        virtual bool isValid(BaseSPFObject *) const = 0;
+        virtual bool isValid(const Step::ClassType &) const = 0;
     };
 }
 

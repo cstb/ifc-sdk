@@ -57,8 +57,8 @@ bool IfcStructuralCurveMemberVarying::isOfType(const Step::ClassType &t) const {
     return IfcStructuralCurveMemberVarying::s_type == t ? true : IfcStructuralCurveMember::isOfType(t);
 }
 
-bool IfcStructuralCurveMemberVarying::init() {
-    bool status = IfcStructuralCurveMember::init();
+bool IfcStructuralCurveMemberVarying::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralCurveMember::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

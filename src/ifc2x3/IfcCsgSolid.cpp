@@ -88,8 +88,8 @@ bool IfcCsgSolid::testTreeRootExpression() const {
     return !Step::isUnset(getTreeRootExpression());
 }
 
-bool IfcCsgSolid::init() {
-    bool status = IfcSolidModel::init();
+bool IfcCsgSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSolidModel::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

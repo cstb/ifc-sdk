@@ -90,8 +90,8 @@ bool IfcFaceBasedSurfaceModel::testFbsmFaces() const {
     return !Step::isUnset(getFbsmFaces());
 }
 
-bool IfcFaceBasedSurfaceModel::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcFaceBasedSurfaceModel::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

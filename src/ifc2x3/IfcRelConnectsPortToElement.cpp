@@ -129,8 +129,8 @@ bool IfcRelConnectsPortToElement::testRelatedElement() const {
     return !Step::isUnset(getRelatedElement());
 }
 
-bool IfcRelConnectsPortToElement::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelConnectsPortToElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

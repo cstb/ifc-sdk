@@ -166,8 +166,8 @@ bool IfcAsymmetricIShapeProfileDef::testCentreOfGravityInY() const {
     return !Step::isUnset(getCentreOfGravityInY());
 }
 
-bool IfcAsymmetricIShapeProfileDef::init() {
-    bool status = IfcIShapeProfileDef::init();
+bool IfcAsymmetricIShapeProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcIShapeProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

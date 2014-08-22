@@ -57,8 +57,8 @@ bool IfcRelAssignsToProjectOrder::isOfType(const Step::ClassType &t) const {
     return IfcRelAssignsToProjectOrder::s_type == t ? true : IfcRelAssignsToControl::isOfType(t);
 }
 
-bool IfcRelAssignsToProjectOrder::init() {
-    bool status = IfcRelAssignsToControl::init();
+bool IfcRelAssignsToProjectOrder::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssignsToControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -371,7 +371,7 @@ bool IfcConstraint::testIsAggregatedIn() const {
     return !Step::isUnset(getIsAggregatedIn());
 }
 
-bool IfcConstraint::init() {
+bool IfcConstraint::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

@@ -85,8 +85,8 @@ bool IfcBuildingElementProxy::testCompositionType() const {
     return getCompositionType() != IfcElementCompositionEnum_UNSET;
 }
 
-bool IfcBuildingElementProxy::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcBuildingElementProxy::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

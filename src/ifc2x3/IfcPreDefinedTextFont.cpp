@@ -57,8 +57,8 @@ bool IfcPreDefinedTextFont::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedTextFont::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
 }
 
-bool IfcPreDefinedTextFont::init() {
-    bool status = IfcPreDefinedItem::init();
+bool IfcPreDefinedTextFont::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

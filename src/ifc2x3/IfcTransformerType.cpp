@@ -85,8 +85,8 @@ bool IfcTransformerType::testPredefinedType() const {
     return getPredefinedType() != IfcTransformerTypeEnum_UNSET;
 }
 
-bool IfcTransformerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcTransformerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcCostItem::isOfType(const Step::ClassType &t) const {
     return IfcCostItem::s_type == t ? true : IfcControl::isOfType(t);
 }
 
-bool IfcCostItem::init() {
-    bool status = IfcControl::init();
+bool IfcCostItem::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

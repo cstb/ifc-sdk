@@ -57,8 +57,8 @@ bool IfcCurve::isOfType(const Step::ClassType &t) const {
     return IfcCurve::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-bool IfcCurve::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

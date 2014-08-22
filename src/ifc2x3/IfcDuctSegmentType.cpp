@@ -85,8 +85,8 @@ bool IfcDuctSegmentType::testPredefinedType() const {
     return getPredefinedType() != IfcDuctSegmentTypeEnum_UNSET;
 }
 
-bool IfcDuctSegmentType::init() {
-    bool status = IfcFlowSegmentType::init();
+bool IfcDuctSegmentType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowSegmentType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

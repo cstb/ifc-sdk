@@ -85,8 +85,8 @@ bool IfcLampType::testPredefinedType() const {
     return getPredefinedType() != IfcLampTypeEnum_UNSET;
 }
 
-bool IfcLampType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcLampType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

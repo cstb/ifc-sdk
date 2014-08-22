@@ -89,8 +89,8 @@ bool IfcTwoDirectionRepeatFactor::testSecondRepeatFactor() const {
     return !Step::isUnset(getSecondRepeatFactor());
 }
 
-bool IfcTwoDirectionRepeatFactor::init() {
-    bool status = IfcOneDirectionRepeatFactor::init();
+bool IfcTwoDirectionRepeatFactor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcOneDirectionRepeatFactor::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

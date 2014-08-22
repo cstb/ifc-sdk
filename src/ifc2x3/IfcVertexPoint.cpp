@@ -89,8 +89,8 @@ bool IfcVertexPoint::testVertexGeometry() const {
     return !Step::isUnset(getVertexGeometry());
 }
 
-bool IfcVertexPoint::init() {
-    bool status = IfcVertex::init();
+bool IfcVertexPoint::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcVertex::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

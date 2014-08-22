@@ -57,8 +57,8 @@ bool IfcRelAggregates::isOfType(const Step::ClassType &t) const {
     return IfcRelAggregates::s_type == t ? true : IfcRelDecomposes::isOfType(t);
 }
 
-bool IfcRelAggregates::init() {
-    bool status = IfcRelDecomposes::init();
+bool IfcRelAggregates::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelDecomposes::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

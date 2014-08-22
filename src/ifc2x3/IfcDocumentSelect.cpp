@@ -46,7 +46,7 @@ bool IfcDocumentSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcDocumentSelect(this);
 }
 
-bool IfcDocumentSelect::init() {
+bool IfcDocumentSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

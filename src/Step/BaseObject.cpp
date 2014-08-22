@@ -23,7 +23,7 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,BaseObject,ClientDataHandler);
 
 BaseObject::BaseObject(SPFData* data) :
-    m_inited((!data) || (data && (data->argc() == 0))), m_args(data)
+    m_inited((!data) || (data && (data->argc() == 0))), m_args(data), m_fullyInited(m_inited)
 {
 }
 
@@ -49,16 +49,17 @@ bool BaseObject::acceptVisitor(BaseVisitor *v)
     return v->visitBaseObject(this);
 }
 
-bool BaseObject::inited()
+bool BaseObject::inited(InstanciateIf *instanciateIf)
 {
-    if (!m_inited)
+    if (!m_inited || !m_fullyInited)
     {
+        m_fullyInited = true;
 #ifdef STEP_THREAD_SAFE
         OpenThreads::ScopedLock<OpenThreads::Mutex> lock(m_mutex);
 #endif
         m_inited = true; // set this to break cycle when inverse attribute inits
-        bool inited = init();
-        if (inited)
+        bool inited = init(instanciateIf);
+        if (inited && m_fullyInited)
         {
             delete m_args;
             m_args = 0;

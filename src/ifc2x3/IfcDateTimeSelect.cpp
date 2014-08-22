@@ -47,7 +47,7 @@ bool IfcDateTimeSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcDateTimeSelect(this);
 }
 
-bool IfcDateTimeSelect::init() {
+bool IfcDateTimeSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

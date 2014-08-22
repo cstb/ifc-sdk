@@ -301,8 +301,8 @@ bool IfcOpticalMaterialProperties::testSolarReflectanceBack() const {
     return !Step::isUnset(getSolarReflectanceBack());
 }
 
-bool IfcOpticalMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcOpticalMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

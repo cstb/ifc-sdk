@@ -127,8 +127,8 @@ bool IfcCovering::testCovers() const {
     return !Step::isUnset(getCovers());
 }
 
-bool IfcCovering::init() {
-    bool status = IfcBuildingElement::init();
+bool IfcCovering::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElement::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

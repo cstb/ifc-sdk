@@ -85,8 +85,8 @@ bool IfcMemberType::testPredefinedType() const {
     return getPredefinedType() != IfcMemberTypeEnum_UNSET;
 }
 
-bool IfcMemberType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcMemberType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

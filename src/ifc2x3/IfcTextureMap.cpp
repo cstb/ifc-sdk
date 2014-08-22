@@ -90,8 +90,8 @@ bool IfcTextureMap::testTextureMaps() const {
     return !Step::isUnset(getTextureMaps());
 }
 
-bool IfcTextureMap::init() {
-    bool status = IfcTextureCoordinate::init();
+bool IfcTextureMap::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTextureCoordinate::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -191,7 +191,7 @@ bool IfcClassificationItem::testIsClassifyingItemIn() const {
     return !Step::isUnset(getIsClassifyingItemIn());
 }
 
-bool IfcClassificationItem::init() {
+bool IfcClassificationItem::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

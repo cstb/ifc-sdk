@@ -57,8 +57,8 @@ bool IfcPoint::isOfType(const Step::ClassType &t) const {
     return IfcPoint::s_type == t ? true : IfcGeometricRepresentationItem::isOfType(t);
 }
 
-bool IfcPoint::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcPoint::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

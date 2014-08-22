@@ -123,8 +123,8 @@ bool IfcRelAssignsToActor::testActingRole() const {
     return !Step::isUnset(getActingRole());
 }
 
-bool IfcRelAssignsToActor::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToActor::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

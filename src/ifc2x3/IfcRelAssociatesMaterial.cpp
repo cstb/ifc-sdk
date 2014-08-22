@@ -88,8 +88,8 @@ bool IfcRelAssociatesMaterial::testRelatingMaterial() const {
     return !Step::isUnset(getRelatingMaterial());
 }
 
-bool IfcRelAssociatesMaterial::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesMaterial::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

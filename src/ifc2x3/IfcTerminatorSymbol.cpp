@@ -100,8 +100,8 @@ bool IfcTerminatorSymbol::testAnnotatedCurve() const {
     return !Step::isUnset(getAnnotatedCurve());
 }
 
-bool IfcTerminatorSymbol::init() {
-    bool status = IfcAnnotationSymbolOccurrence::init();
+bool IfcTerminatorSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAnnotationSymbolOccurrence::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

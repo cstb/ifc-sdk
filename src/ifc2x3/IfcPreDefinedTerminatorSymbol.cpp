@@ -57,8 +57,8 @@ bool IfcPreDefinedTerminatorSymbol::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedTerminatorSymbol::s_type == t ? true : IfcPreDefinedSymbol::isOfType(t);
 }
 
-bool IfcPreDefinedTerminatorSymbol::init() {
-    bool status = IfcPreDefinedSymbol::init();
+bool IfcPreDefinedTerminatorSymbol::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedSymbol::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

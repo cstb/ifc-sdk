@@ -116,8 +116,8 @@ bool IfcFaceBound::testOrientation() const {
     return !Step::isUnset(getOrientation());
 }
 
-bool IfcFaceBound::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcFaceBound::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

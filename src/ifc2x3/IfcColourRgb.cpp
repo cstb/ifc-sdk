@@ -139,8 +139,8 @@ bool IfcColourRgb::testBlue() const {
     return !Step::isUnset(getBlue());
 }
 
-bool IfcColourRgb::init() {
-    bool status = IfcColourSpecification::init();
+bool IfcColourRgb::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcColourSpecification::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

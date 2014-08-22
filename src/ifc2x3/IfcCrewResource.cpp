@@ -57,8 +57,8 @@ bool IfcCrewResource::isOfType(const Step::ClassType &t) const {
     return IfcCrewResource::s_type == t ? true : IfcConstructionResource::isOfType(t);
 }
 
-bool IfcCrewResource::init() {
-    bool status = IfcConstructionResource::init();
+bool IfcCrewResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConstructionResource::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

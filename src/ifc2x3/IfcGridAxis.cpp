@@ -223,7 +223,7 @@ bool IfcGridAxis::testHasIntersections() const {
     return !Step::isUnset(getHasIntersections());
 }
 
-bool IfcGridAxis::init() {
+bool IfcGridAxis::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

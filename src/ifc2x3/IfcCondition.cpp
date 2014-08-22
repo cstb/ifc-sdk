@@ -57,8 +57,8 @@ bool IfcCondition::isOfType(const Step::ClassType &t) const {
     return IfcCondition::s_type == t ? true : IfcGroup::isOfType(t);
 }
 
-bool IfcCondition::init() {
-    bool status = IfcGroup::init();
+bool IfcCondition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGroup::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

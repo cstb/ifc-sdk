@@ -182,8 +182,8 @@ bool IfcRelSequence::testSequenceType() const {
     return getSequenceType() != IfcSequenceEnum_UNSET;
 }
 
-bool IfcRelSequence::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelSequence::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

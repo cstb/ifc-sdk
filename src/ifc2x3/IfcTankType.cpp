@@ -85,8 +85,8 @@ bool IfcTankType::testPredefinedType() const {
     return getPredefinedType() != IfcTankTypeEnum_UNSET;
 }
 
-bool IfcTankType::init() {
-    bool status = IfcFlowStorageDeviceType::init();
+bool IfcTankType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowStorageDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

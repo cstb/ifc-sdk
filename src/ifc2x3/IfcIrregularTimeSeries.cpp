@@ -90,8 +90,8 @@ bool IfcIrregularTimeSeries::testValues() const {
     return !Step::isUnset(getValues());
 }
 
-bool IfcIrregularTimeSeries::init() {
-    bool status = IfcTimeSeries::init();
+bool IfcIrregularTimeSeries::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTimeSeries::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

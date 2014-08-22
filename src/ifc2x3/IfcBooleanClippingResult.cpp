@@ -57,8 +57,8 @@ bool IfcBooleanClippingResult::isOfType(const Step::ClassType &t) const {
     return IfcBooleanClippingResult::s_type == t ? true : IfcBooleanResult::isOfType(t);
 }
 
-bool IfcBooleanClippingResult::init() {
-    bool status = IfcBooleanResult::init();
+bool IfcBooleanClippingResult::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBooleanResult::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

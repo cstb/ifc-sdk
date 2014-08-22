@@ -120,8 +120,8 @@ bool IfcPropertyEnumeratedValue::testEnumerationReference() const {
     return !Step::isUnset(getEnumerationReference());
 }
 
-bool IfcPropertyEnumeratedValue::init() {
-    bool status = IfcSimpleProperty::init();
+bool IfcPropertyEnumeratedValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSimpleProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

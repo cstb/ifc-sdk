@@ -135,7 +135,7 @@ bool IfcRepresentationContext::testRepresentationsInContext() const {
     return !Step::isUnset(getRepresentationsInContext());
 }
 
-bool IfcRepresentationContext::init() {
+bool IfcRepresentationContext::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

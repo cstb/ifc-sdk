@@ -163,7 +163,7 @@ bool IfcMaterialLayer::testToMaterialLayerSet() const {
     return !Step::isUnset(getToMaterialLayerSet());
 }
 
-bool IfcMaterialLayer::init() {
+bool IfcMaterialLayer::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

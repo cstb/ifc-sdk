@@ -112,8 +112,8 @@ bool IfcMechanicalFastener::testNominalLength() const {
     return !Step::isUnset(getNominalLength());
 }
 
-bool IfcMechanicalFastener::init() {
-    bool status = IfcFastener::init();
+bool IfcMechanicalFastener::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFastener::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

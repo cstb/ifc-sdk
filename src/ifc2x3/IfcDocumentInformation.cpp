@@ -594,7 +594,7 @@ bool IfcDocumentInformation::testIsPointer() const {
     return !Step::isUnset(getIsPointer());
 }
 
-bool IfcDocumentInformation::init() {
+bool IfcDocumentInformation::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

@@ -174,7 +174,7 @@ bool IfcProperty::testPartOfComplex() const {
     return !Step::isUnset(getPartOfComplex());
 }
 
-bool IfcProperty::init() {
+bool IfcProperty::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

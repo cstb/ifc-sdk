@@ -100,8 +100,8 @@ bool IfcProductDefinitionShape::testHasShapeAspects() const {
     return !Step::isUnset(getHasShapeAspects());
 }
 
-bool IfcProductDefinitionShape::init() {
-    bool status = IfcProductRepresentation::init();
+bool IfcProductDefinitionShape::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProductRepresentation::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

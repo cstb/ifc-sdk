@@ -129,8 +129,8 @@ bool IfcRelVoidsElement::testRelatedOpeningElement() const {
     return !Step::isUnset(getRelatedOpeningElement());
 }
 
-bool IfcRelVoidsElement::init() {
-    bool status = IfcRelConnects::init();
+bool IfcRelVoidsElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnects::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

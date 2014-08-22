@@ -201,8 +201,8 @@ bool IfcTrimmedCurve::testMasterRepresentation() const {
     return getMasterRepresentation() != IfcTrimmingPreference_UNSET;
 }
 
-bool IfcTrimmedCurve::init() {
-    bool status = IfcBoundedCurve::init();
+bool IfcTrimmedCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

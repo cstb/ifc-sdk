@@ -46,7 +46,7 @@ bool IfcTextStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcTextStyleSelect(this);
 }
 
-bool IfcTextStyleSelect::init() {
+bool IfcTextStyleSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

@@ -79,8 +79,8 @@ bool IfcFeatureElementAddition::testProjectsElements() const {
     return !Step::isUnset(getProjectsElements());
 }
 
-bool IfcFeatureElementAddition::init() {
-    bool status = IfcFeatureElement::init();
+bool IfcFeatureElementAddition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFeatureElement::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

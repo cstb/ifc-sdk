@@ -220,8 +220,8 @@ bool IfcStructuralLoadLinearForce::testLinearMomentZ() const {
     return !Step::isUnset(getLinearMomentZ());
 }
 
-bool IfcStructuralLoadLinearForce::init() {
-    bool status = IfcStructuralLoadStatic::init();
+bool IfcStructuralLoadLinearForce::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadStatic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

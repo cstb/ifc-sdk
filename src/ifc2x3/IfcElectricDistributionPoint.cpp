@@ -113,8 +113,8 @@ bool IfcElectricDistributionPoint::testUserDefinedFunction() const {
     return !Step::isUnset(getUserDefinedFunction());
 }
 
-bool IfcElectricDistributionPoint::init() {
-    bool status = IfcFlowController::init();
+bool IfcElectricDistributionPoint::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowController::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

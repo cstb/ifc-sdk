@@ -49,7 +49,7 @@ bool IfcPresentationStyleSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcPresentationStyleSelect(this);
 }
 
-bool IfcPresentationStyleSelect::init() {
+bool IfcPresentationStyleSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

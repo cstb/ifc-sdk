@@ -89,8 +89,8 @@ bool IfcRelConnectsWithEccentricity::testConnectionConstraint() const {
     return !Step::isUnset(getConnectionConstraint());
 }
 
-bool IfcRelConnectsWithEccentricity::init() {
-    bool status = IfcRelConnectsStructuralMember::init();
+bool IfcRelConnectsWithEccentricity::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelConnectsStructuralMember::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -46,7 +46,7 @@ bool IfcLibrarySelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcLibrarySelect(this);
 }
 
-bool IfcLibrarySelect::init() {
+bool IfcLibrarySelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

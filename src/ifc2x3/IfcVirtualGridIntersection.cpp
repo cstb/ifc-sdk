@@ -141,7 +141,7 @@ bool IfcVirtualGridIntersection::testOffsetDistances() const {
     return !Step::isUnset(getOffsetDistances());
 }
 
-bool IfcVirtualGridIntersection::init() {
+bool IfcVirtualGridIntersection::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

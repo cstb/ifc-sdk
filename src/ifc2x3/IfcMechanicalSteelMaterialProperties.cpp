@@ -253,8 +253,8 @@ bool IfcMechanicalSteelMaterialProperties::testRelaxations() const {
     return !Step::isUnset(getRelaxations());
 }
 
-bool IfcMechanicalSteelMaterialProperties::init() {
-    bool status = IfcMechanicalMaterialProperties::init();
+bool IfcMechanicalSteelMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMechanicalMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

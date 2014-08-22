@@ -85,8 +85,8 @@ bool IfcBuildingElementProxyType::testPredefinedType() const {
     return getPredefinedType() != IfcBuildingElementProxyTypeEnum_UNSET;
 }
 
-bool IfcBuildingElementProxyType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcBuildingElementProxyType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

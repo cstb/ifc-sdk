@@ -117,8 +117,8 @@ bool IfcStructuralSurfaceMemberVarying::testVaryingThicknessLocation() const {
     return !Step::isUnset(getVaryingThicknessLocation());
 }
 
-bool IfcStructuralSurfaceMemberVarying::init() {
-    bool status = IfcStructuralSurfaceMember::init();
+bool IfcStructuralSurfaceMemberVarying::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralSurfaceMember::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

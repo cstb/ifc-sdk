@@ -85,8 +85,8 @@ bool IfcStructuralLoadSingleDisplacementDistortion::testDistortion() const {
     return !Step::isUnset(getDistortion());
 }
 
-bool IfcStructuralLoadSingleDisplacementDistortion::init() {
-    bool status = IfcStructuralLoadSingleDisplacement::init();
+bool IfcStructuralLoadSingleDisplacementDistortion::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadSingleDisplacement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

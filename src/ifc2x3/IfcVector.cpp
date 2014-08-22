@@ -116,8 +116,8 @@ bool IfcVector::testMagnitude() const {
     return !Step::isUnset(getMagnitude());
 }
 
-bool IfcVector::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcVector::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -112,8 +112,8 @@ bool IfcStructuralSurfaceMember::testThickness() const {
     return !Step::isUnset(getThickness());
 }
 
-bool IfcStructuralSurfaceMember::init() {
-    bool status = IfcStructuralMember::init();
+bool IfcStructuralSurfaceMember::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralMember::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -115,8 +115,8 @@ bool IfcConnectionSurfaceGeometry::testSurfaceOnRelatedElement() const {
     return !Step::isUnset(getSurfaceOnRelatedElement());
 }
 
-bool IfcConnectionSurfaceGeometry::init() {
-    bool status = IfcConnectionGeometry::init();
+bool IfcConnectionSurfaceGeometry::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcConnectionGeometry::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

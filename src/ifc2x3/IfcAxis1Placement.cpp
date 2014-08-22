@@ -89,8 +89,8 @@ bool IfcAxis1Placement::testAxis() const {
     return !Step::isUnset(getAxis());
 }
 
-bool IfcAxis1Placement::init() {
-    bool status = IfcPlacement::init();
+bool IfcAxis1Placement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPlacement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

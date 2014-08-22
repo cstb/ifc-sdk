@@ -89,8 +89,8 @@ bool IfcPlacement::testLocation() const {
     return !Step::isUnset(getLocation());
 }
 
-bool IfcPlacement::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcPlacement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

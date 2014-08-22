@@ -143,8 +143,8 @@ bool IfcTextLiteral::testPath() const {
     return getPath() != IfcTextPath_UNSET;
 }
 
-bool IfcTextLiteral::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcTextLiteral::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

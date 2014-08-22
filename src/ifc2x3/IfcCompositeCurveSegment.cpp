@@ -164,8 +164,8 @@ bool IfcCompositeCurveSegment::testUsingCurves() const {
     return !Step::isUnset(getUsingCurves());
 }
 
-bool IfcCompositeCurveSegment::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcCompositeCurveSegment::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

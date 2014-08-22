@@ -89,8 +89,8 @@ bool IfcElementarySurface::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcElementarySurface::init() {
-    bool status = IfcSurface::init();
+bool IfcElementarySurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

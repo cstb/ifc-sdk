@@ -88,8 +88,8 @@ bool IfcRelAssociatesLibrary::testRelatingLibrary() const {
     return !Step::isUnset(getRelatingLibrary());
 }
 
-bool IfcRelAssociatesLibrary::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesLibrary::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

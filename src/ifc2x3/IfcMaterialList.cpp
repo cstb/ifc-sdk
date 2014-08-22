@@ -90,7 +90,7 @@ bool IfcMaterialList::testMaterials() const {
     return !Step::isUnset(getMaterials());
 }
 
-bool IfcMaterialList::init() {
+bool IfcMaterialList::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

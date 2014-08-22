@@ -113,8 +113,8 @@ bool IfcEnergyProperties::testUserDefinedEnergySequence() const {
     return !Step::isUnset(getUserDefinedEnergySequence());
 }
 
-bool IfcEnergyProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcEnergyProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

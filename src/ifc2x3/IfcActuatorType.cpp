@@ -85,8 +85,8 @@ bool IfcActuatorType::testPredefinedType() const {
     return getPredefinedType() != IfcActuatorTypeEnum_UNSET;
 }
 
-bool IfcActuatorType::init() {
-    bool status = IfcDistributionControlElementType::init();
+bool IfcActuatorType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionControlElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

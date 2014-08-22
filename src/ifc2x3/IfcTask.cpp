@@ -194,8 +194,8 @@ bool IfcTask::testPriority() const {
     return !Step::isUnset(getPriority());
 }
 
-bool IfcTask::init() {
-    bool status = IfcProcess::init();
+bool IfcTask::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProcess::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

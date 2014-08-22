@@ -119,7 +119,7 @@ bool IfcVertexBasedTextureMap::testTexturePoints() const {
     return !Step::isUnset(getTexturePoints());
 }
 
-bool IfcVertexBasedTextureMap::init() {
+bool IfcVertexBasedTextureMap::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

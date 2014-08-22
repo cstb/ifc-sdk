@@ -85,8 +85,8 @@ bool IfcElectricApplianceType::testPredefinedType() const {
     return getPredefinedType() != IfcElectricApplianceTypeEnum_UNSET;
 }
 
-bool IfcElectricApplianceType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcElectricApplianceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

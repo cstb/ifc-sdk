@@ -85,8 +85,8 @@ bool IfcValveType::testPredefinedType() const {
     return getPredefinedType() != IfcValveTypeEnum_UNSET;
 }
 
-bool IfcValveType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcValveType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

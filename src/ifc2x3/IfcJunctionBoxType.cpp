@@ -85,8 +85,8 @@ bool IfcJunctionBoxType::testPredefinedType() const {
     return getPredefinedType() != IfcJunctionBoxTypeEnum_UNSET;
 }
 
-bool IfcJunctionBoxType::init() {
-    bool status = IfcFlowFittingType::init();
+bool IfcJunctionBoxType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowFittingType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

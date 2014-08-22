@@ -88,8 +88,8 @@ bool IfcSymbolStyle::testStyleOfSymbol() const {
     return !Step::isUnset(getStyleOfSymbol());
 }
 
-bool IfcSymbolStyle::init() {
-    bool status = IfcPresentationStyle::init();
+bool IfcSymbolStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationStyle::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

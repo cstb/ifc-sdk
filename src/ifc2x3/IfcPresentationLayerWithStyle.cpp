@@ -172,8 +172,8 @@ bool IfcPresentationLayerWithStyle::testLayerStyles() const {
     return !Step::isUnset(getLayerStyles());
 }
 
-bool IfcPresentationLayerWithStyle::init() {
-    bool status = IfcPresentationLayerAssignment::init();
+bool IfcPresentationLayerWithStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPresentationLayerAssignment::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

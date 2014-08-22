@@ -89,8 +89,8 @@ bool IfcCartesianTransformationOperator3D::testAxis3() const {
     return !Step::isUnset(getAxis3());
 }
 
-bool IfcCartesianTransformationOperator3D::init() {
-    bool status = IfcCartesianTransformationOperator::init();
+bool IfcCartesianTransformationOperator3D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCartesianTransformationOperator::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

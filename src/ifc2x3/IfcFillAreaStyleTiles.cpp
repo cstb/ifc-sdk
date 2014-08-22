@@ -146,8 +146,8 @@ bool IfcFillAreaStyleTiles::testTilingScale() const {
     return !Step::isUnset(getTilingScale());
 }
 
-bool IfcFillAreaStyleTiles::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcFillAreaStyleTiles::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -139,7 +139,7 @@ bool IfcTableRow::testOfTable() const {
     return !Step::isUnset(getOfTable());
 }
 
-bool IfcTableRow::init() {
+bool IfcTableRow::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

@@ -47,7 +47,7 @@ bool IfcActorSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcActorSelect(this);
 }
 
-bool IfcActorSelect::init() {
+bool IfcActorSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

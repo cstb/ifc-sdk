@@ -118,8 +118,8 @@ bool IfcAnnotationFillArea::testInnerBoundaries() const {
     return !Step::isUnset(getInnerBoundaries());
 }
 
-bool IfcAnnotationFillArea::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcAnnotationFillArea::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

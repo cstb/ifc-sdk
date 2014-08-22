@@ -225,7 +225,7 @@ bool IfcLibraryInformation::testLibraryReference() const {
     return !Step::isUnset(getLibraryReference());
 }
 
-bool IfcLibraryInformation::init() {
+bool IfcLibraryInformation::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

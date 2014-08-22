@@ -85,8 +85,8 @@ bool IfcControllerType::testPredefinedType() const {
     return getPredefinedType() != IfcControllerTypeEnum_UNSET;
 }
 
-bool IfcControllerType::init() {
-    bool status = IfcDistributionControlElementType::init();
+bool IfcControllerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionControlElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

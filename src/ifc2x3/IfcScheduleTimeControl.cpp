@@ -567,8 +567,8 @@ bool IfcScheduleTimeControl::testScheduleTimeControlAssigned() const {
     return !Step::isUnset(getScheduleTimeControlAssigned());
 }
 
-bool IfcScheduleTimeControl::init() {
-    bool status = IfcControl::init();
+bool IfcScheduleTimeControl::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

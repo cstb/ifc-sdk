@@ -142,8 +142,8 @@ bool IfcOffsetCurve2D::testSelfIntersect() const {
     return !Step::isUnset(getSelfIntersect());
 }
 
-bool IfcOffsetCurve2D::init() {
-    bool status = IfcCurve::init();
+bool IfcOffsetCurve2D::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

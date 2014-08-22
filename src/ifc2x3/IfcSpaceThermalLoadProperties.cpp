@@ -333,8 +333,8 @@ bool IfcSpaceThermalLoadProperties::testThermalLoadType() const {
     return getThermalLoadType() != IfcThermalLoadTypeEnum_UNSET;
 }
 
-bool IfcSpaceThermalLoadProperties::init() {
-    bool status = IfcPropertySetDefinition::init();
+bool IfcSpaceThermalLoadProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPropertySetDefinition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

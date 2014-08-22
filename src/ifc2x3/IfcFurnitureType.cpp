@@ -85,8 +85,8 @@ bool IfcFurnitureType::testAssemblyPlace() const {
     return getAssemblyPlace() != IfcAssemblyPlaceEnum_UNSET;
 }
 
-bool IfcFurnitureType::init() {
-    bool status = IfcFurnishingElementType::init();
+bool IfcFurnitureType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFurnishingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -90,8 +90,8 @@ bool IfcConnectedFaceSet::testCfsFaces() const {
     return !Step::isUnset(getCfsFaces());
 }
 
-bool IfcConnectedFaceSet::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcConnectedFaceSet::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

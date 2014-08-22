@@ -85,8 +85,8 @@ bool IfcHeatExchangerType::testPredefinedType() const {
     return getPredefinedType() != IfcHeatExchangerTypeEnum_UNSET;
 }
 
-bool IfcHeatExchangerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcHeatExchangerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

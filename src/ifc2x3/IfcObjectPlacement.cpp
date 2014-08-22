@@ -100,7 +100,7 @@ bool IfcObjectPlacement::testReferencedByPlacements() const {
     return !Step::isUnset(getReferencedByPlacements());
 }
 
-bool IfcObjectPlacement::init() {
+bool IfcObjectPlacement::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     inverses = m_args->getInverses(IfcProduct::getClassType(), 5);

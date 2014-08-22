@@ -57,8 +57,8 @@ bool IfcProjectionCurve::isOfType(const Step::ClassType &t) const {
     return IfcProjectionCurve::s_type == t ? true : IfcAnnotationCurveOccurrence::isOfType(t);
 }
 
-bool IfcProjectionCurve::init() {
-    bool status = IfcAnnotationCurveOccurrence::init();
+bool IfcProjectionCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAnnotationCurveOccurrence::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

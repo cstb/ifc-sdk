@@ -57,8 +57,8 @@ bool IfcFlowFitting::isOfType(const Step::ClassType &t) const {
     return IfcFlowFitting::s_type == t ? true : IfcDistributionFlowElement::isOfType(t);
 }
 
-bool IfcFlowFitting::init() {
-    bool status = IfcDistributionFlowElement::init();
+bool IfcFlowFitting::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

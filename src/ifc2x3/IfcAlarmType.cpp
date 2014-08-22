@@ -85,8 +85,8 @@ bool IfcAlarmType::testPredefinedType() const {
     return getPredefinedType() != IfcAlarmTypeEnum_UNSET;
 }
 
-bool IfcAlarmType::init() {
-    bool status = IfcDistributionControlElementType::init();
+bool IfcAlarmType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionControlElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

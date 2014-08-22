@@ -201,7 +201,7 @@ bool IfcOrganizationRelationship::testRelatedOrganizations() const {
     return !Step::isUnset(getRelatedOrganizations());
 }
 
-bool IfcOrganizationRelationship::init() {
+bool IfcOrganizationRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

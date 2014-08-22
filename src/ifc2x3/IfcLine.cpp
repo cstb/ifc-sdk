@@ -117,8 +117,8 @@ bool IfcLine::testDir() const {
     return !Step::isUnset(getDir());
 }
 
-bool IfcLine::init() {
-    bool status = IfcCurve::init();
+bool IfcLine::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

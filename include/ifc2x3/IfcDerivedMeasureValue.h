@@ -712,7 +712,7 @@ enum IfcDerivedMeasureValue_select {
         IfcDerivedMeasureValue(Step::SPFData *args);
         /**
          */
-        virtual bool init();
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0);
 
     private:
         /**

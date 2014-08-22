@@ -95,8 +95,8 @@ bool IfcRelAssignsToProduct::testRelatingProduct() const {
     return !Step::isUnset(getRelatingProduct());
 }
 
-bool IfcRelAssignsToProduct::init() {
-    bool status = IfcRelAssigns::init();
+bool IfcRelAssignsToProduct::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssigns::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

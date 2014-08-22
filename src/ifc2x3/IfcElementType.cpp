@@ -86,8 +86,8 @@ bool IfcElementType::testElementType() const {
     return !Step::isUnset(getElementType());
 }
 
-bool IfcElementType::init() {
-    bool status = IfcTypeProduct::init();
+bool IfcElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTypeProduct::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

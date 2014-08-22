@@ -88,8 +88,8 @@ bool IfcRelAssociatesDocument::testRelatingDocument() const {
     return !Step::isUnset(getRelatingDocument());
 }
 
-bool IfcRelAssociatesDocument::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesDocument::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

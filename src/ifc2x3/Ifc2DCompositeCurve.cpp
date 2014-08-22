@@ -57,8 +57,8 @@ bool Ifc2DCompositeCurve::isOfType(const Step::ClassType &t) const {
     return Ifc2DCompositeCurve::s_type == t ? true : IfcCompositeCurve::isOfType(t);
 }
 
-bool Ifc2DCompositeCurve::init() {
-    bool status = IfcCompositeCurve::init();
+bool Ifc2DCompositeCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCompositeCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

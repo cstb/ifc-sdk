@@ -131,8 +131,8 @@ bool IfcDraughtingCallout::testIsRelatedToCallout() const {
     return !Step::isUnset(getIsRelatedToCallout());
 }
 
-bool IfcDraughtingCallout::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcDraughtingCallout::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

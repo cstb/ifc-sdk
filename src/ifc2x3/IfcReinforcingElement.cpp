@@ -86,8 +86,8 @@ bool IfcReinforcingElement::testSteelGrade() const {
     return !Step::isUnset(getSteelGrade());
 }
 
-bool IfcReinforcingElement::init() {
-    bool status = IfcBuildingElementComponent::init();
+bool IfcReinforcingElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementComponent::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

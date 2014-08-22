@@ -117,7 +117,7 @@ bool IfcDateAndTime::testTimeComponent() const {
     return !Step::isUnset(getTimeComponent());
 }
 
-bool IfcDateAndTime::init() {
+bool IfcDateAndTime::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

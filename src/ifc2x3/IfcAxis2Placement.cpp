@@ -46,7 +46,7 @@ bool IfcAxis2Placement::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcAxis2Placement(this);
 }
 
-bool IfcAxis2Placement::init() {
+bool IfcAxis2Placement::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

@@ -116,7 +116,7 @@ bool IfcNamedUnit::testUnitType() const {
     return getUnitType() != IfcUnitEnum_UNSET;
 }
 
-bool IfcNamedUnit::init() {
+bool IfcNamedUnit::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

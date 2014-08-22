@@ -47,7 +47,7 @@ bool IfcSurfaceOrFaceSurface::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcSurfaceOrFaceSurface(this);
 }
 
-bool IfcSurfaceOrFaceSurface::init() {
+bool IfcSurfaceOrFaceSurface::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

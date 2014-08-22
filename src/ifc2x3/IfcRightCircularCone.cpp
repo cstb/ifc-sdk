@@ -112,8 +112,8 @@ bool IfcRightCircularCone::testBottomRadius() const {
     return !Step::isUnset(getBottomRadius());
 }
 
-bool IfcRightCircularCone::init() {
-    bool status = IfcCsgPrimitive3D::init();
+bool IfcRightCircularCone::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCsgPrimitive3D::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

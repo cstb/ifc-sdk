@@ -183,7 +183,7 @@ bool IfcApprovalRelationship::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcApprovalRelationship::init() {
+bool IfcApprovalRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

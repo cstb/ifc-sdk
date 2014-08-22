@@ -85,8 +85,8 @@ bool IfcMotorConnectionType::testPredefinedType() const {
     return getPredefinedType() != IfcMotorConnectionTypeEnum_UNSET;
 }
 
-bool IfcMotorConnectionType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcMotorConnectionType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

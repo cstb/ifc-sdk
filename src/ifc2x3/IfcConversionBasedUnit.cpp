@@ -117,8 +117,8 @@ bool IfcConversionBasedUnit::testConversionFactor() const {
     return !Step::isUnset(getConversionFactor());
 }
 
-bool IfcConversionBasedUnit::init() {
-    bool status = IfcNamedUnit::init();
+bool IfcConversionBasedUnit::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcNamedUnit::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

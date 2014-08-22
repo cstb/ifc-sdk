@@ -170,7 +170,7 @@ bool IfcSurfaceStyleLighting::testReflectanceColour() const {
     return !Step::isUnset(getReflectanceColour());
 }
 
-bool IfcSurfaceStyleLighting::init() {
+bool IfcSurfaceStyleLighting::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -140,8 +140,8 @@ bool IfcComplexProperty::testHasProperties() const {
     return !Step::isUnset(getHasProperties());
 }
 
-bool IfcComplexProperty::init() {
-    bool status = IfcProperty::init();
+bool IfcComplexProperty::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

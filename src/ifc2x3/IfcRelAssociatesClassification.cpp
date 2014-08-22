@@ -88,8 +88,8 @@ bool IfcRelAssociatesClassification::testRelatingClassification() const {
     return !Step::isUnset(getRelatingClassification());
 }
 
-bool IfcRelAssociatesClassification::init() {
-    bool status = IfcRelAssociates::init();
+bool IfcRelAssociatesClassification::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssociates::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

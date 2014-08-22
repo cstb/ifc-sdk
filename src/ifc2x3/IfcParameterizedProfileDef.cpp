@@ -89,8 +89,8 @@ bool IfcParameterizedProfileDef::testPosition() const {
     return !Step::isUnset(getPosition());
 }
 
-bool IfcParameterizedProfileDef::init() {
-    bool status = IfcProfileDef::init();
+bool IfcParameterizedProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

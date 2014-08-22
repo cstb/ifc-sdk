@@ -57,8 +57,8 @@ bool IfcPreDefinedCurveFont::isOfType(const Step::ClassType &t) const {
     return IfcPreDefinedCurveFont::s_type == t ? true : IfcPreDefinedItem::isOfType(t);
 }
 
-bool IfcPreDefinedCurveFont::init() {
-    bool status = IfcPreDefinedItem::init();
+bool IfcPreDefinedCurveFont::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPreDefinedItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

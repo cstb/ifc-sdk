@@ -57,8 +57,8 @@ bool IfcFastener::isOfType(const Step::ClassType &t) const {
     return IfcFastener::s_type == t ? true : IfcElementComponent::isOfType(t);
 }
 
-bool IfcFastener::init() {
-    bool status = IfcElementComponent::init();
+bool IfcFastener::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElementComponent::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -80,8 +80,8 @@ bool IfcDimensionCurve::testAnnotatedBySymbols() const {
     return !Step::isUnset(getAnnotatedBySymbols());
 }
 
-bool IfcDimensionCurve::init() {
-    bool status = IfcAnnotationCurveOccurrence::init();
+bool IfcDimensionCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcAnnotationCurveOccurrence::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

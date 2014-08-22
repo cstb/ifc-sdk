@@ -57,7 +57,7 @@ bool IfcObjectReferenceSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcObjectReferenceSelect(this);
 }
 
-bool IfcObjectReferenceSelect::init() {
+bool IfcObjectReferenceSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

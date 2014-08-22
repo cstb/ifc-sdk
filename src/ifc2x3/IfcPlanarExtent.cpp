@@ -112,8 +112,8 @@ bool IfcPlanarExtent::testSizeInY() const {
     return !Step::isUnset(getSizeInY());
 }
 
-bool IfcPlanarExtent::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcPlanarExtent::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

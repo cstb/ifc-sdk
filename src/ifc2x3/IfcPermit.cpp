@@ -86,8 +86,8 @@ bool IfcPermit::testPermitID() const {
     return !Step::isUnset(getPermitID());
 }
 
-bool IfcPermit::init() {
-    bool status = IfcControl::init();
+bool IfcPermit::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -112,8 +112,8 @@ bool IfcEllipseProfileDef::testSemiAxis2() const {
     return !Step::isUnset(getSemiAxis2());
 }
 
-bool IfcEllipseProfileDef::init() {
-    bool status = IfcParameterizedProfileDef::init();
+bool IfcEllipseProfileDef::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcParameterizedProfileDef::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

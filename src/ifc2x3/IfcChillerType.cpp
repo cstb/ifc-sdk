@@ -85,8 +85,8 @@ bool IfcChillerType::testPredefinedType() const {
     return getPredefinedType() != IfcChillerTypeEnum_UNSET;
 }
 
-bool IfcChillerType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcChillerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

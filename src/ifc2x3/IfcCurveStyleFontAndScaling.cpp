@@ -143,7 +143,7 @@ bool IfcCurveStyleFontAndScaling::testCurveFontScaling() const {
     return !Step::isUnset(getCurveFontScaling());
 }
 
-bool IfcCurveStyleFontAndScaling::init() {
+bool IfcCurveStyleFontAndScaling::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

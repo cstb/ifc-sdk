@@ -112,8 +112,8 @@ bool IfcChamferEdgeFeature::testHeight() const {
     return !Step::isUnset(getHeight());
 }
 
-bool IfcChamferEdgeFeature::init() {
-    bool status = IfcEdgeFeature::init();
+bool IfcChamferEdgeFeature::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEdgeFeature::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -155,8 +155,8 @@ bool IfcProduct::testReferencedBy() const {
     return !Step::isUnset(getReferencedBy());
 }
 
-bool IfcProduct::init() {
-    bool status = IfcObject::init();
+bool IfcProduct::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

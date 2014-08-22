@@ -86,7 +86,7 @@ bool IfcStructuralLoad::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcStructuralLoad::init() {
+bool IfcStructuralLoad::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

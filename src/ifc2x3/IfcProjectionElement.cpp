@@ -57,8 +57,8 @@ bool IfcProjectionElement::isOfType(const Step::ClassType &t) const {
     return IfcProjectionElement::s_type == t ? true : IfcFeatureElementAddition::isOfType(t);
 }
 
-bool IfcProjectionElement::init() {
-    bool status = IfcFeatureElementAddition::init();
+bool IfcProjectionElement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFeatureElementAddition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

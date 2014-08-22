@@ -85,8 +85,8 @@ bool IfcProtectiveDeviceType::testPredefinedType() const {
     return getPredefinedType() != IfcProtectiveDeviceTypeEnum_UNSET;
 }
 
-bool IfcProtectiveDeviceType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcProtectiveDeviceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

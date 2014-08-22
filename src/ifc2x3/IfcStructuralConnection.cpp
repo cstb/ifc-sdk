@@ -110,8 +110,8 @@ bool IfcStructuralConnection::testConnectsStructuralMembers() const {
     return !Step::isUnset(getConnectsStructuralMembers());
 }
 
-bool IfcStructuralConnection::init() {
-    bool status = IfcStructuralItem::init();
+bool IfcStructuralConnection::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralItem::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

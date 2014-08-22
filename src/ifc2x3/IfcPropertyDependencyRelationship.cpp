@@ -210,7 +210,7 @@ bool IfcPropertyDependencyRelationship::testExpression() const {
     return !Step::isUnset(getExpression());
 }
 
-bool IfcPropertyDependencyRelationship::init() {
+bool IfcPropertyDependencyRelationship::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

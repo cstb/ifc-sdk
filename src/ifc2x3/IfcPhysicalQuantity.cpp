@@ -135,7 +135,7 @@ bool IfcPhysicalQuantity::testPartOfComplex() const {
     return !Step::isUnset(getPartOfComplex());
 }
 
-bool IfcPhysicalQuantity::init() {
+bool IfcPhysicalQuantity::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

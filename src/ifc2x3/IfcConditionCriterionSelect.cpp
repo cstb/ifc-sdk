@@ -45,7 +45,7 @@ bool IfcConditionCriterionSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcConditionCriterionSelect(this);
 }
 
-bool IfcConditionCriterionSelect::init() {
+bool IfcConditionCriterionSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

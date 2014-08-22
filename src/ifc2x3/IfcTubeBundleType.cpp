@@ -85,8 +85,8 @@ bool IfcTubeBundleType::testPredefinedType() const {
     return getPredefinedType() != IfcTubeBundleTypeEnum_UNSET;
 }
 
-bool IfcTubeBundleType::init() {
-    bool status = IfcEnergyConversionDeviceType::init();
+bool IfcTubeBundleType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcEnergyConversionDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

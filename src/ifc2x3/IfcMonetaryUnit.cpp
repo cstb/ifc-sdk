@@ -85,7 +85,7 @@ bool IfcMonetaryUnit::testCurrency() const {
     return getCurrency() != IfcCurrencyEnum_UNSET;
 }
 
-bool IfcMonetaryUnit::init() {
+bool IfcMonetaryUnit::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

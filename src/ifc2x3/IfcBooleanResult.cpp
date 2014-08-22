@@ -142,8 +142,8 @@ bool IfcBooleanResult::testSecondOperand() const {
     return !Step::isUnset(getSecondOperand());
 }
 
-bool IfcBooleanResult::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcBooleanResult::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

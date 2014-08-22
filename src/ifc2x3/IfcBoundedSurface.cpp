@@ -57,8 +57,8 @@ bool IfcBoundedSurface::isOfType(const Step::ClassType &t) const {
     return IfcBoundedSurface::s_type == t ? true : IfcSurface::isOfType(t);
 }
 
-bool IfcBoundedSurface::init() {
-    bool status = IfcSurface::init();
+bool IfcBoundedSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

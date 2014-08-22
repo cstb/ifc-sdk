@@ -117,7 +117,7 @@ bool IfcLightIntensityDistribution::testDistributionData() const {
     return !Step::isUnset(getDistributionData());
 }
 
-bool IfcLightIntensityDistribution::init() {
+bool IfcLightIntensityDistribution::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

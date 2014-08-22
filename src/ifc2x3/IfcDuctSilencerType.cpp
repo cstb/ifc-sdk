@@ -85,8 +85,8 @@ bool IfcDuctSilencerType::testPredefinedType() const {
     return getPredefinedType() != IfcDuctSilencerTypeEnum_UNSET;
 }
 
-bool IfcDuctSilencerType::init() {
-    bool status = IfcFlowTreatmentDeviceType::init();
+bool IfcDuctSilencerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTreatmentDeviceType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

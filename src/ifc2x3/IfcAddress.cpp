@@ -182,7 +182,7 @@ bool IfcAddress::testOfOrganization() const {
     return !Step::isUnset(getOfOrganization());
 }
 
-bool IfcAddress::init() {
+bool IfcAddress::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     std::vector< Step::Id > *inverses;
     arg = m_args->getNext();

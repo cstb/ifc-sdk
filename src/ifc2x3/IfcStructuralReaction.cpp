@@ -80,8 +80,8 @@ bool IfcStructuralReaction::testCauses() const {
     return !Step::isUnset(getCauses());
 }
 
-bool IfcStructuralReaction::init() {
-    bool status = IfcStructuralActivity::init();
+bool IfcStructuralReaction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralActivity::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

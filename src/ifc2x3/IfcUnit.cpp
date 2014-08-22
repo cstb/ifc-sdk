@@ -47,7 +47,7 @@ bool IfcUnit::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcUnit(this);
 }
 
-bool IfcUnit::init() {
+bool IfcUnit::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

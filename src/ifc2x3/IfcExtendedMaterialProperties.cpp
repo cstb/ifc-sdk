@@ -145,8 +145,8 @@ bool IfcExtendedMaterialProperties::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcExtendedMaterialProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcExtendedMaterialProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

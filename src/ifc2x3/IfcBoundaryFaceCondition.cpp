@@ -139,8 +139,8 @@ bool IfcBoundaryFaceCondition::testLinearStiffnessByAreaZ() const {
     return !Step::isUnset(getLinearStiffnessByAreaZ());
 }
 
-bool IfcBoundaryFaceCondition::init() {
-    bool status = IfcBoundaryCondition::init();
+bool IfcBoundaryFaceCondition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundaryCondition::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

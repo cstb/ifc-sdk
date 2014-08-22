@@ -80,8 +80,8 @@ bool IfcResource::testResourceOf() const {
     return !Step::isUnset(getResourceOf());
 }
 
-bool IfcResource::init() {
-    bool status = IfcObject::init();
+bool IfcResource::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObject::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

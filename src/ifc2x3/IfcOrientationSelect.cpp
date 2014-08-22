@@ -45,7 +45,7 @@ bool IfcOrientationSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcOrientationSelect(this);
 }
 
-bool IfcOrientationSelect::init() {
+bool IfcOrientationSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

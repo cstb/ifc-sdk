@@ -45,7 +45,7 @@ bool IfcFillAreaStyleTileShapeSelect::acceptVisitor(Step::BaseVisitor *visitor) 
     return static_cast< Visitor * > (visitor)->visitIfcFillAreaStyleTileShapeSelect(this);
 }
 
-bool IfcFillAreaStyleTileShapeSelect::init() {
+bool IfcFillAreaStyleTileShapeSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

@@ -85,8 +85,8 @@ bool IfcPipeFittingType::testPredefinedType() const {
     return getPredefinedType() != IfcPipeFittingTypeEnum_UNSET;
 }
 
-bool IfcPipeFittingType::init() {
-    bool status = IfcFlowFittingType::init();
+bool IfcPipeFittingType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowFittingType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

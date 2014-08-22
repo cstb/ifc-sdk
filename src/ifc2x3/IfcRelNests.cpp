@@ -57,8 +57,8 @@ bool IfcRelNests::isOfType(const Step::ClassType &t) const {
     return IfcRelNests::s_type == t ? true : IfcRelDecomposes::isOfType(t);
 }
 
-bool IfcRelNests::init() {
-    bool status = IfcRelDecomposes::init();
+bool IfcRelNests::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelDecomposes::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

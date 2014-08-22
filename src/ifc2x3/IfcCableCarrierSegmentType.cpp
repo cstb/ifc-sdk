@@ -85,8 +85,8 @@ bool IfcCableCarrierSegmentType::testPredefinedType() const {
     return getPredefinedType() != IfcCableCarrierSegmentTypeEnum_UNSET;
 }
 
-bool IfcCableCarrierSegmentType::init() {
-    bool status = IfcFlowSegmentType::init();
+bool IfcCableCarrierSegmentType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowSegmentType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

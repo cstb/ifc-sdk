@@ -86,8 +86,8 @@ bool IfcPerformanceHistory::testLifeCyclePhase() const {
     return !Step::isUnset(getLifeCyclePhase());
 }
 
-bool IfcPerformanceHistory::init() {
-    bool status = IfcControl::init();
+bool IfcPerformanceHistory::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

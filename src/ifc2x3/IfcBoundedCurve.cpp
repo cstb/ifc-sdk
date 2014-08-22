@@ -57,8 +57,8 @@ bool IfcBoundedCurve::isOfType(const Step::ClassType &t) const {
     return IfcBoundedCurve::s_type == t ? true : IfcCurve::isOfType(t);
 }
 
-bool IfcBoundedCurve::init() {
-    bool status = IfcCurve::init();
+bool IfcBoundedCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

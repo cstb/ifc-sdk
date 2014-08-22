@@ -46,7 +46,7 @@ bool IfcShell::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcShell(this);
 }
 
-bool IfcShell::init() {
+bool IfcShell::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

@@ -116,8 +116,8 @@ bool IfcSurfaceOfLinearExtrusion::testDepth() const {
     return !Step::isUnset(getDepth());
 }
 
-bool IfcSurfaceOfLinearExtrusion::init() {
-    bool status = IfcSweptSurface::init();
+bool IfcSurfaceOfLinearExtrusion::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSweptSurface::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

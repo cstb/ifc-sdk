@@ -90,8 +90,8 @@ bool IfcFace::testBounds() const {
     return !Step::isUnset(getBounds());
 }
 
-bool IfcFace::init() {
-    bool status = IfcTopologicalRepresentationItem::init();
+bool IfcFace::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcTopologicalRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -197,8 +197,8 @@ bool IfcSweptDiskSolid::testEndParam() const {
     return !Step::isUnset(getEndParam());
 }
 
-bool IfcSweptDiskSolid::init() {
-    bool status = IfcSolidModel::init();
+bool IfcSweptDiskSolid::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSolidModel::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

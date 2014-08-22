@@ -123,8 +123,8 @@ bool IfcLocalPlacement::testRelativePlacement() const {
     return !Step::isUnset(getRelativePlacement());
 }
 
-bool IfcLocalPlacement::init() {
-    bool status = IfcObjectPlacement::init();
+bool IfcLocalPlacement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcObjectPlacement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

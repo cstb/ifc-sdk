@@ -57,8 +57,8 @@ bool IfcDistributionControlElementType::isOfType(const Step::ClassType &t) const
     return IfcDistributionControlElementType::s_type == t ? true : IfcDistributionElementType::isOfType(t);
 }
 
-bool IfcDistributionControlElementType::init() {
-    bool status = IfcDistributionElementType::init();
+bool IfcDistributionControlElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

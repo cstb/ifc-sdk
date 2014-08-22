@@ -85,8 +85,8 @@ bool IfcFlowMeterType::testPredefinedType() const {
     return getPredefinedType() != IfcFlowMeterTypeEnum_UNSET;
 }
 
-bool IfcFlowMeterType::init() {
-    bool status = IfcFlowControllerType::init();
+bool IfcFlowMeterType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowControllerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

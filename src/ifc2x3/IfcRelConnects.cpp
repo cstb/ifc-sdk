@@ -57,8 +57,8 @@ bool IfcRelConnects::isOfType(const Step::ClassType &t) const {
     return IfcRelConnects::s_type == t ? true : IfcRelationship::isOfType(t);
 }
 
-bool IfcRelConnects::init() {
-    bool status = IfcRelationship::init();
+bool IfcRelConnects::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelationship::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -145,7 +145,7 @@ bool IfcDerivedUnit::testUserDefinedType() const {
     return !Step::isUnset(getUserDefinedType());
 }
 
-bool IfcDerivedUnit::init() {
+bool IfcDerivedUnit::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

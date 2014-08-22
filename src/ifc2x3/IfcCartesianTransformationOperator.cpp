@@ -171,8 +171,8 @@ bool IfcCartesianTransformationOperator::testScale() const {
     return !Step::isUnset(getScale());
 }
 
-bool IfcCartesianTransformationOperator::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcCartesianTransformationOperator::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

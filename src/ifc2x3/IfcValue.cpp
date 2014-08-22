@@ -44,7 +44,7 @@ bool IfcValue::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcValue(this);
 }
 
-bool IfcValue::init() {
+bool IfcValue::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

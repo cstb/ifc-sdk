@@ -57,8 +57,8 @@ bool IfcEnergyConversionDeviceType::isOfType(const Step::ClassType &t) const {
     return IfcEnergyConversionDeviceType::s_type == t ? true : IfcDistributionFlowElementType::isOfType(t);
 }
 
-bool IfcEnergyConversionDeviceType::init() {
-    bool status = IfcDistributionFlowElementType::init();
+bool IfcEnergyConversionDeviceType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcDistributionFlowElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -115,7 +115,7 @@ bool IfcTextStyleForDefinedFont::testBackgroundColour() const {
     return !Step::isUnset(getBackgroundColour());
 }
 
-bool IfcTextStyleForDefinedFont::init() {
+bool IfcTextStyleForDefinedFont::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

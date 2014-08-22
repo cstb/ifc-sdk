@@ -166,8 +166,8 @@ bool IfcProductsOfCombustionProperties::testCO2Content() const {
     return !Step::isUnset(getCO2Content());
 }
 
-bool IfcProductsOfCombustionProperties::init() {
-    bool status = IfcMaterialProperties::init();
+bool IfcProductsOfCombustionProperties::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcMaterialProperties::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

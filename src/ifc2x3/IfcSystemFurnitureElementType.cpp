@@ -57,8 +57,8 @@ bool IfcSystemFurnitureElementType::isOfType(const Step::ClassType &t) const {
     return IfcSystemFurnitureElementType::s_type == t ? true : IfcFurnishingElementType::isOfType(t);
 }
 
-bool IfcSystemFurnitureElementType::init() {
-    bool status = IfcFurnishingElementType::init();
+bool IfcSystemFurnitureElementType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFurnishingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

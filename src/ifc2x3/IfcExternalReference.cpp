@@ -140,7 +140,7 @@ bool IfcExternalReference::testName() const {
     return !Step::isUnset(getName());
 }
 
-bool IfcExternalReference::init() {
+bool IfcExternalReference::init(Step::InstanciateIf *instanciateIf) {
     std::string arg;
     arg = m_args->getNext();
     if (arg == "$" || arg == "*") {

@@ -116,8 +116,8 @@ bool IfcPropertyReferenceValue::testPropertyReference() const {
     return !Step::isUnset(getPropertyReference());
 }
 
-bool IfcPropertyReferenceValue::init() {
-    bool status = IfcSimpleProperty::init();
+bool IfcPropertyReferenceValue::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcSimpleProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

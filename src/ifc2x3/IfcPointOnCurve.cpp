@@ -116,8 +116,8 @@ bool IfcPointOnCurve::testPointParameter() const {
     return !Step::isUnset(getPointParameter());
 }
 
-bool IfcPointOnCurve::init() {
-    bool status = IfcPoint::init();
+bool IfcPointOnCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcPoint::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

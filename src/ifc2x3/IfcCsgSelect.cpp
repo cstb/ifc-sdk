@@ -46,7 +46,7 @@ bool IfcCsgSelect::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcCsgSelect(this);
 }
 
-bool IfcCsgSelect::init() {
+bool IfcCsgSelect::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

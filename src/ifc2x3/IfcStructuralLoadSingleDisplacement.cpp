@@ -220,8 +220,8 @@ bool IfcStructuralLoadSingleDisplacement::testRotationalDisplacementRZ() const {
     return !Step::isUnset(getRotationalDisplacementRZ());
 }
 
-bool IfcStructuralLoadSingleDisplacement::init() {
-    bool status = IfcStructuralLoadStatic::init();
+bool IfcStructuralLoadSingleDisplacement::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralLoadStatic::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

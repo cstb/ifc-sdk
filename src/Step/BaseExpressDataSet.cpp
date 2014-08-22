@@ -34,8 +34,8 @@ BaseExpressDataSet::BaseExpressDataSet() :
 
 BaseExpressDataSet::~BaseExpressDataSet()
 {
-    MapOfEntities::iterator objIt = m_Id2BaseObject.begin();
-    for (; objIt != m_Id2BaseObject.end(); objIt++)
+    MapOfEntities::iterator objIt = m_Id2BaseEntity.begin();
+    for (; objIt != m_Id2BaseEntity.end(); objIt++)
     {
         objIt->second->release();
     }
@@ -43,8 +43,8 @@ BaseExpressDataSet::~BaseExpressDataSet()
 
 BaseEntity* BaseExpressDataSet::find(Id id)
 {
-    MapOfEntities::iterator it = m_Id2BaseObject.find(id);
-    if (it != m_Id2BaseObject.end())
+    MapOfEntities::iterator it = m_Id2BaseEntity.find(id);
+    if (it != m_Id2BaseEntity.end())
         return it->second.get();
     else
         return NULL;
@@ -82,7 +82,7 @@ bool BaseExpressDataSet::registerObject(Id id, BaseEntity* obj)
 {
     if (exists(id))
     {
-        if (!m_Id2BaseObject[id]->isOfType(BaseSPFObject::getClassType()))
+        if (!m_Id2BaseEntity[id]->isOfType(BaseSPFObject::getClassType()))
         {
             LOG_ERROR("Can't register the object with id " << id << ", in use");
             return false;
@@ -90,27 +90,27 @@ bool BaseExpressDataSet::registerObject(Id id, BaseEntity* obj)
         else
         {
             //implicit destruction of BaseSPFObject thanks to RefPtr...
-            m_Id2BaseObject[id]->m_args = 0;
-            m_Id2BaseObject[id] = obj;
+            m_Id2BaseEntity[id]->m_args = 0;
+            m_Id2BaseEntity[id] = obj;
             obj->setExpressDataSet(this);
             return true;
         }
     }
-    m_Id2BaseObject[id] = obj;
+    m_Id2BaseEntity[id] = obj;
     obj->setExpressDataSet(this);
     return true;
 }
 
 bool BaseExpressDataSet::exists(Id id) const
 {
-    return (!(m_Id2BaseObject.find(id) == m_Id2BaseObject.end()));
+    return (!(m_Id2BaseEntity.find(id) == m_Id2BaseEntity.end()));
 }
 
 BaseEntity *BaseExpressDataSet::get(Id id)
 {
-    MapOfEntities::iterator it = m_Id2BaseObject.find(id);
+    MapOfEntities::iterator it = m_Id2BaseEntity.find(id);
 
-    if (it == m_Id2BaseObject.end())
+    if (it == m_Id2BaseEntity.end())
     {
         LOG_WARNING("Entity #" << id << " was never declared");
         return 0;
@@ -139,7 +139,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
 
 MapOfEntities& BaseExpressDataSet::getAll()
 {
-    return m_Id2BaseObject;
+    return m_Id2BaseEntity;
 }
 
 
@@ -157,8 +157,8 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
     else
         return static_cast<BaseSPFObject*> (m_Id2BaseObject[id].get());
 #else // Flo: faster impl
-    MapOfEntities::const_iterator it = m_Id2BaseObject.find(id);
-    if (it == m_Id2BaseObject.end())
+    MapOfEntities::const_iterator it = m_Id2BaseEntity.find(id);
+    if (it == m_Id2BaseEntity.end())
     {
         if (id > m_maxId)
         {
@@ -166,7 +166,7 @@ BaseSPFObject* BaseExpressDataSet::getSPFObject(Id id)
         };
         BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
         bo->setExpressDataSet(this);
-        m_Id2BaseObject.insert(std::make_pair(id,bo));
+        m_Id2BaseEntity.insert(std::make_pair(id,bo));
         return bo;
     }
     else
@@ -181,41 +181,40 @@ SPFData* BaseExpressDataSet::getArgs(Id id)
         updateMaxId(id);
         BaseSPFObject* bo = new BaseSPFObject(id, new SPFData());
         bo->setExpressDataSet(this);
-        m_Id2BaseObject[id] = bo;
+        m_Id2BaseEntity[id] = bo;
         return bo->getArgs();
     }
     else
-        return m_Id2BaseObject[id]->getArgs();
+        return m_Id2BaseEntity[id]->getArgs();
 }
 
 void BaseExpressDataSet::instantiateAll(CallBack *callback, InstanciateIf *instanciateIf)
 {
-    MapOfEntities::iterator it = m_Id2BaseObject.begin();
+    MapOfEntities::iterator it = m_Id2BaseEntity.begin();
 
     if(callback)
     {
-        callback->setMaximum(m_Id2BaseObject.size());
+        callback->setMaximum(m_Id2BaseEntity.size());
     }
     size_t progress=0;
 
-    for (; it != m_Id2BaseObject.end(); it++)
+    for (; it != m_Id2BaseEntity.end(); it++)
     {
         if (it->second.get()->isOfType(BaseSPFObject::getClassType()))
         {
+            BaseSPFObject* baseSPFObject = static_cast<BaseSPFObject*> (it->second.get());
             if (   !instanciateIf
-                 || instanciateIf->isValid(static_cast<BaseSPFObject*> (it->second.get())))
+                 || instanciateIf->isValid(baseSPFObject->realClassType()))
             {
                 LOG_DEBUG("Instantiating BaseSPFObject #" << it->first)
                 // Get the appropriate allocate function
-                AllocateFuncType
-                        allocFunc =
-                                static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
+                AllocateFuncType allocFunc = baseSPFObject->getAllocateFunction();
                 if (allocFunc)
                 {
                     // Call it and get the result
                     BaseEntity* ret = (*allocFunc)(this, it->first);
 
-                    ret->inited();
+                    ret->inited(instanciateIf);
                 }
                 else
                 {
@@ -230,7 +229,7 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback, InstanciateIf *insta
         else
         {
             LOG_DEBUG("Instantiating #" << it->first)
-            it->second->inited();
+            it->second->inited(instanciateIf);
         }
         if(callback)
         {

@@ -89,8 +89,8 @@ bool IfcFillAreaStyleTileSymbolWithStyle::testSymbol() const {
     return !Step::isUnset(getSymbol());
 }
 
-bool IfcFillAreaStyleTileSymbolWithStyle::init() {
-    bool status = IfcGeometricRepresentationItem::init();
+bool IfcFillAreaStyleTileSymbolWithStyle::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcGeometricRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcMechanicalFastenerType::isOfType(const Step::ClassType &t) const {
     return IfcMechanicalFastenerType::s_type == t ? true : IfcFastenerType::isOfType(t);
 }
 
-bool IfcMechanicalFastenerType::init() {
-    bool status = IfcFastenerType::init();
+bool IfcMechanicalFastenerType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFastenerType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

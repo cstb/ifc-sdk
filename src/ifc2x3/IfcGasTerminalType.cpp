@@ -85,8 +85,8 @@ bool IfcGasTerminalType::testPredefinedType() const {
     return getPredefinedType() != IfcGasTerminalTypeEnum_UNSET;
 }
 
-bool IfcGasTerminalType::init() {
-    bool status = IfcFlowTerminalType::init();
+bool IfcGasTerminalType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFlowTerminalType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

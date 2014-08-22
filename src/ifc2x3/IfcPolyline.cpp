@@ -90,8 +90,8 @@ bool IfcPolyline::testPoints() const {
     return !Step::isUnset(getPoints());
 }
 
-bool IfcPolyline::init() {
-    bool status = IfcBoundedCurve::init();
+bool IfcPolyline::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

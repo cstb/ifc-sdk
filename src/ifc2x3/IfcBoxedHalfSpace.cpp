@@ -89,8 +89,8 @@ bool IfcBoxedHalfSpace::testEnclosure() const {
     return !Step::isUnset(getEnclosure());
 }
 
-bool IfcBoxedHalfSpace::init() {
-    bool status = IfcHalfSpaceSolid::init();
+bool IfcBoxedHalfSpace::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcHalfSpaceSolid::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

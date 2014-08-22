@@ -85,8 +85,8 @@ bool IfcPlateType::testPredefinedType() const {
     return getPredefinedType() != IfcPlateTypeEnum_UNSET;
 }
 
-bool IfcPlateType::init() {
-    bool status = IfcBuildingElementType::init();
+bool IfcPlateType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBuildingElementType::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -283,8 +283,8 @@ bool IfcCostSchedule::testPredefinedType() const {
     return getPredefinedType() != IfcCostScheduleTypeEnum_UNSET;
 }
 
-bool IfcCostSchedule::init() {
-    bool status = IfcControl::init();
+bool IfcCostSchedule::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

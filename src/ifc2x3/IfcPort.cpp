@@ -118,8 +118,8 @@ bool IfcPort::testConnectedTo() const {
     return !Step::isUnset(getConnectedTo());
 }
 
-bool IfcPort::init() {
-    bool status = IfcProduct::init();
+bool IfcPort::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProduct::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {

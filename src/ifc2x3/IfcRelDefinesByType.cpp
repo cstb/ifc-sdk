@@ -95,8 +95,8 @@ bool IfcRelDefinesByType::testRelatingType() const {
     return !Step::isUnset(getRelatingType());
 }
 
-bool IfcRelDefinesByType::init() {
-    bool status = IfcRelDefines::init();
+bool IfcRelDefinesByType::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelDefines::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

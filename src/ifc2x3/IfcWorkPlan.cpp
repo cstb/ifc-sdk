@@ -57,8 +57,8 @@ bool IfcWorkPlan::isOfType(const Step::ClassType &t) const {
     return IfcWorkPlan::s_type == t ? true : IfcWorkControl::isOfType(t);
 }
 
-bool IfcWorkPlan::init() {
-    bool status = IfcWorkControl::init();
+bool IfcWorkPlan::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcWorkControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

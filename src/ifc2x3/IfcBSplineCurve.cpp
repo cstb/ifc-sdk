@@ -198,8 +198,8 @@ bool IfcBSplineCurve::testSelfIntersect() const {
     return !Step::isUnset(getSelfIntersect());
 }
 
-bool IfcBSplineCurve::init() {
-    bool status = IfcBoundedCurve::init();
+bool IfcBSplineCurve::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcBoundedCurve::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

@@ -57,8 +57,8 @@ bool IfcSimpleProperty::isOfType(const Step::ClassType &t) const {
     return IfcSimpleProperty::s_type == t ? true : IfcProperty::isOfType(t);
 }
 
-bool IfcSimpleProperty::init() {
-    bool status = IfcProperty::init();
+bool IfcSimpleProperty::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcProperty::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

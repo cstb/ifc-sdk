@@ -48,7 +48,7 @@ bool IfcBooleanOperand::acceptVisitor(Step::BaseVisitor *visitor) {
     return static_cast< Visitor * > (visitor)->visitIfcBooleanOperand(this);
 }
 
-bool IfcBooleanOperand::init() {
+bool IfcBooleanOperand::init(Step::InstanciateIf *instanciateIf) {
     return false;
 }
 

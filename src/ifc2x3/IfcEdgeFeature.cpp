@@ -85,8 +85,8 @@ bool IfcEdgeFeature::testFeatureLength() const {
     return !Step::isUnset(getFeatureLength());
 }
 
-bool IfcEdgeFeature::init() {
-    bool status = IfcFeatureElementSubtraction::init();
+bool IfcEdgeFeature::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFeatureElementSubtraction::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

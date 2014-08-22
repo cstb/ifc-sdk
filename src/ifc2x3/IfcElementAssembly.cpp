@@ -112,8 +112,8 @@ bool IfcElementAssembly::testPredefinedType() const {
     return getPredefinedType() != IfcElementAssemblyTypeEnum_UNSET;
 }
 
-bool IfcElementAssembly::init() {
-    bool status = IfcElement::init();
+bool IfcElementAssembly::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcElement::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

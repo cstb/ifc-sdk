@@ -123,8 +123,8 @@ bool IfcMappedItem::testMappingTarget() const {
     return !Step::isUnset(getMappingTarget());
 }
 
-bool IfcMappedItem::init() {
-    bool status = IfcRepresentationItem::init();
+bool IfcMappedItem::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRepresentationItem::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

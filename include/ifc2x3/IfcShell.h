@@ -120,7 +120,7 @@ enum IfcShell_select {
         IfcShell(Step::SPFData *args);
         /**
          */
-        virtual bool init();
+        virtual bool init(Step::InstanciateIf *instanciateIf = 0);
 
     private:
         /**

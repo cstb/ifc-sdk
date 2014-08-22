@@ -95,8 +95,8 @@ bool IfcRelAssignsTasks::testTimeForTask() const {
     return !Step::isUnset(getTimeForTask());
 }
 
-bool IfcRelAssignsTasks::init() {
-    bool status = IfcRelAssignsToControl::init();
+bool IfcRelAssignsTasks::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRelAssignsToControl::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

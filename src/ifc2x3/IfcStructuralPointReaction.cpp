@@ -57,8 +57,8 @@ bool IfcStructuralPointReaction::isOfType(const Step::ClassType &t) const {
     return IfcStructuralPointReaction::s_type == t ? true : IfcStructuralReaction::isOfType(t);
 }
 
-bool IfcStructuralPointReaction::init() {
-    bool status = IfcStructuralReaction::init();
+bool IfcStructuralPointReaction::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcStructuralReaction::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

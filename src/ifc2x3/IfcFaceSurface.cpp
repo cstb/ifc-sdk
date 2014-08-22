@@ -116,8 +116,8 @@ bool IfcFaceSurface::testSameSense() const {
     return !Step::isUnset(getSameSense());
 }
 
-bool IfcFaceSurface::init() {
-    bool status = IfcFace::init();
+bool IfcFaceSurface::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcFace::init(instanciateIf);
     std::string arg;
     if (!status) {
         return false;

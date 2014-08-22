@@ -139,45 +139,63 @@ bool IfcObjectDefinition::testHasAssociations() const {
     return !Step::isUnset(getHasAssociations());
 }
 
-bool IfcObjectDefinition::init() {
-    bool status = IfcRoot::init();
+bool IfcObjectDefinition::init(Step::InstanciateIf *instanciateIf) {
+    bool status = IfcRoot::init(instanciateIf);
     std::string arg;
     std::vector< Step::Id > *inverses;
     if (!status) {
         return false;
     }
-    inverses = m_args->getInverses(IfcRelAssigns::getClassType(), 4);
-    if (inverses) {
-        unsigned int i;
-        m_hasAssignments.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasAssignments.insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
+//    if (!instanciateIf || instanciateIf->isValid(IfcRelAssigns::getClassType()))
+//    {
+        inverses = m_args->getInverses(IfcRelAssigns::getClassType(), 4);
+        if (inverses) {
+            unsigned int i;
+            m_hasAssignments.setUnset(false);
+            for (i = 0; i < inverses->size(); i++) {
+                m_hasAssignments.insert(static_cast< IfcRelAssigns * > (m_expressDataSet->get((*inverses)[i])));
+            }
         }
-    }
-    inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 4);
-    if (inverses) {
-        unsigned int i;
-        m_isDecomposedBy.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_isDecomposedBy.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+//    }
+//    else
+//        m_fullyInited = false;
+
+//    if (!instanciateIf || instanciateIf->isValid(IfcRelDecomposes::getClassType()))
+//    {
+        inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 4);
+        if (inverses) {
+            unsigned int i;
+            m_isDecomposedBy.setUnset(false);
+            for (i = 0; i < inverses->size(); i++) {
+                m_isDecomposedBy.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+            }
         }
-    }
-    inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 5);
-    if (inverses) {
-        unsigned int i;
-        m_decomposes.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_decomposes.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+        inverses = m_args->getInverses(IfcRelDecomposes::getClassType(), 5);
+        if (inverses) {
+            unsigned int i;
+            m_decomposes.setUnset(false);
+            for (i = 0; i < inverses->size(); i++) {
+                m_decomposes.insert(static_cast< IfcRelDecomposes * > (m_expressDataSet->get((*inverses)[i])));
+            }
         }
-    }
-    inverses = m_args->getInverses(IfcRelAssociates::getClassType(), 4);
-    if (inverses) {
-        unsigned int i;
-        m_hasAssociations.setUnset(false);
-        for (i = 0; i < inverses->size(); i++) {
-            m_hasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+//    }
+//    else
+//        m_fullyInited = false;
+
+//    if (!instanciateIf || instanciateIf->isValid(IfcRelDecomposes::getClassType()))
+//    {
+        inverses = m_args->getInverses(IfcRelAssociates::getClassType(), 4);
+        if (inverses) {
+            unsigned int i;
+            m_hasAssociations.setUnset(false);
+            for (i = 0; i < inverses->size(); i++) {
+                m_hasAssociations.insert(static_cast< IfcRelAssociates * > (m_expressDataSet->get((*inverses)[i])));
+            }
         }
-    }
+//    }
+//    else
+//        m_fullyInited = false;
+
     return true;
 }
 
