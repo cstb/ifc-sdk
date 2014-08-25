@@ -35,7 +35,7 @@ BaseExpressDataSet::BaseExpressDataSet() :
 BaseExpressDataSet::~BaseExpressDataSet()
 {
     MapOfEntities::iterator objIt = m_Id2BaseEntity.begin();
-    for (; objIt != m_Id2BaseEntity.end(); objIt++)
+    for (MapOfEntities::iterator total = m_Id2BaseEntity.end(); objIt != total; ++objIt)
     {
         objIt->second->release();
     }
@@ -198,7 +198,7 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
     }
     size_t progress=0;
 
-    for (; it != m_Id2BaseEntity.end(); it++)
+    for (MapOfEntities::iterator total = m_Id2BaseEntity.end(); it != total; ++it)
     {
         if (it->second->isOfType(BaseSPFObject::getClassType()))
         {
