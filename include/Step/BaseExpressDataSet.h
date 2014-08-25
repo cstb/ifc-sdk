@@ -141,7 +141,7 @@ namespace Step {
     private:
 
         Id m_maxId;
-        MapOfEntities m_Id2BaseObject;
+        MapOfEntities m_Id2BaseEntity;
         SPFHeader m_header;
 
         friend class BaseSPFReader;
