@@ -39,8 +39,7 @@ void BaseObject::copy(const BaseObject& obj, const BaseCopyOp& copyop)
 
 BaseObject::~BaseObject()
 {
-    if (m_args)
-        delete m_args;
+    delete m_args;
 }
 
 
