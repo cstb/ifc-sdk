@@ -77,6 +77,11 @@ int main (int n, char **p)
         lastSize=0;
         DSIZEOF(ifc2x3::Inverse_Set_IfcStyledItem_0_1);
 
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(std::vector<double>);
+        DSIZEOF(ifc2x3::List_IfcLengthMeasure_1_3);
+
 
         ++failure_results;
     }
