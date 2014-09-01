@@ -36,10 +36,15 @@
 
 using namespace ifc2x3;
 
-IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcRepresentationItem::IfcRepresentationItem(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) ,
+    m_layerAssignments(0),
+    m_styledByItem(0)
+{
 }
 
 IfcRepresentationItem::~IfcRepresentationItem() {
+    delete m_layerAssignments;
+    delete m_styledByItem;
 }
 
 bool IfcRepresentationItem::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -63,13 +68,18 @@ bool IfcRepresentationItem::isOfType(const Step::ClassType &t) const {
 }
 
 Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() {
-    if (Step::BaseObject::inited()) {
-        return m_layerAssignments;
+    if (!Step::BaseObject::inited()) {
+        m_layerAssignments = new Inverse_Set_IfcPresentationLayerAssignment_0_n;
+        m_layerAssignments->setUnset(true);
     }
-    else {
-        m_layerAssignments.setUnset(true);
-        return m_layerAssignments;
+
+    if(!m_layerAssignments)
+    {
+        m_layerAssignments = new Inverse_Set_IfcPresentationLayerAssignment_0_n;
+        m_layerAssignments->setUnset(true);
     }
+
+    return *m_layerAssignments;
 }
 
 const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::getLayerAssignments() const {
@@ -78,17 +88,24 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentationItem::get
 }
 
 bool IfcRepresentationItem::testLayerAssignments() const {
-    return !Step::isUnset(getLayerAssignments());
+    if (m_layerAssignments)
+        return Step::isUnset(getLayerAssignments());
+    return false;
 }
 
 Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() {
-    if (Step::BaseObject::inited()) {
-        return m_styledByItem;
+    if (!Step::BaseObject::inited()) {
+        m_styledByItem = new Inverse_Set_IfcStyledItem_0_1;
+        m_styledByItem->setUnset(true);
     }
-    else {
-        m_styledByItem.setUnset(true);
-        return m_styledByItem;
+
+    if(!m_styledByItem)
+    {
+        m_styledByItem = new Inverse_Set_IfcStyledItem_0_1;
+        m_styledByItem->setUnset(true);
     }
+
+    return *m_styledByItem;
 }
 
 const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() const {
@@ -97,7 +114,9 @@ const Inverse_Set_IfcStyledItem_0_1 &IfcRepresentationItem::getStyledByItem() co
 }
 
 bool IfcRepresentationItem::testStyledByItem() const {
-    return !Step::isUnset(getStyledByItem());
+    if (m_styledByItem)
+        return !Step::isUnset(getStyledByItem());
+    return false;
 }
 
 bool IfcRepresentationItem::init() {
@@ -106,17 +125,19 @@ bool IfcRepresentationItem::init() {
     inverses = m_args->getInverses(IfcPresentationLayerAssignment::getClassType(), 2);
     if (inverses) {
         unsigned int i;
-        m_layerAssignments.setUnset(false);
+        m_layerAssignments = new Inverse_Set_IfcPresentationLayerAssignment_0_n;
+        m_layerAssignments->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_layerAssignments.insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
+            m_layerAssignments->insert(static_cast< IfcPresentationLayerAssignment * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcStyledItem::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_styledByItem.setUnset(false);
+        m_styledByItem = new Inverse_Set_IfcStyledItem_0_1;
+        m_styledByItem->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_styledByItem.insert(static_cast< IfcStyledItem * > (m_expressDataSet->get((*inverses)[i])));
+            m_styledByItem->insert(static_cast< IfcStyledItem * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;
