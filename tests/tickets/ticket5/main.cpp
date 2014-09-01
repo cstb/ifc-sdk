@@ -69,6 +69,15 @@ int main (int n, char **p)
         DSIZEOF(ifc2x3::IfcPoint);
         DSIZEOF(ifc2x3::IfcCartesianPoint);
 
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(ifc2x3::Inverse_Set_IfcPresentationLayerAssignment_0_n);
+
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(ifc2x3::Inverse_Set_IfcStyledItem_0_1);
+
+
         ++failure_results;
     }
 

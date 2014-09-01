@@ -81,10 +81,10 @@ const IfcRepresentationItem *IfcStyledItem::getItem() const {
 
 void IfcStyledItem::setItem(const Step::RefPtr< IfcRepresentationItem > &value) {
     if (m_item.valid()) {
-        m_item->m_styledByItem.erase(this);
+        m_item->getStyledByItem().erase(this);
     }
     if (value.valid()) {
-        value->m_styledByItem.insert(this);
+        value->getStyledByItem().insert(this);
     }
     m_item = value;
 }

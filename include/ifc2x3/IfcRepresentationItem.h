@@ -123,10 +123,10 @@ namespace ifc2x3 {
         static Step::ClassType s_type;
         /**
          */
-        Inverse_Set_IfcPresentationLayerAssignment_0_n m_layerAssignments;
+        Inverse_Set_IfcPresentationLayerAssignment_0_n *m_layerAssignments;
         /**
          */
-        Inverse_Set_IfcStyledItem_0_1 m_styledByItem;
+        Inverse_Set_IfcStyledItem_0_1 *m_styledByItem;
 
     };
 
