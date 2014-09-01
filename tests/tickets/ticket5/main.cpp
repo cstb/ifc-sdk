@@ -57,6 +57,18 @@ int main (int n, char **p)
     else
     {
         std::cout << "Usage : " << p[0] << " test_file.ifc" << std::endl;
+
+        unsigned lastSize=0;
+#define DSIZEOF(T)  std::cout << #T << " : " << sizeof(T) << "( +" << sizeof(T) - lastSize << " ) " << std::endl; lastSize = sizeof(T)
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcRepresentationItem);
+        DSIZEOF(ifc2x3::IfcGeometricRepresentationItem);
+        DSIZEOF(ifc2x3::IfcPoint);
+        DSIZEOF(ifc2x3::IfcCartesianPoint);
+
         ++failure_results;
     }
 

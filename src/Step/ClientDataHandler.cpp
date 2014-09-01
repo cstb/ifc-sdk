@@ -22,55 +22,72 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,ClientDataHandler,Referenced);
 
 
-ClientDataHandler::ClientDataHandler()
+ClientDataHandler::ClientDataHandler() : m_clientDataMap(0)
 {
 }
 
 ClientDataHandler::~ClientDataHandler()
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
-    for (iter = m_clientDataMap.begin(); iter != m_clientDataMap.end(); iter++)
+    if (m_clientDataMap)
     {
-        iter->second = 0;
+        std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
+        for (iter = m_clientDataMap->begin(); iter != m_clientDataMap->end(); iter++)
+        {
+            iter->second = 0;
+        }
+        delete m_clientDataMap;
     }
 }
 
 void ClientDataHandler::copy(const ClientDataHandler& obj, const BaseCopyOp&)
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::const_iterator iter;
-    for (iter = obj.m_clientDataMap.begin(); iter != obj.m_clientDataMap.end(); iter++)
+    if (obj.m_clientDataMap)
     {
-        setClientData(iter->first, iter->second.get());
+        std::map<ClientDataKey, RefPtr<ClientData> >::const_iterator iter;
+        for (iter = obj. m_clientDataMap->begin(); iter != obj. m_clientDataMap->end(); iter++)
+        {
+            setClientData(iter->first, iter->second.get());
+        }
     }
 }
 
 void ClientDataHandler::clearClientData()
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
-    for (iter = m_clientDataMap.begin(); iter != m_clientDataMap.end(); iter++)
+    if (m_clientDataMap)
     {
-        iter->second = 0;
+        std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter;
+        for (iter = m_clientDataMap->begin(); iter != m_clientDataMap->end(); iter++)
+        {
+            iter->second = 0;
+        }
+        m_clientDataMap->clear();
     }
-    m_clientDataMap.clear();
 }
 
 bool ClientDataHandler::eraseClientData(ClientDataKey key)
 {
-    return (m_clientDataMap.erase(key) > 0);
+    return ( m_clientDataMap && m_clientDataMap->erase(key) > 0);
 }
 
 ClientData* ClientDataHandler::getClientData(ClientDataKey key)
 {
-    std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter =
-            m_clientDataMap.find(key);
-    if (iter != m_clientDataMap.end())
-        return iter->second.get();
-    else
-        return NULL;
+    if (m_clientDataMap)
+    {
+        std::map<ClientDataKey, RefPtr<ClientData> >::iterator iter =
+                m_clientDataMap->find(key);
+        if (iter != m_clientDataMap->end())
+            return iter->second.get();
+    }
+
+    return NULL;
 }
 
 bool ClientDataHandler::setClientData(ClientDataKey key, ClientData* data)
 {
-    return m_clientDataMap.insert(
+    if (m_clientDataMap == 0)
+    {
+        m_clientDataMap = new std::map<ClientDataKey, RefPtr<ClientData> >;
+    }
+    return m_clientDataMap->insert(
             std::pair<ClientDataKey, RefPtr<ClientData> >(key, data)).second;
 }
