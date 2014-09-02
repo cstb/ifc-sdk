@@ -2638,12 +2638,13 @@ template<typename T, int Low1, int Low2>
 Step::List< T, Low2> IfcAddToBeginOfList( const T AScalar, const Step::List< T , Low1> AList)
 {
 	Step::List< T , Low2> Result;
+    Result.reserve(AList.size()+1);
 
 	if(!Step::isUnset(AScalar))
 	{
 		Result.push_back(AScalar);
     }
-    for(unsigned int i=0;i<AList.size();i++)
+    for(Step::Integer i=0;i<AList.size();i++)
     {
         Result.push_back(AList[i]);
     }
