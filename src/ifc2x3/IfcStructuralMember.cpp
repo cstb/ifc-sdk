@@ -78,7 +78,7 @@ const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcStructuralMember::getR
 }
 
 bool IfcStructuralMember::testReferencesElement() const {
-    return !Step::isUnset(getReferencesElement());
+    return !m_referencesElement.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getConnectedBy() {
@@ -97,7 +97,7 @@ const Inverse_Set_IfcRelConnectsStructuralMember_0_n &IfcStructuralMember::getCo
 }
 
 bool IfcStructuralMember::testConnectedBy() const {
-    return !Step::isUnset(getConnectedBy());
+    return !m_connectedBy.isUnset();
 }
 
 bool IfcStructuralMember::init() {

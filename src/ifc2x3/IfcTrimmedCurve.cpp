@@ -118,7 +118,7 @@ void IfcTrimmedCurve::unsetTrim1() {
 }
 
 bool IfcTrimmedCurve::testTrim1() const {
-    return !Step::isUnset(getTrim1());
+    return !m_trim1.isUnset();
 }
 
 Set_IfcTrimmingSelect_1_2 &IfcTrimmedCurve::getTrim2() {
@@ -146,7 +146,7 @@ void IfcTrimmedCurve::unsetTrim2() {
 }
 
 bool IfcTrimmedCurve::testTrim2() const {
-    return !Step::isUnset(getTrim2());
+    return !m_trim2.isUnset();
 }
 
 Step::Boolean IfcTrimmedCurve::getSenseAgreement() {

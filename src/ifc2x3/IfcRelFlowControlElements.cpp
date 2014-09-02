@@ -112,7 +112,7 @@ void IfcRelFlowControlElements::unsetRelatedControlElements() {
 }
 
 bool IfcRelFlowControlElements::testRelatedControlElements() const {
-    return !Step::isUnset(getRelatedControlElements());
+    return !m_relatedControlElements.isUnset();
 }
 
 IfcDistributionFlowElement *IfcRelFlowControlElements::getRelatingFlowElement() {

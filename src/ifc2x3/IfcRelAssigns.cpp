@@ -111,7 +111,7 @@ void IfcRelAssigns::unsetRelatedObjects() {
 }
 
 bool IfcRelAssigns::testRelatedObjects() const {
-    return !Step::isUnset(getRelatedObjects());
+    return !m_relatedObjects.isUnset();
 }
 
 IfcObjectTypeEnum IfcRelAssigns::getRelatedObjectsType() {

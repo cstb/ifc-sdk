@@ -169,7 +169,7 @@ void IfcPresentationLayerWithStyle::unsetLayerStyles() {
 }
 
 bool IfcPresentationLayerWithStyle::testLayerStyles() const {
-    return !Step::isUnset(getLayerStyles());
+    return !m_layerStyles.isUnset();
 }
 
 bool IfcPresentationLayerWithStyle::init() {

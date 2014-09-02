@@ -121,7 +121,7 @@ void IfcRelContainedInSpatialStructure::unsetRelatedElements() {
 }
 
 bool IfcRelContainedInSpatialStructure::testRelatedElements() const {
-    return !Step::isUnset(getRelatedElements());
+    return !m_relatedElements.isUnset();
 }
 
 IfcSpatialStructureElement *IfcRelContainedInSpatialStructure::getRelatingStructure() {

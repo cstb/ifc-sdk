@@ -93,7 +93,7 @@ void IfcPropertyTableValue::unsetDefiningValues() {
 }
 
 bool IfcPropertyTableValue::testDefiningValues() const {
-    return !Step::isUnset(getDefiningValues());
+    return !m_definingValues.isUnset();
 }
 
 List_IfcValue_1_n &IfcPropertyTableValue::getDefinedValues() {
@@ -121,7 +121,7 @@ void IfcPropertyTableValue::unsetDefinedValues() {
 }
 
 bool IfcPropertyTableValue::testDefinedValues() const {
-    return !Step::isUnset(getDefinedValues());
+    return !m_definedValues.isUnset();
 }
 
 IfcText IfcPropertyTableValue::getExpression() {

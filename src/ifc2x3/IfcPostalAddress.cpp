@@ -118,7 +118,7 @@ void IfcPostalAddress::unsetAddressLines() {
 }
 
 bool IfcPostalAddress::testAddressLines() const {
-    return !Step::isUnset(getAddressLines());
+    return !m_addressLines.isUnset();
 }
 
 IfcLabel IfcPostalAddress::getPostalBox() {

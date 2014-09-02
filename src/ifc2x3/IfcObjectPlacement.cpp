@@ -78,7 +78,7 @@ const Inverse_Set_IfcProduct_1_n &IfcObjectPlacement::getPlacesObject() const {
 }
 
 bool IfcObjectPlacement::testPlacesObject() const {
-    return !Step::isUnset(getPlacesObject());
+    return !m_placesObject.isUnset();
 }
 
 Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlacements() {
@@ -97,7 +97,7 @@ const Inverse_Set_IfcLocalPlacement_0_n &IfcObjectPlacement::getReferencedByPlac
 }
 
 bool IfcObjectPlacement::testReferencedByPlacements() const {
-    return !Step::isUnset(getReferencedByPlacements());
+    return !m_referencedByPlacements.isUnset();
 }
 
 bool IfcObjectPlacement::init() {

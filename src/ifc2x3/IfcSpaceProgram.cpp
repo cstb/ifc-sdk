@@ -216,7 +216,7 @@ const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInte
 }
 
 bool IfcSpaceProgram::testHasInteractionReqsFrom() const {
-    return !Step::isUnset(getHasInteractionReqsFrom());
+    return !m_hasInteractionReqsFrom.isUnset();
 }
 
 Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInteractionReqsTo() {
@@ -235,7 +235,7 @@ const Inverse_Set_IfcRelInteractionRequirements_0_n &IfcSpaceProgram::getHasInte
 }
 
 bool IfcSpaceProgram::testHasInteractionReqsTo() const {
-    return !Step::isUnset(getHasInteractionReqsTo());
+    return !m_hasInteractionReqsTo.isUnset();
 }
 
 bool IfcSpaceProgram::init() {

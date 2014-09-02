@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelAssociates_0_n &IfcPropertyDefinition::getHasAssociation
 }
 
 bool IfcPropertyDefinition::testHasAssociations() const {
-    return !Step::isUnset(getHasAssociations());
+    return !m_hasAssociations.isUnset();
 }
 
 bool IfcPropertyDefinition::init() {

@@ -144,7 +144,7 @@ void IfcRelServicesBuildings::unsetRelatedBuildings() {
 }
 
 bool IfcRelServicesBuildings::testRelatedBuildings() const {
-    return !Step::isUnset(getRelatedBuildings());
+    return !m_relatedBuildings.isUnset();
 }
 
 bool IfcRelServicesBuildings::init() {

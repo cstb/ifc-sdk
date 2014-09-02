@@ -77,7 +77,7 @@ const Inverse_Set_IfcLibraryInformation_0_1 &IfcLibraryReference::getReferenceIn
 }
 
 bool IfcLibraryReference::testReferenceIntoLibrary() const {
-    return !Step::isUnset(getReferenceIntoLibrary());
+    return !m_referenceIntoLibrary.isUnset();
 }
 
 bool IfcLibraryReference::init() {

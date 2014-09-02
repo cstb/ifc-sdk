@@ -96,7 +96,7 @@ const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedFrom() const {
 }
 
 bool IfcPort::testConnectedFrom() const {
-    return !Step::isUnset(getConnectedFrom());
+    return !m_connectedFrom.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() {
@@ -115,7 +115,7 @@ const Inverse_Set_IfcRelConnectsPorts_0_1 &IfcPort::getConnectedTo() const {
 }
 
 bool IfcPort::testConnectedTo() const {
-    return !Step::isUnset(getConnectedTo());
+    return !m_connectedTo.isUnset();
 }
 
 bool IfcPort::init() {

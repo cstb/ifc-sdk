@@ -115,7 +115,7 @@ void IfcSurfaceStyle::unsetStyles() {
 }
 
 bool IfcSurfaceStyle::testStyles() const {
-    return !Step::isUnset(getStyles());
+    return !m_styles.isUnset();
 }
 
 bool IfcSurfaceStyle::init() {

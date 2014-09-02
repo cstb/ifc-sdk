@@ -87,7 +87,7 @@ void IfcIrregularTimeSeries::unsetValues() {
 }
 
 bool IfcIrregularTimeSeries::testValues() const {
-    return !Step::isUnset(getValues());
+    return !m_values.isUnset();
 }
 
 bool IfcIrregularTimeSeries::init() {

@@ -105,7 +105,7 @@ const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionControlElement::
 }
 
 bool IfcDistributionControlElement::testAssignedToFlowElement() const {
-    return !Step::isUnset(getAssignedToFlowElement());
+    return !m_assignedToFlowElement.isUnset();
 }
 
 bool IfcDistributionControlElement::init() {

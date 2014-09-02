@@ -165,7 +165,7 @@ void IfcProductRepresentation::unsetRepresentations() {
 }
 
 bool IfcProductRepresentation::testRepresentations() const {
-    return !Step::isUnset(getRepresentations());
+    return !m_representations.isUnset();
 }
 
 bool IfcProductRepresentation::init() {

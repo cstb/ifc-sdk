@@ -189,7 +189,7 @@ const Inverse_Set_IfcClassificationItem_0_n &IfcClassification::getContains() co
 }
 
 bool IfcClassification::testContains() const {
-    return !Step::isUnset(getContains());
+    return !m_contains.isUnset();
 }
 
 bool IfcClassification::init() {

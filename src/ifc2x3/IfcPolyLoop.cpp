@@ -87,7 +87,7 @@ void IfcPolyLoop::unsetPolygon() {
 }
 
 bool IfcPolyLoop::testPolygon() const {
-    return !Step::isUnset(getPolygon());
+    return !m_polygon.isUnset();
 }
 
 bool IfcPolyLoop::init() {

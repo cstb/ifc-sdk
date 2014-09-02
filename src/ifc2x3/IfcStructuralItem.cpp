@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelConnectsStructuralActivity_0_n &IfcStructuralItem::getAs
 }
 
 bool IfcStructuralItem::testAssignedStructuralActivity() const {
-    return !Step::isUnset(getAssignedStructuralActivity());
+    return !m_assignedStructuralActivity.isUnset();
 }
 
 bool IfcStructuralItem::init() {

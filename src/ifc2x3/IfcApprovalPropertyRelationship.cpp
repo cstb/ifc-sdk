@@ -89,7 +89,7 @@ void IfcApprovalPropertyRelationship::unsetApprovedProperties() {
 }
 
 bool IfcApprovalPropertyRelationship::testApprovedProperties() const {
-    return !Step::isUnset(getApprovedProperties());
+    return !m_approvedProperties.isUnset();
 }
 
 IfcApproval *IfcApprovalPropertyRelationship::getApproval() {

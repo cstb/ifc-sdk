@@ -36,9 +36,8 @@ namespace Step {
      ** based on multiset
      */
 
-    template<typename T, Integer _lo = 0, Integer _hi = -1> class Bag: public std::multiset<
-            T>,
-            public Aggregate
+    template<typename T, Integer _lo = 0, Integer _hi = -1> class Bag: 
+     public std::multiset<T>
     {
     public:
 
@@ -55,7 +54,7 @@ namespace Step {
 
         /// default constructor not unset by default
         Bag(bool unset=false) :
-            Aggregate(unset)
+            m_unset(unset)
         {
         }
 
@@ -212,6 +211,37 @@ namespace Step {
             this->setUnset(other.isUnset());
             std::multiset<T>::operator=(other);
         }
+                /*!
+         \short Gets the 'unset' flag
+         @return the 'unset' flag
+         */
+        bool isUnset() const
+        {
+            return m_unset;
+        }
+
+        /*!
+         \short Sets the 'unset' flag
+         @param b the 'unset' flag
+         */
+        void setUnset(bool b)
+        {
+            m_unset = b;
+        }
+
+        /*!
+         \short Toggle the 'unset' flag
+         @return The new state of the 'unset' flag
+         */
+        bool toggleUnset()
+        {
+            m_unset = !m_unset;
+            return m_unset;
+        }
+
+    protected:
+        //! store if the unset status
+        bool m_unset;
     private:
         //! this is since we cannot allow to have an operator that will allow different sizes of List to be assigned
         std::multiset<T>& operator=(const std::multiset<T>& other);

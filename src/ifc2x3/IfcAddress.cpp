@@ -160,7 +160,7 @@ const Inverse_Set_IfcPerson_0_n &IfcAddress::getOfPerson() const {
 }
 
 bool IfcAddress::testOfPerson() const {
-    return !Step::isUnset(getOfPerson());
+    return !m_ofPerson.isUnset();
 }
 
 Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() {
@@ -179,7 +179,7 @@ const Inverse_Set_IfcOrganization_0_n &IfcAddress::getOfOrganization() const {
 }
 
 bool IfcAddress::testOfOrganization() const {
-    return !Step::isUnset(getOfOrganization());
+    return !m_ofOrganization.isUnset();
 }
 
 bool IfcAddress::init() {

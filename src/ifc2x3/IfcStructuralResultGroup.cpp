@@ -167,7 +167,7 @@ const Inverse_Set_IfcStructuralAnalysisModel_0_1 &IfcStructuralResultGroup::getR
 }
 
 bool IfcStructuralResultGroup::testResultGroupFor() const {
-    return !Step::isUnset(getResultGroupFor());
+    return !m_resultGroupFor.isUnset();
 }
 
 bool IfcStructuralResultGroup::init() {

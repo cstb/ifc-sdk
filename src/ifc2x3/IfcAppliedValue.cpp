@@ -247,7 +247,7 @@ const Inverse_Set_IfcReferencesValueDocument_0_n &IfcAppliedValue::getValuesRefe
 }
 
 bool IfcAppliedValue::testValuesReferenced() const {
-    return !Step::isUnset(getValuesReferenced());
+    return !m_valuesReferenced.isUnset();
 }
 
 Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfComponents() {
@@ -266,7 +266,7 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getValueOfCo
 }
 
 bool IfcAppliedValue::testValueOfComponents() const {
-    return !Step::isUnset(getValueOfComponents());
+    return !m_valueOfComponents.isUnset();
 }
 
 Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsComponentIn() {
@@ -285,7 +285,7 @@ const Inverse_Set_IfcAppliedValueRelationship_0_n &IfcAppliedValue::getIsCompone
 }
 
 bool IfcAppliedValue::testIsComponentIn() const {
-    return !Step::isUnset(getIsComponentIn());
+    return !m_isComponentIn.isUnset();
 }
 
 bool IfcAppliedValue::init() {

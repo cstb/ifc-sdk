@@ -111,7 +111,7 @@ void IfcCompositeCurve::unsetSegments() {
 }
 
 bool IfcCompositeCurve::testSegments() const {
-    return !Step::isUnset(getSegments());
+    return !m_segments.isUnset();
 }
 
 Step::Logical IfcCompositeCurve::getSelfIntersect() {

@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelFillsElement_0_n &IfcOpeningElement::getHasFillings() co
 }
 
 bool IfcOpeningElement::testHasFillings() const {
-    return !Step::isUnset(getHasFillings());
+    return !m_hasFillings.isUnset();
 }
 
 bool IfcOpeningElement::init() {

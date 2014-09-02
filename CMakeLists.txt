@@ -119,7 +119,7 @@ if(APPLE)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -mmacosx-version-min=10.7" CACHE STRING "Flags used by the compiler during all build types." FORCE)
     endif()
 
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-overloaded-virtual -Wno-conversion")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ferror-limit=300 -Wno-overloaded-virtual -Wno-conversion")
     set(WARNING_CFLAGS "")
 
     foreach(flag

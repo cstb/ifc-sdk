@@ -106,7 +106,7 @@ const Inverse_Set_IfcMaterialDefinitionRepresentation_0_1 &IfcMaterial::getHasRe
 }
 
 bool IfcMaterial::testHasRepresentation() const {
-    return !Step::isUnset(getHasRepresentation());
+    return !m_hasRepresentation.isUnset();
 }
 
 Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getClassifiedAs() {
@@ -125,7 +125,7 @@ const Inverse_Set_IfcMaterialClassificationRelationship_0_1 &IfcMaterial::getCla
 }
 
 bool IfcMaterial::testClassifiedAs() const {
-    return !Step::isUnset(getClassifiedAs());
+    return !m_classifiedAs.isUnset();
 }
 
 bool IfcMaterial::init() {

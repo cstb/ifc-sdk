@@ -156,7 +156,7 @@ void IfcPersonAndOrganization::unsetRoles() {
 }
 
 bool IfcPersonAndOrganization::testRoles() const {
-    return !Step::isUnset(getRoles());
+    return !m_roles.isUnset();
 }
 
 bool IfcPersonAndOrganization::init() {

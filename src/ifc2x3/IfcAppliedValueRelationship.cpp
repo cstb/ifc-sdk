@@ -147,7 +147,7 @@ void IfcAppliedValueRelationship::unsetComponents() {
 }
 
 bool IfcAppliedValueRelationship::testComponents() const {
-    return !Step::isUnset(getComponents());
+    return !m_components.isUnset();
 }
 
 IfcArithmeticOperatorEnum IfcAppliedValueRelationship::getArithmeticOperator() {

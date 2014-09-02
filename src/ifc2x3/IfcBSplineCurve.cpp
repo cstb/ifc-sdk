@@ -117,7 +117,7 @@ void IfcBSplineCurve::unsetControlPointsList() {
 }
 
 bool IfcBSplineCurve::testControlPointsList() const {
-    return !Step::isUnset(getControlPointsList());
+    return !m_controlPointsList.isUnset();
 }
 
 IfcBSplineCurveForm IfcBSplineCurve::getCurveForm() {

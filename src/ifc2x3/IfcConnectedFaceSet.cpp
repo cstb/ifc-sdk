@@ -87,7 +87,7 @@ void IfcConnectedFaceSet::unsetCfsFaces() {
 }
 
 bool IfcConnectedFaceSet::testCfsFaces() const {
-    return !Step::isUnset(getCfsFaces());
+    return !m_cfsFaces.isUnset();
 }
 
 bool IfcConnectedFaceSet::init() {

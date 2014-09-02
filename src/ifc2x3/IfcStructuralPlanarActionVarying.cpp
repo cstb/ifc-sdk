@@ -115,7 +115,7 @@ void IfcStructuralPlanarActionVarying::unsetSubsequentAppliedLoads() {
 }
 
 bool IfcStructuralPlanarActionVarying::testSubsequentAppliedLoads() const {
-    return !Step::isUnset(getSubsequentAppliedLoads());
+    return !m_subsequentAppliedLoads.isUnset();
 }
 
 bool IfcStructuralPlanarActionVarying::init() {

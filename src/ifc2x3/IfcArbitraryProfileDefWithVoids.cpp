@@ -87,7 +87,7 @@ void IfcArbitraryProfileDefWithVoids::unsetInnerCurves() {
 }
 
 bool IfcArbitraryProfileDefWithVoids::testInnerCurves() const {
-    return !Step::isUnset(getInnerCurves());
+    return !m_innerCurves.isUnset();
 }
 
 bool IfcArbitraryProfileDefWithVoids::init() {

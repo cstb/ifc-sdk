@@ -90,7 +90,7 @@ void IfcDerivedUnit::unsetElements() {
 }
 
 bool IfcDerivedUnit::testElements() const {
-    return !Step::isUnset(getElements());
+    return !m_elements.isUnset();
 }
 
 IfcDerivedUnitEnum IfcDerivedUnit::getUnitType() {

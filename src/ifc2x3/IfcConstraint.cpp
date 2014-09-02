@@ -273,7 +273,7 @@ const Inverse_Set_IfcConstraintClassificationRelationship_0_n &IfcConstraint::ge
 }
 
 bool IfcConstraint::testClassifiedAs() const {
-    return !Step::isUnset(getClassifiedAs());
+    return !m_classifiedAs.isUnset();
 }
 
 Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstraints() {
@@ -292,7 +292,7 @@ const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getRelatesConstr
 }
 
 bool IfcConstraint::testRelatesConstraints() const {
-    return !Step::isUnset(getRelatesConstraints());
+    return !m_relatesConstraints.isUnset();
 }
 
 Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith() {
@@ -311,7 +311,7 @@ const Inverse_Set_IfcConstraintRelationship_0_n &IfcConstraint::getIsRelatedWith
 }
 
 bool IfcConstraint::testIsRelatedWith() const {
-    return !Step::isUnset(getIsRelatedWith());
+    return !m_isRelatedWith.isUnset();
 }
 
 Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPropertiesForConstraint() {
@@ -330,7 +330,7 @@ const Inverse_Set_IfcPropertyConstraintRelationship_0_n &IfcConstraint::getPrope
 }
 
 bool IfcConstraint::testPropertiesForConstraint() const {
-    return !Step::isUnset(getPropertiesForConstraint());
+    return !m_propertiesForConstraint.isUnset();
 }
 
 Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAggregates() {
@@ -349,7 +349,7 @@ const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getAg
 }
 
 bool IfcConstraint::testAggregates() const {
-    return !Step::isUnset(getAggregates());
+    return !m_aggregates.isUnset();
 }
 
 Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIsAggregatedIn() {
@@ -368,7 +368,7 @@ const Inverse_Set_IfcConstraintAggregationRelationship_0_n &IfcConstraint::getIs
 }
 
 bool IfcConstraint::testIsAggregatedIn() const {
-    return !Step::isUnset(getIsAggregatedIn());
+    return !m_isAggregatedIn.isUnset();
 }
 
 bool IfcConstraint::init() {

@@ -198,7 +198,7 @@ void IfcConstraintRelationship::unsetRelatedConstraints() {
 }
 
 bool IfcConstraintRelationship::testRelatedConstraints() const {
-    return !Step::isUnset(getRelatedConstraints());
+    return !m_relatedConstraints.isUnset();
 }
 
 bool IfcConstraintRelationship::init() {

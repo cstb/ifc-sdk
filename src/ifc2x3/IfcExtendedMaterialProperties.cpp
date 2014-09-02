@@ -90,7 +90,7 @@ void IfcExtendedMaterialProperties::unsetExtendedProperties() {
 }
 
 bool IfcExtendedMaterialProperties::testExtendedProperties() const {
-    return !Step::isUnset(getExtendedProperties());
+    return !m_extendedProperties.isUnset();
 }
 
 IfcText IfcExtendedMaterialProperties::getDescription() {

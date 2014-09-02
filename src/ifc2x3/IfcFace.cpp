@@ -87,7 +87,7 @@ void IfcFace::unsetBounds() {
 }
 
 bool IfcFace::testBounds() const {
-    return !Step::isUnset(getBounds());
+    return !m_bounds.isUnset();
 }
 
 bool IfcFace::init() {

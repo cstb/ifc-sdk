@@ -250,7 +250,7 @@ void IfcMechanicalSteelMaterialProperties::unsetRelaxations() {
 }
 
 bool IfcMechanicalSteelMaterialProperties::testRelaxations() const {
-    return !Step::isUnset(getRelaxations());
+    return !m_relaxations.isUnset();
 }
 
 bool IfcMechanicalSteelMaterialProperties::init() {

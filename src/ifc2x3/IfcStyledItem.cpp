@@ -122,7 +122,7 @@ void IfcStyledItem::unsetStyles() {
 }
 
 bool IfcStyledItem::testStyles() const {
-    return !Step::isUnset(getStyles());
+    return !m_styles.isUnset();
 }
 
 IfcLabel IfcStyledItem::getName() {

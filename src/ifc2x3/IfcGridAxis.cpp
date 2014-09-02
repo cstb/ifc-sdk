@@ -163,7 +163,7 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfW() const {
 }
 
 bool IfcGridAxis::testPartOfW() const {
-    return !Step::isUnset(getPartOfW());
+    return !m_partOfW.isUnset();
 }
 
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() {
@@ -182,7 +182,7 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfV() const {
 }
 
 bool IfcGridAxis::testPartOfV() const {
-    return !Step::isUnset(getPartOfV());
+    return !m_partOfV.isUnset();
 }
 
 Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() {
@@ -201,7 +201,7 @@ const Inverse_Set_IfcGrid_0_1 &IfcGridAxis::getPartOfU() const {
 }
 
 bool IfcGridAxis::testPartOfU() const {
-    return !Step::isUnset(getPartOfU());
+    return !m_partOfU.isUnset();
 }
 
 Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersections() {
@@ -220,7 +220,7 @@ const Inverse_Set_IfcVirtualGridIntersection_0_n &IfcGridAxis::getHasIntersectio
 }
 
 bool IfcGridAxis::testHasIntersections() const {
-    return !Step::isUnset(getHasIntersections());
+    return !m_hasIntersections.isUnset();
 }
 
 bool IfcGridAxis::init() {

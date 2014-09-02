@@ -88,7 +88,7 @@ void IfcFillAreaStyle::unsetFillStyles() {
 }
 
 bool IfcFillAreaStyle::testFillStyles() const {
-    return !Step::isUnset(getFillStyles());
+    return !m_fillStyles.isUnset();
 }
 
 bool IfcFillAreaStyle::init() {

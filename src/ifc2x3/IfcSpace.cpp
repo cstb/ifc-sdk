@@ -132,7 +132,7 @@ const Inverse_Set_IfcRelCoversSpaces_0_n &IfcSpace::getHasCoverings() const {
 }
 
 bool IfcSpace::testHasCoverings() const {
-    return !Step::isUnset(getHasCoverings());
+    return !m_hasCoverings.isUnset();
 }
 
 Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() {
@@ -151,7 +151,7 @@ const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcSpace::getBoundedBy() const {
 }
 
 bool IfcSpace::testBoundedBy() const {
-    return !Step::isUnset(getBoundedBy());
+    return !m_boundedBy.isUnset();
 }
 
 bool IfcSpace::init() {

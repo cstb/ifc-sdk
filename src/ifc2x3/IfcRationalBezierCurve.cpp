@@ -84,7 +84,7 @@ void IfcRationalBezierCurve::unsetWeightsData() {
 }
 
 bool IfcRationalBezierCurve::testWeightsData() const {
-    return !Step::isUnset(getWeightsData());
+    return !m_weightsData.isUnset();
 }
 
 bool IfcRationalBezierCurve::init() {

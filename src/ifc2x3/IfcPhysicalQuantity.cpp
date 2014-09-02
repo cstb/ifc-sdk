@@ -132,7 +132,7 @@ const Inverse_Set_IfcPhysicalComplexQuantity_0_1 &IfcPhysicalQuantity::getPartOf
 }
 
 bool IfcPhysicalQuantity::testPartOfComplex() const {
-    return !Step::isUnset(getPartOfComplex());
+    return !m_partOfComplex.isUnset();
 }
 
 bool IfcPhysicalQuantity::init() {

@@ -105,7 +105,7 @@ const Inverse_Set_IfcRelDefines_0_n &IfcObject::getIsDefinedBy() const {
 }
 
 bool IfcObject::testIsDefinedBy() const {
-    return !Step::isUnset(getIsDefinedBy());
+    return !m_isDefinedBy.isUnset();
 }
 
 bool IfcObject::init() {

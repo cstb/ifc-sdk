@@ -115,7 +115,7 @@ void IfcCurveStyleFont::unsetPatternList() {
 }
 
 bool IfcCurveStyleFont::testPatternList() const {
-    return !Step::isUnset(getPatternList());
+    return !m_patternList.isUnset();
 }
 
 bool IfcCurveStyleFont::init() {

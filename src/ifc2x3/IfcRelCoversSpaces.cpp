@@ -144,7 +144,7 @@ void IfcRelCoversSpaces::unsetRelatedCoverings() {
 }
 
 bool IfcRelCoversSpaces::testRelatedCoverings() const {
-    return !Step::isUnset(getRelatedCoverings());
+    return !m_relatedCoverings.isUnset();
 }
 
 bool IfcRelCoversSpaces::init() {

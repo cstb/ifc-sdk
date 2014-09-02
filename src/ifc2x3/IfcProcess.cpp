@@ -78,7 +78,7 @@ const Inverse_Set_IfcRelAssignsToProcess_0_n &IfcProcess::getOperatesOn() const 
 }
 
 bool IfcProcess::testOperatesOn() const {
-    return !Step::isUnset(getOperatesOn());
+    return !m_operatesOn.isUnset();
 }
 
 Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() {
@@ -97,7 +97,7 @@ const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsSuccessorFrom() const {
 }
 
 bool IfcProcess::testIsSuccessorFrom() const {
-    return !Step::isUnset(getIsSuccessorFrom());
+    return !m_isSuccessorFrom.isUnset();
 }
 
 Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() {
@@ -116,7 +116,7 @@ const Inverse_Set_IfcRelSequence_0_n &IfcProcess::getIsPredecessorTo() const {
 }
 
 bool IfcProcess::testIsPredecessorTo() const {
-    return !Step::isUnset(getIsPredecessorTo());
+    return !m_isPredecessorTo.isUnset();
 }
 
 bool IfcProcess::init() {
