@@ -88,7 +88,7 @@ void IfcCompositeProfileDef::unsetProfiles() {
 }
 
 bool IfcCompositeProfileDef::testProfiles() const {
-    return !Step::isUnset(getProfiles());
+    return !m_profiles.isUnset();
 }
 
 IfcLabel IfcCompositeProfileDef::getLabel() {

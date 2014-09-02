@@ -87,7 +87,7 @@ void IfcFaceBasedSurfaceModel::unsetFbsmFaces() {
 }
 
 bool IfcFaceBasedSurfaceModel::testFbsmFaces() const {
-    return !Step::isUnset(getFbsmFaces());
+    return !m_fbsmFaces.isUnset();
 }
 
 bool IfcFaceBasedSurfaceModel::init() {

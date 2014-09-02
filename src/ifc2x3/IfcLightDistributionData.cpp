@@ -111,7 +111,7 @@ void IfcLightDistributionData::unsetSecondaryPlaneAngle() {
 }
 
 bool IfcLightDistributionData::testSecondaryPlaneAngle() const {
-    return !Step::isUnset(getSecondaryPlaneAngle());
+    return !m_secondaryPlaneAngle.isUnset();
 }
 
 List_IfcLuminousIntensityDistributionMeasure_1_n &IfcLightDistributionData::getLuminousIntensity() {
@@ -139,7 +139,7 @@ void IfcLightDistributionData::unsetLuminousIntensity() {
 }
 
 bool IfcLightDistributionData::testLuminousIntensity() const {
-    return !Step::isUnset(getLuminousIntensity());
+    return !m_luminousIntensity.isUnset();
 }
 
 bool IfcLightDistributionData::init() {

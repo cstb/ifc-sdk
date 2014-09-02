@@ -110,7 +110,7 @@ void IfcRelDefines::unsetRelatedObjects() {
 }
 
 bool IfcRelDefines::testRelatedObjects() const {
-    return !Step::isUnset(getRelatedObjects());
+    return !m_relatedObjects.isUnset();
 }
 
 bool IfcRelDefines::init() {

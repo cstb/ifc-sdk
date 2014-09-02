@@ -270,7 +270,7 @@ const Inverse_Set_IfcApprovalActorRelationship_0_n &IfcApproval::getActors() con
 }
 
 bool IfcApproval::testActors() const {
-    return !Step::isUnset(getActors());
+    return !m_actors.isUnset();
 }
 
 Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() {
@@ -289,7 +289,7 @@ const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getIsRelatedWith() c
 }
 
 bool IfcApproval::testIsRelatedWith() const {
-    return !Step::isUnset(getIsRelatedWith());
+    return !m_isRelatedWith.isUnset();
 }
 
 Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() {
@@ -308,7 +308,7 @@ const Inverse_Set_IfcApprovalRelationship_0_n &IfcApproval::getRelates() const {
 }
 
 bool IfcApproval::testRelates() const {
-    return !Step::isUnset(getRelates());
+    return !m_relates.isUnset();
 }
 
 bool IfcApproval::init() {

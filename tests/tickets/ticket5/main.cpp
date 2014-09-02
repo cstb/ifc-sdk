@@ -1,4 +1,4 @@
-#include <ifc2x3/ExpressDataSet.h>
+#include <ifc2x3/all.h>
 #include <ifc2x3/SPFReader.h>
 
 #include "../../tests.h"
@@ -71,6 +71,7 @@ int main (int n, char **p)
 
         std::cout << std::endl;
         lastSize=0;
+        DSIZEOF(std::set<Step::ObsPtr< ifc2x3::IfcPresentationLayerAssignment > >);
         DSIZEOF(ifc2x3::Inverse_Set_IfcPresentationLayerAssignment_0_n);
 
         std::cout << std::endl;
@@ -83,6 +84,36 @@ int main (int n, char **p)
         DSIZEOF(ifc2x3::List_IfcLengthMeasure_1_3);
 
 
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcProperty);
+        DSIZEOF(ifc2x3::IfcSimpleProperty);
+        DSIZEOF(ifc2x3::IfcPropertySingleValue);
+
+        std::cout << std::endl;
+        lastSize=0;
+
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcRoot);
+        DSIZEOF(ifc2x3::IfcPropertyDefinition);
+        DSIZEOF(ifc2x3::IfcPropertySetDefinition);
+        DSIZEOF(ifc2x3::IfcPropertySet);
+        
+
+        std::cout << std::endl;
+        lastSize=0;
+
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(ifc2x3::IfcValue);
         ++failure_results;
     }
 

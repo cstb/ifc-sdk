@@ -33,7 +33,7 @@ namespace Step {
      ** we are using C vector wrapped into a stl environment instead of an std::vector
      */
     template<typename T, Integer _lo, Integer _hi>
-    class Array: public Aggregate
+    class Array
     {
         enum
         {
@@ -103,7 +103,7 @@ namespace Step {
         /// constructors
         //@{
         Array(bool unset = false) :
-            Aggregate(unset)
+            m_unset(unset)
         {
         }
         Array(const std::vector<T>& vec)
@@ -240,7 +240,38 @@ namespace Step {
             return _values[i] == rhs._values[i];
         }
         //@}
+        /*!
+         \short Gets the 'unset' flag
+         @return the 'unset' flag
+         */
+        bool isUnset() const
+        {
+            return m_unset;
+        }
+
+        /*!
+         \short Sets the 'unset' flag
+         @param b the 'unset' flag
+         */
+        void setUnset(bool b)
+        {
+            m_unset = b;
+        }
+
+        /*!
+         \short Toggle the 'unset' flag
+         @return The new state of the 'unset' flag
+         */
+        bool toggleUnset()
+        {
+            m_unset = !m_unset;
+            return m_unset;
+        }
+
     protected:
+        //! store if the unset status
+        bool m_unset;
+
         /// check range
         static void checkRange(Integer idx)
         {

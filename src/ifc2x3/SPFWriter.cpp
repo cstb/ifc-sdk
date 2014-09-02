@@ -778,7 +778,7 @@ bool SPFWriter::write(std::ostream& filestream)
 
 bool SPFWriter::visitIfc2DCompositeCurve(Ifc2DCompositeCurve *value) {
     outputStream() << "#" << value->getKey() << "=IFC2DCOMPOSITECURVE(";
-    if (Step::isUnset(value->getSegments())) {
+    if (!value->testSegments()) {
         outputStream() << "$";
     }
     else {
@@ -1077,7 +1077,7 @@ bool SPFWriter::visitIfcActuatorType(IfcActuatorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -1095,7 +1095,7 @@ bool SPFWriter::visitIfcActuatorType(IfcActuatorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -1240,7 +1240,7 @@ bool SPFWriter::visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -1258,7 +1258,7 @@ bool SPFWriter::visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -1369,7 +1369,7 @@ bool SPFWriter::visitIfcAirTerminalType(IfcAirTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -1387,7 +1387,7 @@ bool SPFWriter::visitIfcAirTerminalType(IfcAirTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -1504,7 +1504,7 @@ bool SPFWriter::visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *va
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -1522,7 +1522,7 @@ bool SPFWriter::visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *va
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -1630,7 +1630,7 @@ bool SPFWriter::visitIfcAlarmType(IfcAlarmType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -1648,7 +1648,7 @@ bool SPFWriter::visitIfcAlarmType(IfcAlarmType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -1706,7 +1706,7 @@ void SPFWriter::writeIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *se
 
 bool SPFWriter::visitIfcAngularDimension(IfcAngularDimension *value) {
     outputStream() << "#" << value->getKey() << "=IFCANGULARDIMENSION(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -1790,7 +1790,7 @@ bool SPFWriter::visitIfcAnnotationCurveOccurrence(IfcAnnotationCurveOccurrence *
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -1827,7 +1827,7 @@ bool SPFWriter::visitIfcAnnotationFillArea(IfcAnnotationFillArea *value) {
         writeAttribute(value->getOuterBoundary());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getInnerBoundaries())) {
+    if (!value->testInnerBoundaries()) {
         outputStream() << "$";
     }
     else {
@@ -1868,7 +1868,7 @@ bool SPFWriter::visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurr
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -1919,7 +1919,7 @@ bool SPFWriter::visitIfcAnnotationOccurrence(IfcAnnotationOccurrence *value) {
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -1975,7 +1975,7 @@ bool SPFWriter::visitIfcAnnotationSurfaceOccurrence(IfcAnnotationSurfaceOccurren
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -2012,7 +2012,7 @@ bool SPFWriter::visitIfcAnnotationSymbolOccurrence(IfcAnnotationSymbolOccurrence
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -2049,7 +2049,7 @@ bool SPFWriter::visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrence *va
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -2215,7 +2215,7 @@ bool SPFWriter::visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *va
         writeAttribute(value->getComponentOfTotal());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getComponents())) {
+    if (!value->testComponents()) {
         outputStream() << "$";
     }
     else {
@@ -2339,7 +2339,7 @@ bool SPFWriter::visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *
 
 bool SPFWriter::visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value) {
     outputStream() << "#" << value->getKey() << "=IFCAPPROVALPROPERTYRELATIONSHIP(";
-    if (Step::isUnset(value->getApprovedProperties())) {
+    if (!value->testApprovedProperties()) {
         outputStream() << "$";
     }
     else {
@@ -2486,7 +2486,7 @@ bool SPFWriter::visitIfcArbitraryProfileDefWithVoids(IfcArbitraryProfileDefWithV
         writeAttribute(value->getOuterCurve());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getInnerCurves())) {
+    if (!value->testInnerCurves()) {
         outputStream() << "$";
     }
     else {
@@ -2795,7 +2795,7 @@ bool SPFWriter::visitIfcBSplineCurve(IfcBSplineCurve *value) {
         writeAttribute(value->getDegree());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getControlPointsList())) {
+    if (!value->testControlPointsList()) {
         outputStream() << "$";
     }
     else {
@@ -2958,7 +2958,7 @@ bool SPFWriter::visitIfcBeamType(IfcBeamType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -2976,7 +2976,7 @@ bool SPFWriter::visitIfcBeamType(IfcBeamType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -3027,7 +3027,7 @@ bool SPFWriter::visitIfcBezierCurve(IfcBezierCurve *value) {
         writeAttribute(value->getDegree());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getControlPointsList())) {
+    if (!value->testControlPointsList()) {
         outputStream() << "$";
     }
     else {
@@ -3235,7 +3235,7 @@ bool SPFWriter::visitIfcBoilerType(IfcBoilerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -3253,7 +3253,7 @@ bool SPFWriter::visitIfcBoilerType(IfcBoilerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4065,7 +4065,7 @@ bool SPFWriter::visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *va
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -4083,7 +4083,7 @@ bool SPFWriter::visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *va
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4162,7 +4162,7 @@ bool SPFWriter::visitIfcBuildingElementType(IfcBuildingElementType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -4180,7 +4180,7 @@ bool SPFWriter::visitIfcBuildingElementType(IfcBuildingElementType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4418,7 +4418,7 @@ bool SPFWriter::visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *valu
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -4436,7 +4436,7 @@ bool SPFWriter::visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4538,7 +4538,7 @@ bool SPFWriter::visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *valu
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -4556,7 +4556,7 @@ bool SPFWriter::visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4652,7 +4652,7 @@ bool SPFWriter::visitIfcCableSegmentType(IfcCableSegmentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -4670,7 +4670,7 @@ bool SPFWriter::visitIfcCableSegmentType(IfcCableSegmentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -4740,7 +4740,7 @@ bool SPFWriter::visitIfcCalendarDate(IfcCalendarDate *value) {
 
 bool SPFWriter::visitIfcCartesianPoint(IfcCartesianPoint *value) {
     outputStream() << "#" << value->getKey() << "=IFCCARTESIANPOINT(";
-    if (Step::isUnset(value->getCoordinates())) {
+    if (!value->testCoordinates()) {
         outputStream() << "$";
     }
     else {
@@ -5133,7 +5133,7 @@ bool SPFWriter::visitIfcChillerType(IfcChillerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -5151,7 +5151,7 @@ bool SPFWriter::visitIfcChillerType(IfcChillerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -5364,7 +5364,7 @@ bool SPFWriter::visitIfcClassificationItemRelationship(IfcClassificationItemRela
         writeAttribute(value->getRelatingItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedItems())) {
+    if (!value->testRelatedItems()) {
         outputStream() << "$";
     }
     else {
@@ -5387,7 +5387,7 @@ bool SPFWriter::visitIfcClassificationItemRelationship(IfcClassificationItemRela
 
 bool SPFWriter::visitIfcClassificationNotation(IfcClassificationNotation *value) {
     outputStream() << "#" << value->getKey() << "=IFCCLASSIFICATIONNOTATION(";
-    if (Step::isUnset(value->getNotationFacets())) {
+    if (!value->testNotationFacets()) {
         outputStream() << "$";
     }
     else {
@@ -5455,7 +5455,7 @@ bool SPFWriter::visitIfcClassificationReference(IfcClassificationReference *valu
 
 bool SPFWriter::visitIfcClosedShell(IfcClosedShell *value) {
     outputStream() << "#" << value->getKey() << "=IFCCLOSEDSHELL(";
-    if (Step::isUnset(value->getCfsFaces())) {
+    if (!value->testCfsFaces()) {
         outputStream() << "$";
     }
     else {
@@ -5542,7 +5542,7 @@ bool SPFWriter::visitIfcCoilType(IfcCoilType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -5560,7 +5560,7 @@ bool SPFWriter::visitIfcCoilType(IfcCoilType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -5759,7 +5759,7 @@ bool SPFWriter::visitIfcColumnType(IfcColumnType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -5777,7 +5777,7 @@ bool SPFWriter::visitIfcColumnType(IfcColumnType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -5842,7 +5842,7 @@ bool SPFWriter::visitIfcComplexProperty(IfcComplexProperty *value) {
         writeAttribute(value->getUsageName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasProperties())) {
+    if (!value->testHasProperties()) {
         outputStream() << "$";
     }
     else {
@@ -5865,7 +5865,7 @@ bool SPFWriter::visitIfcComplexProperty(IfcComplexProperty *value) {
 
 bool SPFWriter::visitIfcCompositeCurve(IfcCompositeCurve *value) {
     outputStream() << "#" << value->getKey() << "=IFCCOMPOSITECURVE(";
-    if (Step::isUnset(value->getSegments())) {
+    if (!value->testSegments()) {
         outputStream() << "$";
     }
     else {
@@ -5952,7 +5952,7 @@ bool SPFWriter::visitIfcCompositeProfileDef(IfcCompositeProfileDef *value) {
         writeAttribute(value->getProfileName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getProfiles())) {
+    if (!value->testProfiles()) {
         outputStream() << "$";
     }
     else {
@@ -6073,7 +6073,7 @@ bool SPFWriter::visitIfcCompressorType(IfcCompressorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -6091,7 +6091,7 @@ bool SPFWriter::visitIfcCompressorType(IfcCompressorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -6199,7 +6199,7 @@ bool SPFWriter::visitIfcCondenserType(IfcCondenserType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -6217,7 +6217,7 @@ bool SPFWriter::visitIfcCondenserType(IfcCondenserType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -6380,7 +6380,7 @@ bool SPFWriter::visitIfcConic(IfcConic *value) {
 
 bool SPFWriter::visitIfcConnectedFaceSet(IfcConnectedFaceSet *value) {
     outputStream() << "#" << value->getKey() << "=IFCCONNECTEDFACESET(";
-    if (Step::isUnset(value->getCfsFaces())) {
+    if (!value->testCfsFaces()) {
         outputStream() << "$";
     }
     else {
@@ -6674,7 +6674,7 @@ bool SPFWriter::visitIfcConstraintAggregationRelationship(IfcConstraintAggregati
         writeAttribute(value->getRelatingConstraint());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedConstraints())) {
+    if (!value->testRelatedConstraints()) {
         outputStream() << "$";
     }
     else {
@@ -6722,7 +6722,7 @@ bool SPFWriter::visitIfcConstraintClassificationRelationship(IfcConstraintClassi
         writeAttribute(value->getClassifiedConstraint());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedClassifications())) {
+    if (!value->testRelatedClassifications()) {
         outputStream() << "$";
     }
     else {
@@ -6766,7 +6766,7 @@ bool SPFWriter::visitIfcConstraintRelationship(IfcConstraintRelationship *value)
         writeAttribute(value->getRelatingConstraint());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedConstraints())) {
+    if (!value->testRelatedConstraints()) {
         outputStream() << "$";
     }
     else {
@@ -6949,7 +6949,7 @@ bool SPFWriter::visitIfcConstructionMaterialResource(IfcConstructionMaterialReso
         writeAttribute(value->getBaseQuantity());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSuppliers())) {
+    if (!value->testSuppliers()) {
         outputStream() << "$";
     }
     else {
@@ -7340,7 +7340,7 @@ bool SPFWriter::visitIfcControllerType(IfcControllerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -7358,7 +7358,7 @@ bool SPFWriter::visitIfcControllerType(IfcControllerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -7487,7 +7487,7 @@ bool SPFWriter::visitIfcCooledBeamType(IfcCooledBeamType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -7505,7 +7505,7 @@ bool SPFWriter::visitIfcCooledBeamType(IfcCooledBeamType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -7604,7 +7604,7 @@ bool SPFWriter::visitIfcCoolingTowerType(IfcCoolingTowerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -7622,7 +7622,7 @@ bool SPFWriter::visitIfcCoolingTowerType(IfcCoolingTowerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -7838,7 +7838,7 @@ bool SPFWriter::visitIfcCostSchedule(IfcCostSchedule *value) {
         writeAttribute(value->getStatus());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTargetUsers())) {
+    if (!value->testTargetUsers()) {
         outputStream() << "$";
     }
     else {
@@ -8081,7 +8081,7 @@ bool SPFWriter::visitIfcCoveringType(IfcCoveringType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -8099,7 +8099,7 @@ bool SPFWriter::visitIfcCoveringType(IfcCoveringType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -8592,7 +8592,7 @@ bool SPFWriter::visitIfcCurtainWallType(IfcCurtainWallType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -8610,7 +8610,7 @@ bool SPFWriter::visitIfcCurtainWallType(IfcCurtainWallType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -8674,7 +8674,7 @@ bool SPFWriter::visitIfcCurveBoundedPlane(IfcCurveBoundedPlane *value) {
         writeAttribute(value->getOuterBoundary());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getInnerBoundaries())) {
+    if (!value->testInnerBoundaries()) {
         outputStream() << "$";
     }
     else {
@@ -8797,7 +8797,7 @@ bool SPFWriter::visitIfcCurveStyleFont(IfcCurveStyleFont *value) {
         writeAttribute(value->getName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getPatternList())) {
+    if (!value->testPatternList()) {
         outputStream() << "$";
     }
     else {
@@ -8955,7 +8955,7 @@ bool SPFWriter::visitIfcDamperType(IfcDamperType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -8973,7 +8973,7 @@ bool SPFWriter::visitIfcDamperType(IfcDamperType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -9258,7 +9258,7 @@ void SPFWriter::writeIfcDerivedUnitEnum(IfcDerivedUnitEnum enumData) {
 
 bool SPFWriter::visitIfcDerivedUnit(IfcDerivedUnit *value) {
     outputStream() << "#" << value->getKey() << "=IFCDERIVEDUNIT(";
-    if (Step::isUnset(value->getElements())) {
+    if (!value->testElements()) {
         outputStream() << "$";
     }
     else {
@@ -9314,7 +9314,7 @@ bool SPFWriter::visitIfcDerivedUnitElement(IfcDerivedUnitElement *value) {
 
 bool SPFWriter::visitIfcDiameterDimension(IfcDiameterDimension *value) {
     outputStream() << "#" << value->getKey() << "=IFCDIAMETERDIMENSION(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -9377,7 +9377,7 @@ bool SPFWriter::visitIfcDimensionCurve(IfcDimensionCurve *value) {
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -9407,7 +9407,7 @@ bool SPFWriter::visitIfcDimensionCurve(IfcDimensionCurve *value) {
 
 bool SPFWriter::visitIfcDimensionCurveDirectedCallout(IfcDimensionCurveDirectedCallout *value) {
     outputStream() << "#" << value->getKey() << "=IFCDIMENSIONCURVEDIRECTEDCALLOUT(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -9448,7 +9448,7 @@ bool SPFWriter::visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *va
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -9579,7 +9579,7 @@ bool SPFWriter::visitIfcDimensionalExponents(IfcDimensionalExponents *value) {
 
 bool SPFWriter::visitIfcDirection(IfcDirection *value) {
     outputStream() << "#" << value->getKey() << "=IFCDIRECTION(";
-    if (Step::isUnset(value->getDirectionRatios())) {
+    if (!value->testDirectionRatios()) {
         outputStream() << "$";
     }
     else {
@@ -9698,7 +9698,7 @@ bool SPFWriter::visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -9716,7 +9716,7 @@ bool SPFWriter::visitIfcDiscreteAccessoryType(IfcDiscreteAccessoryType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -9884,7 +9884,7 @@ bool SPFWriter::visitIfcDistributionChamberElementType(IfcDistributionChamberEle
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -9902,7 +9902,7 @@ bool SPFWriter::visitIfcDistributionChamberElementType(IfcDistributionChamberEle
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -10049,7 +10049,7 @@ bool SPFWriter::visitIfcDistributionControlElementType(IfcDistributionControlEle
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -10067,7 +10067,7 @@ bool SPFWriter::visitIfcDistributionControlElementType(IfcDistributionControlEle
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -10200,7 +10200,7 @@ bool SPFWriter::visitIfcDistributionElementType(IfcDistributionElementType *valu
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -10218,7 +10218,7 @@ bool SPFWriter::visitIfcDistributionElementType(IfcDistributionElementType *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -10351,7 +10351,7 @@ bool SPFWriter::visitIfcDistributionFlowElementType(IfcDistributionFlowElementTy
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -10369,7 +10369,7 @@ bool SPFWriter::visitIfcDistributionFlowElementType(IfcDistributionFlowElementTy
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -10574,7 +10574,7 @@ bool SPFWriter::visitIfcDocumentInformation(IfcDocumentInformation *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getDocumentReferences())) {
+    if (!value->testDocumentReferences()) {
         outputStream() << "$";
     }
     else {
@@ -10627,7 +10627,7 @@ bool SPFWriter::visitIfcDocumentInformation(IfcDocumentInformation *value) {
         writeIfcActorSelect(value->getDocumentOwner());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getEditors())) {
+    if (!value->testEditors()) {
         outputStream() << "$";
     }
     else {
@@ -10706,7 +10706,7 @@ bool SPFWriter::visitIfcDocumentInformationRelationship(IfcDocumentInformationRe
         writeAttribute(value->getRelatingDocument());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedDocuments())) {
+    if (!value->testRelatedDocuments()) {
         outputStream() << "$";
     }
     else {
@@ -11187,7 +11187,7 @@ bool SPFWriter::visitIfcDoorStyle(IfcDoorStyle *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -11205,7 +11205,7 @@ bool SPFWriter::visitIfcDoorStyle(IfcDoorStyle *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -11263,7 +11263,7 @@ bool SPFWriter::visitIfcDoorStyle(IfcDoorStyle *value) {
 
 bool SPFWriter::visitIfcDraughtingCallout(IfcDraughtingCallout *value) {
     outputStream() << "#" << value->getKey() << "=IFCDRAUGHTINGCALLOUT(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -11422,7 +11422,7 @@ bool SPFWriter::visitIfcDuctFittingType(IfcDuctFittingType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -11440,7 +11440,7 @@ bool SPFWriter::visitIfcDuctFittingType(IfcDuctFittingType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -11536,7 +11536,7 @@ bool SPFWriter::visitIfcDuctSegmentType(IfcDuctSegmentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -11554,7 +11554,7 @@ bool SPFWriter::visitIfcDuctSegmentType(IfcDuctSegmentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -11653,7 +11653,7 @@ bool SPFWriter::visitIfcDuctSilencerType(IfcDuctSilencerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -11671,7 +11671,7 @@ bool SPFWriter::visitIfcDuctSilencerType(IfcDuctSilencerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -11835,7 +11835,7 @@ bool SPFWriter::visitIfcEdgeFeature(IfcEdgeFeature *value) {
 
 bool SPFWriter::visitIfcEdgeLoop(IfcEdgeLoop *value) {
     outputStream() << "#" << value->getKey() << "=IFCEDGELOOP(";
-    if (Step::isUnset(value->getEdgeList())) {
+    if (!value->testEdgeList()) {
         outputStream() << "$";
     }
     else {
@@ -11976,7 +11976,7 @@ bool SPFWriter::visitIfcElectricApplianceType(IfcElectricApplianceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -11994,7 +11994,7 @@ bool SPFWriter::visitIfcElectricApplianceType(IfcElectricApplianceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -12212,7 +12212,7 @@ bool SPFWriter::visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDevi
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -12230,7 +12230,7 @@ bool SPFWriter::visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDevi
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -12320,7 +12320,7 @@ bool SPFWriter::visitIfcElectricGeneratorType(IfcElectricGeneratorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -12338,7 +12338,7 @@ bool SPFWriter::visitIfcElectricGeneratorType(IfcElectricGeneratorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -12437,7 +12437,7 @@ bool SPFWriter::visitIfcElectricHeaterType(IfcElectricHeaterType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -12455,7 +12455,7 @@ bool SPFWriter::visitIfcElectricHeaterType(IfcElectricHeaterType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -12560,7 +12560,7 @@ bool SPFWriter::visitIfcElectricMotorType(IfcElectricMotorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -12578,7 +12578,7 @@ bool SPFWriter::visitIfcElectricMotorType(IfcElectricMotorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -12677,7 +12677,7 @@ bool SPFWriter::visitIfcElectricTimeControlType(IfcElectricTimeControlType *valu
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -12695,7 +12695,7 @@ bool SPFWriter::visitIfcElectricTimeControlType(IfcElectricTimeControlType *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -13264,7 +13264,7 @@ bool SPFWriter::visitIfcElementComponentType(IfcElementComponentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -13282,7 +13282,7 @@ bool SPFWriter::visitIfcElementComponentType(IfcElementComponentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -13354,7 +13354,7 @@ bool SPFWriter::visitIfcElementQuantity(IfcElementQuantity *value) {
         writeAttribute(value->getMethodOfMeasurement());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getQuantities())) {
+    if (!value->testQuantities()) {
         outputStream() << "$";
     }
     else {
@@ -13412,7 +13412,7 @@ bool SPFWriter::visitIfcElementType(IfcElementType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -13430,7 +13430,7 @@ bool SPFWriter::visitIfcElementType(IfcElementType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -13641,7 +13641,7 @@ bool SPFWriter::visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -13659,7 +13659,7 @@ bool SPFWriter::visitIfcEnergyConversionDeviceType(IfcEnergyConversionDeviceType
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -14014,7 +14014,7 @@ bool SPFWriter::visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -14032,7 +14032,7 @@ bool SPFWriter::visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -14137,7 +14137,7 @@ bool SPFWriter::visitIfcEvaporatorType(IfcEvaporatorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -14155,7 +14155,7 @@ bool SPFWriter::visitIfcEvaporatorType(IfcEvaporatorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -14206,7 +14206,7 @@ bool SPFWriter::visitIfcExtendedMaterialProperties(IfcExtendedMaterialProperties
         writeAttribute(value->getMaterial());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getExtendedProperties())) {
+    if (!value->testExtendedProperties()) {
         outputStream() << "$";
     }
     else {
@@ -14406,7 +14406,7 @@ bool SPFWriter::visitIfcExtrudedAreaSolid(IfcExtrudedAreaSolid *value) {
 
 bool SPFWriter::visitIfcFace(IfcFace *value) {
     outputStream() << "#" << value->getKey() << "=IFCFACE(";
-    if (Step::isUnset(value->getBounds())) {
+    if (!value->testBounds()) {
         outputStream() << "$";
     }
     else {
@@ -14429,7 +14429,7 @@ bool SPFWriter::visitIfcFace(IfcFace *value) {
 
 bool SPFWriter::visitIfcFaceBasedSurfaceModel(IfcFaceBasedSurfaceModel *value) {
     outputStream() << "#" << value->getKey() << "=IFCFACEBASEDSURFACEMODEL(";
-    if (Step::isUnset(value->getFbsmFaces())) {
+    if (!value->testFbsmFaces()) {
         outputStream() << "$";
     }
     else {
@@ -14490,7 +14490,7 @@ bool SPFWriter::visitIfcFaceOuterBound(IfcFaceOuterBound *value) {
 
 bool SPFWriter::visitIfcFaceSurface(IfcFaceSurface *value) {
     outputStream() << "#" << value->getKey() << "=IFCFACESURFACE(";
-    if (Step::isUnset(value->getBounds())) {
+    if (!value->testBounds()) {
         outputStream() << "$";
     }
     else {
@@ -14546,7 +14546,7 @@ bool SPFWriter::visitIfcFacetedBrepWithVoids(IfcFacetedBrepWithVoids *value) {
         writeAttribute(value->getOuter());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getVoids())) {
+    if (!value->testVoids()) {
         outputStream() << "$";
     }
     else {
@@ -14690,7 +14690,7 @@ bool SPFWriter::visitIfcFanType(IfcFanType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -14708,7 +14708,7 @@ bool SPFWriter::visitIfcFanType(IfcFanType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -14848,7 +14848,7 @@ bool SPFWriter::visitIfcFastenerType(IfcFastenerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -14866,7 +14866,7 @@ bool SPFWriter::visitIfcFastenerType(IfcFastenerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15113,7 +15113,7 @@ bool SPFWriter::visitIfcFillAreaStyle(IfcFillAreaStyle *value) {
         writeAttribute(value->getName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getFillStyles())) {
+    if (!value->testFillStyles()) {
         outputStream() << "$";
     }
     else {
@@ -15216,7 +15216,7 @@ bool SPFWriter::visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) {
         writeAttribute(value->getTilingPattern());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTiles())) {
+    if (!value->testTiles()) {
         outputStream() << "$";
     }
     else {
@@ -15307,7 +15307,7 @@ bool SPFWriter::visitIfcFilterType(IfcFilterType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -15325,7 +15325,7 @@ bool SPFWriter::visitIfcFilterType(IfcFilterType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15430,7 +15430,7 @@ bool SPFWriter::visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTy
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -15448,7 +15448,7 @@ bool SPFWriter::visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTy
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15588,7 +15588,7 @@ bool SPFWriter::visitIfcFlowControllerType(IfcFlowControllerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -15606,7 +15606,7 @@ bool SPFWriter::visitIfcFlowControllerType(IfcFlowControllerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15739,7 +15739,7 @@ bool SPFWriter::visitIfcFlowFittingType(IfcFlowFittingType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -15757,7 +15757,7 @@ bool SPFWriter::visitIfcFlowFittingType(IfcFlowFittingType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15864,7 +15864,7 @@ bool SPFWriter::visitIfcFlowInstrumentType(IfcFlowInstrumentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -15882,7 +15882,7 @@ bool SPFWriter::visitIfcFlowInstrumentType(IfcFlowInstrumentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -15990,7 +15990,7 @@ bool SPFWriter::visitIfcFlowMeterType(IfcFlowMeterType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16008,7 +16008,7 @@ bool SPFWriter::visitIfcFlowMeterType(IfcFlowMeterType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -16148,7 +16148,7 @@ bool SPFWriter::visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16166,7 +16166,7 @@ bool SPFWriter::visitIfcFlowMovingDeviceType(IfcFlowMovingDeviceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -16299,7 +16299,7 @@ bool SPFWriter::visitIfcFlowSegmentType(IfcFlowSegmentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16317,7 +16317,7 @@ bool SPFWriter::visitIfcFlowSegmentType(IfcFlowSegmentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -16450,7 +16450,7 @@ bool SPFWriter::visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16468,7 +16468,7 @@ bool SPFWriter::visitIfcFlowStorageDeviceType(IfcFlowStorageDeviceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -16601,7 +16601,7 @@ bool SPFWriter::visitIfcFlowTerminalType(IfcFlowTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16619,7 +16619,7 @@ bool SPFWriter::visitIfcFlowTerminalType(IfcFlowTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -16752,7 +16752,7 @@ bool SPFWriter::visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *valu
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -16770,7 +16770,7 @@ bool SPFWriter::visitIfcFlowTreatmentDeviceType(IfcFlowTreatmentDeviceType *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -17560,7 +17560,7 @@ bool SPFWriter::visitIfcFurnishingElementType(IfcFurnishingElementType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -17578,7 +17578,7 @@ bool SPFWriter::visitIfcFurnishingElementType(IfcFurnishingElementType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -17690,7 +17690,7 @@ bool SPFWriter::visitIfcFurnitureType(IfcFurnitureType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -17708,7 +17708,7 @@ bool SPFWriter::visitIfcFurnitureType(IfcFurnitureType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -17807,7 +17807,7 @@ bool SPFWriter::visitIfcGasTerminalType(IfcGasTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -17825,7 +17825,7 @@ bool SPFWriter::visitIfcGasTerminalType(IfcGasTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -17970,7 +17970,7 @@ void SPFWriter::writeIfcGeometricSetSelect(IfcGeometricSetSelect *selectData) {
 
 bool SPFWriter::visitIfcGeometricCurveSet(IfcGeometricCurveSet *value) {
     outputStream() << "#" << value->getKey() << "=IFCGEOMETRICCURVESET(";
-    if (Step::isUnset(value->getElements())) {
+    if (!value->testElements()) {
         outputStream() << "$";
     }
     else {
@@ -18133,7 +18133,7 @@ bool SPFWriter::visitIfcGeometricRepresentationSubContext(IfcGeometricRepresenta
 
 bool SPFWriter::visitIfcGeometricSet(IfcGeometricSet *value) {
     outputStream() << "#" << value->getKey() << "=IFCGEOMETRICSET(";
-    if (Step::isUnset(value->getElements())) {
+    if (!value->testElements()) {
         outputStream() << "$";
     }
     else {
@@ -18205,7 +18205,7 @@ bool SPFWriter::visitIfcGrid(IfcGrid *value) {
         writeAttribute(value->getRepresentation());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getUAxes())) {
+    if (!value->testUAxes()) {
         outputStream() << "$";
     }
     else {
@@ -18223,7 +18223,7 @@ bool SPFWriter::visitIfcGrid(IfcGrid *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getVAxes())) {
+    if (!value->testVAxes()) {
         outputStream() << "$";
     }
     else {
@@ -18241,7 +18241,7 @@ bool SPFWriter::visitIfcGrid(IfcGrid *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getWAxes())) {
+    if (!value->testWAxes()) {
         outputStream() << "$";
     }
     else {
@@ -18420,7 +18420,7 @@ bool SPFWriter::visitIfcHeatExchangerType(IfcHeatExchangerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -18438,7 +18438,7 @@ bool SPFWriter::visitIfcHeatExchangerType(IfcHeatExchangerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -18567,7 +18567,7 @@ bool SPFWriter::visitIfcHumidifierType(IfcHumidifierType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -18585,7 +18585,7 @@ bool SPFWriter::visitIfcHumidifierType(IfcHumidifierType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -18846,7 +18846,7 @@ bool SPFWriter::visitIfcInventory(IfcInventory *value) {
         writeIfcActorSelect(value->getJurisdiction());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getResponsiblePersons())) {
+    if (!value->testResponsiblePersons()) {
         outputStream() << "$";
     }
     else {
@@ -19006,7 +19006,7 @@ bool SPFWriter::visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value) {
         writeIfcUnit(value->getUnit());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getValues())) {
+    if (!value->testValues()) {
         outputStream() << "$";
     }
     else {
@@ -19548,7 +19548,7 @@ bool SPFWriter::visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *va
         writeIfcDateTimeSelect(value->getTimeStamp());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getListValues())) {
+    if (!value->testListValues()) {
         outputStream() << "$";
     }
     else {
@@ -19617,7 +19617,7 @@ bool SPFWriter::visitIfcJunctionBoxType(IfcJunctionBoxType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -19635,7 +19635,7 @@ bool SPFWriter::visitIfcJunctionBoxType(IfcJunctionBoxType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -19900,7 +19900,7 @@ bool SPFWriter::visitIfcLampType(IfcLampType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -19918,7 +19918,7 @@ bool SPFWriter::visitIfcLampType(IfcLampType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -19990,7 +19990,7 @@ bool SPFWriter::visitIfcLibraryInformation(IfcLibraryInformation *value) {
         writeAttribute(value->getVersionDate());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getLibraryReference())) {
+    if (!value->testLibraryReference()) {
         outputStream() << "$";
     }
     else {
@@ -20046,7 +20046,7 @@ bool SPFWriter::visitIfcLightDistributionData(IfcLightDistributionData *value) {
         writeAttribute(value->getMainPlaneAngle());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSecondaryPlaneAngle())) {
+    if (!value->testSecondaryPlaneAngle()) {
         outputStream() << "$";
     }
     else {
@@ -20064,7 +20064,7 @@ bool SPFWriter::visitIfcLightDistributionData(IfcLightDistributionData *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getLuminousIntensity())) {
+    if (!value->testLuminousIntensity()) {
         outputStream() << "$";
     }
     else {
@@ -20139,7 +20139,7 @@ bool SPFWriter::visitIfcLightFixtureType(IfcLightFixtureType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -20157,7 +20157,7 @@ bool SPFWriter::visitIfcLightFixtureType(IfcLightFixtureType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -20225,7 +20225,7 @@ bool SPFWriter::visitIfcLightIntensityDistribution(IfcLightIntensityDistribution
         writeIfcLightDistributionCurveEnum(value->getLightDistributionCurve());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getDistributionData())) {
+    if (!value->testDistributionData()) {
         outputStream() << "$";
     }
     else {
@@ -20661,7 +20661,7 @@ bool SPFWriter::visitIfcLine(IfcLine *value) {
 
 bool SPFWriter::visitIfcLinearDimension(IfcLinearDimension *value) {
     outputStream() << "#" << value->getKey() << "=IFCLINEARDIMENSION(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -20792,7 +20792,7 @@ bool SPFWriter::visitIfcMaterial(IfcMaterial *value) {
 
 bool SPFWriter::visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value) {
     outputStream() << "#" << value->getKey() << "=IFCMATERIALCLASSIFICATIONRELATIONSHIP(";
-    if (Step::isUnset(value->getMaterialClassifications())) {
+    if (!value->testMaterialClassifications()) {
         outputStream() << "$";
     }
     else {
@@ -20836,7 +20836,7 @@ bool SPFWriter::visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinitionRe
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentations())) {
+    if (!value->testRepresentations()) {
         outputStream() << "$";
     }
     else {
@@ -20892,7 +20892,7 @@ bool SPFWriter::visitIfcMaterialLayer(IfcMaterialLayer *value) {
 
 bool SPFWriter::visitIfcMaterialLayerSet(IfcMaterialLayerSet *value) {
     outputStream() << "#" << value->getKey() << "=IFCMATERIALLAYERSET(";
-    if (Step::isUnset(value->getMaterialLayers())) {
+    if (!value->testMaterialLayers()) {
         outputStream() << "$";
     }
     else {
@@ -20980,7 +20980,7 @@ bool SPFWriter::visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) {
 
 bool SPFWriter::visitIfcMaterialList(IfcMaterialList *value) {
     outputStream() << "#" << value->getKey() << "=IFCMATERIALLIST(";
-    if (Step::isUnset(value->getMaterials())) {
+    if (!value->testMaterials()) {
         outputStream() << "$";
     }
     else {
@@ -21233,7 +21233,7 @@ bool SPFWriter::visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value)
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -21251,7 +21251,7 @@ bool SPFWriter::visitIfcMechanicalFastenerType(IfcMechanicalFastenerType *value)
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -21419,7 +21419,7 @@ bool SPFWriter::visitIfcMechanicalSteelMaterialProperties(IfcMechanicalSteelMate
         writeAttribute(value->getPlasticStrain());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelaxations())) {
+    if (!value->testRelaxations()) {
         outputStream() << "$";
     }
     else {
@@ -21585,7 +21585,7 @@ bool SPFWriter::visitIfcMemberType(IfcMemberType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -21603,7 +21603,7 @@ bool SPFWriter::visitIfcMemberType(IfcMemberType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -22097,7 +22097,7 @@ bool SPFWriter::visitIfcMotorConnectionType(IfcMotorConnectionType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -22115,7 +22115,7 @@ bool SPFWriter::visitIfcMotorConnectionType(IfcMotorConnectionType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -22243,7 +22243,7 @@ bool SPFWriter::visitIfcMove(IfcMove *value) {
         writeAttribute(value->getMoveTo());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getPunchList())) {
+    if (!value->testPunchList()) {
         outputStream() << "$";
     }
     else {
@@ -22632,7 +22632,7 @@ bool SPFWriter::visitIfcOneDirectionRepeatFactor(IfcOneDirectionRepeatFactor *va
 
 bool SPFWriter::visitIfcOpenShell(IfcOpenShell *value) {
     outputStream() << "#" << value->getKey() << "=IFCOPENSHELL(";
-    if (Step::isUnset(value->getCfsFaces())) {
+    if (!value->testCfsFaces()) {
         outputStream() << "$";
     }
     else {
@@ -22894,7 +22894,7 @@ bool SPFWriter::visitIfcOrganization(IfcOrganization *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRoles())) {
+    if (!value->testRoles()) {
         outputStream() << "$";
     }
     else {
@@ -22912,7 +22912,7 @@ bool SPFWriter::visitIfcOrganization(IfcOrganization *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getAddresses())) {
+    if (!value->testAddresses()) {
         outputStream() << "$";
     }
     else {
@@ -22956,7 +22956,7 @@ bool SPFWriter::visitIfcOrganizationRelationship(IfcOrganizationRelationship *va
         writeAttribute(value->getRelatingOrganization());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedOrganizations())) {
+    if (!value->testRelatedOrganizations()) {
         outputStream() << "$";
     }
     else {
@@ -23057,7 +23057,7 @@ bool SPFWriter::visitIfcOutletType(IfcOutletType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -23075,7 +23075,7 @@ bool SPFWriter::visitIfcOutletType(IfcOutletType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -23249,7 +23249,7 @@ bool SPFWriter::visitIfcParameterizedProfileDef(IfcParameterizedProfileDef *valu
 
 bool SPFWriter::visitIfcPath(IfcPath *value) {
     outputStream() << "#" << value->getKey() << "=IFCPATH(";
-    if (Step::isUnset(value->getEdgeList())) {
+    if (!value->testEdgeList()) {
         outputStream() << "$";
     }
     else {
@@ -23498,7 +23498,7 @@ bool SPFWriter::visitIfcPerson(IfcPerson *value) {
         writeAttribute(value->getGivenName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getMiddleNames())) {
+    if (!value->testMiddleNames()) {
         outputStream() << "$";
     }
     else {
@@ -23516,7 +23516,7 @@ bool SPFWriter::visitIfcPerson(IfcPerson *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getPrefixTitles())) {
+    if (!value->testPrefixTitles()) {
         outputStream() << "$";
     }
     else {
@@ -23534,7 +23534,7 @@ bool SPFWriter::visitIfcPerson(IfcPerson *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSuffixTitles())) {
+    if (!value->testSuffixTitles()) {
         outputStream() << "$";
     }
     else {
@@ -23552,7 +23552,7 @@ bool SPFWriter::visitIfcPerson(IfcPerson *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRoles())) {
+    if (!value->testRoles()) {
         outputStream() << "$";
     }
     else {
@@ -23570,7 +23570,7 @@ bool SPFWriter::visitIfcPerson(IfcPerson *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getAddresses())) {
+    if (!value->testAddresses()) {
         outputStream() << "$";
     }
     else {
@@ -23607,7 +23607,7 @@ bool SPFWriter::visitIfcPersonAndOrganization(IfcPersonAndOrganization *value) {
         writeAttribute(value->getTheOrganization());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRoles())) {
+    if (!value->testRoles()) {
         outputStream() << "$";
     }
     else {
@@ -23644,7 +23644,7 @@ bool SPFWriter::visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity *valu
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasQuantities())) {
+    if (!value->testHasQuantities()) {
         outputStream() << "$";
     }
     else {
@@ -23918,7 +23918,7 @@ bool SPFWriter::visitIfcPipeFittingType(IfcPipeFittingType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -23936,7 +23936,7 @@ bool SPFWriter::visitIfcPipeFittingType(IfcPipeFittingType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -24038,7 +24038,7 @@ bool SPFWriter::visitIfcPipeSegmentType(IfcPipeSegmentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -24056,7 +24056,7 @@ bool SPFWriter::visitIfcPipeSegmentType(IfcPipeSegmentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -24149,7 +24149,7 @@ bool SPFWriter::visitIfcPixelTexture(IfcPixelTexture *value) {
         writeAttribute(value->getColourComponents());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getPixel())) {
+    if (!value->testPixel()) {
         outputStream() << "$";
     }
     else {
@@ -24354,7 +24354,7 @@ bool SPFWriter::visitIfcPlateType(IfcPlateType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -24372,7 +24372,7 @@ bool SPFWriter::visitIfcPlateType(IfcPlateType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -24467,7 +24467,7 @@ bool SPFWriter::visitIfcPointOnSurface(IfcPointOnSurface *value) {
 
 bool SPFWriter::visitIfcPolyLoop(IfcPolyLoop *value) {
     outputStream() << "#" << value->getKey() << "=IFCPOLYLOOP(";
-    if (Step::isUnset(value->getPolygon())) {
+    if (!value->testPolygon()) {
         outputStream() << "$";
     }
     else {
@@ -24523,7 +24523,7 @@ bool SPFWriter::visitIfcPolygonalBoundedHalfSpace(IfcPolygonalBoundedHalfSpace *
 
 bool SPFWriter::visitIfcPolyline(IfcPolyline *value) {
     outputStream() << "#" << value->getKey() << "=IFCPOLYLINE(";
-    if (Step::isUnset(value->getPoints())) {
+    if (!value->testPoints()) {
         outputStream() << "$";
     }
     else {
@@ -24628,7 +24628,7 @@ bool SPFWriter::visitIfcPostalAddress(IfcPostalAddress *value) {
         writeAttribute(value->getInternalLocation());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getAddressLines())) {
+    if (!value->testAddressLines()) {
         outputStream() << "$";
     }
     else {
@@ -24807,7 +24807,7 @@ bool SPFWriter::visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignme
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getAssignedItems())) {
+    if (!value->testAssignedItems()) {
         outputStream() << "$";
     }
     else {
@@ -24884,7 +24884,7 @@ bool SPFWriter::visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getAssignedItems())) {
+    if (!value->testAssignedItems()) {
         outputStream() << "$";
     }
     else {
@@ -24930,7 +24930,7 @@ bool SPFWriter::visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle
         writeAttribute(value->getLayerBlocked());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getLayerStyles())) {
+    if (!value->testLayerStyles()) {
         outputStream() << "$";
     }
     else {
@@ -24965,7 +24965,7 @@ bool SPFWriter::visitIfcPresentationStyle(IfcPresentationStyle *value) {
 
 bool SPFWriter::visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value) {
     outputStream() << "#" << value->getKey() << "=IFCPRESENTATIONSTYLEASSIGNMENT(";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -25189,7 +25189,7 @@ bool SPFWriter::visitIfcProductDefinitionShape(IfcProductDefinitionShape *value)
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentations())) {
+    if (!value->testRepresentations()) {
         outputStream() << "$";
     }
     else {
@@ -25226,7 +25226,7 @@ bool SPFWriter::visitIfcProductRepresentation(IfcProductRepresentation *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentations())) {
+    if (!value->testRepresentations()) {
         outputStream() << "$";
     }
     else {
@@ -25376,7 +25376,7 @@ bool SPFWriter::visitIfcProject(IfcProject *value) {
         writeAttribute(value->getPhase());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationContexts())) {
+    if (!value->testRepresentationContexts()) {
         outputStream() << "$";
     }
     else {
@@ -25554,7 +25554,7 @@ bool SPFWriter::visitIfcProjectOrderRecord(IfcProjectOrderRecord *value) {
         writeAttribute(value->getObjectType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRecords())) {
+    if (!value->testRecords()) {
         outputStream() << "$";
     }
     else {
@@ -25591,7 +25591,7 @@ bool SPFWriter::visitIfcProjectionCurve(IfcProjectionCurve *value) {
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -25748,7 +25748,7 @@ bool SPFWriter::visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRela
         writeAttribute(value->getRelatingConstraint());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedProperties())) {
+    if (!value->testRelatedProperties()) {
         outputStream() << "$";
     }
     else {
@@ -25872,7 +25872,7 @@ bool SPFWriter::visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue *valu
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getEnumerationValues())) {
+    if (!value->testEnumerationValues()) {
         outputStream() << "$";
     }
     else {
@@ -25909,7 +25909,7 @@ bool SPFWriter::visitIfcPropertyEnumeration(IfcPropertyEnumeration *value) {
         writeAttribute(value->getName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getEnumerationValues())) {
+    if (!value->testEnumerationValues()) {
         outputStream() << "$";
     }
     else {
@@ -25953,7 +25953,7 @@ bool SPFWriter::visitIfcPropertyListValue(IfcPropertyListValue *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getListValues())) {
+    if (!value->testListValues()) {
         outputStream() << "$";
     }
     else {
@@ -26088,7 +26088,7 @@ bool SPFWriter::visitIfcPropertySet(IfcPropertySet *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasProperties())) {
+    if (!value->testHasProperties()) {
         outputStream() << "$";
     }
     else {
@@ -26191,7 +26191,7 @@ bool SPFWriter::visitIfcPropertyTableValue(IfcPropertyTableValue *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getDefiningValues())) {
+    if (!value->testDefiningValues()) {
         outputStream() << "$";
     }
     else {
@@ -26209,7 +26209,7 @@ bool SPFWriter::visitIfcPropertyTableValue(IfcPropertyTableValue *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getDefinedValues())) {
+    if (!value->testDefinedValues()) {
         outputStream() << "$";
     }
     else {
@@ -26317,7 +26317,7 @@ bool SPFWriter::visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -26335,7 +26335,7 @@ bool SPFWriter::visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -26537,7 +26537,7 @@ bool SPFWriter::visitIfcPumpType(IfcPumpType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -26555,7 +26555,7 @@ bool SPFWriter::visitIfcPumpType(IfcPumpType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -26797,7 +26797,7 @@ bool SPFWriter::visitIfcQuantityWeight(IfcQuantityWeight *value) {
 
 bool SPFWriter::visitIfcRadiusDimension(IfcRadiusDimension *value) {
     outputStream() << "#" << value->getKey() << "=IFCRADIUSDIMENSION(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -26943,7 +26943,7 @@ bool SPFWriter::visitIfcRailingType(IfcRailingType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -26961,7 +26961,7 @@ bool SPFWriter::visitIfcRailingType(IfcRailingType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -27215,7 +27215,7 @@ bool SPFWriter::visitIfcRampFlightType(IfcRampFlightType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -27233,7 +27233,7 @@ bool SPFWriter::visitIfcRampFlightType(IfcRampFlightType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -27284,7 +27284,7 @@ bool SPFWriter::visitIfcRationalBezierCurve(IfcRationalBezierCurve *value) {
         writeAttribute(value->getDegree());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getControlPointsList())) {
+    if (!value->testControlPointsList()) {
         outputStream() << "$";
     }
     else {
@@ -27323,7 +27323,7 @@ bool SPFWriter::visitIfcRationalBezierCurve(IfcRationalBezierCurve *value) {
         writeAttribute(value->getSelfIntersect());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getWeightsData())) {
+    if (!value->testWeightsData()) {
         outputStream() << "$";
     }
     else {
@@ -27552,7 +27552,7 @@ bool SPFWriter::visitIfcReferencesValueDocument(IfcReferencesValueDocument *valu
         writeIfcDocumentSelect(value->getReferencedDocument());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getReferencingValues())) {
+    if (!value->testReferencingValues()) {
         outputStream() << "$";
     }
     else {
@@ -27652,7 +27652,7 @@ bool SPFWriter::visitIfcRegularTimeSeries(IfcRegularTimeSeries *value) {
         writeAttribute(value->getTimeStep());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getValues())) {
+    if (!value->testValues()) {
         outputStream() << "$";
     }
     else {
@@ -27768,7 +27768,7 @@ bool SPFWriter::visitIfcReinforcementDefinitionProperties(IfcReinforcementDefini
         writeAttribute(value->getDefinitionType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getReinforcementSectionDefinitions())) {
+    if (!value->testReinforcementSectionDefinitions()) {
         outputStream() << "$";
     }
     else {
@@ -28153,7 +28153,7 @@ bool SPFWriter::visitIfcRelAggregates(IfcRelAggregates *value) {
         writeAttribute(value->getRelatingObject());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28204,7 +28204,7 @@ bool SPFWriter::visitIfcRelAssigns(IfcRelAssigns *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28262,7 +28262,7 @@ bool SPFWriter::visitIfcRelAssignsTasks(IfcRelAssignsTasks *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28334,7 +28334,7 @@ bool SPFWriter::visitIfcRelAssignsToActor(IfcRelAssignsToActor *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28406,7 +28406,7 @@ bool SPFWriter::visitIfcRelAssignsToControl(IfcRelAssignsToControl *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28471,7 +28471,7 @@ bool SPFWriter::visitIfcRelAssignsToGroup(IfcRelAssignsToGroup *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28536,7 +28536,7 @@ bool SPFWriter::visitIfcRelAssignsToProcess(IfcRelAssignsToProcess *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28608,7 +28608,7 @@ bool SPFWriter::visitIfcRelAssignsToProduct(IfcRelAssignsToProduct *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28673,7 +28673,7 @@ bool SPFWriter::visitIfcRelAssignsToProjectOrder(IfcRelAssignsToProjectOrder *va
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28738,7 +28738,7 @@ bool SPFWriter::visitIfcRelAssignsToResource(IfcRelAssignsToResource *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28803,7 +28803,7 @@ bool SPFWriter::visitIfcRelAssociates(IfcRelAssociates *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28854,7 +28854,7 @@ bool SPFWriter::visitIfcRelAssociatesAppliedValue(IfcRelAssociatesAppliedValue *
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28912,7 +28912,7 @@ bool SPFWriter::visitIfcRelAssociatesApproval(IfcRelAssociatesApproval *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -28970,7 +28970,7 @@ bool SPFWriter::visitIfcRelAssociatesClassification(IfcRelAssociatesClassificati
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29028,7 +29028,7 @@ bool SPFWriter::visitIfcRelAssociatesConstraint(IfcRelAssociatesConstraint *valu
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29093,7 +29093,7 @@ bool SPFWriter::visitIfcRelAssociatesDocument(IfcRelAssociatesDocument *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29162,7 +29162,7 @@ bool SPFWriter::visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29240,7 +29240,7 @@ bool SPFWriter::visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29311,7 +29311,7 @@ bool SPFWriter::visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfilePr
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -29508,7 +29508,7 @@ bool SPFWriter::visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *valu
         writeAttribute(value->getRelatedElement());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatingPriorities())) {
+    if (!value->testRelatingPriorities()) {
         outputStream() << "$";
     }
     else {
@@ -29526,7 +29526,7 @@ bool SPFWriter::visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedPriorities())) {
+    if (!value->testRelatedPriorities()) {
         outputStream() << "$";
     }
     else {
@@ -29975,7 +29975,7 @@ bool SPFWriter::visitIfcRelConnectsWithRealizingElements(IfcRelConnectsWithReali
         writeAttribute(value->getRelatedElement());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRealizingElements())) {
+    if (!value->testRealizingElements()) {
         outputStream() << "$";
     }
     else {
@@ -30033,7 +30033,7 @@ bool SPFWriter::visitIfcRelContainedInSpatialStructure(IfcRelContainedInSpatialS
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedElements())) {
+    if (!value->testRelatedElements()) {
         outputStream() << "$";
     }
     else {
@@ -30098,7 +30098,7 @@ bool SPFWriter::visitIfcRelCoversBldgElements(IfcRelCoversBldgElements *value) {
         writeAttribute(value->getRelatingBuildingElement());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedCoverings())) {
+    if (!value->testRelatedCoverings()) {
         outputStream() << "$";
     }
     else {
@@ -30156,7 +30156,7 @@ bool SPFWriter::visitIfcRelCoversSpaces(IfcRelCoversSpaces *value) {
         writeAttribute(value->getRelatedSpace());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedCoverings())) {
+    if (!value->testRelatedCoverings()) {
         outputStream() << "$";
     }
     else {
@@ -30214,7 +30214,7 @@ bool SPFWriter::visitIfcRelDecomposes(IfcRelDecomposes *value) {
         writeAttribute(value->getRelatingObject());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30265,7 +30265,7 @@ bool SPFWriter::visitIfcRelDefines(IfcRelDefines *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30316,7 +30316,7 @@ bool SPFWriter::visitIfcRelDefinesByProperties(IfcRelDefinesByProperties *value)
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30374,7 +30374,7 @@ bool SPFWriter::visitIfcRelDefinesByType(IfcRelDefinesByType *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30479,7 +30479,7 @@ bool SPFWriter::visitIfcRelFlowControlElements(IfcRelFlowControlElements *value)
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedControlElements())) {
+    if (!value->testRelatedControlElements()) {
         outputStream() << "$";
     }
     else {
@@ -30612,7 +30612,7 @@ bool SPFWriter::visitIfcRelNests(IfcRelNests *value) {
         writeAttribute(value->getRelatingObject());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30663,7 +30663,7 @@ bool SPFWriter::visitIfcRelOccupiesSpaces(IfcRelOccupiesSpaces *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30735,7 +30735,7 @@ bool SPFWriter::visitIfcRelOverridesProperties(IfcRelOverridesProperties *value)
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -30760,7 +30760,7 @@ bool SPFWriter::visitIfcRelOverridesProperties(IfcRelOverridesProperties *value)
         writeAttribute(value->getRelatingPropertyDefinition());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getOverridingProperties())) {
+    if (!value->testOverridingProperties()) {
         outputStream() << "$";
     }
     else {
@@ -30858,7 +30858,7 @@ bool SPFWriter::visitIfcRelReferencedInSpatialStructure(IfcRelReferencedInSpatia
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedElements())) {
+    if (!value->testRelatedElements()) {
         outputStream() << "$";
     }
     else {
@@ -30916,7 +30916,7 @@ bool SPFWriter::visitIfcRelSchedulesCostItems(IfcRelSchedulesCostItems *value) {
         writeAttribute(value->getDescription());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedObjects())) {
+    if (!value->testRelatedObjects()) {
         outputStream() << "$";
     }
     else {
@@ -31069,7 +31069,7 @@ bool SPFWriter::visitIfcRelServicesBuildings(IfcRelServicesBuildings *value) {
         writeAttribute(value->getRelatingSystem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRelatedBuildings())) {
+    if (!value->testRelatedBuildings()) {
         outputStream() << "$";
     }
     else {
@@ -31308,7 +31308,7 @@ bool SPFWriter::visitIfcRepresentation(IfcRepresentation *value) {
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -32087,7 +32087,7 @@ bool SPFWriter::visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -32105,7 +32105,7 @@ bool SPFWriter::visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -32387,7 +32387,7 @@ bool SPFWriter::visitIfcSectionReinforcementProperties(IfcSectionReinforcementPr
         writeAttribute(value->getSectionDefinition());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCrossSectionReinforcementDefinitions())) {
+    if (!value->testCrossSectionReinforcementDefinitions()) {
         outputStream() << "$";
     }
     else {
@@ -32417,7 +32417,7 @@ bool SPFWriter::visitIfcSectionedSpine(IfcSectionedSpine *value) {
         writeAttribute(value->getSpineCurve());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCrossSections())) {
+    if (!value->testCrossSections()) {
         outputStream() << "$";
     }
     else {
@@ -32435,7 +32435,7 @@ bool SPFWriter::visitIfcSectionedSpine(IfcSectionedSpine *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCrossSectionPositions())) {
+    if (!value->testCrossSectionPositions()) {
         outputStream() << "$";
     }
     else {
@@ -32543,7 +32543,7 @@ bool SPFWriter::visitIfcSensorType(IfcSensorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -32561,7 +32561,7 @@ bool SPFWriter::visitIfcSensorType(IfcSensorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -32898,7 +32898,7 @@ bool SPFWriter::visitIfcServiceLifeFactor(IfcServiceLifeFactor *value) {
 
 bool SPFWriter::visitIfcShapeAspect(IfcShapeAspect *value) {
     outputStream() << "#" << value->getKey() << "=IFCSHAPEASPECT(";
-    if (Step::isUnset(value->getShapeRepresentations())) {
+    if (!value->testShapeRepresentations()) {
         outputStream() << "$";
     }
     else {
@@ -32970,7 +32970,7 @@ bool SPFWriter::visitIfcShapeModel(IfcShapeModel *value) {
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -33014,7 +33014,7 @@ bool SPFWriter::visitIfcShapeRepresentation(IfcShapeRepresentation *value) {
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -33048,7 +33048,7 @@ void SPFWriter::writeIfcShell(IfcShell *selectData) {
 
 bool SPFWriter::visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value) {
     outputStream() << "#" << value->getKey() << "=IFCSHELLBASEDSURFACEMODEL(";
-    if (Step::isUnset(value->getSbsmBoundary())) {
+    if (!value->testSbsmBoundary()) {
         outputStream() << "$";
     }
     else {
@@ -33153,7 +33153,7 @@ bool SPFWriter::visitIfcSite(IfcSite *value) {
         writeIfcElementCompositionEnum(value->getCompositionType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRefLatitude())) {
+    if (!value->testRefLatitude()) {
         outputStream() << "$";
     }
     else {
@@ -33171,7 +33171,7 @@ bool SPFWriter::visitIfcSite(IfcSite *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRefLongitude())) {
+    if (!value->testRefLongitude()) {
         outputStream() << "$";
     }
     else {
@@ -33341,7 +33341,7 @@ bool SPFWriter::visitIfcSlabType(IfcSlabType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -33359,7 +33359,7 @@ bool SPFWriter::visitIfcSlabType(IfcSlabType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -33510,7 +33510,7 @@ bool SPFWriter::visitIfcSoundProperties(IfcSoundProperties *value) {
         writeIfcSoundScaleEnum(value->getSoundScale());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSoundValues())) {
+    if (!value->testSoundValues()) {
         outputStream() << "$";
     }
     else {
@@ -33736,7 +33736,7 @@ bool SPFWriter::visitIfcSpaceHeaterType(IfcSpaceHeaterType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -33754,7 +33754,7 @@ bool SPFWriter::visitIfcSpaceHeaterType(IfcSpaceHeaterType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -34083,7 +34083,7 @@ bool SPFWriter::visitIfcSpaceType(IfcSpaceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -34101,7 +34101,7 @@ bool SPFWriter::visitIfcSpaceType(IfcSpaceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -34248,7 +34248,7 @@ bool SPFWriter::visitIfcSpatialStructureElementType(IfcSpatialStructureElementTy
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -34266,7 +34266,7 @@ bool SPFWriter::visitIfcSpatialStructureElementType(IfcSpatialStructureElementTy
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -34377,7 +34377,7 @@ bool SPFWriter::visitIfcStackTerminalType(IfcStackTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -34395,7 +34395,7 @@ bool SPFWriter::visitIfcStackTerminalType(IfcStackTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -34710,7 +34710,7 @@ bool SPFWriter::visitIfcStairFlightType(IfcStairFlightType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -34728,7 +34728,7 @@ bool SPFWriter::visitIfcStairFlightType(IfcStairFlightType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -34991,7 +34991,7 @@ bool SPFWriter::visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *valu
         writeAttribute(value->getOrientationOf2DPlane());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getLoadedBy())) {
+    if (!value->testLoadedBy()) {
         outputStream() << "$";
     }
     else {
@@ -35009,7 +35009,7 @@ bool SPFWriter::visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasResults())) {
+    if (!value->testHasResults()) {
         outputStream() << "$";
     }
     else {
@@ -35559,7 +35559,7 @@ bool SPFWriter::visitIfcStructuralLinearActionVarying(IfcStructuralLinearActionV
         writeAttribute(value->getVaryingAppliedLoadLocation());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSubsequentAppliedLoads())) {
+    if (!value->testSubsequentAppliedLoads()) {
         outputStream() << "$";
     }
     else {
@@ -36394,7 +36394,7 @@ bool SPFWriter::visitIfcStructuralPlanarActionVarying(IfcStructuralPlanarActionV
         writeAttribute(value->getVaryingAppliedLoadLocation());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSubsequentAppliedLoads())) {
+    if (!value->testSubsequentAppliedLoads()) {
         outputStream() << "$";
     }
     else {
@@ -37352,7 +37352,7 @@ bool SPFWriter::visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMembe
         writeAttribute(value->getThickness());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getSubsequentThickness())) {
+    if (!value->testSubsequentThickness()) {
         outputStream() << "$";
     }
     else {
@@ -37382,7 +37382,7 @@ bool SPFWriter::visitIfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMembe
 
 bool SPFWriter::visitIfcStructuredDimensionCallout(IfcStructuredDimensionCallout *value) {
     outputStream() << "#" << value->getKey() << "=IFCSTRUCTUREDDIMENSIONCALLOUT(";
-    if (Step::isUnset(value->getContents())) {
+    if (!value->testContents()) {
         outputStream() << "$";
     }
     else {
@@ -37426,7 +37426,7 @@ bool SPFWriter::visitIfcStyleModel(IfcStyleModel *value) {
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -37456,7 +37456,7 @@ bool SPFWriter::visitIfcStyledItem(IfcStyledItem *value) {
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -37507,7 +37507,7 @@ bool SPFWriter::visitIfcStyledRepresentation(IfcStyledRepresentation *value) {
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -37798,7 +37798,7 @@ bool SPFWriter::visitIfcSurfaceStyle(IfcSurfaceStyle *value) {
         writeIfcSurfaceSide(value->getSide());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -38016,7 +38016,7 @@ bool SPFWriter::visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value) {
 
 bool SPFWriter::visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value) {
     outputStream() << "#" << value->getKey() << "=IFCSURFACESTYLEWITHTEXTURES(";
-    if (Step::isUnset(value->getTextures())) {
+    if (!value->testTextures()) {
         outputStream() << "$";
     }
     else {
@@ -38211,7 +38211,7 @@ bool SPFWriter::visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -38229,7 +38229,7 @@ bool SPFWriter::visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -38378,7 +38378,7 @@ bool SPFWriter::visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -38396,7 +38396,7 @@ bool SPFWriter::visitIfcSystemFurnitureElementType(IfcSystemFurnitureElementType
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -38536,7 +38536,7 @@ bool SPFWriter::visitIfcTable(IfcTable *value) {
         writeAttribute(value->getName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRows())) {
+    if (!value->testRows()) {
         outputStream() << "$";
     }
     else {
@@ -38559,7 +38559,7 @@ bool SPFWriter::visitIfcTable(IfcTable *value) {
 
 bool SPFWriter::visitIfcTableRow(IfcTableRow *value) {
     outputStream() << "#" << value->getKey() << "=IFCTABLEROW(";
-    if (Step::isUnset(value->getRowCells())) {
+    if (!value->testRowCells()) {
         outputStream() << "$";
     }
     else {
@@ -38647,7 +38647,7 @@ bool SPFWriter::visitIfcTankType(IfcTankType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -38665,7 +38665,7 @@ bool SPFWriter::visitIfcTankType(IfcTankType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -38805,7 +38805,7 @@ bool SPFWriter::visitIfcTelecomAddress(IfcTelecomAddress *value) {
         writeAttribute(value->getUserDefinedPurpose());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTelephoneNumbers())) {
+    if (!value->testTelephoneNumbers()) {
         outputStream() << "$";
     }
     else {
@@ -38823,7 +38823,7 @@ bool SPFWriter::visitIfcTelecomAddress(IfcTelecomAddress *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getFacsimileNumbers())) {
+    if (!value->testFacsimileNumbers()) {
         outputStream() << "$";
     }
     else {
@@ -38848,7 +38848,7 @@ bool SPFWriter::visitIfcTelecomAddress(IfcTelecomAddress *value) {
         writeAttribute(value->getPagerNumber());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getElectronicMailAddresses())) {
+    if (!value->testElectronicMailAddresses()) {
         outputStream() << "$";
     }
     else {
@@ -39100,7 +39100,7 @@ bool SPFWriter::visitIfcTerminatorSymbol(IfcTerminatorSymbol *value) {
         writeAttribute(value->getItem());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getStyles())) {
+    if (!value->testStyles()) {
         outputStream() << "$";
     }
     else {
@@ -39290,7 +39290,7 @@ bool SPFWriter::visitIfcTextStyleFontModel(IfcTextStyleFontModel *value) {
         writeAttribute(value->getName());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getFontFamily())) {
+    if (!value->testFontFamily()) {
         outputStream() << "$";
     }
     else {
@@ -39507,7 +39507,7 @@ bool SPFWriter::visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator
         writeAttribute(value->getMode());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getParameter())) {
+    if (!value->testParameter()) {
         outputStream() << "$";
     }
     else {
@@ -39530,7 +39530,7 @@ bool SPFWriter::visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator
 
 bool SPFWriter::visitIfcTextureMap(IfcTextureMap *value) {
     outputStream() << "#" << value->getKey() << "=IFCTEXTUREMAP(";
-    if (Step::isUnset(value->getTextureMaps())) {
+    if (!value->testTextureMaps()) {
         outputStream() << "$";
     }
     else {
@@ -39553,7 +39553,7 @@ bool SPFWriter::visitIfcTextureMap(IfcTextureMap *value) {
 
 bool SPFWriter::visitIfcTextureVertex(IfcTextureVertex *value) {
     outputStream() << "#" << value->getKey() << "=IFCTEXTUREVERTEX(";
-    if (Step::isUnset(value->getCoordinates())) {
+    if (!value->testCoordinates()) {
         outputStream() << "$";
     }
     else {
@@ -39684,7 +39684,7 @@ bool SPFWriter::visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRe
         writeAttribute(value->getReferencedTimeSeries());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTimeSeriesReferences())) {
+    if (!value->testTimeSeriesReferences()) {
         outputStream() << "$";
     }
     else {
@@ -39765,7 +39765,7 @@ bool SPFWriter::visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) {
         writeAttribute(value->getObjectType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getApplicableDates())) {
+    if (!value->testApplicableDates()) {
         outputStream() << "$";
     }
     else {
@@ -39802,7 +39802,7 @@ bool SPFWriter::visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) {
 
 bool SPFWriter::visitIfcTimeSeriesValue(IfcTimeSeriesValue *value) {
     outputStream() << "#" << value->getKey() << "=IFCTIMESERIESVALUE(";
-    if (Step::isUnset(value->getListValues())) {
+    if (!value->testListValues()) {
         outputStream() << "$";
     }
     else {
@@ -39852,7 +39852,7 @@ bool SPFWriter::visitIfcTopologyRepresentation(IfcTopologyRepresentation *value)
         writeAttribute(value->getRepresentationType());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getItems())) {
+    if (!value->testItems()) {
         outputStream() << "$";
     }
     else {
@@ -39930,7 +39930,7 @@ bool SPFWriter::visitIfcTransformerType(IfcTransformerType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -39948,7 +39948,7 @@ bool SPFWriter::visitIfcTransformerType(IfcTransformerType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -40129,7 +40129,7 @@ bool SPFWriter::visitIfcTransportElementType(IfcTransportElementType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40147,7 +40147,7 @@ bool SPFWriter::visitIfcTransportElementType(IfcTransportElementType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -40279,7 +40279,7 @@ bool SPFWriter::visitIfcTrimmedCurve(IfcTrimmedCurve *value) {
         writeAttribute(value->getBasisCurve());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTrim1())) {
+    if (!value->testTrim1()) {
         outputStream() << "$";
     }
     else {
@@ -40297,7 +40297,7 @@ bool SPFWriter::visitIfcTrimmedCurve(IfcTrimmedCurve *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTrim2())) {
+    if (!value->testTrim2()) {
         outputStream() << "$";
     }
     else {
@@ -40383,7 +40383,7 @@ bool SPFWriter::visitIfcTubeBundleType(IfcTubeBundleType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40401,7 +40401,7 @@ bool SPFWriter::visitIfcTubeBundleType(IfcTubeBundleType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -40499,7 +40499,7 @@ bool SPFWriter::visitIfcTypeObject(IfcTypeObject *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40557,7 +40557,7 @@ bool SPFWriter::visitIfcTypeProduct(IfcTypeProduct *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40575,7 +40575,7 @@ bool SPFWriter::visitIfcTypeProduct(IfcTypeProduct *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -40687,7 +40687,7 @@ bool SPFWriter::visitIfcUShapeProfileDef(IfcUShapeProfileDef *value) {
 
 bool SPFWriter::visitIfcUnitAssignment(IfcUnitAssignment *value) {
     outputStream() << "#" << value->getKey() << "=IFCUNITASSIGNMENT(";
-    if (Step::isUnset(value->getUnits())) {
+    if (!value->testUnits()) {
         outputStream() << "$";
     }
     else {
@@ -40768,7 +40768,7 @@ bool SPFWriter::visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40786,7 +40786,7 @@ bool SPFWriter::visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -40939,7 +40939,7 @@ bool SPFWriter::visitIfcValveType(IfcValveType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -40957,7 +40957,7 @@ bool SPFWriter::visitIfcValveType(IfcValveType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -41026,7 +41026,7 @@ bool SPFWriter::visitIfcVertex(IfcVertex *value) {
 
 bool SPFWriter::visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value) {
     outputStream() << "#" << value->getKey() << "=IFCVERTEXBASEDTEXTUREMAP(";
-    if (Step::isUnset(value->getTextureVertices())) {
+    if (!value->testTextureVertices()) {
         outputStream() << "$";
     }
     else {
@@ -41044,7 +41044,7 @@ bool SPFWriter::visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getTexturePoints())) {
+    if (!value->testTexturePoints()) {
         outputStream() << "$";
     }
     else {
@@ -41143,7 +41143,7 @@ bool SPFWriter::visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -41161,7 +41161,7 @@ bool SPFWriter::visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -41266,7 +41266,7 @@ bool SPFWriter::visitIfcVirtualElement(IfcVirtualElement *value) {
 
 bool SPFWriter::visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value) {
     outputStream() << "#" << value->getKey() << "=IFCVIRTUALGRIDINTERSECTION(";
-    if (Step::isUnset(value->getIntersectingAxes())) {
+    if (!value->testIntersectingAxes()) {
         outputStream() << "$";
     }
     else {
@@ -41284,7 +41284,7 @@ bool SPFWriter::visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *valu
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getOffsetDistances())) {
+    if (!value->testOffsetDistances()) {
         outputStream() << "$";
     }
     else {
@@ -41490,7 +41490,7 @@ bool SPFWriter::visitIfcWallType(IfcWallType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -41508,7 +41508,7 @@ bool SPFWriter::visitIfcWallType(IfcWallType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -41628,7 +41628,7 @@ bool SPFWriter::visitIfcWasteTerminalType(IfcWasteTerminalType *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -41646,7 +41646,7 @@ bool SPFWriter::visitIfcWasteTerminalType(IfcWasteTerminalType *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -42139,7 +42139,7 @@ bool SPFWriter::visitIfcWindowStyle(IfcWindowStyle *value) {
         writeAttribute(value->getApplicableOccurrence());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getHasPropertySets())) {
+    if (!value->testHasPropertySets()) {
         outputStream() << "$";
     }
     else {
@@ -42157,7 +42157,7 @@ bool SPFWriter::visitIfcWindowStyle(IfcWindowStyle *value) {
         outputStream() << ")";
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getRepresentationMaps())) {
+    if (!value->testRepresentationMaps()) {
         outputStream() << "$";
     }
     else {
@@ -42284,7 +42284,7 @@ bool SPFWriter::visitIfcWorkControl(IfcWorkControl *value) {
         writeIfcDateTimeSelect(value->getCreationDate());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCreators())) {
+    if (!value->testCreators()) {
         outputStream() << "$";
     }
     else {
@@ -42405,7 +42405,7 @@ bool SPFWriter::visitIfcWorkPlan(IfcWorkPlan *value) {
         writeIfcDateTimeSelect(value->getCreationDate());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCreators())) {
+    if (!value->testCreators()) {
         outputStream() << "$";
     }
     else {
@@ -42526,7 +42526,7 @@ bool SPFWriter::visitIfcWorkSchedule(IfcWorkSchedule *value) {
         writeIfcDateTimeSelect(value->getCreationDate());
     }
     outputStream() << ",";
-    if (Step::isUnset(value->getCreators())) {
+    if (!value->testCreators()) {
         outputStream() << "$";
     }
     else {

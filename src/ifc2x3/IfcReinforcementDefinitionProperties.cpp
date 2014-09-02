@@ -115,7 +115,7 @@ void IfcReinforcementDefinitionProperties::unsetReinforcementSectionDefinitions(
 }
 
 bool IfcReinforcementDefinitionProperties::testReinforcementSectionDefinitions() const {
-    return !Step::isUnset(getReinforcementSectionDefinitions());
+    return !m_reinforcementSectionDefinitions.isUnset();
 }
 
 bool IfcReinforcementDefinitionProperties::init() {

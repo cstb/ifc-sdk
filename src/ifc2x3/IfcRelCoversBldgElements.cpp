@@ -144,7 +144,7 @@ void IfcRelCoversBldgElements::unsetRelatedCoverings() {
 }
 
 bool IfcRelCoversBldgElements::testRelatedCoverings() const {
-    return !Step::isUnset(getRelatedCoverings());
+    return !m_relatedCoverings.isUnset();
 }
 
 bool IfcRelCoversBldgElements::init() {

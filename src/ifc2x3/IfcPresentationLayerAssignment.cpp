@@ -183,7 +183,7 @@ void IfcPresentationLayerAssignment::unsetAssignedItems() {
 }
 
 bool IfcPresentationLayerAssignment::testAssignedItems() const {
-    return !Step::isUnset(getAssignedItems());
+    return !m_assignedItems.isUnset();
 }
 
 IfcIdentifier IfcPresentationLayerAssignment::getIdentifier() {

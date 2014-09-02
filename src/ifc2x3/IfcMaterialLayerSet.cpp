@@ -112,7 +112,7 @@ void IfcMaterialLayerSet::unsetMaterialLayers() {
 }
 
 bool IfcMaterialLayerSet::testMaterialLayers() const {
-    return !Step::isUnset(getMaterialLayers());
+    return !m_materialLayers.isUnset();
 }
 
 IfcLabel IfcMaterialLayerSet::getLayerSetName() {

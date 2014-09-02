@@ -143,7 +143,7 @@ void IfcRelDecomposes::unsetRelatedObjects() {
 }
 
 bool IfcRelDecomposes::testRelatedObjects() const {
-    return !Step::isUnset(getRelatedObjects());
+    return !m_relatedObjects.isUnset();
 }
 
 bool IfcRelDecomposes::init() {

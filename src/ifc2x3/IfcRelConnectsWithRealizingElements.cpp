@@ -112,7 +112,7 @@ void IfcRelConnectsWithRealizingElements::unsetRealizingElements() {
 }
 
 bool IfcRelConnectsWithRealizingElements::testRealizingElements() const {
-    return !Step::isUnset(getRealizingElements());
+    return !m_realizingElements.isUnset();
 }
 
 IfcLabel IfcRelConnectsWithRealizingElements::getConnectionType() {

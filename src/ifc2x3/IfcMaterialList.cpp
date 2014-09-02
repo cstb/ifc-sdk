@@ -87,7 +87,7 @@ void IfcMaterialList::unsetMaterials() {
 }
 
 bool IfcMaterialList::testMaterials() const {
-    return !Step::isUnset(getMaterials());
+    return !m_materials.isUnset();
 }
 
 bool IfcMaterialList::init() {

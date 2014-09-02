@@ -2737,7 +2737,7 @@ Step::Integer IfcTable::getNumberOfHeadings() const
 {
 	LOG_DEBUG("IfcTable::getNumberOfHeadings()");
 	Step::Integer Res=0;
-	if(!Step::isUnset(getRows()))
+    if(testRows())
 	{
 		List_IfcTableRow_1_n ListIfcTableRow = getRows();
         for(int i=0; i< int(ListIfcTableRow.size()); i++)
@@ -2755,7 +2755,7 @@ Step::Integer IfcTable::getNumberOfDataRows() const
 {
 	LOG_DEBUG("IfcTable::getNumberOfDataRows()");
 	Step::Integer Res=0;
-	if(!Step::isUnset(getRows()))
+    if(testRows())
 	{
 		List_IfcTableRow_1_n ListIfcTableRow = getRows();
 		for(unsigned int i=0; i<ListIfcTableRow.size(); i++)

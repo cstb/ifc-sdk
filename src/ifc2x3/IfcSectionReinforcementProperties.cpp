@@ -223,7 +223,7 @@ void IfcSectionReinforcementProperties::unsetCrossSectionReinforcementDefinition
 }
 
 bool IfcSectionReinforcementProperties::testCrossSectionReinforcementDefinitions() const {
-    return !Step::isUnset(getCrossSectionReinforcementDefinitions());
+    return !m_crossSectionReinforcementDefinitions.isUnset();
 }
 
 bool IfcSectionReinforcementProperties::init() {

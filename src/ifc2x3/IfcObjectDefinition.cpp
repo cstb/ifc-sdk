@@ -79,7 +79,7 @@ const Inverse_Set_IfcRelAssigns_0_n &IfcObjectDefinition::getHasAssignments() co
 }
 
 bool IfcObjectDefinition::testHasAssignments() const {
-    return !Step::isUnset(getHasAssignments());
+    return !m_hasAssignments.isUnset();
 }
 
 Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy() {
@@ -98,7 +98,7 @@ const Inverse_Set_IfcRelDecomposes_0_n &IfcObjectDefinition::getIsDecomposedBy()
 }
 
 bool IfcObjectDefinition::testIsDecomposedBy() const {
-    return !Step::isUnset(getIsDecomposedBy());
+    return !m_isDecomposedBy.isUnset();
 }
 
 Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() {
@@ -117,7 +117,7 @@ const Inverse_Set_IfcRelDecomposes_0_1 &IfcObjectDefinition::getDecomposes() con
 }
 
 bool IfcObjectDefinition::testDecomposes() const {
-    return !Step::isUnset(getDecomposes());
+    return !m_decomposes.isUnset();
 }
 
 Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations() {
@@ -136,7 +136,7 @@ const Inverse_Set_IfcRelAssociates_0_n &IfcObjectDefinition::getHasAssociations(
 }
 
 bool IfcObjectDefinition::testHasAssociations() const {
-    return !Step::isUnset(getHasAssociations());
+    return !m_hasAssociations.isUnset();
 }
 
 bool IfcObjectDefinition::init() {

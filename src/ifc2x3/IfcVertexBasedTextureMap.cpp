@@ -88,7 +88,7 @@ void IfcVertexBasedTextureMap::unsetTextureVertices() {
 }
 
 bool IfcVertexBasedTextureMap::testTextureVertices() const {
-    return !Step::isUnset(getTextureVertices());
+    return !m_textureVertices.isUnset();
 }
 
 List_IfcCartesianPoint_3_n &IfcVertexBasedTextureMap::getTexturePoints() {
@@ -116,7 +116,7 @@ void IfcVertexBasedTextureMap::unsetTexturePoints() {
 }
 
 bool IfcVertexBasedTextureMap::testTexturePoints() const {
-    return !Step::isUnset(getTexturePoints());
+    return !m_texturePoints.isUnset();
 }
 
 bool IfcVertexBasedTextureMap::init() {

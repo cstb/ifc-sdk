@@ -113,7 +113,7 @@ void IfcPhysicalComplexQuantity::unsetHasQuantities() {
 }
 
 bool IfcPhysicalComplexQuantity::testHasQuantities() const {
-    return !Step::isUnset(getHasQuantities());
+    return !m_hasQuantities.isUnset();
 }
 
 IfcLabel IfcPhysicalComplexQuantity::getDiscrimination() {

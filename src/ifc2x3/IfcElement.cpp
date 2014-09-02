@@ -115,7 +115,7 @@ const Inverse_Set_IfcRelConnectsStructuralElement_0_n &IfcElement::getHasStructu
 }
 
 bool IfcElement::testHasStructuralMember() const {
-    return !Step::isUnset(getHasStructuralMember());
+    return !m_hasStructuralMember.isUnset();
 }
 
 Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() {
@@ -134,7 +134,7 @@ const Inverse_Set_IfcRelFillsElement_0_1 &IfcElement::getFillsVoids() const {
 }
 
 bool IfcElement::testFillsVoids() const {
-    return !Step::isUnset(getFillsVoids());
+    return !m_fillsVoids.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() {
@@ -153,7 +153,7 @@ const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedTo() const
 }
 
 bool IfcElement::testConnectedTo() const {
-    return !Step::isUnset(getConnectedTo());
+    return !m_connectedTo.isUnset();
 }
 
 Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() {
@@ -172,7 +172,7 @@ const Inverse_Set_IfcRelCoversBldgElements_0_n &IfcElement::getHasCoverings() co
 }
 
 bool IfcElement::testHasCoverings() const {
-    return !Step::isUnset(getHasCoverings());
+    return !m_hasCoverings.isUnset();
 }
 
 Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() {
@@ -191,7 +191,7 @@ const Inverse_Set_IfcRelProjectsElement_0_n &IfcElement::getHasProjections() con
 }
 
 bool IfcElement::testHasProjections() const {
-    return !Step::isUnset(getHasProjections());
+    return !m_hasProjections.isUnset();
 }
 
 Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferencedInStructures() {
@@ -210,7 +210,7 @@ const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcElement::getReferen
 }
 
 bool IfcElement::testReferencedInStructures() const {
-    return !Step::isUnset(getReferencedInStructures());
+    return !m_referencedInStructures.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() {
@@ -229,7 +229,7 @@ const Inverse_Set_IfcRelConnectsPortToElement_0_n &IfcElement::getHasPorts() con
 }
 
 bool IfcElement::testHasPorts() const {
-    return !Step::isUnset(getHasPorts());
+    return !m_hasPorts.isUnset();
 }
 
 Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() {
@@ -248,7 +248,7 @@ const Inverse_Set_IfcRelVoidsElement_0_n &IfcElement::getHasOpenings() const {
 }
 
 bool IfcElement::testHasOpenings() const {
-    return !Step::isUnset(getHasOpenings());
+    return !m_hasOpenings.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConnectionRealization() {
@@ -267,7 +267,7 @@ const Inverse_Set_IfcRelConnectsWithRealizingElements_0_n &IfcElement::getIsConn
 }
 
 bool IfcElement::testIsConnectionRealization() const {
-    return !Step::isUnset(getIsConnectionRealization());
+    return !m_isConnectionRealization.isUnset();
 }
 
 Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() {
@@ -286,7 +286,7 @@ const Inverse_Set_IfcRelSpaceBoundary_0_n &IfcElement::getProvidesBoundaries() c
 }
 
 bool IfcElement::testProvidesBoundaries() const {
-    return !Step::isUnset(getProvidesBoundaries());
+    return !m_providesBoundaries.isUnset();
 }
 
 Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() {
@@ -305,7 +305,7 @@ const Inverse_Set_IfcRelConnectsElements_0_n &IfcElement::getConnectedFrom() con
 }
 
 bool IfcElement::testConnectedFrom() const {
-    return !Step::isUnset(getConnectedFrom());
+    return !m_connectedFrom.isUnset();
 }
 
 Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContainedInStructure() {
@@ -324,7 +324,7 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcElement::getContaine
 }
 
 bool IfcElement::testContainedInStructure() const {
-    return !Step::isUnset(getContainedInStructure());
+    return !m_containedInStructure.isUnset();
 }
 
 bool IfcElement::init() {

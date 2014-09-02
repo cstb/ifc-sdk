@@ -141,7 +141,7 @@ void IfcTypeObject::unsetHasPropertySets() {
 }
 
 bool IfcTypeObject::testHasPropertySets() const {
-    return !Step::isUnset(getHasPropertySets());
+    return !m_hasPropertySets.isUnset();
 }
 
 Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() {
@@ -160,7 +160,7 @@ const Inverse_Set_IfcRelDefinesByType_0_1 &IfcTypeObject::getObjectTypeOf() cons
 }
 
 bool IfcTypeObject::testObjectTypeOf() const {
-    return !Step::isUnset(getObjectTypeOf());
+    return !m_objectTypeOf.isUnset();
 }
 
 bool IfcTypeObject::init() {

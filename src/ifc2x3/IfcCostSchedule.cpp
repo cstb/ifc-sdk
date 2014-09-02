@@ -202,7 +202,7 @@ void IfcCostSchedule::unsetTargetUsers() {
 }
 
 bool IfcCostSchedule::testTargetUsers() const {
-    return !Step::isUnset(getTargetUsers());
+    return !m_targetUsers.isUnset();
 }
 
 IfcDateTimeSelect *IfcCostSchedule::getUpdateDate() {

@@ -213,7 +213,7 @@ void IfcDocumentInformation::unsetDocumentReferences() {
 }
 
 bool IfcDocumentInformation::testDocumentReferences() const {
-    return !Step::isUnset(getDocumentReferences());
+    return !m_documentReferences.isUnset();
 }
 
 IfcText IfcDocumentInformation::getPurpose() {
@@ -371,7 +371,7 @@ void IfcDocumentInformation::unsetEditors() {
 }
 
 bool IfcDocumentInformation::testEditors() const {
-    return !Step::isUnset(getEditors());
+    return !m_editors.isUnset();
 }
 
 IfcDateAndTime *IfcDocumentInformation::getCreationTime() {
@@ -572,7 +572,7 @@ const Inverse_Set_IfcDocumentInformationRelationship_0_n &IfcDocumentInformation
 }
 
 bool IfcDocumentInformation::testIsPointedTo() const {
-    return !Step::isUnset(getIsPointedTo());
+    return !m_isPointedTo.isUnset();
 }
 
 Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation::getIsPointer() {
@@ -591,7 +591,7 @@ const Inverse_Set_IfcDocumentInformationRelationship_0_1 &IfcDocumentInformation
 }
 
 bool IfcDocumentInformation::testIsPointer() const {
-    return !Step::isUnset(getIsPointer());
+    return !m_isPointer.isUnset();
 }
 
 bool IfcDocumentInformation::init() {

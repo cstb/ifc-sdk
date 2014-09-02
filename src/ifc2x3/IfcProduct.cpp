@@ -152,7 +152,7 @@ const Inverse_Set_IfcRelAssignsToProduct_0_n &IfcProduct::getReferencedBy() cons
 }
 
 bool IfcProduct::testReferencedBy() const {
-    return !Step::isUnset(getReferencedBy());
+    return !m_referencedBy.isUnset();
 }
 
 bool IfcProduct::init() {

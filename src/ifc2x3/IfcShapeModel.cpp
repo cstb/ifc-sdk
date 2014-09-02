@@ -77,7 +77,7 @@ const Inverse_Set_IfcShapeAspect_0_1 &IfcShapeModel::getOfShapeAspect() const {
 }
 
 bool IfcShapeModel::testOfShapeAspect() const {
-    return !Step::isUnset(getOfShapeAspect());
+    return !m_ofShapeAspect.isUnset();
 }
 
 bool IfcShapeModel::init() {

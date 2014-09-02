@@ -78,7 +78,7 @@ const Inverse_Set_IfcRelDefinesByProperties_0_1 &IfcPropertySetDefinition::getPr
 }
 
 bool IfcPropertySetDefinition::testPropertyDefinitionOf() const {
-    return !Step::isUnset(getPropertyDefinitionOf());
+    return !m_propertyDefinitionOf.isUnset();
 }
 
 Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() {
@@ -97,7 +97,7 @@ const Inverse_Set_IfcTypeObject_0_1 &IfcPropertySetDefinition::getDefinesType() 
 }
 
 bool IfcPropertySetDefinition::testDefinesType() const {
-    return !Step::isUnset(getDefinesType());
+    return !m_definesType.isUnset();
 }
 
 bool IfcPropertySetDefinition::init() {

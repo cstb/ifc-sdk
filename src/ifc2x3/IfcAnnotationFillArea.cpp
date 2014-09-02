@@ -115,7 +115,7 @@ void IfcAnnotationFillArea::unsetInnerBoundaries() {
 }
 
 bool IfcAnnotationFillArea::testInnerBoundaries() const {
-    return !Step::isUnset(getInnerBoundaries());
+    return !m_innerBoundaries.isUnset();
 }
 
 bool IfcAnnotationFillArea::init() {

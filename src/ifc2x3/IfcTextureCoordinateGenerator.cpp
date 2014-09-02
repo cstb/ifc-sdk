@@ -116,7 +116,7 @@ void IfcTextureCoordinateGenerator::unsetParameter() {
 }
 
 bool IfcTextureCoordinateGenerator::testParameter() const {
-    return !Step::isUnset(getParameter());
+    return !m_parameter.isUnset();
 }
 
 bool IfcTextureCoordinateGenerator::init() {

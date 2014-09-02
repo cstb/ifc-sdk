@@ -36,9 +36,8 @@ namespace Step {
      * access.
      */
 
-    template<typename T, Integer _lo = 0, Integer _hi = -1> class List: public std::vector<
-            T>,
-            public Aggregate
+    template<typename T, Integer _lo = 0, Integer _hi = -1> class List: 
+        public std::vector<T>
     {
     protected:
 
@@ -54,7 +53,7 @@ namespace Step {
 
         //! default constructor
         List(bool unset=false) :
-            Aggregate(unset)
+            m_unset(unset)
         {
         }
 
@@ -306,7 +305,38 @@ namespace Step {
             return *this;
         }
 
+        /*!
+         \short Gets the 'unset' flag
+         @return the 'unset' flag
+         */
+        bool isUnset() const
+        {
+            return m_unset;
+        }
+
+        /*!
+         \short Sets the 'unset' flag
+         @param b the 'unset' flag
+         */
+        void setUnset(bool b)
+        {
+            m_unset = b;
+        }
+
+        /*!
+         \short Toggle the 'unset' flag
+         @return The new state of the 'unset' flag
+         */
+        bool toggleUnset()
+        {
+            m_unset = !m_unset;
+            return m_unset;
+        }
+
     protected:
+        //! store if the unset status
+        bool m_unset;
+
 #ifdef STEP_CHECK_RANGE
         /**
          * checks if the position is within bounds

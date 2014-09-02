@@ -87,7 +87,7 @@ void IfcRelOverridesProperties::unsetOverridingProperties() {
 }
 
 bool IfcRelOverridesProperties::testOverridingProperties() const {
-    return !Step::isUnset(getOverridingProperties());
+    return !m_overridingProperties.isUnset();
 }
 
 bool IfcRelOverridesProperties::init() {

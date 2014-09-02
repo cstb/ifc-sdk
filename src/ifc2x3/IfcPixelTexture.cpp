@@ -166,7 +166,7 @@ void IfcPixelTexture::unsetPixel() {
 }
 
 bool IfcPixelTexture::testPixel() const {
-    return !Step::isUnset(getPixel());
+    return !m_pixel.isUnset();
 }
 
 bool IfcPixelTexture::init() {

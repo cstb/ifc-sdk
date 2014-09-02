@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelServicesBuildings_0_1 &IfcSystem::getServicesBuildings()
 }
 
 bool IfcSystem::testServicesBuildings() const {
-    return !Step::isUnset(getServicesBuildings());
+    return !m_servicesBuildings.isUnset();
 }
 
 bool IfcSystem::init() {

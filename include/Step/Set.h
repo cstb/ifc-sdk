@@ -37,8 +37,7 @@ namespace Step {
      */
 
     template<typename T, Integer _lo = 0, Integer _hi = -1> class Set :
-            public std::set<T>,
-            public Aggregate
+            public std::set<T>
     {
     public:
         //! the size_type
@@ -56,7 +55,7 @@ namespace Step {
          * Default constructor
          * \param unset initialized to not unset by default
          */
-        Set(bool unset=false) : Aggregate(unset)
+        Set(bool unset=false) : m_unset(unset)
         {
         }
 
@@ -241,6 +240,37 @@ namespace Step {
             std::set<T>::operator=(other);
             return *this;
         }
+                /*!
+         \short Gets the 'unset' flag
+         @return the 'unset' flag
+         */
+        bool isUnset() const
+        {
+            return m_unset;
+        }
+
+        /*!
+         \short Sets the 'unset' flag
+         @param b the 'unset' flag
+         */
+        void setUnset(bool b)
+        {
+            m_unset = b;
+        }
+
+        /*!
+         \short Toggle the 'unset' flag
+         @return The new state of the 'unset' flag
+         */
+        bool toggleUnset()
+        {
+            m_unset = !m_unset;
+            return m_unset;
+        }
+
+    protected:
+        //! store if the unset status
+        bool m_unset;
     private:
         // cannot allow to have an operator that will allow different sizes of Set to be assigned
         std::set<T>& operator=(const std::set<T>& other);

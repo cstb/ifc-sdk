@@ -77,7 +77,7 @@ const Inverse_Set_IfcStructuralAction_0_n &IfcStructuralReaction::getCauses() co
 }
 
 bool IfcStructuralReaction::testCauses() const {
-    return !Step::isUnset(getCauses());
+    return !m_causes.isUnset();
 }
 
 bool IfcStructuralReaction::init() {

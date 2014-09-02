@@ -134,7 +134,7 @@ const Inverse_Set_IfcRelReferencedInSpatialStructure_0_n &IfcSpatialStructureEle
 }
 
 bool IfcSpatialStructureElement::testReferencesElements() const {
-    return !Step::isUnset(getReferencesElements());
+    return !m_referencesElements.isUnset();
 }
 
 Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getServicedBySystems() {
@@ -153,7 +153,7 @@ const Inverse_Set_IfcRelServicesBuildings_0_n &IfcSpatialStructureElement::getSe
 }
 
 bool IfcSpatialStructureElement::testServicedBySystems() const {
-    return !Step::isUnset(getServicedBySystems());
+    return !m_servicedBySystems.isUnset();
 }
 
 Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElement::getContainsElements() {
@@ -172,7 +172,7 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_n &IfcSpatialStructureElem
 }
 
 bool IfcSpatialStructureElement::testContainsElements() const {
-    return !Step::isUnset(getContainsElements());
+    return !m_containsElements.isUnset();
 }
 
 bool IfcSpatialStructureElement::init() {

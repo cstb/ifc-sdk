@@ -105,7 +105,7 @@ const Inverse_Set_IfcRelCoversSpaces_0_1 &IfcCovering::getCoversSpaces() const {
 }
 
 bool IfcCovering::testCoversSpaces() const {
-    return !Step::isUnset(getCoversSpaces());
+    return !m_coversSpaces.isUnset();
 }
 
 Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() {
@@ -124,7 +124,7 @@ const Inverse_Set_IfcRelCoversBldgElements_0_1 &IfcCovering::getCovers() const {
 }
 
 bool IfcCovering::testCovers() const {
-    return !Step::isUnset(getCovers());
+    return !m_covers.isUnset();
 }
 
 bool IfcCovering::init() {

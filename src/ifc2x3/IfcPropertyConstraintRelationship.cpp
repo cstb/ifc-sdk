@@ -124,7 +124,7 @@ void IfcPropertyConstraintRelationship::unsetRelatedProperties() {
 }
 
 bool IfcPropertyConstraintRelationship::testRelatedProperties() const {
-    return !Step::isUnset(getRelatedProperties());
+    return !m_relatedProperties.isUnset();
 }
 
 IfcLabel IfcPropertyConstraintRelationship::getName() {
