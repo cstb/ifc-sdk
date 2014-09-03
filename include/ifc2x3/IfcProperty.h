@@ -203,13 +203,13 @@ namespace ifc2x3 {
         Step::String m_description;
         /**
          */
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_propertyForDependance;
+        Inverse_Set_IfcPropertyDependencyRelationship_0_n *m_propertyForDependance;
         /**
          */
-        Inverse_Set_IfcPropertyDependencyRelationship_0_n m_propertyDependsOn;
+        Inverse_Set_IfcPropertyDependencyRelationship_0_n *m_propertyDependsOn;
         /**
          */
-        Inverse_Set_IfcComplexProperty_0_1 m_partOfComplex;
+        Inverse_Set_IfcComplexProperty_0_1 *m_partOfComplex;
 
     };
 

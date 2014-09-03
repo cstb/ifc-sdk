@@ -142,7 +142,7 @@ void IfcCurveBoundedPlane::unsetInnerBoundaries() {
 }
 
 bool IfcCurveBoundedPlane::testInnerBoundaries() const {
-    return !Step::isUnset(getInnerBoundaries());
+    return !m_innerBoundaries.isUnset();
 }
 
 bool IfcCurveBoundedPlane::init() {

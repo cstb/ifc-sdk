@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelAssignsToControl_0_n &IfcControl::getControls() const {
 }
 
 bool IfcControl::testControls() const {
-    return !Step::isUnset(getControls());
+    return !m_controls.isUnset();
 }
 
 bool IfcControl::init() {

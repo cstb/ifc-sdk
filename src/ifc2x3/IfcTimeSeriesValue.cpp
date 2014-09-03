@@ -89,7 +89,7 @@ void IfcTimeSeriesValue::unsetListValues() {
 }
 
 bool IfcTimeSeriesValue::testListValues() const {
-    return !Step::isUnset(getListValues());
+    return !m_listValues.isUnset();
 }
 
 bool IfcTimeSeriesValue::init() {

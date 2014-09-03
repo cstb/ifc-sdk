@@ -87,7 +87,7 @@ void IfcPropertySet::unsetHasProperties() {
 }
 
 bool IfcPropertySet::testHasProperties() const {
-    return !Step::isUnset(getHasProperties());
+    return !m_hasProperties.isUnset();
 }
 
 bool IfcPropertySet::init() {

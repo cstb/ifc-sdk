@@ -91,7 +91,7 @@ void IfcPropertyEnumeratedValue::unsetEnumerationValues() {
 }
 
 bool IfcPropertyEnumeratedValue::testEnumerationValues() const {
-    return !Step::isUnset(getEnumerationValues());
+    return !m_enumerationValues.isUnset();
 }
 
 IfcPropertyEnumeration *IfcPropertyEnumeratedValue::getEnumerationReference() {

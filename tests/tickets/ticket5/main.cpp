@@ -1,4 +1,4 @@
-#include <ifc2x3/ExpressDataSet.h>
+#include <ifc2x3/all.h>
 #include <ifc2x3/SPFReader.h>
 
 #include "../../tests.h"
@@ -57,6 +57,63 @@ int main (int n, char **p)
     else
     {
         std::cout << "Usage : " << p[0] << " test_file.ifc" << std::endl;
+
+        unsigned lastSize=0;
+#define DSIZEOF(T)  std::cout << #T << " : " << sizeof(T) << "( +" << sizeof(T) - lastSize << " ) " << std::endl; lastSize = sizeof(T)
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcRepresentationItem);
+        DSIZEOF(ifc2x3::IfcGeometricRepresentationItem);
+        DSIZEOF(ifc2x3::IfcPoint);
+        DSIZEOF(ifc2x3::IfcCartesianPoint);
+
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(std::set<Step::ObsPtr< ifc2x3::IfcPresentationLayerAssignment > >);
+        DSIZEOF(ifc2x3::Inverse_Set_IfcPresentationLayerAssignment_0_n);
+
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(ifc2x3::Inverse_Set_IfcStyledItem_0_1);
+
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(std::vector<double>);
+        DSIZEOF(ifc2x3::List_IfcLengthMeasure_1_3);
+
+
+        std::cout << std::endl;
+        lastSize=0;
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcProperty);
+        DSIZEOF(ifc2x3::IfcSimpleProperty);
+        DSIZEOF(ifc2x3::IfcPropertySingleValue);
+
+        std::cout << std::endl;
+        lastSize=0;
+
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(Step::BaseEntity);
+        DSIZEOF(ifc2x3::IfcRoot);
+        DSIZEOF(ifc2x3::IfcPropertyDefinition);
+        DSIZEOF(ifc2x3::IfcPropertySetDefinition);
+        DSIZEOF(ifc2x3::IfcPropertySet);
+        
+
+        std::cout << std::endl;
+        lastSize=0;
+
+        DSIZEOF(Step::Referenced);
+        DSIZEOF(Step::ClientDataHandler);
+        DSIZEOF(Step::BaseObject);
+        DSIZEOF(ifc2x3::IfcValue);
         ++failure_results;
     }
 

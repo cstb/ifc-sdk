@@ -204,7 +204,7 @@ void IfcPerson::unsetMiddleNames() {
 }
 
 bool IfcPerson::testMiddleNames() const {
-    return !Step::isUnset(getMiddleNames());
+    return !m_middleNames.isUnset();
 }
 
 List_IfcLabel_1_n &IfcPerson::getPrefixTitles() {
@@ -232,7 +232,7 @@ void IfcPerson::unsetPrefixTitles() {
 }
 
 bool IfcPerson::testPrefixTitles() const {
-    return !Step::isUnset(getPrefixTitles());
+    return !m_prefixTitles.isUnset();
 }
 
 List_IfcLabel_1_n &IfcPerson::getSuffixTitles() {
@@ -260,7 +260,7 @@ void IfcPerson::unsetSuffixTitles() {
 }
 
 bool IfcPerson::testSuffixTitles() const {
-    return !Step::isUnset(getSuffixTitles());
+    return !m_suffixTitles.isUnset();
 }
 
 List_IfcActorRole_1_n &IfcPerson::getRoles() {
@@ -288,7 +288,7 @@ void IfcPerson::unsetRoles() {
 }
 
 bool IfcPerson::testRoles() const {
-    return !Step::isUnset(getRoles());
+    return !m_roles.isUnset();
 }
 
 List_IfcAddress_1_n &IfcPerson::getAddresses() {
@@ -312,7 +312,7 @@ void IfcPerson::unsetAddresses() {
 }
 
 bool IfcPerson::testAddresses() const {
-    return !Step::isUnset(getAddresses());
+    return !m_addresses.isUnset();
 }
 
 Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() {
@@ -331,7 +331,7 @@ const Inverse_Set_IfcPersonAndOrganization_0_n &IfcPerson::getEngagedIn() const 
 }
 
 bool IfcPerson::testEngagedIn() const {
-    return !Step::isUnset(getEngagedIn());
+    return !m_engagedIn.isUnset();
 }
 
 bool IfcPerson::init() {

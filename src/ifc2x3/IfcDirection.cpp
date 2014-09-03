@@ -84,7 +84,7 @@ void IfcDirection::unsetDirectionRatios() {
 }
 
 bool IfcDirection::testDirectionRatios() const {
-    return !Step::isUnset(getDirectionRatios());
+    return !m_directionRatios.isUnset();
 }
 
 bool IfcDirection::init() {

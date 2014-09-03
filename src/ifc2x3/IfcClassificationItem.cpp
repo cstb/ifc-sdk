@@ -169,7 +169,7 @@ const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::
 }
 
 bool IfcClassificationItem::testIsClassifiedItemIn() const {
-    return !Step::isUnset(getIsClassifiedItemIn());
+    return !m_isClassifiedItemIn.isUnset();
 }
 
 Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::getIsClassifyingItemIn() {
@@ -188,7 +188,7 @@ const Inverse_Set_IfcClassificationItemRelationship_0_1 &IfcClassificationItem::
 }
 
 bool IfcClassificationItem::testIsClassifyingItemIn() const {
-    return !Step::isUnset(getIsClassifyingItemIn());
+    return !m_isClassifyingItemIn.isUnset();
 }
 
 bool IfcClassificationItem::init() {

@@ -84,7 +84,7 @@ void IfcTextureVertex::unsetCoordinates() {
 }
 
 bool IfcTextureVertex::testCoordinates() const {
-    return !Step::isUnset(getCoordinates());
+    return !m_coordinates.isUnset();
 }
 
 bool IfcTextureVertex::init() {

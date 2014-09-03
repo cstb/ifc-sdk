@@ -116,7 +116,7 @@ void IfcSectionedSpine::unsetCrossSections() {
 }
 
 bool IfcSectionedSpine::testCrossSections() const {
-    return !Step::isUnset(getCrossSections());
+    return !m_crossSections.isUnset();
 }
 
 List_IfcAxis2Placement3D_2_n &IfcSectionedSpine::getCrossSectionPositions() {
@@ -144,7 +144,7 @@ void IfcSectionedSpine::unsetCrossSectionPositions() {
 }
 
 bool IfcSectionedSpine::testCrossSectionPositions() const {
-    return !Step::isUnset(getCrossSectionPositions());
+    return !m_crossSectionPositions.isUnset();
 }
 
 bool IfcSectionedSpine::init() {

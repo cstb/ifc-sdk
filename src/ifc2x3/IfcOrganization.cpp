@@ -202,7 +202,7 @@ void IfcOrganization::unsetRoles() {
 }
 
 bool IfcOrganization::testRoles() const {
-    return !Step::isUnset(getRoles());
+    return !m_roles.isUnset();
 }
 
 List_IfcAddress_1_n &IfcOrganization::getAddresses() {
@@ -226,7 +226,7 @@ void IfcOrganization::unsetAddresses() {
 }
 
 bool IfcOrganization::testAddresses() const {
-    return !Step::isUnset(getAddresses());
+    return !m_addresses.isUnset();
 }
 
 Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelatedBy() {
@@ -245,7 +245,7 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getIsRelated
 }
 
 bool IfcOrganization::testIsRelatedBy() const {
-    return !Step::isUnset(getIsRelatedBy());
+    return !m_isRelatedBy.isUnset();
 }
 
 Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates() {
@@ -264,7 +264,7 @@ const Inverse_Set_IfcOrganizationRelationship_0_n &IfcOrganization::getRelates()
 }
 
 bool IfcOrganization::testRelates() const {
-    return !Step::isUnset(getRelates());
+    return !m_relates.isUnset();
 }
 
 Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() {
@@ -283,7 +283,7 @@ const Inverse_Set_IfcPersonAndOrganization_0_n &IfcOrganization::getEngages() co
 }
 
 bool IfcOrganization::testEngages() const {
-    return !Step::isUnset(getEngages());
+    return !m_engages.isUnset();
 }
 
 bool IfcOrganization::init() {

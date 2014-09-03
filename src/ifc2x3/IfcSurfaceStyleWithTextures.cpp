@@ -87,7 +87,7 @@ void IfcSurfaceStyleWithTextures::unsetTextures() {
 }
 
 bool IfcSurfaceStyleWithTextures::testTextures() const {
-    return !Step::isUnset(getTextures());
+    return !m_textures.isUnset();
 }
 
 bool IfcSurfaceStyleWithTextures::init() {

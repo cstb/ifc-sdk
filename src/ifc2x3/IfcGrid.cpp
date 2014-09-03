@@ -167,7 +167,7 @@ void IfcGrid::unsetUAxes() {
 }
 
 bool IfcGrid::testUAxes() const {
-    return !Step::isUnset(getUAxes());
+    return !m_uAxes.isUnset();
 }
 
 List_IfcGridAxis_1_n &IfcGrid::getVAxes() {
@@ -191,7 +191,7 @@ void IfcGrid::unsetVAxes() {
 }
 
 bool IfcGrid::testVAxes() const {
-    return !Step::isUnset(getVAxes());
+    return !m_vAxes.isUnset();
 }
 
 List_IfcGridAxis_1_n &IfcGrid::getWAxes() {
@@ -215,7 +215,7 @@ void IfcGrid::unsetWAxes() {
 }
 
 bool IfcGrid::testWAxes() const {
-    return !Step::isUnset(getWAxes());
+    return !m_wAxes.isUnset();
 }
 
 Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedInStructure() {
@@ -234,7 +234,7 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcGrid::getContainedIn
 }
 
 bool IfcGrid::testContainedInStructure() const {
-    return !Step::isUnset(getContainedInStructure());
+    return !m_containedInStructure.isUnset();
 }
 
 bool IfcGrid::init() {

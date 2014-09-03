@@ -199,7 +199,7 @@ void IfcConstraintAggregationRelationship::unsetRelatedConstraints() {
 }
 
 bool IfcConstraintAggregationRelationship::testRelatedConstraints() const {
-    return !Step::isUnset(getRelatedConstraints());
+    return !m_relatedConstraints.isUnset();
 }
 
 IfcLogicalOperatorEnum IfcConstraintAggregationRelationship::getLogicalAggregator() {

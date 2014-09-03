@@ -77,7 +77,7 @@ const Inverse_Set_IfcDocumentInformation_0_1 &IfcDocumentReference::getReference
 }
 
 bool IfcDocumentReference::testReferenceToDocument() const {
-    return !Step::isUnset(getReferenceToDocument());
+    return !m_referenceToDocument.isUnset();
 }
 
 bool IfcDocumentReference::init() {

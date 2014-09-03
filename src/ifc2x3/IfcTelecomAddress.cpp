@@ -90,7 +90,7 @@ void IfcTelecomAddress::unsetTelephoneNumbers() {
 }
 
 bool IfcTelecomAddress::testTelephoneNumbers() const {
-    return !Step::isUnset(getTelephoneNumbers());
+    return !m_telephoneNumbers.isUnset();
 }
 
 List_IfcLabel_1_n &IfcTelecomAddress::getFacsimileNumbers() {
@@ -118,7 +118,7 @@ void IfcTelecomAddress::unsetFacsimileNumbers() {
 }
 
 bool IfcTelecomAddress::testFacsimileNumbers() const {
-    return !Step::isUnset(getFacsimileNumbers());
+    return !m_facsimileNumbers.isUnset();
 }
 
 IfcLabel IfcTelecomAddress::getPagerNumber() {
@@ -172,7 +172,7 @@ void IfcTelecomAddress::unsetElectronicMailAddresses() {
 }
 
 bool IfcTelecomAddress::testElectronicMailAddresses() const {
-    return !Step::isUnset(getElectronicMailAddresses());
+    return !m_electronicMailAddresses.isUnset();
 }
 
 IfcLabel IfcTelecomAddress::getWWWHomePageURL() {

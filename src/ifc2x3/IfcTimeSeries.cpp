@@ -297,7 +297,7 @@ const Inverse_Set_IfcTimeSeriesReferenceRelationship_0_1 &IfcTimeSeries::getDocu
 }
 
 bool IfcTimeSeries::testDocumentedBy() const {
-    return !Step::isUnset(getDocumentedBy());
+    return !m_documentedBy.isUnset();
 }
 
 bool IfcTimeSeries::init() {

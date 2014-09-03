@@ -144,7 +144,7 @@ void IfcProject::unsetRepresentationContexts() {
 }
 
 bool IfcProject::testRepresentationContexts() const {
-    return !Step::isUnset(getRepresentationContexts());
+    return !m_representationContexts.isUnset();
 }
 
 IfcUnitAssignment *IfcProject::getUnitsInContext() {

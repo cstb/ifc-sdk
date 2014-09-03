@@ -143,7 +143,7 @@ void IfcMove::unsetPunchList() {
 }
 
 bool IfcMove::testPunchList() const {
-    return !Step::isUnset(getPunchList());
+    return !m_punchList.isUnset();
 }
 
 bool IfcMove::init() {

@@ -222,7 +222,7 @@ void IfcLibraryInformation::unsetLibraryReference() {
 }
 
 bool IfcLibraryInformation::testLibraryReference() const {
-    return !Step::isUnset(getLibraryReference());
+    return !m_libraryReference.isUnset();
 }
 
 bool IfcLibraryInformation::init() {

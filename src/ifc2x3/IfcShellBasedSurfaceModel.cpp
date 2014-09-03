@@ -88,7 +88,7 @@ void IfcShellBasedSurfaceModel::unsetSbsmBoundary() {
 }
 
 bool IfcShellBasedSurfaceModel::testSbsmBoundary() const {
-    return !Step::isUnset(getSbsmBoundary());
+    return !m_sbsmBoundary.isUnset();
 }
 
 bool IfcShellBasedSurfaceModel::init() {

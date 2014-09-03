@@ -37,12 +37,19 @@
 
 using namespace ifc2x3;
 
-IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args) {
+IfcProperty::IfcProperty(Step::Id id, Step::SPFData *args) : Step::BaseEntity(id, args),
+    m_propertyForDependance(0),
+    m_propertyDependsOn(0),
+    m_partOfComplex(0)
+{
     m_name = Step::getUnset(m_name);
     m_description = Step::getUnset(m_description);
 }
 
 IfcProperty::~IfcProperty() {
+    delete m_propertyForDependance;
+    delete m_propertyDependsOn;
+    delete m_partOfComplex;
 }
 
 bool IfcProperty::acceptVisitor(Step::BaseVisitor *visitor) {
@@ -117,15 +124,17 @@ bool IfcProperty::testDescription() const {
     return !Step::isUnset(getDescription());
 }
 
-Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() {
-    if (Step::BaseObject::inited()) {
-        return m_propertyForDependance;
-    }
-    else {
-        m_propertyForDependance.setUnset(true);
-        return m_propertyForDependance;
-    }
+#define GETINVERSE(T,M,A) T &M() { \
+    if (!Step::BaseObject::inited() || !A ) { \
+        A = new T; \
+        A->setUnset(true); \
+    } \
+    return *A; \
 }
+
+GETINVERSE(Inverse_Set_IfcPropertyDependencyRelationship_0_n,
+           IfcProperty::getPropertyForDependance,m_propertyForDependance);
+
 
 const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyForDependance() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
@@ -133,18 +142,14 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
 }
 
 bool IfcProperty::testPropertyForDependance() const {
-    return !Step::isUnset(getPropertyForDependance());
+    if (m_propertyForDependance)
+        return !m_propertyForDependance->isUnset();
+    return false;
 }
 
-Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() {
-    if (Step::BaseObject::inited()) {
-        return m_propertyDependsOn;
-    }
-    else {
-        m_propertyDependsOn.setUnset(true);
-        return m_propertyDependsOn;
-    }
-}
+GETINVERSE(Inverse_Set_IfcPropertyDependencyRelationship_0_n,
+           IfcProperty::getPropertyDependsOn,m_propertyDependsOn);
+
 
 const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropertyDependsOn() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
@@ -152,18 +157,13 @@ const Inverse_Set_IfcPropertyDependencyRelationship_0_n &IfcProperty::getPropert
 }
 
 bool IfcProperty::testPropertyDependsOn() const {
-    return !Step::isUnset(getPropertyDependsOn());
+    if (m_propertyDependsOn)
+        return !m_propertyDependsOn->isUnset();
+    return false;
 }
 
-Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() {
-    if (Step::BaseObject::inited()) {
-        return m_partOfComplex;
-    }
-    else {
-        m_partOfComplex.setUnset(true);
-        return m_partOfComplex;
-    }
-}
+GETINVERSE(Inverse_Set_IfcComplexProperty_0_1,
+           IfcProperty::getPartOfComplex,m_partOfComplex);
 
 const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const {
     IfcProperty * deConstObject = const_cast< IfcProperty * > (this);
@@ -171,7 +171,9 @@ const Inverse_Set_IfcComplexProperty_0_1 &IfcProperty::getPartOfComplex() const 
 }
 
 bool IfcProperty::testPartOfComplex() const {
-    return !Step::isUnset(getPartOfComplex());
+    if (m_partOfComplex)
+        return !m_partOfComplex->isUnset();
+    return false;
 }
 
 bool IfcProperty::init() {
@@ -194,25 +196,28 @@ bool IfcProperty::init() {
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 0);
     if (inverses) {
         unsigned int i;
-        m_propertyForDependance.setUnset(false);
+        m_propertyForDependance = new Inverse_Set_IfcPropertyDependencyRelationship_0_n;
+        m_propertyForDependance->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_propertyForDependance.insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_propertyForDependance->insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcPropertyDependencyRelationship::getClassType(), 1);
     if (inverses) {
         unsigned int i;
-        m_propertyDependsOn.setUnset(false);
+        m_propertyDependsOn = new Inverse_Set_IfcPropertyDependencyRelationship_0_n;
+        m_propertyDependsOn->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_propertyDependsOn.insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
+            m_propertyDependsOn->insert(static_cast< IfcPropertyDependencyRelationship * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     inverses = m_args->getInverses(IfcComplexProperty::getClassType(), 3);
     if (inverses) {
         unsigned int i;
-        m_partOfComplex.setUnset(false);
+        m_partOfComplex = new Inverse_Set_IfcComplexProperty_0_1;
+        m_partOfComplex->setUnset(false);
         for (i = 0; i < inverses->size(); i++) {
-            m_partOfComplex.insert(static_cast< IfcComplexProperty * > (m_expressDataSet->get((*inverses)[i])));
+            m_partOfComplex->insert(static_cast< IfcComplexProperty * > (m_expressDataSet->get((*inverses)[i])));
         }
     }
     return true;

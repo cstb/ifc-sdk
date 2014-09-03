@@ -88,7 +88,7 @@ void IfcUnitAssignment::unsetUnits() {
 }
 
 bool IfcUnitAssignment::testUnits() const {
-    return !Step::isUnset(getUnits());
+    return !m_units.isUnset();
 }
 
 bool IfcUnitAssignment::init() {

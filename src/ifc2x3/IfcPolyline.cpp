@@ -87,7 +87,7 @@ void IfcPolyline::unsetPoints() {
 }
 
 bool IfcPolyline::testPoints() const {
-    return !Step::isUnset(getPoints());
+    return !m_points.isUnset();
 }
 
 bool IfcPolyline::init() {

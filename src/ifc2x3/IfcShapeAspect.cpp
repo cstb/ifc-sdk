@@ -116,7 +116,7 @@ void IfcShapeAspect::unsetShapeRepresentations() {
 }
 
 bool IfcShapeAspect::testShapeRepresentations() const {
-    return !Step::isUnset(getShapeRepresentations());
+    return !m_shapeRepresentations.isUnset();
 }
 
 IfcLabel IfcShapeAspect::getName() {

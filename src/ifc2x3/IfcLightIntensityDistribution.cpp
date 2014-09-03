@@ -114,7 +114,7 @@ void IfcLightIntensityDistribution::unsetDistributionData() {
 }
 
 bool IfcLightIntensityDistribution::testDistributionData() const {
-    return !Step::isUnset(getDistributionData());
+    return !m_distributionData.isUnset();
 }
 
 bool IfcLightIntensityDistribution::init() {

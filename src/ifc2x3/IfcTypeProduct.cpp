@@ -90,7 +90,7 @@ void IfcTypeProduct::unsetRepresentationMaps() {
 }
 
 bool IfcTypeProduct::testRepresentationMaps() const {
-    return !Step::isUnset(getRepresentationMaps());
+    return !m_representationMaps.isUnset();
 }
 
 IfcLabel IfcTypeProduct::getTag() {

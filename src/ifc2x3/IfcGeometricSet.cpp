@@ -88,7 +88,7 @@ void IfcGeometricSet::unsetElements() {
 }
 
 bool IfcGeometricSet::testElements() const {
-    return !Step::isUnset(getElements());
+    return !m_elements.isUnset();
 }
 
 bool IfcGeometricSet::init() {

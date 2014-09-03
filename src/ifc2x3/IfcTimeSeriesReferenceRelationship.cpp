@@ -122,7 +122,7 @@ void IfcTimeSeriesReferenceRelationship::unsetTimeSeriesReferences() {
 }
 
 bool IfcTimeSeriesReferenceRelationship::testTimeSeriesReferences() const {
-    return !Step::isUnset(getTimeSeriesReferences());
+    return !m_timeSeriesReferences.isUnset();
 }
 
 bool IfcTimeSeriesReferenceRelationship::init() {

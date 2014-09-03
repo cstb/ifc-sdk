@@ -214,7 +214,7 @@ const Inverse_Set_IfcStructuralResultGroup_0_1 &IfcStructuralLoadGroup::getSourc
 }
 
 bool IfcStructuralLoadGroup::testSourceOfResultGroup() const {
-    return !Step::isUnset(getSourceOfResultGroup());
+    return !m_sourceOfResultGroup.isUnset();
 }
 
 Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoadGroupFor() {
@@ -233,7 +233,7 @@ const Inverse_Set_IfcStructuralAnalysisModel_0_n &IfcStructuralLoadGroup::getLoa
 }
 
 bool IfcStructuralLoadGroup::testLoadGroupFor() const {
-    return !Step::isUnset(getLoadGroupFor());
+    return !m_loadGroupFor.isUnset();
 }
 
 bool IfcStructuralLoadGroup::init() {

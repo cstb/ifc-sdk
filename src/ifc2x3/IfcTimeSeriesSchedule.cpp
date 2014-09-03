@@ -92,7 +92,7 @@ void IfcTimeSeriesSchedule::unsetApplicableDates() {
 }
 
 bool IfcTimeSeriesSchedule::testApplicableDates() const {
-    return !Step::isUnset(getApplicableDates());
+    return !m_applicableDates.isUnset();
 }
 
 IfcTimeSeriesScheduleTypeEnum IfcTimeSeriesSchedule::getTimeSeriesScheduleType() {

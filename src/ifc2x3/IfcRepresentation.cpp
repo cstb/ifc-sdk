@@ -180,7 +180,7 @@ void IfcRepresentation::unsetItems() {
 }
 
 bool IfcRepresentation::testItems() const {
-    return !Step::isUnset(getItems());
+    return !m_items.isUnset();
 }
 
 Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentationMap() {
@@ -199,7 +199,7 @@ const Inverse_Set_IfcRepresentationMap_0_1 &IfcRepresentation::getRepresentation
 }
 
 bool IfcRepresentation::testRepresentationMap() const {
-    return !Step::isUnset(getRepresentationMap());
+    return !m_representationMap.isUnset();
 }
 
 Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLayerAssignments() {
@@ -218,7 +218,7 @@ const Inverse_Set_IfcPresentationLayerAssignment_0_n &IfcRepresentation::getLaye
 }
 
 bool IfcRepresentation::testLayerAssignments() const {
-    return !Step::isUnset(getLayerAssignments());
+    return !m_layerAssignments.isUnset();
 }
 
 Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductRepresentation() {
@@ -237,7 +237,7 @@ const Inverse_Set_IfcProductRepresentation_0_1 &IfcRepresentation::getOfProductR
 }
 
 bool IfcRepresentation::testOfProductRepresentation() const {
-    return !Step::isUnset(getOfProductRepresentation());
+    return !m_ofProductRepresentation.isUnset();
 }
 
 bool IfcRepresentation::init() {

@@ -87,7 +87,7 @@ namespace Step {
         /*!
          \short Map of ClientData, the key is an uintptr_t
          */
-        std::map<ClientDataKey, RefPtr<ClientData> > m_clientDataMap;
+        std::map<ClientDataKey, RefPtr<ClientData> > *m_clientDataMap;
     };
 }
 #endif

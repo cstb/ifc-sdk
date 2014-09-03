@@ -90,7 +90,7 @@ void IfcMaterialClassificationRelationship::unsetMaterialClassifications() {
 }
 
 bool IfcMaterialClassificationRelationship::testMaterialClassifications() const {
-    return !Step::isUnset(getMaterialClassifications());
+    return !m_materialClassifications.isUnset();
 }
 
 IfcMaterial *IfcMaterialClassificationRelationship::getClassifiedMaterial() {

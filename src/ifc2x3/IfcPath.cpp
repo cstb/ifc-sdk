@@ -87,7 +87,7 @@ void IfcPath::unsetEdgeList() {
 }
 
 bool IfcPath::testEdgeList() const {
-    return !Step::isUnset(getEdgeList());
+    return !m_edgeList.isUnset();
 }
 
 bool IfcPath::init() {

@@ -106,7 +106,7 @@ const Inverse_Set_IfcRelAssignsToActor_0_n &IfcActor::getIsActingUpon() const {
 }
 
 bool IfcActor::testIsActingUpon() const {
-    return !Step::isUnset(getIsActingUpon());
+    return !m_isActingUpon.isUnset();
 }
 
 bool IfcActor::init() {

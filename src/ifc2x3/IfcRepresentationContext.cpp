@@ -132,7 +132,7 @@ const Inverse_Set_IfcRepresentation_0_n &IfcRepresentationContext::getRepresenta
 }
 
 bool IfcRepresentationContext::testRepresentationsInContext() const {
-    return !Step::isUnset(getRepresentationsInContext());
+    return !m_representationsInContext.isUnset();
 }
 
 bool IfcRepresentationContext::init() {

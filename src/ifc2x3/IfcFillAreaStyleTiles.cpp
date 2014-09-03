@@ -117,7 +117,7 @@ void IfcFillAreaStyleTiles::unsetTiles() {
 }
 
 bool IfcFillAreaStyleTiles::testTiles() const {
-    return !Step::isUnset(getTiles());
+    return !m_tiles.isUnset();
 }
 
 IfcPositiveRatioMeasure IfcFillAreaStyleTiles::getTilingScale() {

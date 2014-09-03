@@ -122,7 +122,7 @@ void IfcConstraintClassificationRelationship::unsetRelatedClassifications() {
 }
 
 bool IfcConstraintClassificationRelationship::testRelatedClassifications() const {
-    return !Step::isUnset(getRelatedClassifications());
+    return !m_relatedClassifications.isUnset();
 }
 
 bool IfcConstraintClassificationRelationship::init() {

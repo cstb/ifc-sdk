@@ -48,14 +48,14 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     _errors.clear();
 
-    std::streamsize bufferLength=0 ;
+    size_t bufferLength=0 ;
     char* buffer=0;
 
     if(inMemory)
     {
         bufferLength = inputSize;
         buffer = new char[bufferLength];
-        input.read(buffer,bufferLength);
+        input.read(buffer,(streamsize)bufferLength);
     }
     else
     {
@@ -79,6 +79,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             delete[] buffer;
             return false;
         }
+        else if (_callback && _callback->stop())
+        {
+            delete[] buffer;
+            return false;
+        }
     }
     else
     {
@@ -93,6 +98,12 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             delete[] buffer;
             return false;
         }
+        else if (_callback && _callback->stop())
+        {
+            delete[] buffer;
+            return false;
+        }
+
     }
 
     if(_callback)
@@ -119,6 +130,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             delete[] buffer;
             return false;
         }
+        else if (_callback && _callback->stop())
+        {
+            delete[] buffer;
+            return false;
+        }
     }
     else
     {
@@ -132,6 +148,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                 // set to end
                 _callback->setProgress(inputSize);
             }
+            delete[] buffer;
+            return false;
+        }
+        else if (_callback && _callback->stop())
+        {
             delete[] buffer;
             return false;
         }
@@ -170,6 +191,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                 delete[] buffer;
                 return false;
             }
+            else if (_callback && _callback->stop())
+            {
+                delete[] buffer;
+                return false;
+            }
         }
         else
         {
@@ -182,6 +208,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                     // set to end
                     _callback->setProgress(inputSize);
                 }
+                delete[] buffer;
+                return false;
+            }
+            else if (_callback && _callback->stop())
+            {
                 delete[] buffer;
                 return false;
             }
@@ -245,6 +276,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
             delete[] buffer;
             return false;
         }
+        else if (_callback && _callback->stop())
+        {
+            delete[] buffer;
+            return false;
+        }
     }
     else
     {
@@ -259,6 +295,11 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
                 _callback->setProgress(inputSize);
 
             }
+            delete[] buffer;
+            return false;
+        }
+        else if (_callback && _callback->stop())
+        {
             delete[] buffer;
             return false;
         }

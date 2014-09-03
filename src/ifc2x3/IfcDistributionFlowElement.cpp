@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelFlowControlElements_0_1 &IfcDistributionFlowElement::get
 }
 
 bool IfcDistributionFlowElement::testHasControlElements() const {
-    return !Step::isUnset(getHasControlElements());
+    return !m_hasControlElements.isUnset();
 }
 
 bool IfcDistributionFlowElement::init() {

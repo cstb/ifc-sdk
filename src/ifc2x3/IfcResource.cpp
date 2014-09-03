@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelAssignsToResource_0_n &IfcResource::getResourceOf() cons
 }
 
 bool IfcResource::testResourceOf() const {
-    return !Step::isUnset(getResourceOf());
+    return !m_resourceOf.isUnset();
 }
 
 bool IfcResource::init() {

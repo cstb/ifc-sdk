@@ -87,7 +87,7 @@ void IfcFacetedBrepWithVoids::unsetVoids() {
 }
 
 bool IfcFacetedBrepWithVoids::testVoids() const {
-    return !Step::isUnset(getVoids());
+    return !m_voids.isUnset();
 }
 
 bool IfcFacetedBrepWithVoids::init() {
