@@ -91,7 +91,7 @@ void IfcPropertyListValue::unsetListValues() {
 }
 
 bool IfcPropertyListValue::testListValues() const {
-    return !Step::isUnset(getListValues());
+    return !m_listValues.isUnset();
 }
 
 IfcUnit *IfcPropertyListValue::getUnit() {

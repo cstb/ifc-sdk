@@ -115,7 +115,7 @@ void IfcElementQuantity::unsetQuantities() {
 }
 
 bool IfcElementQuantity::testQuantities() const {
-    return !Step::isUnset(getQuantities());
+    return !m_quantities.isUnset();
 }
 
 bool IfcElementQuantity::init() {

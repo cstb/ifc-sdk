@@ -110,7 +110,7 @@ void IfcVirtualGridIntersection::unsetIntersectingAxes() {
 }
 
 bool IfcVirtualGridIntersection::testIntersectingAxes() const {
-    return !Step::isUnset(getIntersectingAxes());
+    return !m_intersectingAxes.isUnset();
 }
 
 List_IfcLengthMeasure_2_3 &IfcVirtualGridIntersection::getOffsetDistances() {
@@ -138,7 +138,7 @@ void IfcVirtualGridIntersection::unsetOffsetDistances() {
 }
 
 bool IfcVirtualGridIntersection::testOffsetDistances() const {
-    return !Step::isUnset(getOffsetDistances());
+    return !m_offsetDistances.isUnset();
 }
 
 bool IfcVirtualGridIntersection::init() {

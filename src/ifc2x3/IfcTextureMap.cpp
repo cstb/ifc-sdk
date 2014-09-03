@@ -87,7 +87,7 @@ void IfcTextureMap::unsetTextureMaps() {
 }
 
 bool IfcTextureMap::testTextureMaps() const {
-    return !Step::isUnset(getTextureMaps());
+    return !m_textureMaps.isUnset();
 }
 
 bool IfcTextureMap::init() {

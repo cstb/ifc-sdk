@@ -148,7 +148,7 @@ void IfcInventory::unsetResponsiblePersons() {
 }
 
 bool IfcInventory::testResponsiblePersons() const {
-    return !Step::isUnset(getResponsiblePersons());
+    return !m_responsiblePersons.isUnset();
 }
 
 IfcCalendarDate *IfcInventory::getLastUpdateDate() {

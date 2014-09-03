@@ -190,7 +190,7 @@ const Inverse_Set_IfcGeometricRepresentationSubContext_0_n &IfcGeometricRepresen
 }
 
 bool IfcGeometricRepresentationContext::testHasSubContexts() const {
-    return !Step::isUnset(getHasSubContexts());
+    return !m_hasSubContexts.isUnset();
 }
 
 bool IfcGeometricRepresentationContext::init() {

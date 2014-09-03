@@ -90,7 +90,7 @@ void IfcConstructionMaterialResource::unsetSuppliers() {
 }
 
 bool IfcConstructionMaterialResource::testSuppliers() const {
-    return !Step::isUnset(getSuppliers());
+    return !m_suppliers.isUnset();
 }
 
 IfcRatioMeasure IfcConstructionMaterialResource::getUsageRatio() {

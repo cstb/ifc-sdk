@@ -87,7 +87,7 @@ void IfcClassificationNotation::unsetNotationFacets() {
 }
 
 bool IfcClassificationNotation::testNotationFacets() const {
-    return !Step::isUnset(getNotationFacets());
+    return !m_notationFacets.isUnset();
 }
 
 bool IfcClassificationNotation::init() {

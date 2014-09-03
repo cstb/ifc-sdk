@@ -152,7 +152,7 @@ void IfcWorkControl::unsetCreators() {
 }
 
 bool IfcWorkControl::testCreators() const {
-    return !Step::isUnset(getCreators());
+    return !m_creators.isUnset();
 }
 
 IfcLabel IfcWorkControl::getPurpose() {

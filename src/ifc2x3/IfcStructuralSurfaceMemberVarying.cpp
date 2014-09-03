@@ -88,7 +88,7 @@ void IfcStructuralSurfaceMemberVarying::unsetSubsequentThickness() {
 }
 
 bool IfcStructuralSurfaceMemberVarying::testSubsequentThickness() const {
-    return !Step::isUnset(getSubsequentThickness());
+    return !m_subsequentThickness.isUnset();
 }
 
 IfcShapeAspect *IfcStructuralSurfaceMemberVarying::getVaryingThicknessLocation() {

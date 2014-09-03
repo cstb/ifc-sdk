@@ -93,7 +93,7 @@ void IfcTextStyleFontModel::unsetFontFamily() {
 }
 
 bool IfcTextStyleFontModel::testFontFamily() const {
-    return !Step::isUnset(getFontFamily());
+    return !m_fontFamily.isUnset();
 }
 
 IfcFontStyle IfcTextStyleFontModel::getFontStyle() {

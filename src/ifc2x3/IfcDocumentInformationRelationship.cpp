@@ -145,7 +145,7 @@ void IfcDocumentInformationRelationship::unsetRelatedDocuments() {
 }
 
 bool IfcDocumentInformationRelationship::testRelatedDocuments() const {
-    return !Step::isUnset(getRelatedDocuments());
+    return !m_relatedDocuments.isUnset();
 }
 
 IfcLabel IfcDocumentInformationRelationship::getRelationshipType() {

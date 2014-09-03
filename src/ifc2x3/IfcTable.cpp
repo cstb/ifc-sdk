@@ -138,7 +138,7 @@ void IfcTable::unsetRows() {
 }
 
 bool IfcTable::testRows() const {
-    return !Step::isUnset(getRows());
+    return !m_rows.isUnset();
 }
 
 bool IfcTable::init() {

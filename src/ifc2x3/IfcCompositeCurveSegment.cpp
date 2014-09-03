@@ -161,7 +161,7 @@ const Inverse_Set_IfcCompositeCurve_1_n &IfcCompositeCurveSegment::getUsingCurve
 }
 
 bool IfcCompositeCurveSegment::testUsingCurves() const {
-    return !Step::isUnset(getUsingCurves());
+    return !m_usingCurves.isUnset();
 }
 
 bool IfcCompositeCurveSegment::init() {

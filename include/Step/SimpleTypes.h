@@ -80,57 +80,6 @@ namespace Step {
 
     class BaseObject;
 
-    /*!
-     \short Base Class for Aggregations which need a flag 'unset'
-     This flag is used to distinguish a parameter with an empty list from an unset parameter
-     */
-    class Aggregate: public Referenced
-    {
-
-    public:
-
-        /*!
-         \short Constructor from a flag
-         @param b the 'unset' flag
-         */
-        Aggregate(bool b = false) :
-            m_unset(b)
-        {
-        }
-
-        /*!
-         \short Gets the 'unset' flag
-         @return the 'unset' flag
-         */
-        bool isUnset() const
-        {
-            return m_unset;
-        }
-
-        /*!
-         \short Sets the 'unset' flag
-         @param b the 'unset' flag
-         */
-        void setUnset(bool b)
-        {
-            m_unset = b;
-        }
-
-        /*!
-         \short Toggle the 'unset' flag
-         @return The new state of the 'unset' flag
-         */
-        bool toggleUnset()
-        {
-            m_unset = !m_unset;
-            return m_unset;
-        }
-
-    protected:
-        //! store if the unset status
-        bool m_unset;
-    };
-
     //! getUnset values the String type
     inline const String& getUnset(const String&)
     {
@@ -245,12 +194,6 @@ namespace Step {
     inline bool isUnset(const Binary<N>& v)
     {
         return v.is_unset();
-    }
-
-    //! isUnset method for the Aggregate type
-    inline bool isUnset(const Step::Aggregate& u)
-    {
-        return u.isUnset();
     }
 
     //! isUnset method for the RefPtr type

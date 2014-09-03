@@ -141,7 +141,7 @@ void IfcSoundProperties::unsetSoundValues() {
 }
 
 bool IfcSoundProperties::testSoundValues() const {
-    return !Step::isUnset(getSoundValues());
+    return !m_soundValues.isUnset();
 }
 
 bool IfcSoundProperties::init() {

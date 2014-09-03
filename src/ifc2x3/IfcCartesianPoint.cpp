@@ -84,7 +84,7 @@ void IfcCartesianPoint::unsetCoordinates() {
 }
 
 bool IfcCartesianPoint::testCoordinates() const {
-    return !Step::isUnset(getCoordinates());
+    return !m_coordinates.isUnset();
 }
 
 bool IfcCartesianPoint::init() {

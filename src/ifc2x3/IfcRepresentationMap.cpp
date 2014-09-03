@@ -142,7 +142,7 @@ const Inverse_Set_IfcMappedItem_0_n &IfcRepresentationMap::getMapUsage() const {
 }
 
 bool IfcRepresentationMap::testMapUsage() const {
-    return !Step::isUnset(getMapUsage());
+    return !m_mapUsage.isUnset();
 }
 
 bool IfcRepresentationMap::init() {

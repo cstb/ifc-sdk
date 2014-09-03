@@ -122,7 +122,7 @@ void IfcRelAssociates::unsetRelatedObjects() {
 }
 
 bool IfcRelAssociates::testRelatedObjects() const {
-    return !Step::isUnset(getRelatedObjects());
+    return !m_relatedObjects.isUnset();
 }
 
 bool IfcRelAssociates::init() {

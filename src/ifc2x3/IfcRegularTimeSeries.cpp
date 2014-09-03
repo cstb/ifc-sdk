@@ -114,7 +114,7 @@ void IfcRegularTimeSeries::unsetValues() {
 }
 
 bool IfcRegularTimeSeries::testValues() const {
-    return !Step::isUnset(getValues());
+    return !m_values.isUnset();
 }
 
 bool IfcRegularTimeSeries::init() {

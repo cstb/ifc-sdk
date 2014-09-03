@@ -92,7 +92,7 @@ void IfcSite::unsetRefLatitude() {
 }
 
 bool IfcSite::testRefLatitude() const {
-    return !Step::isUnset(getRefLatitude());
+    return !m_refLatitude.isUnset();
 }
 
 IfcCompoundPlaneAngleMeasure &IfcSite::getRefLongitude() {
@@ -119,7 +119,7 @@ void IfcSite::unsetRefLongitude() {
 }
 
 bool IfcSite::testRefLongitude() const {
-    return !Step::isUnset(getRefLongitude());
+    return !m_refLongitude.isUnset();
 }
 
 IfcLengthMeasure IfcSite::getRefElevation() {

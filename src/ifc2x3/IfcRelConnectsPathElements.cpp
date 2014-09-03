@@ -86,7 +86,7 @@ void IfcRelConnectsPathElements::unsetRelatingPriorities() {
 }
 
 bool IfcRelConnectsPathElements::testRelatingPriorities() const {
-    return !Step::isUnset(getRelatingPriorities());
+    return !m_relatingPriorities.isUnset();
 }
 
 List_Integer_0_n &IfcRelConnectsPathElements::getRelatedPriorities() {
@@ -114,7 +114,7 @@ void IfcRelConnectsPathElements::unsetRelatedPriorities() {
 }
 
 bool IfcRelConnectsPathElements::testRelatedPriorities() const {
-    return !Step::isUnset(getRelatedPriorities());
+    return !m_relatedPriorities.isUnset();
 }
 
 IfcConnectionTypeEnum IfcRelConnectsPathElements::getRelatedConnectionType() {

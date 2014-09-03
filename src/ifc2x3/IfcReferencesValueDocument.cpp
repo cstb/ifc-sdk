@@ -142,7 +142,7 @@ void IfcReferencesValueDocument::unsetReferencingValues() {
 }
 
 bool IfcReferencesValueDocument::testReferencingValues() const {
-    return !Step::isUnset(getReferencingValues());
+    return !m_referencingValues.isUnset();
 }
 
 IfcLabel IfcReferencesValueDocument::getName() {

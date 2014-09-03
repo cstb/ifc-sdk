@@ -107,7 +107,7 @@ const Inverse_Set_IfcRelConnectsStructuralMember_1_n &IfcStructuralConnection::g
 }
 
 bool IfcStructuralConnection::testConnectsStructuralMembers() const {
-    return !Step::isUnset(getConnectsStructuralMembers());
+    return !m_connectsStructuralMembers.isUnset();
 }
 
 bool IfcStructuralConnection::init() {

@@ -92,7 +92,7 @@ void IfcTableRow::unsetRowCells() {
 }
 
 bool IfcTableRow::testRowCells() const {
-    return !Step::isUnset(getRowCells());
+    return !m_rowCells.isUnset();
 }
 
 Step::Boolean IfcTableRow::getIsHeading() {

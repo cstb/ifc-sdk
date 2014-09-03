@@ -88,7 +88,7 @@ void IfcProjectOrderRecord::unsetRecords() {
 }
 
 bool IfcProjectOrderRecord::testRecords() const {
-    return !Step::isUnset(getRecords());
+    return !m_records.isUnset();
 }
 
 IfcProjectOrderRecordTypeEnum IfcProjectOrderRecord::getPredefinedType() {

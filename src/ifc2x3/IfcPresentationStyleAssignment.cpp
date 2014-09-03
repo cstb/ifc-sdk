@@ -88,7 +88,7 @@ void IfcPresentationStyleAssignment::unsetStyles() {
 }
 
 bool IfcPresentationStyleAssignment::testStyles() const {
-    return !Step::isUnset(getStyles());
+    return !m_styles.isUnset();
 }
 
 bool IfcPresentationStyleAssignment::init() {

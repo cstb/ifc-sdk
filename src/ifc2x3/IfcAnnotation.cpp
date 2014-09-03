@@ -77,7 +77,7 @@ const Inverse_Set_IfcRelContainedInSpatialStructure_0_1 &IfcAnnotation::getConta
 }
 
 bool IfcAnnotation::testContainedInStructure() const {
-    return !Step::isUnset(getContainedInStructure());
+    return !m_containedInStructure.isUnset();
 }
 
 bool IfcAnnotation::init() {

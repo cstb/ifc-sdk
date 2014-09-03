@@ -195,7 +195,7 @@ void IfcStructuralAnalysisModel::unsetLoadedBy() {
 }
 
 bool IfcStructuralAnalysisModel::testLoadedBy() const {
-    return !Step::isUnset(getLoadedBy());
+    return !m_loadedBy.isUnset();
 }
 
 Set_IfcStructuralResultGroup_1_n &IfcStructuralAnalysisModel::getHasResults() {
@@ -219,7 +219,7 @@ void IfcStructuralAnalysisModel::unsetHasResults() {
 }
 
 bool IfcStructuralAnalysisModel::testHasResults() const {
-    return !Step::isUnset(getHasResults());
+    return !m_hasResults.isUnset();
 }
 
 bool IfcStructuralAnalysisModel::init() {

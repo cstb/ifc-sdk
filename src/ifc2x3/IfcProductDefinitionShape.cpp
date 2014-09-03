@@ -78,7 +78,7 @@ const Inverse_Set_IfcProduct_1_n &IfcProductDefinitionShape::getShapeOfProduct()
 }
 
 bool IfcProductDefinitionShape::testShapeOfProduct() const {
-    return !Step::isUnset(getShapeOfProduct());
+    return !m_shapeOfProduct.isUnset();
 }
 
 Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspects() {
@@ -97,7 +97,7 @@ const Inverse_Set_IfcShapeAspect_0_n &IfcProductDefinitionShape::getHasShapeAspe
 }
 
 bool IfcProductDefinitionShape::testHasShapeAspects() const {
-    return !Step::isUnset(getHasShapeAspects());
+    return !m_hasShapeAspects.isUnset();
 }
 
 bool IfcProductDefinitionShape::init() {

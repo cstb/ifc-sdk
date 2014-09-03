@@ -115,7 +115,7 @@ void IfcStructuralLinearActionVarying::unsetSubsequentAppliedLoads() {
 }
 
 bool IfcStructuralLinearActionVarying::testSubsequentAppliedLoads() const {
-    return !Step::isUnset(getSubsequentAppliedLoads());
+    return !m_subsequentAppliedLoads.isUnset();
 }
 
 bool IfcStructuralLinearActionVarying::init() {

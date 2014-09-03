@@ -143,7 +143,7 @@ void IfcClassificationItemRelationship::unsetRelatedItems() {
 }
 
 bool IfcClassificationItemRelationship::testRelatedItems() const {
-    return !Step::isUnset(getRelatedItems());
+    return !m_relatedItems.isUnset();
 }
 
 bool IfcClassificationItemRelationship::init() {

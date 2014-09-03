@@ -198,7 +198,7 @@ void IfcOrganizationRelationship::unsetRelatedOrganizations() {
 }
 
 bool IfcOrganizationRelationship::testRelatedOrganizations() const {
-    return !Step::isUnset(getRelatedOrganizations());
+    return !m_relatedOrganizations.isUnset();
 }
 
 bool IfcOrganizationRelationship::init() {
