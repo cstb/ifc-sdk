@@ -18091,15 +18091,6 @@ bool SPFWriter::visitIfcGeometricRepresentationSubContext(IfcGeometricRepresenta
     else {
         writeAttribute(value->getContextType());
     }
-    outputStream() << ",";
-    outputStream() << "*";
-    outputStream() << ",";
-    outputStream() << "*";
-    outputStream() << ",";
-    outputStream() << "*";
-    outputStream() << ",";
-    outputStream() << "*";
-    outputStream() << ",";
     if (Step::isUnset(value->getParentContext())) {
         outputStream() << "$";
     }
