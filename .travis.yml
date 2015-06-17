@@ -5,7 +5,7 @@ install:
     - sudo apt-get install cmake
 
 script:
-    mkdir build && cd build && cmake .. && make -j && make test
+    mkdir build && cd build && cmake .. && make && make test
 
 branches:
     only:
