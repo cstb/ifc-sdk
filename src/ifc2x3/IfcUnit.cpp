@@ -78,7 +78,9 @@ void IfcUnit::copy(const IfcUnit &obj, const CopyOp &copyop) {
     case IFCMONETARYUNIT:
         setIfcMonetaryUnit((IfcMonetaryUnit *) (copyop(obj.m_IfcUnit_union.m_IfcMonetaryUnit)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcUnit::currentTypeName() const {
@@ -112,7 +114,9 @@ void IfcUnit::deleteUnion() {
     case IFCMONETARYUNIT:
         m_IfcUnit_union.m_IfcMonetaryUnit->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

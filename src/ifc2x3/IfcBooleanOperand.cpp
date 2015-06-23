@@ -82,7 +82,9 @@ void IfcBooleanOperand::copy(const IfcBooleanOperand &obj, const CopyOp &copyop)
     case IFCCSGPRIMITIVE3D:
         setIfcCsgPrimitive3D((IfcCsgPrimitive3D *) (copyop(obj.m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcBooleanOperand::currentTypeName() const {
@@ -122,7 +124,9 @@ void IfcBooleanOperand::deleteUnion() {
     case IFCCSGPRIMITIVE3D:
         m_IfcBooleanOperand_union.m_IfcCsgPrimitive3D->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

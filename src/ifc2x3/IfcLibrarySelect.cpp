@@ -74,7 +74,9 @@ void IfcLibrarySelect::copy(const IfcLibrarySelect &obj, const CopyOp &copyop) {
     case IFCLIBRARYINFORMATION:
         setIfcLibraryInformation((IfcLibraryInformation *) (copyop(obj.m_IfcLibrarySelect_union.m_IfcLibraryInformation)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcLibrarySelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcLibrarySelect::deleteUnion() {
     case IFCLIBRARYINFORMATION:
         m_IfcLibrarySelect_union.m_IfcLibraryInformation->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -74,7 +74,9 @@ void IfcDocumentSelect::copy(const IfcDocumentSelect &obj, const CopyOp &copyop)
     case IFCDOCUMENTINFORMATION:
         setIfcDocumentInformation((IfcDocumentInformation *) (copyop(obj.m_IfcDocumentSelect_union.m_IfcDocumentInformation)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcDocumentSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcDocumentSelect::deleteUnion() {
     case IFCDOCUMENTINFORMATION:
         m_IfcDocumentSelect_union.m_IfcDocumentInformation->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

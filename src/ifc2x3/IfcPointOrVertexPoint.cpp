@@ -74,7 +74,9 @@ void IfcPointOrVertexPoint::copy(const IfcPointOrVertexPoint &obj, const CopyOp 
     case IFCVERTEXPOINT:
         setIfcVertexPoint((IfcVertexPoint *) (copyop(obj.m_IfcPointOrVertexPoint_union.m_IfcVertexPoint)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcPointOrVertexPoint::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcPointOrVertexPoint::deleteUnion() {
     case IFCVERTEXPOINT:
         m_IfcPointOrVertexPoint_union.m_IfcVertexPoint->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

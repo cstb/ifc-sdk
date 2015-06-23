@@ -74,7 +74,9 @@ void IfcShell::copy(const IfcShell &obj, const CopyOp &copyop) {
     case IFCOPENSHELL:
         setIfcOpenShell((IfcOpenShell *) (copyop(obj.m_IfcShell_union.m_IfcOpenShell)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcShell::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcShell::deleteUnion() {
     case IFCOPENSHELL:
         m_IfcShell_union.m_IfcOpenShell->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

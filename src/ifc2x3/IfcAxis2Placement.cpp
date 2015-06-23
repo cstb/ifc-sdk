@@ -74,7 +74,9 @@ void IfcAxis2Placement::copy(const IfcAxis2Placement &obj, const CopyOp &copyop)
     case IFCAXIS2PLACEMENT3D:
         setIfcAxis2Placement3D((IfcAxis2Placement3D *) (copyop(obj.m_IfcAxis2Placement_union.m_IfcAxis2Placement3D)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcAxis2Placement::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcAxis2Placement::deleteUnion() {
     case IFCAXIS2PLACEMENT3D:
         m_IfcAxis2Placement_union.m_IfcAxis2Placement3D->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -78,7 +78,9 @@ void IfcDraughtingCalloutElement::copy(const IfcDraughtingCalloutElement &obj, c
     case IFCANNOTATIONSYMBOLOCCURRENCE:
         setIfcAnnotationSymbolOccurrence((IfcAnnotationSymbolOccurrence *) (copyop(obj.m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcDraughtingCalloutElement::currentTypeName() const {
@@ -112,7 +114,9 @@ void IfcDraughtingCalloutElement::deleteUnion() {
     case IFCANNOTATIONSYMBOLOCCURRENCE:
         m_IfcDraughtingCalloutElement_union.m_IfcAnnotationSymbolOccurrence->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

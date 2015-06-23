@@ -74,7 +74,9 @@ void IfcCsgSelect::copy(const IfcCsgSelect &obj, const CopyOp &copyop) {
     case IFCCSGPRIMITIVE3D:
         setIfcCsgPrimitive3D((IfcCsgPrimitive3D *) (copyop(obj.m_IfcCsgSelect_union.m_IfcCsgPrimitive3D)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcCsgSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcCsgSelect::deleteUnion() {
     case IFCCSGPRIMITIVE3D:
         m_IfcCsgSelect_union.m_IfcCsgPrimitive3D->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -74,7 +74,9 @@ void IfcClassificationNotationSelect::copy(const IfcClassificationNotationSelect
     case IFCCLASSIFICATIONREFERENCE:
         setIfcClassificationReference((IfcClassificationReference *) (copyop(obj.m_IfcClassificationNotationSelect_union.m_IfcClassificationReference)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcClassificationNotationSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcClassificationNotationSelect::deleteUnion() {
     case IFCCLASSIFICATIONREFERENCE:
         m_IfcClassificationNotationSelect_union.m_IfcClassificationReference->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

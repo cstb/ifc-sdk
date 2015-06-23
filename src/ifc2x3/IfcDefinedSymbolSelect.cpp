@@ -74,7 +74,9 @@ void IfcDefinedSymbolSelect::copy(const IfcDefinedSymbolSelect &obj, const CopyO
     case IFCEXTERNALLYDEFINEDSYMBOL:
         setIfcExternallyDefinedSymbol((IfcExternallyDefinedSymbol *) (copyop(obj.m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcDefinedSymbolSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcDefinedSymbolSelect::deleteUnion() {
     case IFCEXTERNALLYDEFINEDSYMBOL:
         m_IfcDefinedSymbolSelect_union.m_IfcExternallyDefinedSymbol->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

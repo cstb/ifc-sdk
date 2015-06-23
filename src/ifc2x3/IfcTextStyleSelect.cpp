@@ -74,7 +74,9 @@ void IfcTextStyleSelect::copy(const IfcTextStyleSelect &obj, const CopyOp &copyo
     case IFCTEXTSTYLETEXTMODEL:
         setIfcTextStyleTextModel((IfcTextStyleTextModel *) (copyop(obj.m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcTextStyleSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcTextStyleSelect::deleteUnion() {
     case IFCTEXTSTYLETEXTMODEL:
         m_IfcTextStyleSelect_union.m_IfcTextStyleTextModel->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -74,7 +74,9 @@ void IfcLightDistributionDataSourceSelect::copy(const IfcLightDistributionDataSo
     case IFCLIGHTINTENSITYDISTRIBUTION:
         setIfcLightIntensityDistribution((IfcLightIntensityDistribution *) (copyop(obj.m_IfcLightDistributionDataSourceSelect_union.m_IfcLightIntensityDistribution)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcLightDistributionDataSourceSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcLightDistributionDataSourceSelect::deleteUnion() {
     case IFCLIGHTINTENSITYDISTRIBUTION:
         m_IfcLightDistributionDataSourceSelect_union.m_IfcLightIntensityDistribution->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

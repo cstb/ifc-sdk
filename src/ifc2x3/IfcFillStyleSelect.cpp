@@ -86,7 +86,9 @@ void IfcFillStyleSelect::copy(const IfcFillStyleSelect &obj, const CopyOp &copyo
     case IFCEXTERNALLYDEFINEDHATCHSTYLE:
         setIfcExternallyDefinedHatchStyle((IfcExternallyDefinedHatchStyle *) (copyop(obj.m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcFillStyleSelect::currentTypeName() const {
@@ -132,7 +134,9 @@ void IfcFillStyleSelect::deleteUnion() {
     case IFCEXTERNALLYDEFINEDHATCHSTYLE:
         m_IfcFillStyleSelect_union.m_IfcExternallyDefinedHatchStyle->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

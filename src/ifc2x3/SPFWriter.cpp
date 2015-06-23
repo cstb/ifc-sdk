@@ -864,7 +864,9 @@ void SPFWriter::writeIfcActorSelect(IfcActorSelect *selectData) {
     case IfcActorSelect::IFCPERSONANDORGANIZATION:
         writeAttribute(selectData->getIfcPersonAndOrganization());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcActor(IfcActor *value) {
@@ -985,7 +987,9 @@ void SPFWriter::writeIfcRoleEnum(IfcRoleEnum enumData) {
     case IfcRoleEnum_USERDEFINED:
         outputStream() << ".USERDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcActorRole(IfcActorRole *value) {
@@ -1037,7 +1041,9 @@ void SPFWriter::writeIfcActuatorTypeEnum(IfcActuatorTypeEnum enumData) {
     case IfcActuatorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcActuatorType(IfcActuatorType *value) {
@@ -1154,7 +1160,9 @@ void SPFWriter::writeIfcAddressTypeEnum(IfcAddressTypeEnum enumData) {
     case IfcAddressTypeEnum_USERDEFINED:
         outputStream() << ".USERDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAddress(IfcAddress *value) {
@@ -1200,7 +1208,9 @@ void SPFWriter::writeIfcAirTerminalBoxTypeEnum(IfcAirTerminalBoxTypeEnum enumDat
     case IfcAirTerminalBoxTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAirTerminalBoxType(IfcAirTerminalBoxType *value) {
@@ -1329,7 +1339,9 @@ void SPFWriter::writeIfcAirTerminalTypeEnum(IfcAirTerminalTypeEnum enumData) {
     case IfcAirTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAirTerminalType(IfcAirTerminalType *value) {
@@ -1464,7 +1476,9 @@ void SPFWriter::writeIfcAirToAirHeatRecoveryTypeEnum(IfcAirToAirHeatRecoveryType
     case IfcAirToAirHeatRecoveryTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryType *value) {
@@ -1590,7 +1604,9 @@ void SPFWriter::writeIfcAlarmTypeEnum(IfcAlarmTypeEnum enumData) {
     case IfcAlarmTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAlarmType(IfcAlarmType *value) {
@@ -1701,7 +1717,9 @@ void SPFWriter::writeIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *se
     case IfcDraughtingCalloutElement::IFCANNOTATIONSYMBOLOCCURRENCE:
         writeAttribute(selectData->getIfcAnnotationSymbolOccurrence());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAngularDimension(IfcAngularDimension *value) {
@@ -1856,7 +1874,9 @@ void SPFWriter::writeIfcGlobalOrLocalEnum(IfcGlobalOrLocalEnum enumData) {
     case IfcGlobalOrLocalEnum_LOCAL_COORDS:
         outputStream() << ".LOCAL_COORDS.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAnnotationFillAreaOccurrence(IfcAnnotationFillAreaOccurrence *value) {
@@ -2125,7 +2145,9 @@ void SPFWriter::writeIfcAppliedValueSelect(IfcAppliedValueSelect *selectData) {
         writeAttribute(selectData->getIfcMonetaryMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDateTimeSelect(IfcDateTimeSelect *selectData) {
@@ -2139,7 +2161,9 @@ void SPFWriter::writeIfcDateTimeSelect(IfcDateTimeSelect *selectData) {
     case IfcDateTimeSelect::IFCDATEANDTIME:
         writeAttribute(selectData->getIfcDateAndTime());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAppliedValue(IfcAppliedValue *value) {
@@ -2203,7 +2227,9 @@ void SPFWriter::writeIfcArithmeticOperatorEnum(IfcArithmeticOperatorEnum enumDat
     case IfcArithmeticOperatorEnum_SUBTRACT:
         outputStream() << ".SUBTRACT.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value) {
@@ -2408,7 +2434,9 @@ void SPFWriter::writeIfcProfileTypeEnum(IfcProfileTypeEnum enumData) {
     case IfcProfileTypeEnum_AREA:
         outputStream() << ".AREA.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcArbitraryClosedProfileDef(IfcArbitraryClosedProfileDef *value) {
@@ -2783,7 +2811,9 @@ void SPFWriter::writeIfcBSplineCurveForm(IfcBSplineCurveForm enumData) {
     case IfcBSplineCurveForm_UNSPECIFIED:
         outputStream() << ".UNSPECIFIED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBSplineCurve(IfcBSplineCurve *value) {
@@ -2918,7 +2948,9 @@ void SPFWriter::writeIfcBeamTypeEnum(IfcBeamTypeEnum enumData) {
     case IfcBeamTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBeamType(IfcBeamType *value) {
@@ -3098,7 +3130,9 @@ void SPFWriter::writeIfcSurfaceTextureEnum(IfcSurfaceTextureEnum enumData) {
     case IfcSurfaceTextureEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBlobTexture(IfcBlobTexture *value) {
@@ -3195,7 +3229,9 @@ void SPFWriter::writeIfcBoilerTypeEnum(IfcBoilerTypeEnum enumData) {
     case IfcBoilerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBoilerType(IfcBoilerType *value) {
@@ -3306,7 +3342,9 @@ void SPFWriter::writeIfcBooleanOperator(IfcBooleanOperator enumData) {
     case IfcBooleanOperator_DIFFERENCE:
         outputStream() << ".DIFFERENCE.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcBooleanOperand(IfcBooleanOperand *selectData) {
@@ -3323,7 +3361,9 @@ void SPFWriter::writeIfcBooleanOperand(IfcBooleanOperand *selectData) {
     case IfcBooleanOperand::IFCCSGPRIMITIVE3D:
         writeAttribute(selectData->getIfcCsgPrimitive3D());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBooleanClippingResult(IfcBooleanClippingResult *value) {
@@ -3674,7 +3714,9 @@ void SPFWriter::writeIfcElementCompositionEnum(IfcElementCompositionEnum enumDat
     case IfcElementCompositionEnum_PARTIAL:
         outputStream() << ".PARTIAL.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBuilding(IfcBuilding *value) {
@@ -4025,7 +4067,9 @@ void SPFWriter::writeIfcBuildingElementProxyTypeEnum(IfcBuildingElementProxyType
     case IfcBuildingElementProxyTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcBuildingElementProxyType(IfcBuildingElementProxyType *value) {
@@ -4378,7 +4422,9 @@ void SPFWriter::writeIfcCableCarrierFittingTypeEnum(IfcCableCarrierFittingTypeEn
     case IfcCableCarrierFittingTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCableCarrierFittingType(IfcCableCarrierFittingType *value) {
@@ -4498,7 +4544,9 @@ void SPFWriter::writeIfcCableCarrierSegmentTypeEnum(IfcCableCarrierSegmentTypeEn
     case IfcCableCarrierSegmentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCableCarrierSegmentType(IfcCableCarrierSegmentType *value) {
@@ -4612,7 +4660,9 @@ void SPFWriter::writeIfcCableSegmentTypeEnum(IfcCableSegmentTypeEnum enumData) {
     case IfcCableSegmentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCableSegmentType(IfcCableSegmentType *value) {
@@ -5093,7 +5143,9 @@ void SPFWriter::writeIfcChillerTypeEnum(IfcChillerTypeEnum enumData) {
     case IfcChillerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcChillerType(IfcChillerType *value) {
@@ -5201,7 +5253,9 @@ void SPFWriter::writeIfcAxis2Placement(IfcAxis2Placement *selectData) {
     case IfcAxis2Placement::IFCAXIS2PLACEMENT3D:
         writeAttribute(selectData->getIfcAxis2Placement3D());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCircle(IfcCircle *value) {
@@ -5502,7 +5556,9 @@ void SPFWriter::writeIfcCoilTypeEnum(IfcCoilTypeEnum enumData) {
     case IfcCoilTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCoilType(IfcCoilType *value) {
@@ -5719,7 +5775,9 @@ void SPFWriter::writeIfcColumnTypeEnum(IfcColumnTypeEnum enumData) {
     case IfcColumnTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcColumnType(IfcColumnType *value) {
@@ -5907,7 +5965,9 @@ void SPFWriter::writeIfcTransitionCode(IfcTransitionCode enumData) {
     case IfcTransitionCode_CONTSAMEGRADIENTSAMECURVATURE:
         outputStream() << ".CONTSAMEGRADIENTSAMECURVATURE.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCompositeCurveSegment(IfcCompositeCurveSegment *value) {
@@ -6033,7 +6093,9 @@ void SPFWriter::writeIfcCompressorTypeEnum(IfcCompressorTypeEnum enumData) {
     case IfcCompressorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCompressorType(IfcCompressorType *value) {
@@ -6159,7 +6221,9 @@ void SPFWriter::writeIfcCondenserTypeEnum(IfcCondenserTypeEnum enumData) {
     case IfcCondenserTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCondenserType(IfcCondenserType *value) {
@@ -6309,7 +6373,9 @@ void SPFWriter::writeIfcConditionCriterionSelect(IfcConditionCriterionSelect *se
     case IfcConditionCriterionSelect::IFCMEASUREWITHUNIT:
         writeAttribute(selectData->getIfcMeasureWithUnit());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConditionCriterion(IfcConditionCriterion *value) {
@@ -6409,7 +6475,9 @@ void SPFWriter::writeIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *selectData) {
     case IfcCurveOrEdgeCurve::IFCEDGECURVE:
         writeAttribute(selectData->getIfcEdgeCurve());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry *value) {
@@ -6445,7 +6513,9 @@ void SPFWriter::writeIfcPointOrVertexPoint(IfcPointOrVertexPoint *selectData) {
     case IfcPointOrVertexPoint::IFCVERTEXPOINT:
         writeAttribute(selectData->getIfcVertexPoint());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConnectionPointEccentricity(IfcConnectionPointEccentricity *value) {
@@ -6544,7 +6614,9 @@ void SPFWriter::writeIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *selectData
     case IfcSurfaceOrFaceSurface::IFCFACEBASEDSURFACEMODEL:
         writeAttribute(selectData->getIfcFaceBasedSurfaceModel());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeometry *value) {
@@ -6583,7 +6655,9 @@ void SPFWriter::writeIfcConstraintEnum(IfcConstraintEnum enumData) {
     case IfcConstraintEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConstraint(IfcConstraint *value) {
@@ -6648,7 +6722,9 @@ void SPFWriter::writeIfcLogicalOperatorEnum(IfcLogicalOperatorEnum enumData) {
     case IfcLogicalOperatorEnum_LOGICALOR:
         outputStream() << ".LOGICALOR.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value) {
@@ -6710,7 +6786,9 @@ void SPFWriter::writeIfcClassificationNotationSelect(IfcClassificationNotationSe
     case IfcClassificationNotationSelect::IFCCLASSIFICATIONREFERENCE:
         writeAttribute(selectData->getIfcClassificationReference());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value) {
@@ -6813,7 +6891,9 @@ void SPFWriter::writeIfcResourceConsumptionEnum(IfcResourceConsumptionEnum enumD
     case IfcResourceConsumptionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcConstructionEquipmentResource(IfcConstructionEquipmentResource *value) {
@@ -7205,7 +7285,9 @@ void SPFWriter::writeIfcUnitEnum(IfcUnitEnum enumData) {
     case IfcUnitEnum_USERDEFINED:
         outputStream() << ".USERDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcContextDependentUnit(IfcContextDependentUnit *value) {
@@ -7300,7 +7382,9 @@ void SPFWriter::writeIfcControllerTypeEnum(IfcControllerTypeEnum enumData) {
     case IfcControllerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcControllerType(IfcControllerType *value) {
@@ -7447,7 +7531,9 @@ void SPFWriter::writeIfcCooledBeamTypeEnum(IfcCooledBeamTypeEnum enumData) {
     case IfcCooledBeamTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCooledBeamType(IfcCooledBeamType *value) {
@@ -7564,7 +7650,9 @@ void SPFWriter::writeIfcCoolingTowerTypeEnum(IfcCoolingTowerTypeEnum enumData) {
     case IfcCoolingTowerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCoolingTowerType(IfcCoolingTowerType *value) {
@@ -7672,7 +7760,9 @@ void SPFWriter::writeIfcAheadOrBehind(IfcAheadOrBehind enumData) {
     case IfcAheadOrBehind_BEHIND:
         outputStream() << ".BEHIND.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value) {
@@ -7770,7 +7860,9 @@ void SPFWriter::writeIfcCostScheduleTypeEnum(IfcCostScheduleTypeEnum enumData) {
     case IfcCostScheduleTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCostSchedule(IfcCostSchedule *value) {
@@ -7973,7 +8065,9 @@ void SPFWriter::writeIfcCoveringTypeEnum(IfcCoveringTypeEnum enumData) {
     case IfcCoveringTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCovering(IfcCovering *value) {
@@ -8428,7 +8522,9 @@ void SPFWriter::writeIfcCsgSelect(IfcCsgSelect *selectData) {
     case IfcCsgSelect::IFCCSGPRIMITIVE3D:
         writeAttribute(selectData->getIfcCsgPrimitive3D());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCsgSolid(IfcCsgSolid *value) {
@@ -8552,7 +8648,9 @@ void SPFWriter::writeIfcCurtainWallTypeEnum(IfcCurtainWallTypeEnum enumData) {
     case IfcCurtainWallTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCurtainWallType(IfcCurtainWallType *value) {
@@ -8706,7 +8804,9 @@ void SPFWriter::writeIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCur
     case IfcCurveFontOrScaledCurveFontSelect::IFCCURVESTYLEFONTANDSCALING:
         writeAttribute(selectData->getIfcCurveStyleFontAndScaling());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcSizeSelect(IfcSizeSelect *selectData) {
@@ -8741,7 +8841,9 @@ void SPFWriter::writeIfcSizeSelect(IfcSizeSelect *selectData) {
         writeAttribute(selectData->getIfcPositiveRatioMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcColour(IfcColour *selectData) {
@@ -8752,7 +8854,9 @@ void SPFWriter::writeIfcColour(IfcColour *selectData) {
     case IfcColour::IFCPREDEFINEDCOLOUR:
         writeAttribute(selectData->getIfcPreDefinedColour());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCurveStyle(IfcCurveStyle *value) {
@@ -8826,7 +8930,9 @@ void SPFWriter::writeIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *selectData
     case IfcCurveStyleFontSelect::IFCCURVESTYLEFONT:
         writeAttribute(selectData->getIfcCurveStyleFont());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value) {
@@ -8915,7 +9021,9 @@ void SPFWriter::writeIfcDamperTypeEnum(IfcDamperTypeEnum enumData) {
     case IfcDamperTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDamperType(IfcDamperType *value) {
@@ -9042,7 +9150,9 @@ void SPFWriter::writeIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *selectData) 
     case IfcDefinedSymbolSelect::IFCEXTERNALLYDEFINEDSYMBOL:
         writeAttribute(selectData->getIfcExternallyDefinedSymbol());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDefinedSymbol(IfcDefinedSymbol *value) {
@@ -9253,7 +9363,9 @@ void SPFWriter::writeIfcDerivedUnitEnum(IfcDerivedUnitEnum enumData) {
     case IfcDerivedUnitEnum_USERDEFINED:
         outputStream() << ".USERDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDerivedUnit(IfcDerivedUnit *value) {
@@ -9436,7 +9548,9 @@ void SPFWriter::writeIfcDimensionExtentUsage(IfcDimensionExtentUsage enumData) {
     case IfcDimensionExtentUsage_TARGET:
         outputStream() << ".TARGET.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDimensionCurveTerminator(IfcDimensionCurveTerminator *value) {
@@ -9844,7 +9958,9 @@ void SPFWriter::writeIfcDistributionChamberElementTypeEnum(IfcDistributionChambe
     case IfcDistributionChamberElementTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDistributionChamberElementType(IfcDistributionChamberElementType *value) {
@@ -10418,7 +10534,9 @@ void SPFWriter::writeIfcFlowDirectionEnum(IfcFlowDirectionEnum enumData) {
     case IfcFlowDirectionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDistributionPort(IfcDistributionPort *value) {
@@ -10528,7 +10646,9 @@ void SPFWriter::writeIfcDocumentConfidentialityEnum(IfcDocumentConfidentialityEn
     case IfcDocumentConfidentialityEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDocumentStatusEnum(IfcDocumentStatusEnum enumData) {
@@ -10548,7 +10668,9 @@ void SPFWriter::writeIfcDocumentStatusEnum(IfcDocumentStatusEnum enumData) {
     case IfcDocumentStatusEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDocumentInformation(IfcDocumentInformation *value) {
@@ -10971,7 +11093,9 @@ void SPFWriter::writeIfcDoorPanelOperationEnum(IfcDoorPanelOperationEnum enumDat
     case IfcDoorPanelOperationEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDoorPanelPositionEnum(IfcDoorPanelPositionEnum enumData) {
@@ -10988,7 +11112,9 @@ void SPFWriter::writeIfcDoorPanelPositionEnum(IfcDoorPanelPositionEnum enumData)
     case IfcDoorPanelPositionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDoorPanelProperties(IfcDoorPanelProperties *value) {
@@ -11115,7 +11241,9 @@ void SPFWriter::writeIfcDoorStyleOperationEnum(IfcDoorStyleOperationEnum enumDat
     case IfcDoorStyleOperationEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDoorStyleConstructionEnum(IfcDoorStyleConstructionEnum enumData) {
@@ -11147,7 +11275,9 @@ void SPFWriter::writeIfcDoorStyleConstructionEnum(IfcDoorStyleConstructionEnum e
     case IfcDoorStyleConstructionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDoorStyle(IfcDoorStyle *value) {
@@ -11382,7 +11512,9 @@ void SPFWriter::writeIfcDuctFittingTypeEnum(IfcDuctFittingTypeEnum enumData) {
     case IfcDuctFittingTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDuctFittingType(IfcDuctFittingType *value) {
@@ -11496,7 +11628,9 @@ void SPFWriter::writeIfcDuctSegmentTypeEnum(IfcDuctSegmentTypeEnum enumData) {
     case IfcDuctSegmentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDuctSegmentType(IfcDuctSegmentType *value) {
@@ -11613,7 +11747,9 @@ void SPFWriter::writeIfcDuctSilencerTypeEnum(IfcDuctSilencerTypeEnum enumData) {
     case IfcDuctSilencerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcDuctSilencerType(IfcDuctSilencerType *value) {
@@ -11936,7 +12072,9 @@ void SPFWriter::writeIfcElectricApplianceTypeEnum(IfcElectricApplianceTypeEnum e
     case IfcElectricApplianceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricApplianceType(IfcElectricApplianceType *value) {
@@ -12071,7 +12209,9 @@ void SPFWriter::writeIfcElectricDistributionPointFunctionEnum(IfcElectricDistrib
     case IfcElectricDistributionPointFunctionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricDistributionPoint(IfcElectricDistributionPoint *value) {
@@ -12172,7 +12312,9 @@ void SPFWriter::writeIfcElectricFlowStorageDeviceTypeEnum(IfcElectricFlowStorage
     case IfcElectricFlowStorageDeviceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceType *value) {
@@ -12280,7 +12422,9 @@ void SPFWriter::writeIfcElectricGeneratorTypeEnum(IfcElectricGeneratorTypeEnum e
     case IfcElectricGeneratorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricGeneratorType(IfcElectricGeneratorType *value) {
@@ -12397,7 +12541,9 @@ void SPFWriter::writeIfcElectricHeaterTypeEnum(IfcElectricHeaterTypeEnum enumDat
     case IfcElectricHeaterTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricHeaterType(IfcElectricHeaterType *value) {
@@ -12520,7 +12666,9 @@ void SPFWriter::writeIfcElectricMotorTypeEnum(IfcElectricMotorTypeEnum enumData)
     case IfcElectricMotorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricMotorType(IfcElectricMotorType *value) {
@@ -12637,7 +12785,9 @@ void SPFWriter::writeIfcElectricTimeControlTypeEnum(IfcElectricTimeControlTypeEn
     case IfcElectricTimeControlTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricTimeControlType(IfcElectricTimeControlType *value) {
@@ -12757,7 +12907,9 @@ void SPFWriter::writeIfcEnergySequenceEnum(IfcEnergySequenceEnum enumData) {
     case IfcEnergySequenceEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcElectricCurrentEnum(IfcElectricCurrentEnum enumData) {
@@ -12771,7 +12923,9 @@ void SPFWriter::writeIfcElectricCurrentEnum(IfcElectricCurrentEnum enumData) {
     case IfcElectricCurrentEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElectricalBaseProperties(IfcElectricalBaseProperties *value) {
@@ -13050,7 +13204,9 @@ void SPFWriter::writeIfcAssemblyPlaceEnum(IfcAssemblyPlaceEnum enumData) {
     case IfcAssemblyPlaceEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcElementAssemblyTypeEnum(IfcElementAssemblyTypeEnum enumData) {
@@ -13088,7 +13244,9 @@ void SPFWriter::writeIfcElementAssemblyTypeEnum(IfcElementAssemblyTypeEnum enumD
     case IfcElementAssemblyTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcElementAssembly(IfcElementAssembly *value) {
@@ -13767,7 +13925,9 @@ void SPFWriter::writeIfcEnvironmentalImpactCategoryEnum(IfcEnvironmentalImpactCa
     case IfcEnvironmentalImpactCategoryEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcEnvironmentalImpactValue(IfcEnvironmentalImpactValue *value) {
@@ -13974,7 +14134,9 @@ void SPFWriter::writeIfcEvaporativeCoolerTypeEnum(IfcEvaporativeCoolerTypeEnum e
     case IfcEvaporativeCoolerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcEvaporativeCoolerType(IfcEvaporativeCoolerType *value) {
@@ -14097,7 +14259,9 @@ void SPFWriter::writeIfcEvaporatorTypeEnum(IfcEvaporatorTypeEnum enumData) {
     case IfcEvaporatorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcEvaporatorType(IfcEvaporatorType *value) {
@@ -14650,7 +14814,9 @@ void SPFWriter::writeIfcFanTypeEnum(IfcFanTypeEnum enumData) {
     case IfcFanTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFanType(IfcFanType *value) {
@@ -15101,7 +15267,9 @@ void SPFWriter::writeIfcFillStyleSelect(IfcFillStyleSelect *selectData) {
     case IfcFillStyleSelect::IFCEXTERNALLYDEFINEDHATCHSTYLE:
         writeAttribute(selectData->getIfcExternallyDefinedHatchStyle());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFillAreaStyle(IfcFillAreaStyle *value) {
@@ -15144,7 +15312,9 @@ void SPFWriter::writeIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *sele
         writeAttribute(selectData->getIfcPositiveLengthMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFillAreaStyleHatching(IfcFillAreaStyleHatching *value) {
@@ -15204,7 +15374,9 @@ void SPFWriter::writeIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSe
     case IfcFillAreaStyleTileShapeSelect::IFCFILLAREASTYLETILESYMBOLWITHSTYLE:
         writeAttribute(selectData->getIfcFillAreaStyleTileSymbolWithStyle());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFillAreaStyleTiles(IfcFillAreaStyleTiles *value) {
@@ -15267,7 +15439,9 @@ void SPFWriter::writeIfcFilterTypeEnum(IfcFilterTypeEnum enumData) {
     case IfcFilterTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFilterType(IfcFilterType *value) {
@@ -15390,7 +15564,9 @@ void SPFWriter::writeIfcFireSuppressionTerminalTypeEnum(IfcFireSuppressionTermin
     case IfcFireSuppressionTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFireSuppressionTerminalType(IfcFireSuppressionTerminalType *value) {
@@ -15824,7 +16000,9 @@ void SPFWriter::writeIfcFlowInstrumentTypeEnum(IfcFlowInstrumentTypeEnum enumDat
     case IfcFlowInstrumentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFlowInstrumentType(IfcFlowInstrumentType *value) {
@@ -15950,7 +16128,9 @@ void SPFWriter::writeIfcFlowMeterTypeEnum(IfcFlowMeterTypeEnum enumData) {
     case IfcFlowMeterTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFlowMeterType(IfcFlowMeterType *value) {
@@ -16834,7 +17014,9 @@ void SPFWriter::writeIfcPropertySourceEnum(IfcPropertySourceEnum enumData) {
     case IfcPropertySourceEnum_NOTKNOWN:
         outputStream() << ".NOTKNOWN.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDerivedMeasureValue(IfcDerivedMeasureValue *selectData) {
@@ -17190,7 +17372,9 @@ void SPFWriter::writeIfcDerivedMeasureValue(IfcDerivedMeasureValue *selectData) 
         writeAttribute(selectData->getIfcIonConcentrationMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFluidFlowProperties(IfcFluidFlowProperties *value) {
@@ -17351,7 +17535,9 @@ void SPFWriter::writeIfcFootingTypeEnum(IfcFootingTypeEnum enumData) {
     case IfcFootingTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcFooting(IfcFooting *value) {
@@ -17767,7 +17953,9 @@ void SPFWriter::writeIfcGasTerminalTypeEnum(IfcGasTerminalTypeEnum enumData) {
     case IfcGasTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcGasTerminalType(IfcGasTerminalType *value) {
@@ -17965,7 +18153,9 @@ void SPFWriter::writeIfcGeometricSetSelect(IfcGeometricSetSelect *selectData) {
     case IfcGeometricSetSelect::IFCSURFACE:
         writeAttribute(selectData->getIfcSurface());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcGeometricCurveSet(IfcGeometricCurveSet *value) {
@@ -18073,7 +18263,9 @@ void SPFWriter::writeIfcGeometricProjectionEnum(IfcGeometricProjectionEnum enumD
     case IfcGeometricProjectionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcGeometricRepresentationSubContext(IfcGeometricRepresentationSubContext *value) {
@@ -18380,7 +18572,9 @@ void SPFWriter::writeIfcHeatExchangerTypeEnum(IfcHeatExchangerTypeEnum enumData)
     case IfcHeatExchangerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcHeatExchangerType(IfcHeatExchangerType *value) {
@@ -18527,7 +18721,9 @@ void SPFWriter::writeIfcHumidifierTypeEnum(IfcHumidifierTypeEnum enumData) {
     case IfcHumidifierTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcHumidifierType(IfcHumidifierType *value) {
@@ -18792,7 +18988,9 @@ void SPFWriter::writeIfcInventoryTypeEnum(IfcInventoryTypeEnum enumData) {
     case IfcInventoryTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcInventory(IfcInventory *value) {
@@ -18911,7 +19109,9 @@ void SPFWriter::writeIfcTimeSeriesDataTypeEnum(IfcTimeSeriesDataTypeEnum enumDat
     case IfcTimeSeriesDataTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDataOriginEnum(IfcDataOriginEnum enumData) {
@@ -18931,7 +19131,9 @@ void SPFWriter::writeIfcDataOriginEnum(IfcDataOriginEnum enumData) {
     case IfcDataOriginEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcUnit(IfcUnit *selectData) {
@@ -18945,7 +19147,9 @@ void SPFWriter::writeIfcUnit(IfcUnit *selectData) {
     case IfcUnit::IFCMONETARYUNIT:
         writeAttribute(selectData->getIfcMonetaryUnit());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value) {
@@ -19536,7 +19740,9 @@ void SPFWriter::writeIfcValue(IfcValue *selectData) {
         writeAttribute(selectData->getIfcIonConcentrationMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value) {
@@ -19577,7 +19783,9 @@ void SPFWriter::writeIfcJunctionBoxTypeEnum(IfcJunctionBoxTypeEnum enumData) {
     case IfcJunctionBoxTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcJunctionBoxType(IfcJunctionBoxType *value) {
@@ -19860,7 +20068,9 @@ void SPFWriter::writeIfcLampTypeEnum(IfcLampTypeEnum enumData) {
     case IfcLampTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcLampType(IfcLampType *value) {
@@ -20099,7 +20309,9 @@ void SPFWriter::writeIfcLightFixtureTypeEnum(IfcLightFixtureTypeEnum enumData) {
     case IfcLightFixtureTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcLightFixtureType(IfcLightFixtureType *value) {
@@ -20213,7 +20425,9 @@ void SPFWriter::writeIfcLightDistributionCurveEnum(IfcLightDistributionCurveEnum
     case IfcLightDistributionCurveEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value) {
@@ -20387,7 +20601,9 @@ void SPFWriter::writeIfcLightEmissionSourceEnum(IfcLightEmissionSourceEnum enumD
     case IfcLightEmissionSourceEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *selectData) {
@@ -20398,7 +20614,9 @@ void SPFWriter::writeIfcLightDistributionDataSourceSelect(IfcLightDistributionDa
     case IfcLightDistributionDataSourceSelect::IFCLIGHTINTENSITYDISTRIBUTION:
         writeAttribute(selectData->getIfcLightIntensityDistribution());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcLightSourceGoniometric(IfcLightSourceGoniometric *value) {
@@ -20931,7 +21149,9 @@ void SPFWriter::writeIfcLayerSetDirectionEnum(IfcLayerSetDirectionEnum enumData)
     case IfcLayerSetDirectionEnum_AXIS3:
         outputStream() << ".AXIS3.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcDirectionSenseEnum(IfcDirectionSenseEnum enumData) {
@@ -20942,7 +21162,9 @@ void SPFWriter::writeIfcDirectionSenseEnum(IfcDirectionSenseEnum enumData) {
     case IfcDirectionSenseEnum_NEGATIVE:
         outputStream() << ".NEGATIVE.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) {
@@ -21545,7 +21767,9 @@ void SPFWriter::writeIfcMemberTypeEnum(IfcMemberTypeEnum enumData) {
     case IfcMemberTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcMemberType(IfcMemberType *value) {
@@ -21665,7 +21889,9 @@ void SPFWriter::writeIfcBenchmarkEnum(IfcBenchmarkEnum enumData) {
     case IfcBenchmarkEnum_NOTEQUALTO:
         outputStream() << ".NOTEQUALTO.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcMetricValueSelect(IfcMetricValueSelect *selectData) {
@@ -21696,7 +21922,9 @@ void SPFWriter::writeIfcMetricValueSelect(IfcMetricValueSelect *selectData) {
     case IfcMetricValueSelect::IFCCOSTVALUE:
         writeAttribute(selectData->getIfcCostValue());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcMetric(IfcMetric *value) {
@@ -22025,7 +22253,9 @@ void SPFWriter::writeIfcCurrencyEnum(IfcCurrencyEnum enumData) {
     case IfcCurrencyEnum_NOK:
         outputStream() << ".NOK.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcMonetaryUnit(IfcMonetaryUnit *value) {
@@ -22057,7 +22287,9 @@ void SPFWriter::writeIfcMotorConnectionTypeEnum(IfcMotorConnectionTypeEnum enumD
     case IfcMotorConnectionTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcMotorConnectionType(IfcMotorConnectionType *value) {
@@ -22388,7 +22620,9 @@ void SPFWriter::writeIfcObjectiveEnum(IfcObjectiveEnum enumData) {
     case IfcObjectiveEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcObjective(IfcObjective *value) {
@@ -22502,7 +22736,9 @@ void SPFWriter::writeIfcOccupantTypeEnum(IfcOccupantTypeEnum enumData) {
     case IfcOccupantTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcOccupant(IfcOccupant *value) {
@@ -23017,7 +23253,9 @@ void SPFWriter::writeIfcOutletTypeEnum(IfcOutletTypeEnum enumData) {
     case IfcOutletTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcOutletType(IfcOutletType *value) {
@@ -23134,7 +23372,9 @@ void SPFWriter::writeIfcStateEnum(IfcStateEnum enumData) {
     case IfcStateEnum_READONLYLOCKED:
         outputStream() << ".READONLYLOCKED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcChangeActionEnum(IfcChangeActionEnum enumData) {
@@ -23157,7 +23397,9 @@ void SPFWriter::writeIfcChangeActionEnum(IfcChangeActionEnum enumData) {
     case IfcChangeActionEnum_MODIFIEDDELETED:
         outputStream() << ".MODIFIEDDELETED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcOwnerHistory(IfcOwnerHistory *value) {
@@ -23334,7 +23576,9 @@ void SPFWriter::writeIfcPermeableCoveringOperationEnum(IfcPermeableCoveringOpera
     case IfcPermeableCoveringOperationEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcWindowPanelPositionEnum(IfcWindowPanelPositionEnum enumData) {
@@ -23357,7 +23601,9 @@ void SPFWriter::writeIfcWindowPanelPositionEnum(IfcWindowPanelPositionEnum enumD
     case IfcWindowPanelPositionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPermeableCoveringProperties(IfcPermeableCoveringProperties *value) {
@@ -23748,7 +23994,9 @@ void SPFWriter::writeIfcPileTypeEnum(IfcPileTypeEnum enumData) {
     case IfcPileTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcPileConstructionEnum(IfcPileConstructionEnum enumData) {
@@ -23771,7 +24019,9 @@ void SPFWriter::writeIfcPileConstructionEnum(IfcPileConstructionEnum enumData) {
     case IfcPileConstructionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPile(IfcPile *value) {
@@ -23878,7 +24128,9 @@ void SPFWriter::writeIfcPipeFittingTypeEnum(IfcPipeFittingTypeEnum enumData) {
     case IfcPipeFittingTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPipeFittingType(IfcPipeFittingType *value) {
@@ -23998,7 +24250,9 @@ void SPFWriter::writeIfcPipeSegmentTypeEnum(IfcPipeSegmentTypeEnum enumData) {
     case IfcPipeSegmentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPipeSegmentType(IfcPipeSegmentType *value) {
@@ -24314,7 +24568,9 @@ void SPFWriter::writeIfcPlateTypeEnum(IfcPlateTypeEnum enumData) {
     case IfcPlateTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPlateType(IfcPlateType *value) {
@@ -24788,7 +25044,9 @@ void SPFWriter::writeIfcLayeredItem(IfcLayeredItem *selectData) {
     case IfcLayeredItem::IFCREPRESENTATION:
         writeAttribute(selectData->getIfcRepresentation());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value) {
@@ -24857,7 +25115,9 @@ void SPFWriter::writeIfcPresentationStyleSelect(IfcPresentationStyleSelect *sele
     case IfcPresentationStyleSelect::IFCSURFACESTYLE:
         writeAttribute(selectData->getIfcSurfaceStyle());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcNullStyle(IfcNullStyle enumData) {
@@ -24865,7 +25125,9 @@ void SPFWriter::writeIfcNullStyle(IfcNullStyle enumData) {
     case IfcNullStyle_NULL:
         outputStream() << ".NULL.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPresentationLayerWithStyle(IfcPresentationLayerWithStyle *value) {
@@ -25015,7 +25277,9 @@ void SPFWriter::writeIfcProcedureTypeEnum(IfcProcedureTypeEnum enumData) {
     case IfcProcedureTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcProcedure(IfcProcedure *value) {
@@ -25427,7 +25691,9 @@ void SPFWriter::writeIfcProjectOrderTypeEnum(IfcProjectOrderTypeEnum enumData) {
     case IfcProjectOrderTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcProjectOrder(IfcProjectOrder *value) {
@@ -25514,7 +25780,9 @@ void SPFWriter::writeIfcProjectOrderRecordTypeEnum(IfcProjectOrderRecordTypeEnum
     case IfcProjectOrderRecordTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcProjectOrderRecord(IfcProjectOrderRecord *value) {
@@ -26022,7 +26290,9 @@ void SPFWriter::writeIfcObjectReferenceSelect(IfcObjectReferenceSelect *selectDa
     case IfcObjectReferenceSelect::IFCAPPLIEDVALUE:
         writeAttribute(selectData->getIfcAppliedValue());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPropertyReferenceValue(IfcPropertyReferenceValue *value) {
@@ -26277,7 +26547,9 @@ void SPFWriter::writeIfcProtectiveDeviceTypeEnum(IfcProtectiveDeviceTypeEnum enu
     case IfcProtectiveDeviceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcProtectiveDeviceType(IfcProtectiveDeviceType *value) {
@@ -26403,7 +26675,9 @@ void SPFWriter::writeIfcObjectTypeEnum(IfcObjectTypeEnum enumData) {
     case IfcObjectTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcProxy(IfcProxy *value) {
@@ -26497,7 +26771,9 @@ void SPFWriter::writeIfcPumpTypeEnum(IfcPumpTypeEnum enumData) {
     case IfcPumpTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcPumpType(IfcPumpType *value) {
@@ -26835,7 +27111,9 @@ void SPFWriter::writeIfcRailingTypeEnum(IfcRailingTypeEnum enumData) {
     case IfcRailingTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRailing(IfcRailing *value) {
@@ -27029,7 +27307,9 @@ void SPFWriter::writeIfcRampTypeEnum(IfcRampTypeEnum enumData) {
     case IfcRampTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRamp(IfcRamp *value) {
@@ -27175,7 +27455,9 @@ void SPFWriter::writeIfcRampFlightTypeEnum(IfcRampFlightTypeEnum enumData) {
     case IfcRampFlightTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRampFlightType(IfcRampFlightType *value) {
@@ -27540,7 +27822,9 @@ void SPFWriter::writeIfcDocumentSelect(IfcDocumentSelect *selectData) {
     case IfcDocumentSelect::IFCDOCUMENTINFORMATION:
         writeAttribute(selectData->getIfcDocumentInformation());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcReferencesValueDocument(IfcReferencesValueDocument *value) {
@@ -27681,7 +27965,9 @@ void SPFWriter::writeIfcReinforcingBarSurfaceEnum(IfcReinforcingBarSurfaceEnum e
     case IfcReinforcingBarSurfaceEnum_TEXTURED:
         outputStream() << ".TEXTURED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value) {
@@ -27818,7 +28104,9 @@ void SPFWriter::writeIfcReinforcingBarRoleEnum(IfcReinforcingBarRoleEnum enumDat
     case IfcReinforcingBarRoleEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcReinforcingBar(IfcReinforcingBar *value) {
@@ -29129,7 +29417,9 @@ void SPFWriter::writeIfcLibrarySelect(IfcLibrarySelect *selectData) {
     case IfcLibrarySelect::IFCLIBRARYINFORMATION:
         writeAttribute(selectData->getIfcLibraryInformation());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelAssociatesLibrary(IfcRelAssociatesLibrary *value) {
@@ -29207,7 +29497,9 @@ void SPFWriter::writeIfcMaterialSelect(IfcMaterialSelect *selectData) {
     case IfcMaterialSelect::IFCMATERIALLAYER:
         writeAttribute(selectData->getIfcMaterialLayer());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelAssociatesMaterial(IfcRelAssociatesMaterial *value) {
@@ -29278,7 +29570,9 @@ void SPFWriter::writeIfcOrientationSelect(IfcOrientationSelect *selectData) {
     case IfcOrientationSelect::IFCDIRECTION:
         writeAttribute(selectData->getIfcDirection());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelAssociatesProfileProperties(IfcRelAssociatesProfileProperties *value) {
@@ -29454,7 +29748,9 @@ void SPFWriter::writeIfcConnectionTypeEnum(IfcConnectionTypeEnum enumData) {
     case IfcConnectionTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelConnectsPathElements(IfcRelConnectsPathElements *value) {
@@ -29670,7 +29966,9 @@ void SPFWriter::writeIfcStructuralActivityAssignmentSelect(IfcStructuralActivity
     case IfcStructuralActivityAssignmentSelect::IFCELEMENT:
         writeAttribute(selectData->getIfcElement());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelConnectsStructuralActivity(IfcRelConnectsStructuralActivity *value) {
@@ -30968,7 +31266,9 @@ void SPFWriter::writeIfcSequenceEnum(IfcSequenceEnum enumData) {
     case IfcSequenceEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelSequence(IfcRelSequence *value) {
@@ -31101,7 +31401,9 @@ void SPFWriter::writeIfcPhysicalOrVirtualEnum(IfcPhysicalOrVirtualEnum enumData)
     case IfcPhysicalOrVirtualEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcInternalOrExternalEnum(IfcInternalOrExternalEnum enumData) {
@@ -31115,7 +31417,9 @@ void SPFWriter::writeIfcInternalOrExternalEnum(IfcInternalOrExternalEnum enumDat
     case IfcInternalOrExternalEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRelSpaceBoundary(IfcRelSpaceBoundary *value) {
@@ -31454,7 +31758,9 @@ void SPFWriter::writeIfcRibPlateDirectionEnum(IfcRibPlateDirectionEnum enumData)
     case IfcRibPlateDirectionEnum_DIRECTION_Y:
         outputStream() << ".DIRECTION_Y.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRibPlateProfileProperties(IfcRibPlateProfileProperties *value) {
@@ -31607,7 +31913,9 @@ void SPFWriter::writeIfcRoofTypeEnum(IfcRoofTypeEnum enumData) {
     case IfcRoofTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcRoof(IfcRoof *value) {
@@ -31883,7 +32191,9 @@ void SPFWriter::writeIfcSIPrefix(IfcSIPrefix enumData) {
     case IfcSIPrefix_ATTO:
         outputStream() << ".ATTO.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcSIUnitName(IfcSIUnitName enumData) {
@@ -31978,7 +32288,9 @@ void SPFWriter::writeIfcSIUnitName(IfcSIUnitName enumData) {
     case IfcSIUnitName_WEBER:
         outputStream() << ".WEBER.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSIUnit(IfcSIUnit *value) {
@@ -32047,7 +32359,9 @@ void SPFWriter::writeIfcSanitaryTerminalTypeEnum(IfcSanitaryTerminalTypeEnum enu
     case IfcSanitaryTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSanitaryTerminalType(IfcSanitaryTerminalType *value) {
@@ -32321,7 +32635,9 @@ void SPFWriter::writeIfcSectionTypeEnum(IfcSectionTypeEnum enumData) {
     case IfcSectionTypeEnum_TAPERED:
         outputStream() << ".TAPERED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSectionProperties(IfcSectionProperties *value) {
@@ -32503,7 +32819,9 @@ void SPFWriter::writeIfcSensorTypeEnum(IfcSensorTypeEnum enumData) {
     case IfcSensorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSensorType(IfcSensorType *value) {
@@ -32620,7 +32938,9 @@ void SPFWriter::writeIfcServiceLifeTypeEnum(IfcServiceLifeTypeEnum enumData) {
     case IfcServiceLifeTypeEnum_REFERENCESERVICELIFE:
         outputStream() << ".REFERENCESERVICELIFE.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcServiceLife(IfcServiceLife *value) {
@@ -32706,7 +33026,9 @@ void SPFWriter::writeIfcServiceLifeFactorTypeEnum(IfcServiceLifeFactorTypeEnum e
     case IfcServiceLifeFactorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcMeasureValue(IfcMeasureValue *selectData) {
@@ -32832,7 +33154,9 @@ void SPFWriter::writeIfcMeasureValue(IfcMeasureValue *selectData) {
         outputStream() << ")";
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcServiceLifeFactor(IfcServiceLifeFactor *value) {
@@ -33043,7 +33367,9 @@ void SPFWriter::writeIfcShell(IfcShell *selectData) {
     case IfcShell::IFCOPENSHELL:
         writeAttribute(selectData->getIfcOpenShell());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcShellBasedSurfaceModel(IfcShellBasedSurfaceModel *value) {
@@ -33233,7 +33559,9 @@ void SPFWriter::writeIfcSlabTypeEnum(IfcSlabTypeEnum enumData) {
     case IfcSlabTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSlab(IfcSlab *value) {
@@ -33463,7 +33791,9 @@ void SPFWriter::writeIfcSoundScaleEnum(IfcSoundScaleEnum enumData) {
     case IfcSoundScaleEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSoundProperties(IfcSoundProperties *value) {
@@ -33696,7 +34026,9 @@ void SPFWriter::writeIfcSpaceHeaterTypeEnum(IfcSpaceHeaterTypeEnum enumData) {
     case IfcSpaceHeaterTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSpaceHeaterType(IfcSpaceHeaterType *value) {
@@ -33912,7 +34244,9 @@ void SPFWriter::writeIfcThermalLoadSourceEnum(IfcThermalLoadSourceEnum enumData)
     case IfcThermalLoadSourceEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcThermalLoadTypeEnum(IfcThermalLoadTypeEnum enumData) {
@@ -33929,7 +34263,9 @@ void SPFWriter::writeIfcThermalLoadTypeEnum(IfcThermalLoadTypeEnum enumData) {
     case IfcThermalLoadTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSpaceThermalLoadProperties(IfcSpaceThermalLoadProperties *value) {
@@ -34043,7 +34379,9 @@ void SPFWriter::writeIfcSpaceTypeEnum(IfcSpaceTypeEnum enumData) {
     case IfcSpaceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSpaceType(IfcSpaceType *value) {
@@ -34337,7 +34675,9 @@ void SPFWriter::writeIfcStackTerminalTypeEnum(IfcStackTerminalTypeEnum enumData)
     case IfcStackTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStackTerminalType(IfcStackTerminalType *value) {
@@ -34487,7 +34827,9 @@ void SPFWriter::writeIfcStairTypeEnum(IfcStairTypeEnum enumData) {
     case IfcStairTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStair(IfcStair *value) {
@@ -34670,7 +35012,9 @@ void SPFWriter::writeIfcStairFlightTypeEnum(IfcStairFlightTypeEnum enumData) {
     case IfcStairFlightTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStairFlightType(IfcStairFlightType *value) {
@@ -34937,7 +35281,9 @@ void SPFWriter::writeIfcAnalysisModelTypeEnum(IfcAnalysisModelTypeEnum enumData)
     case IfcAnalysisModelTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralAnalysisModel(IfcStructuralAnalysisModel *value) {
@@ -35187,7 +35533,9 @@ void SPFWriter::writeIfcStructuralCurveTypeEnum(IfcStructuralCurveTypeEnum enumD
     case IfcStructuralCurveTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralCurveMember(IfcStructuralCurveMember *value) {
@@ -35374,7 +35722,9 @@ void SPFWriter::writeIfcProjectedOrTrueLengthEnum(IfcProjectedOrTrueLengthEnum e
     case IfcProjectedOrTrueLengthEnum_TRUE_LENGTH:
         outputStream() << ".TRUE_LENGTH.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralLinearAction(IfcStructuralLinearAction *value) {
@@ -35612,7 +35962,9 @@ void SPFWriter::writeIfcLoadGroupTypeEnum(IfcLoadGroupTypeEnum enumData) {
     case IfcLoadGroupTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcActionTypeEnum(IfcActionTypeEnum enumData) {
@@ -35632,7 +35984,9 @@ void SPFWriter::writeIfcActionTypeEnum(IfcActionTypeEnum enumData) {
     case IfcActionTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcActionSourceTypeEnum(IfcActionSourceTypeEnum enumData) {
@@ -35718,7 +36072,9 @@ void SPFWriter::writeIfcActionSourceTypeEnum(IfcActionSourceTypeEnum enumData) {
     case IfcActionSourceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralLoadGroup(IfcStructuralLoadGroup *value) {
@@ -36880,7 +37236,9 @@ void SPFWriter::writeIfcAnalysisTheoryTypeEnum(IfcAnalysisTheoryTypeEnum enumDat
     case IfcAnalysisTheoryTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralResultGroup(IfcStructuralResultGroup *value) {
@@ -37216,7 +37574,9 @@ void SPFWriter::writeIfcStructuralSurfaceTypeEnum(IfcStructuralSurfaceTypeEnum e
     case IfcStructuralSurfaceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcStructuralSurfaceMember(IfcStructuralSurfaceMember *value) {
@@ -37759,7 +38119,9 @@ void SPFWriter::writeIfcSurfaceSide(IfcSurfaceSide enumData) {
     case IfcSurfaceSide_BOTH:
         outputStream() << ".BOTH.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *selectData) {
@@ -37779,7 +38141,9 @@ void SPFWriter::writeIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *
     case IfcSurfaceStyleElementSelect::IFCSURFACESTYLEREFRACTION:
         writeAttribute(selectData->getIfcSurfaceStyleRefraction());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSurfaceStyle(IfcSurfaceStyle *value) {
@@ -37881,7 +38245,9 @@ void SPFWriter::writeIfcColourOrFactor(IfcColourOrFactor *selectData) {
         writeAttribute(selectData->getIfcNormalisedRatioMeasure());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *selectData) {
@@ -37896,7 +38262,9 @@ void SPFWriter::writeIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *sele
         writeAttribute(selectData->getIfcSpecularRoughness());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcReflectanceMethodEnum(IfcReflectanceMethodEnum enumData) {
@@ -37931,7 +38299,9 @@ void SPFWriter::writeIfcReflectanceMethodEnum(IfcReflectanceMethodEnum enumData)
     case IfcReflectanceMethodEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *value) {
@@ -38171,7 +38541,9 @@ void SPFWriter::writeIfcSwitchingDeviceTypeEnum(IfcSwitchingDeviceTypeEnum enumD
     case IfcSwitchingDeviceTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSwitchingDeviceType(IfcSwitchingDeviceType *value) {
@@ -38279,7 +38651,9 @@ void SPFWriter::writeIfcSymbolStyleSelect(IfcSymbolStyleSelect *selectData) {
     case IfcSymbolStyleSelect::IFCPREDEFINEDCOLOUR:
         writeAttribute(selectData->getIfcPreDefinedColour());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcSymbolStyle(IfcSymbolStyle *value) {
@@ -38607,7 +38981,9 @@ void SPFWriter::writeIfcTankTypeEnum(IfcTankTypeEnum enumData) {
     case IfcTankTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTankType(IfcTankType *value) {
@@ -38896,7 +39272,9 @@ void SPFWriter::writeIfcTendonTypeEnum(IfcTendonTypeEnum enumData) {
     case IfcTendonTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTendon(IfcTendon *value) {
@@ -39149,7 +39527,9 @@ void SPFWriter::writeIfcTextPath(IfcTextPath enumData) {
     case IfcTextPath_DOWN:
         outputStream() << ".DOWN.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTextLiteral(IfcTextLiteral *value) {
@@ -39223,7 +39603,9 @@ void SPFWriter::writeIfcCharacterStyleSelect(IfcCharacterStyleSelect *selectData
     case IfcCharacterStyleSelect::IFCTEXTSTYLEFORDEFINEDFONT:
         writeAttribute(selectData->getIfcTextStyleForDefinedFont());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcTextStyleSelect(IfcTextStyleSelect *selectData) {
@@ -39234,7 +39616,9 @@ void SPFWriter::writeIfcTextStyleSelect(IfcTextStyleSelect *selectData) {
     case IfcTextStyleSelect::IFCTEXTSTYLETEXTMODEL:
         writeAttribute(selectData->getIfcTextStyleTextModel());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcTextFontSelect(IfcTextFontSelect *selectData) {
@@ -39245,7 +39629,9 @@ void SPFWriter::writeIfcTextFontSelect(IfcTextFontSelect *selectData) {
     case IfcTextFontSelect::IFCEXTERNALLYDEFINEDTEXTFONT:
         writeAttribute(selectData->getIfcExternallyDefinedTextFont());
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTextStyle(IfcTextStyle *value) {
@@ -39495,7 +39881,9 @@ void SPFWriter::writeIfcSimpleValue(IfcSimpleValue *selectData) {
         writeAttribute(selectData->getIfcLogical());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTextureCoordinateGenerator(IfcTextureCoordinateGenerator *value) {
@@ -39725,7 +40113,9 @@ void SPFWriter::writeIfcTimeSeriesScheduleTypeEnum(IfcTimeSeriesScheduleTypeEnum
     case IfcTimeSeriesScheduleTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) {
@@ -39890,7 +40280,9 @@ void SPFWriter::writeIfcTransformerTypeEnum(IfcTransformerTypeEnum enumData) {
     case IfcTransformerTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTransformerType(IfcTransformerType *value) {
@@ -40007,7 +40399,9 @@ void SPFWriter::writeIfcTransportElementTypeEnum(IfcTransportElementTypeEnum enu
     case IfcTransportElementTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTransportElement(IfcTransportElement *value) {
@@ -40253,7 +40647,9 @@ void SPFWriter::writeIfcTrimmingSelect(IfcTrimmingSelect *selectData) {
         writeAttribute(selectData->getIfcParameterValue());
         outputStream() << ")";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcTrimmingPreference(IfcTrimmingPreference enumData) {
@@ -40267,7 +40663,9 @@ void SPFWriter::writeIfcTrimmingPreference(IfcTrimmingPreference enumData) {
     case IfcTrimmingPreference_UNSPECIFIED:
         outputStream() << ".UNSPECIFIED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTrimmedCurve(IfcTrimmedCurve *value) {
@@ -40343,7 +40741,9 @@ void SPFWriter::writeIfcTubeBundleTypeEnum(IfcTubeBundleTypeEnum enumData) {
     case IfcTubeBundleTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcTubeBundleType(IfcTubeBundleType *value) {
@@ -40728,7 +41128,9 @@ void SPFWriter::writeIfcUnitaryEquipmentTypeEnum(IfcUnitaryEquipmentTypeEnum enu
     case IfcUnitaryEquipmentTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcUnitaryEquipmentType(IfcUnitaryEquipmentType *value) {
@@ -40899,7 +41301,9 @@ void SPFWriter::writeIfcValveTypeEnum(IfcValveTypeEnum enumData) {
     case IfcValveTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcValveType(IfcValveType *value) {
@@ -41103,7 +41507,9 @@ void SPFWriter::writeIfcVibrationIsolatorTypeEnum(IfcVibrationIsolatorTypeEnum e
     case IfcVibrationIsolatorTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcVibrationIsolatorType(IfcVibrationIsolatorType *value) {
@@ -41450,7 +41856,9 @@ void SPFWriter::writeIfcWallTypeEnum(IfcWallTypeEnum enumData) {
     case IfcWallTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcWallType(IfcWallType *value) {
@@ -41588,7 +41996,9 @@ void SPFWriter::writeIfcWasteTerminalTypeEnum(IfcWasteTerminalTypeEnum enumData)
     case IfcWasteTerminalTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcWasteTerminalType(IfcWasteTerminalType *value) {
@@ -41964,7 +42374,9 @@ void SPFWriter::writeIfcWindowPanelOperationEnum(IfcWindowPanelOperationEnum enu
     case IfcWindowPanelOperationEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcWindowPanelProperties(IfcWindowPanelProperties *value) {
@@ -42061,7 +42473,9 @@ void SPFWriter::writeIfcWindowStyleConstructionEnum(IfcWindowStyleConstructionEn
     case IfcWindowStyleConstructionEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 void SPFWriter::writeIfcWindowStyleOperationEnum(IfcWindowStyleOperationEnum enumData) {
@@ -42099,7 +42513,9 @@ void SPFWriter::writeIfcWindowStyleOperationEnum(IfcWindowStyleOperationEnum enu
     case IfcWindowStyleOperationEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcWindowStyle(IfcWindowStyle *value) {
@@ -42230,7 +42646,9 @@ void SPFWriter::writeIfcWorkControlTypeEnum(IfcWorkControlTypeEnum enumData) {
     case IfcWorkControlTypeEnum_NOTDEFINED:
         outputStream() << ".NOTDEFINED.";
         break;
-        }
+    default:
+        break;
+    }
 }
 
 bool SPFWriter::visitIfcWorkControl(IfcWorkControl *value) {

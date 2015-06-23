@@ -74,7 +74,9 @@ void IfcLayeredItem::copy(const IfcLayeredItem &obj, const CopyOp &copyop) {
     case IFCREPRESENTATION:
         setIfcRepresentation((IfcRepresentation *) (copyop(obj.m_IfcLayeredItem_union.m_IfcRepresentation)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcLayeredItem::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcLayeredItem::deleteUnion() {
     case IFCREPRESENTATION:
         m_IfcLayeredItem_union.m_IfcRepresentation->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 
