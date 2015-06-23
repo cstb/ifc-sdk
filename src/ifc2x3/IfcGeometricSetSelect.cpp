@@ -78,7 +78,9 @@ void IfcGeometricSetSelect::copy(const IfcGeometricSetSelect &obj, const CopyOp 
     case IFCSURFACE:
         setIfcSurface((IfcSurface *) (copyop(obj.m_IfcGeometricSetSelect_union.m_IfcSurface)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcGeometricSetSelect::currentTypeName() const {
@@ -112,7 +114,9 @@ void IfcGeometricSetSelect::deleteUnion() {
     case IFCSURFACE:
         m_IfcGeometricSetSelect_union.m_IfcSurface->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

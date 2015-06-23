@@ -74,7 +74,9 @@ void IfcCurveStyleFontSelect::copy(const IfcCurveStyleFontSelect &obj, const Cop
     case IFCCURVESTYLEFONT:
         setIfcCurveStyleFont((IfcCurveStyleFont *) (copyop(obj.m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcCurveStyleFontSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcCurveStyleFontSelect::deleteUnion() {
     case IFCCURVESTYLEFONT:
         m_IfcCurveStyleFontSelect_union.m_IfcCurveStyleFont->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

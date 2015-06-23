@@ -274,7 +274,9 @@ void IfcDerivedMeasureValue::copy(const IfcDerivedMeasureValue &obj, const CopyO
     case IFCIONCONCENTRATIONMEASURE:
         setIfcIonConcentrationMeasure(obj.m_IfcDerivedMeasureValue_union.m_IfcIonConcentrationMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcDerivedMeasureValue::currentTypeName() const {
@@ -497,7 +499,9 @@ void IfcDerivedMeasureValue::deleteUnion() {
     case IFCCOMPOUNDPLANEANGLEMEASURE:
         delete m_IfcDerivedMeasureValue_union.m_IfcCompoundPlaneAngleMeasure;
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -78,7 +78,9 @@ void IfcDateTimeSelect::copy(const IfcDateTimeSelect &obj, const CopyOp &copyop)
     case IFCDATEANDTIME:
         setIfcDateAndTime((IfcDateAndTime *) (copyop(obj.m_IfcDateTimeSelect_union.m_IfcDateAndTime)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcDateTimeSelect::currentTypeName() const {
@@ -112,7 +114,9 @@ void IfcDateTimeSelect::deleteUnion() {
     case IFCDATEANDTIME:
         m_IfcDateTimeSelect_union.m_IfcDateAndTime->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

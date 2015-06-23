@@ -89,7 +89,9 @@ void IfcPresentationStyleSelect::copy(const IfcPresentationStyleSelect &obj, con
     case IFCSURFACESTYLE:
         setIfcSurfaceStyle((IfcSurfaceStyle *) (copyop(obj.m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcPresentationStyleSelect::currentTypeName() const {
@@ -138,7 +140,9 @@ void IfcPresentationStyleSelect::deleteUnion() {
     case IFCSURFACESTYLE:
         m_IfcPresentationStyleSelect_union.m_IfcSurfaceStyle->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

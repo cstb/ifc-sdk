@@ -73,7 +73,9 @@ void IfcOrientationSelect::copy(const IfcOrientationSelect &obj, const CopyOp &c
     case IFCDIRECTION:
         setIfcDirection((IfcDirection *) (copyop(obj.m_IfcOrientationSelect_union.m_IfcDirection)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcOrientationSelect::currentTypeName() const {
@@ -98,7 +100,9 @@ void IfcOrientationSelect::deleteUnion() {
     case IFCDIRECTION:
         m_IfcOrientationSelect_union.m_IfcDirection->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

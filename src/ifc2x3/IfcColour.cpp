@@ -74,7 +74,9 @@ void IfcColour::copy(const IfcColour &obj, const CopyOp &copyop) {
     case IFCPREDEFINEDCOLOUR:
         setIfcPreDefinedColour((IfcPreDefinedColour *) (copyop(obj.m_IfcColour_union.m_IfcPreDefinedColour)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcColour::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcColour::deleteUnion() {
     case IFCPREDEFINEDCOLOUR:
         m_IfcColour_union.m_IfcPreDefinedColour->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 
