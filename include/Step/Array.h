@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -17,7 +17,7 @@
 #ifndef Step_Array_h
 #define Step_Array_h
 
-#include <Step/SimpleTypes.h>
+#include <Step/Aggregation.h>
 
 #include <vector>
 #include <stdexcept>
@@ -33,7 +33,7 @@ namespace Step {
      ** we are using C vector wrapped into a stl environment instead of an std::vector
      */
     template<typename T, Integer _lo, Integer _hi>
-    class Array
+    class Array : public Aggregation<T, _lo, _hi>
     {
         enum
         {
