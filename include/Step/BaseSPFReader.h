@@ -23,6 +23,7 @@
 #include <Step/Types.h>
 #include <Step/SPFHeader.h>
 #include <Step/CallBack.h>
+#include <Step/StepLogger.h>
 
 #include <istream>
 #include <string>
@@ -75,6 +76,8 @@ namespace Step {
 
         void setCallBack(CallBack *callback) { _callback = callback; }
 
+        void setLogger(StepLogger *logger);
+
     protected:
 
         /*!
@@ -107,6 +110,9 @@ namespace Step {
 
         //! our callback
         CallBack *_callback;
+
+        RefPtr<StepLogger> m_logger;
+
     };
 }
 #endif

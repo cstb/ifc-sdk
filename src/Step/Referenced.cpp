@@ -15,13 +15,11 @@
 // Lesser General Public License for more details.
 
 #include "Step/Referenced.h"
-#include "Step/logger.h"
 
 #include <set>
+#include <iostream>
 
 using namespace Step;
-
-
 
 ClassType_root_implementations(STEP_EXPORT,Referenced);
 
@@ -47,10 +45,10 @@ Referenced::~Referenced()
 {
     if (_refCount > 0)
     {
-        LOG_WARNING("Warning: deleting still referenced object " << this
+        std::cerr << "Warning: deleting still referenced object " << this
                 << " of type '" << getType().getName() << "'" << std::endl
                 << "         the final reference count was " << _refCount
-                << ", memory corruption possible.");
+                << ", memory corruption possible.";
     }
     if (_observers)
     {

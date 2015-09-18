@@ -10,6 +10,7 @@
 //#include <math.h>
 // uncomment the following line to test compilation types checks
 // #define TEST_COMPILATION_ERRORS
+#define LOG_DEBUG(message)
 
 int main(int n, char **p)
 {

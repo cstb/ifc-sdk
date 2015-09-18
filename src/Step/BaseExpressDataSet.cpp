@@ -1,4 +1,4 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
@@ -21,14 +21,13 @@
 #include "Step/SPFData.h"
 #include "Step/RefLinkedList.h"
 
-#include "Step/logger.h"
-
 #include <iostream>
 
 using namespace Step;
 
 BaseExpressDataSet::BaseExpressDataSet() :
-    m_maxId(0)
+    m_maxId(0),
+    m_logger(new StepLogger)
 {
 }
 
@@ -84,7 +83,7 @@ bool BaseExpressDataSet::registerObject(Id id, BaseEntity* obj)
     {
         if (!m_Id2BaseEntity[id]->isOfType(BaseSPFObject::getClassType()))
         {
-            LOG_ERROR("Can't register the object with id " << id << ", in use");
+            STEP_LOG_ERROR(m_logger,"Can't register the object with id " << id << ", in use");
             return false;
         }
         else
@@ -112,7 +111,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
 
     if (it == m_Id2BaseEntity.end())
     {
-        LOG_WARNING("Entity #" << id << " was never declared");
+        STEP_LOG_WARNING(m_logger,"Entity #" << id << " was never declared");
         return 0;
     }
     else if (it->second->isOfType(BaseSPFObject::getClassType()))
@@ -129,7 +128,7 @@ BaseEntity *BaseExpressDataSet::get(Id id)
         }
         else
         {
-            LOG_WARNING("Entity #" << id << " cannot be allocated");
+            STEP_LOG_WARNING(m_logger,"Entity #" << id << " cannot be allocated");
             return 0;
         }
     }
@@ -202,7 +201,7 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
     {
         if (it->second->isOfType(BaseSPFObject::getClassType()))
         {
-            LOG_DEBUG("Instantiating #" << it->first)
+            STEP_LOG_DEBUG(m_logger, "Instantiating #" << it->first)
             // Get the appropriate allocate function
             AllocateFuncType
                     allocFunc =
@@ -216,7 +215,7 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
             }
             else
             {
-                LOG_WARNING("Entity #" << it->first << " was never declared");
+                STEP_LOG_WARNING(m_logger,"Entity #" << it->first << " was never declared");
             }
         }
         else
@@ -229,6 +228,11 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
                 return;
         }
     }
+}
+
+void BaseExpressDataSet::setLogger(StepLogger *logger)
+{
+    m_logger = logger;
 }
 
 AllocateFuncType BaseExpressDataSet::getAllocateFunction(BaseSPFObject* spfObj)

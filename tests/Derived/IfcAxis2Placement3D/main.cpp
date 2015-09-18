@@ -8,9 +8,11 @@
 #include <string>
 // uncomment the following line to test compilation types checks
 // #define TEST_COMPILATION_ERRORS
+#define LOG_DEBUG(message)
 
 int main(int n, char **p)
 {
+    Step::RefPtr<Step::StepLogger> logger = new Step::StepLogger;
 	Step::RefPtr<ifc2x3::ExpressDataSet> eds ;
 	try
 	{
@@ -127,7 +129,7 @@ int main(int n, char **p)
 	if (P2[0].valid() && P2[1].valid() && P2[2].valid())
 	{
 		// test return value
-		LOG_DEBUG(" Resulting P[0] : [" << P2[0]->getDirectionRatios()[0] << ";"<<
+        STEP_LOG_DEBUG(logger, " Resulting P[0] : [" << P2[0]->getDirectionRatios()[0] << ";"<<
 		P2[0]->getDirectionRatios()[1] << ";"<<
 		P2[0]->getDirectionRatios()[2] << "]");
 
@@ -135,7 +137,7 @@ int main(int n, char **p)
 		TEST_ASSERT(P2[0]->getDirectionRatios()[1]==1.0);
 		TEST_ASSERT(P2[0]->getDirectionRatios()[2]==0.0);
 		// test return value
-		LOG_DEBUG( " Resulting P[1] : [" << P2[1]->getDirectionRatios()[0] << ";"<<
+        STEP_LOG_DEBUG(logger,  " Resulting P[1] : [" << P2[1]->getDirectionRatios()[0] << ";"<<
 		P2[1]->getDirectionRatios()[1] << ";"<<
 		P2[1]->getDirectionRatios()[2] << "]");
 
@@ -143,7 +145,7 @@ int main(int n, char **p)
 		TEST_ASSERT(P2[1]->getDirectionRatios()[1]==0.0);
 		TEST_ASSERT(P2[1]->getDirectionRatios()[2]==1.0);
 		// test return value
-		LOG_DEBUG(" Resulting P[2] : [" << P2[2]->getDirectionRatios()[0] << ";"<<
+        STEP_LOG_DEBUG(logger, " Resulting P[2] : [" << P2[2]->getDirectionRatios()[0] << ";"<<
 		P2[2]->getDirectionRatios()[1] << ";"<<
 		P2[2]->getDirectionRatios()[2] << "]");
 

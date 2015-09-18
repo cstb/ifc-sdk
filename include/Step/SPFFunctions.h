@@ -26,6 +26,9 @@
 #include <iostream>
 
 namespace Step {
+
+    class StepLogger;
+
     /*!
      retrieves elements from a aggregate
      @param arg the string to extract from
@@ -44,10 +47,10 @@ namespace Step {
      @return success or failure
      */
     bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
-            char* buffer, size_t bufferLength, std::string& str, size_t &progress);
+            char* buffer, size_t bufferLength, std::string& str, size_t &progress, StepLogger *logger);
 
     bool STEP_EXPORT getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength,
-                             std::string &str, size_t &progress);
+                             std::string &str, size_t &progress, StepLogger *logger);
 
     /*!
      parses a list of strings

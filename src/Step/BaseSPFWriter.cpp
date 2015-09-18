@@ -21,7 +21,7 @@
 #include "Step/BaseSPFObject.h"
 #include "Step/BaseExpressDataSet.h"
 
-#include "Step/logger.h"
+
 
 #include <locale>
 #include <cassert>

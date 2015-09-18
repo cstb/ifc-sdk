@@ -20,6 +20,7 @@
 #include <Step/Export.h>
 
 #include <Step/SimpleTypes.h>
+#include <Step/StepLogger.h>
 
 #include <istream>
 #include <vector>
@@ -116,11 +117,17 @@ namespace Step {
         bool parse(std::istream& ifs, unsigned int& counter, size_t &progress);
         bool parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress );
 
+        void setLogger(StepLogger *logger);
+
+
     private:
         FileDescription m_fileDescription;
         FileName m_fileName;
         FileSchema m_fileSchema;
         String m_otherFields;
+
+        RefPtr<StepLogger> m_logger;
+
     };
 }
 #endif
