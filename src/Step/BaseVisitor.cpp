@@ -19,7 +19,7 @@
 #include "Step/BaseEntity.h"
 #include "Step/BaseExpressDataSet.h"
 
-#include "Step/logger.h"
+
 
 #include <iostream>
 
@@ -27,6 +27,7 @@ using namespace Step;
 
 BaseVisitor::BaseVisitor()
 {
+    m_logger = new StepLogger;
 }
 
 BaseVisitor::~BaseVisitor()
@@ -35,12 +36,17 @@ BaseVisitor::~BaseVisitor()
 
 bool BaseVisitor::visitBaseObject(BaseObject* obj)
 {
-    LOG_ERROR("Failed to visit BaseObject(" << obj->type() << ")");
+    STEP_LOG_ERROR(m_logger, "Failed to visit BaseObject(" << obj->type() << ")");
     return false;
 }
 
 bool BaseVisitor::visitBaseEntity(BaseEntity* obj)
 {
-    LOG_ERROR("Failed to visit BaseEntity(" << obj->type() << ")");
+    STEP_LOG_ERROR(m_logger, "Failed to visit BaseEntity(" << obj->type() << ")");
     return false;
+}
+
+void BaseVisitor::setLogger(StepLogger *logger)
+{
+    m_logger = logger;
 }

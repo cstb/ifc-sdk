@@ -29,7 +29,7 @@ namespace Step {
     /*!
      * \short A class which encapsulates user data of step objects. It contains meta-data
      */
-    class STEP_EXPORT ClientData: public Referenced
+    class STEP_EXPORT ClientData : public Referenced
     {
 
     public:

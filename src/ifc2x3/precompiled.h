@@ -1,5 +1,7 @@
 #ifdef ENABLE_PRECOMPILED_HEADER
 
+#define LOG_STRING_VECTOR _errors
+
 #include <cmath>
 #include <stdlib.h>
 #include <string>
@@ -32,8 +34,7 @@
 #include <Step/SimpleTypes.h>
 #include <Step/String.h>
 #include <Step/Types.h>
-#include <Step/logger.h>
-#include <Step/logger.h> 
+#include <Step/StepLogger.h>
 
 #include <ifc2x3/CopyOp.h>
 #include <ifc2x3/ExpressDataSet.h>

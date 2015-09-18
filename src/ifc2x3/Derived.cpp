@@ -75,15 +75,15 @@
 #include <ifc2x3/IfcMaterialSelect.h>
 #include <ifc2x3/IfcSIUnit.h>
 //#include <ifc2x3/IfcSIUnitName.h>
-#include <Step/logger.h>
-
-
 
 #ifndef WIN32
 # include <cmath>
 #endif
 
 #include "precompiled.h"
+
+#define LOG_DEBUG(msg) std::cerr << msg
+#define LOG_ERROR(msg) std::cerr << msg
 
 using namespace ifc2x3;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -4,6 +4,9 @@
 #include <ifc2x3/IfcCartesianTransformationOperator2D.h>
 #include "../../tests.h"
 
+#include <Step/StepLogger.h>
+
+
 #include <sstream>
 #include <string>
 //#include <math.h>
@@ -12,9 +15,12 @@
 #endif
 // uncomment the following line to test compilation types checks
 // #define TEST_COMPILATION_ERRORS
+#define LOG_DEBUG(message)
 
 int main(int n, char **p)
 {
+    Step::RefPtr<Step::StepLogger> logger = new Step::StepLogger;
+
 	Step::RefPtr<ifc2x3::ExpressDataSet> eds ;
 	try
 	{
@@ -33,7 +39,7 @@ int main(int n, char **p)
 
 ///////////////////////////////////////////////////////////////////////////////////
 	ifc2x3::List_IfcDirection_2_2 ListIfcDirection1 = CTOperator2D->getU();
-	LOG_DEBUG("Axis1 and Axis2 not exist" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 and Axis2 not exist" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection1[0]->getDirectionRatios()[0]==1.0);
 	TEST_ASSERT(ListIfcDirection1[0]->getDirectionRatios()[1]==0.0);
@@ -51,9 +57,9 @@ int main(int n, char **p)
 	CTOperator2D->setAxis1(Axis1);
 	ifc2x3::List_IfcDirection_2_2 ListIfcDirection2 = CTOperator2D->getU();
 	
-	LOG_DEBUG("Axis1 [1.0;0.0] and Axis2 not exist" << std::endl);
-	LOG_DEBUG("U[0] = ["<< ListIfcDirection2[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection2[0]->getDirectionRatios()[1] << "]" << std::endl);
-	LOG_DEBUG("U[1] = ["<< ListIfcDirection2[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection2[1]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 [1.0;0.0] and Axis2 not exist" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[0] = ["<< ListIfcDirection2[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection2[0]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[1] = ["<< ListIfcDirection2[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection2[1]->getDirectionRatios()[1] << "]" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection2[0]->getDirectionRatios()[0]==1.0);
 	TEST_ASSERT(ListIfcDirection2[0]->getDirectionRatios()[1]==0.0);
@@ -73,9 +79,9 @@ int main(int n, char **p)
 
 	
 	ListIfcDirection3 = CTOperator2D->getU();
-	LOG_DEBUG("Axis1 [1.0;0.0] and Axis2[0.0;1.0]" << std::endl);
-	LOG_DEBUG("U[0] = ["<< ListIfcDirection3[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection3[0]->getDirectionRatios()[1] << "]" << std::endl);
-	LOG_DEBUG("U[1] = ["<< ListIfcDirection3[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection3[1]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 [1.0;0.0] and Axis2[0.0;1.0]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[0] = ["<< ListIfcDirection3[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection3[0]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[1] = ["<< ListIfcDirection3[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection3[1]->getDirectionRatios()[1] << "]" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection3[0]->getDirectionRatios()[0]==1.0);
 	TEST_ASSERT(ListIfcDirection3[0]->getDirectionRatios()[1]==0.0);
@@ -93,9 +99,9 @@ int main(int n, char **p)
 	CTOperator2D->setAxis1(Axis1);
 	ifc2x3::List_IfcDirection_2_2 ListIfcDirection4 = CTOperator2D->getU();
 
-	LOG_DEBUG("Axis1 [0.0;1.0] and Axis2[0.0;1.0]" << std::endl);
-	LOG_DEBUG("U[0] = ["<< ListIfcDirection4[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection4[0]->getDirectionRatios()[1] << "]" << std::endl);
-	LOG_DEBUG("U[1] = ["<< ListIfcDirection4[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection4[1]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 [0.0;1.0] and Axis2[0.0;1.0]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[0] = ["<< ListIfcDirection4[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection4[0]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[1] = ["<< ListIfcDirection4[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection4[1]->getDirectionRatios()[1] << "]" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection4[0]->getDirectionRatios()[0]==0.0);
 	TEST_ASSERT(ListIfcDirection4[0]->getDirectionRatios()[1]==1.0);
@@ -113,9 +119,9 @@ int main(int n, char **p)
 	ifc2x3::List_IfcDirection_2_2 ListIfcDirection5 = CTOperator2D->getU();
 	
 	ListIfcDirection3 = CTOperator2D->getU();
-	LOG_DEBUG("Axis1 [0.0;1.0] and Axis2[1.0;0.0]" << std::endl);
-	LOG_DEBUG("U[0] = ["<< ListIfcDirection5[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection5[0]->getDirectionRatios()[1] << "]" << std::endl);
-	LOG_DEBUG("U[1] = ["<< ListIfcDirection5[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection5[1]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 [0.0;1.0] and Axis2[1.0;0.0]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[0] = ["<< ListIfcDirection5[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection5[0]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[1] = ["<< ListIfcDirection5[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection5[1]->getDirectionRatios()[1] << "]" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection5[0]->getDirectionRatios()[0]==0.0);
 	TEST_ASSERT(ListIfcDirection5[0]->getDirectionRatios()[1]==1.0);
@@ -141,9 +147,9 @@ int main(int n, char **p)
 
 	ifc2x3::List_IfcDirection_2_2 ListIfcDirection6 = CTOperator2D->getU();
 
-	LOG_DEBUG("Axis1 [1.0;1.0] and Axis2[1.0;1.0]" << std::endl);
-	LOG_DEBUG("U[0] = ["<< ListIfcDirection6[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection6[0]->getDirectionRatios()[1] << "]" << std::endl);
-	LOG_DEBUG("U[1] = ["<< ListIfcDirection6[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection6[1]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "Axis1 [1.0;1.0] and Axis2[1.0;1.0]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[0] = ["<< ListIfcDirection6[0]->getDirectionRatios()[0] << " ; " << ListIfcDirection6[0]->getDirectionRatios()[1] << "]" << std::endl);
+    STEP_LOG_DEBUG(logger, "U[1] = ["<< ListIfcDirection6[1]->getDirectionRatios()[0] << " ; " << ListIfcDirection6[1]->getDirectionRatios()[1] << "]" << std::endl);
 
 	TEST_ASSERT(ListIfcDirection6[0]->getDirectionRatios()[0]==(1/sqrt(2.0)));
 	TEST_ASSERT(ListIfcDirection6[0]->getDirectionRatios()[1]==(1/sqrt(2.0)));

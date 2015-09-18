@@ -1,5 +1,7 @@
 ﻿#include <Step/SPFFunctions.h>
 #include <Step/String.h>
+#include <Step/StepLogger.h>
+
 #include "../../tests.h"
 
 #include <sstream>
@@ -21,6 +23,7 @@ support in the future.
 
 void test_getLine()
 {
+    Step::RefPtr<Step::StepLogger> logger = new Step::StepLogger;
     std::cerr << "test_getLine" << std::endl;
 
     std::string input("#1 = TOTO('first line $\nsecond line *');");
@@ -32,7 +35,7 @@ void test_getLine()
     std::string result;
     size_t progress = 0;
 
-    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,progress));
+    TEST_ASSERT(Step::getLine(in,counter,buffer,1024,result,progress, logger.get()));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;
@@ -50,7 +53,7 @@ void test_getLine()
     result = "";
 
     std::istringstream in2(input);
-    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result,progress));
+    TEST_ASSERT(Step::getLine(in2,counter,buffer,1024,result,progress, logger.get()));
 
     std::cerr << "input = " << input << std::endl;
     std::cerr << "result = " << result << std::endl;

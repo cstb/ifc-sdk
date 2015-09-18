@@ -29,7 +29,6 @@
 #include <Step/Referenced.h>
 #include <Step/SPFFunctions.h>
 #include <Step/String.h>
-#include <Step/logger.h>
 
 
 #include <string>
