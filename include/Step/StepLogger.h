@@ -3,6 +3,7 @@
 
 #include <Step/Export.h>
 #include <Step/Referenced.h>
+#include <Step/Config.h>
 
 #include <iosfwd>
 
@@ -35,7 +36,7 @@ namespace Step
 # ifndef STEP_LOG_DEBUG_ENABLE
 #  define STEP_LOG_DEBUG_ENABLE
 # endif
-# define STEP_LOG_TRACE(logger, message) STEP_LOG(Step::StepLogger::DEBUG, logger, message)
+# define STEP_LOG_TRACE(logger, message) STEP_LOG(Step::StepLogger::TRACE, logger, message)
 #else
 # define STEP_LOG_TRACE(logger, message)
 #endif
@@ -53,7 +54,7 @@ namespace Step
 # ifndef STEP_LOG_WARNING_ENABLE
 #  define STEP_LOG_WARNING_ENABLE
 # endif
-# define STEP_LOG_INFO(logger, message) STEP_LOG(Step::StepLogger::DEBUG, logger, message)
+# define STEP_LOG_INFO(logger, message) STEP_LOG(Step::StepLogger::INFO, logger, message)
 #else
 # define STEP_LOG_INFO(logger, message)
 #endif
@@ -62,7 +63,7 @@ namespace Step
 # ifndef STEP_LOG_ERROR_ENABLE
 #  define STEP_LOG_ERROR_ENABLE
 # endif
-# define STEP_LOG_WARNING(logger, message) STEP_LOG(Step::StepLogger::DEBUG, logger, message)
+# define STEP_LOG_WARNING(logger, message) STEP_LOG(Step::StepLogger::WARNING, logger, message)
 #else
 # define STEP_LOG_WARNING(logger, message)
 #endif
@@ -71,13 +72,13 @@ namespace Step
 # ifndef STEP_LOG_FATAL_ENABLE
 #  define STEP_LOG_FATAL_ENABLE
 # endif
-# define STEP_LOG_ERROR(logger, message) STEP_LOG(Step::StepLogger::DEBUG, logger, message)
+# define STEP_LOG_ERROR(logger, message) STEP_LOG(Step::StepLogger::ERROR, logger, message)
 #else
 # define STEP_LOG_ERROR(logger, message)
 #endif
 
 #ifdef STEP_LOG_FATAL_ENABLE
-# define STEP_LOG_FATAL(logger, message) STEP_LOG(Step::StepLogger::DEBUG, logger, message)
+# define STEP_LOG_FATAL(logger, message) STEP_LOG(Step::StepLogger::FATAL, logger, message)
 #else
 # define STEP_LOG_FATAL(logger, message)
 #endif
