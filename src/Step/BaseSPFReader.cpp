@@ -232,7 +232,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         if (i == string::npos || str[str.length() - 1] != ')')
         {
             STEP_LOG_WARNING(m_logger,
-                    "Syntax error on entity definition, line "
+                    "Syntax error on entity definition #" << m_currentId << ", line "
                     << m_currentLineNb);
             continue;
         }
@@ -245,9 +245,8 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
         if (!callLoadFunction(entityName))
         {
-            STEP_LOG_WARNING(m_logger, "Unexpected entity name : "
-                    << str.substr(from, i - from) << " , line "
-                    << m_currentLineNb);
+            STEP_LOG_WARNING(m_logger, "Entity #" << m_currentId << " "
+                    << str.substr(from, i - from) << " had errors");
             continue;
         }
         m_currentObj->setAllocateFunction(m_currentType);
@@ -324,4 +323,9 @@ BaseExpressDataSet* BaseSPFReader::getExpressDataSet()
 SPFHeader& BaseSPFReader::getHeader()
 {
     return m_header;
+}
+
+void BaseSPFReader::setLogger(StepLogger *logger)
+{
+    m_logger = logger;
 }
