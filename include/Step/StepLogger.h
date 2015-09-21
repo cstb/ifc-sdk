@@ -14,12 +14,12 @@ namespace Step
     {
     public:
         typedef enum {
-            FATAL,
-            ERROR,
-            WARNING,
-            INFO,
-            DEBUG,
-            TRACE
+            STEP_FATAL,
+            STEP_ERROR,
+            STEP_WARNING,
+            STEP_INFO,
+            STEP_DEBUG,
+            STEP_TRACE
         } Severity;
 
 
