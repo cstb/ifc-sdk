@@ -731,232 +731,232 @@ InheritVisitor::~InheritVisitor() {
 }
 
 bool InheritVisitor::visitIfcActorSelect(IfcActorSelect *value) {
-    LOG_DEBUG("Failed to visit IfcActorSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcActorSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcAppliedValueSelect(IfcAppliedValueSelect *value) {
-    LOG_DEBUG("Failed to visit IfcAppliedValueSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcAppliedValueSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcAxis2Placement(IfcAxis2Placement *value) {
-    LOG_DEBUG("Failed to visit IfcAxis2Placement(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcAxis2Placement(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcBooleanOperand(IfcBooleanOperand *value) {
-    LOG_DEBUG("Failed to visit IfcBooleanOperand(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcBooleanOperand(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCharacterStyleSelect(IfcCharacterStyleSelect *value) {
-    LOG_DEBUG("Failed to visit IfcCharacterStyleSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCharacterStyleSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcClassificationNotationSelect(IfcClassificationNotationSelect *value) {
-    LOG_DEBUG("Failed to visit IfcClassificationNotationSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassificationNotationSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcColour(IfcColour *value) {
-    LOG_DEBUG("Failed to visit IfcColour(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcColour(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcColourOrFactor(IfcColourOrFactor *value) {
-    LOG_DEBUG("Failed to visit IfcColourOrFactor(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcColourOrFactor(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcConditionCriterionSelect(IfcConditionCriterionSelect *value) {
-    LOG_DEBUG("Failed to visit IfcConditionCriterionSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConditionCriterionSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCsgSelect(IfcCsgSelect *value) {
-    LOG_DEBUG("Failed to visit IfcCsgSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCsgSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCurveFontOrScaledCurveFontSelect(IfcCurveFontOrScaledCurveFontSelect *value) {
-    LOG_DEBUG("Failed to visit IfcCurveFontOrScaledCurveFontSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveFontOrScaledCurveFontSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCurveOrEdgeCurve(IfcCurveOrEdgeCurve *value) {
-    LOG_DEBUG("Failed to visit IfcCurveOrEdgeCurve(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveOrEdgeCurve(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCurveStyleFontSelect(IfcCurveStyleFontSelect *value) {
-    LOG_DEBUG("Failed to visit IfcCurveStyleFontSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveStyleFontSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDateTimeSelect(IfcDateTimeSelect *value) {
-    LOG_DEBUG("Failed to visit IfcDateTimeSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDateTimeSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDefinedSymbolSelect(IfcDefinedSymbolSelect *value) {
-    LOG_DEBUG("Failed to visit IfcDefinedSymbolSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDefinedSymbolSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDerivedMeasureValue(IfcDerivedMeasureValue *value) {
-    LOG_DEBUG("Failed to visit IfcDerivedMeasureValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDerivedMeasureValue(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDocumentSelect(IfcDocumentSelect *value) {
-    LOG_DEBUG("Failed to visit IfcDocumentSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDocumentSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDraughtingCalloutElement(IfcDraughtingCalloutElement *value) {
-    LOG_DEBUG("Failed to visit IfcDraughtingCalloutElement(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDraughtingCalloutElement(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcFillAreaStyleTileShapeSelect(IfcFillAreaStyleTileShapeSelect *value) {
-    LOG_DEBUG("Failed to visit IfcFillAreaStyleTileShapeSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcFillAreaStyleTileShapeSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcFillStyleSelect(IfcFillStyleSelect *value) {
-    LOG_DEBUG("Failed to visit IfcFillStyleSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcFillStyleSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcGeometricSetSelect(IfcGeometricSetSelect *value) {
-    LOG_DEBUG("Failed to visit IfcGeometricSetSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcGeometricSetSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcHatchLineDistanceSelect(IfcHatchLineDistanceSelect *value) {
-    LOG_DEBUG("Failed to visit IfcHatchLineDistanceSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcHatchLineDistanceSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcLayeredItem(IfcLayeredItem *value) {
-    LOG_DEBUG("Failed to visit IfcLayeredItem(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLayeredItem(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcLibrarySelect(IfcLibrarySelect *value) {
-    LOG_DEBUG("Failed to visit IfcLibrarySelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLibrarySelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcLightDistributionDataSourceSelect(IfcLightDistributionDataSourceSelect *value) {
-    LOG_DEBUG("Failed to visit IfcLightDistributionDataSourceSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLightDistributionDataSourceSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialSelect(IfcMaterialSelect *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMeasureValue(IfcMeasureValue *value) {
-    LOG_DEBUG("Failed to visit IfcMeasureValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMeasureValue(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMetricValueSelect(IfcMetricValueSelect *value) {
-    LOG_DEBUG("Failed to visit IfcMetricValueSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMetricValueSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcObjectReferenceSelect(IfcObjectReferenceSelect *value) {
-    LOG_DEBUG("Failed to visit IfcObjectReferenceSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcObjectReferenceSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcOrientationSelect(IfcOrientationSelect *value) {
-    LOG_DEBUG("Failed to visit IfcOrientationSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcOrientationSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcPointOrVertexPoint(IfcPointOrVertexPoint *value) {
-    LOG_DEBUG("Failed to visit IfcPointOrVertexPoint(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPointOrVertexPoint(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcPresentationStyleSelect(IfcPresentationStyleSelect *value) {
-    LOG_DEBUG("Failed to visit IfcPresentationStyleSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPresentationStyleSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcShell(IfcShell *value) {
-    LOG_DEBUG("Failed to visit IfcShell(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcShell(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSimpleValue(IfcSimpleValue *value) {
-    LOG_DEBUG("Failed to visit IfcSimpleValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSimpleValue(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSizeSelect(IfcSizeSelect *value) {
-    LOG_DEBUG("Failed to visit IfcSizeSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSizeSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSpecularHighlightSelect(IfcSpecularHighlightSelect *value) {
-    LOG_DEBUG("Failed to visit IfcSpecularHighlightSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSpecularHighlightSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcStructuralActivityAssignmentSelect(IfcStructuralActivityAssignmentSelect *value) {
-    LOG_DEBUG("Failed to visit IfcStructuralActivityAssignmentSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcStructuralActivityAssignmentSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSurfaceOrFaceSurface(IfcSurfaceOrFaceSurface *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceOrFaceSurface(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceOrFaceSurface(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSurfaceStyleElementSelect(IfcSurfaceStyleElementSelect *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceStyleElementSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceStyleElementSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSymbolStyleSelect(IfcSymbolStyleSelect *value) {
-    LOG_DEBUG("Failed to visit IfcSymbolStyleSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSymbolStyleSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTextFontSelect(IfcTextFontSelect *value) {
-    LOG_DEBUG("Failed to visit IfcTextFontSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextFontSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTextStyleSelect(IfcTextStyleSelect *value) {
-    LOG_DEBUG("Failed to visit IfcTextStyleSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextStyleSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTrimmingSelect(IfcTrimmingSelect *value) {
-    LOG_DEBUG("Failed to visit IfcTrimmingSelect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTrimmingSelect(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcUnit(IfcUnit *value) {
-    LOG_DEBUG("Failed to visit IfcUnit(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcUnit(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcValue(IfcValue *value) {
-    LOG_DEBUG("Failed to visit IfcValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcValue(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcVectorOrDirection(IfcVectorOrDirection *value) {
-    LOG_DEBUG("Failed to visit IfcVectorOrDirection(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcVectorOrDirection(" << value->type());
     return false;
 }
 
@@ -973,7 +973,7 @@ bool InheritVisitor::visitIfcActor(IfcActor *value) {
 }
 
 bool InheritVisitor::visitIfcActorRole(IfcActorRole *value) {
-    LOG_DEBUG("Failed to visit IfcActorRole(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcActorRole(" << value->type());
     return false;
 }
 
@@ -982,7 +982,7 @@ bool InheritVisitor::visitIfcActuatorType(IfcActuatorType *value) {
 }
 
 bool InheritVisitor::visitIfcAddress(IfcAddress *value) {
-    LOG_DEBUG("Failed to visit IfcAddress(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcAddress(" << value->type());
     return false;
 }
 
@@ -1043,37 +1043,37 @@ bool InheritVisitor::visitIfcAnnotationTextOccurrence(IfcAnnotationTextOccurrenc
 }
 
 bool InheritVisitor::visitIfcApplication(IfcApplication *value) {
-    LOG_DEBUG("Failed to visit IfcApplication(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcApplication(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcAppliedValue(IfcAppliedValue *value) {
-    LOG_DEBUG("Failed to visit IfcAppliedValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcAppliedValue(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcAppliedValueRelationship(IfcAppliedValueRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcAppliedValueRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcAppliedValueRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcApproval(IfcApproval *value) {
-    LOG_DEBUG("Failed to visit IfcApproval(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcApproval(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcApprovalActorRelationship(IfcApprovalActorRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcApprovalActorRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcApprovalActorRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcApprovalPropertyRelationship(IfcApprovalPropertyRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcApprovalPropertyRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcApprovalPropertyRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcApprovalRelationship(IfcApprovalRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcApprovalRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcApprovalRelationship(" << value->type());
     return false;
 }
 
@@ -1146,7 +1146,7 @@ bool InheritVisitor::visitIfcBooleanResult(IfcBooleanResult *value) {
 }
 
 bool InheritVisitor::visitIfcBoundaryCondition(IfcBoundaryCondition *value) {
-    LOG_DEBUG("Failed to visit IfcBoundaryCondition(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcBoundaryCondition(" << value->type());
     return false;
 }
 
@@ -1231,7 +1231,7 @@ bool InheritVisitor::visitIfcCableSegmentType(IfcCableSegmentType *value) {
 }
 
 bool InheritVisitor::visitIfcCalendarDate(IfcCalendarDate *value) {
-    LOG_DEBUG("Failed to visit IfcCalendarDate(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCalendarDate(" << value->type());
     return false;
 }
 
@@ -1284,27 +1284,27 @@ bool InheritVisitor::visitIfcCircleProfileDef(IfcCircleProfileDef *value) {
 }
 
 bool InheritVisitor::visitIfcClassification(IfcClassification *value) {
-    LOG_DEBUG("Failed to visit IfcClassification(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassification(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcClassificationItem(IfcClassificationItem *value) {
-    LOG_DEBUG("Failed to visit IfcClassificationItem(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassificationItem(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcClassificationItemRelationship(IfcClassificationItemRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcClassificationItemRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassificationItemRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcClassificationNotation(IfcClassificationNotation *value) {
-    LOG_DEBUG("Failed to visit IfcClassificationNotation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassificationNotation(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcClassificationNotationFacet(IfcClassificationNotationFacet *value) {
-    LOG_DEBUG("Failed to visit IfcClassificationNotationFacet(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcClassificationNotationFacet(" << value->type());
     return false;
 }
 
@@ -1325,7 +1325,7 @@ bool InheritVisitor::visitIfcColourRgb(IfcColourRgb *value) {
 }
 
 bool InheritVisitor::visitIfcColourSpecification(IfcColourSpecification *value) {
-    LOG_DEBUG("Failed to visit IfcColourSpecification(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcColourSpecification(" << value->type());
     return false;
 }
 
@@ -1382,7 +1382,7 @@ bool InheritVisitor::visitIfcConnectionCurveGeometry(IfcConnectionCurveGeometry 
 }
 
 bool InheritVisitor::visitIfcConnectionGeometry(IfcConnectionGeometry *value) {
-    LOG_DEBUG("Failed to visit IfcConnectionGeometry(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConnectionGeometry(" << value->type());
     return false;
 }
 
@@ -1403,22 +1403,22 @@ bool InheritVisitor::visitIfcConnectionSurfaceGeometry(IfcConnectionSurfaceGeome
 }
 
 bool InheritVisitor::visitIfcConstraint(IfcConstraint *value) {
-    LOG_DEBUG("Failed to visit IfcConstraint(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConstraint(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcConstraintAggregationRelationship(IfcConstraintAggregationRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcConstraintAggregationRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConstraintAggregationRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcConstraintClassificationRelationship(IfcConstraintClassificationRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcConstraintClassificationRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConstraintClassificationRelationship(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcConstraintRelationship(IfcConstraintRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcConstraintRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcConstraintRelationship(" << value->type());
     return false;
 }
 
@@ -1463,7 +1463,7 @@ bool InheritVisitor::visitIfcCoolingTowerType(IfcCoolingTowerType *value) {
 }
 
 bool InheritVisitor::visitIfcCoordinatedUniversalTimeOffset(IfcCoordinatedUniversalTimeOffset *value) {
-    LOG_DEBUG("Failed to visit IfcCoordinatedUniversalTimeOffset(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCoordinatedUniversalTimeOffset(" << value->type());
     return false;
 }
 
@@ -1508,7 +1508,7 @@ bool InheritVisitor::visitIfcCsgSolid(IfcCsgSolid *value) {
 }
 
 bool InheritVisitor::visitIfcCurrencyRelationship(IfcCurrencyRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcCurrencyRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurrencyRelationship(" << value->type());
     return false;
 }
 
@@ -1533,17 +1533,17 @@ bool InheritVisitor::visitIfcCurveStyle(IfcCurveStyle *value) {
 }
 
 bool InheritVisitor::visitIfcCurveStyleFont(IfcCurveStyleFont *value) {
-    LOG_DEBUG("Failed to visit IfcCurveStyleFont(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveStyleFont(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCurveStyleFontAndScaling(IfcCurveStyleFontAndScaling *value) {
-    LOG_DEBUG("Failed to visit IfcCurveStyleFontAndScaling(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveStyleFontAndScaling(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcCurveStyleFontPattern(IfcCurveStyleFontPattern *value) {
-    LOG_DEBUG("Failed to visit IfcCurveStyleFontPattern(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcCurveStyleFontPattern(" << value->type());
     return false;
 }
 
@@ -1552,7 +1552,7 @@ bool InheritVisitor::visitIfcDamperType(IfcDamperType *value) {
 }
 
 bool InheritVisitor::visitIfcDateAndTime(IfcDateAndTime *value) {
-    LOG_DEBUG("Failed to visit IfcDateAndTime(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDateAndTime(" << value->type());
     return false;
 }
 
@@ -1565,12 +1565,12 @@ bool InheritVisitor::visitIfcDerivedProfileDef(IfcDerivedProfileDef *value) {
 }
 
 bool InheritVisitor::visitIfcDerivedUnit(IfcDerivedUnit *value) {
-    LOG_DEBUG("Failed to visit IfcDerivedUnit(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDerivedUnit(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDerivedUnitElement(IfcDerivedUnitElement *value) {
-    LOG_DEBUG("Failed to visit IfcDerivedUnitElement(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDerivedUnitElement(" << value->type());
     return false;
 }
 
@@ -1599,7 +1599,7 @@ bool InheritVisitor::visitIfcDimensionPair(IfcDimensionPair *value) {
 }
 
 bool InheritVisitor::visitIfcDimensionalExponents(IfcDimensionalExponents *value) {
-    LOG_DEBUG("Failed to visit IfcDimensionalExponents(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDimensionalExponents(" << value->type());
     return false;
 }
 
@@ -1652,17 +1652,17 @@ bool InheritVisitor::visitIfcDistributionPort(IfcDistributionPort *value) {
 }
 
 bool InheritVisitor::visitIfcDocumentElectronicFormat(IfcDocumentElectronicFormat *value) {
-    LOG_DEBUG("Failed to visit IfcDocumentElectronicFormat(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDocumentElectronicFormat(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDocumentInformation(IfcDocumentInformation *value) {
-    LOG_DEBUG("Failed to visit IfcDocumentInformation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDocumentInformation(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcDocumentInformationRelationship(IfcDocumentInformationRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcDocumentInformationRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDocumentInformationRelationship(" << value->type());
     return false;
 }
 
@@ -1691,7 +1691,7 @@ bool InheritVisitor::visitIfcDraughtingCallout(IfcDraughtingCallout *value) {
 }
 
 bool InheritVisitor::visitIfcDraughtingCalloutRelationship(IfcDraughtingCalloutRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcDraughtingCalloutRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcDraughtingCalloutRelationship(" << value->type());
     return false;
 }
 
@@ -1848,7 +1848,7 @@ bool InheritVisitor::visitIfcExtendedMaterialProperties(IfcExtendedMaterialPrope
 }
 
 bool InheritVisitor::visitIfcExternalReference(IfcExternalReference *value) {
-    LOG_DEBUG("Failed to visit IfcExternalReference(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcExternalReference(" << value->type());
     return false;
 }
 
@@ -2081,7 +2081,7 @@ bool InheritVisitor::visitIfcGrid(IfcGrid *value) {
 }
 
 bool InheritVisitor::visitIfcGridAxis(IfcGridAxis *value) {
-    LOG_DEBUG("Failed to visit IfcGridAxis(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcGridAxis(" << value->type());
     return false;
 }
 
@@ -2126,7 +2126,7 @@ bool InheritVisitor::visitIfcIrregularTimeSeries(IfcIrregularTimeSeries *value) 
 }
 
 bool InheritVisitor::visitIfcIrregularTimeSeriesValue(IfcIrregularTimeSeriesValue *value) {
-    LOG_DEBUG("Failed to visit IfcIrregularTimeSeriesValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcIrregularTimeSeriesValue(" << value->type());
     return false;
 }
 
@@ -2147,7 +2147,7 @@ bool InheritVisitor::visitIfcLampType(IfcLampType *value) {
 }
 
 bool InheritVisitor::visitIfcLibraryInformation(IfcLibraryInformation *value) {
-    LOG_DEBUG("Failed to visit IfcLibraryInformation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLibraryInformation(" << value->type());
     return false;
 }
 
@@ -2156,7 +2156,7 @@ bool InheritVisitor::visitIfcLibraryReference(IfcLibraryReference *value) {
 }
 
 bool InheritVisitor::visitIfcLightDistributionData(IfcLightDistributionData *value) {
-    LOG_DEBUG("Failed to visit IfcLightDistributionData(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLightDistributionData(" << value->type());
     return false;
 }
 
@@ -2165,7 +2165,7 @@ bool InheritVisitor::visitIfcLightFixtureType(IfcLightFixtureType *value) {
 }
 
 bool InheritVisitor::visitIfcLightIntensityDistribution(IfcLightIntensityDistribution *value) {
-    LOG_DEBUG("Failed to visit IfcLightIntensityDistribution(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLightIntensityDistribution(" << value->type());
     return false;
 }
 
@@ -2206,7 +2206,7 @@ bool InheritVisitor::visitIfcLocalPlacement(IfcLocalPlacement *value) {
 }
 
 bool InheritVisitor::visitIfcLocalTime(IfcLocalTime *value) {
-    LOG_DEBUG("Failed to visit IfcLocalTime(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcLocalTime(" << value->type());
     return false;
 }
 
@@ -2223,12 +2223,12 @@ bool InheritVisitor::visitIfcMappedItem(IfcMappedItem *value) {
 }
 
 bool InheritVisitor::visitIfcMaterial(IfcMaterial *value) {
-    LOG_DEBUG("Failed to visit IfcMaterial(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterial(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialClassificationRelationship(IfcMaterialClassificationRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialClassificationRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialClassificationRelationship(" << value->type());
     return false;
 }
 
@@ -2237,32 +2237,32 @@ bool InheritVisitor::visitIfcMaterialDefinitionRepresentation(IfcMaterialDefinit
 }
 
 bool InheritVisitor::visitIfcMaterialLayer(IfcMaterialLayer *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialLayer(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialLayer(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialLayerSet(IfcMaterialLayerSet *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialLayerSet(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialLayerSet(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialLayerSetUsage(IfcMaterialLayerSetUsage *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialLayerSetUsage(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialLayerSetUsage(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialList(IfcMaterialList *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialList(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialList(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMaterialProperties(IfcMaterialProperties *value) {
-    LOG_DEBUG("Failed to visit IfcMaterialProperties(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMaterialProperties(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcMeasureWithUnit(IfcMeasureWithUnit *value) {
-    LOG_DEBUG("Failed to visit IfcMeasureWithUnit(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMeasureWithUnit(" << value->type());
     return false;
 }
 
@@ -2299,7 +2299,7 @@ bool InheritVisitor::visitIfcMetric(IfcMetric *value) {
 }
 
 bool InheritVisitor::visitIfcMonetaryUnit(IfcMonetaryUnit *value) {
-    LOG_DEBUG("Failed to visit IfcMonetaryUnit(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcMonetaryUnit(" << value->type());
     return false;
 }
 
@@ -2312,7 +2312,7 @@ bool InheritVisitor::visitIfcMove(IfcMove *value) {
 }
 
 bool InheritVisitor::visitIfcNamedUnit(IfcNamedUnit *value) {
-    LOG_DEBUG("Failed to visit IfcNamedUnit(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcNamedUnit(" << value->type());
     return false;
 }
 
@@ -2325,7 +2325,7 @@ bool InheritVisitor::visitIfcObjectDefinition(IfcObjectDefinition *value) {
 }
 
 bool InheritVisitor::visitIfcObjectPlacement(IfcObjectPlacement *value) {
-    LOG_DEBUG("Failed to visit IfcObjectPlacement(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcObjectPlacement(" << value->type());
     return false;
 }
 
@@ -2366,12 +2366,12 @@ bool InheritVisitor::visitIfcOrderAction(IfcOrderAction *value) {
 }
 
 bool InheritVisitor::visitIfcOrganization(IfcOrganization *value) {
-    LOG_DEBUG("Failed to visit IfcOrganization(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcOrganization(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcOrganizationRelationship(IfcOrganizationRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcOrganizationRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcOrganizationRelationship(" << value->type());
     return false;
 }
 
@@ -2384,7 +2384,7 @@ bool InheritVisitor::visitIfcOutletType(IfcOutletType *value) {
 }
 
 bool InheritVisitor::visitIfcOwnerHistory(IfcOwnerHistory *value) {
-    LOG_DEBUG("Failed to visit IfcOwnerHistory(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcOwnerHistory(" << value->type());
     return false;
 }
 
@@ -2409,12 +2409,12 @@ bool InheritVisitor::visitIfcPermit(IfcPermit *value) {
 }
 
 bool InheritVisitor::visitIfcPerson(IfcPerson *value) {
-    LOG_DEBUG("Failed to visit IfcPerson(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPerson(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcPersonAndOrganization(IfcPersonAndOrganization *value) {
-    LOG_DEBUG("Failed to visit IfcPersonAndOrganization(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPersonAndOrganization(" << value->type());
     return false;
 }
 
@@ -2423,7 +2423,7 @@ bool InheritVisitor::visitIfcPhysicalComplexQuantity(IfcPhysicalComplexQuantity 
 }
 
 bool InheritVisitor::visitIfcPhysicalQuantity(IfcPhysicalQuantity *value) {
-    LOG_DEBUG("Failed to visit IfcPhysicalQuantity(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPhysicalQuantity(" << value->type());
     return false;
 }
 
@@ -2516,7 +2516,7 @@ bool InheritVisitor::visitIfcPreDefinedDimensionSymbol(IfcPreDefinedDimensionSym
 }
 
 bool InheritVisitor::visitIfcPreDefinedItem(IfcPreDefinedItem *value) {
-    LOG_DEBUG("Failed to visit IfcPreDefinedItem(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPreDefinedItem(" << value->type());
     return false;
 }
 
@@ -2537,7 +2537,7 @@ bool InheritVisitor::visitIfcPreDefinedTextFont(IfcPreDefinedTextFont *value) {
 }
 
 bool InheritVisitor::visitIfcPresentationLayerAssignment(IfcPresentationLayerAssignment *value) {
-    LOG_DEBUG("Failed to visit IfcPresentationLayerAssignment(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPresentationLayerAssignment(" << value->type());
     return false;
 }
 
@@ -2546,12 +2546,12 @@ bool InheritVisitor::visitIfcPresentationLayerWithStyle(IfcPresentationLayerWith
 }
 
 bool InheritVisitor::visitIfcPresentationStyle(IfcPresentationStyle *value) {
-    LOG_DEBUG("Failed to visit IfcPresentationStyle(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPresentationStyle(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcPresentationStyleAssignment(IfcPresentationStyleAssignment *value) {
-    LOG_DEBUG("Failed to visit IfcPresentationStyleAssignment(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPresentationStyleAssignment(" << value->type());
     return false;
 }
 
@@ -2572,7 +2572,7 @@ bool InheritVisitor::visitIfcProductDefinitionShape(IfcProductDefinitionShape *v
 }
 
 bool InheritVisitor::visitIfcProductRepresentation(IfcProductRepresentation *value) {
-    LOG_DEBUG("Failed to visit IfcProductRepresentation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcProductRepresentation(" << value->type());
     return false;
 }
 
@@ -2581,12 +2581,12 @@ bool InheritVisitor::visitIfcProductsOfCombustionProperties(IfcProductsOfCombust
 }
 
 bool InheritVisitor::visitIfcProfileDef(IfcProfileDef *value) {
-    LOG_DEBUG("Failed to visit IfcProfileDef(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcProfileDef(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcProfileProperties(IfcProfileProperties *value) {
-    LOG_DEBUG("Failed to visit IfcProfileProperties(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcProfileProperties(" << value->type());
     return false;
 }
 
@@ -2611,7 +2611,7 @@ bool InheritVisitor::visitIfcProjectionElement(IfcProjectionElement *value) {
 }
 
 bool InheritVisitor::visitIfcProperty(IfcProperty *value) {
-    LOG_DEBUG("Failed to visit IfcProperty(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcProperty(" << value->type());
     return false;
 }
 
@@ -2620,7 +2620,7 @@ bool InheritVisitor::visitIfcPropertyBoundedValue(IfcPropertyBoundedValue *value
 }
 
 bool InheritVisitor::visitIfcPropertyConstraintRelationship(IfcPropertyConstraintRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcPropertyConstraintRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPropertyConstraintRelationship(" << value->type());
     return false;
 }
 
@@ -2629,7 +2629,7 @@ bool InheritVisitor::visitIfcPropertyDefinition(IfcPropertyDefinition *value) {
 }
 
 bool InheritVisitor::visitIfcPropertyDependencyRelationship(IfcPropertyDependencyRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcPropertyDependencyRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPropertyDependencyRelationship(" << value->type());
     return false;
 }
 
@@ -2638,7 +2638,7 @@ bool InheritVisitor::visitIfcPropertyEnumeratedValue(IfcPropertyEnumeratedValue 
 }
 
 bool InheritVisitor::visitIfcPropertyEnumeration(IfcPropertyEnumeration *value) {
-    LOG_DEBUG("Failed to visit IfcPropertyEnumeration(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcPropertyEnumeration(" << value->type());
     return false;
 }
 
@@ -2747,7 +2747,7 @@ bool InheritVisitor::visitIfcRectangularTrimmedSurface(IfcRectangularTrimmedSurf
 }
 
 bool InheritVisitor::visitIfcReferencesValueDocument(IfcReferencesValueDocument *value) {
-    LOG_DEBUG("Failed to visit IfcReferencesValueDocument(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcReferencesValueDocument(" << value->type());
     return false;
 }
 
@@ -2756,7 +2756,7 @@ bool InheritVisitor::visitIfcRegularTimeSeries(IfcRegularTimeSeries *value) {
 }
 
 bool InheritVisitor::visitIfcReinforcementBarProperties(IfcReinforcementBarProperties *value) {
-    LOG_DEBUG("Failed to visit IfcReinforcementBarProperties(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcReinforcementBarProperties(" << value->type());
     return false;
 }
 
@@ -2977,27 +2977,27 @@ bool InheritVisitor::visitIfcRelationship(IfcRelationship *value) {
 }
 
 bool InheritVisitor::visitIfcRelaxation(IfcRelaxation *value) {
-    LOG_DEBUG("Failed to visit IfcRelaxation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRelaxation(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcRepresentation(IfcRepresentation *value) {
-    LOG_DEBUG("Failed to visit IfcRepresentation(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRepresentation(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcRepresentationContext(IfcRepresentationContext *value) {
-    LOG_DEBUG("Failed to visit IfcRepresentationContext(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRepresentationContext(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcRepresentationItem(IfcRepresentationItem *value) {
-    LOG_DEBUG("Failed to visit IfcRepresentationItem(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRepresentationItem(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcRepresentationMap(IfcRepresentationMap *value) {
-    LOG_DEBUG("Failed to visit IfcRepresentationMap(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRepresentationMap(" << value->type());
     return false;
 }
 
@@ -3026,7 +3026,7 @@ bool InheritVisitor::visitIfcRoof(IfcRoof *value) {
 }
 
 bool InheritVisitor::visitIfcRoot(IfcRoot *value) {
-    LOG_DEBUG("Failed to visit IfcRoot(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcRoot(" << value->type());
     return false;
 }
 
@@ -3051,12 +3051,12 @@ bool InheritVisitor::visitIfcScheduleTimeControl(IfcScheduleTimeControl *value) 
 }
 
 bool InheritVisitor::visitIfcSectionProperties(IfcSectionProperties *value) {
-    LOG_DEBUG("Failed to visit IfcSectionProperties(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSectionProperties(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSectionReinforcementProperties(IfcSectionReinforcementProperties *value) {
-    LOG_DEBUG("Failed to visit IfcSectionReinforcementProperties(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSectionReinforcementProperties(" << value->type());
     return false;
 }
 
@@ -3077,7 +3077,7 @@ bool InheritVisitor::visitIfcServiceLifeFactor(IfcServiceLifeFactor *value) {
 }
 
 bool InheritVisitor::visitIfcShapeAspect(IfcShapeAspect *value) {
-    LOG_DEBUG("Failed to visit IfcShapeAspect(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcShapeAspect(" << value->type());
     return false;
 }
 
@@ -3190,7 +3190,7 @@ bool InheritVisitor::visitIfcStructuralConnection(IfcStructuralConnection *value
 }
 
 bool InheritVisitor::visitIfcStructuralConnectionCondition(IfcStructuralConnectionCondition *value) {
-    LOG_DEBUG("Failed to visit IfcStructuralConnectionCondition(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcStructuralConnectionCondition(" << value->type());
     return false;
 }
 
@@ -3219,7 +3219,7 @@ bool InheritVisitor::visitIfcStructuralLinearActionVarying(IfcStructuralLinearAc
 }
 
 bool InheritVisitor::visitIfcStructuralLoad(IfcStructuralLoad *value) {
-    LOG_DEBUG("Failed to visit IfcStructuralLoad(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcStructuralLoad(" << value->type());
     return false;
 }
 
@@ -3356,12 +3356,12 @@ bool InheritVisitor::visitIfcSurfaceStyle(IfcSurfaceStyle *value) {
 }
 
 bool InheritVisitor::visitIfcSurfaceStyleLighting(IfcSurfaceStyleLighting *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceStyleLighting(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceStyleLighting(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSurfaceStyleRefraction(IfcSurfaceStyleRefraction *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceStyleRefraction(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceStyleRefraction(" << value->type());
     return false;
 }
 
@@ -3370,17 +3370,17 @@ bool InheritVisitor::visitIfcSurfaceStyleRendering(IfcSurfaceStyleRendering *val
 }
 
 bool InheritVisitor::visitIfcSurfaceStyleShading(IfcSurfaceStyleShading *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceStyleShading(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceStyleShading(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSurfaceStyleWithTextures(IfcSurfaceStyleWithTextures *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceStyleWithTextures(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceStyleWithTextures(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcSurfaceTexture(IfcSurfaceTexture *value) {
-    LOG_DEBUG("Failed to visit IfcSurfaceTexture(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcSurfaceTexture(" << value->type());
     return false;
 }
 
@@ -3417,12 +3417,12 @@ bool InheritVisitor::visitIfcTShapeProfileDef(IfcTShapeProfileDef *value) {
 }
 
 bool InheritVisitor::visitIfcTable(IfcTable *value) {
-    LOG_DEBUG("Failed to visit IfcTable(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTable(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTableRow(IfcTableRow *value) {
-    LOG_DEBUG("Failed to visit IfcTableRow(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTableRow(" << value->type());
     return false;
 }
 
@@ -3467,22 +3467,22 @@ bool InheritVisitor::visitIfcTextStyleFontModel(IfcTextStyleFontModel *value) {
 }
 
 bool InheritVisitor::visitIfcTextStyleForDefinedFont(IfcTextStyleForDefinedFont *value) {
-    LOG_DEBUG("Failed to visit IfcTextStyleForDefinedFont(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextStyleForDefinedFont(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTextStyleTextModel(IfcTextStyleTextModel *value) {
-    LOG_DEBUG("Failed to visit IfcTextStyleTextModel(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextStyleTextModel(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTextStyleWithBoxCharacteristics(IfcTextStyleWithBoxCharacteristics *value) {
-    LOG_DEBUG("Failed to visit IfcTextStyleWithBoxCharacteristics(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextStyleWithBoxCharacteristics(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTextureCoordinate(IfcTextureCoordinate *value) {
-    LOG_DEBUG("Failed to visit IfcTextureCoordinate(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextureCoordinate(" << value->type());
     return false;
 }
 
@@ -3495,7 +3495,7 @@ bool InheritVisitor::visitIfcTextureMap(IfcTextureMap *value) {
 }
 
 bool InheritVisitor::visitIfcTextureVertex(IfcTextureVertex *value) {
-    LOG_DEBUG("Failed to visit IfcTextureVertex(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTextureVertex(" << value->type());
     return false;
 }
 
@@ -3504,12 +3504,12 @@ bool InheritVisitor::visitIfcThermalMaterialProperties(IfcThermalMaterialPropert
 }
 
 bool InheritVisitor::visitIfcTimeSeries(IfcTimeSeries *value) {
-    LOG_DEBUG("Failed to visit IfcTimeSeries(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTimeSeries(" << value->type());
     return false;
 }
 
 bool InheritVisitor::visitIfcTimeSeriesReferenceRelationship(IfcTimeSeriesReferenceRelationship *value) {
-    LOG_DEBUG("Failed to visit IfcTimeSeriesReferenceRelationship(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTimeSeriesReferenceRelationship(" << value->type());
     return false;
 }
 
@@ -3518,7 +3518,7 @@ bool InheritVisitor::visitIfcTimeSeriesSchedule(IfcTimeSeriesSchedule *value) {
 }
 
 bool InheritVisitor::visitIfcTimeSeriesValue(IfcTimeSeriesValue *value) {
-    LOG_DEBUG("Failed to visit IfcTimeSeriesValue(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcTimeSeriesValue(" << value->type());
     return false;
 }
 
@@ -3571,7 +3571,7 @@ bool InheritVisitor::visitIfcUShapeProfileDef(IfcUShapeProfileDef *value) {
 }
 
 bool InheritVisitor::visitIfcUnitAssignment(IfcUnitAssignment *value) {
-    LOG_DEBUG("Failed to visit IfcUnitAssignment(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcUnitAssignment(" << value->type());
     return false;
 }
 
@@ -3592,7 +3592,7 @@ bool InheritVisitor::visitIfcVertex(IfcVertex *value) {
 }
 
 bool InheritVisitor::visitIfcVertexBasedTextureMap(IfcVertexBasedTextureMap *value) {
-    LOG_DEBUG("Failed to visit IfcVertexBasedTextureMap(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcVertexBasedTextureMap(" << value->type());
     return false;
 }
 
@@ -3613,7 +3613,7 @@ bool InheritVisitor::visitIfcVirtualElement(IfcVirtualElement *value) {
 }
 
 bool InheritVisitor::visitIfcVirtualGridIntersection(IfcVirtualGridIntersection *value) {
-    LOG_DEBUG("Failed to visit IfcVirtualGridIntersection(" << value->type());
+    STEP_LOG_DEBUG(m_logger, "Failed to visit IfcVirtualGridIntersection(" << value->type());
     return false;
 }
 

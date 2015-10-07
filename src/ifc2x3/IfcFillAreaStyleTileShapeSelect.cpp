@@ -70,7 +70,9 @@ void IfcFillAreaStyleTileShapeSelect::copy(const IfcFillAreaStyleTileShapeSelect
     case IFCFILLAREASTYLETILESYMBOLWITHSTYLE:
         setIfcFillAreaStyleTileSymbolWithStyle((IfcFillAreaStyleTileSymbolWithStyle *) (copyop(obj.m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcFillAreaStyleTileShapeSelect::currentTypeName() const {
@@ -92,7 +94,9 @@ void IfcFillAreaStyleTileShapeSelect::deleteUnion() {
     case IFCFILLAREASTYLETILESYMBOLWITHSTYLE:
         m_IfcFillAreaStyleTileShapeSelect_union.m_IfcFillAreaStyleTileSymbolWithStyle->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

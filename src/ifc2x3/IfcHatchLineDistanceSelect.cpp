@@ -73,7 +73,9 @@ void IfcHatchLineDistanceSelect::copy(const IfcHatchLineDistanceSelect &obj, con
     case IFCPOSITIVELENGTHMEASURE:
         setIfcPositiveLengthMeasure(obj.m_IfcHatchLineDistanceSelect_union.m_IfcPositiveLengthMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcHatchLineDistanceSelect::currentTypeName() const {
@@ -98,7 +100,9 @@ void IfcHatchLineDistanceSelect::deleteUnion() {
     case IFCONEDIRECTIONREPEATFACTOR:
         m_IfcHatchLineDistanceSelect_union.m_IfcOneDirectionRepeatFactor->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

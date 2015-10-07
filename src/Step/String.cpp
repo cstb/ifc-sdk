@@ -57,6 +57,9 @@ String::String(const char *str)
     case UTF8:
         *this = fromUTF8(std::string(str));
         break;
+    case MacRoman:
+        *this = fromMacRoman(std::string(str));
+        break;
     case Windows1250:
     case Windows1251:
     case Windows1252:
@@ -77,6 +80,9 @@ String::String(const std::string &str)
     {
     case UTF8:
         *this = fromUTF8(str);
+        break;
+    case MacRoman:
+        *this = fromMacRoman(str);
         break;
     case Windows1250:
     case Windows1251:
@@ -435,6 +441,19 @@ static const wchar_t windows_1256[128] =
     ,0x064b, 0x064c, 0x064d, 0x064e, 0x00f4, 0x064f, 0x0650, 0x00f7, 0x0651, 0x00f9, 0x0652, 0x00fb, 0x00fc, 0x200e, 0x200f, 0x06d2
 };
 
+static const wchar_t mac_roman[128] =
+{
+    0x00c4, 0x00c5, 0x00c7, 0x00c9, 0x00d1, 0x00d6, 0x00dc, 0x00e1, 0x00e0, 0x00e2, 0x00e4, 0x00e3, 0x00e5, 0x00e7, 0x00e9, 0x00e8,
+    0x00ea, 0x00eb, 0x00ed, 0x00ec, 0x00ee, 0x00ef, 0x00f1, 0x00f3, 0x00f2, 0x00f4, 0x00f6, 0x00f5, 0x00fa, 0x00f9, 0x00fb, 0x00fc,
+    0x2020, 0x00b0, 0x00a2, 0x00a3, 0x00a7, 0x2022, 0x00b6, 0x00df, 0x00ae, 0x00a9, 0x2122, 0x00b4, 0x00a8, 0x2260, 0x00c6, 0x00d8,
+    0x221e, 0x00b1, 0x2264, 0x2265, 0x00a5, 0x00b5, 0x2202, 0x2211, 0x220f, 0x03c0, 0x222b, 0x00aa, 0x00ba, 0x03a9, 0x00e6, 0x00f8,
+    0x00bf, 0x00a1, 0x00ac, 0x221a, 0x0192, 0x2248, 0x2206, 0x00ab, 0x00bb, 0x2026, 0x00a0, 0x00c0, 0x00c3, 0x00d5, 0x0152, 0x0153,
+    0x2013, 0x2014, 0x201c, 0x201d, 0x2018, 0x2019, 0x00f7, 0x25ca, 0x00ff, 0x0178, 0x2044, 0x20ac, 0x2039, 0x203a, 0xfb01, 0xfb02,
+    0x2021, 0x00b7, 0x201a, 0x201e, 0x2030, 0x00c2, 0x00ca, 0x00c1, 0x00cb, 0x00c8, 0x00cd, 0x00ce, 0x00cf, 0x00cc, 0x00d3, 0x00d4,
+    0xf8ff, 0x00d2, 0x00da, 0x00db, 0x00d9, 0x0131, 0x02c6, 0x02dc, 0x00af, 0x02d8, 0x02d9, 0x02da, 0x00b8, 0x02dd, 0x02db, 0x02c7
+};
+
+
 static wchar_t fromWindows(int page_code, char code)
 {
     static const wchar_t* windows_125[] =
@@ -453,6 +472,11 @@ static wchar_t fromWindows(int page_code, char code)
         return L'?';
     else
         return windows_125[page_code][code];
+}
+
+static wchar_t fromMacRoman(char code)
+{
+    return mac_roman[code];
 }
 
 static wchar_t fromISO_8859(String::Alphabet alphabet, char code)
@@ -569,6 +593,32 @@ String String::fromWindows(const std::string &str, int pagecode)
     return result;
 }
 
+String String::fromMacRoman(const std::string &str)
+{
+    String result;
+
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it)
+    {
+        const unsigned char code = (const unsigned char)*it;
+
+        if(code <= 0x7F)
+        {
+            result += (char) code;
+        }
+        else if(wchar_t c = ::fromMacRoman(int(code) - 0x80))
+        {
+            result += c;
+        }
+        else
+        {
+            result += '?';
+        }
+
+    }
+
+    return result;
+}
+
 
 String String::fromISO_8859(const std::string &str, Alphabet alphabet)
 {
@@ -644,6 +694,11 @@ static wchar_t parseHex1(std::string::size_type &i, std::string s)
             break;
     }
     ++i;
+
+    if ((code >= 0x80) && (code <= 0x9F)) // hack to use mac roman ascii table for those unused latin1 space
+    {
+        return  mac_roman[int(code) - 0x80];
+    }
 
     return (wchar_t) code;
 }

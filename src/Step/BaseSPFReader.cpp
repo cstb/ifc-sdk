@@ -21,14 +21,10 @@
 #include "Step/BaseSPFObject.h"
 #include "Step/BaseExpressDataSet.h"
 
-#define LOG_STRING_VECTOR _errors
-
-#include "Step/logger.h"
-
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader() : _callback(0)
+BaseSPFReader::BaseSPFReader() : _callback(0), m_logger(new StepLogger)
 {
 }
 
@@ -70,7 +66,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     {
         if (!m_header.parse(buffer, bufferLength, m_currentLineNb, progress))
         {
-            LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
+            STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
             if(_callback)
             {
                 // got to end of progress bar
@@ -89,7 +85,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     {
         if (!m_header.parse(input, m_currentLineNb,progress))
         {
-            LOG_ERROR("Can't parse HEADER section, line " << m_currentLineNb);
+            STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
             if(_callback)
             {
                 // got to end of progress bar
@@ -117,10 +113,10 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
     if (inMemory)
     {
-        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
+        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
                 != "DATA")
         {
-            LOG_ERROR("Can't find DATA section, line "
+            STEP_LOG_ERROR(m_logger,"Can't find DATA section, line "
                     << m_currentLineNb);
             if(_callback)
             {
@@ -138,10 +134,10 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     else
     {
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
+        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
                 != "DATA")
         {
-            LOG_ERROR("Can't find DATA section, line "
+            STEP_LOG_ERROR(m_logger,"Can't find DATA section, line "
                     << m_currentLineNb);
             if(_callback)
             {
@@ -169,7 +165,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     while (true)
     {
         from = 0;
-        LOG_DEBUG("Reading line " << m_currentLineNb);
+        STEP_LOG_DEBUG(m_logger, "Reading line " << m_currentLineNb);
 
         if(_callback)
         {
@@ -179,9 +175,9 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
         if (inMemory)
         {
-            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress))
+            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()))
             {
-                LOG_ERROR("Unexpected End Of File, line "
+                STEP_LOG_ERROR(m_logger,"Unexpected End Of File, line "
                         << m_currentLineNb);
                 if(_callback)
                 {
@@ -199,9 +195,9 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         }
         else
         {
-            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress))
+            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()))
             {
-                LOG_ERROR("Unexpected End Of File, line "
+                STEP_LOG_ERROR(m_logger,"Unexpected End Of File, line "
                         << m_currentLineNb);
                 if(_callback)
                 {
@@ -225,7 +221,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         i = str.find('=');
         if (i == string::npos || str[0] != '#')
         {
-            LOG_WARNING("Syntax error on entity id, line "
+            STEP_LOG_WARNING(m_logger, "Syntax error on entity id, line "
                     << m_currentLineNb);
             continue;
         }
@@ -235,8 +231,8 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         i = str.find('(', from);
         if (i == string::npos || str[str.length() - 1] != ')')
         {
-            LOG_WARNING(
-                    "Syntax error on entity definition, line "
+            STEP_LOG_WARNING(m_logger,
+                    "Syntax error on entity definition #" << m_currentId << ", line "
                     << m_currentLineNb);
             continue;
         }
@@ -249,9 +245,8 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
         if (!callLoadFunction(entityName))
         {
-            LOG_WARNING("Unexpected entity name : "
-                    << str.substr(from, i - from) << " , line "
-                    << m_currentLineNb);
+            STEP_LOG_WARNING(m_logger, "Entity #" << m_currentId << " "
+                    << str.substr(from, i - from) << " had errors");
             continue;
         }
         m_currentObj->setAllocateFunction(m_currentType);
@@ -262,10 +257,10 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 
     if (inMemory)
     {
-        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress) || str
+        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
                 != "END-ISO-10303-21")
         {
-            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
+            STEP_LOG_ERROR(m_logger,"Can't find END-ISO-10303-21 token, line "
                     << m_currentLineNb);
             if(_callback)
             {
@@ -284,10 +279,10 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     else
     {
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress) || str
+        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
                 != "END-ISO-10303-21")
         {
-            LOG_ERROR("Can't find END-ISO-10303-21 token, line "
+            STEP_LOG_ERROR(m_logger,"Can't find END-ISO-10303-21 token, line "
                     << m_currentLineNb);
             if(_callback)
             {
@@ -328,4 +323,9 @@ BaseExpressDataSet* BaseSPFReader::getExpressDataSet()
 SPFHeader& BaseSPFReader::getHeader()
 {
     return m_header;
+}
+
+void BaseSPFReader::setLogger(StepLogger *logger)
+{
+    m_logger = logger;
 }

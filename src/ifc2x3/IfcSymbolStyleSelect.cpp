@@ -74,7 +74,9 @@ void IfcSymbolStyleSelect::copy(const IfcSymbolStyleSelect &obj, const CopyOp &c
     case IFCPREDEFINEDCOLOUR:
         setIfcPreDefinedColour((IfcPreDefinedColour *) (copyop(obj.m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSymbolStyleSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcSymbolStyleSelect::deleteUnion() {
     case IFCPREDEFINEDCOLOUR:
         m_IfcSymbolStyleSelect_union.m_IfcPreDefinedColour->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

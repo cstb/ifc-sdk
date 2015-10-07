@@ -366,7 +366,9 @@ void IfcValue::copy(const IfcValue &obj, const CopyOp &/*copyop*/) {
     case IFCIONCONCENTRATIONMEASURE:
         setIfcIonConcentrationMeasure(obj.m_IfcValue_union.m_IfcIonConcentrationMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcValue::currentTypeName() const {

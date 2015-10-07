@@ -97,7 +97,9 @@ void IfcMetricValueSelect::copy(const IfcMetricValueSelect &obj, const CopyOp &c
     case IFCCOSTVALUE:
         setIfcCostValue((IfcCostValue *) (copyop(obj.m_IfcMetricValueSelect_union.m_IfcCostValue)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcMetricValueSelect::currentTypeName() const {
@@ -161,7 +163,9 @@ void IfcMetricValueSelect::deleteUnion() {
     case IFCCOSTVALUE:
         m_IfcMetricValueSelect_union.m_IfcCostValue->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

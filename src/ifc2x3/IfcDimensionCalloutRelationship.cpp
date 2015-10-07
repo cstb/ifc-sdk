@@ -22,7 +22,6 @@
 #include <ifc2x3/IfcDraughtingCalloutRelationship.h>
 #include <ifc2x3/Visitor.h>
 #include <Step/ClassType.h>
-#include <Step/logger.h>
 
 
 #include <string>

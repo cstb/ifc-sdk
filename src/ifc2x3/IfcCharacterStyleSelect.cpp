@@ -70,7 +70,9 @@ void IfcCharacterStyleSelect::copy(const IfcCharacterStyleSelect &obj, const Cop
     case IFCTEXTSTYLEFORDEFINEDFONT:
         setIfcTextStyleForDefinedFont((IfcTextStyleForDefinedFont *) (copyop(obj.m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcCharacterStyleSelect::currentTypeName() const {
@@ -92,7 +94,9 @@ void IfcCharacterStyleSelect::deleteUnion() {
     case IFCTEXTSTYLEFORDEFINEDFONT:
         m_IfcCharacterStyleSelect_union.m_IfcTextStyleForDefinedFont->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

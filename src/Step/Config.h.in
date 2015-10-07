@@ -3,4 +3,10 @@
 
 #cmakedefine STEP_CHECK_RANGE
 
+#ifdef _DEBUG
+# define STEP_LOG_@DEBUG_LOG_LEVEL@_ENABLE
+#else
+# define STEP_LOG_@RELEASE_LOG_LEVEL@_ENABLE
+#endif
+
 #endif

@@ -73,7 +73,9 @@ void IfcConditionCriterionSelect::copy(const IfcConditionCriterionSelect &obj, c
     case IFCMEASUREWITHUNIT:
         setIfcMeasureWithUnit((IfcMeasureWithUnit *) (copyop(obj.m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcConditionCriterionSelect::currentTypeName() const {
@@ -101,7 +103,9 @@ void IfcConditionCriterionSelect::deleteUnion() {
     case IFCMEASUREWITHUNIT:
         m_IfcConditionCriterionSelect_union.m_IfcMeasureWithUnit->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

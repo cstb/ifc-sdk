@@ -137,7 +137,9 @@ void IfcMeasureValue::copy(const IfcMeasureValue &obj, const CopyOp &/*copyop*/)
             *it_current_IfcComplexNumber = copyTarget;
         }
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcMeasureValue::currentTypeName() const {
@@ -225,7 +227,9 @@ void IfcMeasureValue::deleteUnion() {
     case IFCCOMPLEXNUMBER:
         delete m_IfcMeasureValue_union.m_IfcComplexNumber;
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

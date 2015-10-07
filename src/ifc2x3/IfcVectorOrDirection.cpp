@@ -74,7 +74,9 @@ void IfcVectorOrDirection::copy(const IfcVectorOrDirection &obj, const CopyOp &c
     case IFCVECTOR:
         setIfcVector((IfcVector *) (copyop(obj.m_IfcVectorOrDirection_union.m_IfcVector)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcVectorOrDirection::currentTypeName() const {

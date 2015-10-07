@@ -84,7 +84,9 @@ void IfcSizeSelect::copy(const IfcSizeSelect &obj, const CopyOp &/*copyop*/) {
     case IFCPOSITIVERATIOMEASURE:
         setIfcPositiveRatioMeasure(obj.m_IfcSizeSelect_union.m_IfcPositiveRatioMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSizeSelect::currentTypeName() const {
@@ -121,7 +123,9 @@ void IfcSizeSelect::deleteUnion() {
     case IFCDESCRIPTIVEMEASURE:
         delete m_IfcSizeSelect_union.m_IfcDescriptiveMeasure;
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

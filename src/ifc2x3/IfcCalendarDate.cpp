@@ -23,7 +23,6 @@
 #include <Step/BaseCopyOp.h>
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
-#include <Step/logger.h>
 
 
 #include <string>

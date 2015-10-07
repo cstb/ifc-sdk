@@ -14,12 +14,10 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 // Lesser General Public License for more details.
 
-#include "Step/SPFFunctions.h"
-#include "Step/BaseExpressDataSet.h"
-#include "Step/ASCII_codes.h"
-
-#include "Step/logger.h"
-
+#include <Step/SPFFunctions.h>
+#include <Step/BaseExpressDataSet.h>
+#include <Step/ASCII_codes.h>
+#include <Step/StepLogger.h>
 
 using namespace Step;
 using namespace std;
@@ -132,7 +130,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     return true;
 }
 
-bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress)
+bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress, StepLogger *logger)
 {
     str.clear();
     size_t i = start;
@@ -163,7 +161,7 @@ bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLe
                     }
                 }
                 if (i >= bufferLength) {
-                    std::cerr <<("Malformed string, comments not ended by */ ");
+                    STEP_LOG_ERROR(logger, "Malformed string, comments not ended by */ ");
                     progress = i+1;
                     return false;
                 }
@@ -179,14 +177,14 @@ bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLe
                 }
             }
             if (i >= bufferLength) {
-                std::cerr <<("Malformed string, odd number of \" ' \" ");
+                STEP_LOG_ERROR(logger, "Malformed string, odd number of \" ' \" ");
                 progress = i+1;
                 return false;
             }
         }
     }
     if (i >= bufferLength) {
-        std::cerr <<("String too long ");
+        STEP_LOG_ERROR(logger, "String too long ");
         progress = i+1;
         return false;
     }
@@ -197,7 +195,7 @@ bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLe
     return true;
 }
 
-bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress) {
+bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress, StepLogger *logger) {
     str.clear();
     size_t i = 0;
     size_t from = 0;
@@ -228,7 +226,7 @@ bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t buf
                     }
                 }
                 if (i >= bufferLength) {
-                    std::cerr <<("Malformed string, comments not ended by */ ");
+                    STEP_LOG_ERROR(logger, "Malformed string, comments not ended by */ ");
                     progress += i+1;
                     return false;
                 }
@@ -244,14 +242,14 @@ bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t buf
                 }
             }
             if (i >= bufferLength) {
-                std::cerr <<("Malformed string, odd number of \" ' \" ");
+                STEP_LOG_ERROR(logger, "Malformed string, odd number of \" ' \" ");
                 progress += i+1;
                 return false;
             }
         }
     }
     if (i >= bufferLength) {
-        std::cerr <<("String too long ");
+        STEP_LOG_ERROR(logger, "String too long ");
         progress += i+1;
         return false;
     }

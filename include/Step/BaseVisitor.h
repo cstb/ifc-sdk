@@ -20,7 +20,7 @@
 #include <Step/Export.h>
 
 #include <Step/Types.h>
-#include <Step/logger.h>
+#include <Step/StepLogger.h>
 
 namespace Step {
     /*!
@@ -46,6 +46,11 @@ namespace Step {
 
         //!this method is called by the acceptVisitor() method from BaseEntity
         virtual bool visitBaseEntity(BaseEntity* obj);
+
+        virtual void setLogger(StepLogger *);
+
+    protected:
+        RefPtr<StepLogger> m_logger;
     };
 }
 

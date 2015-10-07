@@ -87,7 +87,9 @@ void IfcSimpleValue::copy(const IfcSimpleValue &obj, const CopyOp &/*copyop*/) {
     case IFCLOGICAL:
         setIfcLogical(obj.m_IfcSimpleValue_union.m_IfcLogical);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSimpleValue::currentTypeName() const {
@@ -133,7 +135,9 @@ void IfcSimpleValue::deleteUnion() {
     case IFCLABEL:
         delete m_IfcSimpleValue_union.m_IfcLabel;
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

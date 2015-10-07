@@ -73,7 +73,9 @@ void IfcTrimmingSelect::copy(const IfcTrimmingSelect &obj, const CopyOp &copyop)
     case IFCPARAMETERVALUE:
         setIfcParameterValue(obj.m_IfcTrimmingSelect_union.m_IfcParameterValue);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcTrimmingSelect::currentTypeName() const {
@@ -98,7 +100,9 @@ void IfcTrimmingSelect::deleteUnion() {
     case IFCCARTESIANPOINT:
         m_IfcTrimmingSelect_union.m_IfcCartesianPoint->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

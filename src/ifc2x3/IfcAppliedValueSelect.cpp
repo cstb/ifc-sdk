@@ -76,7 +76,9 @@ void IfcAppliedValueSelect::copy(const IfcAppliedValueSelect &obj, const CopyOp 
     case IFCMONETARYMEASURE:
         setIfcMonetaryMeasure(obj.m_IfcAppliedValueSelect_union.m_IfcMonetaryMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcAppliedValueSelect::currentTypeName() const {
@@ -104,7 +106,9 @@ void IfcAppliedValueSelect::deleteUnion() {
     case IFCMEASUREWITHUNIT:
         m_IfcAppliedValueSelect_union.m_IfcMeasureWithUnit->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 
