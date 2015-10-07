@@ -695,6 +695,11 @@ static wchar_t parseHex1(std::string::size_type &i, std::string s)
     }
     ++i;
 
+    if ((code >= 0x80) && (code <= 0x9F)) // hack to use mac roman ascii table for those unused latin1 space
+    {
+        return  mac_roman[int(code) - 0x80];
+    }
+
     return (wchar_t) code;
 }
 
