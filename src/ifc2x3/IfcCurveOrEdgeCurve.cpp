@@ -74,7 +74,9 @@ void IfcCurveOrEdgeCurve::copy(const IfcCurveOrEdgeCurve &obj, const CopyOp &cop
     case IFCEDGECURVE:
         setIfcEdgeCurve((IfcEdgeCurve *) (copyop(obj.m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcCurveOrEdgeCurve::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcCurveOrEdgeCurve::deleteUnion() {
     case IFCEDGECURVE:
         m_IfcCurveOrEdgeCurve_union.m_IfcEdgeCurve->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

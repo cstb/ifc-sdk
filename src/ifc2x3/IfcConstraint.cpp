@@ -31,7 +31,6 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/String.h>
-#include <Step/logger.h>
 
 
 #include <stdlib.h>

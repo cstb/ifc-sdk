@@ -9,9 +9,11 @@
 //#include <math.h>
 // uncomment the following line to test compilation types checks
 // #define TEST_COMPILATION_ERRORS
+#define LOG_DEBUG(message)
 
 int main(int n, char **p)
 {
+    Step::RefPtr<Step::StepLogger> logger = new Step::StepLogger;
 	Step::RefPtr<ifc2x3::ExpressDataSet> eds ;
 	try
 	{
@@ -53,10 +55,10 @@ int main(int n, char **p)
 	CTOperator2D1->setAxis1(Direction2DAxis21);
 
 
-	LOG_DEBUG("TEST 2D 1" << std::endl);
-	LOG_DEBUG("getScl() = " << CTOperator2D1->getScl() << std::endl);
+    STEP_LOG_DEBUG(logger, "TEST 2D 1" << std::endl);
+    STEP_LOG_DEBUG(logger, "getScl() = " << CTOperator2D1->getScl() << std::endl);
 	TEST_ASSERT(CTOperator2D1->getScl()==1);
-	LOG_DEBUG("getDim() = " << CTOperator2D1->getDim() << std::endl);
+    STEP_LOG_DEBUG(logger, "getDim() = " << CTOperator2D1->getDim() << std::endl);
 	TEST_ASSERT(CTOperator2D1->getDim()==2);
 
 
@@ -98,10 +100,10 @@ int main(int n, char **p)
 	CTOperator3D1->setAxis1(Direction3DAxis31);
 
 
-	LOG_DEBUG("TEST 3D 1" << std::endl);
-	LOG_DEBUG("getScl() = " << CTOperator3D1->getScl() << std::endl);
+    STEP_LOG_DEBUG(logger, "TEST 3D 1" << std::endl);
+    STEP_LOG_DEBUG(logger, "getScl() = " << CTOperator3D1->getScl() << std::endl);
 	TEST_ASSERT(CTOperator3D1->getScl()==1);
-	LOG_DEBUG("getDim() = " << CTOperator3D1->getDim() << std::endl);
+    STEP_LOG_DEBUG(logger, "getDim() = " << CTOperator3D1->getDim() << std::endl);
 	TEST_ASSERT(CTOperator3D1->getDim()==3);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -135,10 +137,10 @@ int main(int n, char **p)
 	CTOperator2D2->setAxis1(Direction2DAxis22);
 
 
-	LOG_DEBUG("TEST 2D 2" << std::endl);
-	LOG_DEBUG("getScl() = " << CTOperator2D2->getScl() << std::endl);
+    STEP_LOG_DEBUG(logger, "TEST 2D 2" << std::endl);
+    STEP_LOG_DEBUG(logger, "getScl() = " << CTOperator2D2->getScl() << std::endl);
 	TEST_ASSERT(CTOperator2D2->getScl()==1.5);
-	LOG_DEBUG("getDim() = " << CTOperator2D2->getDim() << std::endl);
+    STEP_LOG_DEBUG(logger, "getDim() = " << CTOperator2D2->getDim() << std::endl);
 	TEST_ASSERT(CTOperator2D2->getDim()==2);
 
 
@@ -182,10 +184,10 @@ int main(int n, char **p)
 	Direction3DAxis32->setDirectionRatios(Direction3DListReal32);
 	CTOperator3D2->setAxis1(Direction3DAxis32);
 
-	LOG_DEBUG("TEST 3D 2" << std::endl);
-	LOG_DEBUG("getScl() = " << CTOperator3D2->getScl() << std::endl);
+    STEP_LOG_DEBUG(logger, "TEST 3D 2" << std::endl);
+    STEP_LOG_DEBUG(logger, "getScl() = " << CTOperator3D2->getScl() << std::endl);
 	TEST_ASSERT(CTOperator3D2->getScl()==3.5);
-	LOG_DEBUG("getDim() = " << CTOperator3D2->getDim() << std::endl);
+    STEP_LOG_DEBUG(logger, "getDim() = " << CTOperator3D2->getDim() << std::endl);
 	TEST_ASSERT(CTOperator3D2->getDim()==3);
 
 

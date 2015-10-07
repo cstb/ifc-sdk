@@ -78,7 +78,9 @@ void IfcSurfaceOrFaceSurface::copy(const IfcSurfaceOrFaceSurface &obj, const Cop
     case IFCFACEBASEDSURFACEMODEL:
         setIfcFaceBasedSurfaceModel((IfcFaceBasedSurfaceModel *) (copyop(obj.m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSurfaceOrFaceSurface::currentTypeName() const {
@@ -112,7 +114,9 @@ void IfcSurfaceOrFaceSurface::deleteUnion() {
     case IFCFACEBASEDSURFACEMODEL:
         m_IfcSurfaceOrFaceSurface_union.m_IfcFaceBasedSurfaceModel->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

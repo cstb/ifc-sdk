@@ -18,7 +18,7 @@
 #include "Step/SPFData.h"
 #include "Step/BaseVisitor.h"
 
-#include "Step/logger.h"
+
 
 using namespace Step;
 
@@ -31,7 +31,6 @@ BaseSPFObject::BaseSPFObject(Id id, SPFData* data) :
 
 bool BaseSPFObject::init()
 {
-    LOG_WARNING("Tried to init a BaseSPFObject instance");
     return false;
 }
 

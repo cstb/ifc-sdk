@@ -23,6 +23,7 @@
 #include <Step/ClassType.h>
 #include <Step/SPFHeader.h>
 #include <Step/CallBack.h>
+#include <Step/StepLogger.h>
 
 #include <map>
 #include <string>
@@ -99,6 +100,8 @@ namespace Step {
          */
         void instantiateAll(CallBack *callback =0);
 
+        void setLogger(StepLogger *logger);
+
     protected:
 
         /*!
@@ -143,6 +146,7 @@ namespace Step {
         Id m_maxId;
         MapOfEntities m_Id2BaseEntity;
         SPFHeader m_header;
+        RefPtr<StepLogger> m_logger;
 
         friend class BaseSPFReader;
     };

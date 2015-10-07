@@ -86,7 +86,9 @@ void IfcMaterialSelect::copy(const IfcMaterialSelect &obj, const CopyOp &copyop)
     case IFCMATERIALLAYER:
         setIfcMaterialLayer((IfcMaterialLayer *) (copyop(obj.m_IfcMaterialSelect_union.m_IfcMaterialLayer)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcMaterialSelect::currentTypeName() const {
@@ -132,7 +134,9 @@ void IfcMaterialSelect::deleteUnion() {
     case IFCMATERIALLAYER:
         m_IfcMaterialSelect_union.m_IfcMaterialLayer->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -26,7 +26,6 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
-#include <Step/logger.h>
 
 
 #include <string>

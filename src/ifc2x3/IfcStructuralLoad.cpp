@@ -24,7 +24,6 @@
 #include <Step/BaseEntity.h>
 #include <Step/BaseObject.h>
 #include <Step/String.h>
-#include <Step/logger.h>
 
 
 #include <string>

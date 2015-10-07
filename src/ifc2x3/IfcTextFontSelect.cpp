@@ -74,7 +74,9 @@ void IfcTextFontSelect::copy(const IfcTextFontSelect &obj, const CopyOp &copyop)
     case IFCEXTERNALLYDEFINEDTEXTFONT:
         setIfcExternallyDefinedTextFont((IfcExternallyDefinedTextFont *) (copyop(obj.m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcTextFontSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcTextFontSelect::deleteUnion() {
     case IFCEXTERNALLYDEFINEDTEXTFONT:
         m_IfcTextFontSelect_union.m_IfcExternallyDefinedTextFont->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

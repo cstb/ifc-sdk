@@ -73,7 +73,9 @@ void IfcColourOrFactor::copy(const IfcColourOrFactor &obj, const CopyOp &copyop)
     case IFCNORMALISEDRATIOMEASURE:
         setIfcNormalisedRatioMeasure(obj.m_IfcColourOrFactor_union.m_IfcNormalisedRatioMeasure);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcColourOrFactor::currentTypeName() const {
@@ -98,7 +100,9 @@ void IfcColourOrFactor::deleteUnion() {
     case IFCCOLOURRGB:
         m_IfcColourOrFactor_union.m_IfcColourRgb->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

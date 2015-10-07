@@ -74,7 +74,9 @@ void IfcStructuralActivityAssignmentSelect::copy(const IfcStructuralActivityAssi
     case IFCELEMENT:
         setIfcElement((IfcElement *) (copyop(obj.m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcStructuralActivityAssignmentSelect::currentTypeName() const {
@@ -102,7 +104,9 @@ void IfcStructuralActivityAssignmentSelect::deleteUnion() {
     case IFCELEMENT:
         m_IfcStructuralActivityAssignmentSelect_union.m_IfcElement->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

@@ -72,7 +72,9 @@ void IfcSpecularHighlightSelect::copy(const IfcSpecularHighlightSelect &obj, con
     case IFCSPECULARROUGHNESS:
         setIfcSpecularRoughness(obj.m_IfcSpecularHighlightSelect_union.m_IfcSpecularRoughness);
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSpecularHighlightSelect::currentTypeName() const {

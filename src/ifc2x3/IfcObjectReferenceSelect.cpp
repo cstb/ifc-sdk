@@ -118,7 +118,9 @@ void IfcObjectReferenceSelect::copy(const IfcObjectReferenceSelect &obj, const C
     case IFCAPPLIEDVALUE:
         setIfcAppliedValue((IfcAppliedValue *) (copyop(obj.m_IfcObjectReferenceSelect_union.m_IfcAppliedValue)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcObjectReferenceSelect::currentTypeName() const {
@@ -212,7 +214,9 @@ void IfcObjectReferenceSelect::deleteUnion() {
     case IFCAPPLIEDVALUE:
         m_IfcObjectReferenceSelect_union.m_IfcAppliedValue->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 

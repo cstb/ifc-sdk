@@ -68,7 +68,8 @@ namespace Step {
             Windows1255,
             Windows1256,
             Windows1257,
-            Windows1258
+            Windows1258,
+            MacRoman
         } CodePage;
 
         /**
@@ -165,6 +166,12 @@ namespace Step {
          */
         static String fromWindows(const std::string &str, int pagecode);
 
+        /**
+         * builds from a (Mac OS Roman) encoded representation
+         * \param str the string to convert
+         * \return the String created
+         */
+        static String fromMacRoman(const std::string &str);
 
         /**
          * returns a ISO 10303-21 SPF encoded string representation

@@ -1,11 +1,11 @@
-// IFC SDK : IFC2X3 C++ Early Classes  
+// IFC SDK : IFC2X3 C++ Early Classes
 // Copyright (C) 2009 CSTB
 //
 // This library is free software; you can redistribute it and/or
 // modify it under the terms of the GNU Lesser General Public
 // License as published by the Free Software Foundation; either
 // version 2.1 of the License, or (at your option) any later version.
-// The full license is in Licence.txt file included with this 
+// The full license is in Licence.txt file included with this
 // distribution or is available at :
 //     http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
 //
@@ -26,7 +26,6 @@
 #include <Step/BaseExpressDataSet.h>
 #include <Step/BaseObject.h>
 #include <Step/ClassType.h>
-#include <Step/logger.h>
 
 
 #include <stdlib.h>
@@ -479,21 +478,44 @@ bool IfcSurfaceStyleRendering::init() {
     return true;
 }
 
-void IfcSurfaceStyleRendering::copy(const IfcSurfaceStyleRendering &obj, const CopyOp &copyop) {
+#define T(v,t) v = new t; v->copy(*(obj.v.get()), copyop)
+
+void IfcSurfaceStyleRendering::copy(const IfcSurfaceStyleRendering &obj, const CopyOp &copyop)
+{
     IfcSurfaceStyleShading::copy(obj, copyop);
+
     setTransparency(obj.m_transparency);
-    m_diffuseColour = new IfcColourOrFactor;
-    m_diffuseColour->copy(*(obj.m_diffuseColour.get()), copyop);
-    m_transmissionColour = new IfcColourOrFactor;
-    m_transmissionColour->copy(*(obj.m_transmissionColour.get()), copyop);
-    m_diffuseTransmissionColour = new IfcColourOrFactor;
-    m_diffuseTransmissionColour->copy(*(obj.m_diffuseTransmissionColour.get()), copyop);
-    m_reflectionColour = new IfcColourOrFactor;
-    m_reflectionColour->copy(*(obj.m_reflectionColour.get()), copyop);
-    m_specularColour = new IfcColourOrFactor;
-    m_specularColour->copy(*(obj.m_specularColour.get()), copyop);
-    m_specularHighlight = new IfcSpecularHighlightSelect;
-    m_specularHighlight->copy(*(obj.m_specularHighlight.get()), copyop);
+
+    if(obj.testDiffuseColour())
+    {
+        T(m_diffuseColour, IfcColourOrFactor);
+    }
+
+    if(obj.testTransmissionColour())
+    {
+        T(m_transmissionColour, IfcColourOrFactor);
+    }
+
+    if (obj.testDiffuseTransmissionColour())
+    {
+        T(m_diffuseTransmissionColour, IfcColourOrFactor);
+    }
+
+    if (obj.testReflectionColour())
+    {
+        T(m_reflectionColour, IfcColourOrFactor);
+    }
+
+    if (obj.testSpecularColour())
+    {
+        T(m_specularColour, IfcColourOrFactor);
+    }
+
+    if (obj.testSpecularHighlight())
+    {
+        T(m_specularHighlight, IfcSpecularHighlightSelect);
+    }
+
     setReflectanceMethod(obj.m_reflectanceMethod);
     return;
 }

@@ -86,7 +86,9 @@ void IfcSurfaceStyleElementSelect::copy(const IfcSurfaceStyleElementSelect &obj,
     case IFCSURFACESTYLEREFRACTION:
         setIfcSurfaceStyleRefraction((IfcSurfaceStyleRefraction *) (copyop(obj.m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction)));
         break;
-        }
+    default:
+        break;
+    }
 }
 
 std::string IfcSurfaceStyleElementSelect::currentTypeName() const {
@@ -132,7 +134,9 @@ void IfcSurfaceStyleElementSelect::deleteUnion() {
     case IFCSURFACESTYLEREFRACTION:
         m_IfcSurfaceStyleElementSelect_union.m_IfcSurfaceStyleRefraction->unref();
         break;
-        }
+    default:
+        break;
+    }
     m_type = UNSET;
 }
 
