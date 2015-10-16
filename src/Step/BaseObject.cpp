@@ -53,7 +53,7 @@ bool BaseObject::inited()
     if (!m_inited)
     {
 #ifdef STEP_THREAD_SAFE
-        OpenThreads::ScopedLock<OpenThreads::Mutex> lock(m_mutex);
+        OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_refMutex);
 #endif
         m_inited = true; // set this to break cycle when inverse attribute inits
         bool inited = init();

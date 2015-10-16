@@ -102,6 +102,10 @@ namespace Step {
 
         void setLogger(StepLogger *logger);
 
+        /*!
+         \short Allocates all entities
+         */
+        void allocateAll(CallBack *callback);
     protected:
 
         /*!

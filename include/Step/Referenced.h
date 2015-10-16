@@ -17,8 +17,8 @@
 #ifndef Step_Referenced_h
 #define Step_Referenced_h
 
-#include <Step/Export.h>
 #include <Step/ClassType.h>
+#include <Step/Config.h>
 
 #include <vector>
 
@@ -42,15 +42,6 @@ namespace Step {
 
         /// Default constructor
         Referenced();
-
-        /// Copy Constructor
-        Referenced(const Referenced&);
-
-        /// Overloaded assignment operator
-        inline Referenced& operator =(const Referenced&)
-        {
-            return *this;
-        }
 
         /*!
          \short Explicitly increment the reference count by one.
@@ -116,10 +107,20 @@ namespace Step {
     protected:
         virtual ~Referenced();
 
-    private:
 #ifdef STEP_THREAD_SAFE
         mutable OpenThreads::Mutex _refMutex;
 #endif
+    private:
+        /// Copy Constructor
+        Referenced(const Referenced&);
+
+        /// Overloaded assignment operator
+        inline Referenced& operator =(const Referenced&)
+        {
+            return *this;
+        }
+
+
         mutable int _refCount;
         void * _observers;
 

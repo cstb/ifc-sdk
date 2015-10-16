@@ -206,6 +206,10 @@ add_subdirectory(doc EXCLUDE_FROM_ALL)
 include_directories(${Step_BINARY_DIR})
 include_directories(${ifc2x3_BINARY_DIR})
 
+if(STEP_THREAD_SAFE)
+    include_directories(${OPENTHREADS_INCLUDE_DIR})
+endif()
+
 if(NOT STEP_ONLY)
   option(ENABLE_EXAMPLES "Enable examples compilation" ON)
 

@@ -2,6 +2,7 @@
 #define Step_Config_h
 
 #cmakedefine STEP_CHECK_RANGE
+#cmakedefine STEP_THREAD_SAFE
 
 #ifdef _DEBUG
 # define STEP_LOG_@DEBUG_LOG_LEVEL@_ENABLE

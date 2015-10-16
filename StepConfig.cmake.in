@@ -56,6 +56,13 @@ else()
     set(STEP_LIBRARIES ${STEP_LIBRARY})
 endif()
 
+set(STEP_THREAD_SAFE @STEP_THREAD_SAFE@)
+
+if(STEP_THREAD_SAFE)
+    find_package(OpenThreads REQUIRED)
+    set(STEP_LIBRARIES ${STEP_LIBRARIES} ${OPENTHREADS_LIBRARIES})
+    set(STEP_INCLUDE_DIR  ${OPENTHREADS_INCLUDE_DIR} ${STEP_INCLUDE_DIR})
+endif()
 
 include(FindPackageHandleStandardArgs)
 

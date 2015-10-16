@@ -187,6 +187,45 @@ SPFData* BaseExpressDataSet::getArgs(Id id)
         return m_Id2BaseEntity[id]->getArgs();
 }
 
+void BaseExpressDataSet::allocateAll(CallBack *callback)
+{
+    MapOfEntities::iterator it = m_Id2BaseEntity.begin();
+
+    if(callback)
+    {
+        callback->setMaximum(m_Id2BaseEntity.size());
+    }
+    size_t progress=0;
+
+    for (MapOfEntities::iterator total = m_Id2BaseEntity.end(); it != total; ++it)
+    {
+        if (it->second->isOfType(BaseSPFObject::getClassType()))
+        {
+            STEP_LOG_TRACE(m_logger, "Instantiating #" << it->first)
+            // Get the appropriate allocate function
+            AllocateFuncType
+                    allocFunc =
+                            static_cast<BaseSPFObject*> (it->second.get())->getAllocateFunction();
+            if (allocFunc)
+            {
+                // Call it
+                (*allocFunc)(this, it->first);
+            }
+            else
+            {
+                STEP_LOG_WARNING(m_logger,"Entity #" << it->first << " was never declared");
+            }
+        }
+
+        if(callback)
+        {
+            callback->setProgress(++progress);
+            if (callback->stop())
+                return;
+        }
+    }
+}
+
 void BaseExpressDataSet::instantiateAll(CallBack *callback)
 {
     MapOfEntities::iterator it = m_Id2BaseEntity.begin();

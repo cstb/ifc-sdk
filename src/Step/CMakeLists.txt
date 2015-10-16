@@ -21,7 +21,14 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 ADD_LIBRARY(Step ${SHARED_OR_STATIC} ${PROJECT_SOURCES} ${PROJECT_INCLUDES})
 
-OPTION(STEP_CHECK_RANGE "Make Collection check ranges" ON)
+OPTION(STEP_CHECK_RANGE "Make Collection check ranges" OFF)
+OPTION(STEP_THREAD_SAFE "Step Object accesses thread safe" ON)
+
+if(STEP_THREAD_SAFE)
+    find_package(OpenThreads REQUIRED)
+    target_link_libraries(Step ${OPENTHREADS_LIBRARIES})
+    include_directories(${OPENTHREADS_INCLUDE_DIR})
+endif()
 
 SET(DEBUG_LOG_LEVEL INFO)
 SET(RELEASE_LOG_LEVEL WARNING)

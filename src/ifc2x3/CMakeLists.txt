@@ -34,6 +34,10 @@ else()
     ADD_COMPILER_EXPORT_FLAGS()
 endif()
 
+if(STEP_THREAD_SAFE)
+    include_directories(${OPENTHREADS_INCLUDE_DIR})
+endif()
+
 TARGET_LINK_LIBRARIES(ifc2x3 Step )
 
 IF(MSVC)
