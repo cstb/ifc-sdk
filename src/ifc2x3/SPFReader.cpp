@@ -1373,15 +1373,15 @@ bool SPFReader::loadIFCPRODUCT(bool /*isFirst*/) {
         return false;
     }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 5) {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcProduct, line " << m_currentLineNb);
+        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading Parameter 6th of IfcProduct, line " << m_currentLineNb);
         return false;
     }
     currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(5));
+    //   MM : optionnal
     if (currentRef == Step::Id_UNDEF) {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 5 of IfcProduct, line " << m_currentLineNb);
-        return false;
+        STEP_LOG_WARNING(m_logger, "6th parameter of IfcProduct was undefined '*', line " << m_currentLineNb);
     }
-    if (currentRef != Step::Id_UNSET) {
+    else if (currentRef != Step::Id_UNSET) {
         m_expressDataSet->getArgs(currentRef)->addInverse(IfcProduct::getClassType(), 5, m_currentId);
     }
     if (m_currentObj->Step::BaseSPFObject::getArgs()->argc() <= 6) {
@@ -1389,11 +1389,11 @@ bool SPFReader::loadIFCPRODUCT(bool /*isFirst*/) {
         return false;
     }
     currentRef = Step::getIdParam(m_currentObj->Step::BaseSPFObject::getArgs()->at(6));
+//   MM : optionnal
     if (currentRef == Step::Id_UNDEF) {
-        STEP_LOG_ERROR(m_logger, "Inverse links : Error during reading parameter 6 of IfcProduct, line " << m_currentLineNb);
-        return false;
+        STEP_LOG_WARNING(m_logger, "7th parameter of IfcProduct was undefined '*', line " << m_currentLineNb);
     }
-    if (currentRef != Step::Id_UNSET) {
+    else if (currentRef != Step::Id_UNSET) {
         m_expressDataSet->getArgs(currentRef)->addInverse(IfcProduct::getClassType(), 6, m_currentId);
     }
     return true;
