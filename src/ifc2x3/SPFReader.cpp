@@ -8770,6 +8770,18 @@ bool SPFReader::read(std::istream &ifs, size_t inputSize) {
         m_expressDataSet = 0;
         return false;
     }
+
+    Step::SPFHeader::FileSchema & fileschema = m_header.getFileSchema();
+    if(std::find(fileschema.schemaIdentifiers.begin(),
+                 fileschema.schemaIdentifiers.end(),
+                 Step::String("IFC2X3")) == fileschema.schemaIdentifiers.end())
+    {
+        delete m_expressDataSet;
+        m_expressDataSet = 0;
+        STEP_LOG_ERROR(m_logger,"Schema file must be IFC2X3");
+        return false;
+    }
+
     m_expressDataSet->setHeader(m_header);
     return true;
 }
