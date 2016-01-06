@@ -196,7 +196,7 @@ endif()
 include_directories(BEFORE ${CMAKE_CURRENT_LIST_DIR}/include)
 
 if(WIN32)
-    macro(install_pdb target config destination)
+    macro(install_pdb target config)
         if(CMAKE_VERSION VERSION_LESS "3.0")
             string(TOUPPER ${config} CONFIG)
             get_property(TARGET_NAME_${CONFIG} TARGET ${target} PROPERTY LOCATION_${CONFIG})
