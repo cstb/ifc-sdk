@@ -109,6 +109,9 @@
 using namespace ifc2x3;
 
 SPFReader::SPFReader() {
+
+    m_schemaIdentifier = Step::String("IFC2X3");
+
     m_Str2LoadFn["IFCRELASSIGNSTOCONTROL"] = &SPFReader::loadIFCRELASSIGNSTOCONTROL;
     m_Str2LoadFn["IFCPARAMETERIZEDPROFILEDEF"] = &SPFReader::loadIFCPARAMETERIZEDPROFILEDEF;
     m_Str2LoadFn["IFCTUBEBUNDLETYPE"] = &SPFReader::loadIFCTUBEBUNDLETYPE;
@@ -8778,7 +8781,10 @@ bool SPFReader::read(std::istream &ifs, size_t inputSize) {
     {
         delete m_expressDataSet;
         m_expressDataSet = 0;
-        STEP_LOG_ERROR(m_logger,"Schema file must be IFC2X3");
+        std::string msg("Schema file must be IFC2X3");
+        STEP_LOG_FATAL(m_logger,msg);
+        _errors.clear();
+        _errors.push_back(msg);
         return false;
     }
 

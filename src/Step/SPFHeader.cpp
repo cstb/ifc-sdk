@@ -22,7 +22,7 @@ using namespace std;
 using namespace Step;
 
 
-SPFHeader::SPFHeader()
+SPFHeader::SPFHeader() : m_logger(new StepLogger())
 {
 }
 
@@ -50,7 +50,13 @@ String& SPFHeader::getOtherFields()
     return m_otherFields;
 }
 
-bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress )
+bool checkSchemaIdentifier(const SPFHeader::FileSchema& fileSchema, const String &schemaIdentifier)
+{
+    return std::find(fileSchema.schemaIdentifiers.begin(),fileSchema.schemaIdentifiers.end(),schemaIdentifier)
+            != fileSchema.schemaIdentifiers.end();
+}
+
+bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress , const String &schemaIdentifier)
 {
     string::size_type i;
     string str;
@@ -203,6 +209,12 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
         m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(vec[k]));
     }
 
+    if(!checkSchemaIdentifier(m_fileSchema, schemaIdentifier))
+    {
+        STEP_LOG_FATAL(m_logger, "Schema Identifiers must contain : " << schemaIdentifier);
+        return false;
+    }
+
     m_otherFields = "";
     bool found = false;
     for (unsigned int k = 0; k < 6; k++)
@@ -226,7 +238,12 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
     return true;
 }
 
-bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress )
+void SPFHeader::setLogger(StepLogger *logger)
+{
+    m_logger = logger;
+}
+
+bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress , const String &schemaIdentifier)
 {
     static const size_t bufferLength = 256000;
     char* buffer = new char[bufferLength];
@@ -391,6 +408,13 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
     for (unsigned int k = 0; k < vec.size(); ++k)
     {
         m_fileSchema.schemaIdentifiers.push_back(String::fromSPF(vec[k]));
+    }
+
+    if(!checkSchemaIdentifier(m_fileSchema, schemaIdentifier))
+    {
+        STEP_LOG_FATAL(m_logger, "Schema Identifiers must contain : " << schemaIdentifier);
+        delete[] buffer;
+        return false;
     }
 
     m_otherFields = "";
