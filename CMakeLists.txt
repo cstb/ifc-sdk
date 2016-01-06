@@ -28,8 +28,8 @@ option(STEP_ONLY "Build and install only Step" OFF)
 
 # The CMake version number.
 SET(ifc2x3_sdk_VERSION_MAJOR 1 CACHE STRING "Version" FORCE)
-SET(ifc2x3_sdk_VERSION_MINOR 0 CACHE STRING "Version" FORCE)
-SET(ifc2x3_sdk_VERSION_PATCH 18 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_MINOR 1 CACHE STRING "Version" FORCE)
+SET(ifc2x3_sdk_VERSION_PATCH 1 CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION "${ifc2x3_sdk_VERSION_MAJOR}.${ifc2x3_sdk_VERSION_MINOR}" CACHE STRING "Version" FORCE)
 SET(ifc2x3_sdk_VERSION_FULL "${ifc2x3_sdk_VERSION}.${ifc2x3_sdk_VERSION_PATCH}" CACHE STRING "Version" FORCE)
 
