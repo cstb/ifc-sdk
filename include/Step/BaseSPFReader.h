@@ -113,6 +113,9 @@ namespace Step {
 
         RefPtr<StepLogger> m_logger;
 
+        //! our Schema
+        String m_schemaIdentifier;
+
     };
 }
 #endif
