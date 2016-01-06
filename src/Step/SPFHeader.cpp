@@ -18,6 +18,8 @@
 #include "Step/SPFFunctions.h"
 #include "Step/BaseExpressDataSet.h"
 
+#include <algorithm>
+
 using namespace std;
 using namespace Step;
 
