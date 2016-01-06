@@ -24,7 +24,7 @@
 using namespace std;
 using namespace Step;
 
-BaseSPFReader::BaseSPFReader() : _callback(0), m_logger(new StepLogger)
+BaseSPFReader::BaseSPFReader() : _callback(0), m_logger(new StepLogger), m_schemaIdentifier("UNDEFINED")
 {
 }
 
@@ -61,10 +61,15 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     std::string::size_type i, from;
     m_currentLineNb = 1;
 
+    if (m_logger.valid())
+    {
+        m_header.setLogger(m_logger.get());
+    }
+
     // Parse the header
     if (inMemory)
     {
-        if (!m_header.parse(buffer, bufferLength, m_currentLineNb, progress))
+        if (!m_header.parse(buffer, bufferLength, m_currentLineNb, progress, m_schemaIdentifier))
         {
             STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
             if(_callback)
@@ -83,7 +88,7 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     else
     {
-        if (!m_header.parse(input, m_currentLineNb,progress))
+        if (!m_header.parse(input, m_currentLineNb,progress,m_schemaIdentifier))
         {
             STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
             if(_callback)
