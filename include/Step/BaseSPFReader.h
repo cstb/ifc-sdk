@@ -113,8 +113,8 @@ namespace Step {
 
         RefPtr<StepLogger> m_logger;
 
-        //! our Schema
-        String m_schemaIdentifier;
+        //! our Schemas
+        std::vector<String> m_schemaIdentifiers;
 
     };
 }
