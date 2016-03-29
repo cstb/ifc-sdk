@@ -110,7 +110,11 @@ using namespace ifc2x3;
 
 SPFReader::SPFReader() {
 
-    m_schemaIdentifier = Step::String("IFC2X3");
+    m_schemaIdentifiers.clear();
+    m_schemaIdentifiers.push_back(Step::String("IFC2X3"));
+    m_schemaIdentifiers.push_back(Step::String("IFC2X2_FINAL"));
+    m_schemaIdentifiers.push_back(Step::String("IFC2X_FINAL"));
+
 
     m_Str2LoadFn["IFCRELASSIGNSTOCONTROL"] = &SPFReader::loadIFCRELASSIGNSTOCONTROL;
     m_Str2LoadFn["IFCPARAMETERIZEDPROFILEDEF"] = &SPFReader::loadIFCPARAMETERIZEDPROFILEDEF;
@@ -8771,20 +8775,6 @@ bool SPFReader::read(std::istream &ifs, size_t inputSize) {
     if (!Step::BaseSPFReader::read(ifs,inputSize)) {
         delete m_expressDataSet;
         m_expressDataSet = 0;
-        return false;
-    }
-
-    Step::SPFHeader::FileSchema & fileschema = m_header.getFileSchema();
-    if(std::find(fileschema.schemaIdentifiers.begin(),
-                 fileschema.schemaIdentifiers.end(),
-                 Step::String("IFC2X3")) == fileschema.schemaIdentifiers.end())
-    {
-        delete m_expressDataSet;
-        m_expressDataSet = 0;
-        std::string msg("Schema file must be IFC2X3");
-        STEP_LOG_FATAL(m_logger,msg);
-        _errors.clear();
-        _errors.push_back(msg);
         return false;
     }
 
