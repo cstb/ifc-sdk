@@ -52,13 +52,18 @@ String& SPFHeader::getOtherFields()
     return m_otherFields;
 }
 
-bool checkSchemaIdentifier(const SPFHeader::FileSchema& fileSchema, const String &schemaIdentifier)
+bool checkSchemaIdentifier(const SPFHeader::FileSchema& fileSchema, const std::vector<String> &schemaIdentifier)
 {
-    return std::find(fileSchema.schemaIdentifiers.begin(),fileSchema.schemaIdentifiers.end(),schemaIdentifier)
-            != fileSchema.schemaIdentifiers.end();
+    for(vector<String>::const_iterator it=schemaIdentifier.begin(); it != schemaIdentifier.end(); ++it)
+    {
+        if (std::find(fileSchema.schemaIdentifiers.begin(),fileSchema.schemaIdentifiers.end(),*it)
+                    != fileSchema.schemaIdentifiers.end())
+            return true;
+    }
+    return false;
 }
 
-bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress , const String &schemaIdentifier)
+bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress , const std::vector<String> &schemaIdentifier)
 {
     string::size_type i;
     string str;
@@ -213,7 +218,11 @@ bool SPFHeader::parse(char *buffer, size_t bufferLength, unsigned int& counter, 
 
     if(!checkSchemaIdentifier(m_fileSchema, schemaIdentifier))
     {
-        STEP_LOG_FATAL(m_logger, "Schema Identifiers must contain : " << schemaIdentifier);
+        STEP_LOG_FATAL(m_logger, "Schema Identifiers must at least contain one of: ");
+        for(std::vector<Step::String>::const_iterator it = schemaIdentifier.begin(); it != schemaIdentifier.end(); ++it)
+        {
+            STEP_LOG_FATAL(m_logger, *it);
+        }
         return false;
     }
 
@@ -245,7 +254,7 @@ void SPFHeader::setLogger(StepLogger *logger)
     m_logger = logger;
 }
 
-bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress , const String &schemaIdentifier)
+bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress , const std::vector<String> &schemaIdentifier)
 {
     static const size_t bufferLength = 256000;
     char* buffer = new char[bufferLength];
@@ -414,7 +423,11 @@ bool SPFHeader::parse(std::istream& ifs, unsigned int& counter, size_t &progress
 
     if(!checkSchemaIdentifier(m_fileSchema, schemaIdentifier))
     {
-        STEP_LOG_FATAL(m_logger, "Schema Identifiers must contain : " << schemaIdentifier);
+        STEP_LOG_FATAL(m_logger, "Schema Identifiers must at least contain one of: ");
+        for(std::vector<Step::String>::const_iterator it = schemaIdentifier.begin(); it != schemaIdentifier.end(); ++it)
+        {
+            STEP_LOG_FATAL(m_logger, *it);
+        }
         delete[] buffer;
         return false;
     }
