@@ -35,8 +35,6 @@ BaseSPFReader::~BaseSPFReader()
 
 bool BaseSPFReader::read(std::istream& input, size_t inputSize)
 {
-    bool inMemory = inputSize > 0;
-
     size_t progress = 0;
     if(_callback)
     {
@@ -45,20 +43,6 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     }
     _errors.clear();
 
-    size_t bufferLength=0 ;
-    char* buffer=0;
-
-    if(inMemory)
-    {
-        bufferLength = inputSize;
-        buffer = new char[bufferLength];
-        input.read(buffer,(streamsize)bufferLength);
-    }
-    else
-    {
-        bufferLength = 8388608; // 8Mb
-        buffer = new char[bufferLength];
-    }
     std::string::size_type i, from;
     m_currentLineNb = 1;
 
@@ -67,46 +51,21 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         m_header.setLogger(m_logger.get());
     }
 
-    // Parse the header
-    if (inMemory)
+    if (!m_header.parse(input, m_currentLineNb,progress,m_schemaIdentifiers))
     {
-        if (!m_header.parse(buffer, bufferLength, m_currentLineNb, progress, m_schemaIdentifiers))
+        STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
+        if(_callback)
         {
-            STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
-            if(_callback)
-            {
-                // got to end of progress bar
-                _callback->setProgress(inputSize);
-            }
-            delete[] buffer;
-            return false;
+            // got to end of progress bar
+            _callback->setProgress(inputSize);
         }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
+        return false;
     }
-    else
+    else if (_callback && _callback->stop())
     {
-        if (!m_header.parse(input, m_currentLineNb,progress,m_schemaIdentifiers))
-        {
-            STEP_LOG_ERROR(m_logger,"Can't parse HEADER section, line " << m_currentLineNb);
-            if(_callback)
-            {
-                // got to end of progress bar
-                _callback->setProgress(inputSize);
-            }
-            delete[] buffer;
-            return false;
-        }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
+        return false;
+    }
 
-    }
 
     if(_callback)
     {
@@ -117,47 +76,20 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
     // DATA section
     string str;
 
-    if (inMemory)
+    if (!Step::getLine(input, m_currentLineNb, str,progress, m_logger.get()) || str != "DATA")
     {
-        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
-                != "DATA")
+        STEP_LOG_ERROR(m_logger,"Can't find DATA section, line "
+                << m_currentLineNb);
+        if(_callback)
         {
-            STEP_LOG_ERROR(m_logger,"Can't find DATA section, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-            }
-            delete[] buffer;
-            return false;
+            // set to end
+            _callback->setProgress(inputSize);
         }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
+        return false;
     }
-    else
+    else if (_callback && _callback->stop())
     {
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
-                != "DATA")
-        {
-            STEP_LOG_ERROR(m_logger,"Can't find DATA section, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-            }
-            delete[] buffer;
-            return false;
-        }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
+        return false;
     }
 
 
@@ -177,48 +109,29 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         {
             // update progress callback
             _callback->setProgress(progress);
+            if (_callback->stop())
+            {
+                return false;
+            }
         }
 
-        if (inMemory)
+
+        if (!Step::getLine(input, m_currentLineNb, str,progress, m_logger.get()) )
         {
-            if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()))
+            STEP_LOG_ERROR(m_logger,"Unexpected End Of File, line "
+                    << m_currentLineNb);
+            if(_callback)
             {
-                STEP_LOG_ERROR(m_logger,"Unexpected End Of File, line "
-                        << m_currentLineNb);
-                if(_callback)
-                {
-                    // set to end
-                    _callback->setProgress(inputSize);
-                }
-                delete[] buffer;
-                return false;
+                // set to end
+                _callback->setProgress(inputSize);
             }
-            else if (_callback && _callback->stop())
-            {
-                delete[] buffer;
-                return false;
-            }
+            return false;
         }
-        else
+        else if (_callback && _callback->stop())
         {
-            if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()))
-            {
-                STEP_LOG_ERROR(m_logger,"Unexpected End Of File, line "
-                        << m_currentLineNb);
-                if(_callback)
-                {
-                    // set to end
-                    _callback->setProgress(inputSize);
-                }
-                delete[] buffer;
-                return false;
-            }
-            else if (_callback && _callback->stop())
-            {
-                delete[] buffer;
-                return false;
-            }
+            return false;
         }
+
 
         //ENDSEC detection
         if (str == "ENDSEC")
@@ -227,20 +140,30 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         i = str.find('=');
         if (i == string::npos || str[0] != '#')
         {
-            STEP_LOG_WARNING(m_logger, "Syntax error on entity id, line "
+            STEP_LOG_ERROR(m_logger, "Syntax error on entity id, line "
                     << m_currentLineNb);
-            continue;
+            if (_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+            }
+            return false;
         }
 
-        m_currentId = (Id)atol(str.substr(1, i - 1).c_str());
+        m_currentId = Id(atol(str.substr(1, i - 1).c_str()));
         from = i + 1;
         i = str.find('(', from);
         if (i == string::npos || str[str.length() - 1] != ')')
         {
-            STEP_LOG_WARNING(m_logger,
+            STEP_LOG_ERROR(m_logger,
                     "Syntax error on entity definition #" << m_currentId << ", line "
                     << m_currentLineNb);
-            continue;
+            if (_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+            }
+            return false;
         }
 
         string entityName = str.substr(from, i - from);
@@ -249,74 +172,39 @@ bool BaseSPFReader::read(std::istream& input, size_t inputSize)
         m_currentObj = m_expressDataSet->getSPFObject(m_currentId);
         m_currentObj->getArgs()->setParams(line.c_str());
 
-        if (!callLoadFunction(entityName))
+        if (!callLoadFunction(str.substr(from, i - from)))
         {
-            STEP_LOG_WARNING(m_logger, "Entity #" << m_currentId << " "
-                    << str.substr(from, i - from) << " had errors");
-            continue;
+            STEP_LOG_ERROR(m_logger, "Unexpected entity name : "
+                    << str.substr(from, i - from) << " , line "
+                    << m_currentLineNb);
+            if (_callback)
+            {
+                // set to end
+                _callback->setProgress(inputSize);
+            }
+            return false;
         }
         m_currentObj->setAllocateFunction(m_currentType);
-
     }
 
     // END-ISO-10303-21
 
-    if (inMemory)
+    if (!Step::getLine(input, m_currentLineNb, str, progress, m_logger.get()) || str != "END-ISO-10303-21")
     {
-        if (!Step::getLine(progress, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
-                != "END-ISO-10303-21")
+        STEP_LOG_ERROR(m_logger, "Can't find END-ISO-10303-21 token, line "
+                << m_currentLineNb);
+        if (_callback)
         {
-            STEP_LOG_ERROR(m_logger,"Can't find END-ISO-10303-21 token, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-
-            }
-            delete[] buffer;
-            return false;
+            // set to end
+            _callback->setProgress(inputSize);
         }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
-    }
-    else
-    {
-        if (!Step::getLine(input, m_currentLineNb, buffer, bufferLength, str,progress, m_logger.get()) || str
-                != "END-ISO-10303-21")
-        {
-            STEP_LOG_ERROR(m_logger,"Can't find END-ISO-10303-21 token, line "
-                    << m_currentLineNb);
-            if(_callback)
-            {
-                // set to end
-                _callback->setProgress(inputSize);
-
-            }
-            delete[] buffer;
-            return false;
-        }
-        else if (_callback && _callback->stop())
-        {
-            delete[] buffer;
-            return false;
-        }
+        return false;
     }
 
-    if(_callback)
-    {
-        // set to end
-        _callback->setProgress(inputSize);
-    }
-
-    delete[] buffer;
     return true;
 }
 
-Step::Id readerSeek(const std::string& /*s*/, int /*pos*/)
+Step::Id readerSeek(const std::string& s, int pos)
 {
     return Step::Id_UNDEF;
 }
