@@ -107,9 +107,11 @@ int main(int argc, char **argv)
         return (2);
     }
 
-    // ** Instantiate the model
-    expressDataSet->instantiateAll(/*&cb*/);
-
+    if (argc>2)
+    {
+        // ** Instantiate the model if we want to write it
+        expressDataSet->instantiateAll(/*&cb*/);
+    }
     // ** Check the root of the model
     Step::RefLinkedList< ifc2x3::IfcProject > projects = expressDataSet->getAllIfcProject();
     if ( projects.size() == 0 ) {
@@ -125,21 +127,19 @@ int main(int argc, char **argv)
         std::cout << "Project long name is: " << project->getLongName().toISO_8859(Step::String::Western_European)  << std::endl;
     }
 
-    // ** Write the file
-    ifc2x3::SPFWriter writer(expressDataSet);
-//    writer.setCallBack(&cb);
-    std::ofstream filestream;
     if (argc>2)
     {
+        // ** Write the file
+        ifc2x3::SPFWriter writer(expressDataSet);
+        std::ofstream filestream;
         filestream.open(argv[2]);
+
+        bool status = writer.write(filestream);
+        filestream.close();
+        return status;
     }
-    else
-    {
-        filestream.open("saved.ifc");
-    }
-    bool status = writer.write(filestream);
-    filestream.close();
 
     delete expressDataSet;
-    return status;
+
+    return 0;
 }

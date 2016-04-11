@@ -28,7 +28,7 @@ Id Step::getIdParam(const std::string& s)
         return Id_UNSET;
     }
 
-    Id res = (Id)atol(s.substr(1,s.length() - 1).c_str());
+    Id res = Id(atol(s.substr(1,s.length() - 1).c_str()));
     if (res==0)
         return Id_UNDEF;
     else
@@ -51,7 +51,7 @@ bool Step::getIdListParam(const std::string& s, std::vector<Id>& res)
 
     else {
         for (unsigned int i=0; i< resStr.size(); ++i) {
-            Id current = (Id)atol(resStr[i].c_str() + 1);
+            Id current = Id(atol(resStr[i].c_str() + 1));
             if (current ==0) {
                 res.push_back(Id_UNDEF);
                 return false;
@@ -104,7 +104,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     std::string::size_type i = 0;
     unsigned int from = 0;
     int bracket =0;
-    for (i = 0;i < str.length(); ++i) {
+    for (i = 0;i < str.length(); i++) {
         if (str[i] == Apostrophe) {
             i = str.find(Apostrophe,i+1);
             if (i == std::string::npos) {
@@ -119,7 +119,7 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
         }
         else if (str[i] == Comma && bracket == 0) {
             res.push_back(str.substr(from,i-from));
-            from = i + 1;
+            from = unsigned(i + 1);
         }
     }
     if (from<i)
@@ -130,133 +130,75 @@ bool Step::parseList(const char* s, std::vector<std::string>& res) {
     return true;
 }
 
-bool Step::getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress, StepLogger *logger)
+bool Step::getLine(std::istream& ifs, unsigned int& counter, std::string& str, size_t &progress, StepLogger *logger)
 {
     str.clear();
-    size_t i = start;
-    size_t from = start;
-    for (;s[i] != Semicolon && i < bufferLength-1;++i) {
-        if (s[i]>=0 && s[i] <= 32) {
-            if (s[i] == Newline) //END OF LINE
+    
+    int c;
+    while ((c = ifs.get()) != EOF) {
+        ++progress;
+        if (c == Semicolon) {
+            // str += (char)c;      // don't copy end-of-record delimiter
+            return true;
+        }
+        
+        else if (0 <= c && c <= 32) {
+            if (c == Newline) {
                 counter++;
-            str = str + std::string(&s[from], i-from);
-            from = i+1;
-        } else if (s[i] == Slash ) { // char -> / For comment parsing
-            for (++i ; i < bufferLength-1;++i) { // Remove duplicate '/'
-                if (s[i] != Slash)
+            }
+            // str += c;            // don't copy control characters
+        }
+            
+        else if (c == Slash && ifs.peek() == Asterix) {     // start of COMMENT
+            int previous = 0;       // initial value != Asterix
+            while ((c = ifs.get()) != EOF) {
+                ++progress;
+                if (c == Slash && previous == Asterix) {    // end of COMMENT
                     break;
-            }
-            if (s[i] == Asterix) { // char -> *
-                str = str + std::string(&s[from], i-from-1);
-                for (++i ; i < bufferLength-1;++i) {
-                    if (s[i] == Asterix) {
-                        for ( ++i; i < bufferLength-1;++i) { // Remove duplicate '*'
-                            if (s[i] != Asterix)
-                                break;
-                        }
-                        if (s[i] == Slash) {
-                            from = i+1;
-                            break;
-                        }
-                    }
                 }
-                if (i >= bufferLength) {
-                    STEP_LOG_ERROR(logger, "Malformed string, comments not ended by */ ");
-                    progress = i+1;
-                    return false;
+                if (c == Newline) {
+                    counter++;      // COMMENT can contain newlines
                 }
+                previous = c;
             }
-        } else if (s[i] == Apostrophe) { // char -> '
-            ++i;
-            for (;s[i] != Apostrophe && i < bufferLength-1;++i) {
-                if (s[i]>=0 && s[i] < 32) {
-                    if (s[i] == Newline) //END OF LINE
-                        counter++;
-                    str = str + std::string(&s[from], i-from);
-                    from = i;
-                }
-            }
-            if (i >= bufferLength) {
-                STEP_LOG_ERROR(logger, "Malformed string, odd number of \" ' \" ");
-                progress = i+1;
+            if (c == EOF) {
+                STEP_LOG_ERROR(logger, "Malformed string, comments not ended by */ ");
                 return false;
             }
         }
-    }
-    if (i >= bufferLength) {
-        STEP_LOG_ERROR(logger, "String too long ");
-        progress = i+1;
-        return false;
-    }
-    if (from < i)
-        str = str + std::string(&s[from], i-from);
-
-    progress = i+1;
-    return true;
-}
-
-bool Step::getLine(std::istream& ifs, unsigned int& counter, char* s, size_t bufferLength, std::string &str, size_t &progress, StepLogger *logger) {
-    str.clear();
-    size_t i = 0;
-    size_t from = 0;
-    ifs.get(s[0]);
-    for (;s[i] != Semicolon && i < bufferLength-1;ifs.get(s[++i])) {
-        if (s[i]>=0 && s[i] <= 32) {
-            if (s[i] == Newline) //END OF LINE
-                counter++;
-            str = str + std::string(&s[from], i-from);
-            from = i+1;
-        } else if (s[i] == Slash ) { // char -> / For comment parsing
-            for (ifs.get(s[++i]) ; i < bufferLength-1;ifs.get(s[++i])) { // Remove duplicate '/'
-                if (s[i] != Slash)
-                    break;
-            }
-            if (s[i] == Asterix) { // char -> *
-                str = str + std::string(&s[from], i-from-1);
-                for (ifs.get(s[++i]) ; i < bufferLength-1;ifs.get(s[++i])) {
-                    if (s[i] == Asterix) {
-                        for ( ifs.get(s[++i]); i < bufferLength-1;ifs.get(s[++i])) { // Remove duplicate '*'
-                            if (s[i] != Asterix)
-                                break;
-                        }
-                        if (s[i] == Slash) {
-                            from = i+1;
-                            break;
-                        }
+            
+        else if (c == Apostrophe) {     // start of STRING
+            int apostrophes = 1;
+            string quotedString;
+            quotedString += char(c);
+            while ((c = ifs.get()) != EOF) {
+                ++progress;
+                quotedString += char(c);
+                if (c == Apostrophe) {
+                    apostrophes++;
+                    if ((apostrophes % 2) == 0 && ifs.peek() != Apostrophe) {
+                        break;
                     }
                 }
-                if (i >= bufferLength) {
-                    STEP_LOG_ERROR(logger, "Malformed string, comments not ended by */ ");
-                    progress += i+1;
-                    return false;
+                if (c == Newline) {
+                    counter++;      // should a STRING contain a newline?
                 }
             }
-        } else if (s[i] == Apostrophe) { // char -> '
-            ifs.get(s[++i]);
-            for (;s[i] != Apostrophe && i < bufferLength-1;ifs.get(s[++i])) {
-                if (s[i]>=0 && s[i] < 32) {
-                    if (s[i] == Newline) //END OF LINE
-                        counter++;
-                    str = str + std::string(&s[from], i-from);
-                    from = i;
-                }
-            }
-            if (i >= bufferLength) {
-                STEP_LOG_ERROR(logger, "Malformed string, odd number of \" ' \" ");
-                progress += i+1;
+            if (c == EOF) {
+                STEP_LOG_ERROR(logger, "Malfomed string, odd number of \" ' \" ");
                 return false;
             }
+            str += quotedString;
+        }
+        
+        else {
+            str += char(c);
         }
     }
-    if (i >= bufferLength) {
-        STEP_LOG_ERROR(logger, "String too long ");
-        progress += i+1;
+    if (c == EOF) {
+        STEP_LOG_ERROR(logger, "Reached end-of-file ");
         return false;
     }
-    if (from < i)
-        str = str + std::string(&s[from], i-from);
-
-    progress += i+1;
     return true;
 }
 
