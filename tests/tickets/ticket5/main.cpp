@@ -20,10 +20,13 @@ int main (int n, char **p)
     if (n==2)
     {
         std::ifstream input(p[1]);
-        reader.read(input);
+        bool result = reader.read(input);
+
+        TEST_ASSERT(result);
 
         ifc2x3::ExpressDataSet *eds = static_cast<ifc2x3::ExpressDataSet *>(reader.getExpressDataSet());
 
+        TEST_ASSERT(eds);
         // check for baseSPFObject that would have remained not initialized
 
 //        Step::MapOfEntities entities = eds->getAll();

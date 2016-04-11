@@ -40,17 +40,11 @@ namespace Step {
      reads a line from a ifstream until the ';' is found, update the line counter and uses the the buffer s to build the resulting string
      @param ifs the input stream
      @param counter the line counter that will be incremented by the number of EOL found
-     @param buffer the buffer to store the lines read directly from the ifs
-     @param bufferLength the length of the buffer
      @param str the parsed line
      @param progress used to store the current progress of the parsing by the callback
      @return success or failure
      */
-    bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter,
-            char* buffer, size_t bufferLength, std::string& str, size_t &progress, StepLogger *logger);
-
-    bool STEP_EXPORT getLine(size_t start, unsigned int& counter, char* s, size_t bufferLength,
-                             std::string &str, size_t &progress, StepLogger *logger);
+    bool STEP_EXPORT getLine(std::istream& ifs, unsigned int& counter, std::string& str, size_t &progress, StepLogger *logger);
 
     /*!
      parses a list of strings
@@ -59,7 +53,7 @@ namespace Step {
      @return success or failure
      */
     bool STEP_EXPORT parseList(const char* buffer,
-            std::vector<std::string> &res);
+            std::vector<std::string>& res);
 
     /*!
      returns the id from a string
