@@ -115,7 +115,6 @@ namespace Step {
          @return true if the header has no syntax error.
          */
         bool parse(std::istream& ifs, unsigned int& counter, size_t &progress, const std::vector<String> &schemaIdentifier);
-        bool parse(char *buffer, size_t bufferLength, unsigned int& counter, size_t &progress, const std::vector<String> &schemaIdentifier);
 
         void setLogger(StepLogger *logger);
 
