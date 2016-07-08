@@ -1,14 +1,3 @@
-language: c++
-install:
-- sudo apt-get update
-- sudo apt-get install cmake uuid-dev
-script: cd $PROJECT_NAME && cmake . && make && make test
-branches:
-  only:
-  - master
-notifications:
-  slack:
-    secure: GwyXwg6965aXSKXsfs1EmpBFSRQYWydAJd+2TehV8pYWPl9J5jIqbRCMtNEL64jm+6IVLYZS//KGkvcwKIk4UYU5+kSUqiVYkwz9IVLOhCXhzOamMoEQHQXLHj/60C+JnKPqurZvXORWTJPLAThlx3g8XuBCh9kpEMU2E0UgCamjhyUnYzNPqul3I8URuomai0NyNxPrxKbiS+W6gM30b9p389zlCHjBdj7UW3aN3YxjW9mFXsLZODNI7ZhRu2OXPx2/Dgr7dJfnyD3xg4mTrvzHgt2+CWpI59va4wkr2vWdTo+wTVIga5/wnUEP+BpbxMaT0pXfapyP05jyOIeZ3TqUDOXN5d3MJrfeIblO1mDdD1m362r6FPfMuQm4hjInNjLXxM4mYqT3/zLkJz1O6EZhD+LmZxI/kPQL4+ScwMrxvPfvktCO0YO/iwAymGE6akkb3NgtHWGjGTBYr6ADscVR/38cINKfZ4pHrSODeDYaB8JDGZAHpUhWvHL35GuePGVRC3oq06BE8OJJ0WrUBXbBxLoPShBCVABItFO0GYUu8ggFYnCR2uI/Lzk2mGjVast5cLgz4dfPljl6iAD3BHrO85IVz0TURM3pxWKI3xONm1Sfsjd3RSMA65pCblv9U2IbvgFtKFQzbkKao6ZaPpo+Wszc/OAMleWpB/Gn6uA=
 env:
   global:
    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
@@ -24,3 +13,58 @@ addons:
     build_command_prepend: "cd $PROJECT_NAME && cmake ."
     build_command:   "cd $PROJECT_NAME && make && make test"
     branch_pattern: master
+
+
+matrix:
+  fast_finish: true
+  include:
+    #Linux build
+    - os: linux
+      dist: trusty
+      language: cpp
+      env:
+         #- LLVM_VERSION=3.8
+      sudo: false
+      cache:
+        apt: true
+        directories:
+          - $HOME/.ccache
+      compiler:
+          #- clang
+          - gcc
+      addons:
+        coverity_scan:
+          project:
+            name: "cstb/ifc-sdk"
+            description: "Build submitted via Travis CI"
+          notification_email: mathieu.marache@cstb.fr
+          build_command_prepend: "cmake -DCMAKE_BUILD_TYPE=Release ."
+          build_command:   "make -j 3"
+          branch_pattern: master
+        apt:
+          sources:
+            #- llvm-toolchain-precise-3.8
+            - ubuntu-toolchain-r-test
+          packages:
+            #- clang-3.8
+            - g++
+            - cmake
+            - uuid-dev
+
+    # OSX build
+    - os: osx
+      language: cpp
+      
+
+script: 
+  - cmake . 
+  - make 
+  - make test
+  
+branches:
+  only:
+  - master
+  
+notifications:
+  slack:
+    secure: GwyXwg6965aXSKXsfs1EmpBFSRQYWydAJd+2TehV8pYWPl9J5jIqbRCMtNEL64jm+6IVLYZS//KGkvcwKIk4UYU5+kSUqiVYkwz9IVLOhCXhzOamMoEQHQXLHj/60C+JnKPqurZvXORWTJPLAThlx3g8XuBCh9kpEMU2E0UgCamjhyUnYzNPqul3I8URuomai0NyNxPrxKbiS+W6gM30b9p389zlCHjBdj7UW3aN3YxjW9mFXsLZODNI7ZhRu2OXPx2/Dgr7dJfnyD3xg4mTrvzHgt2+CWpI59va4wkr2vWdTo+wTVIga5/wnUEP+BpbxMaT0pXfapyP05jyOIeZ3TqUDOXN5d3MJrfeIblO1mDdD1m362r6FPfMuQm4hjInNjLXxM4mYqT3/zLkJz1O6EZhD+LmZxI/kPQL4+ScwMrxvPfvktCO0YO/iwAymGE6akkb3NgtHWGjGTBYr6ADscVR/38cINKfZ4pHrSODeDYaB8JDGZAHpUhWvHL35GuePGVRC3oq06BE8OJJ0WrUBXbBxLoPShBCVABItFO0GYUu8ggFYnCR2uI/Lzk2mGjVast5cLgz4dfPljl6iAD3BHrO85IVz0TURM3pxWKI3xONm1Sfsjd3RSMA65pCblv9U2IbvgFtKFQzbkKao6ZaPpo+Wszc/OAMleWpB/Gn6uA=
