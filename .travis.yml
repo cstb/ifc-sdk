@@ -2,7 +2,7 @@ language: c++
 install:
 - sudo apt-get update
 - sudo apt-get install cmake uuid-dev
-script: mkdir build && cd build && cmake .. && make && make test
+script: cd $PROJECT_NAME && cmake . && make && make test
 branches:
   only:
   - master
@@ -20,7 +20,7 @@ addons:
     project:
       name: "cstb/ifc-sdk"
       description: "Build submitted via Travis CI"
-    notification_email: mathieu@marache.com
-    build_command_prepend: "cmake ."
-    build_command:   "make && make test"
+    notification_email: mathieu.marache@cstb.fr
+    build_command_prepend: "cd $PROJECT_NAME && cmake ."
+    build_command:   "cd $PROJECT_NAME && make && make test"
     branch_pattern: master
