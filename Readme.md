@@ -1,4 +1,5 @@
 ![https://travis-ci.org/cstb/ifc-sdk](https://api.travis-ci.org/cstb/ifc-sdk.svg?branch=master)
+![https://scan.coverity.com/projects/cstb-ifc-sdk](https://scan.coverity.com/projects/9373/badge.svg)
 
 [![Join the chat at https://gitter.im/cstb/ifc-sdk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cstb/ifc-sdk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
