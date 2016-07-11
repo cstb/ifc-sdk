@@ -39,7 +39,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcLibraryInformation_LibraryReference_type::Inverted_IfcLibraryInformation_LibraryReference_type() {
+Inverted_IfcLibraryInformation_LibraryReference_type::Inverted_IfcLibraryInformation_LibraryReference_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcLibraryInformation_LibraryReference_type::setOwner(IfcLibraryInformation *owner) {

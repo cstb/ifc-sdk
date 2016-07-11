@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcMaterialLayerSet_MaterialLayers_type::Inverted_IfcMaterialLayerSet_MaterialLayers_type() {
+Inverted_IfcMaterialLayerSet_MaterialLayers_type::Inverted_IfcMaterialLayerSet_MaterialLayers_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcMaterialLayerSet_MaterialLayers_type::setOwner(IfcMaterialLayerSet *owner) {
