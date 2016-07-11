@@ -143,19 +143,41 @@ int main(int n, char **p)
 	Step::RefPtr< ifc2x3::IfcCartesianPoint > CartesianPoint1 = eds->createIfcCartesianPoint();
 
 	ifc2x3::List_IfcLengthMeasure_1_3 LPoint1;
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    LPoint1.push_back(0.0);
 	LPoint1.push_back(0.0);
-	LPoint1.push_back(0.0);
-	CartesianPoint1->setCoordinates(LPoint1);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
+    CartesianPoint1->setCoordinates(LPoint1);
 	Line->setPnt(CartesianPoint1);
 	TEST_ASSERT(Line->getDim()==2);
 
 	Step::RefPtr< ifc2x3::IfcCartesianPoint > CartesianPoint2 = eds->createIfcCartesianPoint();
 
 	ifc2x3::List_IfcLengthMeasure_1_3 LPoint2;
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    LPoint2.push_back(0.0);
 	LPoint2.push_back(0.0);
 	LPoint2.push_back(0.0);
-	LPoint2.push_back(0.0);
-	CartesianPoint2->setCoordinates(LPoint2);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
+    CartesianPoint2->setCoordinates(LPoint2);
 	Line->setPnt(CartesianPoint2);
 	TEST_ASSERT(Line->getDim()==3);
 

@@ -30,16 +30,49 @@ int main(int n, char **p)
 	TEST_ASSERT(Point->getDim()==0);
 
 	ifc2x3::List_IfcLengthMeasure_1_3 Coordinates;
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
 	Coordinates.push_back(0);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
 	Point->setCoordinates(Coordinates);
 	TEST_ASSERT(Point->getDim()==1);
 
-	Coordinates.push_back(1);
-	Point->setCoordinates(Coordinates);
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    Coordinates.push_back(1);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
+    Point->setCoordinates(Coordinates);
 	TEST_ASSERT(Point->getDim()==2);
 
-	Coordinates.push_back(2);
-	Point->setCoordinates(Coordinates);
+#ifdef STEP_CHECK_RANGE
+    try
+    {
+#endif
+    Coordinates.push_back(2);
+#ifdef STEP_CHECK_RANGE
+    }
+    catch(std::out_of_range e)
+    {
+        TEST_FAILURE((std::string("Exception : ") + e.what()).c_str());
+    }
+#endif
+    Point->setCoordinates(Coordinates);
 	TEST_ASSERT(Point->getDim()==3);
 
 	std::cout << std::endl << "Failure : " << failure_results << " Success : " << success_results << std::endl;

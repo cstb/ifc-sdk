@@ -23,6 +23,7 @@ using namespace Step;
 ClassType_child_implementations(STEP_EXPORT,BaseObject,ClientDataHandler);
 
 BaseObject::BaseObject(SPFData* data) :
+    m_expressDataSet(0),
     m_inited((!data) || (data && (data->argc() == 0))), m_args(data)
 {
 }
@@ -30,10 +31,11 @@ BaseObject::BaseObject(SPFData* data) :
 void BaseObject::copy(const BaseObject& obj, const BaseCopyOp& copyop)
 {
     ClientDataHandler::copy(obj, copyop);
+
     if (!obj.m_inited)
     {
         BaseObject* bo = const_cast<BaseObject*> (&obj);
-        bo->inited();
+        m_inited = bo->inited();
     }
 }
 
