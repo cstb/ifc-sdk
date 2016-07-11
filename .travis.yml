@@ -1,8 +1,10 @@
-env:
-  global:
-   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
-   #   via the "travis encrypt" command using the project repo's public key
-   - secure: "GJkVvOlqQNXiein1xMD8hZsPPU1CqQ68s0qzOsDOs/LQmkBPoJXh/WP+TSE7JxxkswrLwS0sodt4kfPXFmk6EbaGn4k/aPxk3Kb0RslMAVR8StwlKcBorVTN8CBeyS7wXxZmedui2raR8L0wvZF8Lwz82QTPM472zfLBya/I0FklaEqNSD16JaDGb1keyvuOy9pon5uOLT5AJiE0OtAIwx3Aiw3q9gv32sIHO5MbZfYDwDA0KmlaYYhO59vj9AZheH7budENWOIfLzlTWaKut2MH++jhP8p7k3Uv1S9Rg5SlFx3KiDlEWDojnrPpCXF7uU2bRh9bUCG1bWV3+kmCWrgMRztznEVKiSJQ1YqMADbQ4Ha5LgWuGjQx5UrJBFjgtGcUcOmh9IZG6LH+JU7+PErBQeMNAo9+A68YDgNRJKJgliuVJuhoXJc/cw5tGYhpQxTLQAYHJNOsNjK+a53iskCDn6nnu0rLve/Qea6REhcph0zjte2O5ouyr1ewrwhNnggkcti5FZbi1NmjnQP0NqKwiH64uWunPZm8jV+E1d3gNYfPXH1iCBR7snRJb1jJCqxsr1NLR3+L5BCFKAXh3yMGcAeFdeJS8QufcXaHIOzIgrxGT4BXq82Kzk7reSw8J29d3bEkjU+m/7VWj8PD6nlXVCf1yGqQAm8BezmPhPY="
+language: cpp
+sudo: required
+dist: trusty
+compiler:
+  - gcc
+os:
+  - linux
 
 addons:
   coverity_scan:
@@ -10,61 +12,36 @@ addons:
       name: "cstb/ifc-sdk"
       description: "Build submitted via Travis CI"
     notification_email: mathieu.marache@cstb.fr
-    build_command_prepend: "cd $PROJECT_NAME && cmake ."
-    build_command:   "cd $PROJECT_NAME && make && make test"
-    branch_pattern: master
+    build_command_prepend: "cmake -DCMAKE_BUILD_TYPE=Release ."
+    build_command: "make -j 3"
+    branch_pattern: coverity_scan
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-4.8
+      - g++-4.8
+      - cmake
+      - uuid-dev
 
-
-matrix:
-  fast_finish: true
-  include:
-    #Linux build
-    - os: linux
-      dist: trusty
-      language: cpp
-      env:
-         #- LLVM_VERSION=3.8
-      sudo: false
-      cache:
-        apt: true
-        directories:
-          - $HOME/.ccache
-      compiler:
-          #- clang
-          - gcc
-      addons:
-        coverity_scan:
-          project:
-            name: "cstb/ifc-sdk"
-            description: "Build submitted via Travis CI"
-          notification_email: mathieu.marache@cstb.fr
-          build_command_prepend: "cmake -DCMAKE_BUILD_TYPE=Release ."
-          build_command:   "make -j 3"
-          branch_pattern: master
-        apt:
-          sources:
-            #- llvm-toolchain-precise-3.8
-            - ubuntu-toolchain-r-test
-          packages:
-            #- clang-3.8
-            - g++
-            - cmake
-            - uuid-dev
-
-    # OSX build
-    - os: osx
-      language: cpp
-      
 
 script: 
-  - cmake . 
-  - make 
+  - cmake -DCMAKE_BUILD_TYPE=Release . 
+  - make -j 3
   - make test
   
 branches:
   only:
-  - master
+    - master
+    - coverity_scan
+    - /^release/.*$/
   
 notifications:
   slack:
     secure: GwyXwg6965aXSKXsfs1EmpBFSRQYWydAJd+2TehV8pYWPl9J5jIqbRCMtNEL64jm+6IVLYZS//KGkvcwKIk4UYU5+kSUqiVYkwz9IVLOhCXhzOamMoEQHQXLHj/60C+JnKPqurZvXORWTJPLAThlx3g8XuBCh9kpEMU2E0UgCamjhyUnYzNPqul3I8URuomai0NyNxPrxKbiS+W6gM30b9p389zlCHjBdj7UW3aN3YxjW9mFXsLZODNI7ZhRu2OXPx2/Dgr7dJfnyD3xg4mTrvzHgt2+CWpI59va4wkr2vWdTo+wTVIga5/wnUEP+BpbxMaT0pXfapyP05jyOIeZ3TqUDOXN5d3MJrfeIblO1mDdD1m362r6FPfMuQm4hjInNjLXxM4mYqT3/zLkJz1O6EZhD+LmZxI/kPQL4+ScwMrxvPfvktCO0YO/iwAymGE6akkb3NgtHWGjGTBYr6ADscVR/38cINKfZ4pHrSODeDYaB8JDGZAHpUhWvHL35GuePGVRC3oq06BE8OJJ0WrUBXbBxLoPShBCVABItFO0GYUu8ggFYnCR2uI/Lzk2mGjVast5cLgz4dfPljl6iAD3BHrO85IVz0TURM3pxWKI3xONm1Sfsjd3RSMA65pCblv9U2IbvgFtKFQzbkKao6ZaPpo+Wszc/OAMleWpB/Gn6uA=
+env:
+  global:
+    - LANG="en_US.UTF-8"
+    # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+    #   via the "travis encrypt" command using the project repo's public key
+    - secure: "GJkVvOlqQNXiein1xMD8hZsPPU1CqQ68s0qzOsDOs/LQmkBPoJXh/WP+TSE7JxxkswrLwS0sodt4kfPXFmk6EbaGn4k/aPxk3Kb0RslMAVR8StwlKcBorVTN8CBeyS7wXxZmedui2raR8L0wvZF8Lwz82QTPM472zfLBya/I0FklaEqNSD16JaDGb1keyvuOy9pon5uOLT5AJiE0OtAIwx3Aiw3q9gv32sIHO5MbZfYDwDA0KmlaYYhO59vj9AZheH7budENWOIfLzlTWaKut2MH++jhP8p7k3Uv1S9Rg5SlFx3KiDlEWDojnrPpCXF7uU2bRh9bUCG1bWV3+kmCWrgMRztznEVKiSJQ1YqMADbQ4Ha5LgWuGjQx5UrJBFjgtGcUcOmh9IZG6LH+JU7+PErBQeMNAo9+A68YDgNRJKJgliuVJuhoXJc/cw5tGYhpQxTLQAYHJNOsNjK+a53iskCDn6nnu0rLve/Qea6REhcph0zjte2O5ouyr1ewrwhNnggkcti5FZbi1NmjnQP0NqKwiH64uWunPZm8jV+E1d3gNYfPXH1iCBR7snRJb1jJCqxsr1NLR3+L5BCFKAXh3yMGcAeFdeJS8QufcXaHIOzIgrxGT4BXq82Kzk7reSw8J29d3bEkjU+m/7VWj8PD6nlXVCf1yGqQAm8BezmPhPY="
