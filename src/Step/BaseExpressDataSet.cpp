@@ -211,7 +211,10 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
                 // Call it and get the result
                 BaseEntity* ret = (*allocFunc)(this, it->first);
 
-                ret->inited();
+                if (!ret->inited())
+                {
+                    STEP_LOG_WARNING(m_logger,"Entity #" << it->first << " was not instantiated");
+                }
             }
             else
             {
@@ -219,7 +222,12 @@ void BaseExpressDataSet::instantiateAll(CallBack *callback)
             }
         }
         else
-            it->second->inited();
+        {
+            if (!it->second->inited())
+            {
+                STEP_LOG_WARNING(m_logger,"Entity #" << it->first << " was not instantiated");
+            }
+        }
 
         if(callback)
         {

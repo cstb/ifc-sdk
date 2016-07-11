@@ -52,6 +52,7 @@ namespace Step {
 
         //! Default constructor
         RefLinkedList_iterator()
+        : m_index(0), m_refLinkedList(0)
         {
         }
 

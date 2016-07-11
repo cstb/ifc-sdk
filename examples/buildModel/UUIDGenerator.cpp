@@ -287,7 +287,7 @@ std::string EncodeBase85(std::string s)
     char strtmp[10];
     char strres[10];
     char strBase85[33];
-    int i, j, len;
+    std::string::size_type i, j, len;
 
     len = s.length();
     if (len == 36)
@@ -310,18 +310,18 @@ std::string EncodeBase85(std::string s)
         str[32] = '\0';
         len = 32;
     }
-    else if ((len < 1) || (32 < len))
+    else if ((len < 1) || (len > 32))
     {
         return s;
     }
-    else
+    else // len <= 32
     {
         strcpy(str, s.data());
     }
 
     strBase85[0] = '\0';
 
-    for (i = 0; i <= (int)((len - 1) / 8); i++)
+    for (i = 0; i <= ((len - 1) / 8); i++)
     {
         for (j = 0; j < 8; j++)
         {
@@ -738,7 +738,11 @@ std::string UUIDGenerator::generateIfcGloballyUniqueId() {
 
     char * buf = new char[23];
 
-    return std::string (String85_To_String64(temp.c_str(), buf, 23));
+    std::string result(String85_To_String64(temp.c_str(), buf, 23));
+
+    delete[] buf;
+
+    return result;
 }
 
 std::string UUIDGenerator::generateEveUniqueId() {
