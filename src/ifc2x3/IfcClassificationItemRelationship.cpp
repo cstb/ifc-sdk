@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcClassificationItemRelationship_RelatedItems_type::Inverted_IfcClassificationItemRelationship_RelatedItems_type() {
+Inverted_IfcClassificationItemRelationship_RelatedItems_type::Inverted_IfcClassificationItemRelationship_RelatedItems_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcClassificationItemRelationship_RelatedItems_type::setOwner(IfcClassificationItemRelationship *owner) {

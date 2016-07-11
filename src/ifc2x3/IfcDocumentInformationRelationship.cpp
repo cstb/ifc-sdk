@@ -37,7 +37,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type() {
+Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcDocumentInformationRelationship_RelatedDocuments_type::setOwner(IfcDocumentInformationRelationship *owner) {

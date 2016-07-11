@@ -40,7 +40,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcPerson_Addresses_type::Inverted_IfcPerson_Addresses_type() {
+Inverted_IfcPerson_Addresses_type::Inverted_IfcPerson_Addresses_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcPerson_Addresses_type::setOwner(IfcPerson *owner) {

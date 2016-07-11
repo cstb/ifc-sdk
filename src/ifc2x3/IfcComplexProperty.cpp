@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type() {
+Inverted_IfcComplexProperty_HasProperties_type::Inverted_IfcComplexProperty_HasProperties_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcComplexProperty_HasProperties_type::setOwner(IfcComplexProperty *owner) {

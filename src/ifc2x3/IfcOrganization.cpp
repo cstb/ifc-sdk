@@ -41,7 +41,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcOrganization_Addresses_type::Inverted_IfcOrganization_Addresses_type() {
+Inverted_IfcOrganization_Addresses_type::Inverted_IfcOrganization_Addresses_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcOrganization_Addresses_type::setOwner(IfcOrganization *owner) {

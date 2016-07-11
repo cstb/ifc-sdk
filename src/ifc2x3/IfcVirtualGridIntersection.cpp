@@ -36,7 +36,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::Inverted_IfcVirtualGridIntersection_IntersectingAxes_type() {
+Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::Inverted_IfcVirtualGridIntersection_IntersectingAxes_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcVirtualGridIntersection_IntersectingAxes_type::setOwner(IfcVirtualGridIntersection *owner) {

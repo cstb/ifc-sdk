@@ -39,7 +39,9 @@
 
 using namespace ifc2x3;
 
-Inverted_IfcStructuralAnalysisModel_LoadedBy_type::Inverted_IfcStructuralAnalysisModel_LoadedBy_type() {
+Inverted_IfcStructuralAnalysisModel_LoadedBy_type::Inverted_IfcStructuralAnalysisModel_LoadedBy_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::setOwner(IfcStructuralAnalysisModel *owner) {
@@ -64,7 +66,9 @@ void Inverted_IfcStructuralAnalysisModel_LoadedBy_type::clear() {
     }
 }
 
-Inverted_IfcStructuralAnalysisModel_HasResults_type::Inverted_IfcStructuralAnalysisModel_HasResults_type() {
+Inverted_IfcStructuralAnalysisModel_HasResults_type::Inverted_IfcStructuralAnalysisModel_HasResults_type():
+    mOwner(0)
+{
 }
 
 void Inverted_IfcStructuralAnalysisModel_HasResults_type::setOwner(IfcStructuralAnalysisModel *owner) {
