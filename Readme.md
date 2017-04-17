@@ -16,6 +16,8 @@ TOC
 
 ---
 
+[![Join the chat at https://gitter.im/cstb/ifc2x3-SDK](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/cstb/ifc2x3-SDK?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This sofware is known to compile and run under the following OS/compilers :
 
 -	Windows XP/Vista : g++ (MinGW), MSVC.
